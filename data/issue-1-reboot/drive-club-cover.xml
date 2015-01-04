@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<covers>
+    <cover bgPosition="bg-center" playOrder="3" side="p" color="pink lighten">
+        <url>drive-club</url>
+        <tags>
+            <tag>drive-club</tag>
+            <tag>drive-club</tag>
+        </tags>
+        <count>cover-1920.jpg</count>
+        <subtype bg="ревю">review</subtype>
+        <title>
+            <![CDATA[Driveclub – смазваща визия и отличен геймплей. Но къде е
+                клубът?]]>
+        </title>
+        <subtitle>
+            <![CDATA[You Can't Rush Evolution...]]>
+        </subtitle>
+        <author>Koralsky</author>
+        <hype>8</hype>
+        <better tag="need-for-speed-rivals">Need for Speed: Rivals</better>
+        <worse tag="need-for-speed-hot-pursuit">Need for Speed: Hot Pursuit (на Criterion)</worse>
+        <date>21 Октомври 2014</date>
+    </cover>
+</covers>

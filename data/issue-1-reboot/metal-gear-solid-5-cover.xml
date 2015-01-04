@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<covers>
+    <cover bgPosition="bg-top" playOrder="3" side="p" color="silver">
+        <url>metal-gear-solid-5</url>
+        <tags>
+            <tag>metal-gear-solid-5</tag>
+            <tag>metal-gear-solid-5</tag>
+        </tags>
+        <count>cover-1920.jpg</count>
+        <subtype bg="ревю">review</subtype>
+        <title>
+            <![CDATA[Metal Gear Solid V: Ground Zeroes]]>
+        </title>
+        <subtitle>
+            <![CDATA[All hail Snake! (и нямам предвид Сашо Бакалов)]]>
+        </subtitle>
+        <author>Nifredil</author>
+        <hype>8</hype>
+        <better tag="splinter-cell-black-list">Splinter Cell: Black List</better>
+        <worse tag="metal-gear-solid-2">Пълнокръвна MGS игра</worse>
+        <date>31 Декември 2014</date>
+    </cover>
+</covers>

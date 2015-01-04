@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layouts>
+    <layout type="read-set">
+        <content>
+            <![CDATA[<h2>Костенурките Нинджа</h2>]]>
+        </content>
+    </layout>
+    <layout type="img-set">
+        <img isImg="img" size="large" playVideo="video" player="1">
+			<url>https://www.youtube.com/watch?v=wRipBOQl95o</url>
+            <tag>ninja-turtles-2014</tag>
+            <count>01-1920.png</count>
+        </img>
+    </layout>
+    <layout type="read-set">
+        <content>
+            <![CDATA[<p>Нова филмова адаптация по култовата анимационна поредица
+                от детството ни. Режисирана от Джонатан Либесман, "дарил" ни
+                с филми като Battle L.A. и Wrath of the Titans. Продукцията е
+                под патронажа на Майкъл Бей. Костенурките имат... носове. И за
+                да кажем все пак нещо хубаво - Меган Фокс ще играе Ейприл О'Нийл.
+                А и честно казано очаквахме нещата да изглеждат далеч по-зле
+                от показаното. Гледай и прецени.</p>]]>
+        </content>
+    </layout>
+    <layout type="video-set" priority="high">
+		<article imgLayout="large" priority="high" isVideo="video" player="1">
+            <tag>gta-5</tag>
+            <count>04-main.png</count>
+            <subtype>video</subtype>
+            <title>Grand Theft Auto V: Coming for PlayStation 4, Xbox One and
+                PC this fall</title>
+            <url>https://www.youtube.com/watch?v=3DBrG2YjqQA</url>
+        </article>
+        <article imgLayout="small" priority="high" isVideo="video" player="1">
+            <tag>gta-5</tag>
+            <count>03-main.png</count>
+            <subtype>video</subtype>
+            <title>Grand Theft Auto V: Official gameplay video</title>
+            <url>https://www.youtube.com/watch?v=N-xHcvug3WI</url>
+        </article>
+        <article imgLayout="small" priority="high" isVideo="video" isLast="last" player="1">
+            <tag>gta-5</tag>
+            <count>05-main.png</count>
+            <subtype>video</subtype>
+            <title>GTA Online: "I'm Not a Hipster" live stream</title>
+            <url>https://www.youtube.com/watch?v=obEsBJ6Eb8k</url>
+        </article>
+    </layout>
+    <layout type="article-set" subtype="small-set-caret-left" priority="medium">
+        <article titleSize="big" imgLayout="tall" isCaret="caret">
+            <tag>red-dead-redemption</tag>
+            <count>01-main.png</count>
+            <subtype>feature</subtype>
+            <title>Time Extend: Red Dead Redemption</title>
+            <content>
+                <![CDATA[<p>The myth of the old west is a perfect fit for Rockstar.
+                    Here’s a genre of cinema with game-like themes, a setting
+                    that lends itself easily to the open-world treatment, and
+                    one that naturally supports the subjects that have become
+                    dominant in Dan Houser’s writing as it’s matured. The old
+                    west offers a particular vision of masculinity in a time
+                    of crisis, and deals in the collision between the individual
+                    and society. It is also an opportunity to diagnose the state
+                    of life in modern America by exploring the fable of the nation’s
+                    creation.</p>]]>
+            </content>
+        </article>
+        <article imgLayout="small">
+            <tag>gta-5</tag>
+            <count>02-main.png</count>
+            <subtype>feature</subtype>
+            <title>Still Playing: GTA 5 – forget the killing sprees and find
+                beauty in a digital rambling holiday</title>
+            <content>
+                <![CDATA[<p>Collectibles may not ruin games, but they don’t exactly
+                    help. They’re the tedious make-work at the heart of modern
+                    game design that substitutes padding for content, the taunting
+                    fraction lurking in some number-ish recess of the pause screen
+                    showing you how little you’ve actually achieved. Very few
+                    are as tedious as GTAIV’s pigeons. They distort progress
+                    – thought you were only 30 per cent of the way through the
+                    story? Tough luck sir, the remaining 70 per cent is killing
+                    200 pigeons – and hold players in contempt, asking them to
+                    exterminate a city-full of grey, stub-legged sky-rats for
+                    no reason and scant reward. In a Saints Row game, you might
+                    get away with arguing that this was parody; with GTAIV’s
+                    dour tone, it just felt like sadism – or worse, as if Rockstar
+                    didn’t care.</p>]]>
+            </content>
+        </article>
+        <article imgLayout="small">
+            <tag>gta-5</tag>
+            <count>06-main.png</count>
+            <subtype>feature</subtype>
+            <title>Revisiting GTA 5’s Los Santos, a mirror LA that’s the perfect
+                match for Rockstar’s lampooning eye</title>
+            <content>
+                <![CDATA[<p>The French novelist Henry De Montherlant wrote, “Happiness
+                    writes in white ink on a white page.” His argument was that,
+                    from Charles Dickens to Ian McEwan, only fiction’s tragedies,
+                    trials, aberrations and villains lodge in the mind; the good
+                    guys and the good things that happen to them are, a few notable
+                    exceptions aside, forgettable. It’s a belief that’s seemingly
+                    characterised the work of Rockstar North, the developer of
+                    the Grand Theft Auto series, whose rogues’ gallery of gangsters,
+                    mobsters and tricksters has smeared dark stories across our
+                    screens for the past 17 years. Our protagonists lie and cheat
+                    for every last dollar, grinding into the sand the heads of
+                    those they clamber over, and, in doing so, imprinting themselves
+                    in our memories.</p>]]>
+            </content>
+        </article>
+    </layout>
+</layouts>

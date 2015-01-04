@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layouts>
+    <layout type="img-set">
+		<left>
+            <article imgLayout="tall">
+                <tag>californication</tag>
+                <subtype>info</subtype>
+                <info type="tv" platform="tv" box="tv">
+                    <bg>Секс до Дупка</bg>
+                    <en>Californication</en>
+                    <actors>
+                        <actor>Дейвид Духовни</actor>
+                        <actor>Наташа Макелоун</actor>
+                        <actor>Мадлин Мартин</actor>
+                        <actor>Мадлин Зима</actor>
+                        <actor>Евън Хендлър</actor>
+                        <actor>Памела Адлън</actor>
+                    </actors>
+					<channels>
+						<channel>Showtime</channel>
+					</channels>
+					<country>САЩ</country>
+                    <usa>13 Август 2007</usa>
+                    <genres>
+                        <genre>комедия</genre>
+                        <genre>драма</genre>
+                    </genres>
+                    <time>28</time>
+                    <similar>
+                        <tag>Д-р Хаус</tag>
+                    </similar>
+                </info>
+            </article>
+        </left>
+        <img isImg="img" size="large" playVideo="video" player="1">
+            <url tech="html5">video/ptp-finale.mp4</url>
+            <tag>californication-7</tag>
+            <count>cover-1920.jpg</count>
+        </img>
+    </layout>
+	<layout type="cover-set" color="forplay">
+		<subtype bg="видео">video</subtype>
+		<title>
+            <![CDATA[Секс до Дупка Сезон 7]]>
+        </title>
+        <subtitle>Ханк Мууди премиер!</subtitle>
+		<author>ПТП</author>
+        <date>15 Септември 2014</date>
+		<tags>
+            <tag>californication-7</tag>
+            <tag>californication</tag>
+        </tags>
+    </layout>
+    <layout type="read-set">
+        <content>
+            <![CDATA[<p>Регионалната легенда <em>ПТП</em> (в смисъл, че в съседния
+                вход имаше един, който много хареса първия епизод) се завръща,
+                за да промени завинаги представите ти за видео-анализите на игри,
+                филми и сериали. Към по-лошо. Застигнати от обичайната си липса
+                на творческо вдъхновение, докато ядяха дюнери в една градинка,
+                <em>Дишков</em> и <em>Бакалов</em> забелязаха, че едно куче ги
+                гледа, а малко по-надолу по улицата блондинка с джип се блъсна
+                в камион на Волф, докато се опитваше да паркира на място за инвалиди
+                . Това беше знакът на съдбата, пръстът на провидението, светлината
+                на прозрението, което огря тези две изгубени души и ги мотивира
+                да се вземат в ръце... и да си купят една бутилка ракия. Какво
+                точно се случи след това не е съвсем ясно, но по някое време
+                на възродения ни сайт цъфна това видео. </p> <p>При добра подредба
+                на звездите, кучетата, дюнерите, блондинките и камионите на Волф,
+                това ще бъде новият старт на нашата видео-рубрика, в която на
+                неравномерни интервали от време ще дискутираме, анализираме и
+                псуваме юнашки най-разнообразни ентъртейнмънт продукти. И да,
+                това не е точно видео ревю, защото... Всъщност гледай и ще разбереш
+                защо.</p>]]>
+        </content>
+    </layout>
+</layouts>

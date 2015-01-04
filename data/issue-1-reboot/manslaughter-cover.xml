@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<covers>
+	<cover bgPosition="bg-top" playOrder="3" side="l" color="lighten">
+		<url>manslaughter</url>
+        <tags>
+            <tag>body-count</tag>
+			<tag>rapcore</tag>
+			<tag>rap</tag>
+			<tag>ice-t</tag>
+			<tag>manslaughter</tag>
+			<tag>public-enemy</tag>
+			<tag>beastie-boys</tag>
+			<tag>hed-pe</tag>
+			<tag>suicidal-tendencies</tag>
+			<tag>institutionalized</tag>
+			<tag>99-problems</tag>
+        </tags>
+		<count>cover-1920.jpg</count>
+        <subtype bg="ревю">review</subtype>
+        <title><![CDATA[Body Count: Manslaughter]]></title>
+        <subtitle>Uncle “T” is back, bitches!</subtitle>
+		<author>doomy</author>
+        <hype>8</hype>
+		<date>15 Семптември 2014</date>
+    </cover>
+</covers>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Create Cover</title>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,800|Poiret+One&subset=cyrillic,latin' rel='stylesheet' type='text/css' />
+<link rel="stylesheet" type="text/css" href="../assets/admin.css">
+<script src="../jslib/jquery-1.11.0.min.js" type="text/javascript"><!--script--></script>
+<script src="../jslib/jsrender.min.js" type="text/javascript"><!--script--></script>
+<script src="../controllers/admin.js?v=1.5.0" type="text/javascript"><!--script--></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		window.admin = new AdminManager();
+	});
+</script>
+</head>
+<body>
+<form>
+    <fieldset>
+        <legend>Статия</legend>
+        <label> <span>Заглавие:</span>
+            <input placeholder="Grand Theft Auto V – сатирично менгеме. Вече и в 1080p!" type="text" size="60" />
+        </label>
+        <label> <span>Подзаглавие:</span>
+            <input placeholder="Песен за Сам и Дан Хаузър..." type="text" size="60" />
+        </label>
+        <label> <span>Автор:</span>
+            <select id="authorsDropDown">
+                <!--AdminManager.js-->
+            </select>
+        </label>
+        <label> <span>Оценка:</span>
+            <select id="hypeDropDown">
+                <!--AdminManager.js-->
+            </select>
+        </label>
+        <label> <span>Дата:</span>
+            <input type="date" />
+            <input type="time" />
+        </label>
+    </fieldset>
+    <fieldset>
+        <legend>Категории</legend>
+        <label> <span>Страница:</span>
+            <select id="sideDropDown">
+                <!--AdminManager.js-->
+            </select>
+        </label>
+        <label> <span>Категория:</span>
+            <select id="typeDropDown">
+                <!--AdminManager.js-->
+            </select>
+        </label>
+        <label> <span>Тип на статията:</span>
+            <select id="subtypeDropDown">
+                <!--AdminManager.js-->
+            </select>
+        </label>
+        <label> <span>Тагове:</span>
+            <input placeholder="gta-5" type="text" size="60" />
+        </label>
+        <label> <span>Адрес:</span>
+            <input  placeholder="gta-5" type="text" readonly="readonly" />
+        </label>
+    </fieldset>
+    <fieldset>
+        <legend>Корица</legend>
+        <label> <span>Позициониране на Корицата:</span>
+            <select id="bgPositionDropDown">
+                <!--AdminManager.js-->
+            </select>
+        </label>
+        <label> <span>Цвят:</span>
+            <select id="themeDropDown">
+                <!--AdminManager.js-->
+            </select>
+        </label>
+        <label> <span>Допълнителен цвят:</span>
+            <select id="subthemeDropDown">
+                <!--AdminManager.js-->
+            </select>
+        </label>
+    </fieldset>
+    <fieldset>
+        <legend>Game</legend>
+        <label> <span>Original Name:</span>
+            <input placeholder="gta-5" type="text" size="60" />
+        </label>
+        <label> <span>Name in Bulgarian:</span>
+            <input placeholder="gta-5" type="text" size="60" />
+        </label>
+        <label> <span>Tag:</span>
+            <input placeholder="gta-5" type="text" size="60" />
+        </label>
+        <label> <span>Stickers:</span>
+            <input placeholder="girl" type="text" size="60" />
+        </label>
+        <div role="group" id="genreGroup"> <span>Genre:</span>
+            <!--AdminManager.js-->
+        </div>
+        <div role="group" id="platformGroup"> <span>Platform:</span>
+            <!--AdminManager.js-->
+        </div>
+        <label> <span>Publisher:</span>
+            <input placeholder="gta-5" type="text" size="30" />
+        </label>
+        <label> <span>Developer:</span>
+            <input placeholder="gta-5" type="text" size="30" />
+        </label>
+        <label> <span>US Date:</span>
+            <input type="date" />
+        </label>
+        <label> <span>Europe Date:</span>
+            <input type="date" />
+        </label>
+    </fieldset>
+</form>
+</body>
+</html>

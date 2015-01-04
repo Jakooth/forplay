@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<covers>
+    <cover bgPosition="bg-top" playOrder="3" side="p" color="navy">
+        <url>final-fantasy-10-hd-remaster</url>
+        <tags>
+            <tag>final-fantasy-10-hd-remaster</tag>
+            <tag>final-fantasy-10-hd-remaster</tag>
+        </tags>
+        <count>cover-1920.jpg</count>
+        <subtype bg="ревю">review</subtype>
+        <title>
+            <![CDATA[Final Fantasy X HD Remaster]]>
+        </title>
+        <subtitle>
+            <![CDATA[This plan won't work, you know that. We'll just let them dream a little longer...]]>
+        </subtitle>
+        <author>Tosh</author>
+        <hype>8</hype>
+        <better tag="bulgarian-national-football-team">Български национален отбор по футбол</better>
+        <worse tag="final-fantasy-12">Final Fantasy XII</worse>
+        <date>24 Октомври 2014</date>
+    </cover>
+</covers>

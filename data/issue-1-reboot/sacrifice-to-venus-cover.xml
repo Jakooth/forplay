@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<covers>
+	<cover bgPosition="bg-top" playOrder="3" side="l" color="lighten">
+		<url>sacrifice-to-venus</url>
+        <tags>
+            <tag>emil-bulls</tag>
+			<tag>sacrifice-to-venus</tag>
+			<tag>crossover</tag>
+			<tag>nu-metal</tag>
+			<tag>alternative</tag>
+			<tag>slipknot</tag>
+			<tag>system-of-a-down</tag>
+			<tag>marilyn-manson</tag>
+			<tag>korn</tag>
+			<tag>coal-chamber</tag>
+        </tags>
+		<count>cover-1920.jpg</count>
+        <subtype bg="ревю">review</subtype>
+        <title><![CDATA[Emil Bulls: Sacrifice To Venus]]></title>
+        <subtitle>Със смъкнати гащи по пътя на воина</subtitle>
+		<author>Snake</author>
+        <hype>9</hype>
+		<date>15 Семптември 2014</date>
+    </cover>
+</covers>

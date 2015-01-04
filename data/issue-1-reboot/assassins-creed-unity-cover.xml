@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<covers>
+    <cover bgPosition="bg-top" playOrder="3" side="p" color="navy">
+        <url>assassins-creed-unity</url>
+        <tags>
+            <tag>assassins-creed-unity</tag>
+            <tag>assassins-creed-rogue</tag>
+        </tags>
+        <count>cover-1920.jpg</count>
+        <subtype bg="мнение">feature</subtype>
+        <title>
+            <![CDATA[Assassination of assassins – какво се случи в годината на
+                Assassin's Creed?]]>
+        </title>
+        <subtitle>
+            <![CDATA[Колко добър е българският Assassin's Creed Rogue и на какво
+                ниво в момента е големият Assassin's Creed Unity]]>
+        </subtitle>
+        <author>Koralsky</author>
+        <date>17 Декември 2014</date>
+    </cover>
+</covers>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<covers>
+    <cover bgPosition="bg-top" playOrder="3" side="p" color="navy">
+        <url>gta-5</url>
+        <tags>
+            <tag>gta-5</tag>
+            <tag>gta</tag>
+        </tags>
+        <count>cover.png</count>
+        <stickers>
+            <sticker>adult</sticker>
+            <sticker>sun</sticker>
+            <sticker>bike</sticker>
+            <sticker>tank</sticker>
+        </stickers>
+        <subtype>review</subtype>
+        <title>Велико Крадене на Коли 5</title>
+        <subtitle>Бял Мерцедес преслдвам в живота и неизменно след него вървя.</subtitle>
+        <hype>10</hype>
+        <better tag="gta-4">Grand Theft Auto 4</better>
+        <worse tag="spirits-and-salat">ракия и салата</worse>
+    </cover>
+    <cover bgPosition="bg-75" playOrder="1" side="p" color="green">
+        <url>gravity-rush</url>
+        <tags>
+            <tag>gravity-rush</tag>
+            <tag>vita</tag>
+        </tags>
+        <count>cover.png</count>
+        <stickers>
+            <sticker>girl</sticker>
+            <sticker>cat</sticker>
+        </stickers>
+        <subtype>review</subtype>
+        <title>Зор за Гравитация</title>
+        <subtitle>Излезе Радка малка пиратка да си подруса косата руса.</subtitle>
+        <hype>8</hype>
+        <better tag="gta-chinatwon-wars">GTA: Chinatown Wars</better>
+        <worse tag="shadow-of-the-colossus">Shadow of the Colossus</worse>
+    </cover>
+    <cover bgPosition="bg-75" playOrder="2" side="p" color="silver">
+        <url>diablo-3-reaper-of-souls</url>
+        <tags>
+            <tag>diablo-3-reaper-of-souls</tag>
+            <tag>diablo-3</tag>
+            <tag>diablo</tag>
+        </tags>
+        <count>cover.png</count>
+        <stickers>
+            <sticker>angel</sticker>
+            <sticker>devil</sticker>
+            <sticker>axe</sticker>
+        </stickers>
+        <subtype>review</subtype>
+        <title>
+            <![CDATA[Караконяк 3:<br /> Комбайнер на Души]]>
+        </title>
+        <subtitle>Стар познат е на небето с кражбите от ТеКеЗеСето.</subtitle>
+        <hype>9</hype>
+        <better tag="diablo-3">Diablo 3</better>
+        <worse tag="diablo-lord-of-destruction">Diablo 2: Lord of Destruction</worse>
+    </cover>
+    <cover bgPosition="bg-center" playOrder="5" side="l" color="black">
+        <url>300-rise-of-an-empire</url>
+        <tags>
+            <tag>300-rise-of-an-empire</tag>
+            <tag>300</tag>
+        </tags>
+        <count>cover.png</count>
+        <stickers>
+            <sticker>girl</sticker>
+            <sticker>sword</sticker>
+            <sticker>warrior</sticker>
+        </stickers>
+        <subtype>review</subtype>
+        <title>
+            <![CDATA[300:<br /> Възходът на Една Империя]]>
+        </title>
+        <subtitle>300 кила ракия давам, циците на Ева Грийна да притежавам.</subtitle>
+        <hype>7</hype>
+        <better tag="machete-kills">Machete Kills</better>
+        <worse tag="sin-city">Sin City</worse>
+    </cover>
+    <cover bgPosition="bg-right" playOrder="4" side="l" color="green tuborg">
+        <url>exit-2014</url>
+        <tags>
+            <tag>exit-2014</tag>
+            <tag>exit</tag>
+        </tags>
+        <count>cover.png</count>
+        <stickers>
+            <sticker>beer</sticker>
+            <sticker>heavy-metal</sticker>
+            <sticker>loud-speaker</sticker>
+            <sticker>sun</sticker>
+        </stickers>
+        <subtype>feature</subtype>
+        <title>Изход 2014</title>
+        <subtitle>One Adventure, two countries, seven days, countless memories!</subtitle>
+        <hype>10</hype>
+        <better tag="solar-summer">SOLAR Summer</better>
+        <worse tag="rado-the-pinecone">20 години Радо Шишарката</worse>
+    </cover>
+</covers>

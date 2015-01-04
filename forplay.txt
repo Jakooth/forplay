@@ -1,0 +1,13 @@
+[assets]
+[controlers]
+[data]
+[jslib]
+[renderers]
+[video]
+apple-touch-icon.png
+apple-touch-icon-76x76.png
+apple-touch-icon-120x120.png
+apple-touch-icon-152x152.png
+favico.png
+favicon.ico
+index.html

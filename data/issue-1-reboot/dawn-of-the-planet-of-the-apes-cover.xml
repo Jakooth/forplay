@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<covers>
+    <cover bgPosition="bg-center" playOrder="3" side="l" color="lighten">
+        <url>dawn-of-the-planet-of-the-apes</url>
+        <tags>
+            <tag>dawn-of-the-planet-of-the-apes</tag>
+            <tag>rise-of-the-planet-of-the-apes</tag>
+            <tag>planet-of-the-apes-2001</tag>
+        </tags>
+        <count>cover-1920.jpg</count>
+        <subtype bg="ревю">review</subtype>
+        <title>
+            <![CDATA[Зората на Планетата на Маймуните]]>
+        </title>
+        <subtitle>
+            <![CDATA[Или поредния челен сблъсък между прекрасна режисура<br />и
+                малоумен сценарий]]>
+        </subtitle>
+        <author>doomy</author>
+        <hype>6+</hype>
+        <better tag="planet-of-the-apes-2001">Планетата на Маймуните (2001)</better>
+        <worse tag="avatar">Аватар</worse>
+        <date>15 Семптември 2014</date>
+    </cover>
+</covers>

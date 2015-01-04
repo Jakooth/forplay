@@ -1,0 +1,128 @@
+@charset "utf-8";
+
+#createMedia (@screen) {
+	header,
+	main.fixed section.covers {
+ 		height: (7.5*@screen)/100px;
+	}
+	
+	header *,
+	body.p .p.logo,
+	body.l .l.logo {
+		height: (5*@screen)/100px;
+	}
+	
+	.box,
+	.c3 .sticker,
+	.covers article:hover .sticker {
+		width: (5*@screen)/100px;
+		height: (5*@screen)/100px;
+	}
+	
+	.hype {
+		line-height: (5*@screen)/100px;
+	}
+	
+	.hype,
+	.better,
+	.worse,
+	.equal,
+	.stickers,
+	nav.menu div.menu {
+		top: (7.5*@screen)/100px;
+	}
+	
+	.sticker {
+		width: (2.5*@screen)/100px;
+		height: (2.5*@screen)/100px;
+	}
+	
+	.articles .img:before,
+	.covers .type {
+		width: (5*@screen)/100px;
+		height: (2.5*@screen)/100px;
+		line-height: (2.5*@screen)/100px !important;
+	}
+	
+	blockquote {
+		min-height: (5*@screen)/100px;
+	}
+	
+	.box.worse:hover,
+	.box.equal:hover,
+	.box.better:hover {
+		text-indent: 0;
+		padding-left: (6.25*@screen)/100px;
+	}
+	
+	.equal,
+	.worse {
+		margin-top: (6.25*@screen)/100px;
+	}
+}
+
+#createSticker (@sticker) {
+	.sticker-@{sticker} {
+		background-image: url("stickers/@{sticker}-32.png");
+	}
+	
+	.social .sticker-@{sticker} {
+		background-image: url("stickers/@{sticker}-32.png") !important;
+	}
+
+	.c3 .sticker-@{sticker},
+	.covers article:hover .sticker-@{sticker} {
+		background-image: url("stickers/@{sticker}-128.png");
+	}
+}
+
+#createTheme (@theme, @color) {
+	body.@{theme} main:not(.read) .cover:hover .title {
+		background-color: fade(@color, 25%);
+	}
+	
+	body.@{theme} a:hover,
+	body.@{theme} .article-set article:hover h2 a {
+		color: @color;
+	}
+	
+    body.@{theme} .logo.p path { 
+		fill: @color; 
+	}
+	
+	body.@{theme} .covers .box {
+		background-color: fade(@color, 70%);
+	}
+	
+	body.@{theme} blockquote,
+	body.@{theme} main button {
+		background-color: @color;
+	}
+	
+	body.@{theme} .inline-right blockquote:after,
+	body.@{theme} .right-col blockquote:after {
+		border-right-color: @color;
+	}
+	
+	body.@{theme} .inline-left blockquote:after,
+	body.@{theme} .left-col blockquote:after {
+		border-left-color: @color;
+	}
+	
+	body.@{theme} .page h1,
+	body.@{theme} q {
+		color: @color;
+	}
+	
+	body.@{theme} .box.menu:before {
+		border-bottom-color: @color;
+	}
+	
+	body.@{theme} .read-set:first-of-type > p:first-of-type:first-letter,
+	body.@{theme} .fixed .read-set:nth-of-type(3) > p:first-of-type:first-letter,
+	body.@{theme} .fixed .read-set:nth-of-type(4) > p:first-of-type:first-letter {
+		color: @color;
+		border-color: @color;
+	}
+}
+

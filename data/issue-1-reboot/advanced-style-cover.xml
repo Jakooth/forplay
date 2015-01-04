@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<covers>
+    <cover bgPosition="bg-top" playOrder="3" side="l" color="lighten">
+        <url>advanced-style</url>
+        <tags>
+            <tag>advanced-style</tag>
+            <tag>advanced-style</tag>
+        </tags>
+        <count>cover-1920.jpg</count>
+        <subtype bg="ревю">review</subtype>
+        <title>
+            <![CDATA[Advanced style: Модата като хапче против старостта]]>
+        </title>
+        <subtitle>
+            <![CDATA[Документалният филм представя седем вдъхновяващи възрастни
+                жени, които изразяват себе си чрез дрехите]]>
+        </subtitle>
+        <author>Ralitsa</author>
+        <hype>9</hype>
+        <date>25 Октомври 2014</date>
+    </cover>
+</covers>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<covers>
+	<cover bgPosition="bg-center" playOrder="3" side="l" color="lighten">
+		<url>annabelle</url>
+        <tags>
+            <tag>annabelle</tag>
+			<tag>annabelle</tag>
+        </tags>
+		<count>cover-1920.jpg</count>
+        <subtype bg="ревю">review</subtype>
+        <title><![CDATA[Анабел]]></title>
+        <subtitle>Без Джеймс Ван не е същото...</subtitle>
+		<author>doomy</author>
+        <hype>6</hype>
+        <better tag="mama">Mama</better>
+        <worse tag="insidious">Insidious</worse>
+		<date>12 Октомври 2014</date>
+    </cover>
+</covers>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<covers>
+    <cover bgPosition="bg-25" playOrder="3" side="p" color="dark" fillscreen="true">
+        <tags>
+            <tag>dark-souls-2</tag>
+            <tag>dark-souls</tag>
+        </tags>
+        <subtype>feature</subtype>
+        <title>Мрачни размисли</title>
+        <subtitle>Не бе, всъщност не са чак толкова мрачни, просто всяко по-позитивно
+            заглавие би избухнало в пламъци при досега си със Souls серията.</subtitle>
+        <author>Snake</author>
+        <hype>9</hype>
+        <better tag="solar-summer">SOLAR Summer</better>
+        <worse tag="rado-the-pinecone">20 години Радо Шишарката</worse>
+        <date>16 Юли 2014</date>
+    </cover>
+</covers>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layouts>
+    <layout type="article-set" subtype="tall-large-right" priority="high">
+        <article titleSize="huge" imgLayout="tall">
+            <url>elder-scrolls-online</url>
+            <tag>elder-scrolls-online</tag>
+            <count>01-main.png</count>
+            <subtype>review</subtype>
+            <title>The Elder Scrolls Online</title>
+            <symbols>340</symbols>
+            <content>
+                <![CDATA[<p>Presentation matters more the longer you plan to
+                    spend in a game world, and The Elder Scrolls Online demands
+                    a tremendous amount of your time. It feels like an MMOG from
+                    several years ago, an artefact of a time when players expected
+                    to invest hundreds of hours to reach a level cap and an MMOG
+                    wasn’t just a new game to dabble in but a new world to occupy.
+                    The game’s pace is glacial, and your progression as a player
+                    painstaking, incremental. Where most recent games in this
+                    genre trip over themselves to provide a sense of impact and
+                    achievement, TESO hopes you’ll settle for some slightly more
+                    elaborately embossed shoulder pads.</p>]]>
+            </content>
+        </article>
+        <article imgLayout="large">
+            <url>still-playing-titanfall</url>
+            <tag>titanfall</tag>
+            <count>01-main.png</count>
+            <subtype>feature</subtype>
+            <title>Still Playing: Titanfall – why endlessly rewarding players
+                is not endlessly rewarding</title>
+            <content>
+                <![CDATA[<p>Shooters are the ultimate videogame power fantasy:
+                    a man and a gun fighting through a string of life-or-death
+                    encounters with the heart-in-mouth tension of war but none
+                    of the risk. Yet the online FPS’s sparse traditional framework
+                    – a winner, a loser and a scoreboard – naturally limits its
+                    own longevity. The object of the game never changes, its
+                    systems stay fixed in place, and you’re as powerful when
+                    you set foot on the battlefield as when you leave it. The
+                    thrill wears off.</p>]]>
+            </content>
+        </article>
+    </layout>
+    <layout type="video-set" priority="high">
+        <article imgLayout="large" priority="high" isVideo="video" player="1">
+            <tag>unreal-engine-4</tag>
+            <count>01-main.png</count>
+            <subtype>video</subtype>
+            <title>The Imagination Engine: Why next-gen videogames will rock
+                your world</title>
+            <url>https://www.youtube.com/watch?v=dD9CPqSKjTU</url>
+        </article>
+        <article imgLayout="small" priority="high" isVideo="video" player="1">
+            <tag>dark-souls-2</tag>
+            <count>01-main.png</count>
+            <subtype>video</subtype>
+            <title>Darks Souls 2 видео ревю</title>
+            <url>https://www.youtube.com/watch?v=t44khNV1b5M</url>
+        </article>
+        <article imgLayout="small" priority="high" isVideo="video" isLast="last" player="1">
+            <tag>game-of-thrones-4</tag>
+            <count>01-main.png</count>
+            <subtype>video</subtype>
+            <title>Game of Thrones сезон 4: зад кулисите</title>
+            <url>https://www.youtube.com/watch?v=jf6oDup2VGA</url>
+        </article>
+    </layout>
+    <layout type="article-set" subtype="small-set-caret-left" priority="medium">
+        <article titleSize="big" imgLayout="tall" isCaret="caret">
+            <url>the-amazing-spiderman-2</url>
+            <tag>the-amazing-spiderman-2</tag>
+            <count>01-main.png</count>
+            <subtype>news</subtype>
+            <title>The Amazing Spider-Man 2</title>
+            <symbols>416</symbols>
+            <content>
+                <![CDATA[<p>We've always known that Spider-Man'sWe've always
+                    known that Spider-Man's most important battle has been within
+                    himself: the struggle between the ordinary obligations of
+                    Peter Parker and the extraordinary responsibilities of Spider-Man.
+                    But in The Amazing Spider-Man 2, Peter Parker finds that
+                    a greater conflict lies ahead. It's great to be Spider-Man
+                    (Andrew Garfield). For Peter Parker, there's no feeling quite
+                    like swinging between skyscrapers, embracing being the hero,
+                    and spending time with Gwen (Emma Stone). But being Spider-Man
+                    comes at a price: only Spider-Man can protect his fellow
+                    New Yorkers from the formidable villains that threaten the
+                    city. With the emergence of Electro (Jamie Foxx), Peter must
+                    confront a foe far more powerful than he. And as his old
+                    friend, Harry Osborn (Dane DeHaan), returns, Peter comes
+                    to realize that all of his enemies have one thing in common:
+                    OsCorp. (c) Columbia.</p>]]>
+            </content>
+        </article>
+        <article imgLayout="small">
+            <url>captain-america-2014</url>
+            <tag>captain-america-2014</tag>
+            <count>01-main.png</count>
+            <subtype>review</subtype>
+            <title>Captain America: The Winter Soldier</title>
+            <symbols>0</symbols>
+            <content>
+                <![CDATA[<p>Bloated and shallow as they are, comic-book-superhero
+                    pictures can occasionally surprise you. Imagine looking back
+                    on this decade, the dawn of the age of weaponized surveillance
+                    drones, and finding that the only harbingers of what was
+                    to come were the (middling) remake of RoboCop and Captain
+                    America: The Winter Soldier. Beneath the expensive, computer-generated
+                    busyness of this second Captain America installment is a
+                    bracing, old-style conspiracy thriller made extra-scary by
+                    new technology and the increasingly ugly trade-offs of a
+                    post-9/11 world.</p>]]>
+            </content>
+        </article>
+        <article imgLayout="small">
+            <url>making-of-mario-3d</url>
+            <tag>making-of-mario-3d</tag>
+            <count>01-main.png</count>
+            <subtype>feature</subtype>
+            <title>The Making Of: Super Mario 3D World</title>
+            <symbols>736</symbols>
+            <content>
+                <![CDATA[<p>No tea tables were upended – as a Nintendo euphemism
+                    for radical changes towards the end of a game’s development
+                    goes – during the making of Super Mario 3D World. Since 2005’s
+                    Donkey Kong Jungle Beat, Nintendo EAD Tokyo has blossomed
+                    into one of the publisher’s finest assets, and it says much
+                    for the regard with which the group is held that Shigeru
+                    Miyamoto and fellow Nintendo veteran Takashi Tezuka felt
+                    comfortable taking a back seat, their responsibilities limited
+                    to "occasional spot checks". The two designers of the original
+                    Super Mario Bros could rest easy: their most famous creation
+                    was in safe hands.</p>]]>
+            </content>
+        </article>
+    </layout>
+</layouts>

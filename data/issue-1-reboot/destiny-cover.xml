@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<covers>
+    <cover bgPosition="bg-top" playOrder="3" side="p" color="navy lighten">
+        <url>destiny</url>
+        <tags>
+            <tag>destiny</tag>
+            <tag>destiny</tag>
+        </tags>
+        <count>cover-1920.jpg</count>
+        <subtype bg="ревю">review</subtype>
+        <title>
+            <![CDATA[Destiny]]>
+        </title>
+        <subtitle>
+            <![CDATA[Тежката Съдба на новото поколение онлайн шутъри]]>
+        </subtitle>
+        <author>doomy</author>
+        <hype>8+</hype>
+        <better tag="borderlands">Borderlands</better>
+        <worse tag="destiny">Очакванията за преобръщащо индустрията заглавие</worse>
+        <date>9 Ноември 2014</date>
+    </cover>
+</covers>

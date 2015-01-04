@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<covers>
+    <cover bgPosition="bg-top" playOrder="3" side="p" color="lighten">
+        <url>call-of-duty-advanced-warfare</url>
+        <tags>
+            <tag>call-of-duty-advanced-warfare</tag>
+            <tag>call-of-duty-advanced-warfare</tag>
+        </tags>
+        <count>cover-1920.jpg</count>
+        <subtype bg="ревю">review</subtype>
+        <title>
+            <![CDATA[Call of Duty: Advanced Warfare]]>
+        </title>
+        <subtitle>
+            <![CDATA[Press X to pay respects, press R2 to have fun]]>
+        </subtitle>
+        <author>Snake</author>
+        <hype>7</hype>
+        <better tag="">?</better>
+        <worse tag="">?</worse>
+        <date>24 Декември 2014</date>
+    </cover>
+</covers>

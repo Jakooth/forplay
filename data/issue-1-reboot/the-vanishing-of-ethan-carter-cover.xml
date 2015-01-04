@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<covers>
+    <cover bgPosition="bg-top" playOrder="3" side="p" color="sunset">
+        <url>the-vanishing-of-ethan-carter</url>
+        <tags>
+            <tag>the-vanishing-of-ethan-carter</tag>
+            <tag>the-vanishing-of-ethan-carter</tag>
+        </tags>
+        <count>cover-1920.jpg</count>
+        <subtype bg="ревю">review</subtype>
+        <title>
+            <![CDATA[The Vanishing of Ethan Carter]]>
+        </title>
+        <subtitle>
+            <![CDATA[Изиграй тази игра]]>
+        </subtitle>
+        <author>Major Mistake</author>
+        <hype>9</hype>
+        <better tag="gone-home">Dear Esther и Gone home</better>
+        <equal tag="the-vanishing-of-ethan-carter">на собствено и особено високо
+            ниво</equal>
+        <date>8 Ноември 2014</date>
+    </cover>
+</covers>

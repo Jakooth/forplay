@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<covers>
+	<cover bgPosition="bg-center" playOrder="3" side="l" color="lighten">
+		<url>locke</url>
+        <tags>
+            <tag>locke</tag>
+			<tag>locke</tag>
+        </tags>
+		<count>cover-1920.jpg</count>
+        <subtype bg="ревю">review</subtype>
+        <title><![CDATA[Лок]]></title>
+        <subtitle>Телефон все ни свързва, телефон ни дели...</subtitle>
+		<author>Snake</author>
+        <hype>7</hype>
+        <better tag="buried">Buried</better>
+        <worse tag="phone-booth">Phone Booth</worse>
+		<date>15 Семптември 2014</date>
+    </cover>
+</covers>

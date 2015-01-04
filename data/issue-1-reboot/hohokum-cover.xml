@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<covers>
+	<cover bgPosition="bg-center" playOrder="3" side="p" color="purple">
+		<url>hohokum</url>
+        <tags>
+            <tag>hohokum</tag>
+            <tag>hohokum</tag>
+        </tags>
+		<count>cover-1920.jpg</count>
+        <subtype bg="ревю">review</subtype>
+        <title><![CDATA[Hohokum – цветни, весели, напушени!]]></title>
+        <subtitle>За „Спермчо“ и приятели!</subtitle>
+		<author>Koralsky</author>
+        <hype>8+</hype>
+        <better tag="snake">Snake?</better>
+        <worse tag="snake">Snake?</worse>
+		<date>15 Семптември 2014</date>
+    </cover>
+</covers>
