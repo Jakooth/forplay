@@ -136,45 +136,6 @@ function BannerManager() {
 		$c3.find('.title').removeClass('clip');
 	}
 	
-	this.convertSVG = function($img) {		
-		var	imgID = $img.attr('id'),
-			imgClass = $img.attr('class'),
-			imgURL = $img.attr('src'),
-			imgGet = $.get(imgURL);	
-	
-		$.when(imgGet).done(function(data) {
-			var $svg = $(data).find('svg');
-	
-			if (typeof imgID !== 'undefined') {
-				$svg = $svg.attr('id', imgID);
-				
-				/**
-				 * The logic to set logo aspect ratio goes here.
-				 */
-				
-				if (!utils.isMobile()) {
-					if (imgID == "forPlayCovers") {
-						$svg.attr('preserveAspectRatio', 'xMinYMin meet');
-					}
-					
-					if (imgID == "forLifeCovers") {
-						$svg.attr('preserveAspectRatio', 'xMaxYMax meet');
-					}
-				} else {
-					$svg.attr('height', '12%');	
-				}
-			}
-			
-			if (typeof imgClass !== 'undefined') {
-				$svg = $svg.attr('class', imgClass + ' replaced-svg');
-			}
-			
-			$img.replaceWith($svg);
-		}).fail(function() {
-			alert("Failed to convert SVG.");
-		});
-	}
-	
 	
 	
 	

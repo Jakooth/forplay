@@ -6,141 +6,65 @@ function AdminManager() {
 	 
 	var self = this;
 	
-	var authors = [
-		{option: 'Koralsky'},
-		{option: 'Snake'},
-		{option: 'doomy'},
-		{option: 'Major Mistake'},
-		{option: 'Tosh'},
-		{option: 'Ralitsa'}
-	];
+	var authors = '../data/admin/authors.json';
+	var bgPosition = '../data/admin/bgPosition.json';
+	var subtype = '../data/admin/subtype.json';
+	var side = '../data/admin/side.json';
+	var type = '../data/admin/type.json';
+	var hype = '../data/admin/hype.json';
+	var theme = '../data/admin/theme.json';
+	var subtheme = '../data/admin/subtheme.json';
+	var gameGenres = '../data/admin/gameGenres.json';
+	var gamePlatforms = '../data/admin/gamePlatforms.json';
+	var movieGenres = '../data/admin/movieGenres.json';
 	
-	var bgPositions = [
-		{option: 'bg-top'},
-		{option: 'bg-center'},
-		{option: 'bg-left'},
-		{option: 'bg-right'},
-		{option: 'bg-25'},
-		{option: 'bg-75'}
-	];
+	var bloodhound = function(data) {
+		return new Bloodhound({
+			datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+			queryTokenizer: Bloodhound.tokenizers.whitespace,
+			prefetch: {
+			url: data,
+			filter: function(list) {
+				return $.map(list, function(o) {
+					return { name: o }; });
+				}
+			}
+		});
+	}
 	
-	var subtype = [
-		{option: 'ревю', value:'review'},
-		{option: 'мнение', value:'feature'},
-		{option: 'видео', value:'video'},
-		{option: 'новина', value:'news'},
-		{option: 'информация', value:'info'},
-		{option: 'каре', value:'aside'},
-		{option: 'цитат', value:'q'}
-	];
+	var initTypeAhead = function(data, name, el) {
+		data.initialize();
+ 
+		$(el).typeahead({
+			hint: true,
+			highlight: true,
+			minLength: 1
+		}, {
+		  name: name,
+		  displayKey: 'name',
+		  source: data.ttAdapter()
+		});
+	}
 	
-	var side = [
-		{option: 'forplay'},
-		{option: 'forlife'}
-	];
+	var initTagInput = function(data, name, el) {
+		data.initialize();
+		
+		$(el).tagsinput({
+			typeaheadjs: {
+				name: name,
+				displayKey: 'name',
+				valueKey: 'name',
+				source: data.ttAdapter()
+			},
+			freeInput: false
+		});
+	}
 	
-	var type = [
-		{option: 'игри'},
-		{option: 'кино'},
-		{option: 'сериали'},
-		{option: 'книги'},
-		{option: 'настолни игри'},
-		{option: 'музика'}
-	];
-	
-	var hype = [
-		{option: '1'},
-		{option: '1+'},
-		{option: '2'},
-		{option: '2+'},
-		{option: '3'},
-		{option: '3+'},
-		{option: '4'},
-		{option: '4+'},
-		{option: '5'},
-		{option: '5+'},
-		{option: '6'},
-		{option: '6+'},
-		{option: '7'},
-		{option: '7+'},
-		{option: '8'},
-		{option: '8+'},
-		{option: '9'},
-		{option: '9+'},
-		{option: '10'}
-	];
-	
-	var theme = [
-		{option: 'blood', value: 'B53634'},
-		{option: 'sunset', value: 'EF822A'},
-		{option: 'purple', value: '82446D'},
-		{option: 'pink', value: 'DF3053'},
-		{option: 'silver', value: '5C6974'},
-		{option: 'green', value: '54FF00'},
-		{option: 'forplay', value: 'FF6000'},
-		{option: 'navy', value: '406080'}
-	];
-	
-	var subtheme = [
-		{option: 'lighten'},
-		{option: 'darken'},
-		{option: 'tuborg'}
-	];
-	
-	var gameGenres = [
-		{option: 'Шуутър от първо/трето лице'},
-		{option: 'Екшън от първо/трето лице'},
-		{option: 'Рейл шуутър'},
-		{option: 'Стелт'},
-		{option: 'Хорър'},
-		{option: 'Сървайвъл хорър'},
-		{option: 'Платформър'},
-		{option: 'Екшън-адвенчър'},
-		{option: 'Куест'},
-		{option: 'Аркадна игра'},
-		{option: 'ММО'},
-		{option: 'MOBA'},
-		{option: 'Ролева игра'},
-		{option: 'Рейсър'},
-		{option: 'Спортна игра'},
-		{option: 'Симулатор'},
-		{option: 'Стратегия в реално време'},
-		{option: 'Походова стратегия'},
-		{option: 'Кежуъл/парти/музикална игра'},
-		{option: 'Инди'}
-	];
-	
-	var gamePlatforms = [
-		{option: 'Windows', value: 'Win'},
-		{option: 'Mac OS', value: 'Mac'},
-		{option: 'Xbox 360', value: '360'},
-		{option: 'Xbox One', value: 'One'},
-		{option: 'PlayStation 3', value: 'PS3'},
-		{option: 'PlayStation 4', value: 'PS4'},
-		{option: 'PlayStation Vita', value: 'Vita'},
-		{option: 'Nintendo Wii', value: 'Wii'},
-		{option: 'Nintendo 3DS', value: '3DS'},
-		{option: 'iOS', value: 'iOS'},
-		{option: 'Android', value: 'Android'}
-	];
-	
-	var movieGenres = [
-		{option: 'Драма'},
-		{option: 'Екшън'},
-		{option: 'Комедия'},
-		{option: 'Приключенски'},
-		{option: 'Анимация'},
-		{option: 'Документален'},
-		{option: 'Семеен'},
-		{option: 'Ноар'},
-		{option: 'Хорър'},
-		{option: 'Мюзикъл'},
-		{option: 'Романтика'},
-		{option: 'Фентъзи'},
-		{option: 'Фантастика'},
-		{option: 'Трилър'},
-		{option: 'Уестърн'}
-	];
+	var tags = bloodhound('../data/admin/tags.json');
+	var stickers = bloodhound('../data/admin/stickers.json');
+	var publishers = bloodhound('../data/admin/publishers.json');
+	var developers = bloodhound('../data/admin/developers.json');
+	var games = bloodhound('../data/admin/games.json');
 	
 	
 	
@@ -150,18 +74,42 @@ function AdminManager() {
 	 */
 	
 	this.loadOptions = function(target, data, renderer) {
-		var tmpl = $.get('../renderers/admin/' + renderer + '.html');
+		var tmpl = $.get('../renderers/admin/' + renderer + '.html'),
+			data = $.get(data);
 		
-		$.when(tmpl).done(function(tmpl) {
+		$.when(tmpl, data).done(function(tmpl, data) {
 			var tmpls = $.templates({
-					tmpl: tmpl
+					tmpl: tmpl[0]
 				}),
-				html = $.templates.tmpl.render(data);
+				html = $.templates.tmpl.render(data[0]);
 			
 			$(target).append(html);
 		}).fail(function() {
 			alert("Failed to load options.");
 		});
+	}
+	
+	this.hideSections = function() {
+		$('section').hide();
+	}
+	
+	this.showSection = function(section) {
+		self.hideSections();
+		
+		if (section == "#main") {
+			$('header').removeClass('compact');
+			$('header h1').addClass('clip');
+			$('header h1 a').attr('tabindex', -1);
+			$('header nav').removeClass('clip');
+			$('section').removeClass('active');
+		} else {
+			$('header').addClass('compact');
+			$('header h1').removeClass('clip');
+			$('header h1 a').attr('tabindex', 0);
+			$('header nav').addClass('clip');
+			$(section).show();
+			$(section).find('h2').addClass('active');
+		}
 	}
 	
 	
@@ -171,14 +119,47 @@ function AdminManager() {
 	 * INIT
 	 */
 	 
-	 this.loadOptions('#authorsDropDown', authors, 'option');
-	 this.loadOptions('#bgPositionDropDown', bgPositions, 'option');
-	 this.loadOptions('#subtypeDropDown', subtype, 'option');
-	 this.loadOptions('#hypeDropDown', hype, 'option');
-	 this.loadOptions('#typeDropDown', type, 'option');
-	 this.loadOptions('#sideDropDown', side, 'option');
-	 this.loadOptions('#themeDropDown', theme, 'option');
-	 this.loadOptions('#subthemeDropDown', subtheme, 'option');
-	 this.loadOptions('#genreGroup', gameGenres, 'checkbox');
-	 this.loadOptions('#platformGroup', gamePlatforms, 'checkbox');
+	this.loadOptions('#authorsDropDown', authors, 'option');
+	this.loadOptions('#bgPositionDropDown', bgPosition, 'option');
+	this.loadOptions('#subtypeDropDown', subtype, 'option');
+	this.loadOptions('#hypeDropDown', hype, 'option');
+	this.loadOptions('#typeDropDown', type, 'option');
+	this.loadOptions('#sideDropDown', side, 'option');
+	this.loadOptions('#themeDropDown', theme, 'option');
+	this.loadOptions('#subthemeDropDown', subtheme, 'option');
+	this.loadOptions('#genreGroup', gameGenres, 'checkbox');
+	this.loadOptions('#platformGroup', gamePlatforms, 'checkbox');
+	
+	initTagInput(tags, 'tags', '#tagsInput');
+	initTagInput(stickers, 'stickers', '#stickersInput');
+	initTypeAhead(publishers, 'publishers', '#publisherInput');
+	initTypeAhead(developers, 'developers', '#developerInput');
+	initTagInput(games, 'games', '#similarInput');
+	 
+	 
+	 
+	 
+	/** 
+	 * EVENTS
+	 */
+	 
+	$(window).on('load', function (e) {
+		$('img.svg').each(function() {
+			utils.convertSVG($(this));
+		});
+		
+		self.showSection(window.location.hash);
+	});
+	
+	$('body').on('click', 'nav a, header a', function (e) {
+		self.showSection($(this).attr('href'));
+	});
+	
+	$('form').on('focus', '.bootstrap-tagsinput input', function (e) {
+		$(this).parents('.bootstrap-tagsinput').addClass('focus');
+	});
+	
+	$('form').on('blur', '.bootstrap-tagsinput input', function (e) {
+		$(this).parents('.bootstrap-tagsinput').removeClass('focus');
+	});
 }

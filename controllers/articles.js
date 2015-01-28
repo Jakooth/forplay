@@ -276,11 +276,11 @@ function ArticlesManager() {
 		 */
 		  
 		if (fll && $(temp[3]).is('img.svg')) {
-			banner.convertSVG($(temp[3]));
+			utils.convertSVG($(temp[3]));
 		}
 		
 		if (fpl && $(temp[2]).is('img.svg')) {
-			banner.convertSVG($(temp[2]));
+			utils.convertSVG($(temp[2]));
 		}
 		
 		/**
@@ -374,7 +374,7 @@ function ArticlesManager() {
 		 */
 		  
 		$('img.svg').each(function() {
-			banner.convertSVG($(this));
+			utils.convertSVG($(this));
 		});
 		
 		/**
