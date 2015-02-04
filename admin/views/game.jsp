@@ -5,28 +5,41 @@
             xmlns:admin="urn:jsptagdir:/WEB-INF/tags/admin">
     <section id="game">
         <h2>
-            <admin:menuItem label="Създай таг и добави информация за играта." title="Игра" url="games" />
+            <admin:menuItem label="Добави информация за играта и създай таг." title="Игра" url="game" />
         </h2>
-        <div role="toolbar">
-            <button>Save</button>
-            <button>Cancel</button>
-        </div>
         <form role="form">
-            <admin:formItem id="enNameInput" label="Оригинално име" placeholder="Grand Theft Auto 5" type="text" />
-            <admin:formItem id="enNameInput" label="Име на български" placeholder="Гранд Тефт Ауто 5" type="text" />
-            <admin:formItem id="tagInput" label="Таг" placeholder="gta-5" type="text" />
-            <admin:formItem id="stickersInput" label="Стикери" placeholder="girl, beer, 18+" type="text" />
-            <admin:formItem id="genreGroup" label="Жанр" type="group">
+            <admin:formItem id="gameEnNameInput" label="Оригинално име на играта" 
+            				placeholder="Grand Theft Auto 5" type="text" />
+            <admin:formItem id="gameBgNameInput" label="Име на играта на български" 
+            				placeholder="Гранд Тефт Ауто 5" type="text" />
+            <admin:formItem id="gameTagInput" label="Таг" 
+            				placeholder="gta-5" type="text" />
+            <admin:formItem id="gameStickersInput" label="Стикери" 
+            				placeholder="girl, beer, 18+" type="text" />
+            <admin:formItem id="gameGenreGroup" label="Жанр" type="group">
                 <!--AdminManager.js-->
             </admin:formItem>
-            <admin:formItem id="platformGroup" label="Платформа" type="group">
+            <admin:formItem id="gamePlatformGroup" label="Платформа" type="group">
                 <!--AdminManager.js-->
             </admin:formItem>
-            <admin:formItem id="publisherInput" label="Разпространител" placeholder="SEGA" type="text" autocomplete="off" />
-            <admin:formItem id="developerInput" label="Разработчик" placeholder="Creative Assembly" type="text" autocomplete="off" />
-            <admin:formItem id="usDateInput" label="Премиера за САЩ" type="date" />
-            <admin:formItem id="euDateInput" label="Премиера за Европа" type="date" />
-            <admin:formItem id="similarInput" label="Подобни" placeholder="saints-row, mafia, red-dead-redemption, crackdown" type="text" autocomplete="off" />
+            <admin:formItem id="gamePublisherInput" label="Разпространител" 
+            				placeholder="SEGA" type="text" 
+                            autocomplete="off" url="gameCompany" />
+            <admin:formItem id="gameDeveloperInput" label="Разработчик" 
+            				placeholder="Creative Assembly" type="text" 
+                            autocomplete="off" url="gameCompany" />
+            <admin:formItem id="gameUsDateInput" label="Премиера за САЩ" type="date" />
+            <admin:formItem id="gameEuDateInput" label="Премиера за Европа" type="date" />
+            <admin:formItem id="gameSimilarInput" label="Подобни" 
+            				placeholder="saints-row, mafia, red-dead-redemption, crackdown" 
+                            type="text" autocomplete="off" />
+            <div class="Box">
+                <button class="add" type="button">Добави Обложка</button>
+            </div>
         </form>
+        <div role="toolbar">
+            <button type="button">Save</button>
+            <button type="button">Cancel</button>
+        </div>
     </section>
 </jsp:root>

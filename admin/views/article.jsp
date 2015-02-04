@@ -8,9 +8,9 @@
             <admin:menuItem label="Създай статия." title="Статия" url="games" />
         </h2>
         <div role="toolbar">
-            <button>Publish</button>
-            <button>Save</button>
-            <button>Cancel</button>
+            <button type="button">Publish</button>
+            <button type="button">Save</button>
+            <button type="button">Cancel</button>
         </div>
     </section>
 </jsp:root>

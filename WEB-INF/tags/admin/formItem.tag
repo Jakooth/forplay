@@ -5,9 +5,10 @@
 						body-content="scriptless" language="java" />
     <jsp:directive.attribute name="id" required="true" />
     <jsp:directive.attribute name="label" required="true" />
-    <jsp:directive.attribute name="placeholder" required="false" />
     <jsp:directive.attribute name="type" required="true" />
+    <jsp:directive.attribute name="placeholder" required="false" />
     <jsp:directive.attribute name="autocomplete" required="false" />
+    <jsp:directive.attribute name="url" required="false" />
     <c:choose>
         <c:when test="${type == 'group'}">
             <label>
@@ -17,6 +18,14 @@
                 <!--AdminManager.js-->
             </div>
         </c:when>
+        <c:when test="${type == 'select'}">
+            <label>
+                <span>${label}:</span>
+                <select id="${id}">
+                    <jsp:doBody />
+                </select>
+            </label>
+        </c:when>
         <c:otherwise>
             <label>
                 <span>${label}:</span>
@@ -24,4 +33,9 @@
             </label>
         </c:otherwise>
     </c:choose>
+    <c:if test="${!empty url}">
+        <a href="#${url}" class="create">
+            <img class="svg" src="../assets/admin/icons/iconmonstr-plus-2-icon.svg" alt="Създай ${label}" />
+        </a>
+    </c:if>
 </jsp:root>

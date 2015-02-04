@@ -39,6 +39,7 @@ label {
    font-size: 12pt;
 }
 
+.Box select,
 header a span,
 h2 a,
 nav li a,
@@ -96,6 +97,20 @@ a:visited {
   * FOCUS & ACTIVE
   */
 
+form > .create:focus,
+form > .create:hover,
+.Box .file:focus,
+.Box .file:hover,
+.Box .file input:focus,
+.Box .file input:hover,
+.Box select:focus,
+.Box select:hover,
+button:focus,
+button:hover,
+button:first-child:focus,
+button:first-child:hover,
+.Box > button:last-child:focus,
+.Box > button:last-child:hover,
 header a:focus,
 header a:hover,
 h2.active a,
@@ -132,6 +147,7 @@ a:focus {
 	outline: 2px solid #D9E021;
 }
 
+.Box p,
 a:focus,
 a:hover,
 a:visited,
@@ -139,10 +155,12 @@ h2 a span {
 	color: #D9E021;
 }
 
+.Box svg path,
 svg path {
 	fill: #D9E021;
 }
 
+.Box select,
 footer,
 footer a,
 h2 a,
@@ -160,6 +178,7 @@ nav li a:visited {
 	color: #FFF;
 }
 
+.Box select,
 body,
 header a,
 nav li a {
@@ -176,6 +195,9 @@ button {
 	border: none;
 }
 
+form > .create,
+.Box .file,
+.Box > button:last-child,
 button:first-child {
 	background-color: #D9E021
 }
@@ -183,6 +205,63 @@ button:first-child {
 form {
 	background-color: #E6E6E6;
 }
+
+
+
+
+
+
+
+
+/**
+  * SPACING
+  */
+
+header svg,
+nav svg {
+	margin-right: 10px;
+}
+
+form input[type=text],
+header a,
+nav li a {
+	padding: 10px;
+}
+
+.Window,
+.Box button,
+.Box select,
+form,
+main h2 a,
+div[role=toolbar] button,
+footer {
+	padding: 20px;
+}
+
+main h2 a {
+	padding-bottom: 10px;
+}
+
+form label,
+form label span {
+	margin-bottom: 10px;
+}
+
+div[role=group] label {
+	margin-bottom: 0;
+}
+
+.Window h2 span,
+.Box .file,
+div[role=group],
+form input {
+	margin-bottom: 20px;
+}
+
+.Box p {
+	padding-left: 20px;
+} 
+
 
 
 
@@ -238,7 +317,6 @@ header svg,
 nav svg {
 	width: 64px;
 	height: 64px;
-	margin-right: 10px;
 }
 
 nav li {
@@ -258,7 +336,6 @@ header a {
 	display: block;
 	width: 100%;
 	line-height: 64px;
-	padding: 10px;
 }
 
 nav li a {
@@ -266,7 +343,6 @@ nav li a {
 	width: 100%;
 	height: 100%;
 	line-height: 64px;
-	padding: 10px;
 }
 
 section {
@@ -284,14 +360,18 @@ main nav li a {
 	line-height: normal;
 }
 
-main nav li a span {
-	padding-bottom: 6px;
-}
-
 main h2 a span,
 main nav li a span {
 	display: block;
 	font-weight: normal;
+}
+
+main nav li a span {
+	padding-bottom: 6px;
+}
+
+main h2 span {
+	padding-top: 6px;
 }
 
 div[role=toolbar] {
@@ -304,14 +384,12 @@ div[role=toolbar] {
 div[role=toolbar] button {
 	height: 84px;
 	width: auto;
-	padding: 20px;
 	float: left;
 }
 
 footer {
 	clear: both;
 	text-align: center;
-	padding: 20px;
 }
 
 
@@ -329,13 +407,7 @@ main h2 a {
 	position: relative;
 	display: block;
 	height: 84px;
-	padding: 20px;
-	padding-bottom: 10px;
 	padding-left: 62px;
-}
-
-main h2 span {
-	padding-top: 6px;
 }
 
 header.compact {
@@ -387,15 +459,31 @@ main h2 a:after {
   */
 
 form {
+	float: left;
 	clear: both;
-	padding: 20px;
 	width: 100%;
+}
+
+form > .create {
+	display: block;
+	width: 58px;
+	height: 58px;
+	top: -79px;
+	position: relative;
+	float: right;
+	margin-right: 1px;
+	margin-bottom: -79px;
+	padding: 17px;
+}
+
+form > .create svg {
+	width: 24px;
+	height: 24px;
 }
 
 form label,
 form label span {
 	display: block;
-	margin-bottom: 10px;
 }
 
 form label {
@@ -405,7 +493,6 @@ form label {
 div[role=group],
 form input {
 	clear: both;
-	margin-bottom: 20px;
 }
 
 div[role=group] {
@@ -422,6 +509,143 @@ div[role=group] label {
 form input[type=text] {
 	width: 100%;
 	height: 60px;
-	padding: 10px;
+}
+
+select,
+form input[type=date] {
+	height: 60px;
+}
+
+
+
+
+
+
+
+
+
+/**
+  * WINDOWS
+  */
+
+.Overlay {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.5;
+	display: none;
+	z-index: 10000;
+}
+
+.Window {
+	position: absolute;
+	top: 20%;
+	left: 20%;
+	right: 20%;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 12000;
+}
+
+.Window h2 a {
+	pointer-events: none;
+	display: block;
+	background: none;
+}
+
+.Window h2 span {
+	display: block;
+	font-weight: normal;
+	padding-top: 6px;
+}
+
+.Window div[role=toolbar] {
+	position: relative;
+	float: right;
+}
+
+
+
+
+
+
+
+/**
+  * BOX
+  */
+  
+.Box {
+	float: left;
+	width: 100%;
+}
+
+.Box p {
+	position: absolute;
+	margin-top: -37px;
+} 
+  
+.Box button {
+	width: 100%;
+	display: block;
+}
+
+.Box button.remove {
+	position: absolute;
+	top: 84px;
+	right: 0;
+	width: 200px;
+	height: 280px;
+	background-image: url(icons/iconmonstr-x-mark-5-icon.svg);
+	background-size: 64px 64px;
+	background-position: center center;
+	background-repeat: no-repeat
+}
+
+.Box .platform {
+	position: relative;
+	width: 400px;
+	float: left;
+}
+
+.Box select {
+	height: 84px;
+	padding-left: 16px;
+	padding-top: 0;
+	padding-bottom: 24px;
+	width: 100%;
+	border: none;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;	
+}
+
+.Box svg {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	width: 64px;
+	height: 64px;
+	pointer-events: none;
+}
+
+.Box .file {
+	position: relative;
+	overflow: hidden;
+	width: 200px;
+	height: 280px;
+	background-image: url(icons/iconmonstr-plus-2-icon.svg);
+	background-size: 64px 64px;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+.Box input[type=file] {
+	font-size: 200pt;
+	position: absolute;
+	top: 0;
+	right: 0;
+	opacity: 0;
 }
 

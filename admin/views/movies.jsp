@@ -9,11 +9,11 @@
         </h2>
         <nav aria-label="Обекти в кино и сериали">
             <ul>
-                <admin:menuItem label="true-blood, true-blood-season-3, avatar" title="Филм" url="movie" />
-                <admin:menuItem label="hbo, walt-disney-animation-studios" title="Компания" url="company" />
-                <admin:menuItem label="chuck-norris, david-fincher" title="Персона" url="person" />
-                <admin:menuItem label="batman, fox-mulder, rapunzel" title="Герой" url="character" />
-                <admin:menuItem label="drama, comedy, animation" title="Жанр" url="genre" />
+                <li><admin:menuItem label="true-blood, true-blood-season-3, avatar" title="Филм" url="movie" /></li>
+                <li><admin:menuItem label="hbo, walt-disney-animation-studios" title="Компания" url="company" /></li>
+                <li><admin:menuItem label="chuck-norris, david-fincher" title="Персона" url="person" /></li>
+                <li><admin:menuItem label="batman, fox-mulder, rapunzel" title="Герой" url="character" /></li>
+                <li><admin:menuItem label="drama, comedy, animation" title="Жанр" url="genre" /></li>
             </ul>
         </nav>
     </section>

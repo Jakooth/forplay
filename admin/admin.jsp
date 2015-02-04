@@ -18,8 +18,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Forplay Admin</title>
-    <link rel="stylesheet" type="text/css" href="../assets/admin/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/admin/bootstrap-theme.min.css" />
     <link rel="stylesheet" type="text/css" href="../assets/admin/bootstrap-tagsinput.css" />
     <link rel="stylesheet" type="text/css" href="../assets/admin/typeaheadjs.css" />
     <link rel="stylesheet" type="text/css" href="../assets/admin/admin.css" />
@@ -44,14 +42,19 @@
     <script src="../jslib/admin/typeahead.bundle.js">
                 <!--script-->
             </script>
-    <script src="../controllers/admin.js?v=1.5.0" type="text/javascript">
-                <!--script-->
-            </script>
     <script src="../controllers/utils.js?v=1.5.0" type="text/javascript">
                 <!--script-->
             </script>
-    <script type="text/javascript">$(document).ready(function() { window.utils
-                = new UtilsManager(); window.admin = new AdminManager(); });</script>
+    <script src="../controllers/admin.js?v=1.5.0" type="text/javascript">
+                <!--script-->
+            </script>
+    <script src="../controllers/box.js?v=1.0.0" type="text/javascript">
+                <!--script-->
+            </script>
+    <script type="text/javascript">$(document).ready(function() { 
+				window.utils = new UtilsManager(); 
+				window.admin = new AdminManager(); 
+				window.box = new Box(); });</script>
     </head>
     <body>
     <header id="main">
@@ -60,20 +63,40 @@
         </h1>
         <nav aria-label="Категории основни обекти">
             <ul>
-                <admin:menuItem label="Игри" url="games" icon="gamepad-9" />
-                <admin:menuItem label="Кино и Сериали" url="movies" icon="video-2" />
-                <admin:menuItem label="Музика" url="music" icon="audio-7" />
-                <admin:menuItem label="Книги" url="books" icon="book-17" />
-                <admin:menuItem label="Настолни Игри" url="board" icon="puzzle" />
+                <li>
+                    <admin:menuItem label="Игри" url="games" icon="gamepad-9" />
+                </li>
+                <li>
+                    <admin:menuItem label="Кино и Сериали" url="movies" icon="video-2" />
+                </li>
+                <li>
+                    <admin:menuItem label="Музика" url="music" icon="audio-7" />
+                </li>
+                <li>
+                    <admin:menuItem label="Книги" url="books" icon="book-17" />
+                </li>
+                <li>
+                    <admin:menuItem label="Настолни Игри" url="board" icon="puzzle" />
+                </li>
             </ul>
         </nav>
         <nav aria-label="Добавяне на информация">
             <ul>
-                <admin:menuItem label="Статия" url="article" icon="font-size" />
-                <admin:menuItem label="Картинки" url="images" icon="picture-multi-2" />
-                <admin:menuItem label="Каре" url="aside" icon="side-right-view" />
-                <admin:menuItem label="Реклама" url="advert" icon="banknote-multi-10" />
-                <admin:menuItem label="Цитат" url="quote" icon="quote-15" />
+                <li>
+                    <admin:menuItem label="Статия" url="article" icon="font-size" />
+                </li>
+                <li>
+                    <admin:menuItem label="Картинки" url="images" icon="picture-multi-2" />
+                </li>
+                <li>
+                    <admin:menuItem label="Каре" url="aside" icon="side-right-view" />
+                </li>
+                <li>
+                    <admin:menuItem label="Реклама" url="advert" icon="banknote-multi-10" />
+                </li>
+                <li>
+                    <admin:menuItem label="Цитат" url="quote" icon="quote-15" />
+                </li>
             </ul>
         </nav>
     </header>
@@ -82,6 +105,11 @@
         <jsp:include page="views/movies.jsp" />
         <jsp:include page="views/game.jsp" />
         <jsp:include page="views/article.jsp" />
+        <jsp:include page="views/gameCompany.jsp" />
+        <jsp:include page="views/platform.jsp" />
+        <jsp:include page="views/gamePerson.jsp" />
+        <jsp:include page="views/gameCharacter.jsp" />
+        <jsp:include page="views/gameGenre.jsp" />
     </main>
     <footer>
         <p>&amp;copy; Copyright 2015
@@ -92,6 +120,9 @@
             на Обществени Продукти и Услуги.</a>
         </p>
     </footer>
+    <div class="Overlay">
+        <!--admin.js-->
+    </div>
     </body>
     </html>
 </jsp:root>

@@ -8,15 +8,11 @@
     <jsp:directive.attribute name="title" required="false" />
     <jsp:directive.attribute name="url" required="true" />
     <jsp:directive.attribute name="icon" required="false" />
-    <li>
-        <a href="#${url}">
-        	<c:if test="${!empty title}">
-                ${title}
-            </c:if>
-            <c:if test="${!empty icon}">
-                <img class="svg" src="../assets/admin/icons/iconmonstr-${icon}-icon.svg" alt="${label}" role="presentation" />
-            </c:if>
-            <span class="${clipLabel}">${label}</span>
-        </a>
-    </li>
+    <a href="#${url}">
+        <c:if test="${!empty title}">${title}</c:if>
+        <c:if test="${!empty icon}">
+            <img class="svg" src="../assets/admin/icons/iconmonstr-${icon}-icon.svg" alt="${label}" role="presentation" />
+        </c:if>
+        <span class="${clipLabel}">${label}</span>
+    </a>
 </jsp:root>

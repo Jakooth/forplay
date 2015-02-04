@@ -112,6 +112,36 @@ function AdminManager() {
 		}
 	}
 	
+	this.showOverlay = function() {
+		$('.Overlay').show();
+	}
+	
+	this.hideOverlay = function() {
+		$('.Overlay').hide();
+	}
+	
+	this.showSectionInWindow = function(appendee) {
+		var d1 = $.get('../renderers/admin/window.html');
+			
+		$.when(d1).done(function(data1) {
+			var html = $(data1).append($(appendee).show());
+			
+			self.showOverlay();
+			
+			$('body').append(html);
+			$(window).scrollTop(0);
+		}).fail(function() {
+			alert("Failed to load window.");
+		});
+	}
+	
+	this.hideSectionInWindow = function($appendee) {
+		$('main').append($appendee.hide());
+		$('.Window').remove();
+		
+		self.hideOverlay();
+	}
+	
 	
 	
 	
@@ -119,22 +149,23 @@ function AdminManager() {
 	 * INIT
 	 */
 	 
-	this.loadOptions('#authorsDropDown', authors, 'option');
-	this.loadOptions('#bgPositionDropDown', bgPosition, 'option');
-	this.loadOptions('#subtypeDropDown', subtype, 'option');
-	this.loadOptions('#hypeDropDown', hype, 'option');
-	this.loadOptions('#typeDropDown', type, 'option');
-	this.loadOptions('#sideDropDown', side, 'option');
-	this.loadOptions('#themeDropDown', theme, 'option');
-	this.loadOptions('#subthemeDropDown', subtheme, 'option');
-	this.loadOptions('#genreGroup', gameGenres, 'checkbox');
-	this.loadOptions('#platformGroup', gamePlatforms, 'checkbox');
+	this.loadOptions('#articleAuthorsDropDown', authors, 'option');
+	this.loadOptions('#articleBgPositionDropDown', bgPosition, 'option');
+	this.loadOptions('#articleSubtypeDropDown', subtype, 'option');
+	this.loadOptions('#articleHypeDropDown', hype, 'option');
+	this.loadOptions('#articleTypeDropDown', type, 'option');
+	this.loadOptions('#articleSideDropDown', side, 'option');
+	this.loadOptions('#articleThemeDropDown', theme, 'option');
+	this.loadOptions('#articleSubthemeDropDown', subtheme, 'option');
+	this.loadOptions('#gameGenreGroup', gameGenres, 'checkbox');
+	this.loadOptions('#gamePlatformGroup', gamePlatforms, 'checkbox');
 	
-	initTagInput(tags, 'tags', '#tagsInput');
-	initTagInput(stickers, 'stickers', '#stickersInput');
-	initTypeAhead(publishers, 'publishers', '#publisherInput');
-	initTypeAhead(developers, 'developers', '#developerInput');
-	initTagInput(games, 'games', '#similarInput');
+	initTagInput(tags, 'tags', '#gamePersonTagsInput');
+	initTagInput(tags, 'tags', '#gameCharacterTagsInput');
+	initTagInput(stickers, 'stickers', '#gameStickersInput');
+	initTypeAhead(publishers, 'publishers', '#gamePublisherInput');
+	initTypeAhead(developers, 'developers', '#gameDeveloperInput');
+	initTagInput(games, 'games', '#gameSimilarInput');
 	 
 	 
 	 
@@ -153,6 +184,19 @@ function AdminManager() {
 	
 	$('body').on('click', 'nav a, header a', function (e) {
 		self.showSection($(this).attr('href'));
+	});
+	
+	$('form').on('click', '.create', function (e) {
+		e.preventDefault();
+		self.showSectionInWindow($(this).attr('href'));
+	});
+	
+	$('body').on('click', '.Window button', function (e) {
+		self.hideSectionInWindow($(this).parents('section'));
+	});
+	
+	$('body').on('click', '.Window h2 a', function (e) {
+		e.preventDefault();
 	});
 	
 	$('form').on('focus', '.bootstrap-tagsinput input', function (e) {
