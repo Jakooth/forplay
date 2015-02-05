@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layouts>
-    <layout type="img-set">
+    <layout type="img-set" subtype="r169">
 		<left>
             <article imgLayout="tall">
                 <tag>watch-dogs</tag>
