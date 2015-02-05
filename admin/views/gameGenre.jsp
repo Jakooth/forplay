@@ -7,7 +7,7 @@
         <h2>
             <admin:menuItem label="Добави жанр и създай таг." title="Жанр" url="gameGenre" />
         </h2>
-        <form role="form">
+        <form>
             <admin:formItem id="gameGenreNameInput" label="Жанр" 
             				placeholder="Екшън от първо/трето лице, Куест, ММО" type="text" />
             <admin:formItem id="gameGenreTagInput" label="Таг" 

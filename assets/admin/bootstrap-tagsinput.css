@@ -53,6 +53,10 @@
 	font-weight: bold;
 }
 
+#article .tag:first-child {
+	background-color: #F90;
+}
+
 .bootstrap-tagsinput .tag [data-role=remove] {
 	cursor: pointer;
 	position: absolute;

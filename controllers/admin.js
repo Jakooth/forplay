@@ -9,7 +9,6 @@ function AdminManager() {
 	var authors = '../data/admin/authors.json';
 	var bgPosition = '../data/admin/bgPosition.json';
 	var subtype = '../data/admin/subtype.json';
-	var side = '../data/admin/side.json';
 	var type = '../data/admin/type.json';
 	var hype = '../data/admin/hype.json';
 	var theme = '../data/admin/theme.json';
@@ -149,18 +148,18 @@ function AdminManager() {
 	 * INIT
 	 */
 	 
-	this.loadOptions('#articleAuthorsDropDown', authors, 'option');
-	this.loadOptions('#articleBgPositionDropDown', bgPosition, 'option');
-	this.loadOptions('#articleSubtypeDropDown', subtype, 'option');
-	this.loadOptions('#articleHypeDropDown', hype, 'option');
-	this.loadOptions('#articleTypeDropDown', type, 'option');
-	this.loadOptions('#articleSideDropDown', side, 'option');
-	this.loadOptions('#articleThemeDropDown', theme, 'option');
-	this.loadOptions('#articleSubthemeDropDown', subtheme, 'option');
+	this.loadOptions('#articleAuthorSelect', authors, 'option');
+	this.loadOptions('#articleBgPositionSelect', bgPosition, 'option');
+	this.loadOptions('#articleSubtypeSelect', subtype, 'option');
+	this.loadOptions('#articleHypeSelect', hype, 'option');
+	this.loadOptions('#articleTypeSelect', type, 'option');
+	this.loadOptions('#articleThemeSelect', theme, 'option');
+	this.loadOptions('#articleSubthemeSelect', subtheme, 'option');
 	this.loadOptions('#gameGenreGroup', gameGenres, 'checkbox');
 	this.loadOptions('#gamePlatformGroup', gamePlatforms, 'checkbox');
 	
 	initTagInput(tags, 'tags', '#gamePersonTagsInput');
+	initTagInput(tags, 'tags', '#articleTagsInput');
 	initTagInput(tags, 'tags', '#gameCharacterTagsInput');
 	initTagInput(stickers, 'stickers', '#gameStickersInput');
 	initTypeAhead(publishers, 'publishers', '#gamePublisherInput');

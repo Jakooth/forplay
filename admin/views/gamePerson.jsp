@@ -7,7 +7,7 @@
         <h2>
             <admin:menuItem label="Добави персона и създай таг." title="Персона" url="gamePerson" />
         </h2>
-        <form role="form">
+        <form>
             <admin:formItem id="gamePersonNameInput" label="Персона" 
             				placeholder="Шигеру Миямото, Сам Хаузър" type="text" />
             <admin:formItem id="gamePersonTagInput" label="Таг" 

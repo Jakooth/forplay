@@ -41,6 +41,7 @@ span.twitter-typeahead {
 	width: 100%;
 	display: block;
 	height: auto;
+	margin-bottom: 20px;
 }
 
 span.twitter-typeahead .tt-suggestion.tt-cursor {

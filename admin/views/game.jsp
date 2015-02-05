@@ -7,7 +7,7 @@
         <h2>
             <admin:menuItem label="Добави информация за играта и създай таг." title="Игра" url="game" />
         </h2>
-        <form role="form">
+        <form>
             <admin:formItem id="gameEnNameInput" label="Оригинално име на играта" 
             				placeholder="Grand Theft Auto 5" type="text" />
             <admin:formItem id="gameBgNameInput" label="Име на играта на български" 
@@ -28,8 +28,8 @@
             <admin:formItem id="gameDeveloperInput" label="Разработчик" 
             				placeholder="Creative Assembly" type="text" 
                             autocomplete="off" url="gameCompany" />
-            <admin:formItem id="gameUsDateInput" label="Премиера за САЩ" type="date" />
-            <admin:formItem id="gameEuDateInput" label="Премиера за Европа" type="date" />
+            <admin:formItem id="gameUsDateInput" label="Премиера за САЩ" type="date" layout="two-cols" />
+            <admin:formItem id="gameEuDateInput" label="Премиера за Европа" type="date" layout="two-cols" />
             <admin:formItem id="gameSimilarInput" label="Подобни" 
             				placeholder="saints-row, mafia, red-dead-redemption, crackdown" 
                             type="text" autocomplete="off" />

@@ -7,7 +7,7 @@
         <h2>
             <admin:menuItem label="Добави компания и създай таг." title="Компания" url="gameCompany" />
         </h2>
-        <form role="form">
+        <form>
             <admin:formItem id="gameCompanyNameInput" label="Компания" 
             				placeholder="Crytek" type="text" />
             <admin:formItem id="gameCompanyTagInput" label="Таг" 

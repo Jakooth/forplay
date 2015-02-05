@@ -12,6 +12,10 @@
 }
 
 h3 {
+	font-size: 30pt;
+	font-weight: normal;
+	font-style: italic;
+	line-height: normal;
 	font-family: 'Poiret One', sans-serif;
 }
 
@@ -143,6 +147,10 @@ header.compact h1 a:focus:after {
   * COLORS
   */
 
+h3 {
+	color: #666666;
+}
+
 a:focus {
 	outline: 2px solid #D9E021;
 }
@@ -217,11 +225,20 @@ form {
   * SPACING
   */
 
+.hidden i,
 header svg,
 nav svg {
 	margin-right: 10px;
 }
 
+.hidden b,
+form .two-cols select,
+form .two-cols input[type=date] {
+	margin-right: 20px;
+}
+
+.hidden b,
+.hidden,
 form input[type=text],
 header a,
 nav li a {
@@ -242,7 +259,6 @@ main h2 a {
 	padding-bottom: 10px;
 }
 
-form label,
 form label span {
 	margin-bottom: 10px;
 }
@@ -251,16 +267,23 @@ div[role=group] label {
 	margin-bottom: 0;
 }
 
+h3,
+.hidden,
 .Window h2 span,
 .Box .file,
 div[role=group],
-form input {
+form input,
+form select {
 	margin-bottom: 20px;
 }
 
 .Box p {
 	padding-left: 20px;
 } 
+
+h3 {
+	margin-top: 40px;
+}
 
 
 
@@ -291,6 +314,12 @@ main,
 main h2,
 section {
 	float: left;
+}
+
+main h3 {
+	float: left;
+	clear: both;
+	width: 100%;
 }
 
 header {
@@ -512,10 +541,37 @@ form input[type=text] {
 }
 
 select,
-form input[type=date] {
+form input[type=date],
+form input[type=time] {
 	height: 60px;
+	min-width: 320px;
 }
 
+.hidden {
+	opacity: 0.5;
+	color: #666;
+	line-height: 40px;
+}
+
+.hidden i {
+	display: inline-block;
+	min-width: 222px;
+}
+
+.hidden b {
+	background-color: #FFF;
+	color: #999;
+	line-height: 40px;
+	display: inline-block;
+	margin-top: -10px;
+	margin-bottom: -10px;
+	position: relative;
+}
+
+.two-cols {
+	float: left;
+	clear: none;
+}
 
 
 
@@ -614,6 +670,7 @@ form input[type=date] {
 	padding-left: 16px;
 	padding-top: 0;
 	padding-bottom: 24px;
+	margin-bottom: 0;
 	width: 100%;
 	border: none;
 	appearance: none;

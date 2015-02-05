@@ -9,6 +9,7 @@
     <jsp:directive.attribute name="placeholder" required="false" />
     <jsp:directive.attribute name="autocomplete" required="false" />
     <jsp:directive.attribute name="url" required="false" />
+    <jsp:directive.attribute name="layout" required="false" />
     <c:choose>
         <c:when test="${type == 'group'}">
             <label>
@@ -19,15 +20,21 @@
             </div>
         </c:when>
         <c:when test="${type == 'select'}">
-            <label>
+            <label class="${layout}">
                 <span>${label}:</span>
                 <select id="${id}">
                     <jsp:doBody />
                 </select>
             </label>
         </c:when>
-        <c:otherwise>
+        <c:when test="${type == 'hidden'}">
             <label>
+                <input id="${id}" type="${type}" />
+                <span class="hidden"><i>${label}:</i><b>hidden</b>${placeholder}</span>
+            </label>
+        </c:when>
+        <c:otherwise>
+            <label class="${layout}">
                 <span>${label}:</span>
                 <input id="${id}" placeholder="${placeholder}" type="${type}" autocomplete="${autocomplete}" />
             </label>

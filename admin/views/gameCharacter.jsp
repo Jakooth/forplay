@@ -7,7 +7,7 @@
         <h2>
             <admin:menuItem label="Добави герой и създай таг." title="Герой" url="gameCharacter" />
         </h2>
-        <form role="form">
+        <form>
             <admin:formItem id="gameCharacterNameInput" label="Герой" 
             				placeholder="Sonic, Master Chief, Duke Nukem" type="text" />
             <admin:formItem id="gameCharacterTagInput" label="Таг" 

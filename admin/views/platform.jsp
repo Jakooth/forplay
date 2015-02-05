@@ -7,7 +7,7 @@
         <h2>
             <admin:menuItem label="Добави платформа и създай таг." title="Платформа" url="platform" />
         </h2>
-        <form role="form">
+        <form>
             <admin:formItem id="gamePlatformNameInput" label="Платформа" 
             				placeholder="Xbox 360, PlayStation 4, Android" type="text" />
             <admin:formItem id="gamePlatformTagInput" label="Таг" 
