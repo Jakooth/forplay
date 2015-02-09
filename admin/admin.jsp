@@ -42,19 +42,22 @@
     <script src="../jslib/admin/typeahead.bundle.js">
                 <!--script-->
             </script>
-    <script src="../controllers/utils.js?v=1.5.0" type="text/javascript">
+    <script src="../jslib/admin/ckeditor/ckeditor.js">
+                <!--script-->
+            </script>
+	<script src="../controllers/utils.js?v=1.5.0" type="text/javascript">
                 <!--script-->
             </script>
     <script src="../controllers/admin.js?v=1.5.0" type="text/javascript">
                 <!--script-->
             </script>
-    <script src="../controllers/box.js?v=1.0.0" type="text/javascript">
+    <script src="../controllers/add.js?v=1.0.0" type="text/javascript">
                 <!--script-->
             </script>
     <script type="text/javascript">$(document).ready(function() { 
 				window.utils = new UtilsManager(); 
 				window.admin = new AdminManager(); 
-				window.box = new Box(); });</script>
+				window.add = new AddManager(); });</script>
     </head>
     <body>
     <header id="main">

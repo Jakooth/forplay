@@ -33,7 +33,7 @@
             <admin:formItem id="gameSimilarInput" label="Подобни" 
             				placeholder="saints-row, mafia, red-dead-redemption, crackdown" 
                             type="text" autocomplete="off" />
-            <div class="Box">
+            <div class="Add Box">
                 <button class="add" type="button">Добави Обложка</button>
             </div>
         </form>
