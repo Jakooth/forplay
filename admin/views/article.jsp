@@ -23,7 +23,7 @@
             <admin:formItem id="articleTitle" label="Заглавие" 
             				placeholder="Grand Theft Auto 5" type="text" />
             <admin:formItem id="articleSubtitle" label="Подзаглавие" 
-            				placeholder="Grand Theft Auto 5" type="text" />
+            				placeholder="Grand Theft Auto 5" type="text" />               
             <admin:formItem id="articleAuthorSelect" label="Автор" type="select" layout="two-cols" />
             <admin:formItem id="articleHypeSelect" label="Оценка" type="select" layout="two-cols" />
             <h3>Корица</h3>
@@ -31,9 +31,6 @@
             <admin:formItem id="articleThemeSelect" label="Тип" type="select" layout="two-cols" />
             <admin:formItem id="articleSubthemeSelect" label="Раздел" type="select" layout="two-cols" />
             <h3>Съдържание</h3>
-            <div class="Add Content">
-                <button class="add" type="button">Добави Съдържание</button>
-            </div>
         </form>
         <div role="toolbar">
             <button type="button">Publish</button>
