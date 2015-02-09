@@ -43,7 +43,7 @@ label {
    font-size: 12pt;
 }
 
-.Box select,
+.Add > div > select,
 header a span,
 h2 a,
 nav li a,
@@ -107,14 +107,14 @@ form > .create:hover,
 .Box .file:hover,
 .Box .file input:focus,
 .Box .file input:hover,
-.Box select:focus,
-.Box select:hover,
+.Add > div > select:focus,
+.Add > div > select:hover,
 button:focus,
 button:hover,
 button:first-child:focus,
 button:first-child:hover,
-.Box > button:last-child:focus,
-.Box > button:last-child:hover,
+.Add > button:last-child:focus,
+.Add > button:last-child:hover,
 header a:focus,
 header a:hover,
 h2.active a,
@@ -155,7 +155,7 @@ a:focus {
 	outline: 2px solid #D9E021;
 }
 
-.Box p,
+.Add > div > p,
 a:focus,
 a:hover,
 a:visited,
@@ -163,12 +163,12 @@ h2 a span {
 	color: #D9E021;
 }
 
-.Box svg path,
+.Add > div > svg path,
 svg path {
 	fill: #D9E021;
 }
 
-.Box select,
+.Add > div > select,
 footer,
 footer a,
 h2 a,
@@ -186,7 +186,7 @@ nav li a:visited {
 	color: #FFF;
 }
 
-.Box select,
+.Add > div > select,
 body,
 header a,
 nav li a {
@@ -205,7 +205,7 @@ button {
 
 form > .create,
 .Box .file,
-.Box > button:last-child,
+.Add > button:last-child,
 button:first-child {
 	background-color: #D9E021
 }
@@ -246,8 +246,8 @@ nav li a {
 }
 
 .Window,
-.Box button,
-.Box select,
+.Add > button,
+.Add > div > select,
 form,
 main h2 a,
 div[role=toolbar] button,
@@ -277,7 +277,7 @@ form select {
 	margin-bottom: 20px;
 }
 
-.Box p {
+.Add > div > p {
 	padding-left: 20px;
 } 
 
@@ -629,22 +629,44 @@ form input[type=time] {
 
 
 /**
-  * BOX
+  * Add  - Layout,  Box
   */
   
-.Box {
+.Add {
 	float: left;
 	width: 100%;
 }
 
-.Box p {
+.Add > div > p {
 	position: absolute;
 	margin-top: -37px;
 } 
   
-.Box button {
+.Add > button {
 	width: 100%;
 	display: block;
+}
+
+.Add > div > select {
+	height: 84px;
+	padding-left: 16px;
+	padding-top: 0;
+	padding-bottom: 24px;
+	margin-bottom: 0;
+	width: 100%;
+	border: none;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;	
+}
+
+.Add > div > svg {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	width: 64px;
+	height: 64px;
+	pointer-events: none;
 }
 
 .Box button.remove {
@@ -659,32 +681,16 @@ form input[type=time] {
 	background-repeat: no-repeat
 }
 
+.Content .layout {
+	position: relative;
+	width: 100%;
+	float: left;
+}
+
 .Box .platform {
 	position: relative;
 	width: 400px;
 	float: left;
-}
-
-.Box select {
-	height: 84px;
-	padding-left: 16px;
-	padding-top: 0;
-	padding-bottom: 24px;
-	margin-bottom: 0;
-	width: 100%;
-	border: none;
-	appearance: none;
-	-moz-appearance: none;
-	-webkit-appearance: none;	
-}
-
-.Box svg {
-	position: absolute;
-	right: 10px;
-	top: 10px;
-	width: 64px;
-	height: 64px;
-	pointer-events: none;
 }
 
 .Box .file {
@@ -704,5 +710,49 @@ form input[type=time] {
 	top: 0;
 	right: 0;
 	opacity: 0;
+}
+
+
+
+
+
+/**
+  * Text editor
+  */
+
+.textLayout .center > p,
+.textLayout .center > h3,
+.textLayout .center > blockquote {
+	padding: 20px;
+	line-height: normal;
+}
+
+.textLayout .center p,
+.textLayout .center p * {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14pt;
+	font-style: normal;
+	margin: 0;
+}
+
+.textLayout .center h3 {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 18pt;
+	font-weight: bold;
+	font-style: normal;
+	margin: 0;
+}
+
+.textLayout .center blockquote * {
+	font-family: 'Poiret One', sans-serif;
+	font-size: 24pt;
+	margin: 0;
+	font-weight: normal;
+	font-style: normal;
+	line-height: normal;
+}
+
+.cke_editable_inline.cke_focus {
+	background: #FFF;
 }
 
