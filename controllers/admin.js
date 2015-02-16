@@ -7,6 +7,7 @@ function AdminManager() {
 	var self = this;
 	
 	var authors = '../data/admin/authors.json';
+	var aside = '../data/admin/aside.json';
 	var bgPosition = '../data/admin/bgPosition.json';
 	var subtype = '../data/admin/subtype.json';
 	var type = '../data/admin/type.json';
@@ -74,7 +75,7 @@ function AdminManager() {
 	
 	this.loadOptions = function(target, data, renderer) {
 		var tmpl = $.get('../renderers/admin/' + renderer + '.html'),
-			data = $.get(data);
+			data = $.get(data.prefetch ? data.prefetch.url : data);
 		
 		$.when(tmpl, data).done(function(tmpl, data) {
 			var tmpls = $.templates({
@@ -153,17 +154,23 @@ function AdminManager() {
 	this.loadOptions('#articleSubtypeSelect', subtype, 'option');
 	this.loadOptions('#articleHypeSelect', hype, 'option');
 	this.loadOptions('#articleTypeSelect', type, 'option');
+	this.loadOptions('#articleVersionTestedSelect', gamePlatforms, 'option');
+	this.loadOptions('#asideTypeSelect', type, 'option');
 	this.loadOptions('#articleThemeSelect', theme, 'option');
 	this.loadOptions('#articleSubthemeSelect', subtheme, 'option');
 	this.loadOptions('#gameGenreGroup', gameGenres, 'checkbox');
 	this.loadOptions('#gamePlatformGroup', gamePlatforms, 'checkbox');
+	this.loadOptions('#searchCategorySelect', aside, 'option');
 	
 	initTagInput(tags, 'tags', '#gamePersonTagsInput');
 	initTagInput(tags, 'tags', '#articleTagsInput');
+	initTagInput(tags, 'tags', '#asideTagsInput');
 	initTagInput(tags, 'tags', '#gameCharacterTagsInput');
 	initTagInput(stickers, 'stickers', '#gameStickersInput');
 	initTypeAhead(publishers, 'publishers', '#gamePublisherInput');
 	initTypeAhead(developers, 'developers', '#gameDeveloperInput');
+	initTypeAhead(tags, 'tags', '#imagesTagInput');
+	initTypeAhead(tags, 'tags', '#searchTagInput');
 	initTagInput(games, 'games', '#gameSimilarInput');
 	 
 	 

@@ -6,6 +6,29 @@ function AddManager() {
 	 
 	var self = this;
 	
+	var initAsideTextEditor = function() {
+		CKEDITOR.disableAutoInline = true;
+		CKEDITOR.inline('textLayout_aside', {
+			extraPlugins: 'sourcedialog',
+			toolbar: [
+				{
+					name: 'clipboard', 
+					groups: [ 'clipboard', 'undo' ], 
+					items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ]
+				}, { 
+					name: 'basicstyles', 
+					groups: [ 'basicstyles', 'cleanup' ], 
+					items: [ 'Bold', 'Italic', 'Underline', 'RemoveFormat' ] 
+				}, { 
+					name: 'links', 
+					items: [ 'Link', 'Unlink' ] 
+				}, { 
+					name: 'Sourcedialog', 
+					items: [ 'Sourcedialog' ] 
+				}
+			]
+		});
+	}
 	
 	
 	
@@ -30,14 +53,14 @@ function AddManager() {
 			
 			$appender.before(html);
 			
-			self.hideLayouts($appender.parents('.Content'));
-			self.showLayout('text');
+			self.hideLayouts($appender.prev());
+			self.showLayout($appender.prev(), 'text');
 			
-			utils.convertSVG($appender.parents('.Content').find('img'));
-			$appender.parents('.Content').find('.textLayout .center').attr('id',  'textLayout_' + id);
+			utils.convertSVG($appender.prev().find('img'));
+			$appender.prev().find('.textLayout').attr('id',  'textLayout_' + id);
 			
 			CKEDITOR.disableAutoInline = true;
-			editor = CKEDITOR.inline('textLayout_' + id, {
+			CKEDITOR.inline('textLayout_' + id, {
 				extraPlugins: 'sourcedialog',
 				toolbar: [
 					{
@@ -47,7 +70,7 @@ function AddManager() {
 					}, { 
 						name: 'basicstyles', 
 						groups: [ 'basicstyles', 'cleanup' ], 
-						items: [ 'Bold', 'Italic', 'Underline', 'RemoveFormat' ] 
+						items: [ 'Bold', 'Italic', 'RemoveFormat' ] 
 					}, { 
 						name: 'paragraph', 
 						groups: [ 'blocks' ], 
@@ -69,12 +92,12 @@ function AddManager() {
 		});
 	}
 	
-	this.showLayout = function(value) {
-		$('.' + value + 'Layout').show();
+	this.showLayout = function($appender, value) {
+		$appender.find('.' + value + 'Layout').show();
 	}
 	
 	this.hideLayouts =  function($appender) {
-		$appender.find('[role=group]').hide();
+		$appender.find('.center').hide();
 	}
 	
 	this.addPlatform = function($appender) {
@@ -95,7 +118,42 @@ function AddManager() {
 		$appender.parents('.platform').remove();
 	}
 	
+	this.removeLayout = function($appender) {
+		$appender.parents('.layout').remove();
+	}
 	
+	this.addImage = function($input, e) {
+		var d1 = $.get('../renderers/admin/image.html');
+		
+		$.when(d1).done(function(data1) {
+			var html = data1, 
+				files = e.target.files, 
+				i, f, reader;
+				
+			var $ul = $input.parents('[role=listbox]');
+			
+			for (i = 0; f = files[i]; i++) {
+				if (!f.type.match('image.*')) {
+					continue;
+				}
+				
+				reader = new FileReader();
+				
+				reader.onload = function(e) {
+					$ul.append(html);
+					$ul.find('[role=option]:last-child img').attr('src', e.target.result);
+				}
+				
+				reader.readAsDataURL(f);
+			}
+		}).fail(function() {
+			alert("Failed to load images.");
+		});
+	}
+	
+	this.removeImage = function($appender) {
+		$appender.parents('[role=option]').remove();
+	}
 	
 	
 	
@@ -103,11 +161,12 @@ function AddManager() {
 	/** 
 	 * INIT
 	 */
-	
+	 
+	initAsideTextEditor();
 	 
 	 
 	 
-	 
+	 	 
 	/** 
 	 * EVENTS
 	 */
@@ -116,11 +175,15 @@ function AddManager() {
 		self.addLayout($(this));
 	});
 	
-	$('.Content').on('change', 'select', function (e) {
+	$('.Content').on('change', '.layout > select', function (e) {
 		$this = $(this);
 		
-		self.hideLayouts($this.parents('.Content'));
-		self.showLayout($this.val());
+		self.hideLayouts($this.parents('.layout'));
+		self.showLayout($this.parents('.layout'), $this.val());
+	});
+	
+	$('.Content').on('click', 'button.remove', function (e) {
+		self.removeLayout($(this));
 	});
 	
 	$('.Box').on('click', 'button.add', function (e) {
@@ -129,5 +192,17 @@ function AddManager() {
 	
 	$('.Box').on('click', 'button.remove', function (e) {
 		self.removePlatform($(this));
+	});
+	
+	$('.Box').on('click', 'button.remove', function (e) {
+		self.removePlatform($(this));
+	});
+	
+	$('#images').on('click', 'button.remove', function (e) {
+		self.removeImage($(this));
+	});
+	
+	$('#images').on('change', '.file input', function (e) {
+		self.addImage($(this), e);
 	});
 }

@@ -43,13 +43,17 @@ label {
    font-size: 12pt;
 }
 
-.Add > div > select,
+select.header,
 header a span,
 h2 a,
 nav li a,
 button {
 	font-size: 20pt;
 	font-weight: bold;
+}
+
+.coverLayout h2 {
+	font-size: 31pt;
 }
 
 a,
@@ -101,14 +105,16 @@ a:visited {
   * FOCUS & ACTIVE
   */
 
+button.select:focus,
+button.select:hover,
 form > .create:focus,
 form > .create:hover,
-.Box .file:focus,
-.Box .file:hover,
-.Box .file input:focus,
-.Box .file input:hover,
-.Add > div > select:focus,
-.Add > div > select:hover,
+.file:focus,
+.file:hover,
+.file input:focus,
+.file input:hover,
+select.header:focus,
+select.header:hover,
 button:focus,
 button:hover,
 button:first-child:focus,
@@ -155,7 +161,7 @@ a:focus {
 	outline: 2px solid #D9E021;
 }
 
-.Add > div > p,
+.select-subtitle,
 a:focus,
 a:hover,
 a:visited,
@@ -163,12 +169,17 @@ h2 a span {
 	color: #D9E021;
 }
 
-.Add > div > svg path,
+.select-svg path,
 svg path {
 	fill: #D9E021;
 }
 
-.Add > div > select,
+.create svg path,
+.search svg path {
+	fill: #000000;
+}
+
+select.header,
 footer,
 footer a,
 h2 a,
@@ -186,7 +197,7 @@ nav li a:visited {
 	color: #FFF;
 }
 
-.Add > div > select,
+select.header,
 body,
 header a,
 nav li a {
@@ -203,8 +214,10 @@ button {
 	border: none;
 }
 
+button.select,
+button.search,
 form > .create,
-.Box .file,
+.file,
 .Add > button:last-child,
 button:first-child {
 	background-color: #D9E021
@@ -245,9 +258,11 @@ nav li a {
 	padding: 10px;
 }
 
+.coverLayout,
 .Window,
-.Add > button,
-.Add > div > select,
+.Add button.add,
+.Add button.remove,
+select.header,
 form,
 main h2 a,
 div[role=toolbar] button,
@@ -259,25 +274,27 @@ main h2 a {
 	padding-bottom: 10px;
 }
 
+#images li .img,
 form label span {
 	margin-bottom: 10px;
 }
 
+#images li:first-child,
 div[role=group] label {
 	margin-bottom: 0;
 }
 
+#images li,
 h3,
 .hidden,
 .Window h2 span,
 .Box .file,
-div[role=group],
 form input,
 form select {
 	margin-bottom: 20px;
 }
 
-.Add > div > p {
+.select-subtitle {
 	padding-left: 20px;
 } 
 
@@ -493,6 +510,7 @@ form {
 	width: 100%;
 }
 
+form > .search,
 form > .create {
 	display: block;
 	width: 58px;
@@ -505,6 +523,7 @@ form > .create {
 	padding: 17px;
 }
 
+form > .search svg,
 form > .create svg {
 	width: 24px;
 	height: 24px;
@@ -527,6 +546,7 @@ form input {
 div[role=group] {
 	float: left;
 	width: 100%;
+	position: relative;
 }
 
 div[role=group] label {
@@ -628,8 +648,9 @@ form input[type=time] {
 
 
 
+
 /**
-  * Add  - Layout,  Box
+  * Add  - Layout,  Box, Images
   */
   
 .Add {
@@ -637,17 +658,19 @@ form input[type=time] {
 	width: 100%;
 }
 
-.Add > div > p {
+.select-subtitle {
 	position: absolute;
-	margin-top: -37px;
+	top: 47px;
 } 
-  
-.Add > button {
+
+.Add button.add,
+.Add button.remove {
 	width: 100%;
 	display: block;
+	line-height: normal;
 }
 
-.Add > div > select {
+select.header {
 	height: 84px;
 	padding-left: 16px;
 	padding-top: 0;
@@ -660,7 +683,7 @@ form input[type=time] {
 	-webkit-appearance: none;	
 }
 
-.Add > div > svg {
+.select-svg {
 	position: absolute;
 	right: 10px;
 	top: 10px;
@@ -669,22 +692,53 @@ form input[type=time] {
 	pointer-events: none;
 }
 
+.imageLayout .select-svg {
+	right: 286px;
+}
+
+.coverLayout h2 {
+	margin: 0;
+	float: none;
+	line-height: normal;
+}
+
+.Add button.select {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+button.select:after {
+	content: "";
+	position: absolute;
+	width: 128px;
+	height: 128px;
+	margin-top: -64px;
+	margin-left: -64px;
+	left: 50%;
+	top: 50%;
+	border-radius: 64px;
+	background-color: #FFF;
+	background-image: url(icons/iconmonstr-plus-2-icon.svg);
+	background-size: 64px 64px;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+button.remove {
+	background-image: url(icons/iconmonstr-x-mark-5-icon.svg);
+	background-size: 64px 64px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	min-height: 76px;
+}
+
 .Box button.remove {
 	position: absolute;
 	top: 84px;
 	right: 0;
 	width: 200px;
 	height: 280px;
-	background-image: url(icons/iconmonstr-x-mark-5-icon.svg);
-	background-size: 64px 64px;
-	background-position: center center;
-	background-repeat: no-repeat
-}
-
-.Content .layout {
-	position: relative;
-	width: 100%;
-	float: left;
 }
 
 .Box .platform {
@@ -693,7 +747,7 @@ form input[type=time] {
 	float: left;
 }
 
-.Box .file {
+.file {
 	position: relative;
 	overflow: hidden;
 	width: 200px;
@@ -704,13 +758,173 @@ form input[type=time] {
 	background-repeat: no-repeat;
 }
 
-.Box input[type=file] {
+#images .file {
+	width: 320px;
+	height: 180px;
+}
+
+[role=listbox] li {
+	float: left;
+	position: relative;
+	width: 320px;
+}
+
+[role=listbox] input {
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	width: 32px;
+	height: 32px;
+}
+
+#images li button.remove {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 48px;
+	height: 48px;
+	background-size: 32px 32px;
+	min-height: 48px;
+}
+
+[role=listbox] .img {
+	width: 320px;
+	height: 180px;
+	overflow: hidden;
+}
+
+[role=listbox] img {
+	display: block;
+	width: 100%;
+}
+
+.file input[type=file] {
 	font-size: 200pt;
 	position: absolute;
 	top: 0;
 	right: 0;
 	opacity: 0;
 }
+
+.Content {
+	clear: both;
+}
+
+.Content .layout {
+	position: relative;
+	width: 100%;
+	float: left;
+	background: #FFF;
+}
+
+.Content .left {
+	position: absolute;
+	float: left;
+	left: 0;
+	width: 17%;
+	top: 0;
+	bottom: 0;
+}
+
+.Content .center {
+	margin-left: 17%;
+	float: left;
+	width: 66%;
+	min-height: 320px;
+}
+
+.Content .right {
+	position: absolute;
+	float: left;
+	left: 83%;
+	width: 17%;
+	top: 0;
+	bottom: 0;
+}
+
+
+
+
+
+
+
+
+/**
+  * Image layouts
+  */
+
+.z0Layout button.select:after,
+.a1Layout button.select:after {
+	background-image: url(icons/iconmonstr-picture-icon.svg)
+}
+
+.z0Layout {
+	position: relative;
+	width: 100%;
+}
+
+.z0Layout button.select {
+	position: relative;
+	display: block;
+	width: 100%;
+}
+
+.z0Layout button.select img {
+	width: 100%;
+}
+
+.a1Layout {
+	float: none;
+	position: relative;
+	width: 100%;
+	padding: 20px;
+	height: 600px;
+}
+
+.a1Layout button.select,
+.a1Layout p {
+	display: block;
+	position: absolute;
+	float: none;
+	width: 320px;
+	height: 180px;
+}
+
+.a1Layout p {
+	height: auto;
+}
+
+.a1Layout button.select:nth-of-type(1) {
+	right: 360px;
+}
+
+.a1Layout p:nth-of-type(1) {
+	right: 700px;
+}
+
+.a1Layout button.select:nth-of-type(2) {
+	right: 20px;
+}
+
+.a1Layout p:nth-of-type(2) {
+	left: 680px;
+	top: 220px;
+}
+
+.a1Layout button.select:nth-of-type(3) {
+	left: 20px;
+	top: 220px;
+	width: 640px;
+	height: 360px;
+}
+
+.a1Layout p:nth-of-type(3) {
+	left: 680px;
+	bottom: 20px;
+}
+
+
+
 
 
 
@@ -720,22 +934,34 @@ form input[type=time] {
   * Text editor
   */
 
-.textLayout .center > p,
-.textLayout .center > h3,
-.textLayout .center > blockquote {
+.textLayout {
+	min-height: 320px;
+}
+
+.textLayout > p,
+.textLayout > h3,
+.textLayout > blockquote {
 	padding: 20px;
 	line-height: normal;
 }
 
-.textLayout .center p,
-.textLayout .center p * {
+.textLayout p,
+.textLayout p * {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 14pt;
 	font-style: normal;
 	margin: 0;
 }
 
-.textLayout .center h3 {
+.textLayout strong {
+	font-weight: bold;
+}
+
+.textLayout em {
+	font-style: italic;
+}
+
+.textLayout h3 {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 18pt;
 	font-weight: bold;
@@ -743,7 +969,7 @@ form input[type=time] {
 	margin: 0;
 }
 
-.textLayout .center blockquote * {
+.textLayout blockquote * {
 	font-family: 'Poiret One', sans-serif;
 	font-size: 24pt;
 	margin: 0;
@@ -752,7 +978,37 @@ form input[type=time] {
 	line-height: normal;
 }
 
-.cke_editable_inline.cke_focus {
-	background: #FFF;
+.cke_editable_inline:before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(217, 224, 33, 0.7);
+	cursor: pointer;
 }
 
+.cke_editable_inline:after {
+	content: "";
+	position: absolute;
+	width: 128px;
+	height: 128px;
+	margin-top: -64px;
+	margin-left: -64px;
+	left: 50%;
+	top: 50%;
+	border-radius: 64px;
+	background-color: #FFF;
+	background-image: url(icons/iconmonstr-pencil-10-icon.svg);
+	background-size: 64px 64px;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+.cke_editable_inline:hover:before {
+	background-color: rgba(199, 178, 153, 0.7);
+}
+
+.cke_editable_inline.cke_focus:before,
+.cke_editable_inline.cke_focus:after {
+	display: none;
+}

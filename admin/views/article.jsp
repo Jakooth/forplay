@@ -26,19 +26,19 @@
             				placeholder="Grand Theft Auto 5" type="text" />
             <admin:formItem id="articleAuthorSelect" label="Автор" type="select" layout="two-cols" />
             <admin:formItem id="articleHypeSelect" label="Оценка" type="select" layout="two-cols" />
+            <admin:formItem id="articleVersionTestedSelect" label="Тествана версия" type="select" />
             <h3>Корица</h3>
             <admin:formItem id="articleBgPositionSelect" label="Раздел" type="select" />
             <admin:formItem id="articleThemeSelect" label="Тип" type="select" layout="two-cols" />
             <admin:formItem id="articleSubthemeSelect" label="Раздел" type="select" layout="two-cols" />
-            <h3>Съдържание</h3>
             <div class="Add Content">
                 <button class="add" type="button">Добави Съдържание</button>
             </div>
         </form>
         <div role="toolbar">
-            <button type="button">Publish</button>
-            <button type="button">Save</button>
-            <button type="button">Cancel</button>
+        	<button class="publish" type="button">Публикувай</button>
+            <button class="save" type="button">Запази</button>
+            <button class="cancel" type="button">Отмени</button>
         </div>
     </section>
 </jsp:root>

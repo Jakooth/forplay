@@ -14,8 +14,8 @@
             				placeholder="action, adventure, mmo" type="text" />
         </form>
         <div role="toolbar">
-            <button type="button">Save</button>
-            <button type="button">Cancel</button>
+            <button class="save" type="button">Запази</button>
+            <button class="cancel" type="button">Отмени</button>
         </div>
     </section>
 </jsp:root>

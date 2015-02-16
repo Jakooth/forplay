@@ -36,7 +36,7 @@
         <c:otherwise>
             <label class="${layout}">
                 <span>${label}:</span>
-                <input id="${id}" placeholder="${placeholder}" type="${type}" autocomplete="${autocomplete}" />
+                <input id="${id}" placeholder="${placeholder}" type="${type == 'search' ? 'text' : type}" autocomplete="${autocomplete}" />
             </label>
         </c:otherwise>
     </c:choose>
@@ -44,5 +44,10 @@
         <a href="#${url}" class="create">
             <img class="svg" src="../assets/admin/icons/iconmonstr-plus-2-icon.svg" alt="Създай ${label}" />
         </a>
+    </c:if>
+    <c:if test="${type == 'search'}">
+        <button type="button" class="search">
+            <img class="svg" src="../assets/admin/icons/iconmonstr-magnifier-4-icon.svg" alt="Търси" />
+        </button>
     </c:if>
 </jsp:root>

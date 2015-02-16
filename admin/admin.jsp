@@ -45,7 +45,7 @@
     <script src="../jslib/admin/ckeditor/ckeditor.js">
                 <!--script-->
             </script>
-	<script src="../controllers/utils.js?v=1.5.0" type="text/javascript">
+    <script src="../controllers/utils.js?v=1.5.0" type="text/javascript">
                 <!--script-->
             </script>
     <script src="../controllers/admin.js?v=1.5.0" type="text/javascript">
@@ -113,6 +113,9 @@
         <jsp:include page="views/gamePerson.jsp" />
         <jsp:include page="views/gameCharacter.jsp" />
         <jsp:include page="views/gameGenre.jsp" />
+        <jsp:include page="views/aside.jsp" />
+        <jsp:include page="views/images.jsp" />
+        <jsp:include page="views/search.jsp" />
     </main>
     <footer>
         <p>&amp;copy; Copyright 2015

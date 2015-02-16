@@ -9,14 +9,5 @@
   },
   { "option" : "новина",
     "value" : "news"
-  },
-  { "option" : "информация",
-    "value" : "info"
-  },
-  { "option" : "каре",
-    "value" : "aside"
-  },
-  { "option" : "цитат",
-    "value" : "q"
   }
 ]
