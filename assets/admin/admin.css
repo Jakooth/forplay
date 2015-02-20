@@ -52,6 +52,11 @@ button {
 	font-weight: bold;
 }
 
+[role=option] p {
+	font-size: 16pt;
+	font-weight:  bold;
+}
+
 .coverLayout h2 {
 	font-size: 31pt;
 }
@@ -197,6 +202,7 @@ nav li a:visited {
 	color: #FFF;
 }
 
+[role=option] p,
 select.header,
 body,
 header a,
@@ -763,13 +769,13 @@ button.remove {
 	height: 180px;
 }
 
-[role=listbox] li {
+[role=option] {
 	float: left;
 	position: relative;
 	width: 320px;
 }
 
-[role=listbox] input {
+[role=option] input {
 	position: absolute;
 	left: 10px;
 	top: 10px;
@@ -787,15 +793,42 @@ button.remove {
 	min-height: 48px;
 }
 
-[role=listbox] .img {
+[role=option] .img {
 	width: 320px;
 	height: 180px;
 	overflow: hidden;
 }
 
-[role=listbox] img {
+[role=option] img {
 	display: block;
 	width: 100%;
+}
+
+[role=option] p {
+	padding: 20px;
+	padding-left: 52px;
+	padding-bottom: 60px;
+	display: block;
+	display: -webkit-box;
+	width: 100%;
+	height: 180px;
+	margin: 0 auto;
+	line-height: 1.4;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	color: #FFF;
+	position: relative;
+}
+
+[role=option] p span {
+	position: absolute;
+	bottom: 0;
+	height: 40px;
+	display: block;
+	width: 100%;
+	background-color: #0CF;
 }
 
 .file input[type=file] {

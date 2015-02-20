@@ -16,6 +16,41 @@
             				type="select" />
             <ul role="listbox">
                 <li role="option">
+                    <p>Grand Theft Auto 5</p>
+                    <label>
+                        <span class="clip">Grand Theft Auto 5</span>
+                        <input name="searchChoice" type="radio" />
+                    </label>
+                </li>
+                <li role="option">
+                    <p>Grand Theft Auto V – сатирично менгеме. Вече и в 1080p!
+                        <span>ревю</span>
+                    </p>
+                    <label>
+                        <span class="clip">Grand Theft Auto V – сатирично менгеме.
+                            Вече и в 1080p!</span>
+                        <input name="searchChoice" type="radio" />
+                    </label>
+                </li>
+                <li role="option">
+                    <p>Каре
+                        <span>каре</span>
+                    </p>
+                    <label>
+                        <span class="clip">Каре</span>
+                        <input name="searchChoice" type="radio" />
+                    </label>
+                </li>
+                <li role="option">
+                    <p>Новина
+                        <span>новина</span>
+                    </p>
+                    <label>
+                        <span class="clip">Новина</span>
+                        <input name="searchChoice" type="radio" />
+                    </label>
+                </li>
+                <li role="option">
                     <div class="img">
                         <img src="../assets/articles/gta-5/gta-5-01.jpg" alt="Без коментар." />
                     </div>
