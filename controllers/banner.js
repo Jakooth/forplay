@@ -1,6 +1,19 @@
 function BannerManager() {
 	
 	/** 
+	 * PRIVATE
+	 */
+	 
+	var self = this;
+	
+	
+	
+	
+	
+	
+	
+	
+	/** 
 	 * PUBLIC
 	 */
 	
@@ -37,19 +50,6 @@ function BannerManager() {
 			$covers.removeAttr('style')
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	/** 
-	 * PRIVATE
-	 */
-	 
-	var self = this;
 	
 	/**
 	 * This function will just load the next or previous cover.

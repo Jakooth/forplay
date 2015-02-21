@@ -52,11 +52,6 @@ button {
 	font-weight: bold;
 }
 
-[role=option] p {
-	font-size: 16pt;
-	font-weight:  bold;
-}
-
 .coverLayout h2 {
 	font-size: 31pt;
 }
@@ -112,8 +107,8 @@ a:visited {
 
 button.select:focus,
 button.select:hover,
-form > .create:focus,
-form > .create:hover,
+a.create:focus,
+a.create:hover,
 .file:focus,
 .file:hover,
 .file input:focus,
@@ -202,7 +197,7 @@ nav li a:visited {
 	color: #FFF;
 }
 
-[role=option] p,
+[role=option] label,
 select.header,
 body,
 header a,
@@ -210,9 +205,12 @@ nav li a {
 	background-color: #666666;
 }
 
-header.compact h1 a:after,
-main h2 a:after {
+header.compact h1 a:after {
 	border-color: transparent transparent transparent #666666;
+}
+
+main h2 a:after {
+	border-color: transparent transparent transparent #C7B299;
 }
 
 button {
@@ -222,13 +220,14 @@ button {
 
 button.select,
 button.search,
-form > .create,
+a.create,
 .file,
 .Add > button:last-child,
 button:first-child {
-	background-color: #D9E021
+	background-color: #D9E021;
 }
 
+[role=option] img,
 form {
 	background-color: #E6E6E6;
 }
@@ -256,6 +255,7 @@ form .two-cols input[type=date] {
 	margin-right: 20px;
 }
 
+[role=option] p,
 .hidden b,
 .hidden,
 form input[type=text],
@@ -280,7 +280,6 @@ main h2 a {
 	padding-bottom: 10px;
 }
 
-#images li .img,
 form label span {
 	margin-bottom: 10px;
 }
@@ -516,8 +515,8 @@ form {
 	width: 100%;
 }
 
-form > .search,
-form > .create {
+button.search,
+a.create {
 	display: block;
 	width: 58px;
 	height: 58px;
@@ -529,8 +528,12 @@ form > .create {
 	padding: 17px;
 }
 
-form > .search svg,
-form > .create svg {
+.two-cols button.search {
+	margin-right: 21px;
+}
+
+button.search svg,
+a.create svg {
 	width: 24px;
 	height: 24px;
 }
@@ -558,12 +561,26 @@ div[role=group] {
 div[role=group] label {
 	clear: none;
 	float: left;
-	width: 30%;
+	width: 33.33%;
+	margin-right: 20px;
+}
+
+div[role=group] label span {
+	line-height: 24px;
+	display: inline;
+	vertical-align: top;
+	margin: 0;
 }
 
 form input[type=text] {
 	width: 100%;
 	height: 60px;
+}
+
+form input[type=checkbox] {
+	width: 24px;
+	height: 24px;
+	margin-right: 6px;
 }
 
 select,
@@ -624,9 +641,9 @@ form input[type=time] {
 
 .Window {
 	position: absolute;
-	top: 20%;
-	left: 20%;
-	right: 20%;
+	top: 9%;
+	left: 9%;
+	right: 9%;
 	background-color: rgba(0, 0, 0, 0.5);
 	z-index: 12000;
 }
@@ -714,19 +731,23 @@ select.header {
 	height: 100%;
 }
 
+button.select {
+	background-size: cover;
+}
+
 button.select:after {
 	content: "";
 	position: absolute;
-	width: 128px;
-	height: 128px;
-	margin-top: -64px;
-	margin-left: -64px;
+	width: 64px;
+	height: 64px;
+	margin-top: -32px;
+	margin-left: -32px;
 	left: 50%;
 	top: 50%;
 	border-radius: 64px;
-	background-color: #FFF;
+	background-color: rgba(255, 255, 255, 0.5);
 	background-image: url(icons/iconmonstr-plus-2-icon.svg);
-	background-size: 64px 64px;
+	background-size: 32px 32px;
 	background-position: center center;
 	background-repeat: no-repeat;
 }
@@ -764,9 +785,17 @@ button.remove {
 	background-repeat: no-repeat;
 }
 
+.file label {
+	background-color: transparent;
+}
+
 #images .file {
 	width: 320px;
 	height: 180px;
+}
+
+[role=listbox] {
+	float: left;
 }
 
 [role=option] {
@@ -793,7 +822,7 @@ button.remove {
 	min-height: 48px;
 }
 
-[role=option] .img {
+[role=option] label {
 	width: 320px;
 	height: 180px;
 	overflow: hidden;
@@ -804,31 +833,55 @@ button.remove {
 	width: 100%;
 }
 
-[role=option] p {
-	padding: 20px;
-	padding-left: 52px;
-	padding-bottom: 60px;
+[role=option] label span {
+	top: 20px;
+	left: 52px;
+	right: 20px;
+	bottom: 60px;
 	display: block;
 	display: -webkit-box;
-	width: 100%;
-	height: 180px;
 	margin: 0 auto;
-	line-height: 1.4;
-	-webkit-line-clamp: 3;
+	line-height: 25px;
+	-webkit-line-clamp: 4;
 	-webkit-box-orient: vertical;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	color: #FFF;
-	position: relative;
+	position: absolute;
 }
 
-[role=option] p span {
+[role=option]:after {	
 	position: absolute;
 	bottom: 0;
+	right: 0;
+	left: 0;
+	text-align: right;
 	height: 40px;
 	display: block;
-	width: 100%;
-	background-color: #0CF;
+	line-height: 40px;
+	padding: 0 20px;
+	color: #FFF;
+	font-weight: bold;
+}
+
+[role=option].review:after {
+	background-color: #6666CC;
+	content: attr(data-type) "";
+}
+
+[role=option].news:after {
+	background-color: #FF6600;
+	content: attr(data-type) "";
+}
+
+[role=option].object:after,
+[role=option].aside:after {
+	content: attr(data-type) "";
+}
+
+[role=option].feature:after {
+	background-color: #99CC00;
+	content: attr(data-type) "";
 }
 
 .file input[type=file] {
@@ -888,7 +941,7 @@ button.remove {
 
 .z0Layout button.select:after,
 .a1Layout button.select:after {
-	background-image: url(icons/iconmonstr-picture-icon.svg)
+	background-image: url(icons/iconmonstr-picture-icon.svg);
 }
 
 .z0Layout {
@@ -921,6 +974,10 @@ button.remove {
 	float: none;
 	width: 320px;
 	height: 180px;
+}
+
+.a1Layout p {
+	width: 15%;
 }
 
 .a1Layout p {

@@ -24,10 +24,10 @@
             </admin:formItem>
             <admin:formItem id="gamePublisherInput" label="Разпространител" 
             				placeholder="SEGA" type="text" 
-                            autocomplete="off" url="gameCompany" />
+                            autocomplete="off" url="gameCompany" layout="one-col" />
             <admin:formItem id="gameDeveloperInput" label="Разработчик" 
             				placeholder="Creative Assembly" type="text" 
-                            autocomplete="off" url="gameCompany" />
+                            autocomplete="off" url="gameCompany" layout="one-col" />
             <admin:formItem id="gameUsDateInput" label="Премиера за САЩ" type="date" layout="two-cols" />
             <admin:formItem id="gameEuDateInput" label="Премиера за Европа" type="date" layout="two-cols" />
             <admin:formItem id="gameSimilarInput" label="Подобни" 

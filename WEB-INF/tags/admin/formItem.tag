@@ -10,6 +10,9 @@
     <jsp:directive.attribute name="autocomplete" required="false" />
     <jsp:directive.attribute name="url" required="false" />
     <jsp:directive.attribute name="layout" required="false" />
+    <c:if test="${!empty layout}">
+        <![CDATA[<div class="${layout}">]]>
+    </c:if>
     <c:choose>
         <c:when test="${type == 'group'}">
             <label>
@@ -20,7 +23,7 @@
             </div>
         </c:when>
         <c:when test="${type == 'select'}">
-            <label class="${layout}">
+            <label>
                 <span>${label}:</span>
                 <select id="${id}">
                     <jsp:doBody />
@@ -30,24 +33,35 @@
         <c:when test="${type == 'hidden'}">
             <label>
                 <input id="${id}" type="${type}" />
-                <span class="hidden"><i>${label}:</i><b>hidden</b>${placeholder}</span>
+                <span class="hidden">
+                    <i>${label}:</i>
+                    <b>hidden</b>
+                    ${placeholder}</span>
             </label>
         </c:when>
         <c:otherwise>
-            <label class="${layout}">
+            <label>
                 <span>${label}:</span>
-                <input id="${id}" placeholder="${placeholder}" type="${type == 'search' ? 'text' : type}" autocomplete="${autocomplete}" />
+                <input id="${id}" 
+                	   placeholder="${placeholder}" 
+                	   type="${type == 'search' ? 'text' : type}" 
+                       autocomplete="${autocomplete}" />
             </label>
         </c:otherwise>
     </c:choose>
     <c:if test="${!empty url}">
         <a href="#${url}" class="create">
-            <img class="svg" src="../assets/admin/icons/iconmonstr-plus-2-icon.svg" alt="Създай ${label}" />
+            <img class="svg" alt="Създай ${label}" 
+            	 src="../assets/admin/icons/iconmonstr-plus-2-icon.svg" />
         </a>
     </c:if>
     <c:if test="${type == 'search'}">
         <button type="button" class="search">
-            <img class="svg" src="../assets/admin/icons/iconmonstr-magnifier-4-icon.svg" alt="Търси" />
+            <img class="svg" alt="Търси" 
+            	 src="../assets/admin/icons/iconmonstr-magnifier-4-icon.svg" />
         </button>
+    </c:if>
+    <c:if test="${!empty layout}">
+        <![CDATA[</div>]]>
     </c:if>
 </jsp:root>

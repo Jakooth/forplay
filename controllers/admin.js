@@ -72,6 +72,8 @@ function AdminManager() {
 	/** 
 	 * PUBLIC
 	 */
+	 
+	this.selectTarget = null; 
 	
 	this.loadOptions = function(target, data, renderer) {
 		var tmpl = $.get('../renderers/admin/' + renderer + '.html'),
@@ -195,6 +197,19 @@ function AdminManager() {
 	$('form').on('click', '.create', function (e) {
 		e.preventDefault();
 		self.showSectionInWindow($(this).attr('href'));
+	});
+	
+	$('form').on('click', '.select', function (e) {
+		e.preventDefault();
+		self.showSectionInWindow('#search');
+		
+		window.admin.selectTarget = $(this);
+	});
+	
+	$('body').on('click', '.Window #search button.ok', function (e) {		
+		window.admin.selectTarget.focus();
+		window.admin.selectTarget.css('background-image', 
+									  'url(' + $('input:checked').parents('label').find('img').attr('src')+ ')');
 	});
 	
 	$('body').on('click', '.Window button', function (e) {

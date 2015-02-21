@@ -1,10 +1,21 @@
 function UtilsManager() {
 	
 	/** 
-	 * PUBLIC
+	 * PRIVATE
 	 */
 	 
-	var self = this; 
+	var self = this;
+	
+	
+	
+	
+	
+	
+	
+	
+	/** 
+	 * PUBLIC
+	 */
 	
 	this.convertSVG = function($img) {		
 		var	imgID = $img.attr('id'),

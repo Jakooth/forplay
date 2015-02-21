@@ -59,6 +59,8 @@ function AddManager() {
 			utils.convertSVG($appender.prev().find('img'));
 			$appender.prev().find('.textLayout').attr('id',  'textLayout_' + id);
 			
+			$(document).scrollTop($appender.offset().top);
+			
 			CKEDITOR.disableAutoInline = true;
 			CKEDITOR.inline('textLayout_' + id, {
 				extraPlugins: 'sourcedialog',

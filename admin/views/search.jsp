@@ -11,131 +11,103 @@
         <form>
             <admin:formItem id="searchTagInput" label="Таг" 
             				placeholder="gta-5, sam-houser, rockstar" 
-                            type="search" autocomplete="off" />
+                            type="search" autocomplete="off" layout="two-cols" />
             <admin:formItem id="searchCategorySelect" label="Категория" 
-            				type="select" />
+            				type="select" layout="two-cols" />
+            <h3 class="clip">Резултати</h3>
             <ul role="listbox">
-                <li role="option">
-                    <p>Grand Theft Auto 5</p>
+                <li class="object" role="option" data-type="игра">
                     <label>
-                        <span class="clip">Grand Theft Auto 5</span>
+                        <span>Grand Theft Auto 5</span>
                         <input name="searchChoice" type="radio" />
                     </label>
                 </li>
-                <li role="option">
-                    <p>Grand Theft Auto V – сатирично менгеме. Вече и в 1080p!
-                        <span>ревю</span>
-                    </p>
+                <li class="review" role="option" data-type="ревю">
                     <label>
-                        <span class="clip">Grand Theft Auto V – сатирично менгеме.
-                            Вече и в 1080p!</span>
+                        <span>Grand Theft Auto V – сатирично менгеме. Вече и
+                            в 1080p!</span>
                         <input name="searchChoice" type="radio" />
                     </label>
                 </li>
-                <li role="option">
-                    <p>Каре
-                        <span>каре</span>
-                    </p>
+                <li class="aside" role="option" data-type="каре">
                     <label>
-                        <span class="clip">Каре</span>
+                        <span>Лосантосейшън - или 10 начина да плющим в Лос Сантос.</span>
                         <input name="searchChoice" type="radio" />
                     </label>
                 </li>
-                <li role="option">
-                    <p>Новина
-                        <span>новина</span>
-                    </p>
+                <li class="news" role="option" data-type="новина">
                     <label>
-                        <span class="clip">Новина</span>
+                        <span>Линдзи Лоън съди авторите на Grand Theft Auto V,
+                            но в крайна сметка яде бахора, като дърта пача.</span>
                         <input name="searchChoice" type="radio" />
                     </label>
                 </li>
-                <li role="option">
-                    <div class="img">
+                <li class="img" role="option" data-type="картинка">
+                    <label>
                         <img src="../assets/articles/gta-5/gta-5-01.jpg" alt="Без коментар." />
-                    </div>
-                    <label>
                         <span class="clip">gta-5-01.jpg</span>
                         <input name="searchChoice" type="radio" />
                     </label>
                 </li>
-                <li role="option">
-                    <div class="img">
-                        <img src="../assets/articles/gta-5/gta-5-02.jpg" alt="Без коментар." />
-                    </div>
+                <li class="img" role="option" data-type="картинка">
                     <label>
+                        <img src="../assets/articles/gta-5/gta-5-02.jpg" alt="Без коментар." />
                         <span class="clip">gta-5-02.jpg</span>
                         <input name="searchChoice" type="radio" />
                     </label>
                 </li>
-                <li role="option">
-                    <div class="img">
-                        <img src="../assets/articles/gta-5/gta-5-03.jpg" alt="Без коментар." />
-                    </div>
+                <li class="img" role="option" data-type="картинка">
                     <label>
+                        <img src="../assets/articles/gta-5/gta-5-03.jpg" alt="Без коментар." />
                         <span class="clip">gta-5-03.jpg</span>
                         <input name="searchChoice" type="radio" />
                     </label>
                 </li>
-                <li role="option">
-                    <div class="img">
-                        <img src="../assets/articles/gta-5/gta-5-04.jpg" alt="Без коментар." />
-                    </div>
+                <li class="img" role="option" data-type="картинка">
                     <label>
+                        <img src="../assets/articles/gta-5/gta-5-04.jpg" alt="Без коментар." />
                         <span class="clip">gta-5-04.jpg</span>
                         <input name="searchChoice" type="radio" />
                     </label>
                 </li>
-                <li role="option">
-                    <div class="img">
-                        <img src="../assets/articles/gta-5/gta-5-05.jpg" alt="Без коментар." />
-                    </div>
+                <li class="img" role="option" data-type="картинка">
                     <label>
+                        <img src="../assets/articles/gta-5/gta-5-05.jpg" alt="Без коментар." />
                         <span class="clip">gta-5-05.jpg</span>
                         <input name="searchChoice" type="radio" />
                     </label>
                 </li>
-                <li role="option">
-                    <div class="img">
-                        <img src="../assets/articles/gta-5/gta-5-06.jpg" alt="Без коментар." />
-                    </div>
+                <li class="img" role="option" data-type="картинка">
                     <label>
+                        <img src="../assets/articles/gta-5/gta-5-06.jpg" alt="Без коментар." />
                         <span class="clip">gta-5-06.jpg</span>
                         <input name="searchChoice" type="radio" />
                     </label>
                 </li>
-                <li role="option">
-                    <div class="img">
-                        <img src="../assets/articles/gta-5/gta-5-07.jpg" alt="Без коментар." />
-                    </div>
+                <li class="img" role="option" data-type="картинка">
                     <label>
+                        <img src="../assets/articles/gta-5/gta-5-07.jpg" alt="Без коментар." />
                         <span class="clip">gta-5-07.jpg</span>
                         <input name="searchChoice" type="radio" />
                     </label>
                 </li>
-                <li role="option">
-                    <div class="img">
-                        <img src="../assets/articles/gta-5/gta-5-main.jpg" alt="Без коментар." />
-                    </div>
+                <li class="img" role="option" data-type="картинка">
                     <label>
+                        <img src="../assets/articles/gta-5/gta-5-main.jpg" alt="Без коментар." />
                         <span class="clip">gta-5-main.jpg</span>
                         <input name="searchChoice" type="radio" />
                     </label>
                 </li>
-                <li role="option">
-                    <div class="img">
-                        <img src="../assets/articles/gta-5/gta-5-main-320.png" alt="Без коментар." />
-                    </div>
+                <li class="img" role="option" data-type="картинка">
                     <label>
+                        <img src="../assets/articles/gta-5/gta-5-main-320.png" alt="Без коментар." />
                         <span class="clip">gta-5-main-320.png</span>
                         <input name="searchChoice" type="radio" />
                     </label>
                 </li>
-                <li role="option">
-                    <div class="img">
-                        <img src="../assets/articles/gta-5/gta-5-cover.jpg" alt="Без коментар." />
-                    </div>
+                <li class="img" role="option" data-type="картинка">
                     <label>
+                        <img src="../assets/articles/gta-5/gta-5-cover.jpg" alt="Без коментар." />
                         <span class="clip">gta-5-cover.jpg</span>
                         <input name="searchChoice" type="radio" />
                     </label>

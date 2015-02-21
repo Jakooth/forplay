@@ -102,6 +102,13 @@
                 </li>
             </ul>
         </nav>
+        <nav aria-label="Бърза навигация назад">
+            <ul>
+            	<li></li>
+                <li></li>
+                <!--admin.js-->
+            </ul>
+        </nav>
     </header>
     <main>
         <jsp:include page="views/games.jsp" />
