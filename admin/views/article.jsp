@@ -36,7 +36,7 @@
             </div>
         </form>
         <div role="toolbar">
-        	<button class="publish" type="button">Публикувай</button>
+            <button class="publish" type="button">Публикувай</button>
             <button class="save" type="button">Запази</button>
             <button class="cancel" type="button">Отмени</button>
         </div>

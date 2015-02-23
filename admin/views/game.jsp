@@ -12,6 +12,9 @@
             				placeholder="Grand Theft Auto 5" type="text" />
             <admin:formItem id="gameBgNameInput" label="Име на играта на български" 
             				placeholder="Гранд Тефт Ауто 5" type="text" />
+            <admin:formItem id="gameSeriesInput" label="Поредица" 
+            				placeholder="gta, halo" type="text" 
+                            autocomplete="off" url="gameSerie" layout="one-col" />
             <admin:formItem id="gameTagInput" label="Таг" 
             				placeholder="gta-5" type="text" />
             <admin:formItem id="gameStickersInput" label="Стикери" 

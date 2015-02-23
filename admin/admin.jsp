@@ -21,10 +21,10 @@
     <link rel="stylesheet" type="text/css" href="../assets/admin/bootstrap-tagsinput.css" />
     <link rel="stylesheet" type="text/css" href="../assets/admin/typeaheadjs.css" />
     <link rel="stylesheet" type="text/css" href="../assets/admin/admin.css" />
-    <script src="../jslib/jquery-1.11.0.min.js" type="text/javascript">
+    <script src="../jslib/jquery-1.11.0.min.js">
                 <!--script-->
             </script>
-    <script src="../jslib/jsrender.min.js" type="text/javascript">
+    <script src="../jslib/jsrender.min.js">
                 <!--script-->
             </script>
     <script src="../jslib/admin/angular.min.js">
@@ -45,16 +45,16 @@
     <script src="../jslib/admin/ckeditor/ckeditor.js">
                 <!--script-->
             </script>
-    <script src="../controllers/utils.js?v=1.5.0" type="text/javascript">
+    <script src="../controllers/utils.js?v=1.5.0">
                 <!--script-->
             </script>
-    <script src="../controllers/admin.js?v=1.5.0" type="text/javascript">
+    <script src="../controllers/admin.js?v=1.5.0">
                 <!--script-->
             </script>
-    <script src="../controllers/add.js?v=1.0.0" type="text/javascript">
+    <script src="../controllers/add.js?v=1.0.0">
                 <!--script-->
             </script>
-    <script type="text/javascript">$(document).ready(function() { 
+    <script>$(document).ready(function() { 
 				window.utils = new UtilsManager(); 
 				window.admin = new AdminManager(); 
 				window.add = new AddManager(); });</script>
@@ -64,7 +64,12 @@
         <h1 class="clip">
             <admin:menuItem label="Основно меню" url="main" icon="plus-5" clipLabel="clip" />
         </h1>
-        <nav aria-label="Категории основни обекти">
+       	<div role="toolbar">
+            <button role="link" class="search" type="button">Търсене</button>
+            <button role="link" class="logout" type="button">Изход</button>
+        </div>
+        <nav aria-label="Създаване на обекти">
+            <h2>Създаване на обекти</h2>
             <ul>
                 <li>
                     <admin:menuItem label="Игри" url="games" icon="gamepad-9" />
@@ -79,11 +84,12 @@
                     <admin:menuItem label="Книги" url="books" icon="book-17" />
                 </li>
                 <li>
-                    <admin:menuItem label="Настолни Игри" url="board" icon="puzzle" />
+                    <admin:menuItem label="Настолни Игри" url="boardGames" icon="puzzle" />
                 </li>
             </ul>
         </nav>
         <nav aria-label="Добавяне на информация">
+            <h2>Добавяне на информация</h2>
             <ul>
                 <li>
                     <admin:menuItem label="Статия" url="article" icon="font-size" />
@@ -102,31 +108,33 @@
                 </li>
             </ul>
         </nav>
-        <nav aria-label="Бърза навигация назад">
+        <nav class="breadcrumb" aria-label="Бърза навигация назад">
             <ul>
-            	<li></li>
-                <li></li>
                 <!--admin.js-->
             </ul>
         </nav>
     </header>
     <main>
         <jsp:include page="views/games.jsp" />
-        <jsp:include page="views/movies.jsp" />
         <jsp:include page="views/game.jsp" />
         <jsp:include page="views/article.jsp" />
         <jsp:include page="views/gameCompany.jsp" />
         <jsp:include page="views/platform.jsp" />
         <jsp:include page="views/gamePerson.jsp" />
         <jsp:include page="views/gameCharacter.jsp" />
+        <jsp:include page="views/gameSerie.jsp" />
         <jsp:include page="views/gameGenre.jsp" />
+        <jsp:include page="views/movies.jsp" />
+        <jsp:include page="views/music.jsp" />
+        <jsp:include page="views/books.jsp" />
+        <jsp:include page="views/boardGames.jsp" />
         <jsp:include page="views/aside.jsp" />
         <jsp:include page="views/images.jsp" />
         <jsp:include page="views/search.jsp" />
     </main>
     <footer>
         <p>&amp;copy; Copyright 2015
-            <a href="?video=castle-design">Castle Design Ltd.</a>
+            <a href="http://forplay.bg?video=castle-design">Castle Design Ltd.</a>
         </p>
         <p>Тази страница се придържа към
             <a href="http://www.mandate376.eu/">Европейските Изисквания за Достъпност

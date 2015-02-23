@@ -110,6 +110,8 @@ function AddManager() {
 			
 			$appender.before(html);
 			
+			$(document).scrollTop($appender.offset().top);
+			
 			utils.convertSVG($appender.parents('.Box').find('img'));
 		}).fail(function() {
 			alert("Failed to load platforms.");

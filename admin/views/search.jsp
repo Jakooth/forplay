@@ -115,7 +115,7 @@
             </ul>
         </form>
         <div role="toolbar">
-            <button class="ok" type="button">Запази</button>
+            <button class="ok" type="button">Избери</button>
             <button class="cancel" type="button">Отмени</button>
         </div>
     </section>

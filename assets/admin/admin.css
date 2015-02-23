@@ -1,6 +1,13 @@
 @charset "utf-8";
 @import url(http://fonts.googleapis.com/css?family=Poiret+One|Open+Sans:300,800&subset=latin,cyrillic);
 
+
+
+
+
+
+
+
 /**
   * FONTS
   */
@@ -11,6 +18,8 @@
 	line-height: 16pt;
 }
 
+header h2,
+#login h2,
 h3 {
 	font-size: 30pt;
 	font-weight: normal;
@@ -44,7 +53,7 @@ label {
 }
 
 select.header,
-header a span,
+header nav:not(.breadcrumb) a span,
 h2 a,
 nav li a,
 button {
@@ -123,6 +132,7 @@ button:first-child:hover,
 .Add > button:last-child:hover,
 header a:focus,
 header a:hover,
+.breadcrumb a.active,
 h2.active a,
 h2 a:focus,
 h2 a:hover,
@@ -130,8 +140,11 @@ nav a:focus,
 nav a:hover {
 	cursor: pointer;
 	background-color: #C7B299;
+	outline: none;
 }
 
+.breadcrumb a:hover:after,
+.breadcrumb a:focus:after,
 main h2 a:hover:after,
 main h2 a:focus:after,
 header.compact h1 a:hover:after,
@@ -161,10 +174,12 @@ a:focus {
 	outline: 2px solid #D9E021;
 }
 
+header h2,
 .select-subtitle,
 a:focus,
 a:hover,
 a:visited,
+.breadcrumb a span,
 h2 a span {
 	color: #D9E021;
 }
@@ -205,11 +220,17 @@ nav li a {
 	background-color: #666666;
 }
 
+.breadcrumb {
+	background-color: rgba(102, 102, 102, 0.7);
+}
+
+.breadcrumb a:after,
 header.compact h1 a:after {
 	border-color: transparent transparent transparent #666666;
 }
 
-main h2 a:after {
+.breadcrumb a.active:after,
+main h2.active a:after {
 	border-color: transparent transparent transparent #C7B299;
 }
 
@@ -259,23 +280,27 @@ form .two-cols input[type=date] {
 .hidden b,
 .hidden,
 form input[type=text],
+form input[type=password],
 header a,
 nav li a {
 	padding: 10px;
 }
 
+header h2,
 .coverLayout,
 .Window,
 .Add button.add,
 .Add button.remove,
 select.header,
 form,
+.breadcrumb a, 
 main h2 a,
-div[role=toolbar] button,
+[role=toolbar] button,
 footer {
 	padding: 20px;
 }
 
+.breadcrumb a,
 main h2 a {
 	padding-bottom: 10px;
 }
@@ -290,6 +315,7 @@ div[role=group] label {
 }
 
 #images li,
+section#login h2,
 h3,
 .hidden,
 .Window h2 span,
@@ -303,6 +329,7 @@ form select {
 	padding-left: 20px;
 } 
 
+section#login h2,
 h3 {
 	margin-top: 40px;
 }
@@ -347,6 +374,22 @@ main h3 {
 header {
 	float: left;
 	width: 100%;
+}
+
+header [role=toolbar] {
+	float: none;
+	position: relative;
+	text-align: right;
+}
+
+header [role=toolbar] button {
+	float: none;
+	margin: 0;
+	top: auto;
+	position: relative;
+	width: auto;
+	height: 84px;
+	display: inline-block;
 }
 
 header nav {
@@ -399,6 +442,7 @@ nav li a {
 section {
 	display: none;
 	width: 100%;
+	padding-top: 84px;
 }
 
 main h2 {
@@ -412,6 +456,7 @@ main nav li a {
 }
 
 main h2 a span,
+.breadcrumb a span,
 main nav li a span {
 	display: block;
 	font-weight: normal;
@@ -421,18 +466,21 @@ main nav li a span {
 	padding-bottom: 6px;
 }
 
+.breadcrumb a span,
 main h2 span {
 	padding-top: 6px;
 }
 
-div[role=toolbar] {
-	position: absolute;
+[role=toolbar] {
+	position: fixed;
 	right: 0;
+	top: 0;
 	height: 84px;
 	float: left;
+	z-index: 1000;
 }
 
-div[role=toolbar] button {
+[role=toolbar] button {
 	height: 84px;
 	width: auto;
 	float: left;
@@ -441,6 +489,9 @@ div[role=toolbar] button {
 footer {
 	clear: both;
 	text-align: center;
+	margin-left: 30%;
+	margin-right: 30%;
+	width: 40%;
 }
 
 
@@ -453,16 +504,33 @@ footer {
 /**
   * COMPACT
   */
+  
+.breadcrumb {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 84px;
+	min-height: 84px;
+	width: auto;
+}  
 
+.breadcrumb a,
 main h2 a {
 	position: relative;
 	display: block;
 	height: 84px;
 	padding-left: 62px;
+	width: auto;
+	line-height: 16pt;
+}
+
+.breadcrumb li {
+	float: left;
+	width: auto;
 }
 
 header.compact {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	width: 84px;
@@ -471,21 +539,8 @@ header.compact {
 	z-index: 100;
 }
 
-header.compact nav li a:focus {
-	position: absolute;
-	top: 84px;
-	left: 0;
-	width: 100%;
-	clip: rect(auto auto auto auto); /* IE6, IE7 */
-	clip: rect(auto, auto, auto, auto);
-	width: auto;
-	height: auto;
-	position: relative;
-	overflow: visible;
-	opacity: 1;
-}
-
 header.compact h1 a:after,
+.breadcrumb a:after,
 main h2 a:after {
 	content: "";
 	position: absolute;
@@ -572,7 +627,8 @@ div[role=group] label span {
 	margin: 0;
 }
 
-form input[type=text] {
+form input[type=text],
+form input[type=password] {
 	width: 100%;
 	height: 60px;
 }
@@ -646,6 +702,10 @@ form input[type=time] {
 	right: 9%;
 	background-color: rgba(0, 0, 0, 0.5);
 	z-index: 12000;
+}
+
+.Window section {
+	padding: 0;
 }
 
 .Window h2 a {
@@ -1101,4 +1161,62 @@ button.remove {
 .cke_editable_inline.cke_focus:before,
 .cke_editable_inline.cke_focus:after {
 	display: none;
+}
+
+
+
+
+
+
+
+
+/**
+  * Login
+  */
+
+section#login {
+	display: block;
+	padding: 0;
+	margin-left: 30%;
+	margin-right: 30%;
+	width: 40%;
+	margin-top: 40px;
+}
+
+section#login img,
+section#login svg {
+	display: block;
+}
+
+section#login svg path {
+	fill: rgba(0, 0, 0, 0.5);
+}
+
+section#login form {
+	background: rgba(0, 0, 0, 0.5);
+}
+
+section#login h2 {
+	color: #CCC;
+}
+
+section#login label {
+	color: #FFF;
+}
+
+section#login [role=toolbar] {
+	position: relative;
+	float: none;
+	width: 100%;
+	clear: both;
+	height: auto;
+}
+
+section#login [role=toolbar] button {
+	width: 100%;
+}
+
+section#login h2 {
+	margin-left: 0;
+	width: 100%;
 }

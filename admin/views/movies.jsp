@@ -5,15 +5,28 @@
             xmlns:admin="urn:jsptagdir:/WEB-INF/tags/admin">
     <section id="movies">
         <h2>
-            <admin:menuItem label="Създай..." title="Кино и Сериали" url="movies" />
+            <admin:menuItem label="Създай..." title="Кино и Телевизия" url="movies" />
         </h2>
         <nav aria-label="Обекти в кино и сериали">
             <ul>
-                <li><admin:menuItem label="true-blood, true-blood-season-3, avatar" title="Филм" url="movie" /></li>
-                <li><admin:menuItem label="hbo, walt-disney-animation-studios" title="Компания" url="company" /></li>
-                <li><admin:menuItem label="chuck-norris, david-fincher" title="Персона" url="person" /></li>
-                <li><admin:menuItem label="batman, fox-mulder, rapunzel" title="Герой" url="character" /></li>
-                <li><admin:menuItem label="drama, comedy, animation" title="Жанр" url="genre" /></li>
+                <li>
+                    <admin:menuItem label="true-blood, true-blood-season-3, avatar" title="Филм" url="movie" />
+                </li>
+                <li>
+                    <admin:menuItem label="hbo, walt-disney-animation-studios" title="Компания" url="movieCompany" />
+                </li>
+                <li>
+                    <admin:menuItem label="chuck-norris, david-fincher" title="Персона" url="moviePerson" />
+                </li>
+                <li>
+                    <admin:menuItem label="batman, fox-mulder, rapunzel" title="Герой" url="movieCharacter" />
+                </li>
+                <li>
+                    <admin:menuItem label="star-wars, batman" title="Поредица" url="movieSerie" />
+                </li>
+                <li>
+                    <admin:menuItem label="drama, comedy, animation" title="Жанр" url="movieGenre" />
+                </li>
             </ul>
         </nav>
     </section>

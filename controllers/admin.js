@@ -8,15 +8,15 @@ function AdminManager() {
 	
 	var authors = '../data/admin/authors.json';
 	var aside = '../data/admin/aside.json';
-	var bgPosition = '../data/admin/bgPosition.json';
+	var bgPosition = '../data/admin/bgposition.json';
 	var subtype = '../data/admin/subtype.json';
 	var type = '../data/admin/type.json';
 	var hype = '../data/admin/hype.json';
 	var theme = '../data/admin/theme.json';
 	var subtheme = '../data/admin/subtheme.json';
-	var gameGenres = '../data/admin/gameGenres.json';
-	var gamePlatforms = '../data/admin/gamePlatforms.json';
-	var movieGenres = '../data/admin/movieGenres.json';
+	var gameGenres = '../data/admin/gamegenres.json';
+	var gamePlatforms = '../data/admin/gameplatforms.json';
+	var movieGenres = '../data/admin/moviegenres.json';
 	
 	var bloodhound = function(data) {
 		return new Bloodhound({
@@ -64,6 +64,7 @@ function AdminManager() {
 	var stickers = bloodhound('../data/admin/stickers.json');
 	var publishers = bloodhound('../data/admin/publishers.json');
 	var developers = bloodhound('../data/admin/developers.json');
+	var gameSeries = bloodhound('../data/admin/gameseries.json');
 	var games = bloodhound('../data/admin/games.json');
 	
 	
@@ -95,7 +96,9 @@ function AdminManager() {
 		$('section').hide();
 	}
 	
-	this.showSection = function(section) {
+	this.showSection = function(section, isBreadcrumb) {
+		var $section = $(section);
+		
 		self.hideSections();
 		
 		if (section == "#main") {
@@ -103,14 +106,26 @@ function AdminManager() {
 			$('header h1').addClass('clip');
 			$('header h1 a').attr('tabindex', -1);
 			$('header nav').removeClass('clip');
-			$('section').removeClass('active');
+			$('header .breadcrumb').addClass('clip');
+			$('header [role=toolbar]').removeClass('clip');
+			
+			self.removeAllBreadcrumbs();
 		} else {
 			$('header').addClass('compact');
 			$('header h1').removeClass('clip');
 			$('header h1 a').attr('tabindex', 0);
 			$('header nav').addClass('clip');
-			$(section).show();
-			$(section).find('h2').addClass('active');
+			$('header .breadcrumb').removeClass('clip');
+			$('header [role=toolbar]').addClass('clip');
+			
+			if (isBreadcrumb) {
+				self.removeBreadcrumb();
+			} else {
+				self.addBreadcrumb($section);
+			}
+			
+			$section.show();
+			$section.find('h2').addClass('clip');
 		}
 	}
 	
@@ -144,6 +159,32 @@ function AdminManager() {
 		self.hideOverlay();
 	}
 	
+	this.addBreadcrumb = function($section) {
+		if ($('.breadcrumb li').length != 2) {
+			var d1 = $.get('../renderers/admin/breadcrumb.html');
+			
+			$.when(d1).done(function(data1) {
+				var html = $(data1);
+				
+				$('.breadcrumb a').removeClass('active');
+				
+				$section.find('h2 a').clone().addClass('active').appendTo(html);
+				$('.breadcrumb').append(html);
+			}).fail(function() {
+				alert("Failed to load window.");
+			});
+		}
+	}
+	
+	this.removeBreadcrumb = function() {
+		$('.breadcrumb li:last-child').remove();
+		$('.breadcrumb li:last-child a').addClass('active');
+	}
+	
+	this.removeAllBreadcrumbs = function() {
+		$('.breadcrumb li').remove();
+	}
+	
 	
 	
 	
@@ -171,6 +212,7 @@ function AdminManager() {
 	initTagInput(stickers, 'stickers', '#gameStickersInput');
 	initTypeAhead(publishers, 'publishers', '#gamePublisherInput');
 	initTypeAhead(developers, 'developers', '#gameDeveloperInput');
+	initTypeAhead(gameSeries, 'gameSeries', '#gameSeriesInput');
 	initTypeAhead(tags, 'tags', '#imagesTagInput');
 	initTypeAhead(tags, 'tags', '#searchTagInput');
 	initTagInput(games, 'games', '#gameSimilarInput');
@@ -190,8 +232,16 @@ function AdminManager() {
 		self.showSection(window.location.hash);
 	});
 	
-	$('body').on('click', 'nav a, header a', function (e) {
-		self.showSection($(this).attr('href'));
+	$('header').on('click', 'button.search', function (e) {
+		self.showSection('#search');
+	});
+	
+	$('header').on('click', 'button.logout', function (e) {
+		window.location.href = "login.jsp";
+	});
+	
+	$('body').on('click', 'nav a:not(.active), header a:not(.active)', function (e) {
+		self.showSection($(this).attr('href'), $(this).parents().hasClass('breadcrumb'));
 	});
 	
 	$('form').on('click', '.create', function (e) {

@@ -9,12 +9,27 @@
         </h2>
         <nav aria-label="Обекти в игри">
             <ul>
-                <li><admin:menuItem label="gta, gta-5, diablo-3, alien-isolation" title="Игра" url="game" /></li>
-                <li><admin:menuItem label="rockstar, take-two, blizzard-north" title="Компания" url="gameCompany" /></li>
-                <li><admin:menuItem label="win, mac, 360, ps4, vita, android" title="Платформа" url="platform" /></li>
-                <li><admin:menuItem label="shigeru-miyamoto, sam-houser" title="Персона" url="gamePerson" /></li>
-                <li><admin:menuItem label="sonic, master-chief, duke-nukem" title="Герой" url="gameCharacter" /></li>
-                <li><admin:menuItem label="action, adventure, open-mmo" title="Жанр" url="gameGenre" /></li>
+                <li>
+                    <admin:menuItem label="gta, gta-5, diablo-3, alien-isolation" title="Игра" url="game" />
+                </li>
+                <li>
+                    <admin:menuItem label="rockstar, take-two, blizzard-north" title="Компания" url="gameCompany" />
+                </li>
+                <li>
+                    <admin:menuItem label="win, mac, 360, ps4, vita, android" title="Платформа" url="platform" />
+                </li>
+                <li>
+                    <admin:menuItem label="shigeru-miyamoto, sam-houser" title="Персона" url="gamePerson" />
+                </li>
+                <li>
+                    <admin:menuItem label="sonic, master-chief, duke-nukem" title="Герой" url="gameCharacter" />
+                </li>
+                <li>
+                    <admin:menuItem label="gta, halo" title="Поредица" url="gameSerie" />
+                </li>
+                <li>
+                    <admin:menuItem label="action, adventure, open-mmo" title="Жанр" url="gameGenre" />
+                </li>
             </ul>
         </nav>
     </section>
