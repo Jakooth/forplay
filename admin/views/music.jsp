@@ -16,13 +16,13 @@
                     <admin:menuItem label="metallica, body-count, daft-punk" title="Банда" url="band" />
                 </li>
                 <li>
-                    <admin:menuItem label="kirk-hammett, ice-t, pharrell-williams" title="Артист" url="musicPerson" />
+                    <admin:menuItem label="kirk-hammett, ice-t, pharrell-williams" title="Артист" url="person" />
                 </li>
                 <li>
                     <admin:menuItem label="sofia-rocks, exit, exit-2014, exit-2015" title="Събитие" url="event" />
                 </li>
                 <li>
-                    <admin:menuItem label="rock, deep-house, dream-pop" title="Жанр" url="musicGenre" />
+                    <admin:menuItem label="rock, deep-house, dream-pop" title="Жанр" url="genre" />
                 </li>
             </ul>
         </nav>

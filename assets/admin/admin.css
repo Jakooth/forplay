@@ -314,12 +314,13 @@ div[role=group] label {
 	margin-bottom: 0;
 }
 
+.Cover,
 #images li,
 section#login h2,
 h3,
 .hidden,
 .Window h2 span,
-.Box .file,
+.Add .file,
 form input,
 form select {
 	margin-bottom: 20px;
@@ -697,7 +698,7 @@ form input[type=time] {
 
 .Window {
 	position: absolute;
-	top: 9%;
+	top: 18%;
 	left: 9%;
 	right: 9%;
 	background-color: rgba(0, 0, 0, 0.5);
@@ -996,9 +997,14 @@ button.remove {
 
 
 /**
-  * Image layouts
+  * IMAGES & COVER
   */
+ 
+.Cover {
+	clear: both;
+}
 
+.Cover button.select:after,
 .z0Layout button.select:after,
 .a1Layout button.select:after {
 	background-image: url(icons/iconmonstr-picture-icon.svg);
@@ -1009,12 +1015,14 @@ button.remove {
 	width: 100%;
 }
 
+.Cover button.select,
 .z0Layout button.select {
 	position: relative;
 	display: block;
 	width: 100%;
 }
 
+.Cover button.select img,
 .z0Layout button.select img {
 	width: 100%;
 }
@@ -1081,7 +1089,7 @@ button.remove {
 
 
 /**
-  * Text editor
+  * TEXT EDITOR
   */
 
 .textLayout {
@@ -1171,7 +1179,7 @@ button.remove {
 
 
 /**
-  * Login
+  * LOGIN
   */
 
 section#login {

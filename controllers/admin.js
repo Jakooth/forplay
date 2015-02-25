@@ -15,7 +15,7 @@ function AdminManager() {
 	var theme = '../data/admin/theme.json';
 	var subtheme = '../data/admin/subtheme.json';
 	var gameGenres = '../data/admin/gamegenres.json';
-	var gamePlatforms = '../data/admin/gameplatforms.json';
+	var gamePlatforms = '../data/admin/platforms.json';
 	var movieGenres = '../data/admin/moviegenres.json';
 	
 	var bloodhound = function(data) {
@@ -64,8 +64,10 @@ function AdminManager() {
 	var stickers = bloodhound('../data/admin/stickers.json');
 	var publishers = bloodhound('../data/admin/publishers.json');
 	var developers = bloodhound('../data/admin/developers.json');
-	var gameSeries = bloodhound('../data/admin/gameseries.json');
+	var series = bloodhound('../data/admin/series.json');
 	var games = bloodhound('../data/admin/games.json');
+	var movies = bloodhound('../data/admin/movies.json');
+	var persons = bloodhound('../data/admin/persons.json');
 	
 	
 	
@@ -146,6 +148,7 @@ function AdminManager() {
 			self.showOverlay();
 			
 			$('body').append(html);
+			$('.Window :tabbable').eq(1).focus();
 			$(window).scrollTop(0);
 		}).fail(function() {
 			alert("Failed to load window.");
@@ -197,6 +200,11 @@ function AdminManager() {
 	this.loadOptions('#articleSubtypeSelect', subtype, 'option');
 	this.loadOptions('#articleHypeSelect', hype, 'option');
 	this.loadOptions('#articleTypeSelect', type, 'option');
+	this.loadOptions('#companyTypeSelect', type, 'option');
+	this.loadOptions('#genreTypeSelect', type, 'option');
+	this.loadOptions('#personTypeSelect', type, 'option');
+	this.loadOptions('#characterTypeSelect', type, 'option');
+	this.loadOptions('#serieTypeSelect', type, 'option');
 	this.loadOptions('#articleVersionTestedSelect', gamePlatforms, 'option');
 	this.loadOptions('#asideTypeSelect', type, 'option');
 	this.loadOptions('#articleThemeSelect', theme, 'option');
@@ -205,17 +213,24 @@ function AdminManager() {
 	this.loadOptions('#gamePlatformGroup', gamePlatforms, 'checkbox');
 	this.loadOptions('#searchCategorySelect', aside, 'option');
 	
-	initTagInput(tags, 'tags', '#gamePersonTagsInput');
-	initTagInput(tags, 'tags', '#articleTagsInput');
-	initTagInput(tags, 'tags', '#asideTagsInput');
-	initTagInput(tags, 'tags', '#gameCharacterTagsInput');
+	initTagInput(tags, 'tags', '#personTagsInput');
+	initTagInput(tags, 'tags', '#publishTagsInput');
+	initTagInput(tags, 'tags', '#characterTagsInput');
 	initTagInput(stickers, 'stickers', '#gameStickersInput');
+	initTagInput(stickers, 'stickers', '#movieStickersInput');
 	initTypeAhead(publishers, 'publishers', '#gamePublisherInput');
 	initTypeAhead(developers, 'developers', '#gameDeveloperInput');
-	initTypeAhead(gameSeries, 'gameSeries', '#gameSeriesInput');
+	initTypeAhead(series, 'series', '#gameSerieInput');
+	initTypeAhead(series, 'series', '#movieSerieInput');
 	initTypeAhead(tags, 'tags', '#imagesTagInput');
 	initTypeAhead(tags, 'tags', '#searchTagInput');
 	initTagInput(games, 'games', '#gameSimilarInput');
+	initTagInput(movies, 'movies', '#movieSimilarInput');
+	initTagInput(persons, 'persons', '#movieCastInput');
+	initTagInput(persons, 'persons', '#movieDirectorInput');
+	initTagInput(persons, 'persons', '#movieWriterInput');
+	initTagInput(persons, 'persons', '#movieCameraInput');
+	initTagInput(persons, 'persons', '#movieMusicInput');
 	 
 	 
 	 
@@ -254,6 +269,11 @@ function AdminManager() {
 		self.showSectionInWindow('#search');
 		
 		window.admin.selectTarget = $(this);
+	});
+	
+	$('section').on('click', '.publish', function (e) {
+		e.preventDefault();
+		self.showSectionInWindow('#publish');
 	});
 	
 	$('body').on('click', '.Window #search button.ok', function (e) {		

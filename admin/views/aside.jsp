@@ -8,15 +8,8 @@
             <admin:menuItem label="Създай каре." title="Каре" url="aside" />
         </h2>
         <form>
-        	<h3>Категоризиране</h3>
-            <admin:formItem id="asideTypeSelect" label="Раздел" type="select" layout="two-cols" />
-            <admin:formItem id="asideTagsInput" label="Тагове" 
-            				placeholder="gta-5, sam-houser, rockstar" type="text" />
-            <admin:formItem id="asideSiteInput" label="Страница"
-            				placeholder="forplay, forlife" type="hidden" />
-            <admin:formItem id="asideUrlInput" label="Адрес"
-            				placeholder="the-title-to-lower-case-for-other" type="hidden" />
             <h3>Тема</h3>
+            <admin:formItem id="asideTypeSelect" label="Раздел" type="select" layout="two-cols" />
             <admin:formItem id="asideTitle" label="Заглавие" 
             				placeholder="Grand Theft Auto 5" type="text" />
             <admin:formItem id="asideSubtitle" label="Подзаглавие" 
@@ -47,6 +40,7 @@
             </div>
         </form>
         <div role="toolbar">
+        	<button class="publish" type="button">Публикувай</button>
             <button class="save" type="button">Запази</button>
             <button class="cancel" type="button">Отмени</button>
         </div>

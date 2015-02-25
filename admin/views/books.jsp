@@ -13,16 +13,16 @@
                     <admin:menuItem label="a-game-of-thrones, the-colour-of-magic" title="Книга" url="book" />
                 </li>
                 <li>
-                    <admin:menuItem label="terry-pratchett, patrick-modiano" title="Автор" url="bookPerson" />
+                    <admin:menuItem label="terry-pratchett, patrick-modiano" title="Автор" url="person" />
                 </li>
                 <li>
-                    <admin:menuItem label="rincewind, hodor" title="Герой" url="bookCharacter" />
+                    <admin:menuItem label="rincewind, hodor" title="Герой" url="character" />
                 </li>
                 <li>
-                    <admin:menuItem label="a-song-of-ice-and-fire, discworld" title="Поредица" url="bookSerie" />
+                    <admin:menuItem label="a-song-of-ice-and-fire, discworld" title="Поредица" url="serie" />
                 </li>
                 <li>
-                    <admin:menuItem label="novel, fantasy, crime, science-fiction" title="Жанр" url="bookGenre" />
+                    <admin:menuItem label="novel, fantasy, crime, science-fiction" title="Жанр" url="genre" />
                 </li>
             </ul>
         </nav>

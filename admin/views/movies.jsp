@@ -10,22 +10,25 @@
         <nav aria-label="Обекти в кино и сериали">
             <ul>
                 <li>
-                    <admin:menuItem label="true-blood, true-blood-season-3, avatar" title="Филм" url="movie" />
+                    <admin:menuItem label="avatar, star-wars-episode-7-the-force-awakens" title="Филм" url="movie" />
                 </li>
                 <li>
-                    <admin:menuItem label="hbo, walt-disney-animation-studios" title="Компания" url="movieCompany" />
+                    <admin:menuItem label="true-blood-season-3" title="Сериал" url="tv" />
                 </li>
                 <li>
-                    <admin:menuItem label="chuck-norris, david-fincher" title="Персона" url="moviePerson" />
+                    <admin:menuItem label="hbo, walt-disney-animation-studios" title="Компания" url="company" />
                 </li>
                 <li>
-                    <admin:menuItem label="batman, fox-mulder, rapunzel" title="Герой" url="movieCharacter" />
+                    <admin:menuItem label="chuck-norris, david-fincher" title="Персона" url="person" />
                 </li>
                 <li>
-                    <admin:menuItem label="star-wars, batman" title="Поредица" url="movieSerie" />
+                    <admin:menuItem label="batman, fox-mulder, rapunzel" title="Герой" url="character" />
                 </li>
                 <li>
-                    <admin:menuItem label="drama, comedy, animation" title="Жанр" url="movieGenre" />
+                    <admin:menuItem label="true-blood, star-wars, batman" title="Поредица" url="serie" />
+                </li>
+                <li>
+                    <admin:menuItem label="drama, comedy, animation" title="Жанр" url="genre" />
                 </li>
             </ul>
         </nav>

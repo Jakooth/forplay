@@ -24,7 +24,10 @@
     <script src="../jslib/jquery-1.11.0.min.js">
                 <!--script-->
             </script>
-    <script src="../jslib/jsrender.min.js">
+    <script src="../jslib/admin/jquery-ui.min.js">
+                <!--script-->
+            </script>
+	<script src="../jslib/jsrender.min.js">
                 <!--script-->
             </script>
     <script src="../jslib/admin/angular.min.js">
@@ -84,7 +87,7 @@
                     <admin:menuItem label="Книги" url="books" icon="book-17" />
                 </li>
                 <li>
-                    <admin:menuItem label="Настолни Игри" url="boardGames" icon="puzzle" />
+                    <admin:menuItem label="Настолни Игри" url="boards" icon="puzzle" />
                 </li>
             </ul>
         </nav>
@@ -118,19 +121,21 @@
         <jsp:include page="views/games.jsp" />
         <jsp:include page="views/game.jsp" />
         <jsp:include page="views/article.jsp" />
-        <jsp:include page="views/gameCompany.jsp" />
+        <jsp:include page="views/company.jsp" />
         <jsp:include page="views/platform.jsp" />
-        <jsp:include page="views/gamePerson.jsp" />
-        <jsp:include page="views/gameCharacter.jsp" />
-        <jsp:include page="views/gameSerie.jsp" />
-        <jsp:include page="views/gameGenre.jsp" />
+        <jsp:include page="views/person.jsp" />
+        <jsp:include page="views/character.jsp" />
+        <jsp:include page="views/serie.jsp" />
+        <jsp:include page="views/genre.jsp" />
         <jsp:include page="views/movies.jsp" />
+        <jsp:include page="views/movie.jsp" />
         <jsp:include page="views/music.jsp" />
         <jsp:include page="views/books.jsp" />
-        <jsp:include page="views/boardGames.jsp" />
+        <jsp:include page="views/boards.jsp" />
         <jsp:include page="views/aside.jsp" />
         <jsp:include page="views/images.jsp" />
         <jsp:include page="views/search.jsp" />
+        <jsp:include page="views/publish.jsp" />
     </main>
     <footer>
         <p>&amp;copy; Copyright 2015
