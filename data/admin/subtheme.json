@@ -1,4 +1,10 @@
-[ { "option" : "lighten" },
-  { "option" : "darken" },
-  { "option" : "tuborg" }
+[ { "option" : "lighten",
+    "value" : "FFFFFF"
+  },
+  { "option" : "darken",
+    "value" : "000000"
+  },
+  { "option" : "tuborg",
+    "value" : "33CC33"
+  }
 ]

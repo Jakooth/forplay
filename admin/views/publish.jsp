@@ -14,8 +14,11 @@
             				placeholder="forplay, forlife" type="hidden" />
             <admin:formItem id="publishUrlInput" label="Адрес"
             				placeholder="the-title-to-lower-case-for-other" type="hidden" />
-            <admin:formItem id="publishSiteInput" label="Дата на публикуване" type="date" layout="two-cols" />
-            <admin:formItem id="publishSiteInput" label="Час на публикуване" type="time" layout="two-cols" />
+            <admin:formItem id="publishDateInput" label="Дата на публикуване" type="date" layout="two-cols" />
+            <admin:formItem id="publishTimeInput" label="Час на публикуване" type="time" layout="two-cols" />
+            <admin:formItem id="publishIssueInput" label="Брой" 
+            				placeholder="Брой 1 - Презереждане" type="text" 
+                            autocomplete="off" />
         </form>
         <div role="toolbar">
             <button class="publish" type="button">Публикувай</button>

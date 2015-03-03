@@ -1002,6 +1002,17 @@ button.remove {
  
 .Cover {
 	clear: both;
+	position: relative;
+}
+
+.Cover .preview {
+	position: absolute;
+	width: 18.75%;
+	top: 0;
+	background: rgba(0, 0, 0, 0.5);
+	bottom: 0;
+	z-index: 100;
+	left: 81.25%;
 }
 
 .Cover button.select:after,

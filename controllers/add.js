@@ -37,12 +37,6 @@ function AddManager() {
 	 * PUBLIC
 	 */
 	
-	this.addBox = function() {
-		/** 
-	 	 * TOOD: Add box image.
-	 	 */
-	}
-	
 	this.addLayout = function($appender) {
 		var d1 = $.get('../renderers/admin/layout.html');
 			

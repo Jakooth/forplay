@@ -1,10 +1,10 @@
-[ { "option" : "Koralsky" },
-  { "option" : "Snake" },
-  { "option" : "doomy" },
-  { "option" : "Major Mistake" },
-  { "option" : "Tosh" },
-  { "option" : "Ralitsa" },
-  {	"option" : "Nifredil" },
-  {	"option" : "Forplay" },
-  {	"option" : "Jakooth" }
+[ "Koralsky",
+  "Snake",
+  "doomy",
+  "Major Mistake",
+  "Tosh",
+  "Ralitsa" ,
+  "Nifredil",
+  "Forplay",
+  "Jakooth"
 ]

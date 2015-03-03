@@ -57,7 +57,10 @@
     <script src="../controllers/add.js?v=1.0.0">
                 <!--script-->
             </script>
-    <script>$(document).ready(function() { 
+	<script src="../controllers/objects/cover.js?v=1.0.0">
+                <!--script-->
+            </script>    
+	<script>$(document).ready(function() { 
 				window.utils = new UtilsManager(); 
 				window.admin = new AdminManager(); 
 				window.add = new AddManager(); });</script>

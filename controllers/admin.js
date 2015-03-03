@@ -6,7 +6,6 @@ function AdminManager() {
 	 
 	var self = this;
 	
-	var authors = '../data/admin/authors.json';
 	var aside = '../data/admin/aside.json';
 	var bgPosition = '../data/admin/bgposition.json';
 	var subtype = '../data/admin/subtype.json';
@@ -64,10 +63,12 @@ function AdminManager() {
 	var stickers = bloodhound('../data/admin/stickers.json');
 	var publishers = bloodhound('../data/admin/publishers.json');
 	var developers = bloodhound('../data/admin/developers.json');
+	var issues = bloodhound('../data/admin/issues.json');
 	var series = bloodhound('../data/admin/series.json');
 	var games = bloodhound('../data/admin/games.json');
 	var movies = bloodhound('../data/admin/movies.json');
 	var persons = bloodhound('../data/admin/persons.json');
+	var authors = bloodhound('../data/admin/authors.json');
 	
 	
 	
@@ -76,7 +77,8 @@ function AdminManager() {
 	 * PUBLIC
 	 */
 	 
-	this.selectTarget = null; 
+	this.selectTarget = null;
+	this.publishTarget = null;
 	
 	this.loadOptions = function(target, data, renderer) {
 		var tmpl = $.get('../renderers/admin/' + renderer + '.html'),
@@ -195,7 +197,6 @@ function AdminManager() {
 	 * INIT
 	 */
 	 
-	this.loadOptions('#articleAuthorSelect', authors, 'option');
 	this.loadOptions('#articleBgPositionSelect', bgPosition, 'option');
 	this.loadOptions('#articleSubtypeSelect', subtype, 'option');
 	this.loadOptions('#articleHypeSelect', hype, 'option');
@@ -231,6 +232,11 @@ function AdminManager() {
 	initTagInput(persons, 'persons', '#movieWriterInput');
 	initTagInput(persons, 'persons', '#movieCameraInput');
 	initTagInput(persons, 'persons', '#movieMusicInput');
+	initTypeAhead(issues, 'issues', '#publishIssueInput');
+	initTagInput(tags, 'tags', '#articleBetterInput');
+	initTagInput(tags, 'tags', '#articleWorseInput');
+	initTagInput(tags, 'tags', '#articleEqualInput');
+	initTagInput(authors, 'authors', '#articleAuthorsInput');
 	 
 	 
 	 
@@ -238,7 +244,11 @@ function AdminManager() {
 	/** 
 	 * EVENTS
 	 */
-	 
+	
+	/**
+	 * Views
+	 */
+	
 	$(window).on('load', function (e) {
 		$('img.svg').each(function() {
 			utils.convertSVG($(this));
@@ -246,6 +256,14 @@ function AdminManager() {
 		
 		self.showSection(window.location.hash);
 	});
+	
+	$('body').on('click', 'nav a:not(.active), header a:not(.active)', function (e) {
+		self.showSection($(this).attr('href'), $(this).parents().hasClass('breadcrumb'));
+	});
+	
+	/**
+	 * Header
+	 */
 	
 	$('header').on('click', 'button.search', function (e) {
 		self.showSection('#search');
@@ -255,8 +273,28 @@ function AdminManager() {
 		window.location.href = "login.jsp";
 	});
 	
-	$('body').on('click', 'nav a:not(.active), header a:not(.active)', function (e) {
-		self.showSection($(this).attr('href'), $(this).parents().hasClass('breadcrumb'));
+	/**
+	 * Focus
+	 */
+	
+	$('form').on('focus', '.bootstrap-tagsinput input', function (e) {
+		$(this).parents('.bootstrap-tagsinput').addClass('focus');
+	});
+	
+	$('form').on('blur', '.bootstrap-tagsinput input', function (e) {
+		$(this).parents('.bootstrap-tagsinput').removeClass('focus');
+	});
+	
+	/**
+	 * Windows
+	 */
+	
+	$('body').on('click', '.Window button', function (e) {
+		self.hideSectionInWindow($(this).parents('section'));
+	});
+	
+	$('body').on('click', '.Window h2 a', function (e) {
+		e.preventDefault();
 	});
 	
 	$('form').on('click', '.create', function (e) {
@@ -271,30 +309,44 @@ function AdminManager() {
 		window.admin.selectTarget = $(this);
 	});
 	
-	$('section').on('click', '.publish', function (e) {
+	$('section:not(#publish)').on('click', 'button.publish', function (e) {
 		e.preventDefault();
 		self.showSectionInWindow('#publish');
 	});
 	
-	$('body').on('click', '.Window #search button.ok', function (e) {		
+	$('body').on('click', '.Window #search button.ok', function (e) {
+		var img = $('#search input:checked').parents('label').find('img').attr('src');														 
+		
 		window.admin.selectTarget.focus();
-		window.admin.selectTarget.css('background-image', 
-									  'url(' + $('input:checked').parents('label').find('img').attr('src')+ ')');
+		window.admin.selectTarget.find('input').val(img);
+		window.admin.selectTarget.css('background-image', 'url(' + img + ')');
+	});
+	 
+	/**
+	 * Article & Publish
+	 */
+	 
+	$('#article').on('change', '#articleSubtypeSelect', function (e) {
+		if ($(this).val() != "review") {
+			$('#reviewRegion').hide();
+		} else {
+			$('#reviewRegion').show();
+		}
 	});
 	
-	$('body').on('click', '.Window button', function (e) {
-		self.hideSectionInWindow($(this).parents('section'));
+	$('#article').on('click', 'button.save, button.publish', function (e) {
+		var c = new Cover();
+		
+		c.save();
+		
+		window.admin.publishTarget = c;
+		
+		console.log(window.admin.publishTarget);
 	});
 	
-	$('body').on('click', '.Window h2 a', function (e) {
-		e.preventDefault();
-	});
-	
-	$('form').on('focus', '.bootstrap-tagsinput input', function (e) {
-		$(this).parents('.bootstrap-tagsinput').addClass('focus');
-	});
-	
-	$('form').on('blur', '.bootstrap-tagsinput input', function (e) {
-		$(this).parents('.bootstrap-tagsinput').removeClass('focus');
+	$('#publish').on('click', 'button.publish', function (e) {
+		window.admin.publishTarget.publish();
+		
+		console.log(window.admin.publishTarget);
 	});
 }

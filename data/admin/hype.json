@@ -1,20 +1,58 @@
-[ { "option" : "1" },
-  { "option" : "1+" },
-  { "option" : "2" },
-  { "option" : "2+" },
-  { "option" : "3" },
-  { "option" : "3+" },
-  { "option" : "4" },
-  { "option" : "4+" },
-  { "option" : "5" },
-  { "option" : "5+" },
-  { "option" : "6" },
-  { "option" : "6+" },
-  { "option" : "7" },
-  { "option" : "7+" },
-  { "option" : "8" },
-  { "option" : "8+" },
-  { "option" : "9" },
-  { "option" : "9+" },
-  { "option" : "10" }
+[ { "option" : "1",
+    "value" : "10"
+  },
+  { "option" : "1+",
+    "value" : "15"
+  },
+  { "option" : "2",
+    "value" : "20"
+  },
+  { "option" : "2+",
+    "value" : "25"
+  },
+  { "option" : "3",
+    "value" : "30"
+  },
+  { "option" : "3+",
+    "value" : "35"
+  },
+  { "option" : "4",
+    "value" : "40"
+  },
+  { "option" : "4+",
+    "value" : "45"
+  },
+  { "option" : "5",
+    "value" : "50"
+  },
+  { "option" : "5+",
+    "value" : "55"
+  },
+  { "option" : "6",
+    "value" : "60"
+  },
+  { "option" : "6+",
+    "value" : "65"
+  },
+  { "option" : "7",
+    "value" : "70"
+  },
+  { "option" : "7+",
+    "value" : "75"
+  },
+  { "option" : "8",
+    "value" : "80"
+  },
+  { "option" : "8+",
+    "value" : "85"
+  },
+  { "option" : "9",
+    "value" : "90"
+  },
+  { "option" : "9+",
+    "value" : "95"
+  },
+  { "option" : "10",
+    "value" : "100"
+  }
 ]

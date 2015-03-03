@@ -1,6 +1,16 @@
-[ { "option" : "игри" },
-  { "option" : "филми" },
-  { "option" : "книги" },
-  { "option" : "настолни игри" },
-  { "option" : "музика" }
+[ { "option" : "игри",
+    "value" : "games"
+  },
+  { "option" : "филми",
+    "value" : "movies"
+  },
+  { "option" : "книги",
+    "value" : "books"
+  },
+  { "option" : "музика",
+    "value" : "music"
+  },
+  { "option" : "настолни игри",
+    "value" : "boards"
+  }
 ]
