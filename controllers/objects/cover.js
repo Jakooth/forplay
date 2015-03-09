@@ -21,7 +21,8 @@ function Cover() {
 		$worseInput = $('#articleWorseInput'),
 		$equalInput = $('#articleEqualInput'),
 		$coverInput = $('#articleCoverInput'),
-		$bgPositionInput = $('#articleBgPositionSelect'),
+		$bgHInput = $('#articleBgHSelect'),
+		$bgVInput = $('#articleBgVSelect'),
 		$themeInput = $('#articleThemeSelect'),
 		$subthemeInput = $('#articleSubthemeSelect');
 	
@@ -60,7 +61,8 @@ function Cover() {
 	 */
 	
 	this.cover;
-	this.bgPosition;
+	this.bgH;
+	this.bgV;
 	this.theme;
 	this.subtheme;
 	this.better;
@@ -79,7 +81,8 @@ function Cover() {
 		self.author = $authorsInput.val();
 		
 		self.cover = $coverInput.val();
-		self.bgPosition = $bgPositionInput.val();
+		self.bgH = $bgHInput.val();
+		self.bgV = $bgVInput.val();
 		self.theme = $themeInput.val();
 		self.subtheme = $subthemeInput.val();
 		

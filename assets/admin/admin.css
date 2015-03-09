@@ -673,6 +673,10 @@ form input[type=time] {
 	clear: none;
 }
 
+.two-cols:nth-of-type(2n + 1) {
+	clear: both;
+}
+
 
 
 
@@ -1003,16 +1007,56 @@ button.remove {
 .Cover {
 	clear: both;
 	position: relative;
+	width: 960px;
 }
 
-.Cover .preview {
+.Cover .svg {
 	position: absolute;
-	width: 18.75%;
-	top: 0;
-	background: rgba(0, 0, 0, 0.5);
-	bottom: 0;
+	margin: 20px;
+	height: 15%;
+	z-index: 2000;
+}
+
+.Cover:before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-image: url(../fx/shadow.png);
+	background-repeat: repeat-x;
+	background-position: bottom left;
+	z-index: 1000;
+	pointer-events: none;
+}
+
+.Cover .h-preview,
+.Cover .v-preview {
+	position: absolute;
+	background-image: url(../helpers/1-1.png);
+	background-repeat: no-repeat;
 	z-index: 100;
-	left: 81.25%;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	pointer-events: none;
+	opacity: 0.5;
+	display: none;
+}
+
+.Cover:hover .h-preview,
+.Cover:hover .v-preview {
+	display: block;
+}
+
+.Cover .h-preview {
+	background-size: 18.75% 100%;
+	background-position: center center;
+}
+
+.Cover .v-preview {
+	background-size: 100% 45%;
+	background-position: center center;
 }
 
 .Cover button.select:after,

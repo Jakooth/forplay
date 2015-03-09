@@ -26,7 +26,11 @@
             </div>
             <h3>Корица</h3>
             <div class="Cover">
-                <div class="preview">
+                <img class="svg" src="../assets/forplay.svg" alt="Forplay&amp;reg;" />
+                <div class="h-preview">
+                    <!--preview-->
+                </div>
+                <div class="v-preview">
                     <!--preview-->
                 </div>
                 <button class="select" type="button">
@@ -35,7 +39,18 @@
                     <img src="../assets/helpers/16-9.png" alt="16:9" role="presentation" />
                 </button>
             </div>
-            <admin:formItem id="articleBgPositionSelect" label="Позициониране" type="select" />
+            <admin:formItem id="articleBgHSelect" label="Хоризонтално позициониране" type="select" layout="two-cols">
+                <option value="left">Ляво</option>
+                <option value="25%">25%</option>
+                <option value="center">Среда</option>
+                <option value="75%">75%</option>
+                <option value="right">Дясно</option>
+            </admin:formItem>
+            <admin:formItem id="articleBgVSelect" label="Вертикално позициониране" type="select" layout="two-cols">
+                <option value="top">Горе</option>
+                <option value="center">Център</option>
+                <option value="bottom">Долу</option>
+            </admin:formItem>
             <admin:formItem id="articleThemeSelect" label="Тема" type="select" layout="two-cols" />
             <admin:formItem id="articleSubthemeSelect" label="Подтема" type="select" layout="two-cols" />
             <h3>Съдържание</h3>
