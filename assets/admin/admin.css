@@ -270,6 +270,7 @@ nav svg {
 	margin-right: 10px;
 }
 
+.Main button,
 .hidden b,
 form .two-cols select,
 form .two-cols input[type=date] {
@@ -1003,7 +1004,23 @@ button.remove {
 /**
   * IMAGES & COVER
   */
- 
+
+.Main button {
+	position: relative;
+}
+
+.Main button:nth-child(1) img {
+	width: 320px;
+}
+
+.Main button:nth-child(2) img {
+	width: 640px;
+}
+
+.Main button:nth-child(3) img {
+	width: 320px;
+}
+
 .Cover {
 	clear: both;
 	position: relative;
@@ -1014,7 +1031,7 @@ button.remove {
 	position: absolute;
 	margin: 20px;
 	height: 15%;
-	z-index: 2000;
+	z-index: 99;
 }
 
 .Cover:before {
@@ -1025,7 +1042,7 @@ button.remove {
 	background-image: url(../fx/shadow.png);
 	background-repeat: repeat-x;
 	background-position: bottom left;
-	z-index: 1000;
+	z-index: 99;
 	pointer-events: none;
 }
 
@@ -1282,4 +1299,56 @@ section#login [role=toolbar] button {
 section#login h2 {
 	margin-left: 0;
 	width: 100%;
+}
+
+
+
+
+
+
+
+
+/**
+  * Add  - Layout,  Box, Images
+  */
+  
+.blood .Cover svg path {
+	fill: #B53634;
+}
+
+.sunset .Cover svg path {
+	fill: #EF822A;
+}
+
+.purple .Cover svg path {
+	fill: #82446D;
+}
+
+.pink .Cover svg path {
+	fill: #DF3053;
+}
+
+.silver .Cover svg path {
+	fill: #5C6974;
+}
+
+.green .Cover svg path {
+	fill: #54FF00;
+}
+
+.forplay .Cover svg path {
+	fill: #FF6000;
+}
+
+.navy .Cover svg path {
+	fill: #406080;
+}
+
+.lighten .Cover svg path {
+	fill: #FFFFFF;
+}
+
+.darken .Cover svg path,
+.tuborg .Cover svg path {
+	fill: #000000;
 }

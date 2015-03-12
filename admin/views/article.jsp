@@ -25,7 +25,7 @@
                 <admin:formItem id="articleEqualInput" label="Равностойна" type="text" />
             </div>
             <h3>Корица</h3>
-            <div class="Cover">
+            <div class="Cover" role="region">
                 <img class="svg" src="../assets/forplay.svg" alt="Forplay&amp;reg;" />
                 <div class="h-preview">
                     <!--preview-->
@@ -51,10 +51,32 @@
                 <option value="center">Център</option>
                 <option value="bottom">Долу</option>
             </admin:formItem>
-            <admin:formItem id="articleThemeSelect" label="Тема" type="select" layout="two-cols" />
-            <admin:formItem id="articleSubthemeSelect" label="Подтема" type="select" layout="two-cols" />
+            <admin:formItem id="articleThemeSelect" label="Тема" type="select" layout="two-cols">
+            	<option value="">Без тема</option>
+            </admin:formItem>
+            <admin:formItem id="articleSubthemeSelect" label="Подтема" type="select" layout="two-cols">
+            	<option value="">Без подтема</option>
+            </admin:formItem>
+            <h3>Основни картинки</h3>
+            <div class="Main" role="group">
+                <button class="select" type="button">
+                    <input id="articleMainInput" type="hidden" />
+                    <span class="clip">Добави основна картинка</span>
+                    <img src="../assets/helpers/16-9.png" alt="16:9" role="presentation" />
+                </button>
+                <button class="select" type="button">
+                    <input id="articleMain640Input" type="hidden" />
+                    <span class="clip">Добави основна картинка</span>
+                    <img src="../assets/helpers/16-9.png" alt="16:9" role="presentation" />
+                </button>
+                <button class="select" type="button">
+                    <input id="articleMain320Input" type="hidden" />
+                    <span class="clip">Добави основна картинка</span>
+                    <img src="../assets/helpers/9-9.png" alt="1:1" role="presentation" />
+                </button>
+            </div>
             <h3>Съдържание</h3>
-            <div class="Add Content">
+            <div class="Add Content" role="region">
                 <button class="add" type="button">Добави съдържание</button>
             </div>
         </form>

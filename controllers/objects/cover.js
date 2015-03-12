@@ -24,7 +24,10 @@ function Cover() {
 		$bgHInput = $('#articleBgHSelect'),
 		$bgVInput = $('#articleBgVSelect'),
 		$themeInput = $('#articleThemeSelect'),
-		$subthemeInput = $('#articleSubthemeSelect');
+		$subthemeInput = $('#articleSubthemeSelect'),
+		$mainInput = $('#articleMainInput'),
+		$main640Input = $('#articleMain640Input'),
+		$main320Input = $('#articleMain320Input');
 	
 	
 	
@@ -65,6 +68,9 @@ function Cover() {
 	this.bgV;
 	this.theme;
 	this.subtheme;
+	this.main;
+	this.main320;
+	this.main640;
 	this.better;
 	this.worse;
 	this.equal;
@@ -85,8 +91,11 @@ function Cover() {
 		self.bgV = $bgVInput.val();
 		self.theme = $themeInput.val();
 		self.subtheme = $subthemeInput.val();
+		self.main = $mainInput.val();
+		self.main320 = $main320Input.val();
+		self.main640 = $main640Input.val();
 		
-		if (self.type = 'review') {
+		if (self.subtype == 'review') {
 			self.hype = $hypeInput.val();
 			self.versionTested = $versionTestedInput.val();
 			
