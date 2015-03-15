@@ -48,7 +48,7 @@
     <script src="../jslib/admin/ckeditor/ckeditor.js">
                 <!--script-->
             </script>
-    <script src="../controllers/utils.js?v=1.5.0">
+    <script src="../controllers/utils.js?v=1.5.1">
                 <!--script-->
             </script>
     <script src="../controllers/admin.js?v=1.5.0">
@@ -139,6 +139,7 @@
         <jsp:include page="views/images.jsp" />
         <jsp:include page="views/search.jsp" />
         <jsp:include page="views/publish.jsp" />
+        <jsp:include page="views/xml.jsp" />
     </main>
     <footer>
         <p>&amp;copy; Copyright 2015

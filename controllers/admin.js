@@ -263,6 +263,8 @@ function AdminManager() {
 		$('#articleBgVSelect').val('top').change();
 		$('#articleThemeSelect').val('').change();
 		$('#articleSubthemeSelect').val('000000').change();
+		$('#publishDateInput').val(utils.today());
+		$('#publishTimeInput').val(utils.now());
 	});
 	
 	$('body').on('click', 'nav a:not(.active), header a:not(.active)', function (e) {
@@ -391,6 +393,10 @@ function AdminManager() {
 	
 	$('#publish').on('click', 'button.publish', function (e) {
 		window.admin.publishTarget.publish();
+		window.admin.publishTarget.hypeToString();
+		
+		utils.xml(window.admin.publishTarget, 'cover', '#xmlCodeOutput');	
+		self.showSection('#xml');
 		
 		console.log(window.admin.publishTarget);
 	});

@@ -17,6 +17,44 @@ function UtilsManager() {
 	 * PUBLIC
 	 */
 	
+	this.xml = function(obj, tmpl, appender) {
+		var d = $.get('../renderers/xml/' + tmpl + '.html');
+			
+		$.when(d).done(function(data) {
+			var tmpls = $.templates({
+					xmlTemplate: data
+				}),
+				xml = $.templates.xmlTemplate.render(obj);
+				
+			var $appender = $(appender);	
+				
+			$appender.text(xml);
+			$appender.height($appender.prop('scrollHeight'));
+		}).fail(function() {
+			alert("Failed to load xml template.");
+		});
+	}
+	
+	this.today = function() {
+		var d = new Date();
+		
+		return d.getFullYear() +
+			   (d.getMonth() > 9 ? '-' : '-0') +
+			   d.getMonth() +
+			   (d.getDate() > 9 ? '-' : '-0') +
+			   d.getDate();
+	}
+	
+	this.now = function() {
+		var d = new Date();
+		
+		return (d.getHours() > 9 ? '' : '0') + 
+			   d.getHours() +
+			   ':' +
+			   (d.getMinutes() > 9 ? '' : '0') +
+			   d.getMinutes();
+	}
+	
 	this.convertSVG = function($img) {		
 		var	imgID = $img.attr('id'),
 			imgClass = $img.attr('class'),

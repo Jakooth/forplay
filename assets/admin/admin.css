@@ -635,6 +635,11 @@ form input[type=password] {
 	height: 60px;
 }
 
+form textarea {
+	width: 100%;
+	min-height: 60px;
+}
+
 form input[type=checkbox] {
 	width: 24px;
 	height: 24px;

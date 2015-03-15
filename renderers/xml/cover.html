@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cover align="{{:bgH}}" valign="{{:bgV}}"
+       theme="{{:theme}}" subtheme="{{:subtheme}}">
+    <site>{{:site}}</site>
+    <url>{{:url}}</url>
+    <tags prime="{{:prime}}">{{for tags.split(',')}}
+        <tag>{{:#data}}</tag>{{/for}}
+    </tags>
+    <cover>{{:cover}}</cover>
+    <main main320="{{:main320}}" 
+          main640="{{:main640}}">{{:main}}</main>
+    <type bg="{{:type}}">{{:type}}</type>
+    <subtype bg="{{:subtype}}">{{:subtype}}</subtype>
+    <title>
+        <![CDATA[{{:title}}]]>
+    </title>
+    <subtitle>
+        <![CDATA[{{:subtitle}}]]>
+    </subtitle>
+    <authors>{{for authors.split(',')}}
+        <author>{{:#data}}</author>{{/for}}
+    </authors>
+    <hype>{{:hype}}</hype>
+    <versionTested>{{:versionTested}}</versionTested>
+    <better tag="{{:better}}">{{:better}}</better>
+    <worse tag="{{:worse}}">{{:worse}}</worse>
+    <equal tag="{{:equal}}">{{:equal}}</equal>
+    <date>{{:date}}</date>
+    <issue>{{:issue}}</issue>
+</cover>

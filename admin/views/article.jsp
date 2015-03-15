@@ -5,7 +5,7 @@
             xmlns:admin="urn:jsptagdir:/WEB-INF/tags/admin">
     <section id="article">
         <h2>
-            <admin:menuItem label="Създай статия." title="Статия" url="games" />
+            <admin:menuItem label="Създай статия." title="Статия" url="article" />
         </h2>
         <form>
             <h3>Тема</h3>

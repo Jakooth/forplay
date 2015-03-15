@@ -7,6 +7,7 @@
     <jsp:directive.attribute name="label" required="true" />
     <jsp:directive.attribute name="type" required="true" />
     <jsp:directive.attribute name="placeholder" required="false" />
+    <jsp:directive.attribute name="readonly" required="false" />
     <jsp:directive.attribute name="autocomplete" required="false" />
     <jsp:directive.attribute name="url" required="false" />
     <jsp:directive.attribute name="layout" required="false" />
@@ -21,6 +22,14 @@
             <div role="group" id="${id}">
                 <!--AdminManager.js-->
             </div>
+        </c:when>
+        <c:when test="${type == 'area'}">
+            <label>
+                <span>${label}:</span>
+                <textarea id="${id}" readonly="${readonly}">
+                    <jsp:doBody />
+                </textarea>
+            </label>
         </c:when>
         <c:when test="${type == 'select'}">
             <label>
