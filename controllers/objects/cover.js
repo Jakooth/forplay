@@ -51,26 +51,26 @@ function Cover() {
 	 * Subject
 	 */
 	
-	this.type = "games";
-	this.subtype = "review";
+	this.type;
+	this.subtype;
 	this.title = "Grand Theft Auto V – сатирично менгеме. Вече и в 1080p!";
 	this.subtitle = "Песен за Сам и Дан Хаузър...";
 	this.authors = "Koralsky,Snake,Jakooth";
-	this.hype = "95";
+	this.hype;
 	this.versionTested = "PS4";
 	
 	/**
 	 * Cover
 	 */
 	
-	this.cover = "../assets/articles/gta-5/gta-5-cover.jpg";
-	this.bgH = "center";
-	this.bgV = "top";
-	this.theme = "FF6000";
-	this.subtheme = "FFFFFF";
-	this.main = "../assets/articles/gta-5/gta-5-main.jpg";
-	this.main320 = "../assets/articles/gta-5/gta-5-main-320.png";
-	this.main640 = "../assets/articles/gta-5/gta-5-05.jpg";
+	this.cover = "gta-5-cover.jpg";
+	this.bgH;
+	this.bgV;
+	this.theme;
+	this.subtheme;
+	this.main = "gta-5-main.jpg";
+	this.main320 = "gta-5-main-320.png";
+	this.main640 = "gta-5-05.jpg";
 	this.better = "gta";
 	this.worse = "gta-5";
 	this.equal = "diablo-3";
@@ -80,20 +80,22 @@ function Cover() {
 	 */
 	
 	this.save = function () {
-		self.type = $typeInput.val();
-		self.subtype = $subtypeInput.val();
+		self.type = {'tag':$typeInput.val(),
+					 'bg':$typeInput.find(':selected').text()};
+		self.subtype = {'tag':$subtypeInput.val(),
+					 	'bg':$subtypeInput.find(':selected').text()};
 		self.title = $titleInput.val() || self.title;
 		self.subtitle = $subtitleInput.val() || self.subtitle;
 		self.authors = $authorsInput.val() || self.authors;
 		
-		self.cover = $coverInput.val() || self.cover;
+		self.cover = $coverInput.val().split('/').pop() || self.cover;
 		self.bgH = $bgHInput.val();
 		self.bgV = $bgVInput.val();
 		self.theme = $themeInput.val() ? $themeInput.find(':selected').text() : "";
 		self.subtheme = $subthemeInput.val() ? $subthemeInput.find(':selected').text() : "";
-		self.main = $mainInput.val() || self.main;
-		self.main320 = $main320Input.val() || self.main320;
-		self.main640 = $main640Input.val() || self.main640;
+		self.main = $mainInput.val().split('/').pop() || self.main;
+		self.main320 = $main320Input.val().split('/').pop() || self.main320;
+		self.main640 = $main640Input.val().split('/').pop() || self.main640;
 		
 		if (self.subtype == 'review') {
 			self.hype = $hypeInput.val();
@@ -102,6 +104,12 @@ function Cover() {
 			self.better = $betterInput.val() || self.better;
 			self.worse = $worseInput.val() || self.worse;
 			self.equal = $equalInput.val() || self.equal;
+		} else {
+			self.hype =
+			self.versionTested =
+			self.better =
+			self.worse =
+			self.equal = "";
 		}
 	}
 	 
@@ -151,10 +159,6 @@ function Cover() {
 		self.hype = hype.indexOf('+') != -1 ? hype.replace('+', 5) 
 											: hype + "0";
 	}
-	
-	
-	
-	
 	
 	
 	

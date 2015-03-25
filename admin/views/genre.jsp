@@ -11,7 +11,7 @@
             <admin:formItem id="genreNameInput" label="Жанр" 
             				placeholder="Екшън от първо/трето лице, Куест, ММО, Драма, Комедия, Анимация, Рол, Дийп Хаус, Дрийм Поп, Фентъзи, Новела, Крими,  Научна Фантастика" type="text" />
             <admin:formItem id="genreTagInput" label="Таг" 
-            				placeholder="action, adventure, mmo, drama, comedy, animation, rock, deep-house, dream-pop, novel, fantasy, crime, science-fiction" type="text" />
+            				placeholder="tps, adventure, mmo, drama, comedy, animation, rock, deep-house, dream-pop, novel, fantasy, crime, science-fiction" type="text" />
         	<admin:formItem id="genreTypeSelect" label="Тип" type="select"/>
         </form>
         <div role="toolbar">

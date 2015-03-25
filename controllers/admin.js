@@ -400,4 +400,19 @@ function AdminManager() {
 		
 		console.log(window.admin.publishTarget);
 	});
+	
+	/**
+	 * Article & Publish
+	 */
+	
+	$('#game').on('click', 'button.save, button.publish', function (e) {
+		var g = new Game();
+		
+		g.save();
+		
+		utils.xml(g, 'game', '#xmlCodeOutput');	
+		self.showSection('#xml');
+		
+		console.log(g);
+	});
 }

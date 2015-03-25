@@ -8,6 +8,13 @@
             <admin:menuItem label="Добави информация за играта и създай таг." title="Игра" url="game" />
         </h2>
         <form>
+        	<div class="Main" role="group">
+                <button class="select" type="button">
+                    <input id="gameMainInput" type="hidden" />
+                    <span class="clip">Добави основна картинка</span>
+                    <img src="../assets/helpers/16-9.png" alt="16:9" role="presentation" />
+                </button>
+            </div>
             <admin:formItem id="gameEnNameInput" label="Оригинално име на играта" 
             				placeholder="Grand Theft Auto 5" type="text" />
             <admin:formItem id="gameBgNameInput" label="Име на играта на български" 

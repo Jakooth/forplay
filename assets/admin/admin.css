@@ -28,6 +28,10 @@ h3 {
 	font-family: 'Poiret One', sans-serif;
 }
 
+#xml textarea {
+	font-family: "Courier New", Courier, monospace;
+}
+
 label {
 	font-weight: normal;
 }
@@ -311,10 +315,11 @@ form label span {
 }
 
 #images li:first-child,
-div[role=group] label {
+[role=group] label {
 	margin-bottom: 0;
 }
 
+[role=group],
 .Cover,
 #images li,
 section#login h2,
@@ -604,25 +609,25 @@ form label {
 	clear: both;
 }
 
-div[role=group],
+[role=group],
 form input {
 	clear: both;
 }
 
-div[role=group] {
+[role=group] {
 	float: left;
 	width: 100%;
 	position: relative;
 }
 
-div[role=group] label {
+[role=group] label {
 	clear: none;
 	float: left;
 	width: 33.33%;
 	margin-right: 20px;
 }
 
-div[role=group] label span {
+[role=group] label span {
 	line-height: 24px;
 	display: inline;
 	vertical-align: top;
@@ -806,6 +811,7 @@ button.select {
 	background-size: cover;
 }
 
+.file:after,
 button.select:after {
 	content: "";
 	position: absolute;
@@ -821,6 +827,7 @@ button.select:after {
 	background-size: 32px 32px;
 	background-position: center center;
 	background-repeat: no-repeat;
+	pointer-events: none;
 }
 
 button.remove {
@@ -850,8 +857,7 @@ button.remove {
 	overflow: hidden;
 	width: 200px;
 	height: 280px;
-	background-image: url(icons/iconmonstr-plus-2-icon.svg);
-	background-size: 64px 64px;
+	background-size: auto 100%;
 	background-position: center center;
 	background-repeat: no-repeat;
 }

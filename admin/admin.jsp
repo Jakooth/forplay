@@ -59,7 +59,10 @@
             </script>
 	<script src="../controllers/objects/cover.js?v=1.0.0">
                 <!--script-->
-            </script>    
+            </script>
+    <script src="../controllers/objects/game.js?v=1.0.0">
+                <!--script-->
+            </script>            
 	<script>$(document).ready(function() { 
 				window.utils = new UtilsManager(); 
 				window.admin = new AdminManager(); 

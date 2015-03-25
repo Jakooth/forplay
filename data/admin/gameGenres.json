@@ -1,21 +1,61 @@
-[ { "option" : "Шуутър от първо/трето лице" },
-  { "option" : "Екшън от първо/трето лице" },
-  { "option" : "Рейл шуутър" },
-  { "option" : "Стелт" },
-  { "option" : "Хорър" },
-  { "option" : "Сървайвъл хорър" },
-  { "option" : "Платформър" },
-  { "option" : "Екшън-адвенчър" },
-  { "option" : "Куест" },
-  { "option" : "Аркадна игра" },
-  { "option" : "ММО" },
-  { "option" : "MOBA" },
-  { "option" : "Ролева игра" },
-  { "option" : "Рейсър" },
-  { "option" : "Спортна игра" },
-  { "option" : "Симулатор" },
-  { "option" : "Стратегия в реално време" },
-  { "option" : "Походова стратегия" },
-  { "option" : "Кежуъл/парти/музикална игра" },
-  { "option" : "Инди" }
+[ { "option" : "Шуутър от първо/трето лице",
+    "value" : "fps"
+  },
+  { "option" : "Екшън от първо/трето лице",
+    "value" : "tps"
+  },
+  { "option" : "Рейл шуутър",
+    "value" : "rail"
+  },
+  { "option" : "Стелт",
+    "value" : "stealth"
+  },
+  { "option" : "Хорър",
+    "value" : "horror"
+  },
+  { "option" : "Сървайвъл хорър",
+    "value" : "survival"
+  },
+  { "option" : "Платформър",
+    "value" : "platformer"
+  },
+  { "option" : "Екшън-адвенчър",
+    "value" : "action-adventure"
+  },
+  { "option" : "Куест",
+    "value" : "adventure"
+  },
+  { "option" : "Аркадна игра",
+    "value" : "arcade"
+  },
+  { "option" : "ММО",
+    "value" : "mmo"
+  },
+  { "option" : "MOBA",
+    "value" : "moba"
+  },
+  { "option" : "Ролева",
+    "value" : "rpg"
+  },
+  { "option" : "Рейсър",
+    "value" : "racing"
+  },
+  { "option" : "Спортна",
+    "value" : "sport"
+  },
+  { "option" : "Симулатор",
+    "value" : "simulation"
+  },
+  { "option" : "Стратегия в реално време",
+    "value" : "rts"
+  },
+  { "option" : "Походова стратегия",
+    "value" : "tbs"
+  },
+  { "option" : "Кежуъл/парти/музикална",
+    "value" : "casual"
+  },
+  { "option" : "Инди",
+    "value" : "indie"
+  }
 ]

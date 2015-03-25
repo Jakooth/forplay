@@ -6,6 +6,8 @@ function AddManager() {
 	 
 	var self = this;
 	
+	var gamePlatforms = '../data/admin/platforms.json';
+	
 	var initAsideTextEditor = function() {
 		CKEDITOR.disableAutoInline = true;
 		CKEDITOR.inline('textLayout_aside', {
@@ -102,11 +104,14 @@ function AddManager() {
 		$.when(d1).done(function(data1) {
 			var html = data1;
 			
-			$appender.before(html);
+			var $box = $appender.parents('.Box');
+			
+			$appender.before(html)
 			
 			$(document).scrollTop($appender.offset().top);
 			
-			utils.convertSVG($appender.parents('.Box').find('img'));
+			admin.loadOptions($box.find('select'), gamePlatforms, 'option');
+			utils.convertSVG($box.find('img'));
 		}).fail(function() {
 			alert("Failed to load platforms.");
 		});
@@ -194,6 +199,18 @@ function AddManager() {
 	
 	$('.Box').on('click', 'button.remove', function (e) {
 		self.removePlatform($(this));
+	});
+	
+	$('.Box').on('change', '.file input', function (e) {
+		var reader = new FileReader();
+		
+		var $file = $(e.target).parents('.file');
+				
+		reader.onload = function(e) {
+			$file.css('background-image', 'url(' + e.target.result + ')');
+		}
+		
+		reader.readAsDataURL(e.target.files[0]);
 	});
 	
 	$('#images').on('click', 'button.remove', function (e) {
