@@ -1,4 +1,4 @@
-function Cover() {
+function Article() {
 	
 	/** 
 	 * PRIVATE
@@ -97,7 +97,7 @@ function Cover() {
 		self.main320 = $main320Input.val().split('/').pop() || self.main320;
 		self.main640 = $main640Input.val().split('/').pop() || self.main640;
 		
-		if (self.subtype == 'review') {
+		if (self.subtype.tag == 'review') {
 			self.hype = $hypeInput.val();
 			self.versionTested = $versionTestedInput.val();
 			

@@ -57,7 +57,7 @@
     <script src="../controllers/add.js?v=1.0.0">
                 <!--script-->
             </script>
-	<script src="../controllers/objects/cover.js?v=1.0.0">
+	<script src="../controllers/objects/article.js?v=1.0.0">
                 <!--script-->
             </script>
     <script src="../controllers/objects/game.js?v=1.0.0">

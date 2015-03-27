@@ -1,8 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<cover align="{{:bgH}}" valign="{{:bgV}}"
+<article align="{{:bgH}}" valign="{{:bgV}}"
        theme="{{:theme}}" subtheme="{{:subtheme}}">
     <site>{{:site}}</site>
-    <url>{{:url}}</url>
+    <url>{{:url}}</url>{{if subtype.tag == 'video'}}
+    <video>
+    	<tech>{{:tech}}</tech>
+    	<url>{{:external}}</url>
+    </video>{{/if}}{{if subtype.tag == 'audio'}}
+    <audio>
+    	<tech>{{:tech}}</tech>
+        <url>{{:external}}</url>
+    </audio>{{/if}}
     <tags prime="{{:prime}}">{{for tags.split(',')}}
         <tag>{{:#data}}</tag>{{/for}}
     </tags>
@@ -20,11 +28,11 @@
     <authors>{{for authors.split(',')}}
         <author>{{:#data}}</author>{{/for}}
     </authors>
+    <date>{{:date}}</date>
+    <issue>{{:issue}}</issue>{{if subtype.tag == 'review'}}
     <hype>{{:hype}}</hype>
     <versionTested>{{:versionTested}}</versionTested>
     <better tag="{{:better}}">{{:better}}</better>
     <worse tag="{{:worse}}">{{:worse}}</worse>
-    <equal tag="{{:equal}}">{{:equal}}</equal>
-    <date>{{:date}}</date>
-    <issue>{{:issue}}</issue>
-</cover>
+    <equal tag="{{:equal}}">{{:equal}}</equal>{{/if}}
+</article>

@@ -382,11 +382,11 @@ function AdminManager() {
 	});
 	
 	$('#article').on('click', 'button.save, button.publish', function (e) {
-		var c = new Cover();
+		var a = new Article();
 		
-		c.save();
+		a.save();
 		
-		window.admin.publishTarget = c;
+		window.admin.publishTarget = a;
 		
 		console.log(window.admin.publishTarget);
 	});
@@ -395,7 +395,7 @@ function AdminManager() {
 		window.admin.publishTarget.publish();
 		window.admin.publishTarget.hypeToString();
 		
-		utils.xml(window.admin.publishTarget, 'cover', '#xmlCodeOutput');	
+		utils.xml(window.admin.publishTarget, 'article', '#xmlCodeOutput');	
 		self.showSection('#xml');
 		
 		console.log(window.admin.publishTarget);
