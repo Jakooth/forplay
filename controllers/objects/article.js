@@ -27,7 +27,12 @@ function Article() {
 		$subthemeInput = $('#articleSubthemeSelect'),
 		$mainInput = $('#articleMainInput'),
 		$main640Input = $('#articleMain640Input'),
-		$main320Input = $('#articleMain320Input');
+		$main320Input = $('#articleMain320Input'),
+		$videoTechInput = $('#articleVideoTechSelect'),
+		$audioTechInput = $('#articleAudioTechSelect'),
+		$videoUrlInput = $('#articleVideoUrlInput'),
+		$audioFrameInput = $('#articleAudioFrameInput'),
+		$audioUrlInput = $('#articleAudioUrlInput');
 	
 	
 	
@@ -53,6 +58,8 @@ function Article() {
 	
 	this.type;
 	this.subtype;
+	this.audio;
+	this.video;
 	this.title = "Grand Theft Auto V – сатирично менгеме. Вече и в 1080p!";
 	this.subtitle = "Песен за Сам и Дан Хаузър...";
 	this.authors = "Koralsky,Snake,Jakooth";
@@ -110,6 +117,26 @@ function Article() {
 			self.better =
 			self.worse =
 			self.equal = "";
+		}
+		
+		if (self.subtype.tag == 'news') {
+			if ($audioTechInput.val() == "") {
+				self.audio = "";
+			} else {
+				self.audio = {'tech':$audioTechInput.val(), 
+							 'url':$audioUrlInput.val(), 
+							 'frame':$audioFrameInput.val()};
+			}
+			
+			if ($videoTechInput.val() == "") {
+				self.video = "";
+			} else {
+				self.video = {'tech':$videoTechInput.val(), 
+							  'url':$videoUrlInput.val()};
+			}
+		} else {
+			self.audio =
+			self.video = "";
 		}
 	}
 	 

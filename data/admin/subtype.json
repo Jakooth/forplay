@@ -4,12 +4,6 @@
   { "option" : "мнение",
     "value" : "feature"
   },
-  { "option" : "видео",
-    "value" : "video"
-  },
-  { "option" : "аудио",
-    "value" : "audio"
-  },
   { "option" : "новина",
     "value" : "news"
   }

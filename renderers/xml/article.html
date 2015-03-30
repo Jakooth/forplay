@@ -2,14 +2,15 @@
 <article align="{{:bgH}}" valign="{{:bgV}}"
        theme="{{:theme}}" subtheme="{{:subtheme}}">
     <site>{{:site}}</site>
-    <url>{{:url}}</url>{{if subtype.tag == 'video'}}
+    <url>{{:url}}</url>{{if video}}
     <video>
-    	<tech>{{:tech}}</tech>
-    	<url>{{:external}}</url>
-    </video>{{/if}}{{if subtype.tag == 'audio'}}
+    	<tech>{{:video.tech}}</tech>
+    	<url>{{:video.url}}</url>
+    </video>{{/if}}{{if audio}}
     <audio>
-    	<tech>{{:tech}}</tech>
-        <url>{{:external}}</url>
+    	<tech>{{:audio.tech}}</tech>
+        <frame>{{:audio.frame}}</frame>
+        <url>{{:audio.url}}</url>
     </audio>{{/if}}
     <tags prime="{{:prime}}">{{for tags.split(',')}}
         <tag>{{:#data}}</tag>{{/for}}

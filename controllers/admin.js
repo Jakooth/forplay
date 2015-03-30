@@ -259,6 +259,8 @@ function AdminManager() {
 		 */
 	
 		$('#articleSubtypeSelect').val('news').change();
+		$('#articleVideoTechSelect').val('').change();
+		$('#articleAudioTechSelect').val('').change();
 		$('#articleBgHSelect').val('center').change();
 		$('#articleBgVSelect').val('top').change();
 		$('#articleThemeSelect').val('').change();
@@ -337,10 +339,43 @@ function AdminManager() {
 	 */
 	 
 	$('#article').on('change', '#articleSubtypeSelect', function (e) {
-		if ($(this).val() != "review") {
-			$('#reviewRegion').hide();
+		var $reviewRegion = $('#articleReviewRegion'),
+			$aVRegion = $('#articleAVRegion');
+		
+		if ($(this).val() == "review") {
+			$reviewRegion.show();
 		} else {
-			$('#reviewRegion').show();
+			
+			$reviewRegion.hide();
+		}
+		
+		if ($(this).val() == "news") {
+			$aVRegion.show();
+		} else {
+			$aVRegion.hide();
+		}
+	});
+	
+	$('#article').on('change', '#articleVideoTechSelect', function (e) {
+		var $videoTechSelect = $('#articleVideoUrlInput').parents('label');
+																
+		if ($(this).val() == "") {
+			$videoTechSelect.hide();
+		} else {
+			$videoTechSelect.show();
+		}
+	});
+	
+	$('#article').on('change', '#articleAudioTechSelect', function (e) {
+		var $audioFrameSelect = $('#articleAudioFrameInput').parents('label')
+			$audioUrlSelect = $('#articleAudioUrlInput').parents('label');
+																
+		if ($(this).val() == "") {
+			$audioFrameSelect.hide();
+			$audioUrlSelect.hide();
+		} else {
+			$audioFrameSelect.show();
+			$audioUrlSelect.show();
 		}
 	});
 	

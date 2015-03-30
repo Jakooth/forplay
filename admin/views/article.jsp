@@ -11,13 +11,31 @@
             <h3>Тема</h3>
             <admin:formItem id="articleTypeSelect" label="Раздел" type="select" layout="two-cols" />
             <admin:formItem id="articleSubtypeSelect" label="Тип" type="select" layout="two-cols" />
+            <div id="articleAVRegion" role="region">
+                <admin:formItem id="articleVideoTechSelect" label="Видео" type="select" layout="two-cols">
+                    <option value="">Без видео</option>
+                    <option value="youtube">youtube</option>
+                    <option value="vimeo">vimeo</option>
+                    <option value="html5">forplay</option>
+                </admin:formItem>
+                <admin:formItem id="articleAudioTechSelect" label="Aудио" type="select" layout="two-cols">
+                    <option value="">Без аудио</option>
+                    <option value="mixcloud">mixcloud</option>
+                </admin:formItem>
+                <admin:formItem id="articleVideoUrlInput" label="Видео Препратка" type="text" 
+                                placeholder="https://www.youtube.com/watch?v=8fhA-plmtJ8" />
+                <admin:formItem id="articleAudioFrameInput" label="Аудио Фрейм" type="area" 
+            				placeholder="//www.mixcloud.com/widget/iframe/?feed=http%3A%2F%2Fwww.mixcloud.com%2FForPlay_bg%2Fforplay-podcast-vol22-102014-%25D0%25BF%25D0%25BE%25D0%25B4%25D0%25BA%25D0%25B0%25D1%2581%25D1%2582%25D1%258A%25D1%2582-%25D0%25BD%25D0%25B0-%25D0%25B7%25D0%25B0%25D0%25B2%25D1%2580%25D1%258A%25D1%2589%25D0%25B0%25D0%25BD%25D0%25B5%25D1%2582%25D0%25BE%2F&amp;embed_uuid=377b2f9e-d0eb-4657-9d22-516c6010501c&amp;replace=0&amp;light=1&amp;embed_type=widget_standard&amp;hide_tracklist=1" />
+                <admin:formItem id="articleAudioUrlInput" label="Аудио Препратка" type="area" 
+            				placeholder="http://www.mixcloud.com/ForPlay_bg/forplay-podcast-vol22-102014-%D0%BF%D0%BE%D0%B4%D0%BA%D0%B0%D1%81%D1%82%D1%8A%D1%82-%D0%BD%D0%B0-%D0%B7%D0%B0%D0%B2%D1%80%D1%8A%D1%89%D0%B0%D0%BD%D0%B5%D1%82%D0%BE/?utm_source=widget&amp;amp;utm_medium=web&amp;amp;utm_campaign=base_links&amp;amp;utm_term=resource_link" />
+            </div>
             <admin:formItem id="articleTitleInput" label="Заглавие" 
             				placeholder="Grand Theft Auto 5" type="text" />
             <admin:formItem id="articleSubtitleInput" label="Подзаглавие" 
             				placeholder="Grand Theft Auto 5" type="text" />
             <admin:formItem id="articleAuthorsInput" label="Автори" 
             				placeholder="Snake, doomy" type="text" />
-            <div id="reviewRegion" role="region">
+            <div id="articleReviewRegion" role="region">
                 <admin:formItem id="articleHypeSelect" label="Оценка" type="select" layout="two-cols" />
                 <admin:formItem id="articleVersionTestedSelect" label="Тествана версия" type="select" layout="two-cols" />
                 <admin:formItem id="articleBetterInput" label="По-добра" type="text" />
@@ -52,10 +70,10 @@
                 <option value="bottom">Долу</option>
             </admin:formItem>
             <admin:formItem id="articleThemeSelect" label="Тема" type="select" layout="two-cols">
-            	<option value="">Без тема</option>
+                <option value="">Без тема</option>
             </admin:formItem>
             <admin:formItem id="articleSubthemeSelect" label="Подтема" type="select" layout="two-cols">
-            	<option value="">Без подтема</option>
+                <option value="">Без подтема</option>
             </admin:formItem>
             <h3>Основни картинки</h3>
             <div class="Main" role="group">

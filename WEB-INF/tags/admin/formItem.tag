@@ -26,9 +26,21 @@
         <c:when test="${type == 'area'}">
             <label>
                 <span>${label}:</span>
-                <textarea id="${id}" readonly="${readonly}">
-                    <jsp:doBody />
-                </textarea>
+                <c:choose>
+                    <c:when test="${!empty readonly}">
+                        <textarea id="${id}" 
+                              readonly="${readonly}" 
+                              placeholder="${placeholder}">
+                            <jsp:doBody />
+                        </textarea>
+                    </c:when>
+                    <c:otherwise>
+                        <textarea id="${id}"
+                          placeholder="${placeholder}">
+                            <jsp:doBody />
+                        </textarea>
+                    </c:otherwise>
+                </c:choose>
             </label>
         </c:when>
         <c:when test="${type == 'select'}">

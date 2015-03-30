@@ -328,7 +328,8 @@ h3,
 .Window h2 span,
 .Add .file,
 form input,
-form select {
+form select,
+form textarea {
 	margin-bottom: 20px;
 }
 
