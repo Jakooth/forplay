@@ -319,7 +319,7 @@ form label span {
 	margin-bottom: 0;
 }
 
-[role=group],
+form > [role=group],
 .Cover,
 #images li,
 section#login h2,
