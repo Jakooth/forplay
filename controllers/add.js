@@ -54,6 +54,7 @@ function AddManager() {
 			
 			utils.convertSVG($appender.prev().find('img'));
 			$appender.prev().find('.textLayout').attr('id',  'textLayout_' + id);
+			$appender.prev().find('.imageLayout').attr('id',  'imageLayout_' + id);
 			
 			$(document).scrollTop($appender.offset().top);
 			

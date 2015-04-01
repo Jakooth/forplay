@@ -6,7 +6,9 @@ function Article() {
 	 
 	var self = this;
 	
-	var $tagsInput = $('#publishTagsInput'),
+	var $article = $('#article'),
+		$layouts,
+		$tagsInput = $('#publishTagsInput'),
 		$dateInput = $('#publishDateInput'),
 		$timeInput = $('#publishTimeInput'),
 		$issueInput = $('#publishIssueInput'),
@@ -65,6 +67,8 @@ function Article() {
 	this.authors = "Koralsky,Snake,Jakooth";
 	this.hype;
 	this.versionTested = "PS4";
+	this.preview;
+	this.layouts = [];
 	
 	/**
 	 * Cover
@@ -137,6 +141,26 @@ function Article() {
 		} else {
 			self.audio =
 			self.video = "";
+		}
+		
+		$layouts = $article.find('.layout');
+		
+		if ($layouts.length) {
+			self.preview = $('<div>' + 
+							 CKEDITOR.instances[$layouts.eq(0)
+							.find('.center:visible')
+							.attr('id')].getData() + 
+							 '</div>')
+			.find('> p')
+			.map(function(i, element) { 
+				return $(element).text(); 
+			}).get().join(' ');
+			
+			$layouts.each(function () {
+				self.layouts.push(new Layout($(this)
+											 .find('.center:visible')
+											 .attr('id')));
+			});
 		}
 	}
 	 

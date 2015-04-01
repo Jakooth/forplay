@@ -57,12 +57,15 @@
     <script src="../controllers/add.js?v=1.0.0">
                 <!--script-->
             </script>
+	<script src="../controllers/objects/layout.js?v=1.0.0">
+                <!--script-->
+            </script>  
 	<script src="../controllers/objects/article.js?v=1.0.0">
                 <!--script-->
             </script>
     <script src="../controllers/objects/game.js?v=1.0.0">
                 <!--script-->
-            </script>            
+            </script>
 	<script>$(document).ready(function() { 
 				window.utils = new UtilsManager(); 
 				window.admin = new AdminManager(); 
