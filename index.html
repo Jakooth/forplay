@@ -84,85 +84,84 @@
     ga('send', 'pageview');
 </script>
 </head>
-<body data-side="p">
+<body>
 <header>
     <h1 class="clip">
         <a href="index.html">Forplay&reg;</a>
+        <img class="svg logo forplay" src="assets/forplay.svg" alt="Forplay&reg;" role="presentation" />
+        <img class="svg logo forlife" src="assets/forlife.svg" alt="Forlife&reg;" role="presentation" />
     </h1>
-    <nav aria-label="каталог" class="menu catalogue">
-        <h2 class="box menu icon">Каталог</h2>
-        <div class="menu">
-            <ul>
-                <li>
-                    <a class="news" href="#catalogue">Новини</a>
-                </li>
-                <li>
-                    <a class="review" href="#user">Ревюта</a>
-                </li>
-                <li>
-                    <a class="feature" href="#user">Мнения</a>
-                </li>
-                <li>
-                    <a href="#catalogue">Подкаст</a>
-                </li>
-            </ul>
-            <div class="collapse icon">
-                <!--button-->
-            </div>
+    <section class="cover-set">
+        <h2 class="clip">Корици</h2>
+        <div>
+            <!--ArticlesManager-->
         </div>
-    </nav>
-    <nav aria-label="моят профил" class="menu profile">
-        <h2 class="box menu icon">Моят профил</h2>
-        <div class="menu">
-            <ul>
-                <li>
-                    <a href="http://www.gamersvoiceshop.com/" target="_blank">Gamers'
-                    Voiceshop</a>
-                </li>
-                <li>
-                    <a href="http://forplay.bg/forums/" target="_blank">Форум</a>
-                </li>
-                <li>
-                    <a href="#profile">Настройки</a>
-                </li>
-                <li>
-                    <a href="#profile">Изход</a>
-                </li>
-            </ul>
-            <div class="collapse icon">
-                <!--button-->
-            </div>
+        <div class="thumbnail-set">
+            <!--ArticlesManager-->
         </div>
-    </nav>
-    <div class="search" role="search">
-        <form method="get" action="#search">
-            <label class="clip" for="search">Tърсене:</label>
-            <input type="search" placeholder="пример Diablo, Диабло, 300" name="search" id="forSearch">
-            <button class="box icon search" type="submit">Търси</button>
-        </form>
-    </div>
-</header>
-<main id="forMain">
-    <section id="coversSection" class="covers">
-        <h1 id="forPlayHeading" class="clip">Компютърни игри, конзолни игри,
-            мобилни игри</h1>
-        <img id="forPlayCovers" class="svg logo p" src="assets/forplay.svg" alt="Forplay&reg;" />
-        <h1 id="forLifeHeading" class="clip">Кино, сериали, музика, настолни
-            игри, книги</h1>
-        <img id="forLifeCovers" class="svg logo l" src="assets/forlife.svg" alt="Forlife&reg;" />
     </section>
-    <div id="thumbnailCoversWidget" class="thumbnail-covers">
-        <!--mobile-->
-    </div>
-    <section id="articlesSection" class="articles">
-        <div id="centerColumn" class="center-col">
-            <div id="latestVideo" class="page">
-                <h1>Най-нови клипчета</h1>
-            </div>
-            <div id="latestArticles" class="page">
-                <h1>Избрани статии</h1>
-            </div>
+    <section>
+        <h2 class="clip">Навигация, търсене и потребителски вход</h2>
+        <nav>
+            <h3 class="clip">Навигация</h3>
+            <ul>
+                <li>
+                    <a class="news" href="#news">Новини</a>
+                </li>
+                <li>
+                    <a class="review" href="#reviews">Ревюта</a>
+                </li>
+                <li>
+                    <a class="feature" href="#features">Мнения</a>
+                </li>
+                <li>
+                    <a href="#podcast">Подкаст</a>
+                </li>
+                <li>
+                    <a href="http://www.gamersvoiceshop.com/" 
+                       target="_blank">Gamers' Voiceshop</a>
+                </li>
+                <li>
+                    <a href="http://forplay.bg/forums/" 
+                       target="_blank">Форум</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="search" role="search">
+            <h3 class="clip">Търсене</h3>
+            <form method="get" action="#search">
+                <label class="clip" for="search">Tърсене:</label>
+                <input type="search" placeholder="пример Diablo, Диабло, 300" name="search" id="forSearch">
+                <button class="box icon search" type="submit">Търси</button>
+            </form>
         </div>
+        <div>
+            <h3 class="clip">Потребителски вход</h3>
+            <button>Вход</button>
+            <ul>
+                <li>
+                    <a href="#profile">Профил</a>
+                </li>
+                <li>
+                    <a href="#settings">Настройки</a>
+                </li>
+                <li>
+                    <a href="#logout">Изход</a>
+                </li>
+            </ul>
+        </div>
+    </section>
+</header>
+<main>
+    <h1 class="clip">Основно съдържание</h1>
+    <section class="article-set">
+        <h2 class="clip">Избрани статии</h2>
+    </section>
+    <section class="video-set">
+        <h2 class="clip">Най-нови клипчета</h2>
+    </section>
+    <section class="article-set">
+        <h2 class="clip">Всички статии</h2>
     </section>
 </main>
 <footer>

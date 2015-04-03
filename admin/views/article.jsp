@@ -30,9 +30,9 @@
             				placeholder="http://www.mixcloud.com/ForPlay_bg/forplay-podcast-vol22-102014-%D0%BF%D0%BE%D0%B4%D0%BA%D0%B0%D1%81%D1%82%D1%8A%D1%82-%D0%BD%D0%B0-%D0%B7%D0%B0%D0%B2%D1%80%D1%8A%D1%89%D0%B0%D0%BD%D0%B5%D1%82%D0%BE/?utm_source=widget&amp;amp;utm_medium=web&amp;amp;utm_campaign=base_links&amp;amp;utm_term=resource_link" />
             </div>
             <admin:formItem id="articleTitleInput" label="Заглавие" 
-            				placeholder="Grand Theft Auto 5" type="text" />
+            				placeholder="Grand Theft Auto V – сатирично менгеме. Вече и в 1080p!" type="text" />
             <admin:formItem id="articleSubtitleInput" label="Подзаглавие" 
-            				placeholder="Grand Theft Auto 5" type="text" />
+            				placeholder="Песен за Сам и Дан Хаузър..." type="text" />
             <admin:formItem id="articleAuthorsInput" label="Автори" 
             				placeholder="Snake, doomy" type="text" />
             <div id="articleReviewRegion" role="region">

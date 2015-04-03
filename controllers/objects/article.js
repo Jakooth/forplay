@@ -179,13 +179,13 @@ function Article() {
 			return $(element).text();
 		}).get().join(",");
 		
-		if (self.type == 'games') {
+		if (self.type.tag == 'games') {
 			self.site = 'forplay';
 		} else {
 			self.site = 'forlife';
 		}
 		
-		if (self.subtype == 'review') {
+		if (self.subtype.tag == 'review') {
 			self.url = self.prime;
 		} else {
 			self.url = self.title.toLowerCase().replace(/[:?\.,!]|– |- /g, '');
