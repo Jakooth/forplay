@@ -10,6 +10,7 @@ function Article() {
 		$layouts,
 		$tagsInput = $('#publishTagsInput'),
 		$dateInput = $('#publishDateInput'),
+		$priorityInput = $('#publishPrioritySelect'),
 		$timeInput = $('#publishTimeInput'),
 		$issueInput = $('#publishIssueInput'),
 		$typeInput = $('#articleTypeSelect'),
@@ -52,6 +53,7 @@ function Article() {
 	this.site = "forplay";
 	this.url = "gta-5";
 	this.date = new Date();
+	this.priority;
 	this.issue = "issue-1-reboot";
 	
 	/**
@@ -82,9 +84,15 @@ function Article() {
 	this.main = "gta-5-main.jpg";
 	this.main320 = "gta-5-main-320.png";
 	this.main640 = "gta-5-05.jpg";
-	this.better = "gta";
-	this.worse = "gta-5";
-	this.equal = "diablo-3";
+	this.better;
+	this.worse;
+	this.equal;
+	
+	/**
+	 * External
+	 */
+	 
+	this.stickers; 
 	
 	/**
 	 * TODO: Validate fields.
@@ -99,22 +107,33 @@ function Article() {
 		self.subtitle = $subtitleInput.val() || self.subtitle;
 		self.authors = $authorsInput.val() || self.authors;
 		
-		self.cover = $coverInput.val().split('/').pop() || self.cover;
 		self.bgH = $bgHInput.val();
 		self.bgV = $bgVInput.val();
 		self.theme = $themeInput.val() ? $themeInput.find(':selected').text() : "";
 		self.subtheme = $subthemeInput.val() ? $subthemeInput.find(':selected').text() : "";
-		self.main = $mainInput.val().split('/').pop() || self.main;
-		self.main320 = $main320Input.val().split('/').pop() || self.main320;
-		self.main640 = $main640Input.val().split('/').pop() || self.main640;
+		
+		/**
+		 * Images names are made from tag and number.
+		 * Fisrst strip the path, than strip the tag.
+		 * Only store the image index and format.
+		 */
+		 
+		self.cover = $coverInput.val().split('/').pop().split('-').pop() || 
+					 self.cover.split('-').pop();
+		self.main = $mainInput.val().split('/').pop().split('-').pop() || 
+					self.main.split('-').pop();
+		self.main320 = $main320Input.val().split('/').pop().split('-').pop() || 
+					   self.main320.split('-').pop();
+		self.main640 = $main640Input.val().split('/').pop().split('-').pop() || 
+					   self.main640.split('-').pop();
 		
 		if (self.subtype.tag == 'review') {
 			self.hype = $hypeInput.val();
 			self.versionTested = $versionTestedInput.val();
 			
-			self.better = $betterInput.val() || self.better;
-			self.worse = $worseInput.val() || self.worse;
-			self.equal = $equalInput.val() || self.equal;
+			self.better = $betterInput.typeahead().data('tagsinput').itemsArray[0];
+			self.worse = $worseInput.typeahead().data('tagsinput').itemsArray[0];
+			self.equal = $equalInput.typeahead().data('tagsinput').itemsArray[0];
 		} else {
 			self.hype =
 			self.versionTested =
@@ -143,7 +162,12 @@ function Article() {
 			self.video = "";
 		}
 		
-		$layouts = $article.find('.layout');
+		/**
+		 * Always clear the array before pushing new elements.
+		 */
+		
+		self.layouts = [];
+		var $layouts = $article.find('.layout');
 		
 		if ($layouts.length) {
 			self.preview = $('<div>' + 
@@ -193,7 +217,18 @@ function Article() {
 		}
 		
 		self.date = new Date($dateInput.val() + ' ' + $timeInput.val());
+		self.priority = $priorityInput.val();
 		self.issue = $issueInput.val() || self.issue;
+		
+		var get = $.get('../data/' + self.type.tag + '/' + self.prime + '.xml');
+				
+		$.when(get).done(function(data) {
+			var game = $.xml2json(data);
+			
+			self.stickers = game.stickers.sticker;
+		}).fail(function() {
+			alert("Failed to load stickers.");
+		});
 		
 		return self;
 	}

@@ -11,8 +11,8 @@ You can use bower (`bower install videojs-youtube`), npm (`npm install videojs-y
 <!DOCTYPE html>
 <html>
 <head>
-  <link type="text/css" rel="stylesheet" href="https://vjs.zencdn.net/4.5.1/video-js.css" />
-  <script src="https://vjs.zencdn.net/4.5.1/video.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://vjs.zencdn.net/4.12/video-js.css" />
+  <script src="https://vjs.zencdn.net/4.12/video.js"></script>
   <script src="vjs.youtube.js"></script>
 </head>
 <body>
@@ -41,7 +41,6 @@ This plugin exposes the following additional [player options](https://github.com
 - `quality` (String): Set the default video quality. Should be one of `1080p`, `720p`, `480p`, `360p`, `240p`, `144p`.
 - `playsInline` (Boolean): Sets the [`playsinline`](https://developers.google.com/youtube/player_parameters?playerVersion=HTML5#playsinline) YouTube player parameter to enable inline playback on iOS
 - `forceHTML5` (Boolean): Forces loading the YouTube HTML5 player (default `true`)
-- `forceSSL` (Boolean): Forces loading the YouTube API over https (default `true`)
 
 ##Special Thank You
 Thanks to Steve Heffernan for the amazing Video.js and to John Hurliman for the original version of the YouTube tech

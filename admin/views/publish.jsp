@@ -16,6 +16,13 @@
             				placeholder="the-title-to-lower-case-for-other" type="hidden" />
             <admin:formItem id="publishDateInput" label="Дата на публикуване" type="date" layout="two-cols" />
             <admin:formItem id="publishTimeInput" label="Час на публикуване" type="time" layout="two-cols" />
+            <admin:formItem id="publishPrioritySelect" label="Приоритет" type="select">
+                <option value="">Без приоритет</option>
+                <option value="cover">корица</option>
+                <option value="video">видео</option>
+                <option value="review">ревю</option>
+                <option value="feature">мнение</option>
+            </admin:formItem>
             <admin:formItem id="publishIssueInput" label="Брой" 
             				placeholder="Брой 1 - Презереждане" type="text" 
                             autocomplete="off" />

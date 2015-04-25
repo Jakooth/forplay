@@ -16,55 +16,61 @@ function AdminManager() {
 	var gamePlatforms = '../data/admin/platforms.json';
 	var movieGenres = '../data/admin/moviegenres.json';
 	
-	var bloodhound = function(data) {
+	var bloodhound = function(data, key) {
 		return new Bloodhound({
-			datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+			datumTokenizer: Bloodhound.tokenizers.obj.whitespace('text', 'value'),
 			queryTokenizer: Bloodhound.tokenizers.whitespace,
-			prefetch: {
-			url: data,
-			filter: function(list) {
-				return $.map(list, function(o) {
-					return { name: o }; });
-				}
-			}
+			prefetch: data
 		});
 	}
 	
-	var initTypeAhead = function(data, name, el) {
+	var initTypeAhead = function(data, 
+								 text, 
+								 input, 
+								 displayKey) {
 		data.initialize();
  
-		$(el).typeahead({
+		$(input).typeahead({
 			hint: true,
 			highlight: true,
 			minLength: 1
 		}, {
-		  name: name,
-		  displayKey: 'name',
-		  source: data.ttAdapter()
+		  	itemValue: 'value',
+  			itemText: displayKey || 'text',
+			name: text,
+		  	displayKey: displayKey || 'text',
+		  	source: data.ttAdapter()
 		});
 	}
 	
-	var initTagInput = function(data, name, el) {
+	var initTagInput = function(data, 
+								text, 
+								input, 
+								maxTags, 
+								displayKey) {
 		data.initialize();
 		
-		$(el).tagsinput({
-			typeaheadjs: {
-				name: name,
-				displayKey: 'name',
-				valueKey: 'name',
+		$(input).tagsinput({
+			maxTags: maxTags || null,
+			itemValue: 'value',
+  			itemText: displayKey || 'text',
+			typeaheadjs: [{
+      			hint: true,
+				highlight: true
+			}, {
+				name: text,
+				displayKey: displayKey || 'text', 
 				source: data.ttAdapter()
-			},
+			}],
 			freeInput: false
 		});
 	}
 	
 	var tags = bloodhound('../data/admin/tags.json');
 	var stickers = bloodhound('../data/admin/stickers.json');
-	var publishers = bloodhound('../data/admin/publishers.json');
-	var developers = bloodhound('../data/admin/developers.json');
+	var companies = bloodhound('../data/admin/companies.json');
 	var issues = bloodhound('../data/admin/issues.json');
 	var series = bloodhound('../data/admin/series.json');
-	var games = bloodhound('../data/admin/games.json');
 	var movies = bloodhound('../data/admin/movies.json');
 	var persons = bloodhound('../data/admin/persons.json');
 	var authors = bloodhound('../data/admin/authors.json');
@@ -213,28 +219,28 @@ function AdminManager() {
 	this.loadOptions('#searchCategorySelect', aside, 'option');
 	
 	initTagInput(tags, 'tags', '#personTagsInput');
-	initTagInput(tags, 'tags', '#publishTagsInput');
 	initTagInput(tags, 'tags', '#characterTagsInput');
 	initTagInput(stickers, 'stickers', '#gameStickersInput');
 	initTagInput(stickers, 'stickers', '#movieStickersInput');
-	initTypeAhead(publishers, 'publishers', '#gamePublisherInput');
-	initTypeAhead(developers, 'developers', '#gameDeveloperInput');
-	initTypeAhead(series, 'series', '#gameSerieInput');
+	initTagInput(companies, 'companies', '#gamePublisherInput', 1);
+	initTagInput(companies, 'companies', '#gameDeveloperInput', 1);
+	initTagInput(series, 'series', '#gameSerieInput', 1);
 	initTypeAhead(series, 'series', '#movieSerieInput');
 	initTypeAhead(tags, 'tags', '#imagesTagInput');
 	initTypeAhead(tags, 'tags', '#searchTagInput');
-	initTagInput(games, 'games', '#gameSimilarInput');
+	initTagInput(tags, 'tags', '#gameSimilarInput');
 	initTagInput(movies, 'movies', '#movieSimilarInput');
 	initTagInput(persons, 'persons', '#movieCastInput');
 	initTagInput(persons, 'persons', '#movieDirectorInput');
 	initTagInput(persons, 'persons', '#movieWriterInput');
 	initTagInput(persons, 'persons', '#movieCameraInput');
 	initTagInput(persons, 'persons', '#movieMusicInput');
-	initTypeAhead(issues, 'issues', '#publishIssueInput');
-	initTagInput(tags, 'tags', '#articleBetterInput');
-	initTagInput(tags, 'tags', '#articleWorseInput');
-	initTagInput(tags, 'tags', '#articleEqualInput');
+	initTagInput(issues, 'issues', '#publishIssueInput', 1, 'value');
+	initTagInput(tags, 'tags', '#articleBetterInput', 1);
+	initTagInput(tags, 'tags', '#articleWorseInput', 1);
+	initTagInput(tags, 'tags', '#articleEqualInput', 1);
 	initTagInput(authors, 'authors', '#articleAuthorsInput');
+	initTagInput(tags, 'tags', '#publishTagsInput', null, 'value');
 	
 	
 	
@@ -423,6 +429,14 @@ function AdminManager() {
 		
 		window.admin.publishTarget = a;
 		
+		/**
+		 * By default all news with video go with priority.
+		 */
+		
+		if (a.video) {
+			$('#publishPrioritySelect').val('video').change();
+		}
+		
 		console.log(window.admin.publishTarget);
 	});
 	
@@ -430,8 +444,8 @@ function AdminManager() {
 		window.admin.publishTarget.publish();
 		window.admin.publishTarget.hypeToString();
 		
-		utils.xml(window.admin.publishTarget, 'article', '#xmlCodeOutput');	
 		self.showSection('#xml');
+		utils.xml(window.admin.publishTarget, 'article', '#xmlCodeOutput');	
 		
 		console.log(window.admin.publishTarget);
 	});
@@ -445,8 +459,8 @@ function AdminManager() {
 		
 		g.save();
 		
+		self.showSectionInWindow('#xml');
 		utils.xml(g, 'game', '#xmlCodeOutput');	
-		self.showSection('#xml');
 		
 		console.log(g);
 	});

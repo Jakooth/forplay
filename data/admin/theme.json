@@ -1,25 +1,55 @@
-[ { "option" : "blood",
-    "value" : "B53634"
-  },
-  { "option" : "sunset",
-    "value" : "EF822A"
-  },
-  { "option" : "purple",
-    "value" : "82446D"
+[ { "option" : "red",
+    "value" : "F44336"
   },
   { "option" : "pink",
-    "value" : "DF3053"
+    "value" : "E91E63"
   },
-  { "option" : "silver",
-    "value" : "5C6974"
+  { "option" : "purple",
+    "value" : "9C27B0"
+  },
+  { "option" : "deep-purple",
+    "value" : "673AB7"
+  },
+  { "option" : "indigo",
+    "value" : "3F51B5"
+  },
+  { "option" : "blue",
+    "value" : "2196F3"
+  },
+  { "option" : "cyan",
+    "value" : "00BCD4"
+  },
+  { "option" : "teal",
+    "value" : "009688"
   },
   { "option" : "green",
-    "value" : "54FF00"
+    "value" : "4CAF50"
   },
-  { "option" : "forplay",
-    "value" : "FF6000"
+  { "option" : "light-green",
+    "value" : "8BC34A"
   },
-  { "option" : "navy",
-    "value" : "406080"
+  { "option" : "lime",
+    "value" : "CDDC39"
+  },
+  { "option" : "yellow",
+    "value" : "FFEB3B"
+  },
+  { "option" : "amber",
+    "value" : "FFC107"
+  },
+  { "option" : "orange",
+    "value" : "FF9800"
+  },
+  { "option" : "deep-orange",
+    "value" : "FF5722"
+  },
+  { "option" : "brown",
+    "value" : "795548"
+  },
+  { "option" : "grey",
+    "value" : "9E9E9E"
+  },
+  { "option" : "blue-grey",
+    "value" : "607D8B"
   }
 ]

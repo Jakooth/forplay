@@ -1,0 +1,36 @@
+<div class="layout {{:type}} {{:priority}} 
+	{{if subtype}} {{:type}}-{{:subtype}}{{/if}}"
+    {{if color}} data-color="{{:color}}"{{/if}}>
+    
+	{{if left}}
+        <div class="inline-col inline-left {{:left.valign}}">
+            {{for left.article tmpl="articleTemplate" /}}
+        </div>
+    {{/if}}
+    
+    {{if type == 'img-set' && !object}}
+   		{{for img tmpl="articleTemplate" ~subtype=subtype /}}
+    {{else type == 'article-set' || type == 'video-set'}}
+    	{{for article tmpl="articleTemplate" /}} 
+    {{else type == 'cover-set'}}
+    	<h2>{{:title}}</h2>
+        {{if subtitle}}<p class="subtitle">{{:subtitle}}</p>{{/if}}	
+    {{else type == 'img-set' && object == 'actors'}}
+    	{{for actor}}
+        	<div class="img-small">
+        		<p class="p-small"><strong>{{:text}}</strong> </p>
+    			<div class="img">
+					<img alt="" src="assets/articles/actors/actors-{{:tag}}-{{:count}}.jpg">
+        		</div>
+    		</div>
+        {{/for}}
+    {{else}}
+    	{{:content}}  
+    {{/if}}
+    
+    {{if right}}
+        <div class="inline-col inline-right {{:right.valign}}">
+            {{for right.article tmpl="articleTemplate" /}}
+        </div>
+    {{/if}}
+</div>

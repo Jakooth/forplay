@@ -61,68 +61,15 @@
 	}
 }
 
-#createSticker (@sticker) {
-	.sticker-@{sticker} {
-		background-image: url("stickers/@{sticker}-32.png");
-	}
-	
-	.social .sticker-@{sticker} {
-		background-image: url("stickers/@{sticker}-32.png") !important;
-	}
-
-	.c3 .sticker-@{sticker},
-	.covers article:hover .sticker-@{sticker} {
-		background-image: url("stickers/@{sticker}-128.png");
-	}
-}
-
-#createTheme (@theme, @color) {
-	body.@{theme} main:not(.read) .cover:hover .title {
-		background-color: fade(@color, 25%);
-	}
-	
-	body.@{theme} a:hover,
-	body.@{theme} .article-set article:hover h2 a {
-		color: @color;
-	}
-	
-    body.@{theme} .logo.p path { 
+#createTheme (@theme, @color) {	
+    body.@{theme} #forPlay path { 
 		fill: @color; 
 	}
 	
-	body.@{theme} .covers .box {
-		background-color: fade(@color, 70%);
-	}
-	
-	body.@{theme} blockquote,
-	body.@{theme} main button {
-		background-color: @color;
-	}
-	
-	body.@{theme} .inline-right blockquote:after,
-	body.@{theme} .right-col blockquote:after {
-		border-right-color: @color;
-	}
-	
-	body.@{theme} .inline-left blockquote:after,
-	body.@{theme} .left-col blockquote:after {
-		border-left-color: @color;
-	}
-	
-	body.@{theme} .page h1,
-	body.@{theme} q {
+	body.@{theme} .layout blockquote,
+	body.@{theme} .article-set p:nth-of-type(1) a,
+	body.@{theme} .layout:first-of-type .center > p:first-of-type:first-letter {
 		color: @color;
-	}
-	
-	body.@{theme} .box.menu:before {
-		border-bottom-color: @color;
-	}
-	
-	body.@{theme} .read-set:first-of-type > p:first-of-type:first-letter,
-	body.@{theme} .fixed .read-set:nth-of-type(3) > p:first-of-type:first-letter,
-	body.@{theme} .fixed .read-set:nth-of-type(4) > p:first-of-type:first-letter {
-		color: @color;
-		border-color: @color;
 	}
 }
 

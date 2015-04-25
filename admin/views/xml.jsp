@@ -11,5 +11,8 @@
         <form>
             <admin:formItem id="xmlCodeOutput" label="Изходен код" type="area" readonly="readonly" />
         </form>
+        <div role="toolbar">
+            <button class="cancel" type="button">Отмени</button>
+        </div>
     </section>
 </jsp:root>

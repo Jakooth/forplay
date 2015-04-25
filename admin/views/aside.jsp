@@ -9,12 +9,12 @@
         </h2>
         <form>
             <h3>Тема</h3>
-            <admin:formItem id="asideTypeSelect" label="Раздел" type="select" layout="two-cols" />
+            <admin:formItem id="asideTypeSelect" label="Раздел" type="select" />
             <admin:formItem id="asideTitle" label="Заглавие" 
             				placeholder="Grand Theft Auto 5" type="text" />
             <admin:formItem id="asideSubtitle" label="Подзаглавие" 
             				placeholder="Grand Theft Auto 5" type="text" />
-            <admin:formItem id="asideAuthorSelect" label="Автор" type="select" layout="two-cols" />
+            <admin:formItem id="asideAuthorSelect" label="Автор" type="select" />
             <h3>Съдържание</h3>
             <div class="Content">
                 <div class="z0Layout">

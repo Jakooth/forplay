@@ -1,0 +1,2525 @@
+/**
+  * VARIABLES, IMPORTS & MIXINS
+  */
+
+@charset "utf-8";
+@import "mixins.less";
+
+/**
+  * Color on hover and focus must be one for all styles.
+  */
+
+@review: #6666CC;
+@feature: #99CC00;
+@news: #FF6600;
+@video: #0099CC;
+@hover: #B4FFFF;
+@dark: #000000;
+@light: #FFFFFF;
+@better: #00C400;
+@worse: #FF0000;
+@equal: #999999;
+@navy: #406080;
+@forplay: #FF6000;
+@green: #54FF00;
+@silver: #5C6974;
+@pink: #DF3053;
+@purple: #82446D;
+@black: #000000;
+@sunset: #EF822A;
+@blood: #B53634;
+
+
+
+
+
+
+
+
+/**
+  * FONTS
+  * Place all font size and style declaration here.
+  * Many fonts are adjusted for different resolutions in media.css
+  */
+  
+* {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 12pt;
+	line-height: 16pt;
+}
+
+a {
+	text-decoration: underline;
+	color: @dark;
+}
+
+h1,
+q,
+q * {
+	font-family: 'Poiret One', cursive;
+	font-size: 24pt;
+	line-height: 28pt;
+}
+
+h2,
+h2 *,
+button {
+	font-size: 14pt;
+	line-height: 18pt;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/**
+  * Adjust heading fonts to align different articles.
+  * Big heading with tall image in caret will fit next to small article.
+  * Huge heading with tall image will fit next to large article.
+  */
+  
+.big h2,
+.big h2 * {
+	font-size: 22pt;
+	line-height: 26pt;
+}
+
+.huge h2,
+.huge h2 *,
+.read-set > h2,
+.cover-set > h2 {
+	font-size: 31pt;
+	line-height: 41pt;
+}
+
+.cover h2,
+.cover h2 *,
+.video-set .large h2 ,
+.video-set .large h2 * {
+	line-height: 34pt;
+}
+
+.cover .subtitle,
+.cover-set > .subtitle,
+.video-set .large .subtitle {
+	font-size: 14pt;
+	line-height: 18pt;
+}
+
+.author {
+	font-size: 30pt;
+	line-height: 20pt;
+}
+
+/**
+  * Hype score font size.
+  * Line height is defined with media query.
+  */
+
+.box.hype,
+.read .layout .hype {
+	font-size: 24pt;
+	font-weight: bold;
+}
+
+/**
+  * Cover type is placed inside the heading, but is absolute positioned.
+  * The visual style requires smaller font.
+  * Article type text is injected with css.
+  */
+
+.covers h2 .type,
+.articles .img:before {
+	font-size: 12pt;
+	line-height: 16pt;
+}
+
+/**
+  * First letter when reading articles.
+  */
+
+.read-set:first-of-type > p:first-of-type:first-letter,
+.fixed .read-set:nth-of-type(3) > p:first-of-type:first-letter,
+.fixed .read-set:nth-of-type(4) > p:first-of-type:first-letter {
+	font-size: 36pt;
+	font-style: normal;
+}
+
+.read-set p,
+.read-set p * {
+	font-size: 14pt;
+	line-height: 20pt;
+}
+
+.read-set h3,
+.read-set h3 *,
+.img-set div:not(.inline-col) h3 {
+	font-size: 18pt;
+	line-height: 24pt;
+}
+
+.read-set .inline-col p,
+.read-set .inline-col p strong,
+.read-set .inline-col p em,
+.read-set .inline-col h3 {
+	font-size: 12pt;
+	line-height: 16pt;
+}
+
+/**
+  * Comments for screen shots need to be a lot smaller.
+  */
+
+.img-set > p:not(.author) {
+	font-size: 12pt;
+	line-height: 16pt;
+}
+
+.img-set-4a div > p,
+.img-set-4a div > p *,
+.img-set-4c div > p:not(.author),
+.img-set-4c div > p:not(.author) *,
+.img-set-4c ol *,
+.img-set-1a ol *,
+.img-set .tracklist > p,
+.img-set .tracklist > p * {
+	font-size: 14pt;
+	line-height: 20pt;	
+}
+
+/**
+  * Heading for small videos.
+  */
+
+.small .img h2,
+.small .img h2 * {
+	font-size: 12pt;
+	line-height: 16pt;
+}
+
+/**
+  * Header menu items. 
+  * Visible if you click the main menu or profile buttons.
+  * Line height is defined with media query.
+  */
+
+.menu a {
+	font-size: 14pt;
+}
+
+
+
+
+
+
+
+
+/**
+  * LAYOUT
+  * Basic positioning of main elements.
+  *  4.16% is    40px from   960
+  *  2.08% is    20px from   960
+  *  1.25% is    20px from 	1600
+  * 21.25% is	340px from 	1600
+  */
+  
+* {
+	margin: 0;
+	padding: 0;
+}
+
+img {
+	width: 100%;
+	vertical-align: top;
+	position: relative;
+}
+
+header,
+main,
+section.p,
+section.l,
+section.articles,
+footer {
+	width: 100%;
+}
+
+header {
+	position: fixed;
+	top: 0;
+	z-index: 100;
+	overflow: visible;
+}
+
+section.covers {
+	position: relative;
+	overflow: hidden;
+}
+
+/**
+  * Thumbnails are for mobile purpose only.
+  */
+
+.thumbnail-covers {
+	display: none;
+}
+
+/**
+  * All columns have 20px maring on each side.
+  * This will make some extra space on both sides of the center column.
+  * Most elements have the same maring or padding for nicer layout.
+  */
+
+section.articles .center-col {
+	float: left;
+	width: 60%;
+	margin-top: 1.25%;
+	margin-left: 20%;
+}
+
+footer {
+	position: relative;
+	clear: both;
+}
+
+/**
+  * Footer content is aligned with logo and aricles.
+  */
+
+footer p {
+	padding: 1.25%;
+	padding-left: 21.25%;
+	padding-right: 21.25%;
+	text-align: center;
+}
+
+
+
+
+
+
+
+
+/**
+  * HELPERS
+  * Out and clip are used to hide accessibility text.
+  */
+  
+.out {
+	height: 1px;
+	width: 1px;
+	position: absolute;
+	top: auto;
+	left: -10000px;
+	overflow: hidden;
+}
+
+.clip {
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+	width: 1px;
+	height: 1px;
+	position: absolute;
+	overflow: hidden;
+	opacity: 0;
+}
+
+.hidden {
+	opacity: 0.2;
+	pointer-events: none;
+}
+
+/**
+  * Separator between group of articles.
+  * Sometimese a heading is placed in the separator.
+  */
+
+.page {
+	clear: both;
+	padding-top: 4.16%;
+}
+
+.page h1 {
+	padding: 2.08%;
+	font-style: italic;
+	font-weight: normal;
+}
+
+
+
+
+
+
+
+
+/**
+  * ANIMATIONS
+  * Place all transitions here.
+  * Animate better and worse and covers.
+  */
+
+div.search input,
+div.search input:hover,
+div.search input:focus,
+.box {
+	-webkit-transition: width 0.5s;
+	-moz-transition: width 0.5s;
+	-o-transition: width 0.5s;
+	-ms-transition: width 0.5s;
+	transition: width 0.5s;
+}
+
+/**
+  * Header will become solid, when the header is off the screen.
+  */
+
+div.search input,
+header,
+article,
+.title {
+	-webkit-transition: background-color 0.5s;
+	-moz-transition: background-color 0.5s;
+	-o-transition: background-color 0.5s;
+	-ms-transition: background-color 0.5s;
+	transition: background-color 0.5s;
+}
+
+header,
+article {
+	-webkit-transition: box-shadow 0.5s;
+	-moz-transition: box-shadow 0.5s;
+	-o-transition: box-shadow 0.5s;
+	-ms-transition: box-shadow 0.5s;
+	transition: box-shadow 0.5s;
+}
+
+/**
+  * Main and profile menus are displayed with animation.
+  */
+
+div.menu {
+	-webkit-transition: height 0.5s;
+	-moz-transition: height 0.5s;
+	-o-transition: height 0.5s;
+	-ms-transition: height 0.5s;
+	transition: height 0.5s;
+}
+
+.covers article {
+	-webkit-transition: left 0.5s, width 0.5s;
+	-moz-transition: left 0.5s, width 0.5s;
+	-o-transition: left 0.5s, width 0.5s;
+	-ms-transition: left 0.5s, width 0.5s;
+	transition: left 0.5s, width 0.5s;
+}
+
+svg path {
+	-webkit-transition: fill 1s;
+	-moz-transition: fill 1s;
+	-o-transition: fill 1s;
+	-ms-transition: fill 1s;
+	transition: fill 1s;
+}
+
+.title {
+	-webkit-transition: opacity 0.5s, background-color 0.5s;
+	-moz-transition: opacity 0.5s, background-color 0.5s;
+	-o-transition: opacity 0.5s, background-color 0.5s;
+	-ms-transition: opacity 0.5s, background-color 0.5s;
+	transition: opacity 0.5s, background-color 0.5s;
+}
+
+
+
+
+
+
+
+
+
+/**
+  * BOX
+  * Box design element with different colors and icon.
+  * Some colors are theme dependant.
+  */
+
+.box {
+	position: absolute;
+	border: none;
+	background-color: @light;
+	background-size: auto 100%;
+	background-position: left center;
+	background-repeat: no-repeat;
+	white-space: nowrap;
+	overflow: visible;
+	color: @light;
+	text-indent: -10000px;
+	box-sizing: border-box;
+	-ms-interpolation-mode: bicubic;
+    image-rendering: optimizeQuality;
+}
+
+.covers .box {
+	background-color: fade(@light, 70%);
+}
+
+.box.better:hover,
+.box.worse:hover,
+.box.equal:hover {
+	width: 50%;
+	white-space: normal;
+	padding: 1.25%;
+	color: @light;
+}
+
+.box.icon {
+	background-position: center center;
+}
+
+.box.hype {
+	text-indent: 0;
+	text-align: center;
+}
+
+.box:after {
+	background: none;
+	border-bottom: 6px solid fade(@dark, 0);
+	border-right: 6px solid fade(@dark, 70%);
+	border-top: 6px solid fade(@dark, 0);
+	bottom: 0;
+	content: "";
+	left: -6px;
+	position: absolute;
+	top: 0;
+	width: 0;
+}
+
+.box.search:after {
+	border: none;
+}
+
+.box.better:after {
+	border-bottom: 6px solid fade(@better, 70%);
+	border-right: 6px solid fade(@better, 70%);
+	border-top: 6px solid fade(@dark, 0);
+}
+
+.box.worse:after {
+	border-bottom: 6px solid fade(@dark, 0);
+	border-right: 6px solid fade(@worse, 70%);
+	border-top: 6px solid fade(@worse, 70%);
+}
+
+.box.equal:after {
+	border-bottom: 6px solid fade(@dark, 0);
+	border-right: 6px solid fade(@equal, 70%);
+	border-top: 6px solid fade(@equal, 70%);
+}
+
+.box.menu:before {
+	border-style: solid;
+	border-width: 0 0 20px 20px;
+	bottom: 0;
+	content: "";
+	height: 0;
+	position: absolute;
+	right: 0;
+	width: 0;
+	border-color: fade(@dark, 0);
+	border-bottom-color: @dark;
+}
+
+
+
+
+
+
+
+
+/**
+  * HEADER & NAVIGATION
+  */
+
+header {
+	background-color: fade(@light, 75%);
+}
+
+header.solid {
+	background-color: @light;
+	box-shadow: 0 20px 20px fade(@dark, 25%);
+}
+
+header * {
+	display: inline;
+}
+
+nav.menu ul,
+nav.menu li {
+	display: block;
+	list-style: none;
+}
+
+nav.menu div.menu {
+	height: 0;
+	overflow: hidden;
+	position: absolute;
+	width: 20%;
+	background-color: @light;
+	z-index: 10000;
+}
+
+nav.menu li {
+	background-color: @light;
+}
+
+nav.menu a {
+	display: block;
+	padding-left: 6.25%;
+	padding-right: 6.25%;
+	text-decoration: none;
+	color: @dark;
+}
+
+nav.menu .collapse {
+	background-image: url(icons/iconmonstr-arrow-31-icon.png);
+	background-position: center center;
+	background-repeat: no-repeat;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+.catalogue div.menu {
+	left: 0;
+}
+
+.profile div.menu {
+	right: 0;
+}
+
+.catalogue h2 {
+	margin: 1.25%;
+	left: 0;
+	background-image: url(icons/forplay-paw-icon.png);
+}
+
+.profile h2 {
+	margin: 1.25%;
+	right: 0;
+	background-image: url(icons/iconmonstr-user-2-icon.png);
+}
+
+/**
+  * Order of elements depends on the content type.
+  */
+
+div.search {
+	right: 10%;
+	margin: 1.25%;
+	z-index: 10;
+}
+
+body.l div.search {
+	left: 10%;
+	right: auto;
+}
+
+div.search input {
+	position: absolute;
+	border: none;
+	margin: 1.25%;
+	right: 25%;
+	width: 7.5%;
+	padding-left: 1.25%;
+	padding-right: 1.25%;
+	background-color: fade(@light, 20%);
+}
+
+div.search input:hover,
+div.search input:focus {
+	width: 17.5%;
+	background-color: fade(@light, 100%);
+}
+
+body.l div.search input {
+	left: 25%;
+	right: auto;
+}
+
+button.search {
+	margin: 1.25%;
+	right: 20%;
+	background-image: url(icons/iconmonstr-magnifier-4-icon.png);
+}
+
+body.l button.search {
+	left: 20%;
+	right: auto;
+}
+
+
+
+
+
+
+
+
+/**
+  * MAIN
+  * Note logos are headings between sections.
+  * The real site name is hidden in the header.
+  */
+  
+body {
+	color: @dark;
+	background-color: @light;
+}
+  
+.logo {
+	position: absolute;
+	z-index: 1000;
+}
+
+body.p .logo.p {
+	position: fixed;
+	left: 20%;
+	padding: 1.25%;
+	width: 27.5%;
+}
+
+body.p .logo.l {
+	bottom: 0;
+	right: 0;
+	width: 20%;
+	z-index: 5;
+}
+
+.logo.p path {
+	fill: @dark;
+}
+
+.logo.l path {
+	fill: @light;
+}
+
+body.l .logo.l {
+	position: fixed;
+	right: 20%;
+	padding: 1.25%;
+	width: 27.5%;
+}
+
+body.l .logo.p {
+	bottom: 0;
+	left: 0;
+	width: 20%;
+	z-index: 5;
+}
+
+body.l .logo.l path {
+	fill: @light;
+}
+
+body.l .logo.p path {
+	fill: @dark;
+}
+
+.covers article {
+	position: absolute;
+	width: 10%;
+	height: 100%;
+	background-size: cover;
+	background-position: right top;
+	-ms-interpolation-mode: bicubic;
+    image-rendering: optimizeQuality;
+}
+
+main:not(.read) .covers article:hover {
+	width: 60%;
+	z-index: 5;
+}
+
+main:not(.read) .covers article.c4:hover {
+	left: 30%;
+}
+
+main:not(.read) .covers article.c5:hover {
+	left: 40%;
+}
+
+.covers .title {
+	left: 0;
+	right: 0;
+	padding: 2.08%;
+	position: absolute;
+	bottom: 0;
+	padding-top: 50%;
+	overflow: hidden;
+	/* box-shadow: inset 0 -240px 240px -240px fade(@dark, 80%); */
+}
+
+/**
+  * Darken bottom cover for higer text contrast.
+  * Performance in Firefox with box-shadow is terrible.
+  */
+
+.covers article:before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-image: url(fx/shadow.png);
+	background-repeat: repeat-x;
+	background-position: bottom left;
+}
+
+.covers .title h2,
+.covers .title p {
+	width: 66.66%;
+}
+
+.covers .title p {
+	margin-top: 1.04%;
+}
+
+.covers aside {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.author {
+	position: absolute;
+	color: @light;
+	bottom: 0;
+	right: 0;
+	font-weight: bold;
+}
+
+main:not(.read) .author {
+	.clip;
+}
+
+.hype {
+	left: 12.5%;
+}
+
+article.c4 .hype,
+article.c5 .hype {
+	left: auto;
+	right: 12.5%;
+}
+
+article:hover .hype,
+article.c3 .hype {
+	right: auto;
+	left: 2.08%;
+	margin-top: 2.08%;
+}
+
+.better,
+.worse {
+	left: 12.5%;
+}
+
+main:not(.read) .hype,
+main:not(.read) .better,
+main:not(.read) .worse,
+main:not(.read) .equal {
+	display: none;
+}
+
+.covers article h2,
+.covers article p {
+	color: @light;
+}
+
+.covers article.bg-center {
+	background-position: center top;
+}
+
+.covers article.bg-left {
+	background-position: left top;
+}
+
+.covers article.bg-25 {
+	background-position: 25% top;
+}
+
+.covers article.bg-75 {
+	background-position: 75% top;
+}
+
+.covers article.c3 {
+	background-position: right top;
+}
+
+.covers article.c3.bg-top {
+	background-position: center top;
+}
+
+.covers article.c3.bg-25 {
+	background-position: center 25%;
+}
+
+.covers article.c3.bg-center {
+	background-position: center center;
+}
+
+.covers article.c3.bg-75 {
+	background-position: center 75%;
+}
+
+.covers article.c3.bg-bottom {
+	background-position: center bottom;
+}
+
+.cover.c1 {
+	left: 0%;
+	z-index: 2;
+}
+
+.cover.c2 {
+	left: 10%;
+	z-index: 3;
+}
+
+.cover.c2.unfocus {
+	left: 60%;
+}
+
+.cover.c3 {
+	width: 60%;
+	left: 20%;
+	z-index: 4;
+}
+
+.cover.c3.unfocus-left {
+	width: 10%;
+}
+
+.cover.c3.unfocus-right {
+	width: 10%;
+	left: 70%;
+}
+
+.cover.c4 {
+	left: 80%;
+	z-index: 3;
+}
+
+.cover.c4.unfocus {
+	left: 30%;
+}
+
+.cover.c5 {
+	left: 90%;
+	z-index: 2;
+}
+
+.cover.c6 {
+	left: 100%;
+	opacity: 0;
+	z-index: 1;
+}
+
+/**
+  * Align cover elements when reading article.
+  */
+
+.read .covers article .title {
+	left: 20%;
+	right: 20%;
+	padding: 1.25%;
+}
+
+.read .covers .social {
+	right: 26.25%
+}
+
+.read article:hover .hype, 
+.read article.c3 .hype {
+	left: 21.25%;
+}
+
+.read .layout .hype {
+	text-align: right;
+}
+
+.read article.c3 .hype,
+.read article:hover .hype,
+.read .better {
+	margin-top: 1.25%;
+}
+
+.read .better,
+.read .worse,
+.read .equal {
+	left: auto;
+	right: 21.25%;
+}
+
+.read .box.better:hover,
+.read .box.worse:hover,
+.read .box.equal:hover {
+	width: 30%;
+}
+
+.read article.c3,
+.read article.c3:hover {
+	width: 100%;
+	left: 0;
+	right: 0;
+}
+
+.read .covers article .title {
+	left: 20%;
+	right: 20%;
+	padding: 1.25%;
+}
+
+
+
+
+
+
+
+
+/**
+  * LAYOUTS
+  */
+
+.layout {
+	clear: both;
+	position: relative;
+}
+
+.layout.low {
+	margin-top: 8.4%;
+}
+
+.inline-left {
+	width: 33.33%;
+	position: absolute;
+	left: -33.33%;
+	top: 0;
+}
+
+.inline-right {
+	width: 33.33%;
+	position: absolute;
+	right: -33.33%;
+	top: 0;
+}
+
+.inline-left.bottom,
+.inline-right.bottom {
+	top: auto;
+	bottom: 0;
+}
+
+.img-set,
+.article-set {
+	float: left;
+	width: 100%;
+}
+
+.video-set {
+	float: left;
+	width: 166.6%;
+	margin-left: -33.3%;
+}
+
+/**
+  * Image layouts with 3 image sizes and comments.
+  */
+  
+.img-set {
+	position: relative;
+	/*margin-top: 2.08%;
+	margin-bottom: 2.08%;*/
+}
+
+.img-set .img-large,
+.img-set .img-medium,
+.img-set .img-small {
+	position: relative;
+	float: left;
+	padding: 2.08%;
+	box-sizing: border-box;
+}
+
+.img-set div:not(.inline-col) h3 {
+	position: absolute;
+	color: @dark;
+	background: @light;
+	left: 26.15%;
+	width: 69.23%;
+	top: 0;
+	z-index: 1;
+	text-transform: capitalize;
+	padding: 1.54% !important;
+}
+
+.img-set div > p {
+	box-sizing: border-box;
+	position: absolute;
+	padding: 0 !important;
+}
+
+.img-set .img:before {
+	display: none !important;
+}
+
+/**
+  * Default sizes and positions for news.
+  */
+
+.img-set .img-large {
+	width: 100%;
+}
+
+.img-set .img-medium {
+	width: 70.8%;
+}
+
+.img-set div:not(.extended) .p-large {
+	bottom: 0;
+	width: 50%;
+	margin-bottom: 2.08%;
+	padding: 2.08% !important;
+	background: @light;
+}
+
+.img-set div:not(.extended) .p-medium {
+	top: 0;
+	left: 100%;
+	width: 41.2%;
+	padding: 2.94% !important;
+}
+
+/**
+  * Advamced layouts for reviews and features.
+  * Variant 1a
+  * 3 images - 2 small and 1 large.
+  */
+
+.img-set-1a {
+	margin-bottom: 2.08%;
+}
+
+.img-set-1a .extended p.p-large,
+.img-set-1b .extended p.p-large {
+	left: 101.54%;
+	bottom: 0;
+	width: 15.4%;
+}
+
+.img-set-1a .extended p.p-medium,
+.img-set-1b .extended p.p-medium {
+	left: 52.4%;
+	top: 0;
+	margin-top: 57.6%;
+	width: 31.75%;
+}
+
+.img-set-1a.r1610 .extended p.p-medium,
+.img-set-1b.r1610 .extended p.p-medium {
+	margin-top: 64%;	
+}
+
+.img-set-1a .extended p.p-small,
+.img-set-1b .extended p.p-small {
+	left: -37.3%;
+	bottom: 0;
+	width: 31.75%;
+}
+
+.img-set-1a div.img-large.extended,
+.img-set-1b div.img-large.extended {
+	width: 135.42%;
+	margin-left: -35.42%;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.img-set-1a div.img-medium.extended,
+.img-set-1b div.img-medium.extended {
+	float: right;
+	width: 65.625%;
+	margin-right: -33.33%;
+	padding-left: 0;
+	padding-top: 0;
+}
+
+.img-set-1a div.img-small.extended,
+.img-set-1b div.img-small.extended {
+	float: right;
+	width: 65.625%;
+	padding-left: 0;
+	padding-bottom: 0;
+	padding-top: 0;
+}
+
+.img-set-1a .p-large.caret {
+	position: absolute;
+	z-index: 1;
+	background: @light;
+	bottom: 0;
+	left: 26.2%;
+	width: auto;
+	width: 27.7%;
+}
+
+.img-set-1a.right .p-large.caret {
+	left: auto;
+	right: 0;
+}
+
+.img-set-1a ol {
+	list-style: decimal-leading-zero;
+	padding: 5.6%;
+	padding-bottom: 0;
+	list-style-position: outside;
+	padding-left: 15.4%;
+}
+
+.img-set-1a li {
+	padding-left: 3.5%;
+}
+
+.img-set-1a .tracklist p {
+	padding: 5.6% !important;
+	position: relative;
+	padding-bottom: 0 !important;
+}
+
+/**
+  * Variant 1b
+  * 3 images - 1 large and 2 small.
+  */
+
+.img-set-1b {
+	margin-bottom: 0%;
+}
+
+.img-set-1b div.img-small.extended,
+.img-set-1b div.img-medium.extended {
+	padding-top: 2.08%;
+}
+
+.img-set-1b .extended p.p-large {
+	top: 0;
+}
+
+.img-set-1b .extended p.p-medium,
+.img-set-1b.r1610 .extended p.p-medium {
+	top: auto;
+	bottom: 0;
+	margin-top: auto;
+	margin-bottom: 61.1%;
+}
+
+.img-set-1b.r1610 .extended p.p-medium {
+	margin-bottom: 66.8%;
+}  
+
+/**
+  * Variant 2a
+  * 3 images - 1 small, 1 medium and 1 large.
+  */
+
+.img-set-2a .extended p.p-large {
+	left: 101.54%;
+	top: 0;
+	width: 15.4%;
+}
+
+.img-set-2a .extended p.p-medium {
+	left: 63.4%;
+	bottom: 0;
+	margin-bottom: 58.5%;
+	width: 24.4%;
+}
+
+.img-set-2a.r1610 .extended p.p-medium {
+	margin-bottom: 64.4%;
+}
+
+.img-set-2a .extended p.p-small {
+	width: 100%;
+	margin-top: 4.54%;
+	top: 100%;
+}
+
+.img-set-2a div.img-large.extended {
+	width: 135.42%;
+	margin-left: -35.42%;
+	padding-bottom: 0;
+	padding-top: 0;
+}
+
+.img-set-2a div.img-medium.extended {
+	float: right;
+	width: 85.42%;
+	margin-right: -33.33%;
+}
+
+.img-set-2a div.img-small.extended {
+	float: right;
+	width: 45.92%;
+	padding: 2.08% 0 0 0;
+}
+
+/**
+  * Variant 3a
+  * 4 images - checker layout with 4 small images.
+  * 8 images - checker layout with 8 small images.
+  * 12 images - checker layout with 12 small images.
+  */
+
+.img-set-3a {
+	margin-bottom: 2.08%;
+}
+
+.img-set-3a div.img-small,
+.img-set-3a p.p-small {
+	width: 41.66%;
+	padding: 0;
+}
+
+.img-set-3a p.p-small {
+	padding: 5% !important;
+	width: 100%;
+	margin-top: 56.25%;
+}
+
+.img-set-3a .img-small:nth-child(2n) p.p-small {
+	margin-top: auto;
+	margin-bottom: 56.25%;
+	bottom: 0;
+}
+
+.img-set-3a div.img-small:nth-child(1),
+.img-set-3a div.img-small:nth-child(5),
+.img-set-3a div.img-small:nth-child(9) {
+	margin-left: -33.33%;
+}
+
+.img-set-3a div.img-small:nth-child(2),
+.img-set-3a div.img-small:nth-child(6),
+.img-set-3a div.img-small:nth-child(10) {
+	margin-top: 23.44%;
+}
+
+.img-set-3a div.img-small:nth-child(4),
+.img-set-3a div.img-small:nth-child(8),
+.img-set-3a div.img-small:nth-child(12) {
+	margin-right: -33.33%;
+	margin-top: 23.44%;
+}
+
+/**
+  * Variant 3b
+  * 6 images - checker layout with 4 small images.
+  * Make the widht 166.6 and not 166.66 to fix issue with
+  * horizontal scorle in Chrome.
+  */
+
+.img-set-3b {
+	margin-bottom: 2.08%;
+	margin-left: -33.33%;
+	width: 166.6%;
+}
+
+.img-set-3b p.p-small {
+	z-index: 1;
+    width: 100%;
+    padding: 4.35% !important;
+    background: fade(@light, 75%);
+    bottom: 0px;
+}
+
+.img-set-3b div.img-small {
+	float: left;
+	width: 28.75%;
+	padding: 0;
+}
+
+.img-set-3b div.img-small:nth-child(4n) p.p-small, 
+.img-set-3b div.img-small:nth-child(4n-1) p.p-small {
+	margin-left: 50%;
+	text-align: left;
+}
+
+.img-set-3b div.img-small:nth-child(4n-2) p.p-small, 
+.img-set-3b div.img-small:nth-child(4n-3) p.p-small {
+	margin-left: -50%;
+	text-align: right; 	
+}
+
+.img-set-3b div.img-small:nth-child(4n), 
+.img-set-3b div.img-small:nth-child(4n-1) {
+    margin-right: 21.25%;
+}
+
+.img-set-3b div.img-small:nth-child(4n-2), 
+.img-set-3b div.img-small:nth-child(4n-3) {
+    margin-left: 21.25%;
+}
+
+/**
+  * Variant 4a, 4b
+  * 1 image - 1 large image and caret.
+  * The image must be transparent to flow above the text. 
+  */
+
+.img-set-4a {
+	margin-top: 2.08%;
+	margin-bottom: 2.08%;
+}
+
+.img-set-4a .img {
+	width: 100%;
+}
+
+.img-set-4b {
+	margin-bottom: 2.08%;
+}
+
+.img-set-4a .img-large {
+	margin-right: -33.33%;
+	width: 133.33%;
+	padding: 0;
+	position: relative;
+	bottom: 0;
+}
+
+/**
+  * 4b extend the image to full width.
+  * 66.66 will extend 1px more in Chrome.
+  * Reducing this to prevent horizontal scroll.
+  */
+
+.img-set-4b .img-large {
+	margin-left: -33.33%;
+	margin-right: -33.33%;
+	width: 166.6%;
+	padding: 0;
+}
+
+/**
+  * Width is percetage 360 of 1300.
+  */
+
+.img-set-4b .p-large.caret {
+	position: absolute;
+	z-index: 1;
+	background: @light;
+	bottom: 0;
+	left: 26.2%;
+	width: auto;
+	width: 27.7%;
+}
+
+/**
+  * 4c extend the image to full width.
+  * Text is placed on top of the image.
+  */
+  
+.img-set-4c {
+	margin-bottom: 2.08%;
+}  
+
+.img-set-4c .img-large {
+	margin-left: -33.33%;
+	margin-right: -33.33%;
+	width: 166.6%;
+	padding: 0;
+}
+
+.img-set-4c div:not(.extended) .p-large {
+	position: absolute;
+	background: @light;
+	z-index: 1;
+	margin-bottom: 0;
+	padding: 0 !important;
+}
+
+.img-set-4c.top div:not(.extended) .p-large {
+	width: 60%;
+	margin-left: 20%;
+	top: 0;
+	bottom: auto;
+}
+
+.img-set-4c.bottom div:not(.extended) .p-large {
+	width: 60%;
+	margin-left: 20%;
+	top: auto;
+	bottom: 0;
+}
+
+.img-set-4c.right div:not(.extended) .p-large {
+	width: 40%;
+	margin-left: 40%;
+}
+
+.img-set-4c.left div:not(.extended) .p-large {
+	width: 40%;
+	margin-left: 20%;
+}
+
+.img-set-4c.tracklist div:not(.extended) .p-large {
+	width: 20%;
+}
+
+.img-set-4c.right.tracklist div:not(.extended) .p-large {
+	width: 20%;
+	margin-left: 60%;
+}
+
+.img-set-4c div:not(.extended) .p-large p,
+.img-set-4c div:not(.extended) .p-large ol {
+	position: relative;
+	padding: 1.6% !important;
+}
+
+.img-set-4c.right div:not(.extended) .p-large p,
+.img-set-4c.left div:not(.extended) .p-large p,
+.img-set-4c.right div:not(.extended) .p-large ol,
+.img-set-4c.left div:not(.extended) .p-large ol {
+	padding: 3.2% !important;
+}
+
+.img-set-4c.bottom div:not(.extended) .p-large p,
+.img-set-4c.bottom div:not(.extended) .p-large ol {
+	padding-bottom: 0 !important;
+}
+ 
+.img-set-4c ol {
+	list-style: decimal-leading-zero;
+	list-style-position: inside;
+}
+
+.img-set-4c div:not(.inline-col) h3 {
+	position: relative;
+	box-sizing: border-box;
+	text-transform: none;
+	width: 100%;
+	left: 0;
+}
+
+.img-set-4c div:not(.extended) .p-large p.author {
+	position: absolute;
+	top: -44px;
+	right: 0;
+	bottom: auto;
+	z-index: 100;
+}
+
+/**
+  * Fix the image position, so the caret height can grow.
+  */
+  
+.img-set-4a div:not(.extended) .img {
+	position: absolute;
+	bottom: 0;
+	z-index: 1;
+}
+
+/**
+  * Relative position, will allow infinite height.
+  */
+
+.img-set-4a div:not(.extended) div.p-large {
+	box-sizing: border-box;
+	position: relative;
+	left: -25%;
+	width: 75%;
+	bottom: 0;
+	margin: 0;
+	background-color: fade(@dark, 20%);
+	padding: 0 !important;
+}
+
+.img-set-4a div:not(.extended) div.p-large p {
+	position: relative;
+	padding: 2.08% !important;
+	width: 90%;
+}
+
+.img-set-4a div:not(.extended) div.p-large p:nth-of-type(2) {
+	width: 80%;
+}
+
+.img-set-4a div:not(.extended) div.p-large p:nth-of-type(3) {
+	width: 70%;
+}
+
+.img-set-4a div:not(.extended) div.p-large p:nth-of-type(4) {
+	width: 60%;
+}
+
+.img-set-4a div:not(.extended) div.p-large h3 {
+	position: relative;
+	margin: 0;
+	padding: 2.08% !important;
+	left: 0;
+	width: auto;
+	padding-left: 35.08% !important;
+}
+
+
+
+
+
+
+
+
+
+
+/**
+  * ARTICLES
+  * Place all styles for content inside articles here.
+  */
+
+.img {
+	position: relative;
+	overflow: hidden;
+	display: block;
+}
+
+.img .advert {
+	width: auto;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+.small .img,
+.tall .img {
+	width: 87.5%;
+	margin-left: 6.25%;
+	margin-right: 6.25%;
+}
+
+.inline-left .wide .img {
+	width: 93.75%;
+}
+
+.inline-right .wide .img {
+	width: 93.75%;
+	margin-left: 6.25%;
+}
+
+.large .img {
+	width: 93.75%;
+	margin-left: 3.125%;
+}
+
+/**
+  * 16:10 and 4:3 will use the full image height.
+  * 16:9 requires more vartical space.
+  * Media query will handle this.
+  */
+
+.tall img {
+	margin-bottom: 0;
+}
+
+/**
+  * Reduce wide images height to align with small.
+  */
+  
+.wide img {
+	margin-bottom: -3.68%;
+}
+
+.img p,
+.img h2 {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	padding: 2.08%;
+	background-color: @light;
+	width: 75%;
+	box-sizing: border-box;
+}
+
+.img h2 {
+	width: 100%;
+}
+
+.player .img h2 {
+	color: @light;
+	background-color: transparent;
+	background: url(fx/shadow.png) repeat-x;
+	background-size: 100% 140%;
+	background-position: center bottom;
+	padding-top: 30% !important;
+}
+
+.player .img h2 * {
+	color: @light;
+}
+
+.center-col .inline-col p,
+.center-col .inline-col h2 {
+	padding: 6.25%;
+}
+
+main button {
+	margin: 6.25%;
+	padding: 6.25%;
+	width: 87.5%;
+	border: none;
+	color: @light;
+	font-weight: bold;
+}
+
+main button:-moz-focus-inner {
+	border: none;
+}
+
+.center-col .small,
+.center-col .tall,
+.center-col .extra-tall {
+	float: left;
+	width: 33.33%;
+}
+
+.center-col .inline-col .small,
+.center-col .inline-col .tall,
+.center-col .inline-col .extra-tall {
+	float: none;
+	width: 100%;
+}
+
+.center-col p,
+.center-col h2 {
+	padding: 6.25%;
+}
+
+/**
+  * 66.66 will extend 1px more in Chrome.
+  * Reducing this to prevent horizontal scroll.
+  */
+
+.center-col .large,
+.center-col .extra-wide {
+	float: left;
+	width: 66.6%;
+}
+
+.center-col .large p,
+.center-col .extra-wide p,
+.center-col .large h2,
+.center-col .extra-wide h2 {
+	padding: 3.125%;
+}
+
+.tall h2,
+.extra-tall h2,
+.center-col .tall h2,
+.center-col .extra-tall h2,
+.caret h2,
+.center-col .caret h2 {
+	padding-bottom: 0;
+}
+
+.caret h2,
+.caret:not(.p-large) p,
+.center-col .inline-col .caret p,
+.center-col .inline-col .caret h2 {
+	margin: 6.25%;
+	margin-top: 0;
+	margin-bottom: 0;
+	background-color: fade(@dark, 20%);
+}
+
+.caret button {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.large.caret h2,
+.large.caret p {
+	margin: 3.125%;
+	margin-top: 0;
+	margin-bottom: 0;
+	background-color: fade(@dark, 20%);
+}
+
+.articles .title {
+	position: relative;
+}
+
+.articles .subtitle {
+	font-weight: normal;
+}
+
+.articles .img:before,
+.covers .type {
+	color: @light;
+	display: inline;
+	text-align: center;
+	margin-right: 2.08%;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	font-weight: normal;
+	opacity: 0.8;
+	z-index: 1;
+}
+
+.articles .img:before {
+	bottom: inherit;
+	top: 0;
+	margin-right: 0;
+	content: attr(data-type-bg) "";
+}
+
+.articles .tall .img:before {
+	bottom: 0;
+	top: inherit;
+}
+
+.review .type,
+.articles .review .img:before {
+	background: @review;
+}
+
+.feature .type,
+.articles .feature .img:before {
+	background: @feature;
+}
+
+.aside .type,
+.articles .aside .img:before {
+	display: none;
+}
+
+.news .type,
+.articles .news .img:before {
+	background: @news;
+}
+
+.video .type,
+.articles .video .img:before {
+	background: @video;
+}
+
+.player .type,
+.articles .player .img:before {
+	display: none;
+}
+
+/**
+  * Percentage 340 of 960;
+  */
+  
+.player.large {
+	width: 60%;
+}
+
+.player.small {
+	width: 20%;
+	margin: 0;
+	overflow: hidden;
+}
+
+.player.small:nth-child(2) {
+	margin-left: -20%;
+	margin-top: 16.875%;
+}
+
+.player.small .img {
+	margin: 0;
+	width: 150%;
+}
+
+.player.large .img {
+	margin: 0;
+	width: 100%;
+}
+
+.player.small .img h2 {
+	padding: 4.16%;
+	width: 66.66%;
+}
+
+.player.large .img h2 {
+	padding: 2.08%;
+}
+
+/**
+  * Reading article styles.
+  */
+
+.read-set p, 
+.read-set h2,
+.read-set h3,
+.read-set q,
+.cover-set h2,
+.cover-set p, {
+	padding: 2.08%;
+	display: block;
+	clear: both;
+}
+
+.cover-set h2 {
+	padding-bottom: 0;
+}
+
+.cover-set p {
+	padding-top: 1.04%;
+}
+
+.read-set:first-of-type > p:first-of-type:first-letter,
+.fixed .read-set:nth-of-type(3) > p:first-of-type:first-letter,
+.fixed .read-set:nth-of-type(4) > p:first-of-type:first-letter {
+	border: 1px solid;
+	float: left;
+	margin-right: 2.08%;
+	margin-bottom: 2.08%;
+	margin-top: 6px;
+	padding: 2.08%;
+	line-height: 24pt;
+}
+
+/**
+  * Side information related to movies and games.
+  */
+  
+.info {
+	padding-bottom: 6.25%;
+}
+
+.info p,
+.info h2,
+.info h3 {
+	padding: 6.25% !important;
+}
+
+.info p {
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+}
+
+.info h3 {
+	font-weight: normal;
+	color: fade(@dark, 50%);
+}
+
+/**
+  * Mixcloud.
+  */
+  
+.img-set-mixcloud .img-large {
+	padding-bottom: 0;
+}
+
+.mixcloud-set {
+	padding: 2.08%;
+	padding-top: 0;
+}  
+
+
+
+
+
+
+
+
+
+/**
+  * QUOTES
+  */
+ 
+blockquote {
+	width: 87.5%;
+	clear: both;
+	margin: 6.25%;
+	position: relative;
+	color: @light;
+	font-style: italic;
+	background-color: @dark;
+}
+
+.article-set .inline-col blockquote,
+.video-set .inline-col blockquote {
+	margin-top: 0;
+}
+
+.article-set .inline-col.bottom blockquote,
+.video-set .inline-col.bottom blockquote {
+	margin-top: 6.25%;
+	margin-bottom: 0;
+} 
+
+blockquote p {
+	clear: none !important;
+}
+
+blockquote .img {
+	float: left;
+	margin-right: 6.25%;
+	width: 28.57%;
+}
+
+blockquote .img.offset {
+	margin-right: 12.5%;
+	margin-left: -6.25%;
+}
+
+.inline-right blockquote .img,
+.right-col blockquote .img {
+	float: right;
+	margin-right: 0;
+	margin-left: 6.25%;
+}
+
+blockquote:after {
+	top: 50%;
+	border: solid fade(@dark, 0);
+	content: "";
+	height: 0;
+	width: 0;
+	position: absolute;
+	border-width: 20px;
+	margin-top: -20px;
+}
+
+.inline-right blockquote:after {
+	right: 100%;
+	border-right-color: @dark;
+}
+
+.inline-left blockquote:after{
+	left: 100%;
+	border-left-color: @dark;
+}
+
+
+
+
+
+
+
+
+/**
+  * VIDEO
+  * Video links and overrides to video.js plug-in.
+  */
+  
+.video-play-button {
+	width: 128px;
+	height: 128px;
+	display: block;
+	background-image: url(icons/forplay-play-icon.png);
+	opacity: 0.4;
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	margin-left: -64px;
+	margin-top: -64px;
+	background-size: 100% 100%;
+	-ms-interpolation-mode: bicubic;
+    image-rendering: optimizeQuality;
+}
+
+.player .img:after {
+	.video-play-button;
+	content: "";
+}
+
+.player.tall .img:after,
+.player.wide .img:after,
+.player.small .img:after {
+	width: 64px;
+	height: 64px;
+	margin-left: -32px;
+	margin-top: -32px;
+}
+
+.player.tall .img:after {
+	top: 60%;
+}
+
+.player.small .img:after {
+	top: 20%;
+	left: 10%;
+}
+
+.player:hover .img:after {
+	background-image: url(icons/forplay-play-icon-hover.png);
+	opacity: 1;
+}
+
+.player h2 a:hover,
+.player h2 a:hover * {
+	color: @hover !important;
+}
+
+.player .video-js {
+	bottom: 0;
+	position: absolute;
+	top: 0;
+	z-index: 1;
+}
+
+.player .vjs-big-play-button {
+	.video-play-button;
+	background-color: fade(@dark, 0);
+	border: none;
+	box-shadow: none;
+}
+
+.player .vjs-default-skin:hover .vjs-big-play-button,
+.player .vjs-default-skin .vjs-big-play-button:focus {
+	background-image: url(icons/forplay-play-icon-hover.png);
+	background-color: fade(@dark, 0);
+	box-shadow: none;
+	border: none;
+	opacity: 1;
+}
+
+.player .vjs-big-play-button:before {
+	content: "";
+	width: 0;
+	height: 0;
+	overflow: hidden;
+}
+
+.player.img-large .img:after,
+.player.img-medium .img:after,
+.player.img-small .img:after,
+.player.img-large .vjs-big-play-button,
+.player.img-medium .vjs-big-play-button,
+.player.img-small .vjs-big-play-button {
+	top: 50%;
+}
+
+
+
+
+
+
+
+
+/**
+  * STICKERS
+  */
+
+.covers .social {
+	position: absolute;
+	right: 10.42%;
+	bottom: 0;
+	display: none;
+	opacity: 0.8;
+}
+
+.articles .social {
+	text-align: right;
+	padding: 0 6.25%;
+}
+
+.c3 .social,
+.covers article:hover .social {
+	display: none;
+}
+
+.stickers {
+	display: none;
+	position: absolute;
+	left: 12.5%;
+	margin-top: 12.5%;
+	margin-bottom: 12.5%;
+	width: 25%;
+	opacity: 0.6;
+}
+
+.c4 .stickers,
+.c5 .stickers {
+	left: auto;
+	right: 12.5%;
+}
+
+.c3 .stickers,
+.covers article:hover .stickers {
+	left: 2.08%;
+	right: auto;
+	margin-top: 2.08%;
+	width: 35%;
+	bottom: auto;
+}
+
+.sticker {
+	background-color: none;
+	background-size: 32px 32px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	-ms-interpolation-mode: bicubic;
+    image-rendering: optimizeQuality;
+}
+
+.social .sticker {
+	width: 42px !important;
+	height: 42px !important;
+	background-size: 32px 32px !important;
+	display: inline-block;
+}
+
+.c3 .sticker,
+.covers article:hover .sticker {
+	float: left;
+	background-size: 75%;
+}
+
+#createSticker(@sticker: ~"adult");
+#createSticker(@sticker: ~"angel");
+#createSticker(@sticker: ~"axe");
+#createSticker(@sticker: ~"beer");
+#createSticker(@sticker: ~"bike");
+#createSticker(@sticker: ~"bow");
+#createSticker(@sticker: ~"castle");
+#createSticker(@sticker: ~"cat");
+#createSticker(@sticker: ~"devil");
+#createSticker(@sticker: ~"facebook");
+#createSticker(@sticker: ~"facebook-color");
+#createSticker(@sticker: ~"girl");
+#createSticker(@sticker: ~"google-plus");
+#createSticker(@sticker: ~"google-plus-color");
+#createSticker(@sticker: ~"heavy-metal");
+#createSticker(@sticker: ~"loud-speaker");
+#createSticker(@sticker: ~"palm-tree");
+#createSticker(@sticker: ~"police");
+#createSticker(@sticker: ~"sun");
+#createSticker(@sticker: ~"sword");
+#createSticker(@sticker: ~"tank");
+#createSticker(@sticker: ~"twitter");
+#createSticker(@sticker: ~"twitter-color");
+#createSticker(@sticker: ~"warrior");
+#createSticker(@sticker: ~"fireball");
+
+.social .sticker-twitter:hover {
+	background-image: url("stickers/twitter-hover-32.png") !important;
+}
+
+.social .sticker-facebook:hover {
+	background-image: url("stickers/facebook-hover-32.png") !important;
+}
+
+.social .sticker-google-plus:hover {
+	background-image: url("stickers/google-plus-hover-32.png") !important;
+}
+
+
+
+
+
+
+
+
+
+/**
+  * THEMES
+  * The dark theme fot the Forlife section.
+  */
+
+body.dark main:not(.read) .covers:hover .title {
+	background-color: fade(@forplay, 25%);
+}
+
+body.dark a:hover,
+body.dark div:not(.covers) article:hover h2 a {
+	color: @green;
+}
+
+body.dark a:visited {
+	color: @light;
+}
+
+body.dark h2 a {
+	color: @light;
+	text-decoration: none;
+}
+
+body.dark {
+	color: @light;
+	background-color: @dark;
+}
+
+body.dark .logo.p path {
+	fill: @light !important;
+}
+
+body.dark .logo.l path {
+	fill: @dark;
+}
+
+body.l.dark .logo.l path {
+	fill: @light !important;
+}
+
+body.l.dark .logo.p path {
+	fill: @dark;
+}
+
+body.dark nav.menu li:hover {
+	background-color: @hover;
+}
+
+body.dark nav.menu li:hover a {
+	color: @dark;
+}
+
+body.dark .covers .box {
+	color: @dark;
+	background-color: fade(@light, 70%) !important;
+}
+
+body.dark .box.hype {
+	background-color: fade(@light, 70%) !important;
+}
+
+body.dark .img-set div:not(.inline-col) h3 {
+	color: @light;
+	background: @dark;
+}
+
+body.dark header {
+	background-color: fade(@dark, 50%);
+}
+
+body.dark header.solid {
+	background-color: @dark;	
+}
+
+body.dark nav.menu li,
+body.dark nav.menu div.menu {
+	background-color: @dark;	
+}
+
+body.dark nav.menu a {
+	color: @light;
+}
+
+body.dark .author {
+	color: @dark;
+}
+
+body.dark .info h3 {
+	color: fade(@light, 50%);
+}
+  
+body.dark .img p,
+body.dark .img-set-4c div:not(.extended) .p-large,
+body.dark .img-set-1a .p-large.caret {
+	background-color: @dark;
+}
+
+body.dark .caret h2,
+body.dark .caret p,
+body.dark .large.caret h2,
+body.dark .large.caret p,
+body.dark .center-col .inline-col .caret p,
+body.dark .center-col .inline-col .caret h2 {
+	background-color: fade(@light, 20%) !important;
+}
+
+body.dark .img-set-1a .p-large.caret p,
+body.dark .img-set-1a .p-large.caret h2,
+body.dark .img-set-4c .p-large.caret p,
+body.dark .img-set-4c .p-large.caret h2 {
+	background-color: @dark !important;
+}  
+
+body.dark blockquote,
+body.dark main button {
+	color: @dark;
+	background-color: @forplay;
+}
+
+body.dark .inline-right blockquote:after {
+	border-right-color: @forplay;
+}
+
+body.dark .inline-left blockquote:after {
+	border-left-color: @forplay;
+}
+
+body.dark .img-set-4a div:not(.extended) div.p-large {
+	background-color: fade(@light, 20%);
+}
+
+body.dark div.search input {
+	color: @light;
+}
+
+
+/*
+ * Using mixin function to easily create color themes.
+ */
+
+#createTheme(@theme: ~"navy", @navy);
+#createTheme(@theme: ~"forplay", @forplay);
+#createTheme(@theme: ~"green", @green);
+#createTheme(@theme: ~"silver", @silver);
+#createTheme(@theme: ~"pink", @pink);
+#createTheme(@theme: ~"purple", @purple);
+#createTheme(@theme: ~"sunset", @sunset);
+#createTheme(@theme: ~"blood", @blood);
+
+/*
+ * Lighten secondary theme.
+ */
+ 
+body.lighten .logo.p path { 
+	fill: @dark; 
+}
+
+body.lighten .covers .box {
+	color: @dark;
+	background-color: fade(@light, 70%);
+}
+
+body.lighten .box.menu:before {
+	border-bottom-color: @dark;
+} 
+ 
+/*
+ * Darken secondary theme.
+ */
+
+body.darken .logo.p path { 
+	fill: @dark; 
+}
+
+body.darken .covers .box {
+	color: @light;
+	background-color: @dark;
+}
+
+body.darken .box.menu:before {
+	border-bottom-color: @dark;
+}
+
+/*
+ * Tuborg secondary theme.
+ */
+
+body.tuborg .logo.p path { 
+	fill: @dark; 
+}
+
+body.tuborg .covers .box {
+	color: @dark;
+	background-color: fade(@light, 70%);
+}
+
+body.tuborg .box.menu:before {
+	border-bottom-color: @dark;
+}
+
+
+
+
+
+
+
+/**
+  * MOUSE, KEYBOARD & LINKS
+  * Place hover and cursor styles here.
+  */
+  
+a:visited {
+	color: @dark;
+}
+
+h2 a {
+	color: @dark;
+	text-decoration: none;
+}
+
+.covers h2 a {
+	color: @light;
+}
+
+.logo:hover path,
+body.dark .logo:hover path {
+	fill: @hover !important;
+}
+  
+button.box:hover,
+h2.box:hover,
+nav.menu .collapse:hover,
+nav.menu li:hover,
+main button:hover {
+	background-color: @hover !important;
+}
+
+.logo,
+button.box,
+h2.box,
+nav.menu .collapse,
+.video,
+article,
+button,
+.social .sticker {
+	cursor: pointer;
+}
+
+.read .c3,
+.better,
+.worse,
+.equal {
+	cursor: default;
+}
+
+/**
+  * Prevent interaction with element.
+  * SVG to allow hover over header covers.
+  * Video to allow click on the entire movie link zone.
+  */
+
+.video .img:after,
+.video .vjs-big-play-button {
+	pointer-events: none;
+}
+
+
+
+
+
+
+
+
+/**
+  * ADVERTS
+  */
+  
+.covers .tuborg {
+	position: absolute;
+	width: 14%;
+	left: 2%;
+	top: 36%;
+}
+
+.img-set .tuborg {
+	position: absolute;
+	width: 14%;
+	right: 2%;
+	top: 6%;
+} 
+
+
+
+
+
+
+
+
+/**
+  * MEDIA
+  */
+
+@import "media.less"; 

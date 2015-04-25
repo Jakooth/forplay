@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <game>
     <tag>{{:tag}}</tag>
+    <stickers>{{for stickers}}
+        <sticker lib="{{:#data.lib}}">{{:#data.value}}</sticker>{{/for}}
+    </stickers>
     <main>{{:main}}</main>
     <type bg="игра">game</type>
     <subtype bg="информация">info</subtype>
@@ -9,14 +12,15 @@
     </boxes>
     <bg>{{:bgName}}</bg>
     <en>{{:enName}}</en>
-    <genres>{{for genre.split(',')}}
-        <genre>{{:#data}}</genre>{{/for}}
+    <serie>{{:serie}}</serie>
+    <genres>{{for genre}}
+        <genre>{{:#data.text}}</genre>{{/for}}
     </genres>
     <platforms>{{for platform.split(',')}}
         <platform>{{:#data}}</platform>{{/for}}
     </platforms>
-    <publisher>{{:publisher}}</publisher>
-    <developer>{{:developer}}</developer>
+    <publisher>{{:publisher.text}}</publisher>
+    <developer>{{:developer.text}}</developer>
     <eu>{{:euDate}}</eu>
     <us>{{:usDate}}</us>
     <similar>{{for similar.split(',')}}

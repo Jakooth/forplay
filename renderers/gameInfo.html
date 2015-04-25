@@ -1,0 +1,26 @@
+<aside>
+    <div class="box-placeholder {{:~box.type}}">
+        <h2>{{:bg}}</h2>
+        <div class="box" 
+        	 style="background-image: url(assets/articles/{{:tag}}/{{:tag}}-{{:~box.text}});"> <img 
+             src="assets/helpers/{{:~box.type}}.png" 
+       		 alt="" 
+             role="presentation" /> </div>
+    </div>
+    <dl>
+        <dt>Оригинално име</dt>
+        <dd>{{:en}}</dd>
+        <dt>Жанр</dt>
+        <dd>{{:~formatCommaString(genres.genre)}}</dd>
+        <dt>Платформи</dt>
+        <dd>{{:~formatCommaString(platforms.platform)}}</dd>
+        <dt>Разпространител</dt>
+        <dd>{{:publisher}}</dd>
+        <dt>Разработчик</dt>
+        <dd>{{:developer}}</dd>
+        <dt>Дата на издаване (Европа)</dt>
+        <dd>{{:~formatDate(eu)}}</dd>
+        <dt>Дата на издаване (САЩ)</dt>
+        <dd>{{:~formatDate(us)}}</dd>
+    </dl>
+</aside>

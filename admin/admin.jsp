@@ -27,7 +27,10 @@
     <script src="../jslib/admin/jquery-ui.min.js">
                 <!--script-->
             </script>
-	<script src="../jslib/jsrender.min.js">
+    <script src="../jslib/jquery.xml2json.js">
+			<!--script-->
+		</script>
+    <script src="../jslib/jsrender.min.js">
                 <!--script-->
             </script>
     <script src="../jslib/admin/angular.min.js">
@@ -51,22 +54,22 @@
     <script src="../controllers/utils.js?v=1.5.1">
                 <!--script-->
             </script>
-    <script src="../controllers/admin.js?v=1.5.0">
+    <script src="../controllers/admin.js?v=1.6.1">
                 <!--script-->
             </script>
     <script src="../controllers/add.js?v=1.0.0">
                 <!--script-->
             </script>
-	<script src="../controllers/objects/layout.js?v=1.0.0">
+    <script src="../controllers/objects/layout.js?v=1.0.0">
                 <!--script-->
-            </script>  
-	<script src="../controllers/objects/article.js?v=1.0.0">
+            </script>
+    <script src="../controllers/objects/article.js?v=1.0.0">
                 <!--script-->
             </script>
     <script src="../controllers/objects/game.js?v=1.0.0">
                 <!--script-->
             </script>
-	<script>$(document).ready(function() { 
+    <script>$(document).ready(function() { 
 				window.utils = new UtilsManager(); 
 				window.admin = new AdminManager(); 
 				window.add = new AddManager(); });</script>
@@ -74,9 +77,11 @@
     <body>
     <header id="main">
         <h1 class="clip">
-            <admin:menuItem label="Основно меню" url="main" icon="plus-5" clipLabel="clip" />
+            <admin:menuItem label="Основно меню" url="main" 
+            				icon="lorc,magic-portal" 
+                            clipLabel="clip" />
         </h1>
-       	<div role="toolbar">
+        <div role="toolbar">
             <button role="link" class="search" type="button">Търсене</button>
             <button role="link" class="logout" type="button">Изход</button>
         </div>
@@ -84,19 +89,24 @@
             <h2>Създаване на обекти</h2>
             <ul>
                 <li>
-                    <admin:menuItem label="Игри" url="games" icon="gamepad-9" />
+                    <admin:menuItem label="Игри" url="games"
+                    				icon="lorc,battle-axe" />
                 </li>
                 <li>
-                    <admin:menuItem label="Кино и Сериали" url="movies" icon="video-2" />
+                    <admin:menuItem label="Кино и Сериали" url="movies" 
+                    				icon="lorc,shark-jaws" />
                 </li>
                 <li>
-                    <admin:menuItem label="Музика" url="music" icon="audio-7" />
+                    <admin:menuItem label="Музика" url="music" 
+                    				icon="lorc,guitar" />
                 </li>
                 <li>
-                    <admin:menuItem label="Книги" url="books" icon="book-17" />
+                    <admin:menuItem label="Книги" url="books" 
+                    				icon="lorc,book-cover" />
                 </li>
                 <li>
-                    <admin:menuItem label="Настолни Игри" url="boards" icon="puzzle" />
+                    <admin:menuItem label="Настолни Игри" url="boards" 
+                    				icon="lorc,dragon-head" />
                 </li>
             </ul>
         </nav>
@@ -104,19 +114,24 @@
             <h2>Добавяне на информация</h2>
             <ul>
                 <li>
-                    <admin:menuItem label="Статия" url="article" icon="font-size" />
+                    <admin:menuItem label="Статия" url="article" 
+                    				icon="delapouite,pencil" />
                 </li>
                 <li>
-                    <admin:menuItem label="Картинки" url="images" icon="picture-multi-2" />
+                    <admin:menuItem label="Картинки" url="images" 
+                    				icon="lorc,mountains" />
                 </li>
                 <li>
-                    <admin:menuItem label="Каре" url="aside" icon="side-right-view" />
+                    <admin:menuItem label="Каре" url="aside" 
+                    				icon="lorc,checkbox-tree"/>
                 </li>
                 <li>
-                    <admin:menuItem label="Реклама" url="advert" icon="banknote-multi-10" />
+                    <admin:menuItem label="Реклама" url="advert" 
+                    				icon="delapouite,piggy-bank" />
                 </li>
                 <li>
-                    <admin:menuItem label="Цитат" url="quote" icon="quote-15" />
+                    <admin:menuItem label="Цитат" url="quote" 
+                    				icon="lorc,conversation" />
                 </li>
             </ul>
         </nav>
@@ -148,13 +163,10 @@
         <jsp:include page="views/xml.jsp" />
     </main>
     <footer>
-        <p>&amp;copy; Copyright 2015
-            <a href="http://forplay.bg?video=castle-design">Castle Design Ltd.</a>
-        </p>
-        <p>Тази страница се придържа към
-            <a href="http://www.mandate376.eu/">Европейските Изисквания за Достъпност
-            на Обществени Продукти и Услуги.</a>
-        </p>
+        <p>&amp;copy; Copyright 2015 <a href="http://forplay.bg?video=castle-design">Castle
+                Design Ltd.</a> </p>
+        <p>Тази страница се придържа към <a href="http://www.mandate376.eu/">Европейските
+                Изисквания за Достъпност на Обществени Продукти и Услуги.</a> </p>
     </footer>
     <div class="Overlay">
         <!--admin.js-->

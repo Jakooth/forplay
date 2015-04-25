@@ -73,13 +73,13 @@
     <c:if test="${!empty url}">
         <a href="#${url}" class="create">
             <img class="svg" alt="Създай ${label}" 
-            	 src="../assets/admin/icons/iconmonstr-plus-2-icon.svg" />
+            	 src="../assets/icons/iconmonstr/iconmonstr-plus-2-icon.svg" />
         </a>
     </c:if>
     <c:if test="${type == 'search'}">
         <button type="button" class="search">
             <img class="svg" alt="Търси" 
-            	 src="../assets/admin/icons/iconmonstr-magnifier-4-icon.svg" />
+            	 src="../assets/icons/lorc/originals/svg/000000/transparent/magnifying-glass.svg" />
         </button>
     </c:if>
     <c:if test="${!empty layout}">

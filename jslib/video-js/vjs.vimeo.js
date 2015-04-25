@@ -31,14 +31,6 @@ videojs.Vimeo = videojs.MediaTechController.extend({
     this.player_ = player;
     this.player_el_ = document.getElementById(this.player_.id());
 
-
-    // Copy the JavaScript options if they exists
-    if (typeof options['source'] != 'undefined') {
-        for (var key in options['source']) {
-            player.options()[key] = options['source'][key];
-        }
-    }
-
     // Disable lockShowing because we always use Vimeo controls
     this.player_.controls(false);
 
@@ -58,7 +50,8 @@ videojs.Vimeo = videojs.MediaTechController.extend({
 
     this.player_el_.insertBefore(this.el_, this.player_el_.firstChild);
 
-    this.baseUrl = document.location.protocol + '//player.vimeo.com/video/';
+    var protocol = (document.location.protocol === 'file:')?'http:': document.location.protocol;
+    this.baseUrl = protocol + '//player.vimeo.com/video/';
 
     this.vimeo = {};
     this.vimeoInfo = {};
@@ -138,7 +131,9 @@ videojs.Vimeo.prototype.setVolume = function(percentAsDecimal){
   this.vimeoInfo.volume = percentAsDecimal;
   this.player_.trigger('volumechange');
 };
-
+videojs.Vimeo.prototype.currentSrc = function() {
+  return this.el_.src;
+};
 videojs.Vimeo.prototype.muted = function() { return this.vimeoInfo.muted || false; };
 videojs.Vimeo.prototype.setMuted = function(muted) {
   if (muted) {
@@ -155,7 +150,7 @@ videojs.Vimeo.prototype.setMuted = function(muted) {
 videojs.Vimeo.prototype.onReady = function(){
   this.isReady_ = true;
   this.triggerReady();
-
+  this.player_.trigger('loadedmetadata');
   if (this.startMuted) {
     this.setMuted(true);
     this.startMuted = false;
@@ -379,7 +374,7 @@ var Froogaloop = (function(){
      * @param target (HTMLElement): Target iframe to post the message to.
      */
     function postMessage(method, params, target) {
-        if (!target.contentWindow.postMessage) {
+        if (!target || !target.contentWindow || !target.contentWindow.postMessage) {
             return false;
         }
 
@@ -474,7 +469,7 @@ var Froogaloop = (function(){
      * Retrieves stored callbacks.
      */
     function getCallback(eventName, target_id) {
-        if (target_id) {
+        if (target_id && eventCallbacks[target_id]) {
             return eventCallbacks[target_id][eventName];
         }
         else {

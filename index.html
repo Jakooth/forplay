@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=yes" name="viewport">
 <link rel="stylesheet" type="text/css" href="jslib/video-js/video-js.css" />
-<link media="only screen and (min-width: 961px)" rel="stylesheet" type="text/css" href="assets/forplay.css?v=1.5.2" />
+<link media="only screen and (min-width: 961px)" rel="stylesheet/less" type="text/css" href="assets/forplay.less?v=1.5.2" />
 <link media="only screen and (max-width: 960px)" rel="stylesheet" type="text/css" href="assets/forplay-mobile.css?v=1.5.0" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,800|Poiret+One&subset=cyrillic,latin' rel='stylesheet' type='text/css' />
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
@@ -35,13 +35,16 @@
 <script src="jslib/jsrender.min.js" type="text/javascript">
 	<!--script-->
 </script>
+<script src="jslib/less-1.4.1.min.js" type="text/javascript">
+	<!--script-->
+</script>
 <script src="jslib/jquery.history.js" type="text/javascript">
 	<!--script-->
 </script>
 <script src="controllers/utils.js?v=1.0.2" type="text/javascript">
 	<!--script-->
 </script>
-<script src="controllers/banner.js?v=1.5.0" type="text/javascript">
+<script src="controllers/banner.js?v=2.0.0" type="text/javascript">
 	<!--script-->
 </script>
 <script src="controllers/articles.js?v=1.5.4" type="text/javascript">
@@ -51,8 +54,7 @@
 	<!--script-->
 </script>
 <script type="text/javascript">
-	var temp = [],
-		//issue = 'issue-0-demo';
+	var //issue = 'issue-0-demo';
 		//issue = 'issue-1-reboot';
 		issue = 'issue-2-bloodborne';
 	
@@ -86,92 +88,82 @@
 </head>
 <body>
 <header>
-    <h1 class="clip">
-        <a href="index.html">Forplay&reg;</a>
-        <img class="svg logo forplay" src="assets/forplay.svg" alt="Forplay&reg;" role="presentation" />
-        <img class="svg logo forlife" src="assets/forlife.svg" alt="Forlife&reg;" role="presentation" />
-    </h1>
+    <h1> <a href="?portal=issue-2-bloodborne"> <img 
+            id="forPlay" class="svg" 
+            src="assets/forplay.svg" 
+            alt="Forplay&reg;" /></a> <a 
+            href="?portal=issue-2-bloodborne"> <img 
+            id="forLife" class="svg" 
+            src="assets/forlife.svg" 
+            alt="Forlife&reg;" /> </a> </h1>
     <section class="cover-set">
-        <h2 class="clip">Корици</h2>
-        <div>
-            <!--ArticlesManager-->
+        <h2>Корици</h2>
+        <div id="covers">
+            <!--ArticlesManager: loadArticles-->
         </div>
-        <div class="thumbnail-set">
+        <div id="thumbnails">
             <!--ArticlesManager-->
         </div>
     </section>
-    <section>
-        <h2 class="clip">Навигация, търсене и потребителски вход</h2>
+    <section class="nav-set">
+        <h2>Навигация, търсене и потребителски вход</h2>
         <nav>
-            <h3 class="clip">Навигация</h3>
+            <h3>Навигация</h3>
             <ul>
-                <li>
-                    <a class="news" href="#news">Новини</a>
-                </li>
-                <li>
-                    <a class="review" href="#reviews">Ревюта</a>
-                </li>
-                <li>
-                    <a class="feature" href="#features">Мнения</a>
-                </li>
-                <li>
-                    <a href="#podcast">Подкаст</a>
-                </li>
-                <li>
-                    <a href="http://www.gamersvoiceshop.com/" 
-                       target="_blank">Gamers' Voiceshop</a>
-                </li>
-                <li>
-                    <a href="http://forplay.bg/forums/" 
-                       target="_blank">Форум</a>
-                </li>
+                <li> <a href="?portal=news">Новини</a> </li>
+                <li> <a href="?portal=reviews">Ревюта</a> </li>
+                <li> <a href="?portal=features">Мнения</a> </li>
+                <li> <a href="?portal=podcast">Подкаст</a> </li>
+                <li> <a href="http://www.gamersvoiceshop.com/" 
+                        target="_blank">GVS</a> </li>
+                <li> <a href="http://forplay.bg/forums/" 
+                        target="_blank">Форум</a> </li>
             </ul>
         </nav>
         <div class="search" role="search">
-            <h3 class="clip">Търсене</h3>
+            <h3>Търсене</h3>
             <form method="get" action="#search">
-                <label class="clip" for="search">Tърсене:</label>
-                <input type="search" placeholder="пример Diablo, Диабло, 300" name="search" id="forSearch">
-                <button class="box icon search" type="submit">Търси</button>
+                <label for="search">Tърсене:</label>
+                <input type="search" placeholder="пример Diablo, Диабло, 300" 
+                	   name="search" id="search">
+                <button type="submit">Търси</button>
             </form>
         </div>
-        <div>
-            <h3 class="clip">Потребителски вход</h3>
+        <div class="user">
+            <h3>Потребителски вход</h3>
             <button>Вход</button>
             <ul>
-                <li>
-                    <a href="#profile">Профил</a>
-                </li>
-                <li>
-                    <a href="#settings">Настройки</a>
-                </li>
-                <li>
-                    <a href="#logout">Изход</a>
-                </li>
+                <li> <a href="#profile">Профил</a> </li>
+                <li> <a href="#settings">Настройки</a> </li>
+                <li> <a href="#logout">Изход</a> </li>
             </ul>
         </div>
     </section>
 </header>
 <main>
-    <h1 class="clip">Основно съдържание</h1>
-    <section class="article-set">
-        <h2 class="clip">Избрани статии</h2>
+    <h1>Основно съдържание</h1>
+    <article id="read" aria-hidden="true">
+        <section class="read-set">
+            <!--ArticlesManager: loadArticles-->
+        </section>
+    </article>
+    <section id="topArticles" class="article-set">
+        <h2>Избрани статии</h2>
+        <!--ArticlesManager: loadArticles-->
     </section>
-    <section class="video-set">
-        <h2 class="clip">Най-нови клипчета</h2>
+    <section id="topVideos" class="video-set">
+        <h2>Най-нови клипчета</h2>
+        <!--ArticlesManager: loadArticles-->
     </section>
-    <section class="article-set">
-        <h2 class="clip">Всички статии</h2>
+    <section id="allArticles" class="article-set">
+        <h2>Всички статии</h2>
+        <!--ArticlesManager: loadArticles-->
     </section>
 </main>
 <footer>
-    <p>&copy; Copyright 2014
-        <a href="?video=castle-design">Castle Design Ltd.</a>
-    </p>
-    <p>Тази страница се придържа към
-        <a href="http://www.mandate376.eu/">Европейските Изисквания за Достъпност
-        на Обществени Продукти и Услуги.</a>
-    </p>
+    <p>&copy; Copyright 2014 <a href="?video=castle-design">Castle Design Ltd.</a> </p>
+    <p>Тази страница се придържа към <a href="http://www.mandate376.eu/">Европейските
+            Изисквания за Достъпност на Обществени Продукти и Услуги.</a> </p>
 </footer>
 </body>
 </html>

@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<article align="{{:bgH}}" valign="{{:bgV}}"
-       	 theme="{{:theme}}" subtheme="{{:subtheme}}">
+<article>
     <site>{{:site}}</site>
     <url>{{:url}}</url>{{if video}}
     <video>
@@ -15,7 +14,10 @@
     <tags prime="{{:prime}}">{{for tags.split(',')}}
         <tag>{{:#data}}</tag>{{/for}}
     </tags>
-    <cover>{{:cover}}</cover>
+    <cover align="{{:bgH}}" 
+    	   valign="{{:bgV}}"
+       	   theme="{{:theme}}" 
+           subtheme="{{:subtheme}}">{{:cover}}</cover>
     <main main320="{{:main320}}" 
           main640="{{:main640}}">{{:main}}</main>
     <type bg="{{:type.bg}}">{{:type.tag}}</type>
@@ -30,11 +32,18 @@
         <author>{{:#data}}</author>{{/for}}
     </authors>
     <date>{{:date}}</date>
+    <priority>{{:priority}}</priority>
     <issue>{{:issue}}</issue>{{if subtype.tag == 'review'}}
     <hype>{{:hype}}</hype>
     <versionTested>{{:versionTested}}</versionTested>
-    <better tag="{{:better}}">{{:better}}</better>
-    <worse tag="{{:worse}}">{{:worse}}</worse>
-    <equal tag="{{:equal}}">{{:equal}}</equal>{{/if}}
-    <preview>{{:preview}}</preview>
+    <better tag="{{:better.value}}">{{:better.text}}</better>
+    <worse tag="{{:worse.value}}">{{:worse.text}}</worse>
+    <equal tag="{{:equal.value}}">{{:equal.text}}</equal>{{/if}}
+    <preview>{{:preview}}</preview>{{if stickers}}
+    <stickers>{{for stickers}}
+    	<sticker lib="{{:#data.lib}}">{{:#data.text}}</sticker>{{/for}}
+    </stickers>{{/if}}
+    <layouts>{{for layouts}}
+{{if type == 'text' ~tag=#view.parent.parent.data.prime tmpl="textLayout" /}}{{/for}}
+    </layouts>
 </article>

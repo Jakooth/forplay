@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>{{if subtype == 'q'}}
+    <blockquote>
+        <div class="img {{:offset}}">
+            <img src="assets/q/{{:count}}" alt="{{:author}}" />
+        </div>
+        <p>{{:title}}</p>
+    </blockquote>
+
+{{else isImg}}
+    <div {{if playVideo}}id="player{{:player}}"{{/if}}  
+    	class="img-{{:size}} {{:playVideo}} {{:isExtended}} {{if playVideo}}player{{/if}}">
+        
+        {{if advert}}
+            <img src="assets/articles/advert/{{:advert.tag}}.png" 
+                 alt="{{:advert.tag}}" class="advert {{:advert.tag}}" />
+        {{/if}}
+        
+        {{if pointer}}
+        	<p class="p-{{:size}}"><strong>{{:pointer}}</strong> {{:content}}</p>
+    	{{else isCaret}}
+        	<div class="p-{{:size}} {{:isCaret}}">
+            	{{if title}}
+                    <h3>{{:title}}</h3>
+                {{/if}}
+                
+                {{if author}}
+                    <p class="author"><span class="clip">Автор </span>{{:author}}</p>
+                {{/if}}
+                
+                {{:content}}        
+             </div>
+        {{/if}}
+        
+        {{if playVideo}}
+        	<a href="{{:url}}" target="_blank" class="img"
+            	data-url="{{:url}}"
+                data-player="player{{:player}}"
+                data-tech="{{:url.tech}}">
+        {{else}}
+        	<div class="img">
+        {{/if}} 
+                
+                <img data-tag="{{:tag}}"
+                	 data-count="{{:count}}"
+                     data-proxy="true"
+                     
+                     {{if ~subtype.indexOf('r1610') != -1 }}
+                     	data-ratio = "16-10"
+                     	src="assets/helpers/16-10.png" 
+                     {{else}}
+                     	data-ratio = "16-9"
+                     	src="assets/helpers/16-9.png"
+                     {{/if}}
+                	 
+                     alt="{{if pointer}}{{:content}}{{/if}}" />
+       
+        {{if playVideo}}
+        	</a>
+        {{else}}
+        	</div> 
+        {{/if}}
+    </div>
+
+{{else subtype == 'info'}}
+	<aside class="{{:imgLayout}} {{:subtype}}">
+        <div class="img">
+            <img src="assets/boxes/{{:tag}}-{{:info.box}}-box.png" 
+            	 alt="{{:info.bg}}" />
+                 
+            {{if advert}}
+            	<img src="assets/articles/advert/{{:advert.tag}}.png" 
+                	 alt="{{:advert.tag}}" class="advert {{:advert.tag}}" />
+        	{{/if}}    
+        </div>
+        <div class="title clip">
+            <h2>{{:info.bg}} <span class="type clip">{{:subtype}}</span></h2>
+        </div>
+        
+        {{if advert}}<button>{{:advert.button}}</button>{{/if}}
+        
+        {{if !hideInfo}}
+        	{{if info.type == "movie"}}
+            	<h3>Оригинално име</h3>
+                <p>{{:info.en}}</p>
+                <h3>Жанр</h3>
+                <p>{{:~formatCommaString(info.genres.genre)}}</p>
+                <h3>Участват</h3>
+                <p>{{:~formatCommaString(info.actors.actor)}}</p>
+                <h3>Режисьор</h3>
+                <p>{{:~formatCommaString(info.directors.director)}}</p>
+                <h3>Сценарист</h3>
+                <p>{{:~formatCommaString(info.writers.writer)}}</p>
+                <h3>Оператор</h3>
+                <p>{{:~formatCommaString(info.camera.cameraman)}}</p>
+                <h3>Музика</h3>
+                <p>{{:~formatCommaString(info.music.musician)}}</p>
+                <h3>Премиера за България</h3>
+                <p>{{:info.eu}}</p>
+                <h3>Световна премиера</h3>
+                <p>{{:info.usa}}</p>
+                <h3>Времетраене</h3>
+                <p>{{:info.time}} минути</p>
+            {{else info.type == "tv"}}
+            	<h3>Оригинално име</h3>
+                <p>{{:info.en}}</p>
+                <h3>Жанр</h3>
+                <p>{{:~formatCommaString(info.genres.genre)}}</p>
+                <h3>Участват</h3>
+                <p>{{:~formatCommaString(info.actors.actor)}}</p>
+                <h3>Продукция</h3>
+                <p>{{:~formatCommaString(info.channels.channel)}}</p> 
+                <h3>Държава</h3>
+                <p>{{:info.country}}</p>
+                <h3>Първо излъчване</h3>
+                <p>{{:info.usa}}</p>
+                <h3>Времетраене</h3>
+                <p>{{:info.time}} минути</p>    
+            {{else info.type == "music"}}
+            	<h3>Албум</h3>
+                <p>{{:info.album}}</p>
+                <h3>Изпълнител</h3>
+                <p>{{:info.en}}</p>
+                <h3>Жанр</h3>
+                <p>{{:~formatCommaString(info.genres.genre)}}</p>
+                <h3>Държава</h3>
+                <p>{{:info.country}}</p>
+                <h3>Дата на издаване</h3>
+                <p>{{:info.usa}}</p>
+                
+            	{{if info.city}}
+                    <h3>Град</h3>
+                    <p>{{:info.city}}</p>
+                {{/if}}
+            {{else info.type == "live"}}
+            	<h3>Събитие</h3>
+                <p>{{:info.en}}</p>
+                <h3>Изпълнители</h3>
+                <p>{{:~formatCommaString(info.artists.artist)}}</p>
+                <h3>Жанр</h3>
+                <p>{{:~formatCommaString(info.genres.genre)}}</p>
+                <h3>Държава</h3>
+                <p>{{:info.country}}</p>
+            	{{if info.city}}
+                    <h3>Град</h3>
+                    <p>{{:info.city}}</p>
+                {{/if}}
+                <h3>Начало</h3>
+                <p>{{:info.start}}</p>
+                {{if info.eu}}
+                    <h3>Край</h3>
+                    <p>{{:info.end}}</p>
+                {{/if}}
+            {{else info.type == "special"}}
+            	<h3>Електронна поща</h3>
+                <p>{{:info.email}}</p>
+            {{else}}
+                <h3>Оригинално име</h3>
+                <p>{{:info.en}}</p>
+                <h3>Жанр</h3>
+                <p>{{:~formatCommaString(info.genres.genre)}}</p>
+                <h3>Платформи</h3>
+                <p>{{:~formatCommaString(info.platform.tag)}}</p>
+                <h3>Разпространител</h3>
+                <p>{{:info.publisher}}</p>
+                <h3>Разработчик</h3>
+                <p>{{:info.developer}}</p>
+                <h3>Дата на издаване (Европа)</h3>
+                <p>{{:info.eu}}</p>
+                <h3>Дата на издаване (САЩ)</h3>
+                <p>{{:info.usa}}</p>
+            {{/if}}
+        {{/if}}
+        
+        {{if content}}
+        	{{:~trimText(content, symbols)}}
+    	{{/if}}
+    </aside>
+
+{{else isVideo}}
+	<article {{if imgLayout == 'large'}}id="player{{:player}}"{{/if}} 
+             class="{{:imgLayout}} {{:subtype}} {{:titleSize}} {{:isCaret}} player">
+             
+        <div class="img" 
+             data-type="{{:subtype}}"
+             data-type-bg="{{:subtype.bg}}"
+             data-url="{{:url}}" 
+             data-player="player{{:player}}"
+             data-tech="{{:url.tech}}">
+             
+            <img src="assets/articles/{{:tag}}/{{:tag}}-{{:count}}" 
+                 alt="{{:title}}, {{:subtype}}"
+                 data-tag="{{:tag}}"
+               	 data-count="{{:count}}"
+                 data-proxy="true" />   
+                 
+            <h2>
+            	<a href="{{if title.url}}?{{:title.subtype}}={{:title.url}}{{else}}{{:url}}{{/if}}"
+                   {{if !title.url}}target="_blank"{{/if}}>
+                   
+            	{{:title}} <span class="type clip">{{:subtype.bg}}</span>
+                {{if subtitle}}<span class="subtitle {{:subtitle.clip}}"><br />{{:subtitle}}</span>{{/if}}</a>
+        	</h2>
+        </div>
+    </article>   
+    
+{{else imgLayout == 'tall' || isCaret}}
+    <{{if subtype == 'aside'}}aside{{else}}article{{/if}} 
+    		 class="{{:imgLayout}} {{:playVideo}} {{:subtype}} {{:titleSize}} {{:isCaret}} {{:isHidden}}"
+    		 data-color="{{:color}}"
+             data-url="{{:url}}">
+             
+        <div class="img" 
+             data-type="{{:subtype}}"
+             data-type-bg="{{:subtype.bg}}"
+             data-url="{{:url}}">
+            
+            {{if subtype != 'aside'}}<a href="?{{:subtype}}={{:url}}">{{/if}}
+                <img src="assets/articles/{{:tag}}/{{:tag}}-{{:count}}" 
+                     alt="{{:title}}, {{:subtype}}" />       
+            {{if subtype != 'aside'}}</a>{{/if}}
+        </div>
+        
+        {{if advert}}<button>{{:advert.button}}</button>{{/if}}
+        
+        {{if title}}
+            <h2>
+            	{{if subtype != 'aside'}}<a href="?{{:subtype}}={{:url}}">{{/if}}
+                {{:title}} <span class="type clip">{{:subtype.bg}}</span>
+                {{if subtitle}}<span class="subtitle {{:subtitle.clip}}"><br />{{:subtitle}}</span>{{/if}}
+                {{if subtype != 'aside'}}</a>{{/if}}
+        	</h2>
+            
+            {{if subtype != 'aside'}}
+            	<p class="author clip"><span class="clip">Автор </span>{{:author}}</p>
+            	<p class="date clip">{{:date}}</p>
+            {{/if}}
+        {{/if}}
+        
+        {{:~trimText(content, symbols)}}
+    </{{if subtype == 'aside'}}aside{{else}}article{{/if}}>
+    
+{{else}}
+    <{{if subtype == 'aside'}}aside{{else}}article{{/if}}
+    		 class="{{:imgLayout}} {{:playVideo}} {{:subtype}} {{:titleSize}} {{:isHidden}}" 
+    		 data-color="{{:color}}"
+             data-url="{{:url}}">
+             
+        <div class="title">
+            <h2>
+            	{{if subtype != 'aside'}}<a href="?{{:subtype}}={{:url}}">{{/if}}
+                {{:title}} <span class="type clip">{{:subtype.bg}}</span>
+                {{if subtitle}}<span class="subtitle {{:subtitle.clip}}"><br />{{:subtitle}}</span>{{/if}}
+                {{if subtype != 'aside'}}</a>{{/if}}           
+        	</h2>
+            
+            {{if subtype != 'aside'}}
+                <p class="author clip"><span class="clip">Автор </span>{{:author}}</p>
+                <p class="date clip">{{:date}}</p>
+            {{/if}}
+        </div>
+        
+        <div class="img" 
+             data-type="{{:subtype}}"
+             data-type-bg="{{:subtype.bg}}"
+             data-url="{{:url}}">
+            
+            {{if subtype != 'aside'}}<a href="?{{:subtype}}={{:url}}">{{/if}} 
+                <img src="assets/articles/{{:tag}}/{{:tag}}-{{:count}}" 
+                     alt="{{:title}}, {{:subtype}}" />
+        	{{if subtype != 'aside'}}</a>{{/if}}         
+        </div>
+        
+        {{if content}}{{:~trimText(content, symbols)}}{{/if}}
+    </{{if subtype == 'aside'}}aside{{else}}article{{/if}}>
+{{/if}} 

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<game>
+    <tag>gta-5</tag>
+    <stickers>
+        <sticker lib="iconmonstr">girl</sticker>
+        <sticker lib="iconmonstr">18+</sticker>
+        <sticker lib="iconmonstr">bike</sticker>
+    </stickers>
+    <main>02.jpg</main>
+    <type bg="игра">game</type>
+    <subtype bg="информация">info</subtype>
+    <boxes>
+        <box type="PS4">04.jpg</box>
+		<box type="Win">06.jpg</box>
+    </boxes>
+    <bg>Гранд Тефт Ауто 5</bg>
+    <en>Grand Theft Auto 5</en>
+    <serie>gta</serie>
+    <genres>
+        <genre>Шуутър от първо/трето лице</genre>
+        <genre>Екшън от първо/трето лице</genre>
+        <genre>Рейсър</genre>
+    </genres>
+    <platforms>
+        <platform>Win</platform>
+        <platform>360</platform>
+        <platform>One</platform>
+        <platform>PS3</platform>
+        <platform>PS4</platform>
+    </platforms>
+    <publisher>Take Two</publisher>
+    <developer>Rockstar</developer>
+    <eu>Tue Nov 18 2014 02:00:00 GMT+0200 (FLE Standard Time)</eu>
+    <us>Tue Nov 18 2014 02:00:00 GMT+0200 (FLE Standard Time)</us>
+    <similar>
+        <game>saints-row</game>
+        <game>mafia</game>
+        <game>red-dead-redemption</game>
+        <game>crackdown</game>
+    </similar>
+</game>

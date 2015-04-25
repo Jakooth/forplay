@@ -1,6 +1,6 @@
 function ArticlesManager() {
 	
-	/** 
+	/**
 	 * PRIVATE
 	 */
 	
@@ -8,7 +8,7 @@ function ArticlesManager() {
 	
 	function loadImage($img) {			
 		var src = utils.formatTimThumbString($img.data('tag'), 
-											 $img.data('count'),
+											 $img.data('main'),
 											 $img.width(), 
 											 $img.height());
 		
@@ -18,131 +18,219 @@ function ArticlesManager() {
 		$img.attr('src', src);
 	}
 	
-	function loadBackground($div) {			
-		var src = utils.formatTimThumbString($div.data('tag'), 
-											 $div.data('count'),
+	function loadBackground($img, $div) {			
+		var src = utils.formatTimThumbString($img.data('tag'), 
+											 $img.data('main'),
 											 $div.outerWidth(), 
-											 $div.outerWidth());
+											 $div.outerHeight());
 		
-		$div.data('proxy', false);
-		$div.attr('data-proxy', $div.data('proxy'));
-		$div.attr('style', 'background-image: url(' + src + ');');
+		$img.data('proxy', false);
+		$img.attr('data-proxy', $img.data('proxy'));
+		
+		$div.css('background-image', 'url(' + src + ')');
 	}
 	
-	function loadCover($div) {			
-		var src = utils.formatTimThumbString($div.data('tag'), 
-											 $div.data('count'),
-											 $(window).width(), 
-											 $(window).width() / (16/9));
+	function loadCover($img, $div) {			
+		var src = utils.formatTimThumbString($img.data('tag'), 
+											 $img.data('cover'),
+											 Math.round($(window).width() * 60/100), 
+											 Math.round($(window).width() * 60/100 / (16/9)));
 		
-		$div.data('proxy', false);
-		$div.attr('data-proxy', $div.data('proxy'));
-		$div.attr('style', 'background-image: url(' + src + ');');
+		$img.data('proxy', false);
+		$img.attr('data-proxy', $img.data('proxy'));
+		
+		$div.css('background-image', 'url(' + src + ')');
 	}
 	
-	var loadArticles = function(data, appender) {
-		var d1 = $.get('data/' + issue + '/' + data + '-center.xml'),
-			d2 = $.get('renderers/article.html'),
-			d3 = $.get('renderers/layout.html');
+	var loadArticles = function(data, appender, covers) {
+		var get1 = $.get('data/' + issue + '/' + data + '.xml'),
+			get2 = $.get('renderers/article.html');
 			
-		$.when(d1, d2, d3).done(function(data1, data2, data3) {
+		$.when(get1, get2).done(function(data1, data2) {
 			var articles = $.xml2json(data1[0]),
 				tmpls = $.templates({
-					articleTemplate: data2[0],
-					layoutTemplate: data3[0]
+					articleTemplate: data2[0]
 				}),
-				node = articles.layout,
-				html = $('<div />').append($.templates.layoutTemplate.render(node, 
-							{trimText: utils.trimText, formatCommaString: utils.formatCommaString}));
+				node = articles.article,
+				html = $('<div />').append($.templates
+										    .articleTemplate
+											.render(node));
 			
-			appender(html, parent);
+			appender(html, covers);
 		}).fail(function() {
-			alert("Failed to load articles.");
+			alert("Failed to load index articles.");
 		});
 	}
 	
-	var loadArticlesWithCover = function(data, appender, isIndex) {
-		var c1 = $.get('data/' + issue + '/' + data + '-cover.xml'),
-			c2 = $.get('renderers/cover.html'),
-			d1 = $.get('data/' + issue + '/' + data + '-center.xml'),
-			d2 = $.get('renderers/article.html'),
-			d3 = $.get('renderers/layout.html');
-		
-		$.when(c1, c2, d1, d2, d3).done(function(cdata1, cdata2, data1, data2, data3) {
-			var covers = $.xml2json(cdata1[0]),
-				articles = $.xml2json(data1[0]),
+	var loadArticle = function(data, appender) {
+		var get1 = $.get('data/' + issue + '/' + data + '.xml'),
+			get2 = $.get('renderers/layout.html'),
+			get3 = $.get('renderers/cover.html');
+			
+		$.when(get1, get2, get3).done(function(data1, data2, data3) {
+			var article = $.xml2json(data1[0]),
 				tmpls = $.templates({
-					coverTemplate: cdata2[0],
-					articleTemplate: data2[0],
-					layoutTemplate: data3[0]
+					layoutTemplate: data2[0],
+					coverTemplate: data3[0]
 				}),
-				cnode = covers.cover,
-				node = articles.layout,
-				chtml = $('<div />').append($.templates.coverTemplate.render(cnode));
-				html = $('<div />').append($.templates.layoutTemplate.render(node, 
-							{
-								trimText: utils.trimText, 
-								formatCommaString: utils.formatCommaString}));
+				node = article.layouts.layout,
+				cover = $.templates
+						 .coverTemplate
+						 .render(article),
+				html = $.templates
+						.layoutTemplate
+						.render(node, {versionTested:article.versionTested});
 			
-			appender(html, chtml, isIndex);
+			appender(html, cover);
 		}).fail(function() {
-			alert("Failed to load articles.");
+			alert("Failed to load index articles.");
 		});
 	}
 	
-	var appendArticlesWithCover = function(html, chtml, isIndex) {
-		var $body = $('body'),
-			$main = $('main'),
-			$c3 = chtml.find('article.c3'),
-			$hype = chtml.find('article.c3 .hype');
+	var loadAside = function(data, $appender, type, versionTested) {
+		$appender.html('' + data + '::' + type);
 		
-		$('#forPlayCovers').after(chtml.find('article.p'));
-		$('#coversSection').append(chtml.find('article.l'));
+		var get1 = $.get('data/' + type + '/' + data + '.xml'),
+			get2 = $.get('renderers/gameInfo.html');
+			
+		$.when(get1, get2).done(function(data1, data2) {
+			var aside = $.xml2json(data1[0]),
+				tmpls = $.templates({
+					layoutTemplate: data2[0]
+				}),
+				box = getBoxImg(aside.boxes.box, versionTested),
+				html = $.templates
+						.layoutTemplate
+						.render(aside, {formatCommaString:utils.formatCommaString, 
+										formatDate:utils.formatDate,
+										box:box});
+			
+			$appender.html(html);
+		}).fail(function() {
+			alert("Failed to load aside.");
+		});
+	}
+	
+	var getBoxImg = function(boxes, versionTested) {
+
+		/**
+		 * In XML single child node will return object and not array.
+		 */
+		 
+		if (versionTested) {
+			if (boxes.hasOwnProperty('type')) {
+				return boxes;
+			}
+			
+			for (var i = 0; i < boxes.length; i++) {
+				if (boxes[i].type == versionTested) {
+					return boxes[i];
+				}
+			}
+		} 
+		
+		return false;
+	}
+	
+	var appendAsides = function() {
+		$('#read .left, #read .right').each(function() {
+			var $this = $(this);
+			
+			loadAside($this.data('url'), 
+					  $this, 
+					  $this.data('type'),
+					  $this.data('box'));
+		});
+	}
+	
+	var appendArticle = function(html, cover) {
+		$('main').addClass('read');
+		$('header').addClass('read');
+		
+		if (cover) {
+			$('#read').prepend(cover);	
+		}
+		
+		var $cover = $('#read .cover'),
+			$hype = $cover.find('li:nth-child(1) p');
+		
+		loadBackground($cover, $cover);
 		
 		/**
-		 * First append Forplay thumbnails to keep the same order.
-		 * Otherwise script to click on thumbnails will be incorect.
+		 * Set theme color and upated banner style.
+		 * Do this here, because the HTML string is ready.
+		 * From loadPage the DOM must be used
+		 * and there is risk for asynchronous get dealy.
 		 */
 		
-		$('#thumbnailCoversWidget').append(chtml.find('.thumbnail-cover.p'));
-		$('#thumbnailCoversWidget').append(chtml.find('.thumbnail-cover.l'));
+		utils.setTheme($cover.data('theme'));
 		
-		if (isIndex) {
-			$('#centerColumn').prepend(html.find('.high:not(.video-set)'));
-			$('#latestVideo').after(html.find('.high.video-set'));
-			$('#centerColumn').append(html.html());
-		} else {
-			$('#centerColumn').append(html.html());
+		$('#read').attr('aria-hidden', false);
+		$('#read .read-set').append(html);
+		
+		appendAsides();
+		
+		/**
+		 * Append the score at the end of the main content.
+		 * Only do this when reading review or feature with score.
+		 */
 			
-			/**
-			 * Append the score at the end of the main content.
-			 * Only do this when reading review or feature with score.
-			 */
-			
-			if ($hype.length) {
-				$hype.clone()
-					.removeClass('box')
-					.insertAfter('#centerColumn .read-set:last > p:last-of-type')
-					.children().removeClass('clip');
-			}
+		if ($hype.length) {
+			$hype.clone()
+				 .insertAfter('.read-set .layout:last .center > p:last-of-type')
+				 .addClass('hype');
 		}
 		
 		/**
-		 * Auto-size images and backgrounds.
+		 * The only way to do the banner animation
+		 * is to us fixed height number.
+		 * Store them in the banner object from the start.
 		 */
 		
-		$('#centerColumn').find('.img-set > div:not(.inline-col) img').on('load', function() {
+		banner.setCoversHeight($cover.height());
+	}
+	
+	var appendPortal = function(html, covers) {
+		if (covers) {
+			appendCovers(html);
+		}
+		
+		$('#topVideos').append(html.find('article.video:lt(5)'));
+		
+		var id = Math.round(Math.random() * 100000)
+		var $players = $('#topVideos').find('.video'),
+			$mainPlayer = $('#topVideos').find('.video:eq(2)');
+		
+		$mainPlayer.attr('id', 'player_' + id);
+		$players.addClass('Player');
+		$players.find('a').attr('data-player', id);
+		$players.find('a').data('player', id);
+		
+		$('#topArticles').append(html.find('article:lt(5)'));
+		$('#allArticles').append(html.html());
+		
+		$('body').find('img').on('load', function() {
 			if ($(this).data('proxy')) {
 				loadImage($(this));
 			}
 		});
+	}
+	
+	var appendCovers = function(html) {
+		var $covers = $('#covers'),
+			$mainCovers = html.find('article[data-priority=cover]:lt(5):gt(0)'),
+			$mainCover = html.find('article[data-priority=cover]:eq(0)');
 		
-		$('#thumbnailCoversWidget').find('.thumbnail-cover').each(function() {
-			loadBackground($(this));
+		$mainCovers.find('h3').addClass('clip');
+		
+		$covers.append(html.find('article[data-priority=cover]:lt(5)'));
+		
+		$covers.find('article').each(function() {
+			loadCover($(this).find('img'), $(this));
 		});
 		
-		$('#coversSection').find('.cover').each(function() {
-			loadCover($(this));
+		$covers.find('img.svg').each(function() {
+			utils.convertSVG($(this));
 		});
 		
 		/**
@@ -152,45 +240,18 @@ function ArticlesManager() {
 		 * and there is risk for asynchronous get dealy.
 		 */
 		
-		utils.setThemeColor($c3.data('color'));
-		banner.updateBannerStyles();
-	}
-	
-	var appendNews = function(html) {
-		var $body = $('body'),
-			$c3 = html.find('.cover-set');
-		
-		$('#latestVideo').after(html.find('.high.video-set'));
-		$('#latestArticles').after(html.find('.article-set'));
-		$('#centerColumn').prepend(html.html());
-		
-		$('#centerColumn').find('.img-set > div:not(.inline-col) img').on('load', function() {
-			if ($(this).data('proxy')) {
-				loadImage($(this));
-			}
-		});
+		utils.setTheme($mainCover.data('theme'));
 		
 		/**
-		 * Set theme color and upated banner style.
-		 * Do this here, because the HTML string is ready.
-		 * From loadPage the DOM must be used
-		 * and there is risk for asynchronous get dealy.
+		 * The only way to do the banner animation
+		 * is to us fixed height number.
+		 * Store them in the banner object from the start.
 		 */
 		
-		utils.setThemeColor($c3.data('color'));
-		banner.updateBannerStyles();
-	}
-	
-	var loadIndexArticles = function(issue) {
-		var $main = $('main');
-		
-		loadArticlesWithCover('_', appendArticlesWithCover, true);
-		
-		$main.removeClass();
+		banner.setCoversHeight($covers.height());
 	}
 	
 	var unloadArticles = function() {
-		var $main = $('main');
 		
 		/**
 		 * Make sure all players are destroyed.
@@ -198,139 +259,27 @@ function ArticlesManager() {
 		 */
 		
 		if ($('#forVideo').length) {
-			window.player.dispose();
+			window.videoJS.dispose();
 		}
 		
-		$('#coversSection').children('article').remove();	
-		$('#centerColumn').children('.layout').remove();
-		
-		$main.removeClass();
-	}
-	
-	/**
-	 * For accessibility reason headings are removed or restored in the code.
-	 * This is not mandatory for a video games site, but I'm a maniac ;)
-	 */
-	
-	var removeHeadings = function(lv, la) {
-		var $body = $('body'),
-			$forPlayLogo = $('#forLifeHeading'),
-			$forPlayHeading = $('#forLifeCovers'),
-			$forLifeLogo = $('#forLifeHeading'),
-			$forLifeHeading = $('#forLifeCovers'),
-			$latestVideo = $('#latestVideo'),
-			$latestArticles = $('#latestArticles');
-		
-		var fpl, fph, fll, flh;
-		
-		if ($body.data('side') == 'p') {
-			fpl = fph = false;
-			fll = flh = true;
-		} else {
-			fpl = fph = true;
-			fll = flh = false;
-		}
-		
-		if (arguments.length == 0) {
-			lv = la = true;	
-		}
-		
-		/**
-		 * Headings are stored in temporary array.
-		 * Based on arguments some headings can be either removed or not.
-		 * If heading is not remove it will be stored with false.
-		 * When restoring false values will not append elements from temp.
-		 */
-		
-		temp[0] = fpl ? $forPlayLogo.remove() : false;
-		temp[1] = fph ? $forPlayHeading.remove() : false;
-		temp[2] = fll ? $forLifeLogo.remove() : false;
-		temp[3] = flh ? $forLifeHeading.remove() : false;
-		temp[4] = lv ? $latestVideo.remove() : false;
-		temp[5] = la ? $latestArticles.remove() : false;
-	}
-	
-	var restoreHeadings = function(lv, la) {
-		var $body = $('body'),
-			$centerColumn = $('#centerColumn'),
-			$coversSection = $('#coversSection'),
-			$articlesSection = $('#articlesSection');
-			
-		var fpl, fph, fll, flh;		
-		
-		if ($body.data('side') == 'p') {
-			fpl = fph = false;
-			fll = flh = true;
-		} else {
-			fpl = fph = true;
-			fll = flh = false;
-		}
-		
-		if (arguments.length == 0) {
-			lv = la = true;	
-		}
-		
-		/**
-		 * Test if there are any non converted SVG images.
-		 * This can happen, if the fist loaded page is not the index.
-		 */
-		  
-		if (fll && $(temp[3]).is('img.svg')) {
-			utils.convertSVG($(temp[3]));
-		}
-		
-		if (fpl && $(temp[2]).is('img.svg')) {
-			utils.convertSVG($(temp[2]));
-		}
-		
-		/**
-		 * Append headings only, if they exists in temp.
-		 */
-		
-		fpl ? $coversSection.append(temp[0]) : null;
-		fph ? $coversSection.append(temp[1]) : null;
-		fll ? $coversSection.append(temp[2]) : null;
-		flh ? $coversSection.append(temp[3]) : null;
-		lv ? $centerColumn.append(temp[4]) : null;
-		la ? $centerColumn.append(temp[5]) : null;
-		
-		window.temp = [];
+		$('#covers').children('article').remove();
+		$('#thumbnails').children('.thumbnail').remove();
+		$('main').children('article').remove();
 	}
 	
 	var loadPage = function(params) {
-		var $this = $(this),
-			$body = $('body'),
-			$main = $('main'),
-			$header = $('header');
-			
 		var type = params.type,
 			url = params.url;
 		
-		unloadArticles();
-		restoreHeadings();
-		
 		switch (type) {
 			case 'portal':
-				loadIndexArticles();
+				loadArticles('articles', appendPortal, true);
 				break;
 			case 'news':
-			case 'video':
-				loadArticles(url, appendNews);
-				
-				$header.addClass('solid');
-				$main.addClass('read fixed');
-				
-				removeHeadings();
-				
-				break;
 			case 'feature':
 			case 'review':
-				loadArticlesWithCover(url, appendArticlesWithCover);
-				
-				$main.addClass('read');
-				
-				removeHeadings();
-				
+				loadArticle(url, appendArticle);
+				loadArticles('articles', appendPortal, false);
 				break;
 		}
 	}
@@ -396,68 +345,20 @@ function ArticlesManager() {
 		}
 	});
 	
-	$('main').on('click', '.player a', function (e) {
-		var $this = $(this),
-			$img = $this.hasClass('img') ? $this : $this.parents('.img');
-		
-		/**
-		 * For mobile always open the video and not the article.
-		 */
-		
-		if (utils.isMobile()) {
-			$this.attr('href', $img.data('url'));
-			$this.attr('target', '_blank');
-		}
-		
-		/**
-		 * For video images and when not on mobile,
-		 * prevent the link from open and play the video inline.
-		 */
-		
-		if ($this.hasClass('img') && !utils.isMobile()) {
-			e.preventDefault();
-		
-		/**
-		 * Else prevent creating a player, when you click on the title link.
-		 * This allows to either play video from the image
-		 * or open the article in a new page from the title.
-		 */
-		  
-		} else {
-			e.stopPropagation();
-		}			
-	});
+	/**
+	 * Changing URL hash using history.js.
+	 * Page is loaded on statechange event.
+	 * This is disabled in version 2 and only links are used.
+	 */
 	
-	$('main').on('click', 'article:not(.player) a', function (e) {			
-		
-		/**
-		 * The click is available on the whole articles content,
-		 * bur for accessibility the headign is link.
-		 * So preven second click on the content.
-		 */
-		
-		e.stopPropagation();
-	});
-	
-	$('main').on('click', 'article:not(.player)', function (e) {
+	/*
+	$('main').on('click', 'article:not(.Player)', function (e) {
 		var $this = $(this);
 		
-		/**
-		 * First data-type is for articles.
-		 * Second data-type is for covers.
-		 * Third data-type is for video.
-		 */
-		
-		var type = $this.find('[data-type]').data('type')
-						|| $(this).data('type') 
-						|| $(this).parent().parent().data('type')
+		var type = $(this).data('subtype'),
 			url = $this.data('url');
-		
-		/**
-		 * Changing URL hash using history.js.
-		 * Page is loaded on statechange event.
-		 */
 		
 		window.History.pushState({'type': type, 'url': url}, url, '?' + type + '=' + url);
 	});
+	*/
 }

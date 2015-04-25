@@ -1,7 +1,25 @@
-[ "diablo",
-  "halo",
-  "grand-theft-auto",
-  "star-wars",
-  "true-blood",
-  "batman"
+[ { "text" : "Diablo",
+	"value" : "diablo",
+    "type" : "game"
+  },
+  { "text" : "Halo",
+  	"value" : "halo",
+    "type" : "game"
+  },
+  { "text" : "Grand Theft Auto",
+  	"value" : "gta",
+    "type" : "game"
+  },
+  { "text" : "Star Wars",
+  	"value" : "star-wars",
+    "type" : "game"
+  },
+  { "text" : "True Blood",
+  	"value" : "true-blood",
+    "type" : "movie"
+  },
+  { "text" : "Batman",
+  	"value" : "batman",
+    "type" : "movie"
+  }
 ]

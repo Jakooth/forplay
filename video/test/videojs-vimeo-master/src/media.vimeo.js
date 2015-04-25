@@ -9,7 +9,7 @@ var VimeoState = {
   PAUSED: 2,
   BUFFERING: 3
 };
- 
+
 /**
  * Vimeo Media Controller - Wrapper for Vimeo Media API
  * @param {videojs.Player|Object} player
@@ -20,13 +20,20 @@ var VimeoState = {
 videojs.Vimeo = videojs.MediaTechController.extend({
   init: function(player, options, ready){
     videojs.MediaTechController.call(this, player, options, ready);
-    
+
+    // Copy the JavaScript options if they exists
+    if (typeof options['source'] != 'undefined') {
+        for (var key in options['source']) {
+            player.options()[key] = options['source'][key];
+        }
+    }
+
     this.player_ = player;
     this.player_el_ = document.getElementById(this.player_.id());
 
     // Disable lockShowing because we always use Vimeo controls
     this.player_.controls(false);
-    
+
     this.id_ = this.player_.id() + '_vimeo_api';
 
     this.el_ = videojs.Component.prototype.createEl('iframe', {
@@ -40,10 +47,11 @@ videojs.Vimeo = videojs.MediaTechController.extend({
       mozallowfullscreen: 'true',
       allowFullScreen: 'true'
     });
-    
+
     this.player_el_.insertBefore(this.el_, this.player_el_.firstChild);
-    
-    this.baseUrl = (document.location.protocol == 'https')? 'https://secure.vimeo.com/video/' : 'http://player.vimeo.com/video/';
+
+    var protocol = (document.location.protocol === 'file:')?'http:': document.location.protocol;
+    this.baseUrl = protocol + '//player.vimeo.com/video/';
 
     this.vimeo = {};
     this.vimeoInfo = {};
@@ -58,16 +66,17 @@ videojs.Vimeo = videojs.MediaTechController.extend({
 });
 
 videojs.Vimeo.prototype.dispose = function(){
+  this.vimeo.removeEvent('ready');
   this.vimeo.api('unload');
   delete this.vimeo;
   this.el_.parentNode.removeChild(this.el_);
-  
+
   videojs.MediaTechController.prototype.dispose.call(this);
 };
 
 videojs.Vimeo.prototype.src = function(src){
   this.isReady_ = false;
-  
+
   // Regex that parse the video ID for any Vimeo URL
   var regExp = /^.*(vimeo\.com\/)((channels\/[A-z]+\/)|(groups\/[A-z]+\/videos\/))?([0-9]+)/;
   var match = src.match(regExp);
@@ -75,7 +84,7 @@ videojs.Vimeo.prototype.src = function(src){
   if (match){
     this.videoId = match[5];
   }
-  
+
   var params = {
     api: 1,
     byline: 0,
@@ -86,9 +95,15 @@ videojs.Vimeo.prototype.src = function(src){
     fullscreen: 1,
     player_id: this.id_,
     autoplay: (this.player_.options()['autoplay'])?1:0,
-    loop: (this.player_.options()['loop'])?1:0
+    loop: (this.player_.options()['loop'])?1:0,
+    color: this.player_.options()['color'] || ''
   };
-  
+
+  if (params.color.substring(0, 1) === '#') {
+    // vimeo API takes color without the hash
+    params.color = params.color.substring(1);
+  }
+
   this.el_.src = this.baseUrl + this.videoId + '?' + videojs.Vimeo.makeQueryString(params);
 };
 
@@ -96,8 +111,8 @@ videojs.Vimeo.prototype.load = function(){};
 videojs.Vimeo.prototype.play = function(){ this.vimeo.api('play'); };
 videojs.Vimeo.prototype.pause = function(){ this.vimeo.api('pause'); };
 videojs.Vimeo.prototype.paused = function(){
-  return this.lastState !== VimeoState.PLAYING &&
-         this.lastState !== VimeoState.BUFFERING;
+  return this.vimeoInfo.state !== VimeoState.PLAYING &&
+         this.vimeoInfo.state !== VimeoState.BUFFERING;
 };
 
 videojs.Vimeo.prototype.currentTime = function(){ return this.vimeoInfo.time || 0; };
@@ -108,7 +123,7 @@ videojs.Vimeo.prototype.setCurrentTime = function(seconds){
 };
 
 videojs.Vimeo.prototype.duration = function(){ return this.vimeoInfo.duration || 0; };
-videojs.Vimeo.prototype.buffered = function(){ return videojs.createTimeRange(0, this.vimeoInfo.buffered || 0); };
+videojs.Vimeo.prototype.buffered = function(){ return videojs.createTimeRange(0, (this.vimeoInfo.buffered*this.vimeoInfo.duration) || 0); };
 
 videojs.Vimeo.prototype.volume = function() { return (this.vimeoInfo.muted)? this.vimeoInfo.muteVolume : this.vimeoInfo.volume; };
 videojs.Vimeo.prototype.setVolume = function(percentAsDecimal){
@@ -116,15 +131,17 @@ videojs.Vimeo.prototype.setVolume = function(percentAsDecimal){
   this.vimeoInfo.volume = percentAsDecimal;
   this.player_.trigger('volumechange');
 };
-
+videojs.Vimeo.prototype.currentSrc = function() {
+  return this.el_.src;
+};
 videojs.Vimeo.prototype.muted = function() { return this.vimeoInfo.muted || false; };
-videojs.Vimeo.prototype.setMuted = function(muted) { 
+videojs.Vimeo.prototype.setMuted = function(muted) {
   if (muted) {
     this.vimeoInfo.muteVolume = this.vimeoInfo.volume;
     this.setVolume(0);
-  } else { 
+  } else {
     this.setVolume(this.vimeoInfo.muteVolume);
-  } 
+  }
 
   this.vimeoInfo.muted = muted;
   this.player_.trigger('volumechange');
@@ -133,7 +150,7 @@ videojs.Vimeo.prototype.setMuted = function(muted) {
 videojs.Vimeo.prototype.onReady = function(){
   this.isReady_ = true;
   this.triggerReady();
-  
+  this.player_.trigger('loadedmetadata');
   if (this.startMuted) {
     this.setMuted(true);
     this.startMuted = false;
@@ -141,13 +158,13 @@ videojs.Vimeo.prototype.onReady = function(){
 };
 
 videojs.Vimeo.prototype.onLoad = function(){
-  if (this.vimeo.api) {
+  if (this.vimeo && this.vimeo.api) {
     this.vimeo.api('unload');
     delete this.vimeo;
   }
-  
+
   this.vimeo = $f(this.el_);
-  
+
   this.vimeoInfo = {
     state: VimeoState.UNSTARTED,
     volume: 1,
@@ -159,15 +176,19 @@ videojs.Vimeo.prototype.onLoad = function(){
     url: this.baseUrl + this.videoId,
     error: null
   };
-  
+
   var self = this;
-  this.vimeo.addEvent('ready', function(id){ self.onReady(); });
-  this.vimeo.addEvent('loadProgress', function(data, id){ self.onLoadProgress(data); });
-  this.vimeo.addEvent('playProgress', function(data, id){ self.onPlayProgress(data); });
-  this.vimeo.addEvent('play', function(id){ self.onPlay(); });
-  this.vimeo.addEvent('pause', function(id){ self.onPause(); });
-  this.vimeo.addEvent('finish', function(id){ self.onFinish(); });
-  this.vimeo.addEvent('seek', function(data, id){ self.onSeek(data); });
+  this.vimeo.addEvent('ready', function(id){
+    self.onReady();
+
+    self.vimeo.addEvent('loadProgress', function(data, id){ self.onLoadProgress(data); });
+    self.vimeo.addEvent('playProgress', function(data, id){ self.onPlayProgress(data); });
+    self.vimeo.addEvent('play', function(id){ self.onPlay(); });
+    self.vimeo.addEvent('pause', function(id){ self.onPause(); });
+    self.vimeo.addEvent('finish', function(id){ self.onFinish(); });
+    self.vimeo.addEvent('seek', function(data, id){ self.onSeek(data); });
+
+  });
 };
 
 videojs.Vimeo.prototype.onLoadProgress = function(data){
@@ -353,7 +374,7 @@ var Froogaloop = (function(){
      * @param target (HTMLElement): Target iframe to post the message to.
      */
     function postMessage(method, params, target) {
-        if (!target.contentWindow.postMessage) {
+        if (!target || !target.contentWindow || !target.contentWindow.postMessage) {
             return false;
         }
 
@@ -448,7 +469,7 @@ var Froogaloop = (function(){
      * Retrieves stored callbacks.
      */
     function getCallback(eventName, target_id) {
-        if (target_id) {
+        if (target_id && eventCallbacks[target_id]) {
             return eventCallbacks[target_id][eventName];
         }
         else {

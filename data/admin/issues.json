@@ -1,3 +1,10 @@
-[ "issue-0-demo",
-  "issue-1-reboot"
+[ { "text" : "Демо",
+	"value" : "issue-0-demo"
+  },
+  { "text" : "Презареждане",
+  	"value" : "issue-1-reboot"
+  },
+  { "text" : "Bloodborne",
+  	"value" : "issue-2-blоodborne"
+  }
 ]

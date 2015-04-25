@@ -1,9 +1,49 @@
-[ "diablo",
-  "diablo-3",
-  "gta",
-  "gta-5",
-  "sam-houser",
-  "rockstar",
-  "halo",
-  "bungie"
+[ { "text" : "Diablo",
+	"value" : "diablo",
+    "type" : "game"
+  },
+  { "text" : "Diablo 3",
+  	"value" : "diablo-3",
+    "type" : "game"
+  },
+  { "text" : "Grand Theft Auto",
+  	"value" : "gta",
+    "type" : "game"
+  },
+  { "text" : "Grand Theft Auto 5",
+  	"value" : "gta-5",
+    "type" : "game"
+  },
+  { "text" : "Sam Houser",
+  	"value" : "sam-houser",
+    "type" : "person"
+  },
+  { "text" : "Rockstar",
+  	"value" : "rockstar",
+    "type" : "company"
+  },
+  { "text" : "Halo",
+  	"value" : "halo",
+    "type" : "game"
+  },
+  { "text" : "Bungie",
+  	"value" : "bungie",
+    "type" : "company"
+  },
+  { "text" : "Saints Row",
+  	"value" : "saints-row",
+    "type" : "game"
+  },
+  { "text" : "Mafia",
+  	"value" : "mafia",
+    "type" : "game"
+  },
+  { "text" : "Red Dead Redemtpion",
+  	"value" : "red-dead-redemption",
+    "type" : "game"
+  },
+  { "text" : "Crackdown",
+  	"value" : "crackdown",
+    "type" : "game"
+  }
 ]

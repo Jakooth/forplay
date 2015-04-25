@@ -16,14 +16,14 @@ function Layout(id) {
 	 */
 	
 	this.id = id;
-	this.subtype;
+	this.subtype = "text";
 	this.type = "text";
-	this.content;
+	this.center;
 	this.left;
 	this.right;
 	
-	this.setContent = function() {
-		self.content = CKEDITOR.instances[self.id].getData().replace(/\n/g, '');
+	this.setCenter = function() {
+		self.center = CKEDITOR.instances[self.id].getData().replace(/\n/g, '');
 	}
 	
 	this.setType = function() {
@@ -40,6 +40,6 @@ function Layout(id) {
 	this.setType();
 	
 	if (this.type == 'text') {
-		this.setContent();
+		this.setCenter();
 	}
 }

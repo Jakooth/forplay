@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<article>
+    <site>forplay</site>
+    <url>grand-theft-auto-v-сатирично-менгеме-вече-и-в-1080p</url>
+    <tags prime="gta-5">
+        <tag>gta-5</tag>
+    </tags>
+    <cover align="center"
+    	   valign="top"
+       	   theme="red"
+           subtheme="">cover.jpg</cover>
+    <main main320="02.jpg"
+          main640="05.jpg">03.jpg</main>
+    <type bg="игри">games</type>
+    <subtype bg="новина">news</subtype>
+    <title>
+        <![CDATA[Grand Theft Auto V – сатирично менгеме. Вече и в 1080p!]]>
+    </title>
+    <subtitle>
+        <![CDATA[Песен за Сам и Дан Хаузър...]]>
+    </subtitle>
+    <authors>
+        <author>Koralsky</author>
+        <author>Snake</author>
+    </authors>
+    <date>Wed Mar 18 2015 14:32:00 GMT+0200 (FLE Standard Time)</date>
+    <priority></priority>
+    <issue>issue-1-reboot</issue>
+	<hype>9+</hype>
+	<versionTested>PS4</versionTested>
+	<better tag="gta-4">Grand Theft Auto</better>
+	<equal tag="diablo-3">Diablo 3</equal>
+    <preview>Натиснете тук, за да редактирате текста, използвайки само параграфи,
+        болд, италик и връзки. Този едитор поддържа и стандартни функции, като
+        копи, пейст, ънду и реду. За да редактирата съдържанието директно в HTML
+        използвайте бутона Source.</preview>
+    <stickers>
+        <sticker lib="lorc">beech</sticker>
+        <sticker lib="lorc">black-cat</sticker>
+        <sticker lib="lorc">snake</sticker>
+    </stickers>
+    <layouts>
+        <layout type="text" subtype="text"
+                tag="gta-5" order="0">
+            <left valign="top">
+                <url type="games">gta-5</url>
+            </left>
+            <center>
+                <![CDATA[<p>Натиснете тук, за да редактирате текста, използвайки
+                    само параграфи, <strong>болд</strong>, <em>италик</em> и
+                    <a href="#" target="_blank">връзки</a>. Този едитор поддържа
+                    и стандартни функции, като копи, пейст, ънду и реду.</p><blockquote><p>За
+                    да оградите параграф, като цитат, използвайте бутона с кавичките.</p></blockquote><h3>Може
+                    да използвате и хединг 3</h3><p>За да редактирата съдържанието
+                    директно в HTML използвайте бутона <em>Source</em>.</p>]]>
+            </center>
+        </layout>
+        <layout type="text" subtype="text"
+                tag="gta-5" order="1">
+			<center>
+                <![CDATA[<p>Натиснете тук, за да редактирате текста, използвайки
+                    само параграфи, <strong>болд</strong>, <em>италик</em> и
+                    <a href="#" target="_blank">връзки</a>. Този едитор поддържа
+                    и стандартни функции, като копи, пейст, ънду и реду.</p><blockquote><p>За
+                    да оградите параграф, като цитат, използвайте бутона с кавичките.</p></blockquote><h3>Може
+                    да използвате и хединг 3</h3><p>За да редактирата съдържанието
+                    директно в HTML използвайте бутона <em>Source</em>.</p>]]>
+            </center>
+        </layout>
+		<layout type="text" subtype="text"
+                tag="gta-5" order="2">
+			<center>
+                <![CDATA[<p>Натиснете тук, за да редактирате текста, използвайки
+                    само параграфи, <strong>болд</strong>, <em>италик</em> и
+                    <a href="#" target="_blank">връзки</a>. Този едитор поддържа
+                    и стандартни функции, като копи, пейст, ънду и реду.</p><blockquote><p>За
+                    да оградите параграф, като цитат, използвайте бутона с кавичките.</p></blockquote><h3>Може
+                    да използвате и хединг 3</h3><p>За да редактирата съдържанието
+                    директно в HTML използвайте бутона <em>Source</em>.</p>]]>
+            </center>
+        </layout>
+    </layouts>
+</article>

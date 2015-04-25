@@ -319,7 +319,8 @@ form label span {
 	margin-bottom: 0;
 }
 
-form > [role=group],
+.Main button,
+form > [role=group]:not(.Main),
 .Cover,
 #images li,
 section#login h2,
@@ -685,10 +686,6 @@ form input[type=time] {
 	clear: none;
 }
 
-.two-cols:nth-of-type(2n + 1) {
-	clear: both;
-}
-
 
 
 
@@ -824,7 +821,7 @@ button.select:after {
 	top: 50%;
 	border-radius: 64px;
 	background-color: rgba(255, 255, 255, 0.5);
-	background-image: url(icons/iconmonstr-plus-2-icon.svg);
+	background-image: url(../icons/iconmonstr/iconmonstr-plus-2-icon.svg);
 	background-size: 32px 32px;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -832,7 +829,7 @@ button.select:after {
 }
 
 button.remove {
-	background-image: url(icons/iconmonstr-x-mark-5-icon.svg);
+	background-image: url(../icons/iconmonstr/iconmonstr-x-mark-5-icon.svg);
 	background-size: 64px 64px;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -1091,7 +1088,7 @@ button.remove {
 .Cover button.select:after,
 .z0Layout button.select:after,
 .a1Layout button.select:after {
-	background-image: url(icons/iconmonstr-picture-icon.svg);
+	background-image: url(../icons/iconmonstr/iconmonstr-picture-icon.svg);
 }
 
 .z0Layout {
@@ -1240,7 +1237,7 @@ button.remove {
 	top: 50%;
 	border-radius: 64px;
 	background-color: #FFF;
-	background-image: url(icons/iconmonstr-pencil-10-icon.svg);
+	background-image: url(../icons/iconmonstr/iconmonstr-pencil-10-icon.svg);
 	background-size: 64px 64px;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -1324,16 +1321,16 @@ section#login h2 {
   * Add  - Layout,  Box, Images
   */
   
-.blood .Cover svg path {
-	fill: #B53634;
+.red .Cover svg path {
+	fill: #F44336;
 }
 
-.sunset .Cover svg path {
-	fill: #EF822A;
+.pink .Cover svg path {
+	fill: #E91E63;
 }
 
 .purple .Cover svg path {
-	fill: #82446D;
+	fill: #9C27B0;
 }
 
 .pink .Cover svg path {

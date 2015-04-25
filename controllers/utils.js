@@ -18,11 +18,13 @@ function UtilsManager() {
 	 */
 	
 	this.xml = function(obj, tmpl, appender) {
-		var d = $.get('../renderers/xml/' + tmpl + '.html');
+		var get1 = $.get('../renderers/xml/' + tmpl + '.html'),
+			get2 = $.get('../renderers/xml/textLayout.html');
 			
-		$.when(d).done(function(data) {
+		$.when(get1, get2).done(function(data1, data2) {
 			var tmpls = $.templates({
-					xmlTemplate: data
+					xmlTemplate: data1[0],
+					textLayout: data2[0]
 				}),
 				xml = $.templates.xmlTemplate.render(obj);
 				
@@ -98,12 +100,11 @@ function UtilsManager() {
 		return screen.width > 960 ? false : true;
 	}
 	
-	this.setThemeColor = function(color) {
+	this.setTheme = function(theme) {
 		var $body = $('body');
 		
 		$body.removeClass();
-		$body.addClass($body.data('side'));
-		$body.addClass(color);
+		$body.addClass(theme);
 		
 		/**
 		 * Halloween ;)
@@ -134,6 +135,17 @@ function UtilsManager() {
 		return typeof(s) == "string" ? s : s.join(', ');	
 	}
 	
+	this.formatDate = function (d) {
+		var d = new Date(d),
+			m = ['Януари', 'Февруари', 'Март', 
+				 'Април', 'Май', 'Юни',
+				 'Юли', 'Август', 'Септеври',
+				 'Октомври', 'Ноември', 'Декември'];
+		
+		
+		return d.getDate() + ' ' + m[d.getMonth()]  + ' ' + d.getFullYear();	
+	}
+	
 	this.parseURL = function(url) {
 		var url = url.split('?'),
 			params = url[1] ? url[1].split('=') : ['portal', issue];
@@ -150,20 +162,20 @@ function UtilsManager() {
 	 * the height correctly, thus we do this manually.
 	 */
 	
-	this.formatTimThumbString = function(tag, count, width, height) {
+	this.formatTimThumbString = function(tag, name, width, height) {
 		var service = 'http://forplay.bg/phplib/timthumb/timthumb.php';
 		
 		return service + '?src=/assets/articles/' + tag + 
-						 '/' + tag + '-' + count + 
+						 '/' + tag + '-' + name + 
 						 '&w=' + width + 
 						 '&h=' + height;
 	}
 	
-	this.formatThumborString = function(tag, count, width, height) {
+	this.formatThumborString = function(tag, name, width, height) {
 		var service = 'http://192.168.1.166:8888/unsafe/';
 		
 		return service + width + 'x' + height + 
 								 '/forplay.bg/assets/articles/' + tag + 
-								 '/' + tag + '-' + count;
+								 '/' + tag + '-' + name;
 	}
 }

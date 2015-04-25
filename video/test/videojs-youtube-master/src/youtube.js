@@ -25,9 +25,14 @@
   videojs.Youtube = videojs.MediaTechController.extend({
     /** @constructor */
     init: function(player, options, ready) {
+      // Save this for internal usage
+      this.player_ = player;
+
       // No event is triggering this for YouTube
       this['featuresProgressEvents'] = false;
       this['featuresTimeupdateEvents'] = false;
+      // Enable rate changes
+      this['featuresPlaybackRate'] = true;
 
       videojs.MediaTechController.call(this, player, options, ready);
 
@@ -35,6 +40,11 @@
       this.isAndroid = /(Android)/g.test( navigator.userAgent );
       //used to prevent play events on IOS7 and Android > 4.2 until the user has clicked the player
       this.playVideoIsAllowed = !(this.isIos || this.isAndroid);
+
+      // autoplay is disabled for mobile
+      if (this.isIos || this.isAndroid) {
+        this.player_.options()['autoplay'] = false;
+      }
 
       // Copy the JavaScript options if they exists
       if(typeof options['source'] !== 'undefined') {
@@ -47,9 +57,7 @@
 
       this.userQuality = videojs.Youtube.convertQualityName(player.options()['quality']);
 
-      // Save those for internal usage
-      this.player_ = player;
-      this.playerEl_ = document.getElementById(player.id());
+      this.playerEl_ = player.el();
       this.playerEl_.className += ' vjs-youtube';
 
       // Create the Quality button
@@ -58,9 +66,11 @@
       this.qualityButton.setAttribute('tabindex', 0);
 
       var qualityContent = document.createElement('div');
+      qualityContent.setAttribute('class', 'vjs-control-content');
       this.qualityButton.appendChild(qualityContent);
 
       this.qualityTitle = document.createElement('span');
+      this.qualityTitle.setAttribute('class', 'vjs-control-text');
       qualityContent.appendChild(this.qualityTitle);
 
       if(player.options()['quality'] !== 'undefined') {
@@ -69,7 +79,7 @@
 
       var qualityMenu = document.createElement('div');
       qualityMenu.setAttribute('class', 'vjs-menu');
-      this.qualityButton.appendChild(qualityMenu);
+      qualityContent.appendChild(qualityMenu);
 
       this.qualityMenuContent = document.createElement('ul');
       this.qualityMenuContent.setAttribute('class', 'vjs-menu-content');
@@ -93,7 +103,7 @@
       if(/MSIE (\d+\.\d+);/.test(navigator.userAgent)) {
         var ieVersion = Number(RegExp.$1);
         this.addIframeBlocker(ieVersion);
-      } else if(!/(iPad|iPhone|iPod|android)/g.test(navigator.userAgent)) {
+      } else if(!/(iPad|iPhone|iPod|Android)/g.test(navigator.userAgent)) {
         // the pointer-events: none block the mobile player
         this.el_.className += ' onDesktop';
         this.addIframeBlocker();
@@ -101,11 +111,7 @@
 
       this.parseSrc(player.options()['src']);
 
-      this.playOnReady = this.player_.options()['autoplay'] || false;
-      this.forceSSL = !!(
-        typeof this.player_.options()['forceSSL'] === 'undefined' ||
-          this.player_.options()['forceSSL'] === true
-        );
+      this.playOnReady = this.player_.options()['autoplay'] && this.playVideoIsAllowed;
       this.forceHTML5 = !!(
         typeof this.player_.options()['forceHTML5'] === 'undefined' ||
           this.player_.options()['forceHTML5'] === true
@@ -116,8 +122,12 @@
       var self = this;
 
       player.ready(function() {
-        var controlBar = self.playerEl_.querySelectorAll('.vjs-control-bar')[0];
-        controlBar.appendChild(self.qualityButton);
+        if (self.player_.options()['controls']) {
+          var controlBar = self.playerEl_.querySelectorAll('.vjs-control-bar')[0];
+          if (controlBar) {
+            controlBar.appendChild(self.qualityButton);
+          }
+        }
 
         if(self.playOnReady && !self.player_.options()['ytcontrols']) {
           if(typeof self.player_.loadingSpinner !== 'undefined') {
@@ -180,7 +190,6 @@
       html5: (this.player_.options()['forceHTML5']) ? 1 : null,
       playsinline: (this.player_.options()['playsInline']) ? 1 : 0,
       showinfo: 0,
-      modestbranding: 1,
       rel: 0,
       autoplay: (this.playOnReady) ? 1 : 0,
       loop: (this.player_.options()['loop']) ? 1 : 0,
@@ -189,8 +198,10 @@
       origin: window.location.protocol + '//' + window.location.host
     };
 
+    var isLocalProtocol = window.location.protocol === 'file:' || window.location.protocol === 'app:';
+
     // When running with no Web server, we can't specify the origin or it will break the YouTube API messages
-    if(window.location.protocol === 'file:') {
+    if(isLocalProtocol) {
       delete params.origin;
     }
 
@@ -204,27 +215,22 @@
     }
     var self = this;
 
-    if(this.videoId === null) {
+    if(!this.videoId && !this.playlistId) {
       this.el_.src = 'about:blank';
       setTimeout(function() {
         self.triggerReady();
       }, 500);
     } else {
-      this.el_.src = (
-        (this.forceSSL || window.location.protocol === 'file:') ?
-          'https:'
-          : window.location.protocol
-        ) + '//www.youtube.com/embed/' + this.videoId + '?' + videojs.Youtube.makeQueryString(params);
+      this.el_.src = 'https://www.youtube.com/embed/' + 
+                     (this.videoId || 'videoseries') + '?' + videojs.Youtube.makeQueryString(params);
 
       if(this.player_.options()['ytcontrols']) {
         // Disable the video.js controls if we use the YouTube controls
         this.player_.controls(false);
-      } else if(typeof this.player_.poster() === 'undefined') {
-        // Don't use player.poster(), it will fail here because the tech is still null in constructor
+      } else if(this.videoId && (typeof this.player_.poster() === 'undefined' || this.player_.poster().length === 0)) {
+        // Wait here because the tech is still null in constructor
         setTimeout(function() {
-          var posterEl = self.playerEl_.querySelectorAll('.vjs-poster')[0];
-          posterEl.style.backgroundImage = 'url(https://img.youtube.com/vi/' + self.videoId + '/0.jpg)';
-          posterEl.style.display = '';
+          self.player_.poster('https://img.youtube.com/vi/' + self.videoId + '/0.jpg');
         }, 100);
       }
 
@@ -246,9 +252,7 @@
           tag.onerror = function(e) {
             self.onError(e);
           };
-          tag.src = ( !this.forceSSL && window.location.protocol !== 'file:' ) ?
-            '//www.youtube.com/iframe_api'
-            : 'https://www.youtube.com/iframe_api';
+          tag.src = 'https://www.youtube.com/iframe_api';
           var firstScriptTag = document.getElementsByTagName('script')[0];
           firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
           videojs.Youtube.apiLoading = true;
@@ -259,7 +263,9 @@
 
   videojs.Youtube.prototype.onWaiting = function(/*e*/) {
     // Make sure to hide the play button while the spinner is there
-    this.player_.bigPlayButton.hide();
+    if(typeof this.player_.bigPlayButton !== 'undefined') {
+      this.player_.bigPlayButton.hide();
+    }
   };
 
   videojs.Youtube.prototype.addIframeBlocker = function(ieVersion) {
@@ -272,7 +278,6 @@
     this.iframeblocker.style.right = 0;
     this.iframeblocker.style.top = 0;
     this.iframeblocker.style.bottom = 0;
-    this.iframeblocker.style.zIndex = 9999;
 
     // Odd quirk for IE8 (doesn't support rgba)
     if(ieVersion && ieVersion < 9) {
@@ -407,7 +412,9 @@
   };
 
   videojs.Youtube.prototype.pause = function() {
-    this.ytplayer.pauseVideo();
+    if(this.ytplayer) {
+      this.ytplayer.pauseVideo();
+    }
   };
   videojs.Youtube.prototype.paused = function() {
     return (this.ytplayer) ?
@@ -420,6 +427,20 @@
   videojs.Youtube.prototype.setCurrentTime = function(seconds) {
     this.ytplayer.seekTo(seconds, true);
     this.player_.trigger('timeupdate');
+    this.player_.trigger('seeking');
+    this.isSeeking = true;
+  };
+  videojs.Youtube.prototype.playbackRate = function() {
+    return (this.ytplayer && this.ytplayer.getPlaybackRate) ? this.ytplayer.getPlaybackRate() : 1.0;
+  };
+  videojs.Youtube.prototype.setPlaybackRate = function(suggestedRate) {
+    if (this.ytplayer && this.ytplayer.setPlaybackRate) {
+      this.ytplayer.setPlaybackRate(suggestedRate);
+      var self = this;
+      setTimeout(function () {
+        self.player_.trigger('ratechange');
+      }, 100);
+    }
   };
   videojs.Youtube.prototype.duration = function() {
     return (this.ytplayer && this.ytplayer.getDuration) ? this.ytplayer.getDuration() : 0;
@@ -427,10 +448,14 @@
   videojs.Youtube.prototype.currentSrc = function() {
     return this.srcVal;
   };
+  videojs.Youtube.prototype.ended = function() {
+    return (this.ytplayer) ? (this.lastState === YT.PlayerState.ENDED) : false;
+  };
 
   videojs.Youtube.prototype.volume = function() {
     if(this.ytplayer && isNaN(this.volumeVal)) {
       this.volumeVal = this.ytplayer.getVolume() / 100.0;
+      this.volumeVal = (isNaN(this.volumeVal)) ? 1 : this.volumeVal;
       this.player_.volume(this.volumeVal);
     }
 
@@ -450,11 +475,12 @@
   };
   videojs.Youtube.prototype.setMuted = function(muted) {
     if(muted) {
+      this.storedVolume = this.volumeVal;
       this.ytplayer.mute();
       this.player_.volume(0);
     } else {
       this.ytplayer.unMute();
-      this.player_.volume(this.volumeVal);
+      this.player_.volume(this.storedVolume);
     }
 
     this.mutedVal = muted;
@@ -481,7 +507,14 @@
   };
 
   videojs.Youtube.prototype.supportsFullScreen = function() {
-    return true;
+    if (typeof this.el_.webkitEnterFullScreen === 'function') {
+
+        // Seems to be broken in Chromium/Chrome && Safari in Leopard
+        if (/Android/.test(videojs.USER_AGENT) || !/Chrome|Mac OS X 10.5/.test(videojs.USER_AGENT)) {
+            return true;
+        }
+    }
+    return false;
   };
 
   // YouTube is supported on all platforms
@@ -506,10 +539,12 @@
 
   // Create the YouTube player
   videojs.Youtube.prototype.loadYoutube = function() {
+    var self = this;
     this.ytplayer = new YT.Player(this.id_, {
       events: {
         onReady: function(e) {
           e.target.vjsTech.onReady();
+          self.player_.trigger('ratechange');
         },
         onStateChange: function(e) {
           e.target.vjsTech.onStateChange(e.data);
@@ -528,7 +563,7 @@
 
   // Transform a JavaScript object into URL params
   videojs.Youtube.makeQueryString = function(args) {
-    var array = [];
+    var array = ['modestbranding=1'];
     for(var key in args) {
       if(args.hasOwnProperty(key)) {
         array.push(key + '=' + args[key]);
@@ -556,19 +591,25 @@
 
     // The duration is loaded so we might as well fire off the timeupdate and duration events
     // this allows for the duration of the video (timeremaining) to be displayed if styled
-    // to show the control bar initially. This gives the user the ability to see how long the video 
+    // to show the control bar initially. This gives the user the ability to see how long the video
     // is before clicking play
     this.player_.trigger('durationchange');
     this.player_.trigger('timeupdate');
 
     // Let the player take care of itself as soon as the YouTube is ready
     // The loading spinner while waiting for the tech would be impossible otherwise
-    if(typeof this.player_.loadingSpinner !== 'undefined') {
+    if (typeof this.player_.loadingSpinner !== 'undefined' && !this.isIos && !this.isAndroid) {
       this.player_.loadingSpinner.hide();
     }
 
     if(this.player_.options()['muted']) {
       this.setMuted(true);
+    }
+
+    // Set the poster of the first video of the playlist if not specified
+    if (!this.videoId && this.playlistId) {
+      this.videoId = this.ytplayer.getPlaylist()[0];
+      this.player_.poster('https://img.youtube.com/vi/' + this.videoId + '/0.jpg');
     }
 
     // Play ASAP if they clicked play before it's ready
@@ -637,24 +678,40 @@
           break;
 
         case YT.PlayerState.ENDED:
-          // Replace YouTube play button by our own
-          if(!this.player_.options()['ytcontrols']) {
-            this.playerEl_.querySelectorAll('.vjs-poster')[0].style.display = 'block';
-            if(typeof this.player_.bigPlayButton !== 'undefined') {
-              this.player_.bigPlayButton.show();
-            }
+          var stopPlaying = true;
+
+          // Stop the playlist when it is starting over
+          if (this.playlistId && !this.player_.options()['loop']) {
+            stopPlaying = this.ytplayer.getPlaylistIndex() === 0;
           }
 
-          this.player_.trigger('ended');
+          if (stopPlaying) {
+            // Replace YouTube play button by our own
+            if(!this.player_.options()['ytcontrols']) {
+              this.playerEl_.querySelectorAll('.vjs-poster')[0].style.display = 'block';
+              if(typeof this.player_.bigPlayButton !== 'undefined') {
+                this.player_.bigPlayButton.show();
+              }
+            }
+
+            this.player_.trigger('ended');
+          }
           break;
 
         case YT.PlayerState.PLAYING:
+          this.playerEl_.querySelectorAll('.vjs-poster')[0].style.display = 'none';
+
           this.playVideoIsAllowed = true;
           this.updateQualities();
           this.player_.trigger('timeupdate');
           this.player_.trigger('durationchange');
           this.player_.trigger('playing');
           this.player_.trigger('play');
+
+          if (this.isSeeking) {
+            this.player_.trigger('seeked');
+            this.isSeeking = false;
+          }
           break;
 
         case YT.PlayerState.PAUSED:
@@ -785,12 +842,6 @@
 
   videojs.Youtube.prototype.onError = function(error) {
     this.player_.error(error);
-
-    if(error === 100 || error === 101 || error === 150) {
-      this.player_.bigPlayButton.hide();
-      this.player_.loadingSpinner.hide();
-      this.player_.posterImage.hide();
-    }
   };
 
   /**
@@ -851,9 +902,7 @@
     '.vjs-youtube .vjs-poster { background-size: 100%!important; }' +
     '.vjs-youtube .vjs-poster, ' +
     '.vjs-youtube .vjs-loading-spinner, ' +
-    '.vjs-youtube .vjs-text-track-display{' +
-    '    pointer-events: none !important;' +
-    ' }' +
+    '.vjs-youtube .vjs-big-play-button, .vjs-youtube .vjs-text-track-display{ pointer-events: none !important; }' +
     '.vjs-youtube.vjs-user-active .iframeblocker { display: none; }' +
     '.vjs-youtube.vjs-user-inactive .vjs-tech.onDesktop { pointer-events: none; }' +
     '.vjs-quality-button > div:first-child > span:first-child { position:relative;top:7px }';

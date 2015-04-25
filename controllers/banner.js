@@ -5,6 +5,7 @@ function BannerManager() {
 	 */
 	 
 	var self = this;
+	var coversHeight;
 	
 	
 	
@@ -16,29 +17,59 @@ function BannerManager() {
 	/** 
 	 * PUBLIC
 	 */
+	 
+	this.setCoversHeight = function(h) {
+		coversHeight = h;
+	}
 	
-	this.updateBannerStyles = function() {
-		var $covers = $('.covers'),
-			$header = $('header'),
-			$window = $(window);
+	this.updateHeaderPosition = function() {
+		var $main = $('main'),
+			$covers,
+			$mainCoverHeading;
 		
-		var top = $window.scrollTop();
-			ratio = Number($window.width() / $window.height()).toFixed(1) > 1.8 ? 25 : 30,
-			coversHeight = Math.round(((screen.width * ratio) / 100) - top);
+		
+		if ($main.hasClass('read')) {
+			$covers = $('#read .cover');
+			$mainCoverHeading = $('#read .cover h3');
+		} else {
+			$covers = $('#covers');
+			$mainCoverHeading = $('#covers article:eq(0) h3');
+		}
 		
 		/**
 		 * For devices or screen below 768, the header is fixed.
 		 * Do not update the height in this use case.
 		 */
 		
-		if (!$('main').hasClass('fixed') && !utils.isMobile()) {
-					
-			$covers.css('height', coversHeight);
+		if (!utils.isMobile()) {
 			
-			if (top > $header.height()) {
-				$header.addClass('solid');
+			/**
+			 * TODO: Why *40?
+			 */
+			
+			if ($(window).scrollTop() >= (coversHeight * 40) / 100) {
+				$covers.css('height', '');
+				$('header').addClass('fixed');
+				$('main').addClass('fixed');
+				
+				return false;
 			} else {
-				$header.removeClass('solid');	
+				$('header').removeClass('fixed');
+				$('main').removeClass('fixed');
+			}
+			
+			$covers.css('height', coversHeight - $(window).scrollTop());
+			
+			/**
+			 * TODO: Why / 1.2?
+			 */
+			
+			if ($covers.height() < coversHeight / 1.2) {
+				$mainCoverHeading.addClass('invisible');
+				$("#forLife").css('opacity', 0);
+			} else {
+				$mainCoverHeading.removeClass('invisible');
+				$("#forLife").css('opacity', 1);
 			}
 			
 		/**
@@ -47,7 +78,7 @@ function BannerManager() {
 		 */		
 			
 		} else {
-			$covers.removeAttr('style')
+			$covers.removeAttr('style');
 		}
 	}
 	
@@ -148,64 +179,48 @@ function BannerManager() {
 	 */
 	
 	$(window).scroll(function () {
-		self.updateBannerStyles();
+		self.updateHeaderPosition();
 	});
 	
 	$(window).resize(function () {
-		self.updateBannerStyles();
+		self.updateHeaderPosition();
 	});
 	
-	$('nav.menu h2').click(function () {
-		$(this).parent().find('div.menu').toggleClass('selected');
-	});
-	
-	$('nav.menu .collapse').click(function () {
-		$(this).parent().removeClass('selected');
-	});
-	
-	$('.covers').on('mouseover', 'article:not(.c3)', function (e) {
+	$('#covers').on('mouseover', 'article:not(:eq(0))', function (e) {												
 		var $this = $(this),
-			$c1 = $('.cover.c1'),
-			$c2 = $('.cover.c2'),
-			$c3 = $('.cover.c3'),
-			$c4 = $('.cover.c4'),
-			$c5 = $('.cover.c5');
+			$c1 = $('#covers article:eq(1)'),
+			$c2 = $('#covers article:eq(2)'),
+			$c3 = $('#covers article:eq(0)'),
+			$c4 = $('#covers article:eq(3)'),
+			$c5 = $('#covers article:eq(4)');
 		
 		$this.find('.clip').removeClass('clip');
 		
-		$c3.find('.title').addClass('clip');
-		$c3.find('.worse').addClass('clip');
-		$c3.find('.better').addClass('clip');
-		$c3.find('.equal').addClass('clip');
-		$c3.find('.social').css('display', 'none');
+		$c3.find('h3').addClass('clip');
 		
-		if ($this.hasClass('c4') || $this.hasClass('c5')) {
-			$c3.addClass('unfocus-left');
+		if ($this.index() > 2) {
+			$c3.addClass('unfocus unfocus-left');
 		} else {
-			$c3.addClass('unfocus-right');
+			$c3.addClass('unfocus unfocus-right');
 		}
 		
-		$this.hasClass('c5') ? $c4.addClass('unfocus') : null;
-		$this.hasClass('c1') ? $c2.addClass('unfocus') : null;
+		$this.index() == 4 ? $c4.addClass('unfocus') : null;
+		$this.index() == 1 ? $c2.addClass('unfocus') : null;
 	});
 	
-	$('.covers').on('mouseout', 'article:not(.c3)', function (e) {
+	$('#covers').on('mouseout', 'article:not(:eq(0))', function (e) {
 		var $this = $(this),
-			$c1 = $('.cover.c1'),
-			$c2 = $('.cover.c2'),
-			$c3 = $('.cover.c3'),
-			$c4 = $('.cover.c4'),
-			$c5 = $('.cover.c5');
+			$c1 = $('#covers article:eq(1)'),
+			$c2 = $('#covers article:eq(2)'),
+			$c3 = $('#covers article:eq(0)'),
+			$c4 = $('#covers article:eq(3)'),
+			$c5 = $('#covers article:eq(4)');
 		
-		$this.find('.title').addClass('clip');
-		$this.find('.worse').addClass('clip');
-		$this.find('.better').addClass('clip');
-		$this.find('.equal').addClass('clip');
+		$this.find('h3').addClass('clip');
 		
 		$c3.find('.clip').removeClass('clip');
-		$c3.find('.social').css('display', 'block');
-		$c3.removeClass('unfocus-left');
-		$c3.removeClass('unfocus-right');
+		$c3.removeClass('unfocus unfocus-left');
+		$c3.removeClass('unfocus unfocus-right');
 
 		$c4.removeClass('unfocus');
 		$c2.removeClass('unfocus');
@@ -234,10 +249,9 @@ function BannerManager() {
 		}
 	});
 	
-	$('main').on('click', '.logo', function (e) {
-		var $this = $(this),
-			$body = $('body');
-		
-		window.History.pushState({'type': 'portal', 'url': issue}, issue, '?' + 'portal' + '=' + issue);
+	$('nav').on('click', 'h3', function (e) {
+		if ($('header').hasClass('read')) {
+			$('body').toggleClass('nav');
+		}
 	});
 }

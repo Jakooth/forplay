@@ -33,47 +33,24 @@ function PlayerManager() {
 			this.src(url);
 			
 			this.one('ended', function() {
-				$('.player').removeClass('playing');
+				$('.Player').removeClass('playing');
 				this.hide();
 			});
 		});
 	}
 	
-	function swapVideos(smallImg, largeImg) {
-		var $smallImg = smallImg.find('.img'),
-			$largeImg = largeImg.find('.img'),
-			$smallImgPoster = smallImg.find('img').eq(0),
-			$largeImgPoster = largeImg.find('img').eq(0),
-			$smallImgHeading = smallImg.find('h2').eq(0),
-			$largeImgHeding = largeImg.find('h2').eq(0);
-			
-		var smallImgTech = $smallImg.data('tech'),
-			largeImgTech = $largeImg.data('tech'),
-			smallImgUrl = $smallImg.data('url'),
-			largeImgUrl = $largeImg.data('url');		
+	function swapVideos(s, l) {
+		var $sProxy = s.find('.img-proxy'),
+			$lProxy = l.find('.img-proxy'),
+			$sLink = s.find('.img-proxy a'),
+			$lLink = l.find('.img-proxy a'),
+			$sHeading = s.find('h3').eq(0),
+			$lHeading = l.find('h3').eq(0);
 		
-		/**
-		 * Swap attributes and children one bu one, to keep the player.
-		 */
-		
-		$smallImg.prepend($largeImgHeding);
-		$smallImg.prepend($largeImgPoster);
-		$largeImg.prepend($smallImgHeading);
-		$largeImg.prepend($smallImgPoster);
-		$smallImg.data('tech', largeImgTech);
-		$largeImg.data('tech', smallImgTech);
-		$smallImg.data('url', largeImgUrl);
-		$largeImg.data('url', smallImgUrl);
-		
-		/**
-		 * jQuery will not set the data attribute.
-		 * It will just change the bound data object value.
-		 */
-		
-		$smallImg.attr('data-tech', $smallImg.data('tech'));
-		$largeImg.attr('data-tech', $largeImg.data('tech'));
-		$smallImg.attr('data-url', $smallImg.data('url'));
-		$largeImg.attr('data-url', $largeImg.data('url'));
+		$sProxy.after($lHeading);
+		$sProxy.prepend($lLink);
+		$lProxy.after($sHeading);
+		$lProxy.prepend($sLink);
 	}
 	
 	
@@ -92,15 +69,16 @@ function PlayerManager() {
 	 * Small movies in a video set layout are displayed in a single large player.
 	 */
 	  
-	$('main').on('click', '.player', function (e) {												 
+	$('main').on('click', '.Player .img-proxy a', function (e) {
+		e.preventDefault();
+		
 		var $this = $(this), 
-			$img = $this.find('img'), 
-			$div = $this.find('.img'),
-			$a = $this.find('a'),
-			$player = $('#' + $div.data('player'));
+			$img = $this.find('img'),
+			$player = $this.parents('.Player');
+			$mainPlayer = $('#player_' + $this.data('player'));
 			
-		var url = $div.data('url'),
-			tech = $div.data('tech'),
+		var url = $this.data('video'),
+			tech = $this.data('tech'),
 			poster = $img.attr('src');
 		
 		/**
@@ -108,11 +86,11 @@ function PlayerManager() {
 		 * This is done to not interfere with player controls.
 		 */
 		
-		if ($this.hasClass('playing')) {
+		if ($player.hasClass('playing')) {
 			return false;
 		} else {
-			$('.player').removeClass('playing');
-			$player.addClass('playing');
+			$('.Player').removeClass('playing');
+			$mainPlayer.addClass('playing');
 		}
 		
 		/**
@@ -120,7 +98,7 @@ function PlayerManager() {
 		 * So destroy player in another video set, if any.
 		 */
 		  
-		if ($('#forVideo').length && !$player.find('#forVideo').length) {
+		if ($('#forVideo').length && !$mainPlayer.find('#forVideo').length) {
 			window.videoJS.dispose();
 		}
 		
@@ -129,7 +107,7 @@ function PlayerManager() {
 		 * So destroy it, if either current or next video is not youtube.
 		 */
 		
-		if (window.videoJS && $player.find('.img').data('tech') != 'youtube') {
+		if (window.videoJS && $mainPlayer.find('a').data('tech') != 'youtube') {
 			window.videoJS.dispose();	
 		}
 		
@@ -141,8 +119,8 @@ function PlayerManager() {
 		 * First swap videos and than create a player.
 		 */
 		  
-		if ($(this).hasClass('small')) {
-			swapVideos($this, $player);		
+		if (!$player.prop('id')) {
+			swapVideos($player, $mainPlayer);		
 		}
 		
 		/**
@@ -154,7 +132,7 @@ function PlayerManager() {
 		 
 		if ($('#forVideo').length 
 			  && window.videoJS
-			  && $player.find('#forVideo').length 
+			  && $mainPlayer.find('#forVideo').length 
 			  && tech == 'youtube') {
 			
 			window.videoJS.show();
@@ -163,7 +141,7 @@ function PlayerManager() {
 			
 			return false;
 		} else {				
-			createVideo($player.find('.img'), url, tech, poster);
+			createVideo($mainPlayer.find('.img-proxy'), url, tech, poster);
 			
 			return false;
 		}		
