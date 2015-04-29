@@ -182,8 +182,8 @@ function Article() {
 			
 			$layouts.each(function () {
 				self.layouts.push(new Layout($(this)
-											 .find('.center:visible')
-											 .attr('id')));
+											  .find('.center:visible')
+											  .attr('id')));
 			});
 		}
 	}

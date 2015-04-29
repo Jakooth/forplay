@@ -44,6 +44,7 @@
     	<sticker lib="{{:#data.lib}}">{{:#data.text}}</sticker>{{/for}}
     </stickers>{{/if}}
     <layouts>{{for layouts}}
-{{if type == 'text' ~tag=#view.parent.parent.data.prime tmpl="textLayout" /}}{{/for}}
+{{if type == 'text' ~tag=#view.parent.parent.data.prime tmpl="textLayout"}}
+{{else type == 'img' ~tag=#view.parent.parent.data.prime tmpl="imgLayout"}}{{/if}}{{/for}}
     </layouts>
 </article>

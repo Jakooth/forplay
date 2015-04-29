@@ -168,6 +168,16 @@ function ArticlesManager() {
 		$('#read').attr('aria-hidden', false);
 		$('#read .read-set').append(html);
 		
+		/**
+		 * Replace proxies with real images from the server.
+		 */
+		
+		$('#read .read-set').find('img').on('load', function() {
+			if ($(this).data('proxy')) {
+				loadImage($(this));
+			}
+		});
+		
 		appendAsides();
 		
 		/**
@@ -208,6 +218,10 @@ function ArticlesManager() {
 		
 		$('#topArticles').append(html.find('article:lt(5)'));
 		$('#allArticles').append(html.html());
+		
+		/**
+		 * Replace proxies with real images from the server.
+		 */
 		
 		$('body').find('img').on('load', function() {
 			if ($(this).data('proxy')) {

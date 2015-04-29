@@ -9,8 +9,8 @@
 
 
 /**
-  * FONTS
-  */
+ * FONTS
+ */
   
 * {
 	font-family: 'Open Sans', sans-serif;
@@ -84,9 +84,9 @@ a:visited {
 
 
 /**
-  * HELPERS
-  * Out and clip are used to hide accessibility text.
-  */
+ * HELPERS
+ * Out and clip are used to hide accessibility text.
+ */
   
 .out {
 	height: 1px;
@@ -115,8 +115,8 @@ a:visited {
 
 
 /**
-  * FOCUS & ACTIVE
-  */
+ * FOCUS & ACTIVE
+ */
 
 button.select:focus,
 button.select:hover,
@@ -167,8 +167,8 @@ header.compact h1 a:focus:after {
 
 
 /**
-  * COLORS
-  */
+ * COLORS
+ */
 
 h3 {
 	color: #666666;
@@ -265,8 +265,8 @@ form {
 
 
 /**
-  * SPACING
-  */
+ * SPACING
+ */
 
 .hidden i,
 header svg,
@@ -352,8 +352,8 @@ h3 {
 
 
 /**
-  * LAYOUT
-  */
+ * LAYOUT
+ */
 
 *,
 header h1,
@@ -511,8 +511,8 @@ footer {
 
 
 /**
-  * COMPACT
-  */
+ * COMPACT
+ */
   
 .breadcrumb {
 	position: fixed;
@@ -570,8 +570,8 @@ main h2 a:after {
 
 
 /**
-  * FORMS
-  */
+ * FORMS
+ */
 
 form {
 	float: left;
@@ -694,8 +694,8 @@ form input[type=time] {
 
 
 /**
-  * WINDOWS
-  */
+ * WINDOWS
+ */
 
 .Overlay {
     position: fixed; 
@@ -747,8 +747,8 @@ form input[type=time] {
 
 
 /**
-  * Add  - Layout,  Box, Images
-  */
+ * Add  - Layout,  Box, Images
+ */
   
 .Add {
 	float: left;
@@ -978,6 +978,10 @@ button.remove {
 	background: #FFF;
 }
 
+.Content .layout:first-of-type .left {
+	display: none;
+}
+
 .Content .left {
 	position: absolute;
 	float: left;
@@ -1011,8 +1015,8 @@ button.remove {
 
 
 /**
-  * IMAGES & COVER
-  */
+ * IMAGES & COVER
+ */
 
 .Main button {
 	position: relative;
@@ -1086,29 +1090,25 @@ button.remove {
 }
 
 .Cover button.select:after,
-.z0Layout button.select:after,
-.a1Layout button.select:after {
+.sublayout div.file:after {
 	background-image: url(../icons/iconmonstr/iconmonstr-picture-icon.svg);
 }
 
-.z0Layout {
-	position: relative;
-	width: 100%;
-}
-
-.Cover button.select,
-.z0Layout button.select {
+.Cover button.select {
 	position: relative;
 	display: block;
 	width: 100%;
 }
 
-.Cover button.select img,
-.z0Layout button.select img {
+.Cover button.select img {
 	width: 100%;
 }
 
-.a1Layout {
+/**
+ * SUBLAYOUTS
+ */
+
+.sublayout {
 	float: none;
 	position: relative;
 	width: 100%;
@@ -1116,50 +1116,147 @@ button.remove {
 	height: 600px;
 }
 
-.a1Layout button.select,
-.a1Layout p {
+.sublayout div.img {
+	display: block;
+	position: absolute;
+	float: none;
+}
+
+.sublayout div.img p {
 	display: block;
 	position: absolute;
 	float: none;
 	width: 320px;
-	height: 180px;
-}
-
-.a1Layout p {
-	width: 15%;
-}
-
-.a1Layout p {
 	height: auto;
 }
 
-.a1Layout button.select:nth-of-type(1) {
+.sublayout div.img div.file {
+	width: 100%;
+	height: 100%;
+}
+
+/**
+ * a1
+ */
+
+.a1Sublayout div.img:nth-of-type(1) {
 	right: 360px;
+	width: 320px;
+	height: 180px;
 }
 
-.a1Layout p:nth-of-type(1) {
-	right: 700px;
+.a1Sublayout div.img:nth-of-type(1) p {
+	left: -340px;
+	top: 0;
 }
 
-.a1Layout button.select:nth-of-type(2) {
+.a1Sublayout div.img:nth-of-type(2) {
 	right: 20px;
+	width: 320px;
+	height: 180px;
 }
 
-.a1Layout p:nth-of-type(2) {
-	left: 680px;
-	top: 220px;
+.a1Sublayout div.img:nth-of-type(2) p {
+	left: 0;
+	top: 200px;
 }
 
-.a1Layout button.select:nth-of-type(3) {
+.a1Sublayout div.img:nth-of-type(3) {
 	left: 20px;
 	top: 220px;
 	width: 640px;
 	height: 360px;
 }
 
-.a1Layout p:nth-of-type(3) {
-	left: 680px;
+.a1Sublayout div.img:nth-of-type(3) p {
+	left: 660px;
+	bottom: 0;
+}
+
+/**
+ * a2
+ */
+
+.a2Sublayout div.img:nth-of-type(1) {
+	left: 20px;
+	top: 20px;
+	width: 640px;
+	height: 360px;
+}
+
+.a2Sublayout div.img:nth-of-type(1) p {
+	left: 660px;
+	top: 0;
+}
+
+.a2Sublayout div.img:nth-of-type(2) {
+	right: 360px;
+	width: 320px;
+	height: 180px;
 	bottom: 20px;
+}
+
+.a2Sublayout div.img:nth-of-type(2) p {
+	left: -340px;
+	bottom: 0;
+}
+
+.a2Sublayout div.img:nth-of-type(3) {
+	right: 20px;
+	width: 320px;
+	height: 180px;
+	bottom: 20px;
+}
+
+.a2Sublayout div.img:nth-of-type(3) p {
+	left: 0;
+	bottom: 0;
+	margin-bottom: 200px;
+}
+
+/**
+ * b1
+ */
+ 
+.b1Sublayout {
+	height: 690px;
+}
+
+.b1Sublayout div.img:nth-of-type(1) {
+	left: 20px;
+	width: 640px;
+	height: 360px;
+}
+
+.b1Sublayout div.img:nth-of-type(1) p {
+	left: 660px;
+	top: 0;
+}
+
+.b1Sublayout div.img:nth-of-type(2) {
+	right: 520px;
+	top: 400px;
+	width: 240px;
+	height: 135px;
+}
+
+.b1Sublayout div.img:nth-of-type(2) p {
+	left: 0;
+	top: 155px;
+	width: 240px;
+}
+
+.b1Sublayout div.img:nth-of-type(3) {
+	bottom: 20px;
+	right: 20px;
+	width: 480px;
+	height: 270px;
+}
+
+.b1Sublayout div.img:nth-of-type(3) p {
+	right: 0;
+	bottom: 0;
+	margin-bottom: 290px;
 }
 
 
@@ -1170,8 +1267,8 @@ button.remove {
 
 
 /**
-  * TEXT EDITOR
-  */
+ * TEXT EDITOR
+ */
 
 .textLayout {
 	min-height: 320px;
@@ -1260,8 +1357,8 @@ button.remove {
 
 
 /**
-  * LOGIN
-  */
+ * LOGIN
+ */
 
 section#login {
 	display: block;
@@ -1318,8 +1415,8 @@ section#login h2 {
 
 
 /**
-  * Add  - Layout,  Box, Images
-  */
+ * COLORS
+ */
   
 .red .Cover svg path {
 	fill: #F44336;

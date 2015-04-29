@@ -6,7 +6,9 @@ function Layout(id) {
 	 
 	var self = this;
 	
-	var $layout = $('#' + id).parents('.layout');
+	var $this = $('#' + id);
+	var $layout = $this.parents('.layout');
+	var $imgs = $this.find('.sublayout:visible .img');
 	
 	
 	
@@ -21,6 +23,7 @@ function Layout(id) {
 	this.center;
 	this.left;
 	this.right;
+	this.imgs = [];
 	
 	this.setCenter = function() {
 		self.center = CKEDITOR.instances[self.id].getData().replace(/\n/g, '');
@@ -28,6 +31,10 @@ function Layout(id) {
 	
 	this.setType = function() {
 		self.type = $layout.find('> select').val();
+	}
+	
+	this.setSubtype = function() {
+		self.subtype = $this.find('> select').val();
 	}
 
 
@@ -41,5 +48,19 @@ function Layout(id) {
 	
 	if (this.type == 'text') {
 		this.setCenter();
+	} else if (this.type == 'img') {
+		this.setSubtype();
+		
+		$imgs.each(function (index, value) {
+			var $p = $(value).find('p'),
+				$img = $(value).find('input');
+				
+			var img = $img.val();
+			
+			self.imgs.push({tag: img.substring(img.lastIndexOf('\\') + 1, img.lastIndexOf('-')), 
+							index: img.split('\\').pop().split('-').pop(), 
+							pointer: $p.data('pointer'), 
+							alt: $p.text()});
+		});
 	}
 }

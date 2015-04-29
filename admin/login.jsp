@@ -11,7 +11,7 @@
     <jsp:output 	doctype-root-element="html" 
 					doctype-system="" />
     <jsp:directive.page contentType="text/html"/>
-    <html xmlns="http://www.w3.org/1999/xhtml" lang="${language}">
+    <html lang="${language}">
     <head>
     <meta content="charset=utf-8" />
     <meta charset="utf-8" />

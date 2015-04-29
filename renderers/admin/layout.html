@@ -1,9 +1,12 @@
 <div class="layout">
     <select class="header">
         <option value="text">Текст</option>
-        <option value="image">Картинки</option>
+        <option value="img">Картинки</option>
     </select>
-    <img class="svg select-svg" src="../assets/icons/iconmonstr/iconmonstr-menu-3-icon.svg" alt="icon" role="presentation" />
+    <img class="svg select-svg" 
+    	 src="../assets/icons/iconmonstr/iconmonstr-menu-3-icon.svg" 
+         alt="icon" 
+         role="presentation" />
     <p class="select-subtitle">Избери тип оформление.</p>
     <div role="group">
         <div class="left">
@@ -21,7 +24,7 @@
             <h3>Може да използвате и хединг 3</h3>
             <p>За да редактирата съдържанието директно в HTML използвайте бутона <em>Source</em>.</p>
         </div>
-        <div class="center imageLayout">
+        <div class="center imgLayout">
             <select class="header">
                 <option value="z0">голяма</option>
                 <option value="z1">средна</option>
@@ -34,19 +37,114 @@
                 <option value="c2">цял екран</option>
                 <option value="c3">цял екран + каре</option>
             </select>
-            <img class="svg select-svg" src="../assets/icons/iconmonstr/iconmonstr-menu-3-icon.svg" alt="icon" role="presentation" />
+            <img class="svg select-svg" 
+            	 src="../assets/icons/iconmonstr/iconmonstr-menu-3-icon.svg" 
+                 alt="icon" 
+                 role="presentation" />
             <p class="select-subtitle">Избери позициониране на картинките.</p>
-            <div class="a1Layout">
-                <button class="select" type="button"><span class="clip">Добави
-                картинка</span></button>
-                <p contenteditable="true">Натиснете тук, за да редактирате коментара.</p>
-                <button class="select" type="button"><span class="clip">Добави
-                картинка</span></button>
-                <p contenteditable="true">Натиснете тук, за да редактирате коментара.</p>
-                <button class="select" type="button"><span class="clip">Добави
-                картинка</span></button>
-                <p contenteditable="true">Натиснете тук, за да редактирате коментара.</p>
+            <div class="sublayout z0Sublayout">голяма</div>
+            <div class="sublayout z1Sublayout">средна</div>
+            <div class="sublayout a1Sublayout">
+                <div class="img">
+                    <div class="file">
+                        <label><span class="clip">Избери</span>
+                            <input type="file" />
+                        </label>
+                    </div>
+                    <p data-pointer="Дясно" 
+                       contenteditable="true">Натиснете тук, за да редактирате
+                        коментара.</p>
+                </div>
+                <div class="img">
+                    <div class="file">
+                        <label><span class="clip">Избери</span>
+                            <input type="file" />
+                        </label>
+                    </div>
+                    <p data-pointer="Горе" 
+                       contenteditable="true">Натиснете тук, за да редактирате
+                        коментара.</p>
+                </div>
+                <div class="img">
+                    <div class="file">
+                        <label><span class="clip">Избери</span>
+                            <input type="file" />
+                        </label>
+                    </div>
+                    <p data-pointer="Ляво" 
+                       contenteditable="true">Натиснете тук, за да редактирате
+                        коментара.</p>
+                </div>
             </div>
+            <div class="sublayout a2Sublayout">
+                <div class="img">
+                    <div class="file">
+                        <label><span class="clip">Избери</span>
+                            <input type="file" />
+                        </label>
+                    </div>
+                    <p data-pointer="Ляво" 
+                       contenteditable="true">Натиснете тук, за да редактирате
+                        коментара.</p>
+                </div>
+                <div class="img">
+                    <div class="file">
+                        <label><span class="clip">Избери</span>
+                            <input type="file" />
+                        </label>
+                    </div>
+                    <p data-pointer="Дясно" 
+                       contenteditable="true">Натиснете тук, за да редактирате
+                        коментара.</p>
+                </div>
+                <div class="img">
+                    <div class="file">
+                        <label><span class="clip">Избери</span>
+                            <input type="file" />
+                        </label>
+                    </div>
+                    <p data-pointer="Долу" 
+                       contenteditable="true">Натиснете тук, за да редактирате
+                        коментара.</p>
+                </div>
+            </div>
+            <div class="sublayout b1Sublayout">
+                <div class="img">
+                    <div class="file">
+                        <label><span class="clip">Избери</span>
+                            <input type="file" />
+                        </label>
+                    </div>
+                    <p data-pointer="Ляво" 
+                       contenteditable="true">Натиснете тук, за да редактирате
+                        коментара.</p>
+                </div>
+                <div class="img">
+                    <div class="file">
+                        <label><span class="clip">Избери</span>
+                            <input type="file" />
+                        </label>
+                    </div>
+                    <p data-pointer="Горе" 
+                       contenteditable="true">Натиснете тук, за да редактирате
+                        коментара.</p>
+                </div>
+                <div class="img">
+                    <div class="file">
+                        <label><span class="clip">Избери</span>
+                            <input type="file" />
+                        </label>
+                    </div>
+                    <p data-pointer="Долу" 
+                       contenteditable="true">Натиснете тук, за да редактирате
+                        коментара.</p>
+                </div>
+            </div>
+            <div class="sublayout b2Sublayout">шахматно без застъпване</div>
+            <div class="sublayout b3Sublayout">шахматно със застъпване</div>
+            <div class="sublayout c1Sublayout">2/3 прозрачна + каре</div>
+            <div class="sublayout c2Sublayout">цял екран</div>
+            <div class="sublayout c3Sublayout">цял екран + каре</div>
         </div>
         <div class="right">
             <button class="select" type="button"><span class="clip">Добави каре,

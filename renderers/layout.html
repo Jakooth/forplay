@@ -1,11 +1,24 @@
-<div class="layout {{:type}}"> {{if left}}
+<div class="layout {{:type}} {{:subtype}}"> {{if left}}
     <div data-url="{{:left.url.text}}" 
     	 data-type="{{:left.url.type}}"
          data-box="{{:~versionTested}}" 
          class="inline-col left {{:left.valign}}"></div>
-    {{/if}}
-    <div class="center">{{:center}}</div>
-    {{if right}}
+    {{/if}} {{if type == 'img'}} {{for center.img}}
+    <div class="img-proxy">
+        <p><strong>{{:#data.pointer}}</strong> {{:#data.alt}}</p>
+        <div class="img"><a href="#"{{if video}} 
+                            data-video="{{:video.url}}"
+                            data-tech="{{:video.tech}}"{{/if}}> <img 
+                            data-tag="{{:#data.tag}}"
+                            data-proxy="true"
+                            data-main="{{:#data.index}}"
+                            data-ratio="16-9"
+                            src="assets/helpers/16-9.png"
+                            alt="{{:#data.alt}}" /> </a></div>
+    </div>
+    {{/for}} {{else}}
+    <div class="center"> {{:center}} </div>
+    {{/if}} {{if right}}
     <div data-url="{{:right.url.text}}" 
     	 data-type="{{:right.url.type}}" 
          class="inline-col right {{:right.valign}}"></div>

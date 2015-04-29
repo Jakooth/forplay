@@ -54,7 +54,7 @@ function AddManager() {
 			
 			utils.convertSVG($appender.prev().find('img'));
 			$appender.prev().find('.textLayout').attr('id',  'textLayout_' + id);
-			$appender.prev().find('.imageLayout').attr('id',  'imageLayout_' + id);
+			$appender.prev().find('.imgLayout').attr('id',  'imgLayout_' + id);
 			
 			$(document).scrollTop($appender.offset().top);
 			
@@ -97,6 +97,14 @@ function AddManager() {
 	
 	this.hideLayouts =  function($appender) {
 		$appender.find('.center').hide();
+	}
+	
+	this.showSublayout = function($appender, value) {
+		$appender.find('.' + value + 'Sublayout').show();
+	}
+	
+	this.hideSublayouts =  function($appender) {
+		$appender.find('.sublayout').hide();
 	}
 	
 	this.addPlatform = function($appender) {
@@ -180,10 +188,21 @@ function AddManager() {
 	});
 	
 	$('.Content').on('change', '.layout > select', function (e) {
+		$this = $(this),
+		$layout = $this.parents('.layout'),
+		$center = $this.parents('.layout').find('.center');
+		
+		self.hideLayouts($layout);
+		self.showLayout($layout, $this.val());
+		
+		$center.find('> select').val('a1').change();
+	});
+	
+	$('.Content').on('change', '.layout .center > select', function (e) {
 		$this = $(this);
 		
-		self.hideLayouts($this.parents('.layout'));
-		self.showLayout($this.parents('.layout'), $this.val());
+		self.hideSublayouts($this.parents('.center'));
+		self.showSublayout($this.parents('.center'), $this.val());
 	});
 	
 	$('.Content').on('click', 'button.remove', function (e) {
@@ -202,7 +221,7 @@ function AddManager() {
 		self.removePlatform($(this));
 	});
 	
-	$('.Box').on('change', '.file input', function (e) {
+	$('#game, #article').on('change', '.file input', function (e) {
 		var reader = new FileReader();
 		
 		var $file = $(e.target).parents('.file');

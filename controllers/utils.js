@@ -19,12 +19,14 @@ function UtilsManager() {
 	
 	this.xml = function(obj, tmpl, appender) {
 		var get1 = $.get('../renderers/xml/' + tmpl + '.html'),
-			get2 = $.get('../renderers/xml/textLayout.html');
+			get2 = $.get('../renderers/xml/textLayout.html'),
+			get3 = $.get('../renderers/xml/imgLayout.html');
 			
-		$.when(get1, get2).done(function(data1, data2) {
+		$.when(get1, get2, get3).done(function(data1, data2, data3) {
 			var tmpls = $.templates({
 					xmlTemplate: data1[0],
-					textLayout: data2[0]
+					textLayout: data2[0],
+					imgLayout: data3[0]
 				}),
 				xml = $.templates.xmlTemplate.render(obj);
 				

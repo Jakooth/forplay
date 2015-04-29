@@ -1,0 +1,13 @@
+﻿        <layout type="{{:type}}" subtype="{{:subtype}}"
+                tag="{{:~tag}}" order="{{:#getIndex()}}">
+            <center>{{for imgs}}
+            	<img>
+                    <tag>{{:#data.tag}}</tag>
+                    <index>{{:#data.index}}</index>
+                    <pointer>{{:#data.pointer}}</pointer>
+                    <alt>
+                        <![CDATA[{{:#data.alt}}]]>
+                    </alt>
+                </img>{{/for}}
+            </center>
+        </layout>
