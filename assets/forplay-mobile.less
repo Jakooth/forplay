@@ -1,33 +1,43 @@
 /**
-  * VARIABLES, IMPORTS & MIXINS
-  */
+ * VARIABLES, IMPORTS & MIXINS
+ */
 
 @charset "utf-8";
 @import "mixins.less";
 
 /**
-  * Color on hover and focus must be one for all styles.
-  */
+ * Color on hover and focus must be one for all styles.
+ */
 
-@review: #6666CC;
-@feature: #99CC00;
-@news: #FF6600;
-@video: #0099CC;
-@hover: #B4FFFF;
 @dark: #000000;
 @light: #FFFFFF;
-@better: #00C400;
-@worse: #FF0000;
-@equal: #999999;
-@navy: #406080;
-@forplay: #FF6000;
-@green: #518601;
-@silver: #5C6974;
-@pink: #DF3053;
-@purple: #82446D;
-@black: #000000;
-@sunset: #EF822A;
-@blood: #B53634;
+@red: #F44336;
+@pink: #E91E63;
+@purple: #9C27B0;
+@deep-purple: #673AB7;
+@indigo: #3F51B5;
+@blue: #2196F3;
+@light-blue: #03A9F4;
+@cyan: #00BCD4;
+@teal: #009688;
+@green: #4CAF50;
+@light-green: #8BC34A;
+@lime: #CDDC39;
+@yellow: #FFEB3B;
+@amber: #FFC107;
+@orange: #FF9800;
+@deep-orange: #FF5722;
+@brown: #795548;
+@grey: #9E9E9E;
+@blue-grey: #607D8B;
+@better: @green;
+@worse: @red;
+@equal: @grey;
+@review: @deep-purple;
+@feature: @lime;
+@news: @deep-orange;
+@video: @blue;
+@hover: @cyan;
 
 
 
@@ -42,49 +52,108 @@
   * Many fonts are adjusted for different resolutions in media.css
   */
 
-a {
-	text-decoration: underline;
-	color: black;
-}
-
 * {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 12pt;
-	line-height: 16pt;
 }
 
-h1,
-q {
-	font-family: 'Poiret One', cursive;
-	font-size: 20pt;
-	line-height: 24pt;
+a {
+	text-decoration: none;
+	color: @dark;
 }
 
-.cover h2,
-.cover h2 *,
-.read h2,
-.read h2 * {
+/**
+ * Last two styles are for the article subtype.
+ */
+
+#covers *,
+#read .cover *,
+.video-set *,
+.article-set h3 span:nth-of-type(1),
+.article-set article .img-proxy:after {
+	color: @light;
+}
+
+/**
+ * Title and subtitle for portal articles.
+ */
+
+.video-set h3 a,
+.video-set h3 span:nth-of-type(2),
+.article-set h3 a,
+.article-set h3 span:nth-of-type(2) {
+	font-size: 12pt;
+}
+
+/**
+ * The cover title and the main video.
+ */
+
+nav h3,
+#covers h3 a,
+#read .cover h3 strong,
+.video-set article:nth-of-type(3) h3 a {
 	font-size: 14pt;
-	line-height: 18pt;
 }
 
-.cover h2 a,
-.cover p {
-	color: white;
+/**
+ * Cover subtitle.
+ */
+
+#covers h3 span:nth-of-type(2),
+#read .cover h3 span:nth-of-type(2),
+.video-set article:nth-of-type(3) h3 span:nth-of-type(2) {
+	font-size: 12pt;
 }
 
-.subtitle {
+#read .cover h3 span,
+#covers h3 span,
+.article-set h3 span {
 	font-weight: normal;
 }
 
-h2 a,
-.title a {
-	text-decoration: none;
+/**
+ * Author text.
+ */
+
+.article-set p:nth-of-type(1),
+.article-set p:nth-of-type(1) * {
+	font-size: 12pt;
+	color: fade(@dark, 70%);
 }
 
-.read-set:first-of-type > p:first-of-type:first-letter,
-.fixed .read-set:nth-of-type(3) > p:first-of-type:first-letter {
+#read .cover > p * {
+	font-size: 12pt;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+/**
+ * This is the article score  and information aside.
+ */
+ 
+.layout:first-of-type .center > p:first-of-type:first-letter {
 	font-size: 36pt;
+	font-style: normal;
+}
+
+.layout .center blockquote * {
+	font-family: 'Poiret One', cursive;
+	font-size: 14pt;
+}
+
+#read .cover li:nth-child(1) p strong,
+.layout .center .hype strong {
+	font-size: 14pt;
+}
+
+.layout .center .hype {
+	text-align: right;
+	font-weight: bold;
+}
+
+.layout dt {
+	color: fade(@dark, 50%);
 }
 
 
@@ -95,9 +164,763 @@ h2 a,
 
 
 /**
-  * HELPERS
-  * Out and clip are used to hide accessibility text.
-  */
+ * ANIMATIONS
+ * Place all transitions here.
+ * Animate better and worse and covers.
+ */
+
+header {
+	-webkit-transition: box-shadow 0.5s;
+	-moz-transition: box-shadow 0.5s;
+	-o-transition: box-shadow 0.5s;
+	-ms-transition: box-shadow 0.5s;
+	transition: box-shadow 0.5s;
+}
+
+body,
+.svg,
+.nav-set,
+.nav-set ul,
+.cover,
+.cover li p {
+	-webkit-transition: left 0.5s, width 0.5s;
+	-moz-transition: left 0.5s, width 0.5s;
+	-o-transition: left 0.5s, width 0.5s;
+	-ms-transition: left 0.5s, width 0.5s;
+	transition: left 0.5s, width 0.5s;
+}
+
+svg path {
+	-webkit-transition: fill 1s;
+	-moz-transition: fill 1s;
+	-o-transition: fill 1s;
+	-ms-transition: fill 1s;
+	transition: fill 1s;
+}
+
+#forLife,
+#covers article h3,
+#read .cover h3 {
+	-webkit-transition: opacity 0.5s, background-color 0.5s;
+	-moz-transition: opacity 0.5s, background-color 0.5s;
+	-o-transition: opacity 0.5s, background-color 0.5s;
+	-ms-transition: opacity 0.5s, background-color 0.5s;
+	transition: opacity 0.5s, background-color 0.5s;
+}
+
+
+
+
+
+
+
+
+/**
+ * LAYOUT
+ * For mobile the core screen is 320px.
+ * All percentage is based on this.
+ */
+
+body {
+	left: 0;
+	width: auto;
+	position: relative;
+	background: @dark;
+	overflow-x: hidden;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+footer {
+	padding: 6.25%;
+	clear: both;
+	padding-bottom: 12.5%;
+}
+
+footer p {
+	padding-top: 6.25%;
+	text-align: center;
+}
+
+#forPlay {
+	position: absolute;
+	margin: 6.25%;
+	width: 30%;
+	z-index: 1000;
+}
+
+#forPlay path {
+  fill: @light !important;
+}
+
+#forLife {
+	display: none;
+}
+
+header h2 {
+	.clip;
+}
+
+img {
+	width: 100%;
+	vertical-align: top;
+	position: relative;
+	border: none;
+}
+
+header,
+main,
+section,
+main > article {
+	width: 100%;
+	position: relative;
+	clear: both;
+}
+
+header,
+main,
+footer {
+	background-color: @light;
+	float: left;
+}
+
+
+
+
+
+
+
+
+/**
+ * NAV
+ */
+
+body.nav {
+  position: absolute;
+  left: -70%;
+  width: 100%;
+}
+
+.nav-set {
+	top: 0;
+	left: 0;
+	z-index: 201;
+	padding: 0;
+	position: absolute;
+	width: 100%;
+	height: auto;
+	overflow: visible;
+}
+
+.nav-set nav {
+	background-color: transparent;
+	width: 100%;
+	position: relative;
+	left: 0;
+	float: left;
+}
+
+.nav-set h3 {
+	.anti-clip;
+	width: 30%;
+  	height: 100%;
+	background-image: url(icons/forplay-paw-icon.png);
+	opacity: 0.7;
+	background-size: auto 60%;
+	background-repeat: no-repeat;
+	background-position: right;
+	cursor: pointer;
+	color: transparent;
+	overflow: hidden;
+	float: right;
+	padding: 6.25%;
+	margin-right: 6.25%;
+}
+
+.nav-set ul {
+	position: fixed;
+	top: 0;
+	width: 70%;
+	z-index: 1000;
+	left: 100%;
+	background: @dark;
+}
+
+body.nav .nav-set ul {
+	left: 30%;
+	background: @dark;
+}
+
+.nav-set li {
+	display: block;
+	float: none;
+	width: 100%;
+	padding: 6.25%;
+}
+
+.nav-set li a {
+	color: @light;
+}
+
+.nav-set .search,
+.nav-set .user {
+	display: none;
+}
+
+
+
+
+
+
+
+
+/**
+ * COVERS
+ */
+
+#covers,
+#read .cover {
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+	clear: both;
+	height: 180px;
+}
+
+#thumbnails {
+	position: relative;
+	padding: 10% 0;
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.thumbnail {
+	padding: 10%;
+	position: absolute;
+	background-size: cover;
+	background-position: center;
+	top: 0;
+}
+
+.thumbnail[data-order="3"]:after {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: fade(@deep-orange, 60%);
+}
+
+.thumbnail:nth-child(2) {
+	left: 0;
+}
+
+.thumbnail:nth-child(3) {
+	left: 20%;
+}
+
+.thumbnail:nth-child(1) {
+	left: 40%;
+}
+
+.thumbnail:nth-child(4) {
+	left: 60%;
+}
+
+.thumbnail:nth-child(5) {
+	left: 80%;
+}
+
+/**
+ * Darken bottom cover for higer text contrast.
+ * Performance in Firefox with box-shadow is terrible.
+ */
+
+#covers .cover::before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-image: url(fx/shadow.png);
+	background-repeat: repeat-x;
+	background-position: bottom left;
+	background-size: 100% 200%;
+}
+
+#read .cover h3,
+#covers .cover h3 {
+	padding: 6.25%;
+	bottom: 0;
+	width: 100%;
+	position: absolute;
+	box-sizing: border-box;
+}
+
+/**
+ * Subtype
+ */
+
+#read .cover h3 span:nth-of-type(1),
+#covers .cover h3 span:nth-of-type(1) {
+	.clip;
+}
+
+/**
+ * Subtitle
+ */
+
+#read .cover h3 span:nth-of-type(2),
+#covers .cover h3 span:nth-of-type(2) {
+	display: block;
+}
+
+#read .cover ul,
+#covers .cover p {
+	.clip
+}
+
+/**
+ * Authors
+ */
+
+#read .cover p:nth-of-type(1) {
+	position: absolute;
+	bottom: 0;
+	text-align: right;
+	width: 100%;
+	line-height: 8pt;
+}
+
+#covers .cover {
+	width: 100%;
+	top: 0;
+	height: 100%;
+	position: absolute;
+	background-size: cover;
+}
+
+#covers .cover[data-order="3"] {
+	left: 0;
+	z-index: 3;
+}
+
+#covers .cover[data-order="1"] {
+	left: -200%;
+	z-index: 1;
+}
+
+#covers .cover[data-order="2"] {
+	left: -100%;
+	z-index: 2;
+}
+
+#covers .cover[data-order="4"] {
+	left: 100%;
+	z-index: 2;
+}
+
+#covers .cover[data-order="5"] {
+	left: 200%;
+	z-index: 1;
+}
+
+#covers .cover[data-order="6"] {
+	left: 300%;
+	z-index: 1;
+}
+
+
+
+
+
+
+
+
+/**
+ * ARTICLES
+ */
+
+main h1,
+main h2 {
+	.clip;
+}
+
+.article-set article {
+	margin-top: 12.5%;
+	position: relative;
+	clear: both;
+	float: left;
+	width: 100%;
+	max-height: 520px;
+	overflow: hidden;
+}
+
+/**
+ * Subtitle
+ */
+
+.article-set article span:nth-of-type(1) {
+	.clip;
+}
+
+.article-set article span:nth-of-type(2) {
+	display: block;
+}
+
+.article-set article .img-proxy {
+	float: left;
+	width: 30%;
+}
+
+.article-set article .img-proxy:after {
+	text-align: center;
+	padding: 10.4%;
+	font-weight: normal;
+	opacity: 0.8;
+	content: attr(data-subtype) "";
+	position: relative;
+	width: 100%;
+	box-sizing: border-box;
+	float: left;
+}
+
+.article-set article h3,
+.article-set article > p {
+	float: right;
+	width: 70%;
+	padding: 6.25%;
+	box-sizing: border-box;
+	padding-top: 0;
+}
+
+.article-set article > p:nth-of-type(2) {
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 10;
+	-webkit-box-orient: vertical;
+	text-overflow: ellipsis;
+	padding-bottom: 0;
+	margin-bottom: 6.25%; 
+}
+
+/**
+ * Stickers
+ */
+
+.article-set article ul {
+	display: none;
+}
+
+.review .img-proxy::after {
+	background: @review;
+}
+
+.feature .img-proxy::after {
+	background: @feature;
+}
+
+.news .img-proxy::after {
+	background: @news;
+}
+
+.video .img-proxy::after {
+	background: @video;
+}
+
+/**
+ * VIDEO-SET
+ */
+
+.video-set article:first-of-type {
+	margin-top: 12.5%;
+}
+
+.video-set article {
+	margin-top: 0;
+}
+
+.video-set article h3,
+.video-set article > p {
+	.clip;
+}
+
+.video-set article .img-proxy {
+	width: 100%;
+	position: relative;
+}
+
+.video-set article .img-proxy:after {
+	display: none;
+}
+
+
+
+
+
+
+
+/**
+ * READ
+ * Styles when reading article.
+ */
+
+#read .cover {
+	height: 320px;
+}
+
+#read .cover h3 {
+	padding-bottom: 12.5%;
+}
+
+header.read {
+	min-height: 320px;
+	position: absolute;
+}
+
+header.read .cover-set {
+	display: none;
+}
+
+.read-set {
+	display: none;
+	margin: 0;
+}
+
+main.read .read-set {
+	display: block;
+}
+
+.read-set {
+	max-height: none;
+}
+
+.read-set .layout.img img {
+	width: 100%;
+	vertical-align: top;
+}
+
+.read-set p,
+.read-set h3,
+.read-set dt,
+.read-set dd {
+	padding: 6.25%;
+	display: block;
+	clear: both;
+}
+
+.read-set ol {
+	list-style: decimal-leading-zero;
+	list-style-position: outside;
+	padding: 6.25%;
+	padding-left: 14.5%;
+}
+
+.read-set .layout.img p {
+	display: none;
+}
+
+.read-set aside:not(.info) p,
+.read-set aside:not(.info) h2 {
+	background-color: fade(@dark, 10%);
+}
+
+.read-set .layout:first-of-type .center > p:first-of-type:first-letter {
+	border: 1px solid;
+	float: left;
+	margin-right: 6.25%;
+	margin-bottom: 6.25%;
+	margin-top: 6px;
+	padding: 6.25%;
+	line-height: 24pt;
+}
+
+/**
+ * Box
+ */
+
+.box-placeholder {
+	margin: 6.25% 18.75%;
+	perspective:  500px;
+}
+
+.box {
+	background-size: cover;
+	-ms-transform: rotateY(-10deg);
+	-webkit-transform: rotateY(10deg);
+    transform: rotateY(10deg);
+	perspective: 50px;
+	outline: 1px solid transparent;
+	border-radius: 4px;
+	position: relative;
+}
+
+.box:after {
+	position: absolute;
+	left: -20px;
+	width: 20px;
+	height: 100%;
+	content: "";
+	top: 0;
+	-ms-transform: rotateY(-10deg);
+	-webkit-transform: rotateY(-10deg);
+	transform: rotateY(-10deg);
+    -ms-transform-origin: 100% 50%;
+    -webkit-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+	outline: 1px solid transparent;
+	background: -webkit-linear-gradient(top, rgba(255, 255 , 255, 0) 0%, rgba(204, 204, 204, 1) 10%, rgba(204, 204, 204, 0.3) 100%);
+	background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(204, 204, 204, 1) 10%, rgba(204, 204, 204, 0.3) 100%);
+	background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(204, 204, 204, 1) 10%, rgba(204, 204, 204, 0.3) 100%);
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+}
+
+
+
+
+
+
+
+
+/**
+ * THEMES
+ */
+
+/**
+ * Using mixin function to easily create color themes.
+ */
+
+#createTheme(@theme: ~"red", @red);
+#createTheme(@theme: ~"pink", @pink);
+#createTheme(@theme: ~"purple", @purple);
+#createTheme(@theme: ~"deep-purple", @deep-purple);
+#createTheme(@theme: ~"indigo", @indigo);
+#createTheme(@theme: ~"blue", @blue);
+#createTheme(@theme: ~"light-blue", @light-blue);
+#createTheme(@theme: ~"cyan", @cyan);
+#createTheme(@theme: ~"teal", @teal);
+#createTheme(@theme: ~"green", @green);
+#createTheme(@theme: ~"light-green", @light-green);
+#createTheme(@theme: ~"lime", @lime);
+#createTheme(@theme: ~"yellow", @yellow);
+#createTheme(@theme: ~"amber", @amber);
+#createTheme(@theme: ~"orange", @orange);
+#createTheme(@theme: ~"deep-orange", @deep-orange);
+#createTheme(@theme: ~"brown", @brown);
+#createTheme(@theme: ~"grey", @grey);
+#createTheme(@theme: ~"blue-grey", @blue-grey);
+
+/**
+ * Secondary themes.
+ */
+ 
+body.lighten #forPlay path { 
+	fill: @light; 
+}
+ 
+/**
+ * Darken secondary theme.
+ */
+
+body.darken #forPlay path { 
+	fill: @dark; 
+}
+
+/**
+ * Tuborg secondary theme.
+ */
+
+body.tuborg #forPlay path { 
+	fill: @dark; 
+}
+
+
+
+
+
+
+
+
+/**
+ * VIDEO
+ * Video links and overrides to video.js plug-in.
+ */
+  
+.video-play-button {
+	width: 96px;
+	height: 96px;
+	display: block;
+	margin-left: -48px;
+	margin-top: -48px;
+	background-image: url(icons/forplay-play-icon.png);
+	opacity: 0.4;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	background-size: 100% 100%;
+	-ms-interpolation-mode: bicubic;
+    image-rendering: optimizeQuality;
+	pointer-events: none;
+}
+
+.Player .img-proxy:before {
+	.video-play-button;
+	content: "";
+	z-index: 100;
+}
+
+.Player:hover .img-proxy:before {
+	background-image: url(icons/forplay-play-icon-hover.png);
+	opacity: 1;
+}
+
+.Player .video-js {
+	bottom: 0;
+	position: absolute;
+	top: 0;
+	z-index: 1;
+}
+
+.Player .vjs-big-play-button {
+	.video-play-button;
+	background-color: fade(@dark, 0);
+	border: none;
+	box-shadow: none;
+}
+
+.Player .vjs-default-skin:hover .vjs-big-play-button,
+.Player .vjs-default-skin .vjs-big-play-button:focus {
+	background-image: url(icons/forplay-play-icon-hover.png);
+	background-color: fade(@dark, 0);
+	box-shadow: none;
+	border: none;
+	opacity: 1;
+}
+
+.Player .vjs-big-play-button:before {
+	content: "";
+	width: 0;
+	height: 0;
+	overflow: hidden;
+}
+
+
+
+
+
+
+
+
+/**
+ * HELPERS
+ * Out and clip are used to hide accessibility text.
+ */
   
 .out {
 	height: 1px;
@@ -128,668 +951,8 @@ h2 a,
 	opacity: 1;
 }
 
-
-
-
-
-
-
-
-/**
-  * ANIMATIONS
-  * Place all transitions here.
-  */
- 
-.covers article {
-	-webkit-transition: left 0.5s, width 0.5s;
-	-moz-transition: left 0.5s, width 0.5s;
-	-o-transition: left 0.5s, width 0.5s;
-	-ms-transition: left 0.5s, width 0.5s;
-	transition: left 0.5s, width 0.5s;
-}
-
-.title {
-	-webkit-transition: opacity 0.5s, background-color 0.5s;
-	-moz-transition: opacity 0.5s, background-color 0.5s;
-	-o-transition: opacity 0.5s, background-color 0.5s;
-	-ms-transition: opacity 0.5s, background-color 0.5s;
-	transition: opacity 0.5s, background-color 0.5s;
-}
-
-
-
-
-
-
-
-
-/**
-  * LAYOUT
-  * For mobile the core screen is 320px.
-  * All percentage is based on this.
-  */
-
-* {
-	margin: 0;
-	padding: 0;
-}
-
-header {
-	display: none;
-}
-
-footer {
-	padding: 6.25%;
-	clear: both;
-	padding-bottom: 12.5%;
-}
-
-footer p {
-	padding-top: 6.25%;
-	text-align: center;
-}
-
-header * {
-	display: none;
-}
-
-.layout img,
-article img {
-	width: 100%;
-	vertical-align: top;
-}
-
-.articles {
-	clear: both;
-}
-
-.center-col {
-	width: 100%;
-}
-
-
-
-
-
-
-
-
-/**
-  * COVERS
-  */
-
-#forPlayCovers {
-	position: absolute;
-	margin: 6.25%;
-	width: 30%;
-	z-index: 1000;
-}
-
-#forPlayCovers path {
-	fill: @light;
-}
-
-.fixed #forPlayCovers path {
-	fill: @forplay;
-}
-
-#forLifeCovers {
-	display: none;
-}
-
-.covers {
-	width: 100%;
-	height: 180px;
-	position: relative;
-	overflow: hidden;
-	clear: both;
-}
-
-.thumbnail-covers {
-	position: relative;
-	padding: 10% 0;
-	box-sizing: border-box;
-	-webkit-tap-highlight-color: transparent;
-}
-
-.thumbnail-cover {
-	padding: 10%;
-	position: absolute;
-	background-size: cover;
-	background-position: center;
-	top: 0;
-}
-
-.thumbnail-cover[data-order="3"]:after {
-	content: "";
-	display: block;
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	background-color: fade(@forplay, 60%);
-}
-
-.thumbnail-cover.c1 {
-	left: 0;
-}
-
-.thumbnail-cover.c2 {
-	left: 20%;
-}
-
-.thumbnail-cover.c3 {
-	left: 40%;
-}
-
-.thumbnail-cover.c4 {
-	left: 60%;
-}
-
-.thumbnail-cover.c5 {
-	left: 80%;
-}
-
-.fixed .covers {
-	margin-bottom: -118px;
-}
-
-.cover {
-	left: 0;
-	width: 100%;
-	top: 0;
-	height: 100%;
-	position: absolute;
-	background-size: cover;
-	z-index: 3;
-}
-
-/**
-  * Darken bottom cover for higer text contrast.
-  * Performance in Firefox with box-shadow is terrible.
-  */
-
-.covers article::before {
-	content: "";
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	background-image: url(fx/shadow.png);
-	background-repeat: repeat-x;
-	background-position: bottom left;
-	background-size: 100% 200%;
-}
-
-.cover .title {
-	padding: 6.25%;
-	padding-top: 50%;
-	bottom: 0;
-	width: 100%;
-	position: absolute;
-	box-sizing: border-box;
-}
-
-.cover .type {
-	color: @light;
-	display: inline;
-	text-align: center;
-	padding: 6.25%;
-	position: absolute;
-	bottom: 0;
-	right: 0;
-	font-weight: normal;
-	opacity: 0.8;
-	z-index: 1;
-	display: none;
-}
-
-.cover .author,
-.cover .box {
-	.clip
-}
-
-.cover.c1 {
-	left: -200%;
-	z-index: 1;
-}
-
-.cover.c2 {
-	left: -100%;
-	z-index: 2;
-}
-
-.cover.c4 {
-	left: 100%;
-	z-index: 2;
-}
-
-.cover.c5 {
-	left: 200%;
-	z-index: 1;
-}
-
-.cover.c6 {
-	left: 300%;
-	z-index: 1;
-}
-
-.cover.bg-center {
-	background-position: center top;
-}
-
-.cover.bg-left {
-	background-position: left top;
-}
-
-.cover.bg-25 {
-	background-position: 25% top;
-}
-
-.cover.bg-75 {
-	background-position: 75% top;
-}
-
-.cover.bg-top {
-	background-position: center top;
-}
-
-.cover.bg-bottom {
-	background-position: center bottom;
-}
-
-
-
-
-
-
-
-
-/**
-  * ARTICLES
-  */
-
-.articles .page {
-	display: none;
-}
-
-.articles article {
-	margin-top: 12.5%;
-	position: relative;
-	clear: both;
-	float: left;
-	width: 100%;
-}
-
-.articles article p {
-	display: none;
-}
-
-.articles article .subtitle,
-.articles article .author {
-	.anti-clip;
-}
-
-.articles article .author {
-	display: block;
-	padding: 10.9% 0;
-	float: right;
-	width: 100%;
-	text-align: left;
-	padding-bottom: 0;
-}
-
-.articles article .img {
-	float: left;
-	width: 30%;
-}
-
-.articles article .title,
-.articles article > h2,
-.articles article > .author {
-	float: right;
-	width: 70%;
-	padding: 6.25%;
-	box-sizing: border-box;
-	padding-top: 0;
-}
-
-.articles article .title,
-.articles article > .author {
-	padding-bottom: 0;
-}
-
-.articles article.caret h2,
-.articles article.caret .title {
-	padding-top: 6.25%;
-}
-
-.articles article.caret > .author {
-	padding-bottom: 6.25%;
-}
-
-.articles article .img::after {
-	color: @light;
-	text-align: center;
-	padding: 10.4%;
-	font-weight: normal;
-	opacity: 0.8;
-	content: attr(data-type-bg) "";
-	position: relative;
-	width: 100%;
-	box-sizing: border-box;
-	float: left;
-}
-
-.articles article.player {
-	margin-top: 0;
-}
-
-.articles article.player:nth-child(1) {
-	margin-top: 12.5%;
-}
-
-
-.articles article.player .img {
-	width: 100%;
-}
-
-.articles article.player h2,
-.articles article.player h2 a {
-	padding: 0;
-	width: 100%;
-	box-sizing: border-box;
-	height: 100%;
-	overflow: hidden;
-	position: absolute;
-	top: 0;
+.invisible {
 	opacity: 0;
-}
-
-.review .type,
-.review .img::after {
-	background: @review;
-}
-
-.feature .type,
-.feature .img::after {
-	background: @feature;
-}
-
-.aside .type,
-.aside .img::after {
-	display: none;
-}
-
-.news .type,
-.news .img::after {
-	background: @news;
-}
-
-.video .type,
-.video .img::after {
-	background: @video;
-}
-
-.player .type,
-.player .img::after {
-	display: none;
-}
-
-
-
-
-
-
-
-
-/**
-  * READ
-  * Styles when reading article
-  */
- 
-.read .thumbnail-covers {
-	display: none;
-}
- 
-.read .cover .better,
-.read .cover .worse,
-.read .cover .equal,
-.read .cover .hype {
-	.clip;
-}
-
-.read .cover .author {
-	.anti-clip;
-	position: absolute;
-	bottom: 0;
-	text-align: right;
-	font-weight: bold;
-	width: 100%;
-	line-height: 8pt;
-}
-
-.read .articles p,
-.read .articles h2,
-.read .articles h3,
-.read .articles q {
-	padding: 6.25%;
-	display: block;
-	clear: both;
-}
-
-.read .articles ol {
-	list-style: decimal-leading-zero;
-	list-style-position: outside;
-	padding: 6.25%;
-	padding-left: 14.5%;
-}
-
-.read .img-set p {
-	display: none;
-}
-
-.read .info .img {
-	text-align: center;
-}
-
-.read .info img {
-	width: auto;
-}
-
-.read-set aside {
-	position: relative;
-}
-
-.read .img-set .caret p,
-.read .img-set aside p {
-	display: block;
-}
-
-.read .articles .hype {
-	text-align: right;
-	font-weight: bold;
-}
-
-.read .articles aside:not(.info) p,
-.read .articles aside:not(.info) h2 {
-	background-color: fade(@dark, 10%);
-}
-
-.read-set:first-of-type > p:first-of-type:first-letter,
-.fixed .read-set:nth-of-type(3) > p:first-of-type:first-letter {
-	border: 1px solid;
-	float: left;
-	margin-right: 6.25%;
-	margin-bottom: 6.25%;
-	margin-top: 6px;
-	padding: 6.25%;
-	line-height: 24pt;
-}
-
-
-
-
-
-
-
-
-/**
-  * QUOTES
-  * For mobile it is from 80% of 320.
-  * Inside padding is thus 20 from this 67.5% of 320.
-  * Same for image width and substract margin.
-  */
- 
-blockquote {
-	width: 67.5%;
-	clear: both;
-	margin: 6.25%;
-	margin-bottom: 0;
-	margin-top: 12.5%;
-	position: relative;
-	color: @light;
-	font-style: italic;
-	background-color: @dark;
-}
-
-blockquote p {
-	padding: 9.3%;
-	clear: none !important;
-}
-
-blockquote img {
-	width: auto !important;
-}
-
-blockquote .img {
-	width: 37%;
-}
-
-.inline-right blockquote .img {
-	margin-left: 9.3%;
-	float: right;
-}
-
-.inline-left blockquote .img {
-	margin-right: 9.3%;
-	float: left;
-}
-
-blockquote:after {
-	top: 50%;
-	border: solid fade(@dark, 0);
-	content: "";
-	height: 0;
-	width: 0;
-	position: absolute;
-	border-width: 20px;
-	margin-top: -20px;
-}
-
-.inline-right blockquote {
-	float: right;
-}
-
-.inline-left blockquote {
-	float: left;
-}
-
-.inline-right blockquote:after {
-	right: 100%;
-	border-right-color: @dark;
-}
-
-.inline-left blockquote:after {
-	left: 100%;
-	border-left-color: @dark;
-}
-
-
-
-
-
-
-
-
-/**
-  * THEMES
-  * Just one theme for the mobile.
-  */
-  
-#createTheme(@theme: ~"p", @forplay);
-
-
-
-
-
-
-
-
-/**
-  * VIDEO
-  * Video links and overrides to video.js plug-in.
-  */
-  
-.video-play-button {
-	width: 96px;
-	height: 96px;
-	display: block;
-	background-image: url(icons/forplay-play-icon.png);
-	opacity: 0.4;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin-left: -48px;
-	margin-top: -48px;
-	background-size: 100% 100%;
-	-ms-interpolation-mode: bicubic;
-    image-rendering: optimizeQuality;
-}
-
-.player .img {
-	position: relative;
-	display: block;
-}
-
-.player .img::before {
-	.video-play-button;
-	content: "";
-}
-
-.player:hover .img::before {
-	background-image: url(icons/forplay-play-icon-hover.png);
-	opacity: 1;
-}
-
-.player .video-js {
-	bottom: 0;
-	position: absolute;
-	top: 0;
-	z-index: 1;
-}
-
-.player .vjs-big-play-button {
-	.video-play-button;
-	background-color: fade(@dark, 0);
-	border: none;
-	box-shadow: none;
-}
-
-.player .vjs-default-skin:hover .vjs-big-play-button,
-.player .vjs-default-skin .vjs-big-play-button:focus {
-	background-image: url(icons/forplay-play-icon-hover.png);
-	background-color: fade(@dark, 0);
-	box-shadow: none;
-	border: none;
-	opacity: 1;
-}
-
-.player .vjs-big-play-button:before {
-	content: "";
-	width: 0;
-	height: 0;
-	overflow: hidden;
 }
 
 
@@ -805,68 +968,23 @@ blockquote:after {
 
 @media
 only screen and (min-width: 768px) {
-	* {
-		font-family: 'Open Sans', sans-serif;
-		font-size: 14pt;
-		line-height: 18pt;
-	}
-	
-	h1,
-	q {
-		font-family: 'Poiret One', cursive;
-		font-size: 28pt;
-		line-height: 32pt;
-	}
-	
-	article h2,
-	article h2 * {
-		font-size: 20pt;
-		line-height: 30pt;
-	}
-	
-	.cover h2,
-	.cover h2 *,
-	.read h2,
-	.read h2 * {
-		font-size: 30pt;
-		line-height: 40pt;
-	}
-	
-	.covers {
+	#covers,
+	.read-set .cover {
 		height: 432px;
-	}
-	
-	.articles article p:not(.date):not(.author) {
-		display: block;
-		padding: 6.25%;
-		box-sizing: border-box;
-		width: 70%;
-		float: right;
-	}
-	
-	.articles article.caret p {
-		padding-top: 0;
-	}
-	
-	blockquote .img {
-		width: 15.4%;
 	}
 }
 
 @media 
 only screen and (min-width: 960px) {
-	.covers {
+	#covers,
+	.read-set .cover {
 		height: 540px;
-	}
-	
-	blockquote .img {
-		width: 12.3%;
 	}
 }
 
 @media 
 only screen and (max-width: 480px) {
-	.covers .subtitle {
-		.clip
+	#covers .cover h3 span:nth-of-type(2) {
+		.clip;
 	}
 }

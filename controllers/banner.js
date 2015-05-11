@@ -77,8 +77,6 @@ function BannerManager() {
 		 * Set the height to auto in this case.
 		 */		
 			
-		} else {
-			$covers.removeAttr('style');
 		}
 	}
 	
@@ -87,8 +85,8 @@ function BannerManager() {
 	 */
 	
 	this.nextCover = function(n) {
-		var $covers = $('.cover'),
-			$thumbs = $('.thumbnail-cover'),
+		var $covers = $('#covers .cover'),
+			$thumbs = $('#thumbnails .thumbnail'),
 			$c3, $cover, $thumb;
 			
 		var l = $covers.length,
@@ -134,8 +132,8 @@ function BannerManager() {
 	}
 	
 	this.prevCover = function(n) {
-		var $covers = $('.cover'),
-			$thumbs = $('.thumbnail-cover'),
+		var $covers = $('#covers .cover'),
+			$thumbs = $('#thumbnails .thumbnail'),
 			$c3, $cover, $thumb;
 			
 		var l = $covers.length,
@@ -194,10 +192,6 @@ function BannerManager() {
 			$c4 = $('#covers article:eq(3)'),
 			$c5 = $('#covers article:eq(4)');
 		
-		$this.find('.clip').removeClass('clip');
-		
-		$c3.find('h3').addClass('clip');
-		
 		if ($this.index() > 2) {
 			$c3.addClass('unfocus unfocus-left');
 		} else {
@@ -216,9 +210,6 @@ function BannerManager() {
 			$c4 = $('#covers article:eq(3)'),
 			$c5 = $('#covers article:eq(4)');
 		
-		$this.find('h3').addClass('clip');
-		
-		$c3.find('.clip').removeClass('clip');
 		$c3.removeClass('unfocus unfocus-left');
 		$c3.removeClass('unfocus unfocus-right');
 
@@ -226,17 +217,17 @@ function BannerManager() {
 		$c2.removeClass('unfocus');
 	});
 	
-	$(document).on('swipeleft', 'main:not(.read) .covers', function (e) {
+	$('#covers').on('swipeleft', function (e) {
 		self.nextCover(0);
 	});
 	
-	$(document).on('swiperight', 'main:not(.read) .covers', function (e) {
+	$('#covers').on('swiperight', function (e) {
 		self.prevCover(0);
 	});
 	
-	$('.thumbnail-covers').on('click', '.thumbnail-cover:not([data-order=3])', function (e) {
+	$('#thumbnails').on('click', '.thumbnail:not([data-order=3])', function (e) {
 		var $this = $(this),
-			$covers = $('.cover');
+			$covers = $('#covers .cover');
 		
 		var order = $this.data('order'),
 			l = $covers.length,
@@ -250,7 +241,7 @@ function BannerManager() {
 	});
 	
 	$('nav').on('click', 'h3', function (e) {
-		if ($('header').hasClass('read')) {
+		if ($('header').hasClass('read') || utils.isMobile()) {
 			$('body').toggleClass('nav');
 		}
 	});

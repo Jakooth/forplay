@@ -4,16 +4,17 @@
          data-subtype="{{:subtype}}"
          data-url="{{:url}}"
          style="background-position: {{:cover.align}} {{:cover.valign}}">
-    <div class="img-proxy"> <a href="?{{:subtype}}={{:url}}"{{if video}} 
-    		 data-video="{{:video.url}}"
-             data-tech="{{:video.tech}}"{{/if}}> <img 
-    		 data-tag="{{:tags.prime}}"
-        	 data-cover="{{:cover}}"
-             data-main="{{:main}}"
-             data-proxy="true"
-             data-ratio="16-9"
-             src="assets/helpers/16-9.png"
-             alt="{{:title}}" /> </a> </div>
+    <div class="img-proxy" 
+    	 data-subtype="{{:subtype.bg}}"> <a href="?{{:subtype}}={{:url}}"{{if video}} 
+         data-video="{{:video.url}}"
+         data-tech="{{:video.tech}}"{{/if}}> <img 
+         data-tag="{{:tags.prime}}"
+         data-cover="{{:cover}}"
+         data-main="{{:main}}"
+         data-proxy="true"
+         data-ratio="16-9"
+         src="assets/helpers/16-9.png"
+         alt="{{:title}}" /> </a> </div>
     <h3> <a href="?{{:subtype}}={{:url}}">{{:title}}</a> <span
     									 >{{:subtype.bg}}</span> <span
                                          >{{:subtitle}}</span> </h3>

@@ -43,7 +43,7 @@
         <layout type="text" subtype="text"
                 tag="gta-5" order="0">
             <left>
-                <url type="game">gta-5</url>
+                <url type="games" object="game">gta-5</url>
             </left>
             <center>
                 <![CDATA[<p>Още в началото ще призная, че не успях да попия <strong>GTAV</strong>

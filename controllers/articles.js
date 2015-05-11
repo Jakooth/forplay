@@ -111,6 +111,53 @@ function ArticlesManager() {
 		});
 	}
 	
+	var loadThumbnails = function($covers) {
+		var get1 = $.get('renderers/thumbnail.html');
+			
+		$.when(get1).done(function(data1) {
+			var html = data1;
+			
+			$covers.each(function() {
+				var $this = $(this),
+					$thumb = $(html);
+					
+				var index;
+				
+				/**
+				 * Index is based on postion on screen.
+				 * First cover is always in the middle.
+				 */
+				
+				switch ($this.index()) {
+					case 0:
+						index = 3;
+						break;
+					case 1:
+					case 2:
+						index = $this.index();
+						break;
+					default:
+						index = $this.index() + 1;
+						
+				}
+				
+				/**
+				 * Cover and thumbnail have the same index.
+				 */
+				
+				$thumb.css('background-image', $this.css('background-image'));
+				$this.data('order', index);
+				$this.attr('data-order', $this.data('order'));
+				$thumb.data('order', index);
+				$thumb.attr('data-order', $thumb.data('order'));
+				
+				$('#thumbnails').append($thumb);
+			});
+		}).fail(function() {
+			alert("Failed to load thumbnail.");
+		});
+	}
+	
 	var getBoxImg = function(boxes, versionTested) {
 
 		/**
@@ -232,20 +279,18 @@ function ArticlesManager() {
 	
 	var appendCovers = function(html) {
 		var $covers = $('#covers'),
-			$mainCovers = html.find('article[data-priority=cover]:lt(5):gt(0)'),
+			$mainCovers = html.find('article[data-priority=cover]:lt(5)'),
 			$mainCover = html.find('article[data-priority=cover]:eq(0)');
 		
-		$mainCovers.find('h3').addClass('clip');
-		
-		$covers.append(html.find('article[data-priority=cover]:lt(5)'));
-		
+		$covers.append($mainCovers);
 		$covers.find('article').each(function() {
 			loadCover($(this).find('img'), $(this));
 		});
-		
 		$covers.find('img.svg').each(function() {
 			utils.convertSVG($(this));
 		});
+		
+		loadThumbnails($mainCovers);
 		
 		/**
 		 * Set theme color and upated banner style.

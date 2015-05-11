@@ -1,188 +1,104 @@
 <!DOCTYPE html>
 <html lang="en_US">
 <head>
-<style type="text/css">
-@charset "UTF-8";
-[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide:not(.ng-hide-animate) {
-display:none !important;
-}
-
-ng\:form { display:block; }
-</style>
 <meta content="charset=utf-8">
 <meta charset="utf-8">
-<meta content="IE=edge" http-equiv="X-UA-Compatible">
-<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Forplay Admin</title>
-<link href="../assets/admin/bootstrap-tagsinput.css" type="text/css" rel="stylesheet">
-<link href="../assets/admin/typeaheadjs.css" type="text/css" rel="stylesheet">
-<link href="../assets/admin/admin.css" type="text/css" rel="stylesheet">
-<script src="../jslib/jquery-1.11.0.min.js"></script>
-<style type="text/css"></style>
-<script src="../jslib/admin/jquery-ui.min.js"></script>
-<script src="../jslib/jquery.xml2json.js"></script>
-<script src="../jslib/jsrender.min.js"></script>
-<script src="../jslib/admin/angular.min.js"></script>
-<script src="../jslib/admin/bootstrap.min.js"></script>
-<script src="../jslib/admin/bootstrap-tagsinput.min.js"></script>
-<script src="../jslib/admin/bootstrap-tagsinput-angular.min.js"></script>
-<script src="../jslib/admin/typeahead.bundle.js"></script>
-<script src="../jslib/admin/ckeditor/ckeditor.js"></script>
-<style>
-.cke { visibility:hidden; }
-</style>
-<script src="../controllers/utils.js?v=1.5.1"></script>
-<script src="../controllers/admin.js?v=1.6.1"></script>
-<script src="../controllers/add.js?v=1.0.0"></script>
-<script src="../controllers/objects/layout.js?v=1.0.0"></script>
-<script src="../controllers/objects/article.js?v=1.0.0"></script>
-<script src="../controllers/objects/game.js?v=1.0.0"></script>
-<script>$(document).ready(function() { 
+<link rel="stylesheet" type="text/css" href="../assets/admin/bootstrap-tagsinput.css">
+<link rel="stylesheet" type="text/css" href="../assets/admin/typeaheadjs.css">
+<link rel="stylesheet" type="text/css" href="../assets/admin/admin.css">
+<script src="../jslib/jquery-1.11.0.min.js">
+                <!--script-->
+            </script>
+    <script src="../jslib/admin/jquery-ui.min.js">
+                <!--script-->
+            </script>
+    <script src="../jslib/jquery.xml2json.js">
+			<!--script-->
+		</script>
+    <script src="../jslib/jsrender.min.js">
+                <!--script-->
+            </script>
+    <script src="../jslib/admin/angular.min.js">
+                <!--script-->
+            </script>
+    <script src="../jslib/admin/bootstrap.min.js">
+                <!--script-->
+            </script>
+    <script src="../jslib/admin/bootstrap-tagsinput.min.js">
+                <!--script-->
+            </script>
+    <script src="../jslib/admin/bootstrap-tagsinput-angular.min.js">
+                <!--script-->
+            </script>
+    <script src="../jslib/admin/typeahead.bundle.js">
+                <!--script-->
+            </script>
+    <script src="../jslib/admin/ckeditor/ckeditor.js">
+                <!--script-->
+            </script>
+    <script src="utils.js?v=1.5.1">
+                <!--script-->
+            </script>
+    <script src="../controllers/admin.js?v=1.6.1">
+                <!--script-->
+            </script>
+    <script src="../controllers/add.js?v=1.0.0">
+                <!--script-->
+            </script>
+    <script src="../controllers/objects/layout.js?v=1.0.0">
+                <!--script-->
+            </script>
+    <script src="../controllers/objects/article.js?v=1.0.0">
+                <!--script-->
+            </script>
+    <script src="../controllers/objects/game.js?v=1.0.0">
+                <!--script-->
+            </script>
+    <script>$(document).ready(function() { 
 				window.utils = new UtilsManager(); 
 				window.admin = new AdminManager(); 
 				window.add = new AddManager(); });</script>
-<script type="text/javascript" src="http://localhost:8080/forplay/jslib/admin/ckeditor/config.js?t=F0RD"></script>
-<link rel="stylesheet" type="text/css" href="http://localhost:8080/forplay/jslib/admin/ckeditor/skins/moono-dark/editor.css?t=F0RD">
-<script type="text/javascript" src="http://localhost:8080/forplay/jslib/admin/ckeditor/lang/en.js?t=F0RD"></script>
-<script type="text/javascript" src="http://localhost:8080/forplay/jslib/admin/ckeditor/styles.js?t=F0RD"></script>
-<style data-cke-temp="1">
-.cke_editable { cursor:text }
-
-.cke_editable img,
-.cke_editable input,
-.cke_editable textarea { cursor:default }
-
-.cke_contents_ltr a.cke_anchor,
-.cke_contents_ltr a.cke_anchor_empty,
-.cke_editable.cke_contents_ltr a[name],
-.cke_editable.cke_contents_ltr a[data-cke-saved-name] {
-	background:url(http://localhost:8080/forplay/jslib/admin/ckeditor/plugins/link/images/anchor.png?t=F0RD) no-repeat left center;
-	border:1px dotted #00f;
-	background-size:16px;
-	padding-left:18px;
-	cursor:auto;
-}
-
-.cke_contents_ltr img.cke_anchor {
-	background:url(http://localhost:8080/forplay/jslib/admin/ckeditor/plugins/link/images/anchor.png?t=F0RD) no-repeat left center;
-	border:1px dotted #00f;
-	background-size:16px;
-	width:16px;
-	min-height:15px;
-	height:1.15em;
-	vertical-align:text-bottom;
-}
-
-.cke_contents_rtl a.cke_anchor,
-.cke_contents_rtl a.cke_anchor_empty,
-.cke_editable.cke_contents_rtl a[name],
-.cke_editable.cke_contents_rtl a[data-cke-saved-name] {
-	background:url(http://localhost:8080/forplay/jslib/admin/ckeditor/plugins/link/images/anchor.png?t=F0RD) no-repeat right center;
-	border:1px dotted #00f;
-	background-size:16px;
-	padding-right:18px;
-	cursor:auto;
-}
-
-.cke_contents_rtl img.cke_anchor {
-	background:url(http://localhost:8080/forplay/jslib/admin/ckeditor/plugins/link/images/anchor.png?t=F0RD) no-repeat right center;
-	border:1px dotted #00f;
-	background-size:16px;
-	width:16px;
-	min-height:15px;
-	height:1.15em;
-	vertical-align:text-bottom;
-}
-
-.cke_show_borders table.cke_show_border,
-.cke_show_borders table.cke_show_border > tr > td,
-.cke_show_borders table.cke_show_border > tr > th,
-.cke_show_borders table.cke_show_border > tbody > tr > td,
-.cke_show_borders table.cke_show_border > tbody > tr > th,
-.cke_show_borders table.cke_show_border > thead > tr > td,
-.cke_show_borders table.cke_show_border > thead > tr > th,
-.cke_show_borders table.cke_show_border > tfoot > tr > td,
-.cke_show_borders table.cke_show_border > tfoot > tr > th { border : #d3d3d3 1px dotted }
-</style>
 </head>
 <body>
-<header id="main" class="">
-    <h1 class="clip"><a href="#main" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg replaced-svg">
-            <path d="M88.418 17.17l-66.12 475.242h18.866l66.12-475.242H88.42zm315.7 0l66.023 475.242h18.87L422.988 17.17h-18.87zm-56.26.24l-132.422.37c-59.343 41.506-78.325 97.982-61.596 168.03-22.324-31.34-32.747-63.248-33.59-98.234l-26.684 191.78c1.05-3.64 2.25-7.31 3.653-11.012l-3.843 12.385-4.934 35.454c.41 37.954 18.614 69.416 40.91 87.406-18.52-6.774-35.355-15.287-49.25-27.445l-9.207 66.152c43.032 20.635 88.614 24.346 120.56 17.78-33.542 18.813-71.344 29.428-125.382 16.886l-2.13 15.3h217.568c73.664-14.515 117.318-55.617 129.045-89.216 3.54 30.568-2.754 60.093-37.473 89.215h73.242l-41.553-299.11c-15.226-35.307-51.106-59.122-74.695-59.718 10.876-3.615 21.615-5.918 32.305-5.78 11.61.15 23.16 3.2 34.76 10.56l-4.207-30.278c-21.365-18.958-46.472-31.023-68.92-35.954 6.54-.477 13.043-.73 19.513-.685 15.23.104 30.273 1.868 45.18 6.21l-4.224-30.398C331.8 45.105 287.813 60.384 263.44 79.407c13.68-23.55 44.533-47.68 84.417-61.998zm-81.323 33.065c-68.785 37.085-71.87 82.26-36.1 122.146-7.626-69.52 80.94-110.016 118.96-59.032-40.867-20.17-77.79 7.84-76.21 47.723 23.234-23.997 98.678-13.267 79.795 36.19-11.3-33.297-56.74-30.094-63.648-13.77-14.75 34.866 64.34 14.582 98.117 66.284-18.85-10.875-47.74.482-39.22 14.59 32.28 53.45 84.53 113.185 13.3 147.025 23.57-38.677 10.786-65.734-21.85-81.43 25.644 66.744-5.1 163.717-103.81 133.19 62.83-11.442 78.355-62.576 57.263-83.425-23.617 60.37-122.14 97.174-181.444 38.453 58.693 22.535 99.285 7.31 120.644-26.39-35.89 21.435-95.375 6.933-113.994-42.977 28.694 29.187 67.102 37.963 91.195 20.356 13.217-9.658 8.303-25.06-8.55-29.402-24.53-6.32-61.988-12.852-76.563-36.588 21.722 6.003 43.444 10.698 65.166-3.375-33.985-22.07-81.546-50.75-50.348-100.278 1.008 35.15 17.23 56.557 53.197 48.254 9.285-2.142 16.8-15.472 8.55-23.373-61.138-58.54-47.58-160.406 65.548-174.168z"></path>
-        </svg>
-        <span class="clip">Основно меню</span></a></h1>
-    <div role="toolbar" class="">
-        <button type="button" class="search" role="link">Търсене</button>
-        <button type="button" class="logout" role="link">Изход</button>
+<header id="main">
+    <h1 class="clip"><a href="#main"><img class="svg" src="../assets/icons/lorc/originals/svg/000000/transparent/magic-portal.svg" alt="Основно меню" role="presentation"><span class="clip">Основно
+                меню</span></a></h1>
+    <div role="toolbar">
+        <button role="link" class="search" type="button">Търсене</button>
+        <button role="link" class="logout" type="button">Изход</button>
     </div>
-    <nav aria-label="Създаване на обекти" class="">
+    <nav aria-label="Създаване на обекти">
         <h2>Създаване на обекти</h2>
         <ul>
-            <li><a href="#games">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg replaced-svg">
-                    <path d="M240.094 19.594c-56.69.364-110.882 29.054-151.594 72.344-53.428 56.81-81.948 137.907-61.03 210.093 16.33-8.797 32.757-15.987 48.936-21.374-6.327-123.16 89.247-210.922 200.03-210.344 4.255-13.365 10.268-27.308 18.127-41.874-16.323-5.43-32.736-8.36-48.97-8.782-1.833-.047-3.67-.074-5.5-.062zM271.28 88.97C173.724 90.715 91.367 166.07 94.907 275.28c10.986-2.73 21.788-4.582 32.28-5.436 14.59-1.187 28.69-.463 41.783 2.437L278.312 162.94c-5.26-12.1-8.473-25.024-9.344-38.75-.716-11.256.14-22.983 2.592-35.22-.093.002-.187 0-.28 0zm60.845 60.718l-16.875 16.875L345.75 197l16.813-16.813-30.438-30.5zm-37.125 23L175.625 292.063l44.625 44.562 119.313-119.313L295 172.688zm189.875 46.093c-14.466 7.808-28.318 13.807-41.594 18.064.75 111.013-87.243 206.8-210.686 200.28-5.39 16.104-12.552 32.462-21.313 48.72 72.19 20.922 153.313-7.6 210.126-61.03 57.045-53.65 88.516-130.72 63.47-206.033zm-136 15.657L240.687 342.625c3.23 13.563 4.086 28.245 2.844 43.47-.862 10.58-2.752 21.476-5.53 32.56 109.585 3.718 185.128-79.008 186.594-176.905-12.342 2.506-24.16 3.403-35.5 2.688-14.287-.9-27.698-4.347-40.22-10zM169.5 312.313L20.094 461.72V494H48.75l151.188-151.188-30.438-30.5z"></path>
-                </svg>
-                <span class="">Игри</span></a></li>
-            <li><a href="#movies">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg replaced-svg">
-                    <path d="M257.97 20.22C150.394 88.557 72.1 275.18 69.874 494.374h375.188c-2.2-219.194-79.52-405.817-187.094-474.156zm-18.845 163.06l18.344 36.282 18.342-36.28c9.99 2.326 19.72 6.537 29.063 12.437l4.156 48.56 20.095-28.624c7.938 8.123 15.48 17.558 22.594 28.156L345.436 279l18.375-15.344c24.39 44.295 42.05 103.6 49.532 170.78-10.036-32.144-26.553-60.393-47.625-82.342l4-35.813L344.093 333c-6.098-4.53-12.452-8.595-19.03-12.156l-3.345-40.97-26.314 28.876c-7.31-2.074-14.792-3.58-22.437-4.438l-15.5-33.25-15.5 33.282c-8.14.916-16.12 2.522-23.876 4.812l-24.875-27.28-3.157 38.874c-6.645 3.585-13.065 7.68-19.22 12.25l-25.624-16.72 4.03 35.814c-21.08 21.95-37.618 50.19-47.656 82.344 7.482-67.188 25.17-126.485 49.562-170.782L169.5 279l-6.28-35.188c7.37-10.983 15.213-20.71 23.468-29.03l19.25 27.374 3.937-46.312c9.4-5.963 19.193-10.22 29.25-12.563z"></path>
-                </svg>
-                <span class="">Кино и Сериали</span></a></li>
-            <li><a href="#music">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg replaced-svg">
-                    <path d="M491.938 18.813l-17.72 2.375-89.374 11.968-6.22.844-1.562 6.094-18.5 72.156-136.187 137.28c-2.094-4.4-4.324-8.708-6.875-12.843-7.317-11.86-18.338-22.357-34.844-25.687-6.457-1.303-12.664-1.702-18.53-1.28-17.602 1.26-32.182 9.775-41.69 22.5-10.95 14.654-15.87 34.054-15.31 54.405-36.16 4.516-66.336 31.382-80.657 64.313-15.608 35.885-11.856 80.956 24.655 111.156 43.28 35.8 88.28 31.622 119.875 11.22 28.593-18.467 47.778-48.14 50.813-74.752 18.615-2.81 38.424-9.03 56.375-17.968 20.474-10.195 38.536-23.433 48.406-40.063l7.625-12.874-14.908-1.22c-34.56-2.818-53.76-12.87-66.406-26.217l146-147.22 18.938 1.375 6.156.438 2.813-5.5 6.125-11.907 25.03 11.906L464 132.438l-24.53-11.656 7.655-14.874 25.844 12.28 8.03-16.874-25.313-12.03L464 73.155 491.03 86l8.033-16.875L472.53 56.53l11.22-21.81 8.188-15.907zm-124.532 111l13.22 13.093-200.22 201.875c-1.556-1.983-3.227-3.898-5.062-5.717-2.65-2.628-5.493-4.96-8.47-7l200.532-202.25zm-235.47 210.093c10.914-.046 21.837 4.094 30.25 12.438 16.834 16.69 16.938 43.576.25 60.406-16.685 16.83-43.573 16.94-60.405.25-16.83-16.69-16.936-43.576-.25-60.406 8.345-8.415 19.245-12.64 30.157-12.688z"></path>
-                </svg>
-                <span class="">Музика</span></a></li>
-            <li><a href="#books">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg replaced-svg">
-                    <path d="M102.53 26.063l90 345.75 289.22 23.25-90.03-345.72-289.19-23.28zm-18.968 1.406c-30.44 11.894-55.62 53.07-49.687 75.28l3.25 11.813c.654-1.722 1.345-3.44 2.063-5.157C49.102 85.688 65.734 62.636 89.56 50.5l-6-23.03zM94.44 69.187c-16.66 10.016-29.916 28.1-38 47.437-5.2 12.44-8 25.417-8.75 36.25v.03L112.56 388.5c.305-.572.593-1.148.907-1.72 10.585-19.223 27.804-37.623 51.06-48.405L94.438 69.187zM154 107.968l239.78 16.188-1.28 18.625-239.75-16.155L154 107.97zm46.03 34.407l5.657 8.875 14.188 22.313 39.03-15.25 7.595-2.938 3.97 7.094 16.28 29.124 4.313 7.72-7.438 4.717c-10.267 6.524-17.392 12.284-21.75 16.782-3.03 3.13-4.247 5.232-4.906 6.594 1.38.303 3.433.577 6.624.28 18.268-1.69 56.285-19.964 79-61.592l5.47-10.03 8.748 7.374 46 38.812 11.532 9.72-13.844 6-33.28 14.374c5.447 4.925 11.436 5.916 18.436 5.406 9.95-.724 21.427-6.07 29.125-11.063l10.158 15.657c-9.41 6.1-22.867 12.934-37.938 14.03-15.07 1.098-32.27-5.296-42.594-23.155l-5.25-9.095 9.625-4.156 30.44-13.157-26.033-22c-25.716 40.294-62.68 59.168-87.843 61.5-6.78.628-12.945.26-18.594-2.688-5.65-2.95-9.984-10.6-9-17.406.984-6.806 4.838-12.4 10.688-18.44 4.385-4.526 10.612-9.367 17.875-14.436l-8.188-14.656L219.5 193.75l-7.156 2.78-4.125-6.468L196 170.875c-6.308 7.158-9.485 14.528-9 21.406.654 9.28 7.854 21.054 30.594 33.69l-9.094 16.343c-25.688-14.273-38.877-31.016-40.125-48.72-1.248-17.703 9.393-33.013 23.5-44.562l8.156-6.655zm-5.968 118.188l239.782 16.156-1.25 18.655-239.78-16.188 1.25-18.625zm-24.75 96.25c-17.637 9.072-31.065 23.708-39.468 38.968-4.49 8.153-7.307 16.452-8.72 23.876l11.626 42.156 1.688.157c-3.824-27.514 11.358-60.383 41.187-80.97l-6.313-24.188zm26.22 34c-32.403 17.28-46.273 52.303-41.657 72.78l289.78 24.532c-5.298-7.743-8.625-17.827-8.592-28.313l-22.47-9.03 46.626-7.313-13.69-13.064c5.552-6.838 13.54-12.915 24.47-17.53l-274.47-22.063z"></path>
-                </svg>
-                <span class="">Книги</span></a></li>
-            <li><a href="#boards">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg replaced-svg">
-                    <path d="M200.947 18.686c-6.98.087-14.64.774-22.85 1.9 27.57 20.468 51.098 45.25 67.594 70.527 1.66 0 3.312.012 4.958.047 18.066.39 35.487 2.906 53.217 7.2-15.695-28.457-29.935-50.19-47.45-63.22-13.817-10.278-30.063-16.168-52.52-16.454-.967-.013-1.95-.013-2.948 0zm-91.66 22.96c-.73-.002-1.46.006-2.195.022-14.045.31-29.36 3.92-46.86 11.13 56.18 18.807 106.985 50.468 133.907 83.585 18.377-5.13 29.44-14.72 36.454-28.817C195.84 78.18 168.118 56.19 140.65 46.96c-10.168-3.418-20.433-5.306-31.363-5.315zm-.203 52.786c-39.42 6.758-74.73 31.854-87.822 74.19v322.345h212.73C100.352 442.58 61.19 206.49 187.115 230.104c5.838-14.164 9.92-28.027 11.018-41.465l18.627 1.522c-1.684 20.592-8.828 40.49-18.033 59.943-.732 2.035-1.472 4.12-2.186 6.063 32.842 85.24 113.77 160.69 169.495 168.197.915.033 1.905-.002 2.953-.09 17.016 1.035 35.86-4.222 52.21-22.304l7.984-8.83-10.473-5.658c-6.507-3.515-14.29-7.094-18.167-10.925-1.938-1.916-2.793-3.47-3.074-5.194-.282-1.725-.13-4.227 2.23-8.578l10.673-19.656-21.484 6.222c-6.304 1.825-17.305-3.032-23.224-10.71-2.96-3.84-4.408-7.907-4.387-10.843.02-2.938.72-5.125 4.747-8.05l19.453-14.125-23.884-2.72c-9.974-1.137-16.37-6.658-19.17-12.294-2.802-5.634-2.312-10.084 1.375-13.31l12.204-10.677-15.358-5.205c-6.717-2.276-10.296-7.555-10.357-10.633-.028-1.373.238-2.666 1.843-4.476 10.93-2.39 21.258-.45 28.088 6.374 6.154 6.146 8.35 15.128 6.977 24.832 8.55-2.254 16.985-1.616 24.112 2.494 9.34 5.387 14.647 15.692 15.67 27.965 15.212-10.132 32.152-12.725 45.262-5.164 15.467 8.92 21.36 29.513 16.805 51.75 23.992-33.355 34.588-75.717 5.617-120.43-46.726-4.442-81.693-30.676-93.293-67.64-5.026-16.016-21.284-28.67-42-37.904l-.08.217c-29.74-10.823-55.575-17.35-82.604-18.733l.08.155c-2.294-.093-4.56-.16-6.762-.172-9.537 22.874-28.662 39.9-57.436 46.054l-5.906 1.262-3.576-4.864c-14.216-19.33-41.23-40.452-74.002-58.074zm156.215 65.26c27.927-.073 44.874 11.617 42.09 44.45-35.844 3.39-51.933-16.683-63.074-42.632 7.507-1.155 14.538-1.8 20.983-1.817zm48.407 66.363c3.708.07 7.14.994 10.014 2.812-1.51 1.102-2.898 2.28-4.16 3.543-5.246 5.24-8.087 12.122-7.956 18.742.183 9.322 5.27 17.184 12.68 22.56-3.14 8.103-2.452 17.455 1.407 25.22 3.813 7.668 10.54 14.273 19.302 18.398-1.445 3.366-2.375 6.862-2.4 10.33-.062 8.407 3.38 16.042 8.273 22.39 6.792 8.81 16.862 15.936 28.026 17.91-.183 2.18-.204 4.333.133 6.407 1.05 6.444 4.515 11.66 8.38 15.48 3.41 3.37 7.19 5.892 10.798 7.993-6.345 4.792-12.414 7.056-18.618 7.79-6.515-7.937-9.71-19.084-9.41-31.454-11.767 6.177-24.21 7.156-34.12 1.44-14.668-8.46-19.393-29.036-13.187-50.33-11.336 2.77-22.13.92-29.187-6.132-8.875-8.865-9.535-23.626-3.094-37.95-3.676-.615-6.963-2.166-9.525-4.725-8.808-8.798-5.773-26.09 6.776-38.626 7.843-7.835 17.546-11.957 25.87-11.8z" fill-rule="evenodd"></path>
-                </svg>
-                <span class="">Настолни Игри</span></a></li>
+            <li><a href="#games"><img class="svg" src="../assets/icons/lorc/originals/svg/000000/transparent/battle-axe.svg" alt="Игри" role="presentation"><span class="">Игри</span></a></li>
+            <li><a href="#movies"><img class="svg" src="../assets/icons/lorc/originals/svg/000000/transparent/shark-jaws.svg" alt="Кино и Сериали" role="presentation"><span class="">Кино
+                        и Сериали</span></a></li>
+            <li><a href="#music"><img class="svg" src="../assets/icons/lorc/originals/svg/000000/transparent/guitar.svg" alt="Музика" role="presentation"><span class="">Музика</span></a></li>
+            <li><a href="#books"><img class="svg" src="../assets/icons/lorc/originals/svg/000000/transparent/book-cover.svg" alt="Книги" role="presentation"><span class="">Книги</span></a></li>
+            <li><a href="#boards"><img class="svg" src="../assets/icons/lorc/originals/svg/000000/transparent/dragon-head.svg" alt="Настолни Игри" role="presentation"><span class="">Настолни
+                        Игри</span></a></li>
         </ul>
     </nav>
-    <nav aria-label="Добавяне на информация" class="">
+    <nav aria-label="Добавяне на информация">
         <h2>Добавяне на информация</h2>
         <ul>
-            <li><a href="#article">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg replaced-svg">
-                    <path d="M411.305 49.078c-.307-.003-.6.005-.875.024-2.212.147-3.34.653-4.576 1.89l-27.58 27.578 55.156 55.155 27.578-27.58c1.237-1.236 1.743-2.363 1.89-4.575.148-2.21-.372-5.432-1.806-9.162-2.87-7.46-9.277-16.667-17.055-24.445-7.778-7.778-16.985-14.185-24.445-17.055-3.264-1.255-6.138-1.81-8.287-1.83zm-45.758 42.22l-9.9 9.9 9.9 9.9 12.728 12.726v.002l9.9 9.9 12.727 12.727 9.9 9.9 9.9-9.9-55.155-55.156zm-22.627 22.626l-213.545 213.55 9.898 9.897L352.82 123.825l-9.9-9.9zm22.627 22.63L152 350.097l9.902 9.902 213.545-213.547-9.9-9.9zm22.63 22.626L174.628 372.727l9.897 9.898 213.55-213.545-9.9-9.9zM119.933 343.488l-12.12 30.305 30.393 30.394 30.305-12.12-6.612-6.612-12.726-12.728-9.9-9.9-12.73-12.727-6.61-6.612zm-19.395 48.487l-12.993 32.478 32.478-12.992-19.486-19.485z"></path>
-                </svg>
-                <span class="">Статия</span></a></li>
-            <li><a href="#images">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg replaced-svg">
-                    <path d="M256.22 18.375c-132.32 0-239.783 107.43-239.783 239.75S123.9 497.905 256.22 497.905 496 390.446 496 258.126 388.54 18.375 256.22 18.375zm0 17.875c102.773 0 189.092 69.664 214.374 164.406l-79.313-81.47-6.967-7.155-6.688 7.47-77.22 86.438c-11.493-10.268-22.98-20.284-34.467-30.063l-6.563-5.625-6.125 6.156c-18.41 18.527-36.937 37.61-55.438 57.094l-76.437-83.375-6.875-7.5-6.875 7.5-71.188 77.313C51.364 119.34 143.983 36.25 256.22 36.25zm102.25 147.28l-3.845 35.376 21.563-32 10.75 16.688 9.968-8.47 27.188 26.814L417 187.344l19.5 5.062 39.188 40.25.843-.812c1.016 8.618 1.564 17.388 1.564 26.28 0 37.033-9.06 71.917-25.063 102.595-46.25-53.48-92.512-100.116-138.75-142.283l11-12.312 33.19-22.594zM138.31 206.28l26.438 18.782 20.22 22.032c-39.47 42.024-78.63 85.836-115.94 130.344-21.98-34.443-34.718-75.38-34.718-119.313v-.78l16.25-17.658 37.25-20.187-17.187 54.063 41.813-51.22 27.312 32.72-1.438-48.782zm141.375 61.657l53.157 60.938-7.688-54.563L386.312 315c18.918 19.863 37.83 40.733 56.75 62.78l.188-.186C403.853 439.216 334.868 480.03 256.22 480.03c-71.76 0-135.483-33.992-176.033-86.75 19.135-22.91 38.775-45.645 58.72-68.06l56.155-33.814-29.312 76.75 61.53-73.375 6.25 32.19 19.532-36.783 47.844 69.5-21.22-91.75z"></path>
-                </svg>
-                <span class="">Картинки</span></a></li>
-            <li><a href="#aside">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg replaced-svg">
-                    <path d="M249.28 106.28V250h-77.186v-56.25H22.47V319.406h149.624v-50.719h77.187v148.407h18.69V357.22h71.686v50.718H489.28V282.28H339.657v56.251H267.97V189.407h71.686v50.72H489.28V114.47H339.657V170.718H267.97v-64.44h-18.69zm109.064 26.876h112.25v88.28h-112.25v-88.28zm-317.188 79.28h112.25v88.283H41.156v-88.283zm317.188 88.533h112.25v88.28h-112.25v-88.28z"></path>
-                </svg>
-                <span class="">Каре</span></a></li>
-            <li><a href="#advert">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg replaced-svg">
-                    <path d="M255.55 22.36c-30.93 0-56 25.07-56 56 0 30.927 25.07 56 56 56 30.927 0 56-25.073 56-56 0-30.93-25.073-56-56-56zM105.067 144.47c-3.047.028-6.012.55-8.748 1.536-7.296 2.627-12.95 7.77-17.562 13.617-3.63 4.602-6.523 9.754-9.012 14.992-6.79-6.374-14.215-15.785-21.8-30.117l-15.91 8.418c10.115 19.112 20.597 31.962 31.292 40.066-.405 1.802-.907 3.66-1.164 5.364-2.005 13.302 2.913 24.966 9.637 34.736 5.34 7.757 11.825 14.87 18.132 22.367-7.497 15.76-11.35 32.49-11.368 49.366.07 28.777 11.283 56.823 32.082 80.243l3.655-13.117 17.34 4.832-25.13 90.18c20.857 6.423 41.04 6.52 61.62-1.072l18.727-66.73 17.33 4.865-8.892 31.69c17.887 4.99 36.674 7.578 55.607 7.657 12.386-.065 24.727-1.204 36.81-3.396l-8.942-39.63 17.558-3.963 14.996 66.473c24.936 11.267 48.496 10.575 72.764 1.222l-25.115-78.986 17.152-5.455 4.97 15.636c21.796-38.09 68.757-29.083 91.825-40.08 11.686-3.894 5.42-69.874 4.916-73.04-.38-2.39-29.734-3.818-40.16-2.248-5.975.9-16.344-12.078-27.39-27.597-5.387-10.488-12.357-20.405-20.753-29.527-3.988-5.276-2.735-3.092-6.533-6.474.715 6.697 2.12 12.306 4.152 16.23l-15.986 8.277c-7.378-14.252-7.98-32.853-5.662-52.858 1.583-13.67 4.81-27.957 9.03-41.733-11.81 6.755-22.626 17.48-32.02 30.586-13.665 19.064-24.126 42.55-30.647 62.644l-17.12-5.556c2.777-8.56 6.2-17.655 10.255-26.835-14.467-6.574-35.467-9.76-57.426-8.826-23.852 1.01-48.83 6.716-68.043 16.2l-7.97-16.143c22.13-10.923 49.122-16.934 75.25-18.043 3.267-.138 6.52-.203 9.747-.19 20.69.086 40.372 3.378 56.274 10.78 2.234-4.232 4.608-8.425 7.125-12.537-21.74-7.8-45.253-11.897-69.058-12.03-63.206.056-121.303 27.923-151.383 72.614-4.954-5.81-9.525-11.11-12.89-16-5.26-7.64-7.608-13.682-6.695-21.126 10.458 3.152 20.632 2.07 28.694-1.87 10.316-5.044 17.423-13.85 20.473-23.39 1.526-4.77 2.056-9.862.813-14.928-1.243-5.065-4.63-10.034-9.598-12.953-4.862-2.856-10.17-4.187-15.25-4.142zm.328 17.805c.328-.014.66-.005 1 .03 1.362.138 2.86.687 4.803 1.828.864.508.986.713 1.234 1.722.247 1.01.248 2.895-.475 5.157-1.447 4.523-5.713 10-11.235 12.7-4.346 2.125-9.372 2.917-15.66.847 2.174-5.033 4.823-9.984 7.824-13.787 3.257-4.13 6.74-6.828 9.528-7.832 1.045-.375 1.995-.623 2.978-.665zm278.153 98.647c8.835 0 16 7.163 16 16 0 8.836-7.165 16-16 16-8.838 0-16-7.164-16-16 0-8.837 7.162-16 16-16z"></path>
-                </svg>
-                <span class="">Реклама</span></a></li>
-            <li><a href="#quote">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg replaced-svg">
-                    <path d="M211.313 21.094c-51.776 0-98.754 12.252-133.5 32.718C43.066 74.28 19.874 103.78 19.874 137.69c0 33.54 22.692 62.81 56.813 83.25L48.156 327.094l96.97-79.844c20.65 4.58 42.924 7.063 66.186 7.063 51.776 0 98.786-12.252 133.532-32.72 34.746-20.466 57.937-49.997 57.937-83.905s-23.19-63.41-57.936-83.875c-34.746-20.467-81.756-32.72-133.53-32.72zm0 18.687c48.8 0 92.866 11.77 124.03 30.126 31.165 18.357 48.75 42.447 48.75 67.78 0 25.338-17.585 49.457-48.75 67.814-31.164 18.357-75.23 30.125-124.03 30.125S118.445 223.857 87.28 205.5c-31.163-18.357-48.718-42.476-48.718-67.813 0-25.336 17.555-49.424 48.72-67.78C118.445 51.55 162.51 39.78 211.31 39.78zM96.53 89.938v18.688h93.126V89.937H96.53zm111.814 0v18.688h28.094V89.937h-28.094zm46.78 0v18.688h71.97V89.937h-71.97zM96.532 129.844v18.72h29.657v-18.72H96.53zm48.345 0v18.72h65.938v-18.72h-65.938zm84.656 0v18.72h38.095v-18.72H229.53zm56.782 0v18.72h40.782v-18.72h-40.78zM96.532 166.78v18.69h70.874v-18.69H96.53zm89.562 0v18.69h57.03v-18.69h-57.03zm75.72 0l-.002 18.69h65.282v-18.69h-65.28zm92.342 90.25c-74.88 0-135.594 41.762-135.594 93.283 0 51.52 60.716 93.28 135.594 93.28 18.23 0 35.623-2.48 51.5-6.968l68.53 51.156-24.873-71.03c24.947-16.918 40.437-40.432 40.437-66.438 0-51.518-60.714-93.28-135.594-93.28zm-70.344 42.345h32.907v18.688H283.81v-18.688zm51.594 0h90.344v18.688h-90.344v-18.688zm-78.97 41.75h78.314v18.688h-78.313v-18.688zm97.002 0h20.968v18.688h-20.97l.002-18.688zm39.656 0h51v18.688h-51v-18.688zm-109.28 39h79.06v18.688h-79.062v-18.688zm97.748 0h44.188v18.688h-44.188v-18.688z"></path>
-                </svg>
-                <span class="">Цитат</span></a></li>
+            <li><a href="#article"><img class="svg" src="../assets/icons/delapouite/originals/svg/000000/transparent/pencil.svg" alt="Статия" role="presentation"><span class="">Статия</span></a></li>
+            <li><a href="#images"><img class="svg" src="../assets/icons/lorc/originals/svg/000000/transparent/mountains.svg" alt="Картинки" role="presentation"><span class="">Картинки</span></a></li>
+            <li><a href="#aside"><img class="svg" src="../assets/icons/lorc/originals/svg/000000/transparent/checkbox-tree.svg" alt="Каре" role="presentation"><span class="">Каре</span></a></li>
+            <li><a href="#advert"><img class="svg" src="../assets/icons/delapouite/originals/svg/000000/transparent/piggy-bank.svg" alt="Реклама" role="presentation"><span class="">Реклама</span></a></li>
+            <li><a href="#quote"><img class="svg" src="../assets/icons/lorc/originals/svg/000000/transparent/conversation.svg" alt="Цитат" role="presentation"><span class="">Цитат</span></a></li>
         </ul>
     </nav>
-    <nav aria-label="Бърза навигация назад" class="breadcrumb clip">
+    <nav class="breadcrumb" aria-label="Бърза навигация назад">
         <ul>
         </ul>
     </nav>
 </header>
 <main>
-    <section id="games" style="display: none;">
+    <section id="games">
         <h2><a href="#games">Игри<span class="">Създай...</span></a></h2>
         <nav aria-label="Обекти в игри">
             <ul>
@@ -201,241 +117,86 @@ ng\:form { display:block; }
             </ul>
         </nav>
     </section>
-    <section id="game" style="display: none;">
+    <section id="game">
         <h2><a href="#game">Игра<span class="">Добави информация за играта и
                     създай таг.</span></a></h2>
         <form>
-            <div role="group" class="Main">
-                <button type="button" class="select">
+            <div class="Main" role="group">
+                <button class="select" type="button">
                 <input type="hidden" id="gameMainInput">
-                <span class="clip">Добави основна картинка</span><img role="presentation" alt="16:9" src="../assets/helpers/16-9.png">
+                <span class="clip">Добави основна картинка</span><img src="../assets/helpers/16-9.png" alt="16:9" role="presentation">
                 </button>
             </div>
             <label><span>Оригинално име на играта:</span>
-                <input autocomplete="" type="text" placeholder="Grand Theft Auto 5" id="gameEnNameInput">
+                <input type="text" id="gameEnNameInput" placeholder="Grand Theft Auto 5" autocomplete="">
             </label>
             <label><span>Име на играта на български:</span>
-                <input autocomplete="" type="text" placeholder="Гранд Тефт Ауто 5" id="gameBgNameInput">
+                <input type="text" id="gameBgNameInput" placeholder="Гранд Тефт Ауто 5" autocomplete="">
             </label>
             <div class="one-col">
-                <label>
-                <span>Поредица:</span>
-                <div class="bootstrap-tagsinput"><span class="twitter-typeahead" style="position: relative; display: inline-block; direction: ltr;">
-                    <input type="text" class="tt-hint" readonly="" autocomplete="off" spellcheck="false" tabindex="-1" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);">
-                    <input type="text" placeholder="gta, halo" class="tt-input" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;">
-                    <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: 'Open Sans', sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
-                    <span class="tt-dropdown-menu" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;">
-                    <div class="tt-dataset-series"></div>
-                    </span></span></div>
-                <input autocomplete="off" type="text" placeholder="gta, halo" id="gameSerieInput" style="display: none;">
+                <label><span>Поредица:</span>
+                    <input type="text" id="gameSerieInput" placeholder="gta, halo" autocomplete="off">
                 </label>
-                <a class="create" href="#serie">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" class="svg replaced-svg">
-                    <polygon id="plus-2-icon" points="462,209.528 302.471,209.528 302.471,50 209.529,50 209.529,209.528 50,209.528 50,302.47    209.529,302.47 209.529,462 302.471,462 302.471,302.47 462,302.47 "></polygon>
-                </svg>
-                </a></div>
+                <a href="#serie" class="create"><img class="svg" alt="Създай Поредица" src="../assets/icons/iconmonstr/iconmonstr-plus-2-icon.svg"></a></div>
             <label><span>Таг:</span>
-                <input autocomplete="" type="text" placeholder="gta-5" id="gameTagInput">
+                <input type="text" id="gameTagInput" placeholder="gta-5" autocomplete="">
             </label>
-            <label>
-            <span>Стикери:</span>
-            <div class="bootstrap-tagsinput"><span class="twitter-typeahead" style="position: relative; display: inline-block; direction: ltr;">
-                <input type="text" class="tt-hint" readonly="" autocomplete="off" spellcheck="false" tabindex="-1" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);">
-                <input type="text" placeholder="girl, beer, 18+" class="tt-input" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;">
-                <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: 'Open Sans', sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
-                <span class="tt-dropdown-menu" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;">
-                <div class="tt-dataset-stickers"></div>
-                </span></span></div>
-            <input autocomplete="" type="text" placeholder="girl, beer, 18+" id="gameStickersInput" style="display: none;">
+            <label><span>Стикери:</span>
+                <input type="text" id="gameStickersInput" placeholder="girl, beer, 18+" autocomplete="">
             </label>
             <label><span>Жанр:</span></label>
-            <div id="gameGenreGroup" role="group">
-                <label>
-                    <input type="checkbox" value="fps">
-                    <span>Шуутър от първо/трето лице</span></label>
-                <label>
-                    <input type="checkbox" value="tps">
-                    <span>Екшън от първо/трето лице</span></label>
-                <label>
-                    <input type="checkbox" value="rail">
-                    <span>Рейл шуутър</span></label>
-                <label>
-                    <input type="checkbox" value="stealth">
-                    <span>Стелт</span></label>
-                <label>
-                    <input type="checkbox" value="horror">
-                    <span>Хорър</span></label>
-                <label>
-                    <input type="checkbox" value="survival">
-                    <span>Сървайвъл хорър</span></label>
-                <label>
-                    <input type="checkbox" value="platformer">
-                    <span>Платформър</span></label>
-                <label>
-                    <input type="checkbox" value="action-adventure">
-                    <span>Екшън-адвенчър</span></label>
-                <label>
-                    <input type="checkbox" value="adventure">
-                    <span>Куест</span></label>
-                <label>
-                    <input type="checkbox" value="arcade">
-                    <span>Аркадна игра</span></label>
-                <label>
-                    <input type="checkbox" value="mmo">
-                    <span>ММО</span></label>
-                <label>
-                    <input type="checkbox" value="moba">
-                    <span>MOBA</span></label>
-                <label>
-                    <input type="checkbox" value="rpg">
-                    <span>Ролева</span></label>
-                <label>
-                    <input type="checkbox" value="racing">
-                    <span>Рейсър</span></label>
-                <label>
-                    <input type="checkbox" value="sport">
-                    <span>Спортна</span></label>
-                <label>
-                    <input type="checkbox" value="simulation">
-                    <span>Симулатор</span></label>
-                <label>
-                    <input type="checkbox" value="rts">
-                    <span>Стратегия в реално време</span></label>
-                <label>
-                    <input type="checkbox" value="tbs">
-                    <span>Походова стратегия</span></label>
-                <label>
-                    <input type="checkbox" value="casual">
-                    <span>Кежуъл/парти/музикална</span></label>
-                <label>
-                    <input type="checkbox" value="indie">
-                    <span>Инди</span></label>
-            </div>
+            <div role="group" id="gameGenreGroup"></div>
             <label><span>Платформа:</span></label>
-            <div id="gamePlatformGroup" role="group">
-                <label>
-                    <input type="checkbox" value="Win">
-                    <span>Windows</span></label>
-                <label>
-                    <input type="checkbox" value="Mac">
-                    <span>Mac OS</span></label>
-                <label>
-                    <input type="checkbox" value="360">
-                    <span>Xbox 360</span></label>
-                <label>
-                    <input type="checkbox" value="One">
-                    <span>Xbox One</span></label>
-                <label>
-                    <input type="checkbox" value="PS3">
-                    <span>PlayStation 3</span></label>
-                <label>
-                    <input type="checkbox" value="PS4">
-                    <span>PlayStation 4</span></label>
-                <label>
-                    <input type="checkbox" value="Vita">
-                    <span>PlayStation Vita</span></label>
-                <label>
-                    <input type="checkbox" value="Wii">
-                    <span>Nintendo Wii</span></label>
-                <label>
-                    <input type="checkbox" value="3DS">
-                    <span>Nintendo 3DS</span></label>
-                <label>
-                    <input type="checkbox" value="iOS">
-                    <span>iOS</span></label>
-                <label>
-                    <input type="checkbox" value="Android">
-                    <span>Android</span></label>
-            </div>
+            <div role="group" id="gamePlatformGroup"></div>
             <div class="one-col">
-                <label>
-                <span>Разпространител:</span>
-                <div class="bootstrap-tagsinput"><span class="twitter-typeahead" style="position: relative; display: inline-block; direction: ltr;">
-                    <input type="text" class="tt-hint" readonly="" autocomplete="off" spellcheck="false" tabindex="-1" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);">
-                    <input type="text" placeholder="SEGA" class="tt-input" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;">
-                    <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: 'Open Sans', sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
-                    <span class="tt-dropdown-menu" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;">
-                    <div class="tt-dataset-companies"></div>
-                    </span></span></div>
-                <input autocomplete="off" type="text" placeholder="SEGA" id="gamePublisherInput" style="display: none;">
+                <label><span>Разпространител:</span>
+                    <input type="text" id="gamePublisherInput" placeholder="SEGA" autocomplete="off">
                 </label>
-                <a class="create" href="#company">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" class="svg replaced-svg">
-                    <polygon id="plus-2-icon" points="462,209.528 302.471,209.528 302.471,50 209.529,50 209.529,209.528 50,209.528 50,302.47    209.529,302.47 209.529,462 302.471,462 302.471,302.47 462,302.47 "></polygon>
-                </svg>
-                </a></div>
+                <a href="#company" class="create"><img class="svg" alt="Създай Разпространител" src="../assets/icons/iconmonstr/iconmonstr-plus-2-icon.svg"></a></div>
             <div class="one-col">
-                <label>
-                <span>Разработчик:</span>
-                <div class="bootstrap-tagsinput"><span class="twitter-typeahead" style="position: relative; display: inline-block; direction: ltr;">
-                    <input type="text" class="tt-hint" readonly="" autocomplete="off" spellcheck="false" tabindex="-1" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);">
-                    <input type="text" placeholder="Creative Assembly" class="tt-input" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;">
-                    <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: 'Open Sans', sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
-                    <span class="tt-dropdown-menu" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;">
-                    <div class="tt-dataset-companies"></div>
-                    </span></span></div>
-                <input autocomplete="off" type="text" placeholder="Creative Assembly" id="gameDeveloperInput" style="display: none;">
+                <label><span>Разработчик:</span>
+                    <input type="text" id="gameDeveloperInput" placeholder="Creative Assembly" autocomplete="off">
                 </label>
-                <a class="create" href="#company">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" class="svg replaced-svg">
-                    <polygon id="plus-2-icon" points="462,209.528 302.471,209.528 302.471,50 209.529,50 209.529,209.528 50,209.528 50,302.47    209.529,302.47 209.529,462 302.471,462 302.471,302.47 462,302.47 "></polygon>
-                </svg>
-                </a></div>
+                <a href="#company" class="create"><img class="svg" alt="Създай Разработчик" src="../assets/icons/iconmonstr/iconmonstr-plus-2-icon.svg"></a></div>
             <div class="two-cols">
                 <label><span>Премиера за САЩ:</span>
-                    <input autocomplete="" type="date" placeholder="" id="gameUsDateInput">
+                    <input type="date" id="gameUsDateInput" placeholder="" autocomplete="">
                 </label>
             </div>
             <div class="two-cols">
                 <label><span>Премиера за Европа:</span>
-                    <input autocomplete="" type="date" placeholder="" id="gameEuDateInput">
+                    <input type="date" id="gameEuDateInput" placeholder="" autocomplete="">
                 </label>
             </div>
-            <label>
-            <span>Подобни:</span>
-            <div class="bootstrap-tagsinput"><span class="twitter-typeahead" style="position: relative; display: inline-block; direction: ltr;">
-                <input type="text" class="tt-hint" readonly="" autocomplete="off" spellcheck="false" tabindex="-1" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);">
-                <input type="text" placeholder="saints-row, mafia, red-dead-redemption, crackdown" class="tt-input" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;">
-                <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: 'Open Sans', sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
-                <span class="tt-dropdown-menu" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;">
-                <div class="tt-dataset-tags"></div>
-                </span></span></div>
-            <input autocomplete="off" type="text" placeholder="saints-row, mafia, red-dead-redemption, crackdown" id="gameSimilarInput" style="display: none;">
+            <label><span>Подобни:</span>
+                <input type="text" id="gameSimilarInput" placeholder="saints-row, mafia, red-dead-redemption, crackdown" autocomplete="off">
             </label>
             <div class="Add Box">
-                <button type="button" class="add">Добави обложка</button>
+                <button class="add" type="button">Добави обложка</button>
             </div>
         </form>
         <div role="toolbar">
-            <button type="button" class="save">Запази</button>
-            <button type="button" class="cancel">Отмени</button>
+            <button class="save" type="button">Запази</button>
+            <button class="cancel" type="button">Отмени</button>
         </div>
     </section>
-    <section id="article" style="display: none;" class="darken">
+    <section id="article">
         <h2><a href="#article">Статия<span class="">Създай статия.</span></a></h2>
         <form>
             <h3>Тема</h3>
             <div class="two-cols">
                 <label><span>Раздел:</span>
                     <select id="articleTypeSelect">
-                        <option value="games">игри</option>
-                        <option value="movies">филми</option>
-                        <option value="books">книги</option>
-                        <option value="music">музика</option>
-                        <option value="boards">настолни игри</option>
                     </select>
                 </label>
             </div>
             <div class="two-cols">
                 <label><span>Тип:</span>
                     <select id="articleSubtypeSelect">
-                        <option value="review">ревю</option>
-                        <option value="feature">мнение</option>
-                        <option value="news">новина</option>
                     </select>
                 </label>
             </div>
-            <div role="region" id="articleAVRegion">
+            <div id="articleAVRegion" role="region">
                 <div class="two-cols">
                     <label><span>Видео:</span>
                         <select id="articleVideoTechSelect">
@@ -454,140 +215,55 @@ ng\:form { display:block; }
                         </select>
                     </label>
                 </div>
-                <label style="display: none;"><span>Видео Препратка:</span>
-                    <input autocomplete="" type="text" placeholder="https://www.youtube.com/watch?v=8fhA-plmtJ8" id="articleVideoUrlInput">
+                <label><span>Видео Препратка:</span>
+                    <input type="text" id="articleVideoUrlInput" placeholder="https://www.youtube.com/watch?v=8fhA-plmtJ8" autocomplete="">
                 </label>
-                <label style="display: none;"><span>Аудио Фрейм:</span>
-                    <textarea placeholder="//www.mixcloud.com/widget/iframe/?feed=http%3A%2F%2Fwww.mixcloud.com%2FForPlay_bg%2Fforplay-podcast-vol22-102014-%25D0%25BF%25D0%25BE%25D0%25B4%25D0%25BA%25D0%25B0%25D1%2581%25D1%2582%25D1%258A%25D1%2582-%25D0%25BD%25D0%25B0-%25D0%25B7%25D0%25B0%25D0%25B2%25D1%2580%25D1%258A%25D1%2589%25D0%25B0%25D0%25BD%25D0%25B5%25D1%2582%25D0%25BE%2F&amp;embed_uuid=377b2f9e-d0eb-4657-9d22-516c6010501c&amp;replace=0&amp;light=1&amp;embed_type=widget_standard&amp;hide_tracklist=1" id="articleAudioFrameInput"></textarea>
+                <label><span>Аудио Фрейм:</span>
+                    <textarea id="articleAudioFrameInput" placeholder="//www.mixcloud.com/widget/iframe/?feed=http%3A%2F%2Fwww.mixcloud.com%2FForPlay_bg%2Fforplay-podcast-vol22-102014-%25D0%25BF%25D0%25BE%25D0%25B4%25D0%25BA%25D0%25B0%25D1%2581%25D1%2582%25D1%258A%25D1%2582-%25D0%25BD%25D0%25B0-%25D0%25B7%25D0%25B0%25D0%25B2%25D1%2580%25D1%258A%25D1%2589%25D0%25B0%25D0%25BD%25D0%25B5%25D1%2582%25D0%25BE%2F&amp;embed_uuid=377b2f9e-d0eb-4657-9d22-516c6010501c&amp;replace=0&amp;light=1&amp;embed_type=widget_standard&amp;hide_tracklist=1"></textarea>
                 </label>
-                <label style="display: none;"><span>Аудио Препратка:</span>
-                    <textarea placeholder="http://www.mixcloud.com/ForPlay_bg/forplay-podcast-vol22-102014-%D0%BF%D0%BE%D0%B4%D0%BA%D0%B0%D1%81%D1%82%D1%8A%D1%82-%D0%BD%D0%B0-%D0%B7%D0%B0%D0%B2%D1%80%D1%8A%D1%89%D0%B0%D0%BD%D0%B5%D1%82%D0%BE/?utm_source=widget&amp;utm_medium=web&amp;utm_campaign=base_links&amp;utm_term=resource_link" id="articleAudioUrlInput"></textarea>
+                <label><span>Аудио Препратка:</span>
+                    <textarea id="articleAudioUrlInput" placeholder="http://www.mixcloud.com/ForPlay_bg/forplay-podcast-vol22-102014-%D0%BF%D0%BE%D0%B4%D0%BA%D0%B0%D1%81%D1%82%D1%8A%D1%82-%D0%BD%D0%B0-%D0%B7%D0%B0%D0%B2%D1%80%D1%8A%D1%89%D0%B0%D0%BD%D0%B5%D1%82%D0%BE/?utm_source=widget&amp;utm_medium=web&amp;utm_campaign=base_links&amp;utm_term=resource_link"></textarea>
                 </label>
             </div>
             <label><span>Заглавие:</span>
-                <input autocomplete="" type="text" placeholder="Grand Theft Auto V – сатирично менгеме. Вече и в 1080p!" id="articleTitleInput">
+                <input type="text" id="articleTitleInput" placeholder="Grand Theft Auto V &ndash; сатирично менгеме. Вече и в 1080p!" autocomplete="">
             </label>
             <label><span>Подзаглавие:</span>
-                <input autocomplete="" type="text" placeholder="Песен за Сам и Дан Хаузър..." id="articleSubtitleInput">
+                <input type="text" id="articleSubtitleInput" placeholder="Песен за Сам и Дан Хаузър..." autocomplete="">
             </label>
-            <label>
-            <span>Автори:</span>
-            <div class="bootstrap-tagsinput"><span class="twitter-typeahead" style="position: relative; display: inline-block; direction: ltr;">
-                <input type="text" class="tt-hint" readonly="" autocomplete="off" spellcheck="false" tabindex="-1" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);">
-                <input type="text" placeholder="Snake, doomy" class="tt-input" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;">
-                <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: 'Open Sans', sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
-                <span class="tt-dropdown-menu" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;">
-                <div class="tt-dataset-authors"></div>
-                </span></span></div>
-            <input autocomplete="" type="text" placeholder="Snake, doomy" id="articleAuthorsInput" style="display: none;">
+            <label><span>Автори:</span>
+                <input type="text" id="articleAuthorsInput" placeholder="Snake, doomy" autocomplete="">
             </label>
-            <div role="region" id="articleReviewRegion" style="display: none;">
+            <div id="articleReviewRegion" role="region">
                 <div class="two-cols">
                     <label><span>Оценка:</span>
                         <select id="articleHypeSelect">
-                            <option value="10">1</option>
-                            <option value="15">1+</option>
-                            <option value="20">2</option>
-                            <option value="25">2+</option>
-                            <option value="30">3</option>
-                            <option value="35">3+</option>
-                            <option value="40">4</option>
-                            <option value="45">4+</option>
-                            <option value="50">5</option>
-                            <option value="55">5+</option>
-                            <option value="60">6</option>
-                            <option value="65">6+</option>
-                            <option value="70">7</option>
-                            <option value="75">7+</option>
-                            <option value="80">8</option>
-                            <option value="85">8+</option>
-                            <option value="90">9</option>
-                            <option value="95">9+</option>
-                            <option value="100">10</option>
                         </select>
                     </label>
                 </div>
                 <div class="two-cols">
                     <label><span>Тествана версия:</span>
                         <select id="articleVersionTestedSelect">
-                            <option value="Win">Windows</option>
-                            <option value="Mac">Mac OS</option>
-                            <option value="360">Xbox 360</option>
-                            <option value="One">Xbox One</option>
-                            <option value="PS3">PlayStation 3</option>
-                            <option value="PS4">PlayStation 4</option>
-                            <option value="Vita">PlayStation Vita</option>
-                            <option value="Wii">Nintendo Wii</option>
-                            <option value="3DS">Nintendo 3DS</option>
-                            <option value="iOS">iOS</option>
-                            <option value="Android">Android</option>
                         </select>
                     </label>
                 </div>
-                <label>
-                <span>По-добра:</span>
-                <div class="bootstrap-tagsinput"><span class="twitter-typeahead" style="position: relative; display: inline-block; direction: ltr;">
-                    <input type="text" class="tt-hint" readonly="" autocomplete="off" spellcheck="false" tabindex="-1" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);">
-                    <input type="text" placeholder="" class="tt-input" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;">
-                    <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: 'Open Sans', sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
-                    <span class="tt-dropdown-menu" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;">
-                    <div class="tt-dataset-tags"></div>
-                    </span></span></div>
-                <input autocomplete="" type="text" placeholder="" id="articleBetterInput" style="display: none;">
+                <label><span>По-добра:</span>
+                    <input type="text" id="articleBetterInput" placeholder="" autocomplete="">
                 </label>
-                <label>
-                <span>По-лоша:</span>
-                <div class="bootstrap-tagsinput"><span class="twitter-typeahead" style="position: relative; display: inline-block; direction: ltr;">
-                    <input type="text" class="tt-hint" readonly="" autocomplete="off" spellcheck="false" tabindex="-1" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);">
-                    <input type="text" placeholder="" class="tt-input" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;">
-                    <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: 'Open Sans', sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
-                    <span class="tt-dropdown-menu" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;">
-                    <div class="tt-dataset-tags"></div>
-                    </span></span></div>
-                <input autocomplete="" type="text" placeholder="" id="articleWorseInput" style="display: none;">
+                <label><span>По-лоша:</span>
+                    <input type="text" id="articleWorseInput" placeholder="" autocomplete="">
                 </label>
-                <label>
-                <span>Равностойна:</span>
-                <div class="bootstrap-tagsinput"><span class="twitter-typeahead" style="position: relative; display: inline-block; direction: ltr;">
-                    <input type="text" class="tt-hint" readonly="" autocomplete="off" spellcheck="false" tabindex="-1" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);">
-                    <input type="text" placeholder="" class="tt-input" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;">
-                    <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: 'Open Sans', sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
-                    <span class="tt-dropdown-menu" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;">
-                    <div class="tt-dataset-tags"></div>
-                    </span></span></div>
-                <input autocomplete="" type="text" placeholder="" id="articleEqualInput" style="display: none;">
+                <label><span>Равностойна:</span>
+                    <input type="text" id="articleEqualInput" placeholder="" autocomplete="">
                 </label>
             </div>
             <h3>Корица</h3>
-            <div role="region" class="Cover">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" x="0px" y="0px" viewBox="0 0 338 80" height="22%" preserveAspectRatio="xMinYMax meet" class="svg replaced-svg">
-                    <title>Forplay</title>
-                    <defs>
-                        <filter id="filterX__uniqueID_2b016962" primitiveUnits="objectBoundingBox" x="-50%" y="-50%" width="200%" height="200%">
-                            <feGaussianBlur in="SourceAlpha" stdDeviation="0.05"></feGaussianBlur>
-                            <feOffset dx="0" dy="0" result="offsetblur"></feOffset>
-                            <feFlood flood-color="rgb(0, 0, 0)" flood-opacity="0.25"></feFlood>
-                            <feComposite in2="offsetblur" operator="in"></feComposite>
-                            <feMerge>
-                                <feMergeNode></feMergeNode>
-                                <feMergeNode in="SourceGraphic"></feMergeNode>
-                            </feMerge>
-                        </filter>
-                    </defs>
-                    <g filter="url(#filterX__uniqueID_2b016962)">
-                        <path d="M0,0h41.366c26.535,0,41.495,7.154,41.495,30.959c0,23.154-15.089,32.781-41.626,32.781h-7.284V80H0V0z M38.634,41.496  c8.325,0,11.057-1.301,11.057-9.626c0-8.325-2.731-9.626-11.057-9.626h-4.683v19.252H38.634z"></path>
-                        <path d="M230.463,0h-42.666l-28.749,80h32.39l3.253-11.447c0.13,0,25.365,0,25.365,0L223.439,80h35.771L230.463,0z M200.545,48.52  l3.901-13.268c1.432-4.943,2.992-12.227,2.992-12.227s1.562,7.284,2.991,12.227l3.772,13.268H200.545z"></path>
-                        <path d="M127.048,57.365V0H93.097v80h56.845l8.196-22.635H127.048z M102.563,25.623c0-3.86,1.358-5.375,3.961-5.375   c2.014,0,3.037,1.141,3.55,2.78c0.236-0.519,0.65-0.932,1.459-1.347L114.687,20v4.067l-3.214,1.661   c-0.77,0.433-1.045,0.745-1.045,1.619v1.451h4.259v3.943h-12.124V25.623z M108.633,34.646c4.378,0,6.251,2.656,6.251,6.827   c0,4.15-1.873,6.807-6.251,6.807c-4.396,0-6.308-2.678-6.308-6.827C102.325,37.281,104.236,34.646,108.633,34.646z M117.821,60   h-15.258V49.459h2.62v6.577h3.154v-5.832h2.268v5.832h7.216V60z"></path>
-                        <path d="M106.586,24.067c-1.245,0-1.719,0.664-1.719,2.159v2.572h3.41v-2.386C108.278,24.793,107.943,24.067,106.586,24.067z"></path>
-                        <path d="M108.656,44.273c2.896,0,3.646-0.934,3.646-2.821c0-1.868-0.749-2.802-3.646-2.802c-2.939,0-3.726,0.913-3.726,2.823   C104.93,43.382,105.716,44.273,108.656,44.273z"></path>
-                        <path d="M246.163,0h36.813l7.284,15.87c1.951,4.293,4.033,11.317,4.033,11.317s2.081-7.154,3.901-11.317L304.959,0H338  l-28.357,53.203c0-0.131,0,26.797,0,26.797h-33.951V53.203L246.163,0z"></path>
-                    </g>
-                </svg>
-                <div class="h-preview" style="background-position: 50% 0%;"></div>
-                <div class="v-preview" style="background-position: 50% 0%;"></div>
-                <button type="button" class="select">
+            <div class="Cover" role="region"><img class="svg" src="../assets/forplay.svg" alt="Forplay&amp;reg;">
+                <div class="h-preview"></div>
+                <div class="v-preview"></div>
+                <button class="select" type="button">
                 <input type="hidden" id="articleCoverInput">
-                <span class="clip">Добави корица</span><img role="presentation" alt="16:9" src="../assets/helpers/16-9.png">
+                <span class="clip">Добави корица</span><img src="../assets/helpers/16-9.png" alt="16:9" role="presentation">
                 </button>
             </div>
             <div class="two-cols">
@@ -614,24 +290,6 @@ ng\:form { display:block; }
                 <label><span>Тема:</span>
                     <select id="articleThemeSelect">
                         <option value="">Без тема</option>
-                        <option value="F44336">red</option>
-                        <option value="E91E63">pink</option>
-                        <option value="9C27B0">purple</option>
-                        <option value="673AB7">deep-purple</option>
-                        <option value="3F51B5">indigo</option>
-                        <option value="2196F3">blue</option>
-                        <option value="00BCD4">cyan</option>
-                        <option value="009688">teal</option>
-                        <option value="4CAF50">green</option>
-                        <option value="8BC34A">light-green</option>
-                        <option value="CDDC39">lime</option>
-                        <option value="FFEB3B">yellow</option>
-                        <option value="FFC107">amber</option>
-                        <option value="FF9800">orange</option>
-                        <option value="FF5722">deep-orange</option>
-                        <option value="795548">brown</option>
-                        <option value="9E9E9E">grey</option>
-                        <option value="607D8B">blue-grey</option>
                     </select>
                 </label>
             </div>
@@ -639,199 +297,155 @@ ng\:form { display:block; }
                 <label><span>Подтема:</span>
                     <select id="articleSubthemeSelect">
                         <option value="">Без подтема</option>
-                        <option value="FFFFFF">lighten</option>
-                        <option value="000000">darken</option>
-                        <option value="33CC33">tuborg</option>
                     </select>
                 </label>
             </div>
             <h3>Основни картинки</h3>
-            <div role="group" class="Main">
-                <button type="button" class="select">
+            <div class="Main" role="group">
+                <button class="select" type="button">
                 <input type="hidden" id="articleMainInput">
-                <span class="clip">Добави основна картинка</span><img role="presentation" alt="16:9" src="../assets/helpers/16-9.png">
+                <span class="clip">Добави основна картинка</span><img src="../assets/helpers/16-9.png" alt="16:9" role="presentation">
                 </button>
-                <button type="button" class="select">
+                <button class="select" type="button">
                 <input type="hidden" id="articleMain640Input">
-                <span class="clip">Добави основна картинка</span><img role="presentation" alt="16:9" src="../assets/helpers/16-9.png">
+                <span class="clip">Добави основна картинка</span><img src="../assets/helpers/16-9.png" alt="16:9" role="presentation">
                 </button>
-                <button type="button" class="select">
+                <button class="select" type="button">
                 <input type="hidden" id="articleMain320Input">
-                <span class="clip">Добави основна картинка</span><img role="presentation" alt="1:1" src="../assets/helpers/9-9.png">
+                <span class="clip">Добави основна картинка</span><img src="../assets/helpers/9-9.png" alt="1:1" role="presentation">
                 </button>
             </div>
             <h3>Съдържание</h3>
-            <div role="region" class="Add Content">
-                <button type="button" class="add">Добави съдържание</button>
+            <div class="Add Content" role="region">
+                <button class="add" type="button">Добави съдържание</button>
             </div>
         </form>
         <div role="toolbar">
-            <button type="button" class="publish">Публикувай</button>
-            <button type="button" class="save">Запази</button>
-            <button type="button" class="cancel">Отмени</button>
+            <button class="publish" type="button">Публикувай</button>
+            <button class="save" type="button">Запази</button>
+            <button class="cancel" type="button">Отмени</button>
         </div>
     </section>
-    <section id="company" style="display: none;">
+    <section id="company">
         <h2><a href="#company">Компания<span class="">Добави компания и създай
                     таг.</span></a></h2>
         <form>
             <label><span>Компания:</span>
-                <input autocomplete="" type="text" placeholder="Crytek, HBO, Walt Disney Animation Studios" id="companyNameInput">
+                <input type="text" id="companyNameInput" placeholder="Crytek, HBO, Walt Disney Animation Studios" autocomplete="">
             </label>
             <label><span>Таг:</span>
-                <input autocomplete="" type="text" placeholder="crytek, hbo, walt-disney-animation-studios" id="companyTagInput">
+                <input type="text" id="companyTagInput" placeholder="crytek, hbo, walt-disney-animation-studios" autocomplete="">
             </label>
             <label><span>Тип:</span>
                 <select id="companyTypeSelect">
-                    <option value="games">игри</option>
-                    <option value="movies">филми</option>
-                    <option value="books">книги</option>
-                    <option value="music">музика</option>
-                    <option value="boards">настолни игри</option>
                 </select>
             </label>
         </form>
         <div role="toolbar">
-            <button type="button" class="save">Запази</button>
-            <button type="button" class="cancel">Отмени</button>
+            <button class="save" type="button">Запази</button>
+            <button class="cancel" type="button">Отмени</button>
         </div>
     </section>
-    <section id="platform" style="display: none;">
+    <section id="platform">
         <h2><a href="#platform">Платформа<span class="">Добави платформа и създай
                     таг.</span></a></h2>
         <form>
             <label><span>Платформа:</span>
-                <input autocomplete="" type="text" placeholder="Xbox 360, PlayStation 4, Android" id="gamePlatformNameInput">
+                <input type="text" id="gamePlatformNameInput" placeholder="Xbox 360, PlayStation 4, Android" autocomplete="">
             </label>
             <label><span>Таг:</span>
-                <input autocomplete="" type="text" placeholder="360, ps4, android" id="gamePlatformTagInput">
+                <input type="text" id="gamePlatformTagInput" placeholder="360, ps4, android" autocomplete="">
             </label>
         </form>
         <div role="toolbar">
-            <button type="button" class="save">Запази</button>
-            <button type="button" class="cancel">Отмени</button>
+            <button class="save" type="button">Запази</button>
+            <button class="cancel" type="button">Отмени</button>
         </div>
     </section>
-    <section id="person" style="display: none;">
+    <section id="person">
         <h2><a href="#person">Персона<span class="">Добави персона и създай таг.</span></a></h2>
         <form>
             <label><span>Персона:</span>
-                <input autocomplete="" type="text" placeholder="Шигеру Миямото, Сам Хаузър, Чък Норис, Дейвид Финчър, Кърк Хамет, Айс-Ти, Фарел Уилямс, Тери Пратчет, Патрик Модиано" id="personNameInput">
+                <input type="text" id="personNameInput" placeholder="Шигеру Миямото, Сам Хаузър, Чък Норис, Дейвид Финчър, Кърк Хамет, Айс-Ти, Фарел Уилямс, Тери Пратчет, Патрик Модиано" autocomplete="">
             </label>
             <label><span>Таг:</span>
-                <input autocomplete="" type="text" placeholder="shigeru-miyamoto, sam-houser, chuck-norris, david-fincher, kirk-hammett, ice-t, pharrell-williams, terry-pratchett, patrick-modiano" id="personTagInput">
+                <input type="text" id="personTagInput" placeholder="shigeru-miyamoto, sam-houser, chuck-norris, david-fincher, kirk-hammett, ice-t, pharrell-williams, terry-pratchett, patrick-modiano" autocomplete="">
             </label>
-            <label>
-            <span>Свързани игри, комапнии или други:</span>
-            <div class="bootstrap-tagsinput"><span class="twitter-typeahead" style="position: relative; display: inline-block; direction: ltr;">
-                <input type="text" class="tt-hint" readonly="" autocomplete="off" spellcheck="false" tabindex="-1" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);">
-                <input type="text" placeholder="gta-5, rockstar" class="tt-input" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;">
-                <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: 'Open Sans', sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
-                <span class="tt-dropdown-menu" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;">
-                <div class="tt-dataset-tags"></div>
-                </span></span></div>
-            <input autocomplete="" type="text" placeholder="gta-5, rockstar" id="personTagsInput" style="display: none;">
+            <label><span>Свързани игри, комапнии или други:</span>
+                <input type="text" id="personTagsInput" placeholder="gta-5, rockstar" autocomplete="">
             </label>
             <label><span>Тип:</span>
                 <select id="personTypeSelect">
-                    <option value="games">игри</option>
-                    <option value="movies">филми</option>
-                    <option value="books">книги</option>
-                    <option value="music">музика</option>
-                    <option value="boards">настолни игри</option>
                 </select>
             </label>
         </form>
         <div role="toolbar">
-            <button type="button" class="save">Запази</button>
-            <button type="button" class="cancel">Отмени</button>
+            <button class="save" type="button">Запази</button>
+            <button class="cancel" type="button">Отмени</button>
         </div>
     </section>
-    <section id="character" style="display: none;">
+    <section id="character">
         <h2><a href="#character">Герой<span class="">Добави герой и създай таг.</span></a></h2>
         <form>
             <label><span>Герой:</span>
-                <input autocomplete="" type="text" placeholder="Sonic, Master Chief, Duke Nukem, Батман, Фокс Мълдър, Рапунцел, Ринсуинд, Ходор" id="characterNameInput">
+                <input type="text" id="characterNameInput" placeholder="Sonic, Master Chief, Duke Nukem, Батман, Фокс Мълдър, Рапунцел, Ринсуинд, Ходор" autocomplete="">
             </label>
             <label><span>Таг:</span>
-                <input autocomplete="" type="text" placeholder="sonic, master-chief, duke-nukem, batman, fox-mulder, rapunzel, rincewind, hodor" id="characterTagInput">
+                <input type="text" id="characterTagInput" placeholder="sonic, master-chief, duke-nukem, batman, fox-mulder, rapunzel, rincewind, hodor" autocomplete="">
             </label>
-            <label>
-            <span>Свързани игри, комапнии или други:</span>
-            <div class="bootstrap-tagsinput"><span class="twitter-typeahead" style="position: relative; display: inline-block; direction: ltr;">
-                <input type="text" class="tt-hint" readonly="" autocomplete="off" spellcheck="false" tabindex="-1" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);">
-                <input type="text" placeholder="halo, bungie" class="tt-input" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;">
-                <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: 'Open Sans', sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
-                <span class="tt-dropdown-menu" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;">
-                <div class="tt-dataset-tags"></div>
-                </span></span></div>
-            <input autocomplete="" type="text" placeholder="halo, bungie" id="characterTagsInput" style="display: none;">
+            <label><span>Свързани игри, комапнии или други:</span>
+                <input type="text" id="characterTagsInput" placeholder="halo, bungie" autocomplete="">
             </label>
             <label><span>Тип:</span>
                 <select id="characterTypeSelect">
-                    <option value="games">игри</option>
-                    <option value="movies">филми</option>
-                    <option value="books">книги</option>
-                    <option value="music">музика</option>
-                    <option value="boards">настолни игри</option>
                 </select>
             </label>
         </form>
         <div role="toolbar">
-            <button type="button" class="save">Запази</button>
-            <button type="button" class="cancel">Отмени</button>
+            <button class="save" type="button">Запази</button>
+            <button class="cancel" type="button">Отмени</button>
         </div>
     </section>
-    <section id="serie" style="display: none;">
+    <section id="serie">
         <h2><a href="#serie">Поредица<span class="">Добави поредица и създай
                     таг.</span></a></h2>
         <form>
             <label><span>Поредица:</span>
-                <input autocomplete="" type="text" placeholder="Grand Theft Auto, Halo, Батман, Песен за Огън и Лед, Истории от Света на Диска" id="serieNameInput">
+                <input type="text" id="serieNameInput" placeholder="Grand Theft Auto, Halo, Батман, Песен за Огън и Лед, Истории от Света на Диска" autocomplete="">
             </label>
             <label><span>Таг:</span>
-                <input autocomplete="" type="text" placeholder="gta, halo, star-wars, batman, a-song-of-ice-and-fire, discworld" id="serieTagInput">
+                <input type="text" id="serieTagInput" placeholder="gta, halo, star-wars, batman, a-song-of-ice-and-fire, discworld" autocomplete="">
             </label>
             <label><span>Тип:</span>
                 <select id="serieTypeSelect">
-                    <option value="games">игри</option>
-                    <option value="movies">филми</option>
-                    <option value="books">книги</option>
-                    <option value="music">музика</option>
-                    <option value="boards">настолни игри</option>
                 </select>
             </label>
         </form>
         <div role="toolbar">
-            <button type="button" class="save">Запази</button>
-            <button type="button" class="cancel">Отмени</button>
+            <button class="save" type="button">Запази</button>
+            <button class="cancel" type="button">Отмени</button>
         </div>
     </section>
-    <section id="genre" style="display: none;">
+    <section id="genre">
         <h2><a href="#genre">Жанр<span class="">Добави жанр и създай таг.</span></a></h2>
         <form>
             <label><span>Жанр:</span>
-                <input autocomplete="" type="text" placeholder="Екшън от първо/трето лице, Куест, ММО, Драма, Комедия, Анимация, Рол, Дийп Хаус, Дрийм Поп, Фентъзи, Новела, Крими,  Научна Фантастика" id="genreNameInput">
+                <input type="text" id="genreNameInput" placeholder="Екшън от първо/трето лице, Куест, ММО, Драма, Комедия, Анимация, Рол, Дийп Хаус, Дрийм Поп, Фентъзи, Новела, Крими,  Научна Фантастика" autocomplete="">
             </label>
             <label><span>Таг:</span>
-                <input autocomplete="" type="text" placeholder="tps, adventure, mmo, drama, comedy, animation, rock, deep-house, dream-pop, novel, fantasy, crime, science-fiction" id="genreTagInput">
+                <input type="text" id="genreTagInput" placeholder="tps, adventure, mmo, drama, comedy, animation, rock, deep-house, dream-pop, novel, fantasy, crime, science-fiction" autocomplete="">
             </label>
             <label><span>Тип:</span>
                 <select id="genreTypeSelect">
-                    <option value="games">игри</option>
-                    <option value="movies">филми</option>
-                    <option value="books">книги</option>
-                    <option value="music">музика</option>
-                    <option value="boards">настолни игри</option>
                 </select>
             </label>
         </form>
         <div role="toolbar">
-            <button type="button" class="save">Запази</button>
-            <button type="button" class="cancel">Отмени</button>
+            <button class="save" type="button">Запази</button>
+            <button class="cancel" type="button">Отмени</button>
         </div>
     </section>
-    <section id="movies" style="display: none;">
+    <section id="movies">
         <h2><a href="#movies">Кино и Телевизия<span class="">Създай...</span></a></h2>
         <nav aria-label="Обекти в кино и сериали">
             <ul>
@@ -847,153 +461,67 @@ ng\:form { display:block; }
             </ul>
         </nav>
     </section>
-    <section id="movie" style="display: none;">
+    <section id="movie">
         <h2><a href="#movie">Филми<span class="">Добави информация за филма и
                     създай таг.</span></a></h2>
         <form>
             <label><span>Оригинално име на филмът:</span>
-                <input autocomplete="" type="text" placeholder="Star Wars: The Force Awakens" id="movieEnNameInput">
+                <input type="text" id="movieEnNameInput" placeholder="Star Wars: The Force Awakens" autocomplete="">
             </label>
             <label><span>Име на филмът на български:</span>
-                <input autocomplete="" type="text" placeholder="Междузвездни Войни: Силата се Пробужда" id="movieBgNameInput">
+                <input type="text" id="movieBgNameInput" placeholder="Междузвездни Войни: Силата се Пробужда" autocomplete="">
             </label>
             <div class="one-col">
-                <label>
-                <span>Поредица:</span><span class="twitter-typeahead" style="position: relative; display: inline-block; direction: ltr;">
-                <input autocomplete="off" type="text" class="tt-hint" readonly="" spellcheck="false" tabindex="-1" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);">
-                <input autocomplete="off" type="text" placeholder="star-wars" id="movieSerieInput" class="tt-input" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;">
-                <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: 'Open Sans', sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
-                <span class="tt-dropdown-menu" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;">
-                <div class="tt-dataset-series"></div>
-                </span></span>
+                <label><span>Поредица:</span>
+                    <input type="text" id="movieSerieInput" placeholder="star-wars" autocomplete="off">
                 </label>
-                <a class="create" href="#serie">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" class="svg replaced-svg">
-                    <polygon id="plus-2-icon" points="462,209.528 302.471,209.528 302.471,50 209.529,50 209.529,209.528 50,209.528 50,302.47    209.529,302.47 209.529,462 302.471,462 302.471,302.47 462,302.47 "></polygon>
-                </svg>
-                </a></div>
+                <a href="#serie" class="create"><img class="svg" alt="Създай Поредица" src="../assets/icons/iconmonstr/iconmonstr-plus-2-icon.svg"></a></div>
             <label><span>Таг:</span>
-                <input autocomplete="" type="text" placeholder="star-wars-episode-the-force-awakens" id="movieTagInput">
+                <input type="text" id="movieTagInput" placeholder="star-wars-episode-the-force-awakens" autocomplete="">
             </label>
-            <label>
-            <span>Стикери:</span>
-            <div class="bootstrap-tagsinput"><span class="twitter-typeahead" style="position: relative; display: inline-block; direction: ltr;">
-                <input type="text" class="tt-hint" readonly="" autocomplete="off" spellcheck="false" tabindex="-1" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);">
-                <input type="text" placeholder="girl, beer, 18+" class="tt-input" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;">
-                <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: 'Open Sans', sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
-                <span class="tt-dropdown-menu" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;">
-                <div class="tt-dataset-stickers"></div>
-                </span></span></div>
-            <input autocomplete="" type="text" placeholder="girl, beer, 18+" id="movieStickersInput" style="display: none;">
+            <label><span>Стикери:</span>
+                <input type="text" id="movieStickersInput" placeholder="girl, beer, 18+" autocomplete="">
             </label>
             <div class="one-col">
-                <label>
-                <span>Кастинг:</span>
-                <div class="bootstrap-tagsinput"><span class="twitter-typeahead" style="position: relative; display: inline-block; direction: ltr;">
-                    <input type="text" class="tt-hint" readonly="" autocomplete="off" spellcheck="false" tabindex="-1" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);">
-                    <input type="text" placeholder="Бен Афлек, Розамунд Пайк, Нийл Патрик Харис, Тайлър Пери, Кери Куун, Ким Дикенс" class="tt-input" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;">
-                    <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: 'Open Sans', sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
-                    <span class="tt-dropdown-menu" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;">
-                    <div class="tt-dataset-persons"></div>
-                    </span></span></div>
-                <input autocomplete="" type="text" placeholder="Бен Афлек, Розамунд Пайк, Нийл Патрик Харис, Тайлър Пери, Кери Куун, Ким Дикенс" id="movieCastInput" style="display: none;">
+                <label><span>Кастинг:</span>
+                    <input type="text" id="movieCastInput" placeholder="Бен Афлек, Розамунд Пайк, Нийл Патрик Харис, Тайлър Пери, Кери Куун, Ким Дикенс" autocomplete="">
                 </label>
-                <a class="create" href="#person">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" class="svg replaced-svg">
-                    <polygon id="plus-2-icon" points="462,209.528 302.471,209.528 302.471,50 209.529,50 209.529,209.528 50,209.528 50,302.47    209.529,302.47 209.529,462 302.471,462 302.471,302.47 462,302.47 "></polygon>
-                </svg>
-                </a></div>
+                <a href="#person" class="create"><img class="svg" alt="Създай Кастинг" src="../assets/icons/iconmonstr/iconmonstr-plus-2-icon.svg"></a></div>
             <div class="one-col">
-                <label>
-                <span>Режисьор:</span>
-                <div class="bootstrap-tagsinput"><span class="twitter-typeahead" style="position: relative; display: inline-block; direction: ltr;">
-                    <input type="text" class="tt-hint" readonly="" autocomplete="off" spellcheck="false" tabindex="-1" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);">
-                    <input type="text" placeholder="Дейвид Финчър" class="tt-input" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;">
-                    <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: 'Open Sans', sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
-                    <span class="tt-dropdown-menu" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;">
-                    <div class="tt-dataset-persons"></div>
-                    </span></span></div>
-                <input autocomplete="" type="text" placeholder="Дейвид Финчър" id="movieDirectorInput" style="display: none;">
+                <label><span>Режисьор:</span>
+                    <input type="text" id="movieDirectorInput" placeholder="Дейвид Финчър" autocomplete="">
                 </label>
-                <a class="create" href="#person">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" class="svg replaced-svg">
-                    <polygon id="plus-2-icon" points="462,209.528 302.471,209.528 302.471,50 209.529,50 209.529,209.528 50,209.528 50,302.47    209.529,302.47 209.529,462 302.471,462 302.471,302.47 462,302.47 "></polygon>
-                </svg>
-                </a></div>
+                <a href="#person" class="create"><img class="svg" alt="Създай Режисьор" src="../assets/icons/iconmonstr/iconmonstr-plus-2-icon.svg"></a></div>
             <div class="one-col">
-                <label>
-                <span>Сценарист:</span>
-                <div class="bootstrap-tagsinput"><span class="twitter-typeahead" style="position: relative; display: inline-block; direction: ltr;">
-                    <input type="text" class="tt-hint" readonly="" autocomplete="off" spellcheck="false" tabindex="-1" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);">
-                    <input type="text" placeholder="Джилиън Флин" class="tt-input" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;">
-                    <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: 'Open Sans', sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
-                    <span class="tt-dropdown-menu" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;">
-                    <div class="tt-dataset-persons"></div>
-                    </span></span></div>
-                <input autocomplete="" type="text" placeholder="Джилиън Флин" id="movieWriterInput" style="display: none;">
+                <label><span>Сценарист:</span>
+                    <input type="text" id="movieWriterInput" placeholder="Джилиън Флин" autocomplete="">
                 </label>
-                <a class="create" href="#person">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" class="svg replaced-svg">
-                    <polygon id="plus-2-icon" points="462,209.528 302.471,209.528 302.471,50 209.529,50 209.529,209.528 50,209.528 50,302.47    209.529,302.47 209.529,462 302.471,462 302.471,302.47 462,302.47 "></polygon>
-                </svg>
-                </a></div>
+                <a href="#person" class="create"><img class="svg" alt="Създай Сценарист" src="../assets/icons/iconmonstr/iconmonstr-plus-2-icon.svg"></a></div>
             <div class="one-col">
-                <label>
-                <span>Оператор:</span>
-                <div class="bootstrap-tagsinput"><span class="twitter-typeahead" style="position: relative; display: inline-block; direction: ltr;">
-                    <input type="text" class="tt-hint" readonly="" autocomplete="off" spellcheck="false" tabindex="-1" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);">
-                    <input type="text" placeholder="Джеф Кроненует" class="tt-input" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;">
-                    <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: 'Open Sans', sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
-                    <span class="tt-dropdown-menu" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;">
-                    <div class="tt-dataset-persons"></div>
-                    </span></span></div>
-                <input autocomplete="" type="text" placeholder="Джеф Кроненует" id="movieCameraInput" style="display: none;">
+                <label><span>Оператор:</span>
+                    <input type="text" id="movieCameraInput" placeholder="Джеф Кроненует" autocomplete="">
                 </label>
-                <a class="create" href="#person">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" class="svg replaced-svg">
-                    <polygon id="plus-2-icon" points="462,209.528 302.471,209.528 302.471,50 209.529,50 209.529,209.528 50,209.528 50,302.47    209.529,302.47 209.529,462 302.471,462 302.471,302.47 462,302.47 "></polygon>
-                </svg>
-                </a></div>
+                <a href="#person" class="create"><img class="svg" alt="Създай Оператор" src="../assets/icons/iconmonstr/iconmonstr-plus-2-icon.svg"></a></div>
             <div class="one-col">
-                <label>
-                <span>Музика:</span>
-                <div class="bootstrap-tagsinput"><span class="twitter-typeahead" style="position: relative; display: inline-block; direction: ltr;">
-                    <input type="text" class="tt-hint" readonly="" autocomplete="off" spellcheck="false" tabindex="-1" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);">
-                    <input type="text" placeholder="Трент Резнър, Атикъс Рос" class="tt-input" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;">
-                    <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: 'Open Sans', sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
-                    <span class="tt-dropdown-menu" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;">
-                    <div class="tt-dataset-persons"></div>
-                    </span></span></div>
-                <input autocomplete="" type="text" placeholder="Трент Резнър, Атикъс Рос" id="movieMusicInput" style="display: none;">
+                <label><span>Музика:</span>
+                    <input type="text" id="movieMusicInput" placeholder="Трент Резнър, Атикъс Рос" autocomplete="">
                 </label>
-                <a class="create" href="#person">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" class="svg replaced-svg">
-                    <polygon id="plus-2-icon" points="462,209.528 302.471,209.528 302.471,50 209.529,50 209.529,209.528 50,209.528 50,302.47    209.529,302.47 209.529,462 302.471,462 302.471,302.47 462,302.47 "></polygon>
-                </svg>
-                </a></div>
+                <a href="#person" class="create"><img class="svg" alt="Създай Музика" src="../assets/icons/iconmonstr/iconmonstr-plus-2-icon.svg"></a></div>
             <div class="two-cols">
                 <label><span>Премиера за България:</span>
-                    <input autocomplete="" type="date" placeholder="" id="gameBgDateInput">
+                    <input type="date" id="gameBgDateInput" placeholder="" autocomplete="">
                 </label>
             </div>
             <div class="two-cols">
                 <label><span>Световна премиера:</span>
-                    <input autocomplete="" type="date" placeholder="" id="gameWorldDateInput">
+                    <input type="date" id="gameWorldDateInput" placeholder="" autocomplete="">
                 </label>
             </div>
-            <label>
-            <span>Подобни:</span>
-            <div class="bootstrap-tagsinput"><span class="twitter-typeahead" style="position: relative; display: inline-block; direction: ltr;">
-                <input type="text" class="tt-hint" readonly="" autocomplete="off" spellcheck="false" tabindex="-1" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);">
-                <input type="text" placeholder="turks-in-space" class="tt-input" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;">
-                <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: 'Open Sans', sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
-                <span class="tt-dropdown-menu" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;">
-                <div class="tt-dataset-movies"></div>
-                </span></span></div>
-            <input autocomplete="off" type="text" placeholder="turks-in-space" id="movieSimilarInput" style="display: none;">
+            <label><span>Подобни:</span>
+                <input type="text" id="movieSimilarInput" placeholder="turks-in-space" autocomplete="off">
             </label>
             <label><span>Времетраене:</span>
-                <input autocomplete="" type="text" placeholder="149" id="movieTimeInput">
+                <input type="text" id="movieTimeInput" placeholder="149" autocomplete="">
             </label>
             <div class="Box">
                 <div class="file">
@@ -1004,11 +532,11 @@ ng\:form { display:block; }
             </div>
         </form>
         <div role="toolbar">
-            <button type="button" class="save">Запази</button>
-            <button type="button" class="cancel">Отмени</button>
+            <button class="save" type="button">Запази</button>
+            <button class="cancel" type="button">Отмени</button>
         </div>
     </section>
-    <section id="music" style="display: none;">
+    <section id="music">
         <h2><a href="#music">Музика<span class="">Създай...</span></a></h2>
         <nav aria-label="Обекти в музика">
             <ul>
@@ -1023,7 +551,7 @@ ng\:form { display:block; }
             </ul>
         </nav>
     </section>
-    <section id="books" style="display: none;">
+    <section id="books">
         <h2><a href="#books">Музика<span class="">Създай...</span></a></h2>
         <nav aria-label="Обекти в музика">
             <ul>
@@ -1037,7 +565,7 @@ ng\:form { display:block; }
             </ul>
         </nav>
     </section>
-    <section id="boards" style="display: none;">
+    <section id="boards">
         <h2><a href="#boards">Настолни Игри<span class="">Създай...</span></a></h2>
         <nav aria-label="Обекти в настолни игри">
             <ul>
@@ -1048,24 +576,19 @@ ng\:form { display:block; }
             </ul>
         </nav>
     </section>
-    <section id="aside" style="display: none;">
+    <section id="aside">
         <h2><a href="#aside">Каре<span class="">Създай каре.</span></a></h2>
         <form>
             <h3>Тема</h3>
             <label><span>Раздел:</span>
                 <select id="asideTypeSelect">
-                    <option value="games">игри</option>
-                    <option value="movies">филми</option>
-                    <option value="books">книги</option>
-                    <option value="music">музика</option>
-                    <option value="boards">настолни игри</option>
                 </select>
             </label>
             <label><span>Заглавие:</span>
-                <input autocomplete="" type="text" placeholder="Grand Theft Auto 5" id="asideTitle">
+                <input type="text" id="asideTitle" placeholder="Grand Theft Auto 5" autocomplete="">
             </label>
             <label><span>Подзаглавие:</span>
-                <input autocomplete="" type="text" placeholder="Grand Theft Auto 5" id="asideSubtitle">
+                <input type="text" id="asideSubtitle" placeholder="Grand Theft Auto 5" autocomplete="">
             </label>
             <label><span>Автор:</span>
                 <select id="asideAuthorSelect">
@@ -1074,12 +597,12 @@ ng\:form { display:block; }
             <h3>Съдържание</h3>
             <div class="Content">
                 <div class="z0Layout">
-                    <button type="button" class="select"><span class="clip">Добави
-                    картинка</span><img role="presentation" alt="16:9" src="../assets/helpers/16-9.png"></button>
+                    <button class="select" type="button"><span class="clip">Добави
+                    картинка</span><img src="../assets/helpers/16-9.png" alt="16:9" role="presentation"></button>
                 </div>
-                <div contenteditable="false" id="textLayout_aside" class="textLayout cke_editable cke_editable_inline cke_contents_ltr cke_show_borders" tabindex="0" spellcheck="false" role="textbox" aria-label="Rich Text Editor, textLayout_aside" title="Rich Text Editor, textLayout_aside" aria-describedby="cke_34" style="position: relative;">
+                <div contenteditable="true" class="textLayout" id="textLayout_aside">
                     <p>Натиснете тук, за да редактирате текста, използвайки само
-                        един параграф, <strong>болд</strong> , <em>италик</em> и <a target="_blank" data-cke-saved-href="#" href="#">връзки</a> .
+                        един параграф, <strong>болд</strong> , <em>италик</em> и <a href="#" target="_blank">връзки</a> .
                         Този едитор поддържа и стандартни функции, като копи,
                         пейст, ънду и реду. За да редактирата съдържанието директно
                         в HTML използвайте бутона <em>Source</em> .</p>
@@ -1087,169 +610,137 @@ ng\:form { display:block; }
             </div>
         </form>
         <div role="toolbar">
-            <button type="button" class="publish">Публикувай</button>
-            <button type="button" class="save">Запази</button>
-            <button type="button" class="cancel">Отмени</button>
+            <button class="publish" type="button">Публикувай</button>
+            <button class="save" type="button">Запази</button>
+            <button class="cancel" type="button">Отмени</button>
         </div>
     </section>
-    <section id="images" style="display: none;">
+    <section id="images">
         <h2><a href="#aside">Картинки<span class="">Прикачи картинкии и избери,
                     кои да влезнат в галерията.</span></a></h2>
         <form>
-            <label>
-            <span>Таг:</span><span class="twitter-typeahead" style="position: relative; display: inline-block; direction: ltr;">
-            <input autocomplete="off" type="text" class="tt-hint" readonly="" spellcheck="false" tabindex="-1" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);">
-            <input autocomplete="off" type="text" placeholder="gta-5, sam-houser, rockstar" id="imagesTagInput" class="tt-input" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;">
-            <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: 'Open Sans', sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
-            <span class="tt-dropdown-menu" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;">
-            <div class="tt-dataset-tags"></div>
-            </span></span>
+            <label><span>Таг:</span>
+                <input type="text" id="imagesTagInput" placeholder="gta-5, sam-houser, rockstar" autocomplete="off">
             </label>
             <ul role="listbox">
                 <li role="option">
                     <div class="file">
                         <label><span class="clip">Избери</span>
-                            <input multiple="multiple" type="file">
+                            <input type="file" multiple="multiple">
                         </label>
                     </div>
                 </li>
             </ul>
         </form>
         <div role="toolbar">
-            <button type="button" class="save">Запази</button>
-            <button type="button" class="cancel">Отмени</button>
+            <button class="save" type="button">Запази</button>
+            <button class="cancel" type="button">Отмени</button>
         </div>
     </section>
-    <section id="search" style="display: none;">
+    <section id="search">
         <h2><a href="#search">Търсене<span class="">Намери игра, филм, статия,
                     каре, картинка и т.н.</span></a></h2>
         <form>
             <div class="two-cols">
-                <label>
-                <span>Таг:</span><span class="twitter-typeahead" style="position: relative; display: inline-block; direction: ltr;">
-                <input autocomplete="off" type="text" class="tt-hint" readonly="" spellcheck="false" tabindex="-1" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);">
-                <input autocomplete="off" type="text" placeholder="gta-5, sam-houser, rockstar" id="searchTagInput" class="tt-input" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;">
-                <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: 'Open Sans', sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
-                <span class="tt-dropdown-menu" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;">
-                <div class="tt-dataset-tags"></div>
-                </span></span>
+                <label><span>Таг:</span>
+                    <input type="text" id="searchTagInput" placeholder="gta-5, sam-houser, rockstar" autocomplete="off">
                 </label>
-                <button class="search" type="button">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg replaced-svg">
-                    <path d="M333.78 20.188c-39.97 0-79.96 15.212-110.405 45.656-58.667 58.667-60.796 152.72-6.406 213.97l-15.782 15.748 13.25 13.25 15.75-15.78c61.248 54.39 155.3 52.26 213.968-6.407 60.887-60.886 60.888-159.894 0-220.78C413.713 35.4 373.753 20.187 333.78 20.187zm0 18.562c35.15 0 70.285 13.44 97.158 40.313 53.745 53.745 53.744 140.6 0 194.343-51.526 51.526-133.46 53.643-187.5 6.375l.218-.217c-2.35-2.05-4.668-4.17-6.906-6.407-2.207-2.206-4.288-4.496-6.313-6.812l-.218.22c-47.27-54.04-45.152-135.976 6.374-187.502C263.467 52.19 298.63 38.75 333.78 38.75zm0 18.813c-30.31 0-60.63 11.6-83.81 34.78-46.362 46.362-46.362 121.234 0 167.594 10.14 10.142 21.632 18.077 33.905 23.782-24.91-19.087-40.97-49.133-40.97-82.94 0-15.323 3.292-29.888 9.22-43-4.165 20.485.44 40.88 14.47 54.907 24.583 24.585 68.744 20.318 98.624-9.562 29.88-29.88 34.146-74.04 9.56-98.625-2.375-2.376-4.943-4.473-7.655-6.313 45.13 8.648 79.954 46.345 84.25 92.876 4.44-35.07-6.82-71.726-33.813-98.72-23.18-23.18-53.47-34.78-83.78-34.78zM176.907 297.688L42.094 432.5l34.562 34.563L211.47 332.25l-34.564-34.563zM40 456.813L24 472.78 37.22 486l15.968-16L40 456.812z"></path>
-                </svg>
-                </button>
+                <button type="button" class="search"><img class="svg" alt="Търси" src="../assets/icons/lorc/originals/svg/000000/transparent/magnifying-glass.svg"></button>
             </div>
             <div class="two-cols">
                 <label><span>Категория:</span>
                     <select id="searchCategorySelect">
-                        <option value="">всички</option>
-                        <option value="">игра</option>
-                        <option value="">филм</option>
-                        <option value="">албум</option>
-                        <option value="">каре</option>
-                        <option value="">картинка</option>
-                        <option value="">реклама</option>
-                        <option value="">цитат</option>
                     </select>
                 </label>
             </div>
             <h3 class="clip">Резултати</h3>
             <ul role="listbox">
-                <li data-type="игра" role="option" class="object">
+                <li class="object" role="option" data-type="игра">
                     <label><span>Grand Theft Auto 5</span>
                         <input type="radio" name="searchChoice">
                     </label>
                 </li>
-                <li data-type="ревю" role="option" class="review">
-                    <label><span>Grand Theft Auto V – сатирично менгеме. Вече
-                            и в 1080p!</span>
+                <li class="review" role="option" data-type="ревю">
+                    <label><span>Grand Theft Auto V &ndash; сатирично менгеме.
+                            Вече и в 1080p!</span>
                         <input type="radio" name="searchChoice">
                     </label>
                 </li>
-                <li data-type="каре" role="option" class="aside">
+                <li class="aside" role="option" data-type="каре">
                     <label><span>Лосантосейшън - или 10 начина да плющим в Лос
                             Сантос.</span>
                         <input type="radio" name="searchChoice">
                     </label>
                 </li>
-                <li data-type="новина" role="option" class="news">
+                <li class="news" role="option" data-type="новина">
                     <label><span>Линдзи Лоън съди авторите на Grand Theft Auto
                             V, но в крайна сметка яде бахора, като дърта пача.</span>
                         <input type="radio" name="searchChoice">
                     </label>
                 </li>
-                <li data-type="картинка" role="option" class="img">
-                    <label><img alt="Без коментар." src="../assets/articles/gta-5/gta-5-01.jpg"><span class="clip">gta-5-01.jpg</span>
+                <li class="img" role="option" data-type="картинка">
+                    <label><img src="../assets/articles/gta-5/gta-5-01.jpg" alt="Без коментар."><span class="clip">gta-5-01.jpg</span>
                         <input type="radio" name="searchChoice">
                     </label>
                 </li>
-                <li data-type="картинка" role="option" class="img">
-                    <label><img alt="Без коментар." src="../assets/articles/gta-5/gta-5-02.jpg"><span class="clip">gta-5-02.jpg</span>
+                <li class="img" role="option" data-type="картинка">
+                    <label><img src="../assets/articles/gta-5/gta-5-02.jpg" alt="Без коментар."><span class="clip">gta-5-02.jpg</span>
                         <input type="radio" name="searchChoice">
                     </label>
                 </li>
-                <li data-type="картинка" role="option" class="img">
-                    <label><img alt="Без коментар." src="../assets/articles/gta-5/gta-5-03.jpg"><span class="clip">gta-5-03.jpg</span>
+                <li class="img" role="option" data-type="картинка">
+                    <label><img src="../assets/articles/gta-5/gta-5-03.jpg" alt="Без коментар."><span class="clip">gta-5-03.jpg</span>
                         <input type="radio" name="searchChoice">
                     </label>
                 </li>
-                <li data-type="картинка" role="option" class="img">
-                    <label><img alt="Без коментар." src="../assets/articles/gta-5/gta-5-04.jpg"><span class="clip">gta-5-04.jpg</span>
+                <li class="img" role="option" data-type="картинка">
+                    <label><img src="../assets/articles/gta-5/gta-5-04.jpg" alt="Без коментар."><span class="clip">gta-5-04.jpg</span>
                         <input type="radio" name="searchChoice">
                     </label>
                 </li>
-                <li data-type="картинка" role="option" class="img">
-                    <label><img alt="Без коментар." src="../assets/articles/gta-5/gta-5-05.jpg"><span class="clip">gta-5-05.jpg</span>
+                <li class="img" role="option" data-type="картинка">
+                    <label><img src="../assets/articles/gta-5/gta-5-05.jpg" alt="Без коментар."><span class="clip">gta-5-05.jpg</span>
                         <input type="radio" name="searchChoice">
                     </label>
                 </li>
-                <li data-type="картинка" role="option" class="img">
-                    <label><img alt="Без коментар." src="../assets/articles/gta-5/gta-5-06.jpg"><span class="clip">gta-5-06.jpg</span>
+                <li class="img" role="option" data-type="картинка">
+                    <label><img src="../assets/articles/gta-5/gta-5-06.jpg" alt="Без коментар."><span class="clip">gta-5-06.jpg</span>
                         <input type="radio" name="searchChoice">
                     </label>
                 </li>
-                <li data-type="картинка" role="option" class="img">
-                    <label><img alt="Без коментар." src="../assets/articles/gta-5/gta-5-07.jpg"><span class="clip">gta-5-07.jpg</span>
+                <li class="img" role="option" data-type="картинка">
+                    <label><img src="../assets/articles/gta-5/gta-5-07.jpg" alt="Без коментар."><span class="clip">gta-5-07.jpg</span>
                         <input type="radio" name="searchChoice">
                     </label>
                 </li>
-                <li data-type="картинка" role="option" class="img">
-                    <label><img alt="Без коментар." src="../assets/articles/gta-5/gta-5-main.jpg"><span class="clip">gta-5-main.jpg</span>
+                <li class="img" role="option" data-type="картинка">
+                    <label><img src="../assets/articles/gta-5/gta-5-main.jpg" alt="Без коментар."><span class="clip">gta-5-main.jpg</span>
                         <input type="radio" name="searchChoice">
                     </label>
                 </li>
-                <li data-type="картинка" role="option" class="img">
-                    <label><img alt="Без коментар." src="../assets/articles/gta-5/gta-5-main-320.png"><span class="clip">gta-5-main-320.png</span>
+                <li class="img" role="option" data-type="картинка">
+                    <label><img src="../assets/articles/gta-5/gta-5-main-320.png" alt="Без коментар."><span class="clip">gta-5-main-320.png</span>
                         <input type="radio" name="searchChoice">
                     </label>
                 </li>
-                <li data-type="картинка" role="option" class="img">
-                    <label><img alt="Без коментар." src="../assets/articles/gta-5/gta-5-cover.jpg"><span class="clip">gta-5-cover.jpg</span>
+                <li class="img" role="option" data-type="картинка">
+                    <label><img src="../assets/articles/gta-5/gta-5-cover.jpg" alt="Без коментар."><span class="clip">gta-5-cover.jpg</span>
                         <input type="radio" name="searchChoice">
                     </label>
                 </li>
             </ul>
         </form>
         <div role="toolbar">
-            <button type="button" class="ok">Избери</button>
-            <button type="button" class="cancel">Отмени</button>
+            <button class="ok" type="button">Избери</button>
+            <button class="cancel" type="button">Отмени</button>
         </div>
     </section>
-    <section id="publish" style="display: none;">
+    <section id="publish">
         <h2><a href="#publish">Публикуване на статия<span class="">Избери тагове
                     и дата на публукуване.</span></a></h2>
         <form>
-            <label>
-            <span>Тагове:</span>
-            <div class="bootstrap-tagsinput"><span class="twitter-typeahead" style="position: relative; display: inline-block; direction: ltr;">
-                <input type="text" class="tt-hint" readonly="" autocomplete="off" spellcheck="false" tabindex="-1" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);">
-                <input type="text" placeholder="gta-5, sam-houser, rockstar" class="tt-input" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;">
-                <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: 'Open Sans', sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
-                <span class="tt-dropdown-menu" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;">
-                <div class="tt-dataset-tags"></div>
-                </span></span></div>
-            <input autocomplete="" type="text" placeholder="gta-5, sam-houser, rockstar" id="publishTagsInput" style="display: none;">
+            <label><span>Тагове:</span>
+                <input type="text" id="publishTagsInput" placeholder="gta-5, sam-houser, rockstar" autocomplete="">
             </label>
             <label>
                 <input type="hidden" id="publishSiteInput">
@@ -1259,12 +750,12 @@ ng\:form { display:block; }
                 <span class="hidden"><i>Адрес:</i><b>hidden</b> the-title-to-lower-case-for-other</span></label>
             <div class="two-cols">
                 <label><span>Дата на публикуване:</span>
-                    <input autocomplete="" type="date" placeholder="" id="publishDateInput">
+                    <input type="date" id="publishDateInput" placeholder="" autocomplete="">
                 </label>
             </div>
             <div class="two-cols">
                 <label><span>Час на публикуване:</span>
-                    <input autocomplete="" type="time" placeholder="" id="publishTimeInput">
+                    <input type="time" id="publishTimeInput" placeholder="" autocomplete="">
                 </label>
             </div>
             <label><span>Приоритет:</span>
@@ -1276,54 +767,34 @@ ng\:form { display:block; }
                     <option value="feature">мнение</option>
                 </select>
             </label>
-            <label>
-            <span>Брой:</span>
-            <div class="bootstrap-tagsinput"><span class="twitter-typeahead" style="position: relative; display: inline-block; direction: ltr;">
-                <input type="text" class="tt-hint" readonly="" autocomplete="off" spellcheck="false" tabindex="-1" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);">
-                <input type="text" placeholder="Брой 1 - Презереждане" class="tt-input" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;">
-                <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: 'Open Sans', sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
-                <span class="tt-dropdown-menu" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;">
-                <div class="tt-dataset-issues"></div>
-                </span></span></div>
-            <input autocomplete="off" type="text" placeholder="Брой 1 - Презереждане" id="publishIssueInput" style="display: none;">
+            <label><span>Брой:</span>
+                <input type="text" id="publishIssueInput" placeholder="Брой 1 - Презереждане" autocomplete="off">
             </label>
         </form>
         <div role="toolbar">
-            <button type="button" class="publish">Публикувай</button>
-            <button type="button" class="cancel">Отмени</button>
+            <button class="publish" type="button">Публикувай</button>
+            <button class="cancel" type="button">Отмени</button>
         </div>
     </section>
-    <section id="xml" style="display: none;">
+    <section id="xml">
         <h2><a href="#xml">Изходни данни<span class="">Може да копирате изходните
                     данни от тук и да ги пратите на Бат Ваньо.</span></a></h2>
         <form>
             <label><span>Изходен код:</span>
-                <textarea placeholder="" readonly="readonly" id="xmlCodeOutput"></textarea>
+                <textarea id="xmlCodeOutput" readonly="readonly" placeholder=""></textarea>
             </label>
         </form>
         <div role="toolbar">
-            <button type="button" class="cancel">Отмени</button>
+            <button class="cancel" type="button">Отмени</button>
         </div>
     </section>
 </main>
 <footer>
-    <p>© Copyright 2015 <a href="http://forplay.bg?video=castle-design">Castle
+    <p>&copy; Copyright 2015 <a href="http://forplay.bg?video=castle-design">Castle
             Design Ltd.</a></p>
     <p>Тази страница се придържа към <a href="http://www.mandate376.eu/">Европейските
             Изисквания за Достъпност на Обществени Продукти и Услуги.</a></p>
 </footer>
 <div class="Overlay"></div>
-<div id="cke_textLayout_aside" class="cke cke_1 cke_reset_all cke_chrome cke_editor_textLayout_aside cke_float cke_ltr cke_browser_webkit" dir="ltr" title="" lang="en" role="application" style="display: none; z-index: 9999; -webkit-user-select: none;" aria-labelledby="cke_textLayout_aside_arialbl"><span id="cke_textLayout_aside_arialbl" class="cke_voice_label">Rich
-        Text Editor, textLayout_aside</span>
-    <div class="cke_inner">
-        <div id="cke_1_top" class="cke_top" role="presentation"><span id="cke_7" class="cke_voice_label">Editor
-                toolbars</span><span id="cke_1_toolbox" class="cke_toolbox" role="group" aria-labelledby="cke_7" onmousedown="return false;"><span id="cke_8" class="cke_toolbar" aria-labelledby="cke_8_label" role="toolbar"><span id="cke_8_label" class="cke_voice_label">Clipboard/Undo</span><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><a id="cke_9" class="cke_button cke_button__cut cke_button_disabled " href="javascript:void('Cut')" title="Cut" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_9_label" aria-haspopup="false" aria-disabled="true" onkeydown="return CKEDITOR.tools.callFunction(2,event);" onfocus="return CKEDITOR.tools.callFunction(3,event);" onclick="CKEDITOR.tools.callFunction(4,this);return false;"><span class="cke_button_icon cke_button__cut_icon" style="background-image:url(http://localhost:8080/forplay/jslib/admin/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -264px;background-size:auto;">&nbsp;</span><span id="cke_9_label" class="cke_button_label cke_button__cut_label" aria-hidden="false">Cut</span></a><a id="cke_10" class="cke_button cke_button__copy cke_button_disabled " href="javascript:void('Copy')" title="Copy" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_10_label" aria-haspopup="false" aria-disabled="true" onkeydown="return CKEDITOR.tools.callFunction(5,event);" onfocus="return CKEDITOR.tools.callFunction(6,event);" onclick="CKEDITOR.tools.callFunction(7,this);return false;"><span class="cke_button_icon cke_button__copy_icon" style="background-image:url(http://localhost:8080/forplay/jslib/admin/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -216px;background-size:auto;">&nbsp;</span><span id="cke_10_label" class="cke_button_label cke_button__copy_label" aria-hidden="false">Copy</span></a><a id="cke_11" class="cke_button cke_button__paste  cke_button_off" href="javascript:void('Paste')" title="Paste" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_11_label" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(8,event);" onfocus="return CKEDITOR.tools.callFunction(9,event);" onclick="CKEDITOR.tools.callFunction(10,this);return false;"><span class="cke_button_icon cke_button__paste_icon" style="background-image:url(http://localhost:8080/forplay/jslib/admin/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -312px;background-size:auto;">&nbsp;</span><span id="cke_11_label" class="cke_button_label cke_button__paste_label" aria-hidden="false">Paste</span></a><a id="cke_12" class="cke_button cke_button__pastetext  cke_button_off" href="javascript:void('Paste as plain text')" title="Paste as plain text" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_12_label" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(11,event);" onfocus="return CKEDITOR.tools.callFunction(12,event);" onclick="CKEDITOR.tools.callFunction(13,this);return false;"><span class="cke_button_icon cke_button__pastetext_icon" style="background-image:url(http://localhost:8080/forplay/jslib/admin/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -720px;background-size:auto;">&nbsp;</span><span id="cke_12_label" class="cke_button_label cke_button__pastetext_label" aria-hidden="false">Paste
-                as plain text</span></a><a id="cke_13" class="cke_button cke_button__pastefromword  cke_button_off" href="javascript:void('Paste from Word')" title="Paste from Word" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_13_label" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(14,event);" onfocus="return CKEDITOR.tools.callFunction(15,event);" onclick="CKEDITOR.tools.callFunction(16,this);return false;"><span class="cke_button_icon cke_button__pastefromword_icon" style="background-image:url(http://localhost:8080/forplay/jslib/admin/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -768px;background-size:auto;">&nbsp;</span><span id="cke_13_label" class="cke_button_label cke_button__pastefromword_label" aria-hidden="false">Paste
-                from Word</span></a><span class="cke_toolbar_separator" role="separator"></span><a id="cke_14" class="cke_button cke_button__undo cke_button_disabled " href="javascript:void('Undo')" title="Undo" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_14_label" aria-haspopup="false" aria-disabled="true" onkeydown="return CKEDITOR.tools.callFunction(17,event);" onfocus="return CKEDITOR.tools.callFunction(18,event);" onclick="CKEDITOR.tools.callFunction(19,this);return false;"><span class="cke_button_icon cke_button__undo_icon" style="background-image:url(http://localhost:8080/forplay/jslib/admin/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -1008px;background-size:auto;">&nbsp;</span><span id="cke_14_label" class="cke_button_label cke_button__undo_label" aria-hidden="false">Undo</span></a><a id="cke_15" class="cke_button cke_button__redo cke_button_disabled " href="javascript:void('Redo')" title="Redo" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_15_label" aria-haspopup="false" aria-disabled="true" onkeydown="return CKEDITOR.tools.callFunction(20,event);" onfocus="return CKEDITOR.tools.callFunction(21,event);" onclick="CKEDITOR.tools.callFunction(22,this);return false;"><span class="cke_button_icon cke_button__redo_icon" style="background-image:url(http://localhost:8080/forplay/jslib/admin/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -960px;background-size:auto;">&nbsp;</span><span id="cke_15_label" class="cke_button_label cke_button__redo_label" aria-hidden="false">Redo</span></a></span><span class="cke_toolbar_end"></span></span><span id="cke_16" class="cke_toolbar" aria-labelledby="cke_16_label" role="toolbar"><span id="cke_16_label" class="cke_voice_label">Basic
-                Styles</span><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><a id="cke_17" class="cke_button cke_button__bold cke_button_disabled " href="javascript:void('Bold')" title="Bold" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_17_label" aria-haspopup="false" aria-disabled="true" onkeydown="return CKEDITOR.tools.callFunction(23,event);" onfocus="return CKEDITOR.tools.callFunction(24,event);" onclick="CKEDITOR.tools.callFunction(25,this);return false;"><span class="cke_button_icon cke_button__bold_icon" style="background-image:url(http://localhost:8080/forplay/jslib/admin/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -24px;background-size:auto;">&nbsp;</span><span id="cke_17_label" class="cke_button_label cke_button__bold_label" aria-hidden="false">Bold</span></a><a id="cke_18" class="cke_button cke_button__italic cke_button_disabled " href="javascript:void('Italic')" title="Italic" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_18_label" aria-haspopup="false" aria-disabled="true" onkeydown="return CKEDITOR.tools.callFunction(26,event);" onfocus="return CKEDITOR.tools.callFunction(27,event);" onclick="CKEDITOR.tools.callFunction(28,this);return false;"><span class="cke_button_icon cke_button__italic_icon" style="background-image:url(http://localhost:8080/forplay/jslib/admin/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -48px;background-size:auto;">&nbsp;</span><span id="cke_18_label" class="cke_button_label cke_button__italic_label" aria-hidden="false">Italic</span></a><a id="cke_19" class="cke_button cke_button__removeformat cke_button_disabled " href="javascript:void('Remove Format')" title="Remove Format" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_19_label" aria-haspopup="false" aria-disabled="true" onkeydown="return CKEDITOR.tools.callFunction(29,event);" onfocus="return CKEDITOR.tools.callFunction(30,event);" onclick="CKEDITOR.tools.callFunction(31,this);return false;"><span class="cke_button_icon cke_button__removeformat_icon" style="background-image:url(http://localhost:8080/forplay/jslib/admin/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -792px;background-size:auto;">&nbsp;</span><span id="cke_19_label" class="cke_button_label cke_button__removeformat_label" aria-hidden="false">Remove
-                Format</span></a></span><span class="cke_toolbar_end"></span></span><span id="cke_20" class="cke_toolbar" aria-labelledby="cke_20_label" role="toolbar"><span id="cke_20_label" class="cke_voice_label">Links</span><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><a id="cke_21" class="cke_button cke_button__link cke_button_disabled " href="javascript:void('Link')" title="Link" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_21_label" aria-haspopup="false" aria-disabled="true" onkeydown="return CKEDITOR.tools.callFunction(32,event);" onfocus="return CKEDITOR.tools.callFunction(33,event);" onclick="CKEDITOR.tools.callFunction(34,this);return false;"><span class="cke_button_icon cke_button__link_icon" style="background-image:url(http://localhost:8080/forplay/jslib/admin/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -528px;background-size:auto;">&nbsp;</span><span id="cke_21_label" class="cke_button_label cke_button__link_label" aria-hidden="false">Link</span></a><a id="cke_22" class="cke_button cke_button__unlink cke_button_disabled " href="javascript:void('Unlink')" title="Unlink" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_22_label" aria-haspopup="false" aria-disabled="true" onkeydown="return CKEDITOR.tools.callFunction(35,event);" onfocus="return CKEDITOR.tools.callFunction(36,event);" onclick="CKEDITOR.tools.callFunction(37,this);return false;"><span class="cke_button_icon cke_button__unlink_icon" style="background-image:url(http://localhost:8080/forplay/jslib/admin/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -552px;background-size:auto;">&nbsp;</span><span id="cke_22_label" class="cke_button_label cke_button__unlink_label" aria-hidden="false">Unlink</span></a></span><span class="cke_toolbar_end"></span></span><span id="cke_23" class="cke_toolbar" aria-labelledby="cke_23_label" role="toolbar"><span id="cke_23_label" class="cke_voice_label">Sourcedialog</span><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><a id="cke_24" class="cke_button cke_button__sourcedialog cke_button_disabled " href="javascript:void('Source')" title="Source" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_24_label" aria-haspopup="false" aria-disabled="true" onkeydown="return CKEDITOR.tools.callFunction(38,event);" onfocus="return CKEDITOR.tools.callFunction(39,event);" onclick="CKEDITOR.tools.callFunction(40,this);return false;"><span class="cke_button_icon cke_button__sourcedialog_icon" style="background-image:url(http://localhost:8080/forplay/jslib/admin/ckeditor/plugins/icons.png?t=F0RD);background-position:0 -1080px;background-size:auto;">&nbsp;</span><span id="cke_24_label" class="cke_button_label cke_button__sourcedialog_label" aria-hidden="false">Source</span></a></span><span class="cke_toolbar_end"></span></span></span><span id="cke_34" class="cke_voice_label">Press
-                ALT 0 for help</span></div>
-    </div>
-</div>
 </body>
 </html>

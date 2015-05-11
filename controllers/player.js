@@ -70,8 +70,6 @@ function PlayerManager() {
 	 */
 	  
 	$('main').on('click', '.Player .img-proxy a', function (e) {
-		e.preventDefault();
-		
 		var $this = $(this), 
 			$img = $this.find('img'),
 			$player = $this.parents('.Player');
@@ -80,6 +78,19 @@ function PlayerManager() {
 		var url = $this.data('video'),
 			tech = $this.data('tech'),
 			poster = $img.attr('src');
+		
+		/**
+		 * For mobile always open the video and not the article.
+		 */
+		
+		if (utils.isMobile()) {
+			$this.attr('href', $this.data('video'));
+			$this.attr('target', '_blank');
+			
+			return;
+		}													
+		
+		e.preventDefault();
 		
 		/**
 		 * Check if the player is running to prevent clicks;

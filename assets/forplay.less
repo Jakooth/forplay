@@ -102,6 +102,10 @@ section.cover *,
 	color: fade(@dark, 50%);
 }
 
+/**
+ * Author text.
+ */
+
 .article-set p:nth-of-type(1),
 .article-set p:nth-of-type(1) * {
 	font-size: 10pt;
@@ -229,6 +233,17 @@ header.read .cover-set {
 	display: none;
 }
 
+/**
+ * Without margin the content will jump too much.
+ * The margin must be the header height plus the top scroll.
+ * TODO: 400 is just on random.
+ * Find a way to calculate the margin precisely.
+ */
+
+main.fixed {
+	margin-top: 400px;
+}
+
 main.fixed #read .cover {
 	position: fixed;
 	z-index: 999;
@@ -267,6 +282,7 @@ main.fixed #read:before {
 header.fixed #covers,
 main.fixed #read .cover {
 	height: 106px;
+	top: 0;
 }
 
 header.fixed #covers h3,
@@ -470,7 +486,7 @@ section.cover > p {
 }
 
 /**
- * Top is 127px + 64px;
+ * Top is 127px + 64px.
  */
 
 #read .cover li:nth-child(3) p {
@@ -624,6 +640,23 @@ section.cover ul {
 	left: 40%;
 }
 
+header:not(.fixed) #covers article h3,
+header:not(.fixed) #covers article:nth-child(1).unfocus-left h3,
+header:not(.fixed) #covers article:nth-child(1).unfocus-right h3 {
+	.clip;
+}
+
+/**
+ * Only show title when the header is not fixed.
+ * Related to invisible style.
+ */
+
+header:not(.fixed) #covers article:nth-child(1) h3,
+header:not(.fixed) #covers article:hover h3 {
+	.anti-clip;
+	position: absolute;
+}
+
 /**
  * NAV SET
  * Using golden ratio of ~1.6 to measure the height.
@@ -633,7 +666,7 @@ section.cover ul {
 body.nav {
   position: absolute;
   left: 20%;
-  width: 1920px;
+  width: 100%;
 }
 
 body.nav #forPlay {
