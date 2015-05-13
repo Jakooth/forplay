@@ -1,63 +1,48 @@
 @charset "utf-8";
 
-#createMedia (@screen) {
-	header,
-	main.fixed section.covers {
- 		height: (7.5*@screen)/100px;
+#createMedia (@screen) {	
+	header.fixed,
+	.nav-set {
+		height: 180px;
 	}
 	
-	header *,
-	body.p .p.logo,
-	body.l .l.logo {
-		height: (5*@screen)/100px;
+	#forLife {
+		bottom: 180px - 1px;
 	}
 	
-	.box,
-	.c3 .sticker,
-	.covers article:hover .sticker {
-		width: (5*@screen)/100px;
-		height: (5*@screen)/100px;
+	/**
+	 * Without margin the content will jump too much.
+	 * The margin must be the header height plus the top scroll.
+	 */
+	
+	main.fixed {
+		padding-top: 562px;
+	}
+
+	/**
+	 * 562px is golden ratio from 1440x900.
+	 */
+
+	#covers,
+	#covers .cover-set,
+	section.cover,
+	.article-set article {
+		height: 562px;
 	}
 	
-	.hype {
-		line-height: (5*@screen)/100px;
+	#forPlay,
+	header.fixed #covers,
+	main.fixed #read:after,
+	main.fixed #read .cover {
+		height: 106px;
+	}
+
+	#read .cover li p {
+		top: 106px;
 	}
 	
-	.hype,
-	.better,
-	.worse,
-	.equal,
-	.stickers,
-	nav.menu div.menu {
-		top: (7.5*@screen)/100px;
-	}
-	
-	.sticker {
-		width: (2.5*@screen)/100px;
-		height: (2.5*@screen)/100px;
-	}
-	
-	.articles .img:before,
-	.covers .type {
-		width: (5*@screen)/100px;
-		height: (2.5*@screen)/100px;
-		line-height: (2.5*@screen)/100px !important;
-	}
-	
-	blockquote {
-		min-height: (5*@screen)/100px;
-	}
-	
-	.box.worse:hover,
-	.box.equal:hover,
-	.box.better:hover {
-		text-indent: 0;
-		padding-left: (6.25*@screen)/100px;
-	}
-	
-	.equal,
-	.worse {
-		margin-top: (6.25*@screen)/100px;
+	#read .cover li:nth-child(3) p {
+		top: 106px + 64px;
 	}
 }
 

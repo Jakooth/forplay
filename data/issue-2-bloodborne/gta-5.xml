@@ -8,7 +8,7 @@
     <cover align="center"
     	   valign="top"
        	   theme="red"
-           subtheme="">cover.jpg</cover>
+           subtheme="lighten">cover.jpg</cover>
     <main main320="02.jpg"
           main640="05.jpg">03.jpg</main>
     <type bg="игри">games</type>

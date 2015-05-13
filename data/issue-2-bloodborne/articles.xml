@@ -10,7 +10,7 @@
         <cover align="center" 
 			   valign="center"
        	 	   theme="red" 
-			   subtheme="">03.jpg</cover>
+			   subtheme="lighten">03.jpg</cover>
         <main main320="09.jpg"
           	  main640="05.jpg">09.jpg</main>
         <type bg="игри">games</type>

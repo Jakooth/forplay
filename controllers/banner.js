@@ -200,6 +200,21 @@ function BannerManager() {
 		
 		$this.index() == 4 ? $c4.addClass('unfocus') : null;
 		$this.index() == 1 ? $c2.addClass('unfocus') : null;
+		
+		switch($this.index()) {
+			case 1:
+				$('#forPlay').css('left', 0);
+				break;
+			case 2:
+				$('#forPlay').css('left', '10%');
+				break;
+			case 3:
+				$('#forPlay').css('left', '30%');
+				break;
+			case 4:
+				$('#forPlay').css('left', '40%');
+				break;	
+		}
 	});
 	
 	$('#covers').on('mouseout', 'article:not(:eq(0))', function (e) {
@@ -215,6 +230,8 @@ function BannerManager() {
 
 		$c4.removeClass('unfocus');
 		$c2.removeClass('unfocus');
+		
+		$('#forPlay').css('left', '20%');
 	});
 	
 	$('#covers').on('swipeleft', function (e) {

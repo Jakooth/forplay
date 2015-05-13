@@ -47,10 +47,10 @@
 
 
 /**
-  * FONTS
-  * Place all font size and style declaration here.
-  * Many fonts are adjusted for different resolutions in media.css
-  */
+ * FONTS
+ * Place all font size and style declaration here.
+ * Many fonts are adjusted for different resolutions in media.css
+ */
 
 * {
 	font-family: 'Open Sans', sans-serif;
@@ -67,7 +67,7 @@ a {
  */
 
 #covers *,
-#read .cover *,
+#read > .cover *,
 .video-set *,
 .article-set h3 span:nth-of-type(1),
 .article-set article .img-proxy:after {
@@ -91,7 +91,7 @@ a {
 
 nav h3,
 #covers h3 a,
-#read .cover h3 strong,
+#read > .cover h3 strong,
 .video-set article:nth-of-type(3) h3 a {
 	font-size: 14pt;
 }
@@ -101,12 +101,12 @@ nav h3,
  */
 
 #covers h3 span:nth-of-type(2),
-#read .cover h3 span:nth-of-type(2),
+#read > .cover h3 span:nth-of-type(2),
 .video-set article:nth-of-type(3) h3 span:nth-of-type(2) {
 	font-size: 12pt;
 }
 
-#read .cover h3 span,
+#read > .cover h3 span,
 #covers h3 span,
 .article-set h3 span {
 	font-weight: normal;
@@ -122,7 +122,7 @@ nav h3,
 	color: fade(@dark, 70%);
 }
 
-#read .cover > p * {
+#read > .cover > p * {
 	font-size: 12pt;
 	font-weight: bold;
 	text-transform: uppercase;
@@ -142,7 +142,7 @@ nav h3,
 	font-size: 14pt;
 }
 
-#read .cover li:nth-child(1) p strong,
+#read > .cover li:nth-child(1) p strong,
 .layout .center .hype strong {
 	font-size: 14pt;
 }
@@ -200,7 +200,7 @@ svg path {
 
 #forLife,
 #covers article h3,
-#read .cover h3 {
+#read > .cover h3 {
 	-webkit-transition: opacity 0.5s, background-color 0.5s;
 	-moz-transition: opacity 0.5s, background-color 0.5s;
 	-o-transition: opacity 0.5s, background-color 0.5s;
@@ -249,7 +249,6 @@ footer p {
 #forPlay {
 	position: absolute;
 	margin: 6.25%;
-	width: 30%;
 	z-index: 1000;
 }
 
@@ -383,7 +382,7 @@ body.nav .nav-set ul {
  */
 
 #covers,
-#read .cover {
+#read > .cover {
 	width: 100%;
 	position: relative;
 	overflow: hidden;
@@ -453,7 +452,7 @@ body.nav .nav-set ul {
 	background-size: 100% 200%;
 }
 
-#read .cover h3,
+#read > .cover h3,
 #covers .cover h3 {
 	padding: 6.25%;
 	bottom: 0;
@@ -466,7 +465,7 @@ body.nav .nav-set ul {
  * Subtype
  */
 
-#read .cover h3 span:nth-of-type(1),
+#read > .cover h3 span:nth-of-type(1),
 #covers .cover h3 span:nth-of-type(1) {
 	.clip;
 }
@@ -475,12 +474,12 @@ body.nav .nav-set ul {
  * Subtitle
  */
 
-#read .cover h3 span:nth-of-type(2),
+#read > .cover h3 span:nth-of-type(2),
 #covers .cover h3 span:nth-of-type(2) {
 	display: block;
 }
 
-#read .cover ul,
+#read > .cover ul,
 #covers .cover p {
 	.clip
 }
@@ -489,7 +488,7 @@ body.nav .nav-set ul {
  * Authors
  */
 
-#read .cover p:nth-of-type(1) {
+#read > .cover p:nth-of-type(1) {
 	position: absolute;
 	bottom: 0;
 	text-align: right;
@@ -670,11 +669,11 @@ main h2 {
  * Styles when reading article.
  */
 
-#read .cover {
+#read > .cover {
 	height: 320px;
 }
 
-#read .cover h3 {
+#read > .cover h3 {
 	padding-bottom: 12.5%;
 }
 
@@ -969,15 +968,81 @@ body.tuborg #forPlay path {
 @media
 only screen and (min-width: 768px) {
 	#covers,
-	.read-set .cover {
+	#read > .cover {
 		height: 432px;
+	}
+	
+	/**
+	 * FONTS
+	 * Place all font size and style declaration here.
+	 * Many fonts are adjusted for different resolutions in media.css
+	 */
+	
+	* {
+		font-family: 'Open Sans', sans-serif;
+		font-size: 14pt;
+	}
+	
+	/**
+	 * Title and subtitle for portal articles.
+	 */
+	
+	.video-set h3 a,
+	.video-set h3 span:nth-of-type(2),
+	.article-set h3 a,
+	.article-set h3 span:nth-of-type(2) {
+		font-size: 16pt;
+	}
+	
+	/**
+	 * The cover title and the main video.
+	 */
+	
+	nav h3,
+	#covers h3 a,
+	#read > .cover h3 strong,
+	.video-set article:nth-of-type(3) h3 a {
+		font-size: 24pt;
+	}
+	
+	/**
+	 * Cover subtitle.
+	 */
+	
+	#covers h3 span:nth-of-type(2),
+	#read > .cover h3 span:nth-of-type(2),
+	.video-set article:nth-of-type(3) h3 span:nth-of-type(2) {
+		font-size: 16pt;
+	}
+	
+	
+	/**
+	 * Author text.
+	 */
+	
+	.article-set p:nth-of-type(1),
+	.article-set p:nth-of-type(1) * {
+		font-size: 14pt;
+	}
+	
+	#read > .cover > p * {
+		font-size: 14pt;
+	}
+		
+	.layout .center blockquote * {
+		font-size: 14pt;
+	}
+	
+	#read > .cover li:nth-child(1) p strong,
+	.layout .center .hype strong {
+		font-size: 14pt;
 	}
 }
 
 @media 
 only screen and (min-width: 960px) {
 	#covers,
-	.read-set .cover {
+	#read > .cover {
 		height: 540px;
 	}
 }

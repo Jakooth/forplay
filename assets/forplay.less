@@ -78,6 +78,10 @@ section.cover *,
 	font-size: 14pt;
 }
 
+.nav-set h3 {
+	font-size: 0;
+}
+
 .layout:first-of-type .center > p:first-of-type:first-letter {
 	font-size: 36pt;
 	font-style: normal;
@@ -215,7 +219,6 @@ main h2 {
 header.fixed {
 	position: fixed;
 	z-index: 1000;
-	height: 180px;
 	background-color: @light;
 	box-shadow: 0 20px 100px 50px fade(@light, 100%);
 }
@@ -233,17 +236,6 @@ header.read .cover-set {
 	display: none;
 }
 
-/**
- * Without margin the content will jump too much.
- * The margin must be the header height plus the top scroll.
- * TODO: 400 is just on random.
- * Find a way to calculate the margin precisely.
- */
-
-main.fixed {
-	margin-top: 400px;
-}
-
 main.fixed #read .cover {
 	position: fixed;
 	z-index: 999;
@@ -255,7 +247,6 @@ main.fixed #read:after {
 	content: "";
 	position: fixed;
 	z-index: 998;
-	height: 106px;
 	top: 0;
 	left: 0;
 	right: 0;
@@ -263,29 +254,13 @@ main.fixed #read:after {
 	box-shadow: 0 20px 100px 50px fade(@light, 100%);
 }
 
-/**
- * This is a fake navigtion,
- * to hide the Forplay shadow.
- */
-
-main.fixed #read:before {
-	content: "";
-	position: fixed;
-	z-index: 1001;
-	padding: 0.625%;
-	top: 106px;
-	left: 20%;
-	right: 20%;
-	background-color: @light;
-}
-
 header.fixed #covers,
 main.fixed #read .cover {
-	height: 106px;
 	top: 0;
 }
 
 header.fixed #covers h3,
+header.fixed #covers ul,
 main.fixed #read .cover h3 {
 	.clip;
 }
@@ -315,15 +290,15 @@ header.fixed #forPlay path {
 
 #forPlay {
 	left: 20%;
-	padding: 1.25%;
-	width: 457px;
-	height: 127px;
 	z-index: 100;
 	position: fixed;
+	padding-left: 1.25%;
+	padding-top: 1.25%;
+	padding-right: 1.25%;
 }
 
 #forLife {
-	bottom: 209px;
+	display: none;
 	right: 0;
 	width: 20%;
 	z-index: 5;
@@ -337,13 +312,11 @@ header.fixed #forPlay path {
 
 #covers,
 #covers .cover-set {
-	height: 562px;
 	overflow: hidden;
 }
 
 section.cover {
 	width: 100%;
-	height: 562px;
 	overflow: hidden;
 	background-size: cover;
 	position: relative;
@@ -425,7 +398,6 @@ section.cover > p {
 }
 
 #read .cover li p {
-	top: 127px;
 	width: 64px;
 	height: 64px;
 	position: absolute;
@@ -485,12 +457,7 @@ section.cover > p {
 	text-align: left;
 }
 
-/**
- * Top is 127px + 64px.
- */
-
 #read .cover li:nth-child(3) p {
-	top: 191px;
 	margin-top: 1.25%;
 	left: auto;
 	right: 21.25%;
@@ -517,7 +484,7 @@ section.cover > p {
 	text-indent: 0;
 }
 
-#read .cover li:nth-child(1) span {
+#read .cover li:nth-child(1) {
 	.clip;
 }
 
@@ -527,13 +494,13 @@ section.cover > p {
 
 #covers ul {
 	position: absolute;
-	right: auto;
-	width: 50%;
+	left: auto;
+	width: auto;
 	bottom: auto;
-	top: 127px;
-	opacity: 0.6;
-	left: 12.5%;
+	opacity: 0.4;
+	right: 12.5%;
 	margin-top: 12.5%;
+	top: 0;
 }
 
 section.cover ul {
@@ -542,19 +509,17 @@ section.cover ul {
 
 #covers article:nth-of-type(1):not(.unfocus) ul, 
 #covers article:hover ul {
-	left: 2.08%;
-	margin-top: 2.08%;
+	right: 2.08%;
+	padding-top: 2.08%;
+	margin: 0;
+	left: auto;
+	width: auto;
+	top: 0;
 }
 
 #covers li {
 	display: block;
 	margin-bottom: 12.5%;
-}
-
-#covers article:nth-of-type(1):not(.unfocus) li, 
-#covers article:hover li {
-	float: left;
-	margin-right: 4.16%;
 }
 
 #covers .svg {
@@ -684,7 +649,6 @@ header.read #forPlay {
 
 .nav-set {
 	padding: 0 20%;
-	height: 210px;
 	overflow: hidden;
 }
 
@@ -775,7 +739,6 @@ header.read .nav-set li a {
 .article-set article {
 	width: 20%;
 	float: left;
-	height: 540px;
 	overflow: hidden;
 	position: relative;
 }
@@ -1479,3 +1442,5 @@ body.tuborg #forPlay path {
 /**
  * MEDIA
  */
+ 
+@import "media.less";  
