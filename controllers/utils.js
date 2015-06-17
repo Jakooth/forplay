@@ -18,9 +18,12 @@ function UtilsManager() {
 	 */
 	
 	this.xml = function(obj, tmpl, appender) {
-		var get1 = $.get('../renderers/xml/' + tmpl + '.html'),
-			get2 = $.get('../renderers/xml/textLayout.html'),
-			get3 = $.get('../renderers/xml/imgLayout.html');
+		var get1 = $.get('../renderers/xml/' + tmpl + '.html' + 
+					   	 '?v=' + Math.round(Math.random() * 100000)),
+			get2 = $.get('../renderers/xml/textLayout.html' + 
+					   	 '?v=' + Math.round(Math.random() * 100000)),
+			get3 = $.get('../renderers/xml/imgLayout.html' + 
+					   	 '?v=' + Math.round(Math.random() * 100000));
 			
 		$.when(get1, get2, get3).done(function(data1, data2, data3) {
 			var tmpls = $.templates({
@@ -164,20 +167,29 @@ function UtilsManager() {
 	 * the height correctly, thus we do this manually.
 	 */
 	
-	this.formatTimThumbString = function(tag, name, width, height) {
+	this.formatTimThumbString = function(tag, width, height) {
 		var service = 'http://forplay.bg/phplib/timthumb/timthumb.php';
 		
-		return service + '?src=/assets/articles/' + tag + 
-						 '/' + tag + '-' + name + 
+		return service + '?src=/assets/articles/' + 
+						 tag.substring(0, tag.lastIndexOf('-')) + 
+						 '/' + tag + 
 						 '&w=' + width + 
 						 '&h=' + height;
 	}
 	
-	this.formatThumborString = function(tag, name, width, height) {
-		var service = 'http://192.168.1.166:8888/unsafe/';
+	/**
+	 * This is the Polygon resizing service.
+	 * Using it only for local testing until we find hosting.
+	 * The first service IP is the VM box IP (Linux ifconfig to get it).
+	 * The second IP is the localhost newtork address (Windows ipconfig to get it).
+	 */
+	
+	this.formatThumborString = function(tag, width, height) {
+		var service = 'http://192.168.1.126:8888/unsafe/';
 		
 		return service + width + 'x' + height + 
-								 '/forplay.bg/assets/articles/' + tag + 
-								 '/' + tag + '-' + name;
+								 '/192.168.1.124:8080/forplay/assets/articles/' + 
+								 tag.substring(0, tag.lastIndexOf('-')) +
+								 '/' + tag;
 	}
 }

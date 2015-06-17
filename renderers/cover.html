@@ -1,6 +1,6 @@
 <section class="cover {{:type}} {{:subtype}}"
 		 data-theme="{{:cover.theme}} {{:cover.subtheme}}"
-         data-main="{{:main}}"
+         data-main="{{:main.small.tag}}-{{:main.small}}"
          data-tag="{{:tags.prime}}"
          style="background-position: {{:cover.align}} {{:cover.valign}}">
     <h3> <strong>{{:title}}</strong> <span
@@ -12,18 +12,18 @@
 	<ul>
     	<li>
         	<p><span>Оценка </span><strong>{{:hype}}</strong></p>
-        </li>
+        </li>{{if type == 'games' || type == 'movies'}}
         <li>
         	<p style="background-image: url(assets/bwe/{{:better.tag}}.jpg)" 
                class="better"><span>По-добре от </span><strong>{{:better}}</strong></p>
-        </li>{{if !equal}}
+        </li>{{if !equal.length}}
         <li>
         	<p style="background-image: url(assets/bwe/{{:worse.tag}}.jpg)" 
                class="worse"><span>По-зле от </span><strong>{{:worse}}</strong></p>
-        </li>{{/if}}{{if equal}}
+        </li>{{/if}}{{if equal.length}}
         <li>
         	<p style="background-image: url(assets/bwe/{{:equal.tag}}.jpg)" 
                class="equal"><span>На нивото на </span><strong>{{:equal}}</strong></p>
-        </li>{{/if}}
+        </li>{{/if}}{{/if}}
     </ul>
 </section>

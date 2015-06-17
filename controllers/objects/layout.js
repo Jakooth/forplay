@@ -8,7 +8,7 @@ function Layout(id) {
 	
 	var $this = $('#' + id);
 	var $layout = $this.parents('.layout');
-	var $imgs = $this.find('.sublayout:visible .img');
+	var $imgs = $this.find('.sublayout:visible .img-proxy');
 	
 	
 	
@@ -52,15 +52,18 @@ function Layout(id) {
 		this.setSubtype();
 		
 		$imgs.each(function (index, value) {
-			var $p = $(value).find('p'),
-				$img = $(value).find('input');
+			var $this = $(value),
+				$p = $this.find('p'),
+				$img = $this.find('input'),
+				$tracklist = $this.find('.tracklist');
 				
 			var img = $img.val();
 			
 			self.imgs.push({tag: img.substring(img.lastIndexOf('\\') + 1, img.lastIndexOf('-')), 
 							index: img.split('\\').pop().split('-').pop(), 
 							pointer: $p.data('pointer'), 
-							alt: $p.text()});
+							alt: $p.html().replace(/br/g, 'br /'),
+							tracklist: $tracklist.prop('class') });
 		});
 	}
 }

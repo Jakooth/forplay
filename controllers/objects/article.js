@@ -23,6 +23,9 @@ function Article() {
 		$betterInput = $('#articleBetterInput'),
 		$worseInput = $('#articleWorseInput'),
 		$equalInput = $('#articleEqualInput'),
+		$betterTextInput = $('#articleBetterTextInput'),
+		$worseTextInput = $('#articleWorseTextInput'),
+		$equalTextInput = $('#articleEqualTextInput'),
 		$coverInput = $('#articleCoverInput'),
 		$bgHInput = $('#articleBgHSelect'),
 		$bgVInput = $('#articleBgVSelect'),
@@ -48,13 +51,13 @@ function Article() {
 	 * Publish
 	 */
 
-	this.prime = "gta-5";
+	this.prime = "object-tag";
 	this.tags = "";
 	this.site = "forplay";
-	this.url = "gta-5";
+	this.url = "object-tag";
 	this.date = new Date();
 	this.priority;
-	this.issue = "issue-1-reboot";
+	this.issue = "issue-tag";
 	
 	/**
 	 * Subject
@@ -64,11 +67,11 @@ function Article() {
 	this.subtype;
 	this.audio;
 	this.video;
-	this.title = "Grand Theft Auto V – сатирично менгеме. Вече и в 1080p!";
-	this.subtitle = "Песен за Сам и Дан Хаузър...";
-	this.authors = "Koralsky,Snake,Jakooth";
+	this.title = "Title Case String";
+	this.subtitle = "Title Case String";
+	this.authors = "Author,Author,Author";
 	this.hype;
-	this.versionTested = "PS4";
+	this.versionTested = "Platform";
 	this.preview;
 	this.layouts = [];
 	
@@ -76,14 +79,14 @@ function Article() {
 	 * Cover
 	 */
 	
-	this.cover = "gta-5-cover.jpg";
+	this.cover = "game-tag-index.jpg";
 	this.bgH;
 	this.bgV;
 	this.theme;
 	this.subtheme;
-	this.main = "gta-5-main.jpg";
-	this.main320 = "gta-5-main-320.png";
-	this.main640 = "gta-5-05.jpg";
+	this.main = "game-tag-index.jpg";
+	this.main320 = "game-tag-index.png";
+	this.main640 = "game-tag-index.jpg";
 	this.better;
 	this.worse;
 	this.equal;
@@ -103,9 +106,11 @@ function Article() {
 					 'bg':$typeInput.find(':selected').text()};
 		self.subtype = {'tag':$subtypeInput.val(),
 					 	'bg':$subtypeInput.find(':selected').text()};
-		self.title = $titleInput.val() || self.title;
-		self.subtitle = $subtitleInput.val() || self.subtitle;
-		self.authors = $authorsInput.val() || self.authors;
+		self.title = $titleInput.val();
+		self.subtitle = $subtitleInput.val();
+		self.authors = $authorsInput.parents('label').find('.tag').map(function (i, element) {
+			return $(element).text();
+		}).get().join(",");
 		
 		self.bgH = $bgHInput.val();
 		self.bgV = $bgVInput.val();
@@ -115,25 +120,58 @@ function Article() {
 		/**
 		 * Images names are made from tag and number.
 		 * Fisrst strip the path, than strip the tag.
-		 * Only store the image index and format.
+		 * Store the image index and format.
+		 * Also store the tag in case the prime tag is different.
 		 */
 		 
-		self.cover = $coverInput.val().split('/').pop().split('-').pop() || 
-					 self.cover.split('-').pop();
-		self.main = $mainInput.val().split('/').pop().split('-').pop() || 
-					self.main.split('-').pop();
-		self.main320 = $main320Input.val().split('/').pop().split('-').pop() || 
-					   self.main320.split('-').pop();
-		self.main640 = $main640Input.val().split('/').pop().split('-').pop() || 
-					   self.main640.split('-').pop();
+		self.cover = {tag: $coverInput.val().substring($coverInput.val().lastIndexOf('\\') + 1, 
+													   $coverInput.val().lastIndexOf('-')), 
+					  index: $coverInput.val().split('\\').pop().split('-').pop()};
+		self.main = {tag: $mainInput.val().substring($mainInput.val().lastIndexOf('\\') + 1, 
+													 $mainInput.val().lastIndexOf('-')), 
+					 index: $mainInput.val().split('\\').pop().split('-').pop()}
+		self.main320 = {tag: $main320Input.val().substring($main320Input.val().lastIndexOf('\\') + 1, 
+													 	   $main320Input.val().lastIndexOf('-')), 
+					 	index: $main320Input.val().split('\\').pop().split('-').pop()}
+		self.main640 = {tag: $main640Input.val().substring($main640Input.val().lastIndexOf('\\') + 1, 
+													 	   $main640Input.val().lastIndexOf('-')), 
+					 	index: $main640Input.val().split('\\').pop().split('-').pop()}
 		
 		if (self.subtype.tag == 'review') {
 			self.hype = $hypeInput.val();
-			self.versionTested = $versionTestedInput.val();
 			
-			self.better = $betterInput.typeahead().data('tagsinput').itemsArray[0];
-			self.worse = $worseInput.typeahead().data('tagsinput').itemsArray[0];
-			self.equal = $equalInput.typeahead().data('tagsinput').itemsArray[0];
+			if (self.type.tag == 'games') {
+				self.versionTested = $versionTestedInput.val();
+			} else {
+				self.versionTested = "";
+			}
+			
+			/**
+			 * It is important to have empty value.
+			 */
+			
+			if ($betterInput.typeahead().data('tagsinput').itemsArray[0]) {
+				self.better = {value: $betterInput.typeahead().data('tagsinput').itemsArray[0].value, 
+						   	   text: $betterTextInput.val()}
+			}  else {
+				self.better = "";
+			}
+			
+			
+			if ($worseInput.typeahead().data('tagsinput').itemsArray[0]) {
+				self.worse = {value: $worseInput.typeahead().data('tagsinput').itemsArray[0].value, 
+						   	   text: $worseTextInput.val()}
+			}  else {
+				self.worse = "";
+			}
+			
+			
+			if ($equalInput.typeahead().data('tagsinput').itemsArray[0]) {
+				self.equal = {value: $equalInput.typeahead().data('tagsinput').itemsArray[0].value, 
+						   	   text: $equalTextInput.val()}
+			}  else {
+				self.equal = "";
+			}
 		} else {
 			self.hype =
 			self.versionTested =
@@ -172,7 +210,7 @@ function Article() {
 		if ($layouts.length) {
 			self.preview = $('<div>' + 
 							 CKEDITOR.instances[$layouts.eq(0)
-							.find('.center:visible')
+							.find('.center-col:visible')
 							.attr('id')].getData() + 
 							 '</div>')
 			.find('> p')
@@ -182,7 +220,7 @@ function Article() {
 			
 			$layouts.each(function () {
 				self.layouts.push(new Layout($(this)
-											  .find('.center:visible')
+											  .find('.center-col:visible')
 											  .attr('id')));
 			});
 		}
@@ -198,7 +236,7 @@ function Article() {
 		 * The result is === to the input value.
 		 */
 		
-		self.prime = $tagsInput.parents('label').find('.tag').eq(0).text();
+		self.prime = $tagsInput.parents('label').find('.tag').eq(0).data().item;
 		self.tags = $tagsInput.parents('label').find('.tag').map(function (i, element) {
 			return $(element).text();
 		}).get().join(",");
@@ -210,7 +248,7 @@ function Article() {
 		}
 		
 		if (self.subtype.tag == 'review') {
-			self.url = self.prime;
+			self.url = self.prime.value;
 		} else {
 			self.url = self.title.toLowerCase().replace(/[:?\.,!]|– |- /g, '');
 			self.url = self.url.replace(/ /g, '-');
@@ -218,9 +256,15 @@ function Article() {
 		
 		self.date = new Date($dateInput.val() + ' ' + $timeInput.val());
 		self.priority = $priorityInput.val();
-		self.issue = $issueInput.val() || self.issue;
+		self.issue = $issueInput.val();
 		
-		var get = $.get('../data/' + self.type.tag + '/' + self.prime + '.xml');
+		/**
+		 * STICKERS
+		 */
+		
+		var get = $.get('../data/' + self.prime.type 
+								   + '/' + self.prime.object 
+								   + '/' + self.prime.value + '.xml');
 				
 		$.when(get).done(function(data) {
 			var game = $.xml2json(data);

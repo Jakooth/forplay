@@ -38,9 +38,12 @@
             <div id="articleReviewRegion" role="region">
                 <admin:formItem id="articleHypeSelect" label="Оценка" type="select" layout="two-cols" />
                 <admin:formItem id="articleVersionTestedSelect" label="Тествана версия" type="select" layout="two-cols" />
-                <admin:formItem id="articleBetterInput" label="По-добра" type="text" />
-                <admin:formItem id="articleWorseInput" label="По-лоша" type="text" />
-                <admin:formItem id="articleEqualInput" label="Равностойна" type="text" />
+                <admin:formItem id="articleBetterInput" label="По-добра" type="text" layout="two-cols" />
+                <admin:formItem id="articleBetterTextInput" label="По-добра текст" type="text" layout="two-cols" />
+                <admin:formItem id="articleWorseInput" label="По-лоша" type="text" layout="two-cols" />
+                <admin:formItem id="articleWorseTextInput" label="По-лоша текст" type="text" layout="two-cols" />
+                <admin:formItem id="articleEqualInput" label="Равностойна" type="text" layout="two-cols" />
+                <admin:formItem id="articleEqualTextInput" label="Равностойна текст" type="text" layout="two-cols" />
             </div>
             <h3>Корица</h3>
             <div class="Cover" role="region">
@@ -51,11 +54,11 @@
                 <div class="v-preview">
                     <!--preview-->
                 </div>
-                <button class="select" type="button">
-                    <input id="articleCoverInput" type="hidden" />
-                    <span class="clip">Добави корица</span>
-                    <img src="../assets/helpers/16-9.png" alt="16:9" role="presentation" />
-                </button>
+                <div class="file">
+                    <label><span class="clip">Избери</span>
+                        <input id="articleCoverInput" type="file" />
+                    </label>
+                </div>
             </div>
             <admin:formItem id="articleBgHSelect" label="Хоризонтално позициониране" type="select" layout="two-cols">
                 <option value="left">Ляво</option>
@@ -77,21 +80,21 @@
             </admin:formItem>
             <h3>Основни картинки</h3>
             <div class="Main" role="group">
-                <button class="select" type="button">
-                    <input id="articleMainInput" type="hidden" />
-                    <span class="clip">Добави основна картинка</span>
-                    <img src="../assets/helpers/16-9.png" alt="16:9" role="presentation" />
-                </button>
-                <button class="select" type="button">
-                    <input id="articleMain640Input" type="hidden" />
-                    <span class="clip">Добави основна картинка</span>
-                    <img src="../assets/helpers/16-9.png" alt="16:9" role="presentation" />
-                </button>
-                <button class="select" type="button">
-                    <input id="articleMain320Input" type="hidden" />
-                    <span class="clip">Добави основна картинка</span>
-                    <img src="../assets/helpers/9-9.png" alt="1:1" role="presentation" />
-                </button>
+            	<div class="file">
+                    <label><span class="clip">Избери</span>
+                        <input id="articleMainInput" type="file" />
+                    </label>
+                </div>
+                <div class="file">
+                    <label><span class="clip">Избери</span>
+                        <input id="articleMain640Input" type="file" />
+                    </label>
+                </div>
+                <div class="file">
+                    <label><span class="clip">Избери</span>
+                        <input id="articleMain320Input" type="file" />
+                    </label>
+                </div>
             </div>
             <h3>Съдържание</h3>
             <div class="Add Content" role="region">

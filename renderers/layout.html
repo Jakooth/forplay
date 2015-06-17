@@ -1,25 +1,30 @@
 <div class="layout {{:type}} {{:subtype}}"> {{if left}}
     <div data-url="{{:left.url.text}}" 
     	 data-type="{{:left.url.type}}"
+         data-object="{{:left.url.object}}"
          data-box="{{:~versionTested}}" 
-         class="inline-col left {{:left.valign}}"></div>
+         class="inline-col left-col {{:left.valign}}"></div>
     {{/if}} {{if type == 'img'}} {{for center.img}}
-    <div class="img-proxy">
+    <div class="img-proxy">{{if #parent.data.subtype == 'f3'}}
+        <div data-tag="{{:#data.tracklist.tag}}" 
+        	 class="{{:#data.tracklist}}"></div>
+        {{else}}
         <p><strong>{{:#data.pointer}}</strong> {{:#data.alt}}</p>
+        {{/if}}
         <div class="img"><a href="#"{{if video}} 
                             data-video="{{:video.url}}"
                             data-tech="{{:video.tech}}"{{/if}}> <img 
                             data-tag="{{:#data.tag}}"
                             data-proxy="true"
-                            data-main="{{:#data.index}}"
+                            data-main="{{:#data.tag}}-{{:#data.index}}"
                             data-ratio="16-9"
                             src="assets/helpers/16-9.png"
                             alt="{{:#data.alt}}" /> </a></div>
     </div>
     {{/for}} {{else}}
-    <div class="center"> {{:center}} </div>
+    <div class="center-col"> {{:center}} </div>
     {{/if}} {{if right}}
     <div data-url="{{:right.url.text}}" 
     	 data-type="{{:right.url.type}}" 
-         class="inline-col right {{:right.valign}}"></div>
+         class="inline-col right-col {{:right.valign}}"></div>
     {{/if}} </div>

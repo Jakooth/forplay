@@ -62,48 +62,63 @@ a {
 	color: @dark;
 }
 
+/**
+ * Last two styles are for the article subtype.
+ */
+ 
 #covers *,
-section.cover *,
+#read > .cover *,
 .video-set *,
-.article-set h3 span:nth-child(2) {
+.article-set h3 span:nth-of-type(1),
+.article-set article .img-proxy:after {
 	color: @light;
 }
 
+/**
+ * Raad font size for text and tracklist.
+ * Title and subtitle for portal articles and video.
+ */
 
-.layout .center *,
+.layout .center-col *,
+.layout ol *,
 .video-set h3 a,
-.video-set h3 span:nth-child(3),
+.video-set h3 span:nth-of-type(2),
 .article-set h3 a,
-.article-set h3 span:nth-child(3) {
+.article-set h3 span:nth-of-type(2) {
 	font-size: 14pt;
 }
+
+/**
+ * Hiding the invisible text for the menu button.
+ * This is only for accessibility, but I'm maniac you know ;)
+ */
 
 .nav-set h3 {
 	font-size: 0;
 }
 
-.layout:first-of-type .center > p:first-of-type:first-letter {
-	font-size: 36pt;
-	font-style: normal;
+/**
+ * Title for covers and main video.
+ */
+
+#covers h3 a,
+section.cover h3 strong,
+.video-set article:nth-of-type(3) h3 a {
+	font-size: 40pt;
 }
 
-.layout .center blockquote * {
-	font-family: 'Poiret One', cursive;
-	font-size: 24pt;
+/**
+ * Cover subtitle.
+ */
+
+#covers h3 span:nth-of-type(2),
+section.cover h3 span:nth-of-type(2),
+.video-set article:nth-of-type(3) h3 span:nth-of-type(2) {
+	font-size: 16pt;
 }
 
-.layout .center .hype {
-	text-align: right;
-	font-weight: bold;
-}
-
-#read .cover li:nth-child(1) p strong,
-.layout .center .hype strong {
-	font-size: 20pt;
-}
-
-.layout dt {
-	color: fade(@dark, 50%);
+article h3 span {
+	font-weight: normal;
 }
 
 /**
@@ -116,26 +131,47 @@ section.cover *,
 	color: fade(@dark, 70%);
 }
 
-#covers h3 a,
-section.cover h3 strong,
-.video-set article:nth-of-type(3) h3 a {
-	font-size: 40pt;
-}
-
 section.cover > p * {
 	font-size: 20pt;
 	font-weight: bold;
 	text-transform: uppercase;
 }
 
-#covers h3 span:nth-child(3),
-section.cover h3 span:nth-child(3),
-.video-set article:nth-of-type(3) h3 span:nth-child(3) {
-	font-size: 16pt;
+/**
+ * Read styles for first letter, hype and aside.
+ */
+
+.layout:first-of-type .center-col > p:first-of-type:first-letter {
+	font-size: 36pt;
+	font-style: normal;
 }
 
-article h3 span {
-	font-weight: normal;
+.layout .center-col blockquote * {
+	font-family: 'Poiret One', cursive;
+	font-size: 24pt;
+}
+
+.layout .center-col .hype {
+	text-align: right;
+	font-weight: bold;
+}
+
+#read .cover li:nth-child(1) p strong,
+.layout .center-col .hype strong {
+	font-size: 20pt;
+}
+
+.layout dt {
+	color: fade(@dark, 50%);
+}
+
+.layout .center-col * a {
+	text-decoration: underline;
+}
+
+.layout ol a {
+	font-weight: bold;
+	text-decoration: underline;
 }
 
 
@@ -337,7 +373,7 @@ section.cover:before {
 	top: 0;
 	width: 100%;
 	height: 100%;
-	background-image: url(fx/shadow.png);
+	background-image: url(helpers/shadow.png);
 	background-repeat: repeat-x;
 	background-position: bottom left;
 }
@@ -749,7 +785,7 @@ header.read .nav-set li a {
 	bottom: 0;
 	width: 100%;
 	height: 100%;
-	background-image: url(fx/light.png);
+	background-image: url(helpers/light.png);
 	background-repeat: repeat-x;
 	background-position: bottom left;
 	pointer-events: none;
@@ -845,7 +881,7 @@ header.read .nav-set li a {
 	bottom: 0;
 	padding: 6.25%;
 	background-color: transparent;
-	background: url(fx/shadow.png) repeat-x;
+	background: url(helpers/shadow.png) repeat-x;
 	background-size: 100% 200%;
 	background-position: center bottom;
 }
@@ -910,7 +946,7 @@ main.read #read {
 	clear: both;
 }
 
-.layout:first-of-type .center > p:first-of-type:first-letter {
+.layout:first-of-type .center-col > p:first-of-type:first-letter {
 	border: 1px solid;
 	float: left;
 	margin-right: 2.08%;
@@ -926,11 +962,11 @@ main.read #read {
 	top: 0;
 }
 
-.inline-col.left {
+.inline-col.left-col {
 	left: -33.33%;
 }
 
-.inline-col.right {
+.inline-col.right-col {
 	right: -33.33%;
 }
 
@@ -1120,6 +1156,57 @@ main.read #read {
 
 .img.b1 .img-proxy.r1610:nth-of-type(2) p {
 	margin-bottom: 64.4%;
+}
+
+/**
+ * f3
+ */
+
+.img.f3 .img-proxy {
+	margin-left: -33.33%;
+	margin-right: -33.33%;
+	width: 166.6%;
+	padding: 0;
+}
+
+.img.f3 .tracklist {
+	position: absolute;
+	width: 40%;
+	background: @light;
+	z-index: 1;
+	margin-bottom: 0;
+	padding: 0;
+}
+
+.img.f3 .tracklist.top {
+	top: 0;
+	bottom: auto;
+}
+
+.img.f3 .tracklist.bottom {
+	top: auto;
+	bottom: 0;
+}
+
+.img.f3 .tracklist.left {
+	margin-left: 20%;
+}
+
+.img.f3 .tracklist.right {
+	margin-left: 40%;
+}
+
+.img.f3 .tracklist.right ol {
+	padding: 3.2%;
+	padding-bottom: 0;
+	position: relative;
+	list-style: decimal-leading-zero;
+	list-style-position: inside;
+}
+
+.img.f3 .tracklist.right li {
+	list-style: decimal-leading-zero;
+	list-style-position: inside;
 }
 
 /**

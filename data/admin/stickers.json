@@ -1,25 +1,5 @@
-[ { "text" : "18+",
-	"value" : "18+",
-    "lib" : "iconmonstr"
-  },
-  { "text" : "Axe",
-  	"value" : "axe",
-    "lib" : "iconmonstr"
-  },
-  { "text" : "Beer",
-  	"value" : "beer",
-    "lib" : "iconmonstr"
-  },
-  { "text" : "Bike",
-  	"value" : "bike",
-    "lib" : "iconmonstr"
-  },
-  { "text" : "Ball",
-  	"value" : "ball",
-    "lib" : "iconmonstr"
-  },
-  { "text" : "Girl",
-  	"value" : "girl",
-    "lib" : "iconmonstr"
+[ { "text" : "Ghost",
+	"value" : "ghost",
+    "lib" : "lorc"
   }
 ]

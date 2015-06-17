@@ -40,7 +40,8 @@ function AddManager() {
 	 */
 	
 	this.addLayout = function($appender) {
-		var d1 = $.get('../renderers/admin/layout.html');
+		var d1 = $.get('../renderers/admin/layout.html' + 
+					   '?v=' + Math.round(Math.random() * 100000));
 			
 		$.when(d1).done(function(data1) {
 			var html = data1,
@@ -52,7 +53,7 @@ function AddManager() {
 			self.hideLayouts($appender.prev());
 			self.showLayout($appender.prev(), 'text');
 			
-			utils.convertSVG($appender.prev().find('img'));
+			utils.convertSVG($appender.prev().find('img.svg'));
 			$appender.prev().find('.textLayout').attr('id',  'textLayout_' + id);
 			$appender.prev().find('.imgLayout').attr('id',  'imgLayout_' + id);
 			
@@ -93,10 +94,20 @@ function AddManager() {
 	
 	this.showLayout = function($appender, value) {
 		$appender.find('.' + value + 'Layout').show();
+		
+		/**
+		 * For images hide the side content.
+		 */
+		
+		if (value == 'img') {
+			$appender.addClass('fullscreen');
+		} else {
+			$appender.removeClass('fullscreen');
+		}
 	}
 	
 	this.hideLayouts =  function($appender) {
-		$appender.find('.center').hide();
+		$appender.find('.center-col').hide();
 	}
 	
 	this.showSublayout = function($appender, value) {
@@ -128,6 +139,31 @@ function AddManager() {
 	
 	this.removePlatform = function($appender) {
 		$appender.parents('.platform').remove();
+	}
+	
+	this.addTrack = function($appender) {
+		var d1 = $.get('../renderers/admin/track.html');
+			
+		$.when(d1).done(function(data1) {
+			var html = data1;
+			
+			var $box = $appender.parents('.Track'),
+				$last;
+			
+			$appender.before(html);
+			
+			$last = $appender.prev();
+			$last.data('index', $last.index() + 1);
+			$last.attr('data-index', $last.data('index'))
+			
+			$(document).scrollTop($appender.offset().top);
+		}).fail(function() {
+			alert("Failed to load track.");
+		});
+	}
+	
+	this.removeTrack = function($appender) {
+		$appender.parents('.track').remove();
 	}
 	
 	this.removeLayout = function($appender) {
@@ -182,15 +218,23 @@ function AddManager() {
 	/** 
 	 * EVENTS
 	 */
-	 
+	
+	/**
+	 * ARTICLE
+	 */
+	
 	$('.Content').on('click', 'button.add', function (e) {
 		self.addLayout($(this));
 	});
 	
+	/**
+	 * Layout type selection.
+	 */
+	
 	$('.Content').on('change', '.layout > select', function (e) {
 		$this = $(this),
 		$layout = $this.parents('.layout'),
-		$center = $this.parents('.layout').find('.center');
+		$center = $this.parents('.layout').find('.center-col');
 		
 		self.hideLayouts($layout);
 		self.showLayout($layout, $this.val());
@@ -198,30 +242,42 @@ function AddManager() {
 		$center.find('> select').val('a1').change();
 	});
 	
-	$('.Content').on('change', '.layout .center > select', function (e) {
+	/**
+	 * Sublayout type selection.
+	 */
+	
+	$('.Content').on('change', '.layout .center-col > select', function (e) {
+		$this = $(this),
+		$center = $this.parents('.center-col');
+		
+		self.hideSublayouts($center);
+		self.showSublayout($center, $this.val());
+		
+		/**
+		 * Default tracklist position.
+		 */
+		
+		if ($this.val() == 'f3') {
+			$center.find('.f3Sublayout select').val('bottom right').change();
+		}
+	});
+	
+	/**
+	 * Tracklist.
+	 */
+	
+	$('.Content').on('change', '.tracklist select', function (e) {
 		$this = $(this);
 		
-		self.hideSublayouts($this.parents('.center'));
-		self.showSublayout($this.parents('.center'), $this.val());
+		$this.parents('.tracklist').removeClass('left right top bottom')
+								   .addClass($this.val());
 	});
 	
 	$('.Content').on('click', 'button.remove', function (e) {
 		self.removeLayout($(this));
 	});
 	
-	$('.Box').on('click', 'button.add', function (e) {
-		self.addPlatform($(this));
-	});
-	
-	$('.Box').on('click', 'button.remove', function (e) {
-		self.removePlatform($(this));
-	});
-	
-	$('.Box').on('click', 'button.remove', function (e) {
-		self.removePlatform($(this));
-	});
-	
-	$('#game, #article').on('change', '.file input', function (e) {
+	$('#game, #article, #album').on('change', '.file input', function (e) {
 		var reader = new FileReader();
 		
 		var $file = $(e.target).parents('.file');
@@ -239,5 +295,29 @@ function AddManager() {
 	
 	$('#images').on('change', '.file input', function (e) {
 		self.addImage($(this), e);
+	});
+	
+	/**
+	 * GAMES:GAME
+	 */
+	
+	$('.Box').on('click', 'button.add', function (e) {
+		self.addPlatform($(this));
+	});
+	
+	$('.Box').on('click', 'button.remove', function (e) {
+		self.removePlatform($(this));
+	});
+	
+	/**
+	 * MUSIC:ALBUM
+	 */
+	
+	$('.Track').on('click', 'button.add', function (e) {
+		self.addTrack($(this));
+	});
+	
+	$('.Track').on('click', 'button.remove', function (e) {
+		self.removeTrack($(this));
 	});
 }

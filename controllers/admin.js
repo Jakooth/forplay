@@ -13,14 +13,22 @@ function AdminManager() {
 	var theme = '../data/admin/theme.json';
 	var subtheme = '../data/admin/subtheme.json';
 	var gameGenres = '../data/admin/gamegenres.json';
+	var musicGenres = '../data/admin/musicgenres.json';
 	var gamePlatforms = '../data/admin/platforms.json';
 	var movieGenres = '../data/admin/moviegenres.json';
+	var countries = '../data/admin/countries.json';
 	
 	var bloodhound = function(data, key) {
 		return new Bloodhound({
 			datumTokenizer: Bloodhound.tokenizers.obj.whitespace('text', 'value'),
 			queryTokenizer: Bloodhound.tokenizers.whitespace,
-			prefetch: data
+			
+			/**
+			 * Append some random numuber, to makes sure
+			 * the data source is not cached.
+			 */
+			 
+			prefetch: data + '?v=' + Math.round(Math.random() * 100000)
 		});
 	}
 	
@@ -72,7 +80,7 @@ function AdminManager() {
 	var issues = bloodhound('../data/admin/issues.json');
 	var series = bloodhound('../data/admin/series.json');
 	var movies = bloodhound('../data/admin/movies.json');
-	var persons = bloodhound('../data/admin/persons.json');
+	var artists = bloodhound('../data/admin/artists.json');
 	var authors = bloodhound('../data/admin/authors.json');
 	
 	
@@ -202,45 +210,73 @@ function AdminManager() {
 	 * INIT
 	 */
 	 
-	this.loadOptions('#articleSubtypeSelect', subtype, 'option');
-	this.loadOptions('#articleHypeSelect', hype, 'option');
-	this.loadOptions('#articleTypeSelect', type, 'option');
 	this.loadOptions('#companyTypeSelect', type, 'option');
 	this.loadOptions('#genreTypeSelect', type, 'option');
 	this.loadOptions('#personTypeSelect', type, 'option');
 	this.loadOptions('#characterTypeSelect', type, 'option');
 	this.loadOptions('#serieTypeSelect', type, 'option');
-	this.loadOptions('#articleVersionTestedSelect', gamePlatforms, 'option');
 	this.loadOptions('#asideTypeSelect', type, 'option');
-	this.loadOptions('#articleThemeSelect', theme, 'option');
-	this.loadOptions('#articleSubthemeSelect', subtheme, 'option');
-	this.loadOptions('#gameGenreGroup', gameGenres, 'checkbox');
-	this.loadOptions('#gamePlatformGroup', gamePlatforms, 'checkbox');
 	this.loadOptions('#searchCategorySelect', aside, 'option');
 	
 	initTagInput(tags, 'tags', '#personTagsInput');
 	initTagInput(tags, 'tags', '#characterTagsInput');
-	initTagInput(stickers, 'stickers', '#gameStickersInput');
 	initTagInput(stickers, 'stickers', '#movieStickersInput');
-	initTagInput(companies, 'companies', '#gamePublisherInput', 1);
-	initTagInput(companies, 'companies', '#gameDeveloperInput', 1);
-	initTagInput(series, 'series', '#gameSerieInput', 1);
 	initTypeAhead(series, 'series', '#movieSerieInput');
 	initTypeAhead(tags, 'tags', '#imagesTagInput');
 	initTypeAhead(tags, 'tags', '#searchTagInput');
-	initTagInput(tags, 'tags', '#gameSimilarInput');
 	initTagInput(movies, 'movies', '#movieSimilarInput');
-	initTagInput(persons, 'persons', '#movieCastInput');
-	initTagInput(persons, 'persons', '#movieDirectorInput');
-	initTagInput(persons, 'persons', '#movieWriterInput');
-	initTagInput(persons, 'persons', '#movieCameraInput');
-	initTagInput(persons, 'persons', '#movieMusicInput');
+	initTagInput(artists, 'artists', '#movieCastInput');
+	initTagInput(artists, 'artists', '#movieDirectorInput');
+	initTagInput(artists, 'artists', '#movieWriterInput');
+	initTagInput(artists, 'artists', '#movieCameraInput');
+	initTagInput(artists, 'artists', '#movieMusicInput');
 	initTagInput(issues, 'issues', '#publishIssueInput', 1, 'value');
+	initTagInput(tags, 'tags', '#publishTagsInput', null, 'value');
+	
+	/**
+	 * ARTICLE
+	 */
+	
+	this.loadOptions('#articleSubtypeSelect', subtype, 'option');
+	this.loadOptions('#articleHypeSelect', hype, 'option');
+	this.loadOptions('#articleTypeSelect', type, 'option');
+	this.loadOptions('#articleVersionTestedSelect', gamePlatforms, 'option');
+	this.loadOptions('#articleThemeSelect', theme, 'option');
+	this.loadOptions('#articleSubthemeSelect', subtheme, 'option');
+	
 	initTagInput(tags, 'tags', '#articleBetterInput', 1);
 	initTagInput(tags, 'tags', '#articleWorseInput', 1);
 	initTagInput(tags, 'tags', '#articleEqualInput', 1);
 	initTagInput(authors, 'authors', '#articleAuthorsInput');
-	initTagInput(tags, 'tags', '#publishTagsInput', null, 'value');
+	
+	/**
+	 * GAMES::GAME
+	 */
+	
+	this.loadOptions('#gameGenreGroup', gameGenres, 'checkbox');
+	this.loadOptions('#gamePlatformGroup', gamePlatforms, 'checkbox');
+	
+	initTagInput(series, 'series', '#gameSerieInput', 1);
+	initTagInput(stickers, 'stickers', '#gameStickersInput');
+	initTagInput(companies, 'companies', '#gamePublisherInput', 1);
+	initTagInput(companies, 'companies', '#gameDeveloperInput', 1);
+	initTagInput(tags, 'tags', '#gameSimilarInput');
+	
+	
+	/**
+	 * MUSIC::ALBUM
+	 */
+	
+	this.loadOptions('#albumGenreGroup', musicGenres, 'checkbox');
+	this.loadOptions('#albumCountrySelect', countries, 'option');
+	
+	initTagInput(artists, 'artists', '#albumArtistInput');
+	initTagInput(stickers, 'stickers', '#albumStickersInput');
+	initTagInput(tags, 'tags', '#albumSimilarInput');
+	
+	
+	
+	
 	
 	
 	
@@ -261,16 +297,17 @@ function AdminManager() {
 		self.showSection(window.location.hash);
 		
 		/**
-		 * Default input values
+		 * Default input values.
 		 */
-	
+		
+		$('#articleTypeSelect').val('games').change();
 		$('#articleSubtypeSelect').val('news').change();
 		$('#articleVideoTechSelect').val('').change();
 		$('#articleAudioTechSelect').val('').change();
 		$('#articleBgHSelect').val('center').change();
 		$('#articleBgVSelect').val('top').change();
 		$('#articleThemeSelect').val('').change();
-		$('#articleSubthemeSelect').val('000000').change();
+		$('#articleSubthemeSelect').val('FFFFFF').change();
 		$('#publishDateInput').val(utils.today());
 		$('#publishTimeInput').val(utils.now());
 	});
@@ -343,7 +380,17 @@ function AdminManager() {
 	/**
 	 * Article & Publish
 	 */
-	 
+	
+	$('#article').on('change', '#articleTypeSelect', function (e) {
+		var $gameRegion = $('#articleReviewRegion').children(':gt(0)');
+		
+		if ($(this).val() == "music") {
+			$gameRegion.hide();
+		} else {
+			$gameRegion.show();
+		}
+	});
+	
 	$('#article').on('change', '#articleSubtypeSelect', function (e) {
 		var $reviewRegion = $('#articleReviewRegion'),
 			$aVRegion = $('#articleAVRegion');
@@ -391,10 +438,12 @@ function AdminManager() {
 	});
 	
 	$('#article').on('change', '#articleThemeSelect', function (e) {
-		var t1 = $(this).find(':selected').text(),
-			t2 = $('#articleSubthemeSelect').find(':selected').text()
-			v1 = $(this).val(),
-			v2 = $('#articleSubthemeSelect').val();
+		var $this = $(this);
+		
+		var t1 = $this.find(':selected').text(),
+			t2 = $('#articleSubthemeSelect').find(':selected').text(),
+			v1 = $this.val() || "",
+			v2 = $('#articleSubthemeSelect').val() || "";
 		
 		if (v1.length && v2.length) {
 			t1 += " ";
@@ -407,10 +456,12 @@ function AdminManager() {
 	});
 	
 	$('#article').on('change', '#articleSubthemeSelect', function (e) {
-		var t2 = $(this).find(':selected').text(),
-			t1 = $('#articleThemeSelect').find(':selected').text()
-			v2 = $(this).val(),
-			v1 = $('#articleThemeSelect').val();
+		var $this = $(this);
+		
+		var t2 = $this.find(':selected').text(),
+			t1 = $('#articleThemeSelect').find(':selected').text(),
+			v2 = $this.val() || "",
+			v1 = $('#articleThemeSelect').val() || "";
 		
 		if (v1.length && v2.length) {
 			t1 += " ";
@@ -454,14 +505,25 @@ function AdminManager() {
 	 * Article & Publish
 	 */
 	
-	$('#game').on('click', 'button.save, button.publish', function (e) {
-		var g = new Game();
+	$('#game').on('click', 'button.save', function (e) {
+		var o = new Game();
 		
-		g.save();
+		o.save();
 		
 		self.showSectionInWindow('#xml');
-		utils.xml(g, 'game', '#xmlCodeOutput');	
+		utils.xml(o, 'game', '#xmlCodeOutput');	
 		
-		console.log(g);
+		console.log(o);
+	});
+	
+	$('#album').on('click', 'button.save', function (e) {
+		var o = new Album();
+		
+		o.save();
+		
+		self.showSectionInWindow('#xml');
+		utils.xml(o, 'album', '#xmlCodeOutput');	
+		
+		console.log(o);
 	});
 }

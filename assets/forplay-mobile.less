@@ -129,25 +129,25 @@ nav h3,
 }
 
 /**
- * This is the article score  and information aside.
+ * This is the article score and information aside.
  */
  
-.layout:first-of-type .center > p:first-of-type:first-letter {
+.layout:first-of-type .center-col > p:first-of-type:first-letter {
 	font-size: 36pt;
 	font-style: normal;
 }
 
-.layout .center blockquote * {
+.layout .center-col blockquote * {
 	font-family: 'Poiret One', cursive;
 	font-size: 14pt;
 }
 
 #read > .cover li:nth-child(1) p strong,
-.layout .center .hype strong {
+.layout .center-col .hype strong {
 	font-size: 14pt;
 }
 
-.layout .center .hype {
+.layout .center-col .hype {
 	text-align: right;
 	font-weight: bold;
 }
@@ -446,7 +446,7 @@ body.nav .nav-set ul {
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	background-image: url(fx/shadow.png);
+	background-image: url(helpers/shadow.png);
 	background-repeat: repeat-x;
 	background-position: bottom left;
 	background-size: 100% 200%;
@@ -729,7 +729,7 @@ main.read .read-set {
 	background-color: fade(@dark, 10%);
 }
 
-.read-set .layout:first-of-type .center > p:first-of-type:first-letter {
+.read-set .layout:first-of-type .center-col > p:first-of-type:first-letter {
 	border: 1px solid;
 	float: left;
 	margin-right: 6.25%;
@@ -1029,12 +1029,12 @@ only screen and (min-width: 768px) {
 		font-size: 14pt;
 	}
 		
-	.layout .center blockquote * {
+	.layout .center-col blockquote * {
 		font-size: 14pt;
 	}
 	
 	#read > .cover li:nth-child(1) p strong,
-	.layout .center .hype strong {
+	.layout .center-col .hype strong {
 		font-size: 14pt;
 	}
 }

@@ -18,6 +18,10 @@
 	main.fixed {
 		padding-top: 562px;
 	}
+	
+	main.read.fixed {
+		padding-top: 562px - 180px;
+	}
 
 	/**
 	 * 562px is golden ratio from 1440x900.
@@ -53,8 +57,16 @@
 	
 	body.@{theme} .layout blockquote,
 	body.@{theme} .article-set p:nth-of-type(1) a,
-	body.@{theme} .layout:first-of-type .center > p:first-of-type:first-letter {
+	body.@{theme} .layout:first-of-type .center-col > p:first-of-type:first-letter {
 		color: @color;
+	}
+	
+	/**
+	 * ADMIN
+	 */
+	
+	.@{theme} .Cover svg path {
+		fill: @color;
 	}
 }
 

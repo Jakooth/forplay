@@ -9,11 +9,11 @@
         </h2>
         <form>
         	<div class="Main" role="group">
-                <button class="select" type="button">
-                    <input id="gameMainInput" type="hidden" />
-                    <span class="clip">Добави основна картинка</span>
-                    <img src="../assets/helpers/16-9.png" alt="16:9" role="presentation" />
-                </button>
+                <div class="file">
+                    <label><span class="clip">Избери</span>
+                        <input id="gameMainInput" type="file" />
+                    </label>
+                </div>
             </div>
             <admin:formItem id="gameEnNameInput" label="Оригинално име на играта" 
             				placeholder="Grand Theft Auto 5" type="text" />

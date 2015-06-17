@@ -69,7 +69,10 @@
     <script src="../controllers/objects/game.js?v=1.0.0">
                 <!--script-->
             </script>
-    <script>$(document).ready(function() { 
+	<script src="../controllers/objects/album.js?v=1.0.0">
+                <!--script-->
+            </script>    
+	<script>$(document).ready(function() { 
 				window.utils = new UtilsManager(); 
 				window.admin = new AdminManager(); 
 				window.add = new AddManager(); });</script>
@@ -154,6 +157,7 @@
         <jsp:include page="views/movies.jsp" />
         <jsp:include page="views/movie.jsp" />
         <jsp:include page="views/music.jsp" />
+        <jsp:include page="views/album.jsp" />
         <jsp:include page="views/books.jsp" />
         <jsp:include page="views/boards.jsp" />
         <jsp:include page="views/aside.jsp" />

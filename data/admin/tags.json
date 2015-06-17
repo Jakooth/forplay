@@ -1,49 +1,41 @@
-[ { "text" : "Diablo",
-	"value" : "diablo",
-    "type" : "game"
+[ { "text" : "Sacrifice To Venus",
+	"value" : "sacrifice-to-venus",
+    "type" : "music",
+    "object" : "album"
   },
-  { "text" : "Diablo 3",
-  	"value" : "diablo-3",
-    "type" : "game"
+  { "text" : "Murdered: Soul Suspect",
+	"value" : "murdered-soul-suspect",
+    "type" : "games",
+    "object" : "game"
   },
-  { "text" : "Grand Theft Auto",
-  	"value" : "gta",
-    "type" : "game"
+  { "text" : "Heavy Rain",
+	"value" : "heavy-rain",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "Fahrenheit",
+	"value" : "fahrenheit",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "The Wolf Among Us",
+	"value" : "the-wolf-among-us",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "L.A. Noire",
+	"value" : "la-noire",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "CSI",
+	"value" : "csi",
+    "type" : "games",
+    "object" : "serie"
   },
   { "text" : "Grand Theft Auto 5",
-  	"value" : "gta-5",
-    "type" : "game"
-  },
-  { "text" : "Sam Houser",
-  	"value" : "sam-houser",
-    "type" : "person"
-  },
-  { "text" : "Rockstar",
-  	"value" : "rockstar",
-    "type" : "company"
-  },
-  { "text" : "Halo",
-  	"value" : "halo",
-    "type" : "game"
-  },
-  { "text" : "Bungie",
-  	"value" : "bungie",
-    "type" : "company"
-  },
-  { "text" : "Saints Row",
-  	"value" : "saints-row",
-    "type" : "game"
-  },
-  { "text" : "Mafia",
-  	"value" : "mafia",
-    "type" : "game"
-  },
-  { "text" : "Red Dead Redemtpion",
-  	"value" : "red-dead-redemption",
-    "type" : "game"
-  },
-  { "text" : "Crackdown",
-  	"value" : "crackdown",
-    "type" : "game"
+	"value" : "gta-5",
+    "type" : "games",
+    "object" : "game"
   }
 ]

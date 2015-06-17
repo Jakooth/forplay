@@ -5,12 +5,16 @@
     <tags prime="gta-5">
         <tag>gta-5</tag>
     </tags>
-    <cover align="center"
+	<cover align="center"
     	   valign="top"
        	   theme="red"
-           subtheme="lighten">cover.jpg</cover>
-    <main main320="02.jpg"
-          main640="05.jpg">03.jpg</main>
+           subtheme="lighten"
+           tag="gta-5">02.jpg</cover>
+    <main>
+    	<small tag="gta-5">03.jpg</small>
+        <large tag="gta-5">05.jpg</large>
+        <caret tag="gta-5">02.jpg</caret>
+    </main>
     <type bg="игри">games</type>
     <subtype bg="новина">news</subtype>
     <title>

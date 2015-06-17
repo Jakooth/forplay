@@ -39,7 +39,7 @@ span.twitter-typeahead .tt-suggestion > p:focus {
 
 span.twitter-typeahead {
 	width: 100%;
-	min-width: 640px;
+	min-width: 320px;
 	display: block;
 	height: auto;
 	margin-bottom: 20px;

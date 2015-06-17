@@ -7,10 +7,9 @@ function ArticlesManager() {
 	var self = this;
 	
 	function loadImage($img) {			
-		var src = utils.formatTimThumbString($img.data('tag'), 
-											 $img.data('main'),
-											 $img.width(), 
-											 $img.height());
+		var src = utils.formatThumborString($img.data('main'),
+											$img.width(), 
+											$img.height());
 		
 		$img.data('proxy', false);
 		$img.attr('data-proxy', $img.data('proxy'));
@@ -19,10 +18,9 @@ function ArticlesManager() {
 	}
 	
 	function loadBackground($img, $div) {			
-		var src = utils.formatTimThumbString($img.data('tag'), 
-											 $img.data('main'),
-											 $div.outerWidth(), 
-											 $div.outerHeight());
+		var src = utils.formatThumborString($img.data('main'),
+											$div.outerWidth(), 
+											Math.round($div.outerWidth() / (16/9)));
 		
 		$img.data('proxy', false);
 		$img.attr('data-proxy', $img.data('proxy'));
@@ -31,10 +29,9 @@ function ArticlesManager() {
 	}
 	
 	function loadCover($img, $div) {			
-		var src = utils.formatTimThumbString($img.data('tag'), 
-											 $img.data('cover'),
-											 Math.round($(window).width() * 60/100), 
-											 Math.round($(window).width() * 60/100 / (16/9)));
+		var src = utils.formatThumborString($img.data('cover'),
+											Math.round($(window).width() * 60/100), 
+											Math.round($(window).width() * 60/100 / (16/9)));
 		
 		$img.data('proxy', false);
 		$img.attr('data-proxy', $img.data('proxy'));
@@ -52,6 +49,11 @@ function ArticlesManager() {
 					articleTemplate: data2[0]
 				}),
 				node = articles.article,
+				
+				/**
+				 * Append to empty DIV, so we can find the parent.
+				 */
+				 
 				html = $('<div />').append($.templates
 										    .articleTemplate
 											.render(node));
@@ -79,7 +81,7 @@ function ArticlesManager() {
 						 .render(article),
 				html = $.templates
 						.layoutTemplate
-						.render(node, {versionTested:article.versionTested});
+						.render(node, {versionTested: article.versionTested});
 			
 			appender(html, cover);
 		}).fail(function() {
@@ -87,27 +89,46 @@ function ArticlesManager() {
 		});
 	}
 	
-	var loadAside = function(data, $appender, type, versionTested) {
-		$appender.html('' + data + '::' + type);
-		
-		var get1 = $.get('data/' + type + '/' + data + '.xml'),
-			get2 = $.get('renderers/gameInfo.html');
+	var loadAside = function(data, $appender, type, object, versionTested) {
+		var get1 = $.get('data/' + type + '/' 
+						 		 + object + '/' 
+								 + data + '.xml'),
+			get2 = $.get('renderers/' + object + 'Info.html');
 			
 		$.when(get1, get2).done(function(data1, data2) {
 			var aside = $.xml2json(data1[0]),
 				tmpls = $.templates({
-					layoutTemplate: data2[0]
+					asideTemplate: data2[0]
 				}),
-				box = getBoxImg(aside.boxes.box, versionTested),
+				box = object == 'game' ? getBoxImg(aside.boxes.box, versionTested) : aside.main,
 				html = $.templates
-						.layoutTemplate
-						.render(aside, {formatCommaString:utils.formatCommaString, 
-										formatDate:utils.formatDate,
-										box:box});
+						.asideTemplate
+						.render(aside, {formatCommaString: utils.formatCommaString, 
+										formatDate: utils.formatDate,
+										box: box});
 			
 			$appender.html(html);
 		}).fail(function() {
 			alert("Failed to load aside.");
+		});
+	}
+	
+	var loadTracklist = function(data, $appender) {
+		var get1 = $.get('data/music/album/' + data + '.xml'),
+			get2 = $.get('renderers/tracklist.html');
+			
+		$.when(get1, get2).done(function(data1, data2) {
+			var album = $.xml2json(data1[0]),
+				tmpls = $.templates({
+					tracklistTemplate: data2[0]
+				}),
+				html = $.templates
+						.tracklistTemplate
+						.render(album.tracks);
+			
+			$appender.html(html);
+		}).fail(function() {
+			alert("Failed to load tracklist.");
 		});
 	}
 	
@@ -180,13 +201,23 @@ function ArticlesManager() {
 	}
 	
 	var appendAsides = function() {
-		$('#read .left, #read .right').each(function() {
+		$('#read .left-col, #read .right-col').each(function() {
 			var $this = $(this);
 			
 			loadAside($this.data('url'), 
 					  $this, 
 					  $this.data('type'),
+					  $this.data('object'),
 					  $this.data('box'));
+		});
+	}
+	
+	var appendTracklist = function() {
+		$('#read .tracklist').each(function() {
+			var $this = $(this);
+			
+			loadTracklist($this.data('tag'), 
+					  	  $this);
 		});
 	}
 	
@@ -226,6 +257,7 @@ function ArticlesManager() {
 		});
 		
 		appendAsides();
+		appendTracklist();
 		
 		/**
 		 * Append the score at the end of the main content.
@@ -234,7 +266,7 @@ function ArticlesManager() {
 			
 		if ($hype.length) {
 			$hype.clone()
-				 .insertAfter('.read-set .layout:last .center > p:last-of-type')
+				 .insertAfter('.read-set .layout:last .center-col > p:last-of-type')
 				 .addClass('hype');
 		}
 		

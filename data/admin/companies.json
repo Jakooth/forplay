@@ -1,29 +1,9 @@
-[ { "text" : "Creative Assembly",
-	"value" : "creative-assembly",
-    "type" : "devloper"
-  },
-  { "text" : "Ubisoft Montreal",
-  	"value" : "ubisoft-montreal",
-    "type" : "devloper"
-  },
-  { "text" : "Ubisoft Sofia",
-  	"value" : "ubisoft-sofia",
-    "type" : "devloper"
-  },
-  { "text" : "Spiders",
-  	"value" : "spiders",
-    "type" : "devloper"
-  },
-  { "text" : "SEGA",
-  	"value" : "sega",
+[ { "text" : "Square Enix",
+	"value" : "square-enix",
     "type" : "publisher"
   },
-  { "text" : "Ubisoft",
-  	"value" : "ubisoft",
-    "type" : "publisher"
-  },
-  { "text" : "Focus Home Interactive",
-  	"value" : "focus-home-interactive",
-    "type" : "publisher"
+  { "text" : "Airtight Games",
+  	"value" : "airtight-games",
+    "type" : "devloper"
   }
 ]

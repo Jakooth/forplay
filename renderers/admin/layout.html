@@ -1,5 +1,5 @@
 <div class="layout">
-    <select class="header">
+    <select aria-label="Тип оформление" class="header">
         <option value="text">Текст</option>
         <option value="img">Картинки</option>
     </select>
@@ -9,11 +9,11 @@
          role="presentation" />
     <p class="select-subtitle">Избери тип оформление.</p>
     <div role="group">
-        <div class="left">
+        <div class="left-col">
             <button class="select" type="button"><span class="clip">Добави игра,
             каре, цитат, статия или реклама</span></button>
         </div>
-        <div class="center textLayout" contenteditable="true">
+        <div class="center-col textLayout" contenteditable="true">
             <p>Натиснете тук, за да редактирате текста, използвайки само параграфи, <strong>болд</strong>, <em>италик</em> и <a href="#" target="_blank">връзки</a>.
                 Този едитор поддържа и стандартни функции, като копи, пейст,
                 ънду и реду.</p>
@@ -24,8 +24,8 @@
             <h3>Може да използвате и хединг 3</h3>
             <p>За да редактирата съдържанието директно в HTML използвайте бутона <em>Source</em>.</p>
         </div>
-        <div class="center imgLayout">
-            <select class="header">
+        <div class="center-col imgLayout">
+            <select aria-label="Оформление на картинките" class="header">
                 <option value="z0">голяма</option>
                 <option value="z1">средна</option>
                 <option value="a1">2 малки + голяма</option>
@@ -34,8 +34,9 @@
                 <option value="b2">шахматно без застъпване</option>
                 <option value="b3">шахматно със застъпване</option>
                 <option value="c1">2/3 прозрачна + каре</option>
-                <option value="c2">цял екран</option>
-                <option value="c3">цял екран + каре</option>
+                <option value="f1">цял екран</option>
+                <option value="f2">цял екран + каре</option>
+                <option value="f3">цял екран + траклист</option>
             </select>
             <img class="svg select-svg" 
             	 src="../assets/icons/iconmonstr/iconmonstr-menu-3-icon.svg" 
@@ -45,8 +46,10 @@
             <div class="sublayout z0Sublayout">голяма</div>
             <div class="sublayout z1Sublayout">средна</div>
             <div class="sublayout a1Sublayout">
-                <div class="img">
-                    <div class="file">
+                <div class="img-proxy">
+                    <div class="file"> <img alt="" 
+                    						role="presentation" 
+                                            src="../assets/helpers/16-9.png" />
                         <label><span class="clip">Избери</span>
                             <input type="file" />
                         </label>
@@ -55,8 +58,10 @@
                        contenteditable="true">Натиснете тук, за да редактирате
                         коментара.</p>
                 </div>
-                <div class="img">
-                    <div class="file">
+                <div class="img-proxy">
+                    <div class="file"> <img alt="" 
+                    						role="presentation" 
+                                            src="../assets/helpers/16-9.png" />
                         <label><span class="clip">Избери</span>
                             <input type="file" />
                         </label>
@@ -65,8 +70,10 @@
                        contenteditable="true">Натиснете тук, за да редактирате
                         коментара.</p>
                 </div>
-                <div class="img">
-                    <div class="file">
+                <div class="img-proxy">
+                    <div class="file"> <img alt="" 
+                    						role="presentation" 
+                                            src="../assets/helpers/16-9.png" />
                         <label><span class="clip">Избери</span>
                             <input type="file" />
                         </label>
@@ -77,8 +84,10 @@
                 </div>
             </div>
             <div class="sublayout a2Sublayout">
-                <div class="img">
-                    <div class="file">
+                <div class="img-proxy">
+                    <div class="file"> <img alt="" 
+                    						role="presentation" 
+                                            src="../assets/helpers/16-9.png" />
                         <label><span class="clip">Избери</span>
                             <input type="file" />
                         </label>
@@ -87,8 +96,10 @@
                        contenteditable="true">Натиснете тук, за да редактирате
                         коментара.</p>
                 </div>
-                <div class="img">
-                    <div class="file">
+                <div class="img-proxy">
+                    <div class="file"> <img alt="" 
+                    						role="presentation" 
+                                            src="../assets/helpers/16-9.png" />
                         <label><span class="clip">Избери</span>
                             <input type="file" />
                         </label>
@@ -97,8 +108,10 @@
                        contenteditable="true">Натиснете тук, за да редактирате
                         коментара.</p>
                 </div>
-                <div class="img">
-                    <div class="file">
+                <div class="img-proxy">
+                    <div class="file"> <img alt="" 
+                    						role="presentation" 
+                                            src="../assets/helpers/16-9.png" />
                         <label><span class="clip">Избери</span>
                             <input type="file" />
                         </label>
@@ -109,8 +122,10 @@
                 </div>
             </div>
             <div class="sublayout b1Sublayout">
-                <div class="img">
-                    <div class="file">
+                <div class="img-proxy">
+                    <div class="file"> <img alt="" 
+                    						role="presentation" 
+                                            src="../assets/helpers/16-9.png" />
                         <label><span class="clip">Избери</span>
                             <input type="file" />
                         </label>
@@ -119,8 +134,10 @@
                        contenteditable="true">Натиснете тук, за да редактирате
                         коментара.</p>
                 </div>
-                <div class="img">
-                    <div class="file">
+                <div class="img-proxy">
+                    <div class="file"> <img alt="" 
+                    						role="presentation" 
+                                            src="../assets/helpers/16-9.png" />
                         <label><span class="clip">Избери</span>
                             <input type="file" />
                         </label>
@@ -129,8 +146,10 @@
                        contenteditable="true">Натиснете тук, за да редактирате
                         коментара.</p>
                 </div>
-                <div class="img">
-                    <div class="file">
+                <div class="img-proxy">
+                    <div class="file"> <img alt="" 
+                    						role="presentation" 
+                                            src="../assets/helpers/16-9.png" />
                         <label><span class="clip">Избери</span>
                             <input type="file" />
                         </label>
@@ -143,10 +162,29 @@
             <div class="sublayout b2Sublayout">шахматно без застъпване</div>
             <div class="sublayout b3Sublayout">шахматно със застъпване</div>
             <div class="sublayout c1Sublayout">2/3 прозрачна + каре</div>
-            <div class="sublayout c2Sublayout">цял екран</div>
-            <div class="sublayout c3Sublayout">цял екран + каре</div>
+            <div class="sublayout f1Sublayout">цял екран</div>
+            <div class="sublayout f2Sublayout">цял екран + каре</div>
+            <div class="sublayout f3Sublayout">
+                <div class="img-proxy">
+                    <div class="file"> <img alt="" 
+                    						role="presentation" 
+                                            src="../assets/helpers/16-9.png" />
+                        <label><span class="clip">Избери</span>
+                            <input type="file" />
+                        </label>
+                    </div>
+                    <div class="tracklist">
+                        <select aria-label="Позициониране на траклиста">
+                            <option value="bottom right">долу вдясно</option>
+                            <option value="bottom left">долу вляво</option>
+                            <option value="top right">горе вдясно</option>
+                            <option value="top left">горе вляво</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="right">
+        <div class="right-col">
             <button class="select" type="button"><span class="clip">Добави каре,
             цитат, статия или реклама</span></button>
         </div>

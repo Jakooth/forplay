@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<game>
+    <tag>murdered-soul-suspect</tag>
+    <stickers>
+        <sticker lib="lorc">ghost</sticker>
+    </stickers>
+    <main>suspect.jpg</main>
+    <type bg="игри">games</type>
+    <subtype bg="игра">game</subtype>
+    <boxes>
+        <box type="360">360.jpg</box>
+        <box type="PS4">PS4.jpg</box>
+    </boxes>
+    <bg>Мърдърд: Соул Съспект</bg>
+    <en>Murdered: Soul Suspect</en>
+    <serie></serie>
+    <genres>
+        <genre>Куест</genre>
+    </genres>
+    <platforms>
+        <platform>Win</platform>
+        <platform>360</platform>
+        <platform>One</platform>
+        <platform>PS3</platform>
+        <platform>PS4</platform>
+    </platforms>
+    <publisher>Square Enix</publisher>
+    <developer>Airtight Games</developer>
+    <eu>Wed Jun 25 2014 03:00:00 GMT+0300 (FLE Daylight Time)</eu>
+    <us>Wed Jun 25 2014 03:00:00 GMT+0300 (FLE Daylight Time)</us>
+    <similar>
+        <game>heavy-rain</game>
+        <game>fahrenheit</game>
+        <game>the-wolf-among-us</game>
+        <game>la-noire</game>
+    </similar>
+</game>
