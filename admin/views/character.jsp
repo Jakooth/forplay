@@ -8,6 +8,13 @@
             <admin:menuItem label="Добави герой и създай таг." title="Герой" url="character" />
         </h2>
         <form>
+        	<div class="Main" role="group">
+                <div class="file">
+                    <label><span class="clip">Избери</span>
+                        <input id="characterMainInput" type="file" />
+                    </label>
+                </div>
+            </div>
             <admin:formItem id="characterNameInput" label="Герой" 
             				placeholder="Sonic, Master Chief, Duke Nukem, Батман, Фокс Мълдър, Рапунцел, Ринсуинд, Ходор" type="text" />
             <admin:formItem id="characterTagInput" label="Таг" 

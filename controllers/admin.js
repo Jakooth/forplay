@@ -82,6 +82,7 @@ function AdminManager() {
 	var movies = bloodhound('../data/admin/movies.json');
 	var artists = bloodhound('../data/admin/artists.json');
 	var authors = bloodhound('../data/admin/authors.json');
+	var characters = bloodhound('../data/admin/characters.json');
 	
 	
 	
@@ -248,6 +249,12 @@ function AdminManager() {
 	initTagInput(tags, 'tags', '#articleWorseInput', 1);
 	initTagInput(tags, 'tags', '#articleEqualInput', 1);
 	initTagInput(authors, 'authors', '#articleAuthorsInput');
+	
+	/**
+	 * QUOTE
+	 */
+	
+	initTagInput(characters, 'characters', '#quoteCharacterInput');
 	
 	/**
 	 * GAMES::GAME
@@ -501,8 +508,19 @@ function AdminManager() {
 		console.log(window.admin.publishTarget);
 	});
 	
+	$('#quote').on('click', 'button.save', function (e) {
+		var o = new Quote();
+		
+		o.save();
+		
+		self.showSectionInWindow('#xml');
+		utils.xml(o, 'quote', '#xmlCodeOutput');	
+		
+		console.log(o);
+	});
+	
 	/**
-	 * Article & Publish
+	 * Objects
 	 */
 	
 	$('#game').on('click', 'button.save', function (e) {

@@ -72,6 +72,9 @@
 	<script src="../controllers/objects/album.js?v=1.0.0">
                 <!--script-->
             </script>    
+	<script src="../controllers/objects/quote.js?v=1.0.0">
+                <!--script-->
+            </script>  
 	<script>$(document).ready(function() { 
 				window.utils = new UtilsManager(); 
 				window.admin = new AdminManager(); 
@@ -147,7 +150,6 @@
     <main>
         <jsp:include page="views/games.jsp" />
         <jsp:include page="views/game.jsp" />
-        <jsp:include page="views/article.jsp" />
         <jsp:include page="views/company.jsp" />
         <jsp:include page="views/platform.jsp" />
         <jsp:include page="views/person.jsp" />
@@ -160,8 +162,10 @@
         <jsp:include page="views/album.jsp" />
         <jsp:include page="views/books.jsp" />
         <jsp:include page="views/boards.jsp" />
+        <jsp:include page="views/article.jsp" />
         <jsp:include page="views/aside.jsp" />
         <jsp:include page="views/images.jsp" />
+        <jsp:include page="views/quote.jsp" />
         <jsp:include page="views/search.jsp" />
         <jsp:include page="views/publish.jsp" />
         <jsp:include page="views/xml.jsp" />
