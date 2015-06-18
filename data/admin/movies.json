@@ -1,3 +1,6 @@
-[ "turks-in-space",
-  "avatar"
+[ { "text" : "Turks in Space",
+	"value" : "turks-in-space",
+    "type" : "movies",
+    "object" : "movie"
+  }
 ]

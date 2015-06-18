@@ -1,9 +1,11 @@
 [ { "text" : "Square Enix",
 	"value" : "square-enix",
-    "type" : "publisher"
+    "type" : "games",
+    "object" : "publisher"
   },
   { "text" : "Airtight Games",
   	"value" : "airtight-games",
-    "type" : "devloper"
+    "type" : "games",
+    "object" : "developer"
   }
 ]

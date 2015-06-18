@@ -1,5 +1,6 @@
 [ { "text" : "Minsk",
-    "type" : "games",
-    "value" : "minsk"
+    "value" : "minsk",
+	"type" : "games",
+	"object": "character"
   }
 ]

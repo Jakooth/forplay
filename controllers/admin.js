@@ -73,8 +73,9 @@ function AdminManager() {
 			freeInput: false
 		});
 	}
+
 	
-	var tags = bloodhound('../data/admin/tags.json');
+	var games = bloodhound('../data/admin/games.json');
 	var stickers = bloodhound('../data/admin/stickers.json');
 	var companies = bloodhound('../data/admin/companies.json');
 	var issues = bloodhound('../data/admin/issues.json');
@@ -84,13 +85,62 @@ function AdminManager() {
 	var authors = bloodhound('../data/admin/authors.json');
 	var characters = bloodhound('../data/admin/characters.json');
 	
+	/**
+	 * Merging all tags into a single data source.
+	 * This is in several places, where tags can be from multiple sources.
+	 */
+	
+	var initTagsTagInput = function() {
+		var d1 = $.get('../data/admin/movies.json'),
+			d2 = $.get('../data/admin/games.json'),
+			d3 = $.get('../data/admin/companies.json'),
+			d4 = $.get('../data/admin/characters.json');
+			
+		$.when(d1, d2, d3, d4).done(function(data1, 
+										 	 data2, 
+										 	 data3,
+										 	 data4) {
+			self.allTags = new Bloodhound({
+				datumTokenizer: Bloodhound.tokenizers.obj.whitespace('text', 'value'),
+				queryTokenizer: Bloodhound.tokenizers.whitespace,
+				local: data1[0].concat(data2[0])
+							   .concat(data3[0])
+							   .concat(data4[0])
+			});
+			
+			self.allTags.initialize();
+			
+			$('#publishTagsInput, ' + 
+			  '#personTagsInputm, ' +
+			  '#imagesTagInput, ' + 
+			  '#searchTagInput, ' + 
+			  '#characterTagsInput').tagsinput({
+				maxTags: null,
+				itemValue: 'value',
+				itemText: 'value',			 
+				typeaheadjs: [{
+					hint: true,
+					highlight: true
+				}, {
+					name: 'allTags',
+					displayKey: 'value', 
+					source: self.allTags.ttAdapter()
+				}],
+				freeInput: false
+			});
+		}).fail(function() {
+			alert("Failed to load tags.");
+		});
+	}
+	
 	
 	
 	
 	/** 
 	 * PUBLIC
 	 */
-	 
+	
+	this.allTags;
 	this.selectTarget = null;
 	this.publishTarget = null;
 	
@@ -219,20 +269,14 @@ function AdminManager() {
 	this.loadOptions('#asideTypeSelect', type, 'option');
 	this.loadOptions('#searchCategorySelect', aside, 'option');
 	
-	initTagInput(tags, 'tags', '#personTagsInput');
-	initTagInput(tags, 'tags', '#characterTagsInput');
 	initTagInput(stickers, 'stickers', '#movieStickersInput');
 	initTypeAhead(series, 'series', '#movieSerieInput');
-	initTypeAhead(tags, 'tags', '#imagesTagInput');
-	initTypeAhead(tags, 'tags', '#searchTagInput');
 	initTagInput(movies, 'movies', '#movieSimilarInput');
 	initTagInput(artists, 'artists', '#movieCastInput');
 	initTagInput(artists, 'artists', '#movieDirectorInput');
 	initTagInput(artists, 'artists', '#movieWriterInput');
 	initTagInput(artists, 'artists', '#movieCameraInput');
 	initTagInput(artists, 'artists', '#movieMusicInput');
-	initTagInput(issues, 'issues', '#publishIssueInput', 1, 'value');
-	initTagInput(tags, 'tags', '#publishTagsInput', null, 'value');
 	
 	/**
 	 * ARTICLE
@@ -245,10 +289,12 @@ function AdminManager() {
 	this.loadOptions('#articleThemeSelect', theme, 'option');
 	this.loadOptions('#articleSubthemeSelect', subtheme, 'option');
 	
-	initTagInput(tags, 'tags', '#articleBetterInput', 1);
-	initTagInput(tags, 'tags', '#articleWorseInput', 1);
-	initTagInput(tags, 'tags', '#articleEqualInput', 1);
+	initTagInput(games, 'games', '#articleBetterInput', 1);
+	initTagInput(games, 'games', '#articleWorseInput', 1);
+	initTagInput(games, 'games', '#articleEqualInput', 1);
 	initTagInput(authors, 'authors', '#articleAuthorsInput');
+	initTagInput(issues, 'issues', '#publishIssueInput', 1, 'value');
+	initTagsTagInput();
 	
 	/**
 	 * QUOTE
@@ -267,7 +313,7 @@ function AdminManager() {
 	initTagInput(stickers, 'stickers', '#gameStickersInput');
 	initTagInput(companies, 'companies', '#gamePublisherInput', 1);
 	initTagInput(companies, 'companies', '#gameDeveloperInput', 1);
-	initTagInput(tags, 'tags', '#gameSimilarInput');
+	initTagInput(games, 'games', '#gameSimilarInput');
 	
 	
 	/**
@@ -279,7 +325,7 @@ function AdminManager() {
 	
 	initTagInput(artists, 'artists', '#albumArtistInput');
 	initTagInput(stickers, 'stickers', '#albumStickersInput');
-	initTagInput(tags, 'tags', '#albumSimilarInput');
+	initTagInput(games, 'games', '#albumSimilarInput');
 	
 	
 	

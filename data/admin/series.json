@@ -1,25 +1,31 @@
 [ { "text" : "Diablo",
 	"value" : "diablo",
-    "type" : "game"
+    "type" : "games",
+	"object" : "serie"
   },
   { "text" : "Halo",
   	"value" : "halo",
-    "type" : "game"
+    "type" : "games",
+	"object" : "serie"
   },
   { "text" : "Grand Theft Auto",
   	"value" : "gta",
-    "type" : "game"
+    "type" : "games",
+	"object" : "serie"
   },
   { "text" : "Star Wars",
   	"value" : "star-wars",
-    "type" : "game"
+    "type" : "games",
+	"object" : "serie"
   },
   { "text" : "True Blood",
   	"value" : "true-blood",
-    "type" : "movie"
+    "type" : "movies",
+	"object" : "serie"
   },
   { "text" : "Batman",
   	"value" : "batman",
-    "type" : "movie"
+    "type" : "movies",
+	"object" : "serie"
   }
 ]

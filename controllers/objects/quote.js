@@ -7,7 +7,7 @@ function Quote() {
 	var self = this;
 	
 	var $characterInput = $('#quoteCharacterInput'),
-		$tagInput = $('#quoteTagInput'),
+		$urlInput = $('#quoteUrlInput'),
 		$saysInput = $('#quoteSaysInput');
 	
 	
@@ -21,7 +21,7 @@ function Quote() {
 	 * Publish
 	 */
 
-	this.tag = "object-tag";
+	this.url = "url-tag";
 	this.character;
 	this.text;
 	
@@ -30,7 +30,7 @@ function Quote() {
 	 */
 	
 	this.save = function () {
-		self.tag = $tagInput.val();
+		self.url = $urlInput.val();
 		self.character = $characterInput.typeahead().data('tagsinput').itemsArray[0];
 		self.says = $saysInput.val();
 	}

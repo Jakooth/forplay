@@ -11,7 +11,7 @@
             <admin:formItem id="quoteCharacterInput" label="Герой" 
             				placeholder="Joker, Minsk, Batman" type="text" 
                             autocomplete="off" />
-            <admin:formItem id="quoteTagInput" label="Таг" 
+            <admin:formItem id="quoteUrlInput" label="Адрес" 
             				placeholder="minsk-to-boo-run, joker-to-batman-dancing-with-the-devil, duke-nukem-time-to-kick-ass" type="text" />
         	<admin:formItem id="quoteSaysInput" label="Цитат" type="area" 
             				placeholder="" />
