@@ -6,17 +6,17 @@ function AdminManager() {
 	 
 	var self = this;
 	
-	var aside = '../data/admin/aside.json';
-	var subtype = '../data/admin/subtype.json';
-	var type = '../data/admin/type.json';
-	var hype = '../data/admin/hype.json';
-	var theme = '../data/admin/theme.json';
-	var subtheme = '../data/admin/subtheme.json';
+	var objects = '../data/admin/settings/objects.json';
+	var subtype = '../data/admin/settings/subtype.json';
+	var type = '../data/admin/settings/type.json';
+	var hype = '../data/admin/settings/hype.json';
+	var theme = '../data/admin/settings/theme.json';
+	var subtheme = '../data/admin/settings/subtheme.json';
 	var gameGenres = '../data/admin/gamegenres.json';
 	var musicGenres = '../data/admin/musicgenres.json';
 	var gamePlatforms = '../data/admin/platforms.json';
 	var movieGenres = '../data/admin/moviegenres.json';
-	var countries = '../data/admin/countries.json';
+	var countries = '../data/admin/settings/countries.json';
 	
 	var bloodhound = function(data, key) {
 		return new Bloodhound({
@@ -75,15 +75,16 @@ function AdminManager() {
 	}
 
 	
-	var games = bloodhound('../data/admin/games.json');
+	var games = bloodhound('../data/admin/objects/games.json');
 	var stickers = bloodhound('../data/admin/stickers.json');
-	var companies = bloodhound('../data/admin/companies.json');
+	var companies = bloodhound('../data/admin/objects/companies.json');
 	var issues = bloodhound('../data/admin/issues.json');
-	var series = bloodhound('../data/admin/series.json');
-	var movies = bloodhound('../data/admin/movies.json');
-	var artists = bloodhound('../data/admin/artists.json');
+	var series = bloodhound('../data/admin/objects/series.json');
+	var movies = bloodhound('../data/admin/objects/movies.json');
+	var artists = bloodhound('../data/admin/objects/artists.json');
 	var authors = bloodhound('../data/admin/authors.json');
-	var characters = bloodhound('../data/admin/characters.json');
+	var characters = bloodhound('../data/admin/objects/characters.json');
+	var music = bloodhound('../data/admin/objects/music.json');
 	
 	/**
 	 * Merging all tags into a single data source.
@@ -91,21 +92,36 @@ function AdminManager() {
 	 */
 	
 	var initTagsTagInput = function() {
-		var d1 = $.get('../data/admin/movies.json'),
-			d2 = $.get('../data/admin/games.json'),
-			d3 = $.get('../data/admin/companies.json'),
-			d4 = $.get('../data/admin/characters.json');
+		var d1 = $.get('../data/admin/objects/movies.json'),
+			d2 = $.get('../data/admin/objects/games.json'),
+			d3 = $.get('../data/admin/objects/companies.json'),
+			d4 = $.get('../data/admin/objects/characters.json'),
+			d5 = $.get('../data/admin/objects/music.json'),
+			d6 = $.get('../data/admin/objects/series.json'),
+			d7 = $.get('../data/admin/objects/artists.json');
 			
-		$.when(d1, d2, d3, d4).done(function(data1, 
-										 	 data2, 
-										 	 data3,
-										 	 data4) {
+		$.when(d1, 
+			   d2, 
+			   d3, 
+			   d4, 
+			   d5, 
+			   d6,
+			   d7).done(function(data1, 
+								 data2, 
+								 data3,
+								 data4,
+								 data5,
+								 data6,
+								 data7) {
 			self.allTags = new Bloodhound({
 				datumTokenizer: Bloodhound.tokenizers.obj.whitespace('text', 'value'),
 				queryTokenizer: Bloodhound.tokenizers.whitespace,
 				local: data1[0].concat(data2[0])
 							   .concat(data3[0])
 							   .concat(data4[0])
+							   .concat(data5[0])
+							   .concat(data6[0])
+							   .concat(data7[0])
 			});
 			
 			self.allTags.initialize();
@@ -267,7 +283,6 @@ function AdminManager() {
 	this.loadOptions('#characterTypeSelect', type, 'option');
 	this.loadOptions('#serieTypeSelect', type, 'option');
 	this.loadOptions('#asideTypeSelect', type, 'option');
-	this.loadOptions('#searchCategorySelect', aside, 'option');
 	
 	initTagInput(stickers, 'stickers', '#movieStickersInput');
 	initTypeAhead(series, 'series', '#movieSerieInput');
@@ -297,6 +312,14 @@ function AdminManager() {
 	initTagsTagInput();
 	
 	/**
+	 * URL & SEARCH
+	 */
+	
+	this.loadOptions('#urlTypeSelect', type, 'option');
+	this.loadOptions('#searchObjectSelect', objects, 'option');
+	this.loadOptions('#urlOjbectSelect', objects, 'option');
+	
+	/**
 	 * QUOTE
 	 */
 	
@@ -323,7 +346,7 @@ function AdminManager() {
 	this.loadOptions('#albumGenreGroup', musicGenres, 'checkbox');
 	this.loadOptions('#albumCountrySelect', countries, 'option');
 	
-	initTagInput(artists, 'artists', '#albumArtistInput');
+	initTagInput(music, 'music', '#albumArtistInput');
 	initTagInput(stickers, 'stickers', '#albumStickersInput');
 	initTagInput(games, 'games', '#albumSimilarInput');
 	
@@ -410,13 +433,6 @@ function AdminManager() {
 		self.showSectionInWindow($(this).attr('href'));
 	});
 	
-	$('form').on('click', '.select', function (e) {
-		e.preventDefault();
-		self.showSectionInWindow('#search');
-		
-		window.admin.selectTarget = $(this);
-	});
-	
 	$('section:not(#publish)').on('click', 'button.publish', function (e) {
 		e.preventDefault();
 		self.showSectionInWindow('#publish');
@@ -433,6 +449,11 @@ function AdminManager() {
 	/**
 	 * Article & Publish
 	 */
+	 
+	$('#article').on('click', '.select', function (e) {
+		e.preventDefault();
+		self.showSectionInWindow('#url');
+	});
 	
 	$('#article').on('change', '#articleTypeSelect', function (e) {
 		var $gameRegion = $('#articleReviewRegion').children(':gt(0)');

@@ -169,6 +169,7 @@
         <jsp:include page="views/search.jsp" />
         <jsp:include page="views/publish.jsp" />
         <jsp:include page="views/xml.jsp" />
+        <jsp:include page="views/url.jsp" />
     </main>
     <footer>
         <p>&amp;copy; Copyright 2015 <a href="http://forplay.bg?video=castle-design">Castle

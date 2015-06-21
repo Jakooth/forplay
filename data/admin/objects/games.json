@@ -1,9 +1,4 @@
-[ { "text" : "Sacrifice To Venus",
-	"value" : "sacrifice-to-venus",
-    "type" : "music",
-    "object" : "album"
-  },
-  { "text" : "Murdered: Soul Suspect",
+[ { "text" : "Murdered: Soul Suspect",
 	"value" : "murdered-soul-suspect",
     "type" : "games",
     "object" : "game"

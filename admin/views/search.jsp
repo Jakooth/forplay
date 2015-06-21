@@ -1,4 +1,5 @@
 <?xml version="1.0"?>
+
 <jsp:root 	xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0"
 			xmlns:c="http://java.sun.com/jsp/jstl/core"
 			xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
@@ -12,8 +13,10 @@
             <admin:formItem id="searchTagInput" label="Таг" 
             				placeholder="gta-5, sam-houser, rockstar" 
                             type="search" autocomplete="off" layout="two-cols" />
-            <admin:formItem id="searchCategorySelect" label="Категория" 
-            				type="select" layout="two-cols" />
+            <admin:formItem id="searchObjectSelect" label="Категория" 
+            				type="select" layout="two-cols">
+                <option value="">Всички</option>
+            </admin:formItem>
             <h3 class="clip">Резултати</h3>
             <ul role="listbox">
                 <li class="object" role="option" data-type="игра">
@@ -25,7 +28,7 @@
                 <li class="review" role="option" data-type="ревю">
                     <label>
                         <span>Grand Theft Auto V – сатирично менгеме. Вече и
-                            в 1080p!</span>
+                        в 1080p!</span>
                         <input name="searchChoice" type="radio" />
                     </label>
                 </li>
@@ -38,7 +41,7 @@
                 <li class="news" role="option" data-type="новина">
                     <label>
                         <span>Линдзи Лоън съди авторите на Grand Theft Auto V,
-                            но в крайна сметка яде бахора, като дърта пача.</span>
+                        но в крайна сметка яде бахора, като дърта пача.</span>
                         <input name="searchChoice" type="radio" />
                     </label>
                 </li>
@@ -93,22 +96,22 @@
                 </li>
                 <li class="img" role="option" data-type="картинка">
                     <label>
-                        <img src="../assets/articles/gta-5/gta-5-main.jpg" alt="Без коментар." />
-                        <span class="clip">gta-5-main.jpg</span>
+                        <img src="../assets/articles/gta-5/gta-5-11.jpg" alt="Без коментар." />
+                        <span class="clip">gta-5-11.jpg</span>
                         <input name="searchChoice" type="radio" />
                     </label>
                 </li>
                 <li class="img" role="option" data-type="картинка">
                     <label>
-                        <img src="../assets/articles/gta-5/gta-5-main-320.png" alt="Без коментар." />
-                        <span class="clip">gta-5-main-320.png</span>
+                        <img src="../assets/articles/gta-5/gta-5-caret.png" alt="Без коментар." />
+                        <span class="clip">gta-5-caret.png</span>
                         <input name="searchChoice" type="radio" />
                     </label>
                 </li>
                 <li class="img" role="option" data-type="картинка">
                     <label>
-                        <img src="../assets/articles/gta-5/gta-5-cover.jpg" alt="Без коментар." />
-                        <span class="clip">gta-5-cover.jpg</span>
+                        <img src="../assets/articles/gta-5/gta-5-10.jpg" alt="Без коментар." />
+                        <span class="clip">gta-5-10.jpg</span>
                         <input name="searchChoice" type="radio" />
                     </label>
                 </li>
