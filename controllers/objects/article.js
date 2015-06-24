@@ -210,8 +210,8 @@ function Article() {
 		if ($layouts.length) {
 			self.preview = $('<div>' + 
 							 CKEDITOR.instances[$layouts.eq(0)
-							.find('.center-col:visible')
-							.attr('id')].getData() + 
+									 .find('.center-col:visible')
+									 .attr('id')].getData() + 
 							 '</div>')
 			.find('> p')
 			.map(function(i, element) { 
@@ -273,6 +273,20 @@ function Article() {
 		}).fail(function() {
 			alert("Failed to load stickers.");
 		});
+		
+		/**
+		 * The left column is restricted for object information:
+		 * game, movie, album, book etc.
+		 * For reviews automatically  fill this data in the
+		 * first layout left column.
+		 */
+		
+		if (self.subtype.tag == 'review') {
+			self.layouts[0].left = {type: self.prime.type, 
+							   		object: self.prime.object, 
+							   		valign: 'top', 
+							   		url: self.prime.value};
+		}
 		
 		return self;
 	}

@@ -5,12 +5,19 @@
             xmlns:admin="urn:jsptagdir:/WEB-INF/tags/admin">
     <section id="url">
         <h2>
-            <admin:menuItem label="Избери тип и адрес на статията." title="Адрес" url="url" />
+            <admin:menuItem label="Избери категория и адрес на статията." 
+            				title="Адрес" url="url" />
         </h2>
         <form>
-            <admin:formItem id="urlTypeSelect" label="Раздел" type="select" layout="two-cols" />
-            <admin:formItem id="urlOjbectSelect" label="Категория" type="select" layout="two-cols" />
-            <admin:formItem id="urlUrlInput" label="Адрес" type="text" />
+            <admin:formItem id="urlOjbectSelect" label="Категория" 
+            				type="select" layout="two-cols" />
+            <admin:formItem id="urlVSelect" label="Вертикално позициониране" 
+            				type="select" layout="two-cols">
+                <option value="top">Горе</option>
+                <option value="bottom">Долу</option>
+            </admin:formItem>
+            <admin:formItem id="urlUrlInput" label="Адрес" 
+            				type="text" autocomplete="on" />
         </form>
         <div role="toolbar">
             <button class="save" type="button">Запази</button>

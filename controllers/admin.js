@@ -26,6 +26,10 @@ function AdminManager() {
 			/**
 			 * Append some random numuber, to makes sure
 			 * the data source is not cached.
+			 * TODO: Remove this in the final version,
+			 * otherwise it will slow down performance.
+			 * Local storage DB ca be cleared from here in Chrome:
+			 * chrome://settings/cookies#cont
 			 */
 			 
 			prefetch: data + '?v=' + Math.round(Math.random() * 100000)
@@ -453,6 +457,51 @@ function AdminManager() {
 	$('#article').on('click', '.select', function (e) {
 		e.preventDefault();
 		self.showSectionInWindow('#url');
+		
+		window.admin.selectTarget = $(this);
+	});
+	
+	$('#url').on('click', 'button.save', function (e) {
+		var $objectInput = $('#urlOjbectSelect'),
+			$urlInput = $('#urlUrlInput'),
+			$vInput = $('#urlVSelect'),
+			$col = window.admin.selectTarget.parents('.inline-col');
+		
+		var type = $objectInput.val().split(',')[0],
+			object = $objectInput.val().split(',')[1],
+			url = $urlInput.val(),
+			v = $vInput.val();
+		
+		window.admin.selectTarget.focus();
+		
+		$col.data('type', type);
+		$col.attr('data-type', $col.data('type'));
+		$col.data('object', object);
+		$col.attr('data-object', $col.data('object'));
+		$col.data('url', url);
+		$col.attr('data-url', $col.data('url'));
+		$col.data('valign', v);
+		$col.attr('data-valign', $col.data('valign'));
+		
+		/**
+		 * Loading the object for preview only.
+		 * If it is a quote show the character images.
+		 */
+		
+		var d1 = $.get('../data/' + type + '/' + 
+					   				object + '/' + 
+									url + '.xml');
+			
+		$.when(d1).done(function(data1) {
+			var aside = $.xml2json(data1);
+			
+			if (object == 'quote') {
+				window.admin.selectTarget.css('background-image', 
+											  'url(../assets/characters/' + aside.character.tag + '.jpg)');	
+			}
+		}).fail(function() {
+			alert("Failed to load aside.");
+		});
 	});
 	
 	$('#article').on('change', '#articleTypeSelect', function (e) {
@@ -472,7 +521,6 @@ function AdminManager() {
 		if ($(this).val() == "review") {
 			$reviewRegion.show();
 		} else {
-			
 			$reviewRegion.hide();
 		}
 		
@@ -507,8 +555,10 @@ function AdminManager() {
 	});
 	
 	$('#article').on('change', '#articleBgHSelect, #articleBgVSelect', function (e) {
-		$('.h-preview').css('background-position', $('#articleBgHSelect').val() + ' ' + $('#articleBgVSelect').val());
-		$('.v-preview').css('background-position', $('#articleBgHSelect').val() + ' ' + $('#articleBgVSelect').val());
+		$('.h-preview').css('background-position', $('#articleBgHSelect')
+					   .val() + ' ' + $('#articleBgVSelect').val());
+		$('.v-preview').css('background-position', $('#articleBgHSelect')
+					   .val() + ' ' + $('#articleBgVSelect').val());
 	});
 	
 	$('#article').on('change', '#articleThemeSelect', function (e) {

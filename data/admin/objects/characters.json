@@ -1,5 +1,10 @@
-[ { "text" : "Minsk",
-    "value" : "minsk",
+[ { "text" : "Vulcan",
+    "value" : "vulcan",
+	"type" : "games",
+	"object": "character"
+  },
+  { "text" : "Mason",
+    "value" : "mason",
 	"type" : "games",
 	"object": "character"
   }

@@ -12,7 +12,7 @@
             				placeholder="Joker, Minsk, Batman" type="text" 
                             autocomplete="off" />
             <admin:formItem id="quoteUrlInput" label="Адрес" 
-            				placeholder="minsk-to-boo-run, joker-to-batman-dancing-with-the-devil, duke-nukem-time-to-kick-ass" type="text" />
+            				placeholder="minsk-and-boo-run, joker-and-batman-dancing-with-the-devil, duke-nukem-time-to-kick-ass" type="text" />
         	<admin:formItem id="quoteSaysInput" label="Цитат" type="area" 
             				placeholder="" />
         </form>

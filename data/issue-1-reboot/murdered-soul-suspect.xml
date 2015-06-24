@@ -80,7 +80,8 @@
         <layout type="text" subtype="text"
                 tag="murdered-soul-suspect" order="0">
             <left>
-                <url type="games" object="game">murdered-soul-suspect</url>
+                <url type="games" object="game"
+                     valign="top">murdered-soul-suspect</url>
             </left>
             <center>
                 <![CDATA[<p>Предвид факта, че вече си преодолял заглавието и

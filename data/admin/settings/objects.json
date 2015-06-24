@@ -1,22 +1,22 @@
 [ { "option" : "игра",
-    "value" : "game"
+    "value" : "games,game"
   },
   { "option" : "филм",
-    "value" : "movie"
+    "value" : "movies,movie"
   },
   { "option" : "албум",
-    "value" : "album"
+    "value" : "music,album"
   },
   { "option" : "каре",
-    "value" : "caret"
+    "value" : "aside,caret"
   },
   { "option" : "картинка",
-    "value" : "image"
+    "value" : "aside,image"
   },
   { "option" : "реклама",
-    "value" : "adv"
+    "value" : "aside,adv"
   },
   { "option" : "цитат",
-    "value" : "quote"
+    "value" : "aside,quote"
   }
 ]

@@ -72,7 +72,8 @@
         <layout type="text" subtype="text"
                 tag="sacrifice-to-venus" order="0">
             <left>
-                <url type="music" object="album">sacrifice-to-venus</url>
+                <url type="music" object="album"
+                     valign="top">sacrifice-to-venus</url>
             </left>
             <center>
                 <![CDATA[<p>Словосъчетанието олдскуул ню метъл звучи като зверски

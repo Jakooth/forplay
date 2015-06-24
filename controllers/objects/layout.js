@@ -9,6 +9,8 @@ function Layout(id) {
 	var $this = $('#' + id);
 	var $layout = $this.parents('.layout');
 	var $imgs = $this.find('.sublayout:visible .img-proxy');
+	var $left = $layout.find('.left-col');
+	var $right = $layout.find('.right-col');
 	
 	
 	
@@ -27,6 +29,17 @@ function Layout(id) {
 	
 	this.setCenter = function() {
 		self.center = CKEDITOR.instances[self.id].getData().replace(/\n/g, '');
+	}
+	
+	this.setAside = function() {
+		self.left = {type: $left.data('type'), 
+					 object: $left.data('object'), 
+					 valign: $left.data('valign'), 
+					 url: $left.data('url')};
+		self.right = {type: $right.data('type'), 
+					  object: $right.data('object'), 
+					  valign: $right.data('valign'), 
+					  url: $right.data('url')};
 	}
 	
 	this.setType = function() {
@@ -48,6 +61,7 @@ function Layout(id) {
 	
 	if (this.type == 'text') {
 		this.setCenter();
+		this.setAside();
 	} else if (this.type == 'img') {
 		this.setSubtype();
 		
