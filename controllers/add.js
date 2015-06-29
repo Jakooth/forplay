@@ -6,7 +6,7 @@ function AddManager() {
 	 
 	var self = this;
 	
-	var gamePlatforms = '../data/admin/platforms.json';
+	var gamePlatforms = '../data/foradmin/platforms.json';
 	
 	var initAsideTextEditor = function() {
 		CKEDITOR.disableAutoInline = true;
@@ -40,7 +40,7 @@ function AddManager() {
 	 */
 	
 	this.addLayout = function($appender) {
-		var d1 = $.get('../renderers/admin/layout.html' + 
+		var d1 = $.get('../renderers/foradmin/layout.html' + 
 					   '?v=' + Math.round(Math.random() * 100000));
 			
 		$.when(d1).done(function(data1) {
@@ -119,7 +119,7 @@ function AddManager() {
 	}
 	
 	this.addPlatform = function($appender) {
-		var d1 = $.get('../renderers/admin/box.html');
+		var d1 = $.get('../renderers/foradmin/box.html');
 			
 		$.when(d1).done(function(data1) {
 			var html = data1;
@@ -142,7 +142,7 @@ function AddManager() {
 	}
 	
 	this.addTrack = function($appender) {
-		var d1 = $.get('../renderers/admin/track.html');
+		var d1 = $.get('../renderers/foradmin/track.html');
 			
 		$.when(d1).done(function(data1) {
 			var html = data1;
@@ -171,7 +171,7 @@ function AddManager() {
 	}
 	
 	this.addImage = function($input, e) {
-		var d1 = $.get('../renderers/admin/image.html');
+		var d1 = $.get('../renderers/foradmin/image.html');
 		
 		$.when(d1).done(function(data1) {
 			var html = data1, 

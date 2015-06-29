@@ -9,7 +9,7 @@
     <subtype bg="игра">game</subtype>
     <boxes>
         <box type="360">360.jpg</box>
-        <box type="PS4">PS4.jpg</box>
+        <box type="ps4">ps4.jpg</box>
     </boxes>
     <bg>Мърдърд: Соул Съспект</bg>
     <en>Murdered: Soul Suspect</en>

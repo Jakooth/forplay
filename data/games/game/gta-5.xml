@@ -10,8 +10,8 @@
     <type bg="игра">game</type>
     <subtype bg="информация">info</subtype>
     <boxes>
-        <box type="PS4">04.jpg</box>
-		<box type="Win">06.jpg</box>
+        <box type="ps4">04.jpg</box>
+		<box type="win">06.jpg</box>
     </boxes>
     <bg>Гранд Тефт Ауто 5</bg>
     <en>Grand Theft Auto 5</en>

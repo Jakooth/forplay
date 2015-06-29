@@ -23,8 +23,8 @@ function Layout(id) {
 	this.subtype = "text";
 	this.type = "text";
 	this.center;
-	this.left;
-	this.right;
+	this.left = false;
+	this.right = false;
 	this.imgs = [];
 	
 	this.setCenter = function() {
@@ -32,14 +32,19 @@ function Layout(id) {
 	}
 	
 	this.setAside = function() {
-		self.left = {type: $left.data('type'), 
-					 object: $left.data('object'), 
-					 valign: $left.data('valign'), 
-					 url: $left.data('url')};
-		self.right = {type: $right.data('type'), 
-					  object: $right.data('object'), 
-					  valign: $right.data('valign'), 
-					  url: $right.data('url')};
+		if ($left.data('type').length > 0) {
+			self.left = {type: $left.data('type'), 
+						 object: $left.data('object'), 
+						 valign: $left.data('valign'), 
+						 url: $left.data('url')};
+		}
+		
+		if ($right.data('type').length > 0) {
+			self.right = {type: $right.data('type'), 
+						  object: $right.data('object'), 
+						  valign: $right.data('valign'), 
+						  url: $right.data('url')};
+		}
 	}
 	
 	this.setType = function() {
@@ -68,16 +73,21 @@ function Layout(id) {
 		$imgs.each(function (index, value) {
 			var $this = $(value),
 				$p = $this.find('p'),
-				$img = $this.find('input'),
-				$tracklist = $this.find('.tracklist');
+				$img = $this.find('input[type=file]'),
+				$video  = $this.find('input[type=text]'),
+				$tracklist = $this.find('select');
 				
-			var img = $img.val();
+			var img = $img.val(),
+				id = Math.round(Math.random() * 100000)
+				alt = $p.length == 0 ? "" : $p.html().replace(/br/g, 'br /');
 			
 			self.imgs.push({tag: img.substring(img.lastIndexOf('\\') + 1, img.lastIndexOf('-')), 
 							index: img.split('\\').pop().split('-').pop(), 
-							pointer: $p.data('pointer'), 
-							alt: $p.html().replace(/br/g, 'br /'),
-							tracklist: $tracklist.prop('class') });
+							pointer: $p.data('pointer'),
+							video: $video.val(),
+							player: id,
+							alt: alt,
+							tracklist: $tracklist.val()});
 		});
 	}
 }

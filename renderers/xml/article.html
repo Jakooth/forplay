@@ -3,11 +3,11 @@
     <site>{{:site}}</site>
     <url>{{:url}}</url>{{if video}}
     <video>
-    	<tech>{{:video.tech}}</tech>
-    	<url>{{:video.url}}</url>
+        <tech>{{:video.tech}}</tech>
+        <url>{{:video.url}}</url>
     </video>{{/if}}{{if audio}}
     <audio>
-    	<tech>{{:audio.tech}}</tech>
+        <tech>{{:audio.tech}}</tech>
         <frame>{{:audio.frame}}</frame>
         <url>{{:audio.url}}</url>
     </audio>{{/if}}
@@ -19,10 +19,10 @@
        	   theme="{{:theme}}" 
            subtheme="{{:subtheme}}"
            tag="{{:cover.tag}}">{{:cover.index}}</cover>
-    <main> 	
-    	<small tag="{{:main.tag}}">{{:main.index}}</small>
-        <large tag="{{:main640.tag}}">{{:main640.index}}</large>
-        <caret tag="{{:main320.tag}}">{{:main320.index}}</caret>
+    <main>
+        <wide tag="{{:mainWide.tag}}">{{:mainWide.index}}</wide>
+        <shot tag="{{:mainShot.tag}}">{{:mainShot.index}}</shot>
+        <caret tag="{{:mainCaret.tag}}">{{:mainCaret.index}}</caret>
     </main>
     <type bg="{{:type.bg}}">{{:type.tag}}</type>
     <subtype bg="{{:subtype.bg}}">{{:subtype.tag}}</subtype>
@@ -43,9 +43,11 @@
     <worse tag="{{:worse.value}}">{{:worse.text}}</worse>
     <equal tag="{{:equal.value}}">{{:equal.text}}</equal>
     <versionTested>{{:versionTested}}</versionTested>
-    <preview>{{:preview}}</preview>{{if stickers}}
+    <preview>
+        <![CDATA[{{:preview}}]]>
+    </preview>{{if stickers}}
     <stickers>{{for stickers}}
-    	<sticker lib="{{:#data.lib}}">{{:#data.text}}</sticker>{{/for}}
+        <sticker lib="{{:#data.lib}}">{{:#data.text}}</sticker>{{/for}}
     </stickers>{{/if}}
     <layouts>{{for layouts}}
 {{if type == 'text' ~tag=#view.parent.parent.data.prime.value tmpl="textLayout"}}

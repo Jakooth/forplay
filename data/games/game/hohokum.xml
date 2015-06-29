@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<game>
+    <tag>hohokum</tag>
+    <stickers>
+        <sticker lib="lorc">snake</sticker>
+    </stickers>
+    <main>hohokum.jpg</main>
+    <type bg="игри">games</type>
+    <subtype bg="игра">game</subtype>
+    <boxes>
+        <box type="vita">vita.jpg</box>
+    </boxes>
+    <bg>Хохокум</bg>
+    <en>Hohokum</en>
+    <serie></serie>
+    <genres>
+        <genre>Куест</genre>
+    </genres>
+    <platforms>
+        <platform>PS3</platform>
+        <platform>PS4</platform>
+        <platform>Vita</platform>
+    </platforms>
+    <publisher>SCEE</publisher>
+    <developer>Honeyslug</developer>
+    <eu>Wed Aug 13 2014 03:00:00 GMT+0300 (FLE Daylight Time)</eu>
+    <us>Tue Aug 12 2014 03:00:00 GMT+0300 (FLE Daylight Time)</us>
+    <similar>
+        <game></game>
+    </similar>
+</game>

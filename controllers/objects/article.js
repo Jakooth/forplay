@@ -31,9 +31,9 @@ function Article() {
 		$bgVInput = $('#articleBgVSelect'),
 		$themeInput = $('#articleThemeSelect'),
 		$subthemeInput = $('#articleSubthemeSelect'),
-		$mainInput = $('#articleMainInput'),
-		$main640Input = $('#articleMain640Input'),
-		$main320Input = $('#articleMain320Input'),
+		$mainWideInput = $('#articleMainWideInput'),
+		$mainShotInput = $('#articleMainShotInput'),
+		$mainCaretInput = $('#articleMainCaretInput'),
 		$videoTechInput = $('#articleVideoTechSelect'),
 		$audioTechInput = $('#articleAudioTechSelect'),
 		$videoUrlInput = $('#articleVideoUrlInput'),
@@ -84,9 +84,9 @@ function Article() {
 	this.bgV;
 	this.theme;
 	this.subtheme;
-	this.main = "game-tag-index.jpg";
-	this.main320 = "game-tag-index.png";
-	this.main640 = "game-tag-index.jpg";
+	this.mainWide = "game-tag-index.jpg";
+	this.mainCaret = "game-tag-index.png";
+	this.mainShot = "game-tag-index.jpg";
 	this.better;
 	this.worse;
 	this.equal;
@@ -127,15 +127,15 @@ function Article() {
 		self.cover = {tag: $coverInput.val().substring($coverInput.val().lastIndexOf('\\') + 1, 
 													   $coverInput.val().lastIndexOf('-')), 
 					  index: $coverInput.val().split('\\').pop().split('-').pop()};
-		self.main = {tag: $mainInput.val().substring($mainInput.val().lastIndexOf('\\') + 1, 
-													 $mainInput.val().lastIndexOf('-')), 
-					 index: $mainInput.val().split('\\').pop().split('-').pop()}
-		self.main320 = {tag: $main320Input.val().substring($main320Input.val().lastIndexOf('\\') + 1, 
-													 	   $main320Input.val().lastIndexOf('-')), 
-					 	index: $main320Input.val().split('\\').pop().split('-').pop()}
-		self.main640 = {tag: $main640Input.val().substring($main640Input.val().lastIndexOf('\\') + 1, 
-													 	   $main640Input.val().lastIndexOf('-')), 
-					 	index: $main640Input.val().split('\\').pop().split('-').pop()}
+		self.mainWide = {tag: $mainWideInput.val().substring($mainWideInput.val().lastIndexOf('\\') + 1, 
+													 		 $mainWideInput.val().lastIndexOf('-')), 
+					 	 index: $mainWideInput.val().split('\\').pop().split('-').pop()}
+		self.mainCaret = {tag: $mainCaretInput.val().substring($mainCaretInput.val().lastIndexOf('\\') + 1, 
+													 	   	   $mainCaretInput.val().lastIndexOf('-')), 
+					 	  index: $mainCaretInput.val().split('\\').pop().split('-').pop()}
+		self.mainShot = {tag: $mainShotInput.val().substring($mainShotInput.val().lastIndexOf('\\') + 1, 
+													 	     $mainShotInput.val().lastIndexOf('-')), 
+					 	 index: $mainShotInput.val().split('\\').pop().split('-').pop()}
 		
 		if (self.subtype.tag == 'review') {
 			self.hype = $hypeInput.val();
@@ -152,7 +152,8 @@ function Article() {
 			
 			if ($betterInput.typeahead().data('tagsinput').itemsArray[0]) {
 				self.better = {value: $betterInput.typeahead().data('tagsinput').itemsArray[0].value, 
-						   	   text: $betterTextInput.val()}
+						   	   text: $betterTextInput.val() || 
+							   		 $betterInput.typeahead().data('tagsinput').itemsArray[0].text}
 			}  else {
 				self.better = "";
 			}
@@ -160,7 +161,8 @@ function Article() {
 			
 			if ($worseInput.typeahead().data('tagsinput').itemsArray[0]) {
 				self.worse = {value: $worseInput.typeahead().data('tagsinput').itemsArray[0].value, 
-						   	   text: $worseTextInput.val()}
+						   	  text: $worseTextInput.val() || 
+							   		$worseInput.typeahead().data('tagsinput').itemsArray[0].text}
 			}  else {
 				self.worse = "";
 			}
@@ -168,7 +170,8 @@ function Article() {
 			
 			if ($equalInput.typeahead().data('tagsinput').itemsArray[0]) {
 				self.equal = {value: $equalInput.typeahead().data('tagsinput').itemsArray[0].value, 
-						   	   text: $equalTextInput.val()}
+						   	  text: $equalTextInput.val() || 
+							   		$equalInput.typeahead().data('tagsinput').itemsArray[0].text}
 			}  else {
 				self.equal = "";
 			}

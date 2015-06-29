@@ -1,0 +1,66 @@
+[ { "text" : "Emil Bulls",
+	"value" : "emil-bulls",
+    "type" : "music",
+	"subtype" : "band"
+  },
+  { "text" : "Sacrifice To Venus",
+	"value" : "sacrifice-to-venus",
+    "type" : "music",
+    "object" : "album"
+  },
+  { "text" : "Slipknot",
+	"value" : "slipknot",
+    "type" : "music",
+	"subtype" : "band"
+  },
+  { "text" : "System of a Down",
+	"value" : "system-of-a-down",
+    "type" : "music",
+	"subtype" : "band"
+  },
+  { "text" : "Marilyn Manson",
+	"value" : "marilyn-manson",
+    "type" : "music",
+	"subtype" : "band"
+  },
+  { "text" : "Korn",
+	"value" : "korn",
+    "type" : "music",
+	"subtype" : "band"
+  },
+  { "text" : "Coal Chamber",
+	"value" : "coal-chamber",
+    "type" : "music",
+	"subtype" : "band"
+  },
+  { "text" : "Body Count",
+	"value" : "body-count",
+    "type" : "music",
+    "object" : "band"
+  },
+  { "text" : "Manslaughter",
+	"value" : "manslaughter",
+    "type" : "music",
+    "object" : "album"
+  },
+  { "text" : "Public Enemy",
+	"value" : "public-enemy",
+    "type" : "music",
+    "object" : "band"
+  },
+  { "text" : "Beastie Boys",
+	"value" : "beastie-boys",
+    "type" : "music",
+    "object" : "band"
+  },
+  { "text" : "(hed) p.e.",
+	"value" : "hed-pe",
+    "type" : "music",
+    "object" : "band"
+  },
+  { "text" : "Suicidal Tendencies",
+	"value" : "suicidal-tendencies",
+    "type" : "music",
+    "object" : "band"
+  }
+]

@@ -61,6 +61,19 @@
 		color: @color;
 	}
 	
+	body.@{theme} .inline-col blockquote {
+		background-color: @color;
+	}
+
+	body.@{theme} .inline-col.left-col blockquote:after {
+		border-left-color: @color;
+	}
+	
+	body.@{theme} .inline-col.right-col blockquote:after {
+		border-right-color: @color;
+	}
+	
+	
 	/**
 	 * ADMIN
 	 */

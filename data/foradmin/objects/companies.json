@@ -1,0 +1,26 @@
+[ { "text" : "Square Enix",
+	"value" : "square-enix",
+    "type" : "games",
+    "object" : "publisher"
+  },
+  { "text" : "Airtight Games",
+  	"value" : "airtight-games",
+    "type" : "games",
+    "object" : "developer"
+  },
+  { "text" : "Focus Home Interactive",
+	"value" : "focus-home-interactive",
+    "type" : "games",
+    "object" : "publisher"
+  },
+  { "text" : "SCEE",
+  	"value" : "scee",
+    "type" : "games",
+    "object" : "publisher"
+  },
+  { "text" : "Honeyslug",
+  	"value" : "honeyslug",
+    "type" : "games",
+    "object" : "developer"
+  }
+]

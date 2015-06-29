@@ -1,18 +1,25 @@
-<div class="layout {{:type}} {{:subtype}}"> {{if left}}
+<div class="layout {{:type}} {{:subtype}}"> 
+{{if left}}
     <div data-url="{{:left.url.text}}" 
     	 data-type="{{:left.url.type}}"
          data-object="{{:left.url.object}}"
          data-box="{{:~versionTested}}" 
-         class="inline-col left-col {{:left.valign}}"></div>
-    {{/if}} {{if type == 'img'}} {{for center.img}}
-    <div class="img-proxy">{{if #parent.data.subtype == 'f3'}}
+         class="inline-col left-col {{:left.url.valign}}"></div>
+{{/if}}
+
+{{if type == 'img'}} {{for center.img}}
+    <div class="img-proxy {{if video}}Player{{/if}}"{{if video}}
+    	 id="player_{{:video.player}}"{{/if}}>
+	
+    {{if #data.tracklist}}
         <div data-tag="{{:#data.tracklist.tag}}" 
-        	 class="{{:#data.tracklist}}"></div>
-        {{else}}
+        	 class="tracklist {{:#data.tracklist}}"></div>
+    {{else #data.alt.length > 0}}
         <p><strong>{{:#data.pointer}}</strong> {{:#data.alt}}</p>
-        {{/if}}
-        <div class="img"><a href="#"{{if video}} 
+    {{/if}}
+        <div class="img"><a href="{{if video}}{{:video.url}}{{/if}}"{{if video}} 
                             data-video="{{:video.url}}"
+                            data-player="{{:video.player}}"
                             data-tech="{{:video.tech}}"{{/if}}> <img 
                             data-tag="{{:#data.tag}}"
                             data-proxy="true"
@@ -20,11 +27,15 @@
                             data-ratio="16-9"
                             src="assets/helpers/16-9.png"
                             alt="{{:#data.alt}}" /> </a></div>
-    </div>
-    {{/for}} {{else}}
+	</div>
+{{/for}} {{else}}
     <div class="center-col"> {{:center}} </div>
-    {{/if}} {{if right}}
+{{/if}}
+
+{{if right}}
     <div data-url="{{:right.url.text}}" 
-    	 data-type="{{:right.url.type}}" 
-         class="inline-col right-col {{:right.valign}}"></div>
-    {{/if}} </div>
+    	 data-type="{{:right.url.type}}"
+         data-object="{{:right.url.object}}"
+         class="inline-col right-col {{:right.url.valign}}"></div>
+{{/if}} 
+</div>

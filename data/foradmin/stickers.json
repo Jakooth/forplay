@@ -1,0 +1,25 @@
+[ { "text" : "Ghost",
+	"value" : "ghost",
+    "lib" : "lorc"
+  },
+  { "text" : "Broadsword",
+	"value" : "broadsword",
+    "lib" : "lorc"
+  },
+  { "text" : "Diablo skull",
+	"value" : "diablo-skull",
+    "lib" : "lorc"
+  },
+  { "text" : "Angel outfit",
+	"value" : "angel-outfit",
+    "lib" : "lorc"
+  },
+  { "text" : "High shot",
+	"value" : "high-shot",
+    "lib" : "lorc"
+  },
+  { "text" : "Snake",
+	"value" : "snake",
+    "lib" : "lorc"
+  }
+]

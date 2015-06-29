@@ -174,6 +174,11 @@ section.cover > p * {
 	text-decoration: underline;
 }
 
+.layout .inline-col blockquote p {
+	font-style: italic;
+	color: @light;
+}
+
 
 
 
@@ -533,12 +538,15 @@ section.cover > p {
 	left: auto;
 	width: auto;
 	bottom: auto;
-	opacity: 0.4;
+	opacity: 0.6;
 	right: 12.5%;
 	margin-top: 12.5%;
 	top: 0;
 }
 
+#topArticles ul,
+#topVideos ul,
+#allArticles ul,
 section.cover ul {
 	display: none;
 }
@@ -784,12 +792,12 @@ header.read .nav-set li a {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
-	height: 100%;
+	height: 50%;
 	background-image: url(helpers/light.png);
 	background-repeat: repeat-x;
 	background-position: bottom left;
 	pointer-events: none;
-	background-size: 100% 20%;
+	background-size: 100% 40%;
 }
 
 .article-set article .img-proxy {
@@ -878,6 +886,7 @@ header.read .nav-set li a {
 
 .video-set h3 {
 	position: absolute;
+	width: 100%;
 	bottom: 0;
 	padding: 6.25%;
 	background-color: transparent;
@@ -936,6 +945,11 @@ main.read #read {
 	width: 60%;
 	margin-top: 1.25%;
 	margin-left: 20%;
+}
+
+.layout {
+	position: relative;
+	clear: both;
 }
 
 .layout p, 
@@ -1011,11 +1025,48 @@ main.read #read {
 	padding-top: 0;
 }
 
+/**
+ * For video player we use margin instead padding.
+ * With padding the video will be displayed in the padded area too.
+ * Margin is the padding -2.08% on right and minus 2.08% width.
+ */
+
+.img.a1 .img-proxy:nth-of-type(1).Player {
+	margin: 2.08%;
+	margin-right: -31.25%;
+	margin-top: 0;
+	width: 63.545%;
+	padding: 0;
+	margin-left: 0;
+}
+
+/**
+ * Paragraph vertical position is the percentage (height + padding),
+ * from the percentage (width + padding).
+ * In the case of 1600x1200 reolution it is:
+ * 362 (342px width + 20px padding) from 630 (610px width + 20px padding), 
+ * which is 57.460317460317455% ~ 57.5%.
+ * Horizontal position is the overlap between the small and large image
+ * in percentage to the width (use Photoshop to measure in 1600x1200 shot)
+ * For 1600x1200 resolution it is:
+ * 330 (290px overlap + 40px padding) from 630 630 (610px width + 20px padding), 
+ * which is 52.38095238095239% ~ 52.4%.
+ */
+
 .img.a1 .img-proxy:nth-of-type(1) p {
 	left: 52.4%;
 	top: 0;
-	margin-top: 57.6%;
+	margin-top: 57.5%;
 	width: 31.75%;
+}
+
+/**
+ * For video we use margin, thus all caluclations above are minus 20px padding.
+ */
+
+.img.a1 .img-proxy:nth-of-type(1).Player p {
+	left: 54.1%;
+	margin-top: 59.6%;
 }
 
 .img.a1 .img-proxy.r1610:nth-of-type(1) p {
@@ -1048,6 +1099,31 @@ main.read #read {
 	bottom: 0;
 	width: 15.4%;
 }
+
+.img.a1 .img-proxy:nth-of-type(3) .tracklist {
+	position: absolute;
+	z-index: 1;
+	background: #fff;
+	bottom: 0;
+	left: 26.2%;
+	width: 27.7%;
+}
+
+.img.a1 .img-proxy:nth-of-type(3) .tracklist ol {
+	list-style: decimal-leading-zero;
+	padding: 5.6%;
+	padding-bottom: 0;
+	list-style-position: outside;
+	padding-left: 15.4%;
+}
+
+.img.a1 .img-proxy:nth-of-type(3) .tracklist li {
+	list-style: decimal-leading-zero;
+	padding-left: 3.5%;
+}
+
+
+
 
 /**
  * a2
@@ -1277,6 +1353,67 @@ main.read #read {
 	padding: 0 6.25%;
 }
 
+/**
+ * QUOTE
+ */
+
+.inline-col blockquote {
+	min-height: 128px;
+	width: 87.5%;
+	clear: both;
+	margin: 6.25%;
+	position: relative;
+	background-color: @dark;
+}
+
+.inline-col blockquote:after {
+	top: 50%;
+	border: solid transparent;
+	content: "";
+	height: 0;
+	width: 0;
+	position: absolute;
+	border-width: 20px;
+	margin-top: -20px;
+}
+
+.inline-col blockquote p {
+	padding: 6.25%;
+	clear: none;
+}
+
+.inline-col.left-col blockquote:after {
+	left: 100%;
+	border-left-color: @dark;
+}
+
+.inline-col.right-col blockquote:after {
+	right: 100%;
+	border-right-color: @dark;
+}
+
+.inline-col.left-col blockquote .img {
+	float: left;
+	margin-left: 0;
+	margin-right: 6.25%;
+	margin-bottom: 6.25%; 
+	width: 128px;
+}
+
+.inline-col.right-col blockquote .img {
+	float: right;
+	margin-right: 0;
+	margin-left: 6.25%;
+	margin-bottom: 6.25%;
+	width: 128px;
+}
+
+
+
+
+
+
+
 
 /**
  * FOOTER
@@ -1413,19 +1550,26 @@ svg path {
 	pointer-events: none;
 }
 
-.Player .img-proxy:after {
+.Player:after {
 	.video-play-button;
 	content: "";
 }
 
+.read-set .Player:after,
 .video-set article:nth-of-type(3) .img-proxy:after {
 	width: 128px;
 	height: 128px;
+	margin-left: -64px;
+	margin-top: -64px;
 	top: 30%;
 	left: 50%;
 }
 
-.Player:hover .img-proxy:after {
+.read-set .Player:after {
+	top: 50%;
+}
+
+.Player:hover:after {
 	background-image: url(icons/forplay-play-icon-hover.png);
 	opacity: 1;
 }

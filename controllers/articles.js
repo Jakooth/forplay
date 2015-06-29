@@ -93,7 +93,7 @@ function ArticlesManager() {
 		var get1 = $.get('data/' + type + '/' 
 						 		 + object + '/' 
 								 + data + '.xml'),
-			get2 = $.get('renderers/' + object + 'Info.html');
+			get2 = $.get('renderers/' + object + '.html');
 			
 		$.when(get1, get2).done(function(data1, data2) {
 			var aside = $.xml2json(data1[0]),
@@ -286,12 +286,13 @@ function ArticlesManager() {
 		
 		$('#topVideos').append(html.find('article.video:lt(5)'));
 		
-		var id = Math.round(Math.random() * 100000)
+		var id = Math.round(Math.random() * 100000);
+		
 		var $players = $('#topVideos').find('.video'),
 			$mainPlayer = $('#topVideos').find('.video:eq(2)');
 		
-		$mainPlayer.attr('id', 'player_' + id);
-		$players.addClass('Player');
+		$mainPlayer.find('.img-proxy').attr('id', 'player_' + id);
+		$players.find('.img-proxy').addClass('Player');
 		$players.find('a').attr('data-player', id);
 		$players.find('a').data('player', id);
 		

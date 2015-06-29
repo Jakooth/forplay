@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<album>
+    <tag>manslaughter</tag>
+    <stickers></stickers>
+    <main>cover.jpg</main>
+    <type bg="музика">music</type>
+    <subtype bg="албум">album</subtype>
+    <artist>Body Count</artist>
+    <country>Съединени Щати</country>
+    <en>Manslaughter</en>
+    <genres>
+        <genre>rapcore</genre>
+    </genres>
+    <date>Sat May 10 2014 03:00:00 GMT+0300 (FLE Daylight Time)</date>
+    <tracks>
+        <track video="https://www.youtube.com/watch?v=sokdL-0iV9s">Talk Shit,
+            Get Shot</track>
+        <track video="">Pray For Death</track>
+        <track video="https://www.youtube.com/watch?v=mnmjivkzbcQ">99 Problems
+            BC</track>
+        <track video="">Back To Rehab</track>
+        <track video="">Manslaughter</track>
+        <track video="">Get A Job</track>
+        <track video="https://www.youtube.com/watch?v=fqIp3i1ZBzI">Institutionalized
+            2014</track>
+        <track video="https://www.youtube.com/watch?v=cQ3EbHgZZ2M">Pop Bubble
+            (feat. Jamey Jasta)</track>
+        <track video="">Enter The Dark Side</track>
+        <track video="https://www.youtube.com/watch?v=A_GevN7Km74">Bitch In The
+            Pit</track>
+        <track video="">Black Voodoo Sex</track>
+        <track video="">Wanna Be A Gangsta</track>
+        <track video="">I Will Always Love You</track>
+        <track video="">99 Problems BC - Rock mix</track>
+    </tracks>
+    <similar>
+        <artist>public-enemy</artist>
+        <artist>hed-pe</artist>
+        <artist>suicidal-tendencies</artist>
+    </similar>
+</album>

@@ -1,0 +1,71 @@
+[ { "text" : "Murdered: Soul Suspect",
+	"value" : "murdered-soul-suspect",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "Heavy Rain",
+	"value" : "heavy-rain",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "Fahrenheit",
+	"value" : "fahrenheit",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "The Wolf Among Us",
+	"value" : "the-wolf-among-us",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "L.A. Noire",
+	"value" : "la-noire",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "CSI",
+	"value" : "csi",
+    "type" : "games",
+    "object" : "serie"
+  },
+  { "text" : "Bound by Flame",
+	"value" : "bound-by-flame",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "Game of Thrones",
+	"value" : "game-of-thrones",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "Dragon Age 2",
+	"value" : "dragon-age-2",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "The Witcher 2: Assassin of Kings",
+	"value" : "the-witcherw-2-assassin-of-kings",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "Dark Souls",
+	"value" : "dark-souls",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "Kingdoms of Amalur: Reckoning",
+	"value" : "kingdoms-of-amalur-reckoning",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "Hohokum",
+	"value" : "hohokum",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "Snake",
+	"value" : "snake",
+    "type" : "games",
+    "object" : "game"
+  }
+]

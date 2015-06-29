@@ -69,7 +69,7 @@ function PlayerManager() {
 	 * Small movies in a video set layout are displayed in a single large player.
 	 */
 	  
-	$('main').on('click', '.Player .img-proxy a', function (e) {
+	$('main').on('click', '.Player a', function (e) {
 		var $this = $(this), 
 			$img = $this.find('img'),
 			$player = $this.parents('.Player');
@@ -152,7 +152,7 @@ function PlayerManager() {
 			
 			return false;
 		} else {				
-			createVideo($mainPlayer.find('.img-proxy'), url, tech, poster);
+			createVideo($mainPlayer, url, tech, poster);
 			
 			return false;
 		}		

@@ -160,8 +160,8 @@ function UtilsManager() {
 	
 	/**
 	 * To change the format of the string needed from the image server
-	 * just modify the correspoding function.
-	 * For the basic ICN hosting unsafe TimThumb php script is used.
+	 * just modify the corresponding function.
+	 * For the basic ICN hosting unsafe TimThumb PHP script is used.
 	 * The final version will use Thumbor with hash encryption.
 	 * Because we append on the fly, the browser does not calculate
 	 * the height correctly, thus we do this manually.
@@ -181,7 +181,7 @@ function UtilsManager() {
 	 * This is the Polygon resizing service.
 	 * Using it only for local testing until we find hosting.
 	 * The first service IP is the VM box IP (Linux ifconfig to get it).
-	 * The second IP is the localhost newtork address (Windows ipconfig to get it).
+	 * The second IP is the localhost network address (Windows ipconfig to get it).
 	 */
 	
 	this.formatThumborString = function(tag, width, height) {
