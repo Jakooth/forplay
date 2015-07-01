@@ -1,5 +1,25 @@
-[ { "text" : "Turks in Space",
-	"value" : "turks-in-space",
+[ { "text" : "Annabelle",
+	"value" : "annabelle",
+    "type" : "movies",
+    "object" : "movie"
+  },
+  { "text" : "The Conjuring",
+	"value" : "the-conjuring",
+    "type" : "movies",
+    "object" : "movie"
+  },
+  { "text" : "Insidious",
+	"value" : "insidious",
+    "type" : "movies",
+    "object" : "movie"
+  },
+  { "text" : "Insidious Chapter 2",
+	"value" : "insidious-chapter-2",
+    "type" : "movies",
+    "object" : "movie"
+  },
+  { "text" : "Mama",
+	"value" : "mama",
     "type" : "movies",
     "object" : "movie"
   }

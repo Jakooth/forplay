@@ -277,7 +277,7 @@ function AddManager() {
 		self.removeLayout($(this));
 	});
 	
-	$('#game, #article, #album').on('change', '.file input', function (e) {
+	$('#game, #article, #album, #movie').on('change', '.file input', function (e) {
 		var reader = new FileReader();
 		
 		var $file = $(e.target).parents('.file');

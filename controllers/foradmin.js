@@ -153,6 +153,46 @@ function AdminManager() {
 		});
 	}
 	
+	/**
+	 * Merging games and movie for better, worse and equal.
+	 */
+	
+	var initTagsBWEInputs = function() {
+		var d1 = $.get('../data/foradmin/objects/movies.json'),
+			d2 = $.get('../data/foradmin/objects/games.json');
+			
+		$.when(d1, 
+			   d2).done(function(data1, 
+								 data2) {
+			self.bweTags = new Bloodhound({
+				datumTokenizer: Bloodhound.tokenizers.obj.whitespace('text', 'value'),
+				queryTokenizer: Bloodhound.tokenizers.whitespace,
+				local: data1[0].concat(data2[0])
+			});
+			
+			self.bweTags.initialize();
+			
+			$('#articleBetterInput, ' +
+			  '#articleWorseInput, ' +
+			  '#articleEqualInput').tagsinput({
+				maxTags: 1,
+				itemValue: 'value',
+				itemText: 'value',			 
+				typeaheadjs: [{
+					hint: true,
+					highlight: true
+				}, {
+					name: 'bweTags',
+					displayKey: 'value', 
+					source: self.bweTags.ttAdapter()
+				}],
+				freeInput: false
+			});
+		}).fail(function() {
+			alert("Failed to load tags.");
+		});
+	}
+	
 	
 	
 	
@@ -161,6 +201,7 @@ function AdminManager() {
 	 */
 	
 	this.allTags;
+	this.bweTags;
 	this.selectTarget = null;
 	this.publishTarget = null;
 	
@@ -290,12 +331,6 @@ function AdminManager() {
 	
 	initTagInput(stickers, 'stickers', '#movieStickersInput');
 	initTypeAhead(series, 'series', '#movieSerieInput');
-	initTagInput(movies, 'movies', '#movieSimilarInput');
-	initTagInput(persons, 'persons', '#movieCastInput');
-	initTagInput(persons, 'persons', '#movieDirectorInput');
-	initTagInput(persons, 'persons', '#movieWriterInput');
-	initTagInput(persons, 'persons', '#movieCameraInput');
-	initTagInput(persons, 'persons', '#movieMusicInput');
 	
 	/**
 	 * ARTICLE
@@ -308,12 +343,10 @@ function AdminManager() {
 	this.loadOptions('#articleThemeSelect', theme, 'option');
 	this.loadOptions('#articleSubthemeSelect', subtheme, 'option');
 	
-	initTagInput(games, 'games', '#articleBetterInput', 1);
-	initTagInput(games, 'games', '#articleWorseInput', 1);
-	initTagInput(games, 'games', '#articleEqualInput', 1);
 	initTagInput(authors, 'authors', '#articleAuthorsInput');
 	initTagInput(issues, 'issues', '#publishIssueInput', 1, 'value');
 	initTagsTagInput();
+	initTagsBWEInputs();
 	
 	/**
 	 * URL & SEARCH
@@ -328,6 +361,19 @@ function AdminManager() {
 	 */
 	
 	initTagInput(characters, 'characters', '#quoteCharacterInput');
+	
+	/**
+	 * MOVIES::MOVIE
+	 */
+	
+	this.loadOptions('#movieGenreGroup', movieGenres, 'checkbox');
+	
+	initTagInput(movies, 'movies', '#movieSimilarInput');
+	initTagInput(persons, 'persons', '#movieCastInput');
+	initTagInput(persons, 'persons', '#movieDirectorInput');
+	initTagInput(persons, 'persons', '#movieWriterInput');
+	initTagInput(persons, 'persons', '#movieCameraInput');
+	initTagInput(persons, 'persons', '#movieMusicInput');
 	
 	/**
 	 * GAMES::GAME
@@ -505,12 +551,19 @@ function AdminManager() {
 	});
 	
 	$('#article').on('change', '#articleTypeSelect', function (e) {
-		var $gameRegion = $('#articleReviewRegion').children(':gt(0)');
+		var $gameRegion = $('#articleReviewRegion').children(':gt(0)'),
+			$versionTested = $('#articleVersionTestedSelect').parents('.two-cols');
 		
 		if ($(this).val() == "music") {
 			$gameRegion.hide();
 		} else {
 			$gameRegion.show();
+		}
+		
+		if ($(this).val() == "games") {
+			$versionTested.show();
+		} else {
+			$versionTested.hide();
 		}
 	});
 	
@@ -649,6 +702,17 @@ function AdminManager() {
 		
 		self.showSectionInWindow('#xml');
 		utils.xml(o, 'game', '#xmlCodeOutput');	
+		
+		console.log(o);
+	});
+	
+	$('#movie').on('click', 'button.save', function (e) {
+		var o = new Movie();
+		
+		o.save();
+		
+		self.showSectionInWindow('#xml');
+		utils.xml(o, 'movie', '#xmlCodeOutput');	
 		
 		console.log(o);
 	});

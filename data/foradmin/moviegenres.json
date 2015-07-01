@@ -1,16 +1,46 @@
-[ { "option" : "Драма" },
-  { "option" : "Екшън" },
-  { "option" : "Комедия" },
-  { "option" : "Приключенски" },
-  { "option" : "Анимация" },
-  { "option" : "Документален" },
-  { "option" : "Семеен" },
-  { "option" : "Ноар" },
-  { "option" : "Хорър" },
-  { "option" : "Мюзикъл" },
-  { "option" : "Романтика" },
-  { "option" : "Фентъзи" },
-  { "option" : "Фантастика" },
-  { "option" : "Трилър" },
-  { "option" : "Уестърн" }
+[ { "option" : "Драма",
+    "value" : "drama"
+  },
+  { "option" : "Екшън",
+    "value" : "action"
+  },
+  { "option" : "Комедия",
+    "value" : "comedy"
+  },
+  { "option" : "Приключенски",
+    "value" : "adventure"
+  },
+  { "option" : "Анимация",
+    "value" : "animation"
+  },
+  { "option" : "Документален",
+    "value" : "documentary"
+  },
+  { "option" : "Семеен",
+    "value" : "family"
+  },
+  { "option" : "Ноар",
+    "value" : "noir"
+  },
+  { "option" : "Хорър",
+    "value" : "horror"
+  },
+  { "option" : "Мюзикъл",
+    "value" : "musical"
+  },
+  { "option" : "Романтика",
+    "value" : "romance"
+  },
+  { "option" : "Фентъзи",
+    "value" : "fantasy"
+  },
+  { "option" : "Фантастика",
+    "value" : "sci-fi"
+  },
+  { "option" : "Трилър",
+    "value" : "thriller"
+  },
+  { "option" : "Уестърн",
+    "value" : "western"
+  }
 ]

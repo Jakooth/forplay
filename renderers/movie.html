@@ -1,0 +1,32 @@
+<aside>
+    <div class="box-placeholder {{:subtype}}">
+        <h2>{{:bg}}</h2>
+        <div class="box" 
+        	 style="background-image: url(assets/articles/{{:tag}}/{{:tag}}-{{:poster}});"> <img 
+             src="assets/helpers/{{:subtype}}.png" 
+       		 alt="" 
+             role="presentation" /> </div>
+    </div>
+    <dl>
+        <dt>Оригинално име</dt>
+        <dd>{{:en}}</dd>
+        <dt>Жанр</dt>
+        <dd>{{:~formatCommaString(genres.genre)}}</dd>
+        <dt>Участват</dt>
+        <dd>{{:~formatCommaString(cast.actor)}}</dd>
+        <dt>Режисьор</dt>
+        <dd>{{:~formatCommaString(directors.director)}}</dd>
+        <dt>Сценарист</dt>
+        <dd>{{:~formatCommaString(writers.writer)}}</dd>
+        <dt>Оператор</dt>
+        <dd>{{:~formatCommaString(camera.operator)}}</dd>
+        <dt>Музика</dt>
+        <dd>{{:~formatCommaString(music.composer)}}</dd>
+        <dt>Премиера за България</dt>
+        <dd>{{:~formatDate(bg)}}</dd>
+        <dt>Световна премиера</dt>
+        <dd>{{:~formatDate(world)}}</dd>
+        <dt>Времетраене</dt>
+        <dd>{{:time}}</dd>
+    </dl>
+</aside>

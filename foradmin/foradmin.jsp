@@ -69,9 +69,12 @@
     <script src="../controllers/objects/game.js?v=1.0.0">
                 <!--script-->
             </script>
-	<script src="../controllers/objects/album.js?v=1.0.0">
+	<script src="../controllers/objects/movie.js?v=1.0.0">
                 <!--script-->
-            </script>    
+            </script> 
+    <script src="../controllers/objects/album.js?v=1.0.0">
+                <!--script-->
+            </script>            
 	<script src="../controllers/objects/quote.js?v=1.0.0">
                 <!--script-->
             </script>  

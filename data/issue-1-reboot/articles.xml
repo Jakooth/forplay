@@ -1,325 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <articles>
-	<article>
-		<tags prime="demo">
-            <tag>demo</tag>
+    <article>
+        <site>forlife</site>
+        <url>annabelle</url>
+        <tags prime="annabelle">
+            <tag>annabelle</tag>
+            <tag>james-wan</tag>
         </tags>
-		<type bg="игри">games</type>
-        <subtype bg="ревю">review</subtype>
-		<priority>video</priority>
-		<cover align="right"
-    	   	   valign="center"
-       	   	   theme="deep-purple"
-           	   subtheme="lighten"
-           	   tag="demo">10.jpg</cover>	
-		<main>
-            <wide tag="demo">10.jpg</wide>
-            <shot tag="demo">10.jpg</shot>
-            <caret tag="demo">10.jpg</caret>
+        <cover align="75%"
+    	   valign="center"
+       	   theme=""
+           subtheme="lighten"
+           tag="annabelle">07.jpg</cover>
+        <main>
+            <wide tag="annabelle">07.jpg</wide>
+            <shot tag="annabelle">06.jpg</shot>
+            <caret tag="annabelle">caret.jpg</caret>
         </main>
-		<authors>
-            <author>Forplay</author>
-        </authors>
-		<title>
-            <![CDATA[Hohokum – цветни, весели, напушени!]]>
+        <type bg="филми">movies</type>
+        <subtype bg="ревю">review</subtype>
+        <title>
+            <![CDATA[Анабел]]>
         </title>
         <subtitle>
-            <![CDATA[За „Спермчо“ и приятели!]]>
+            <![CDATA[Без Джеймс Ван не е същото...]]>
         </subtitle>
-		<stickers>
-            <sticker lib="lorc">diablo-skull</sticker>
-            <sticker lib="lorc">broadsword</sticker>
-            <sticker lib="lorc">high-shot</sticker>
-        </stickers>
-	</article>
-	<article>
-		<tags prime="demo">
-            <tag>demo</tag>
-        </tags>
-		<type bg="игри">games</type>
-        <subtype bg="ревю">review</subtype>
-		<priority>video</priority>
-		<cover align="center"
-    	   	   valign="center"
-       	   	   theme="deep-purple"
-           	   subtheme="lighten"
-           	   tag="demo">03.jpg</cover>	
-		<main>
-            <wide tag="demo">03.jpg</wide>
-            <shot tag="demo">03.jpg</shot>
-            <caret tag="demo">03.jpg</caret>
-        </main>
-		<authors>
-            <author>Forplay</author>
+        <authors>
+            <author>doomy</author>
         </authors>
-		<title>
-            <![CDATA[Hohokum – цветни, весели, напушени!]]>
-        </title>
-        <subtitle>
-            <![CDATA[За „Спермчо“ и приятели!]]>
-        </subtitle>
-		<stickers>
+        <date>Thu Oct 30 2014 18:08:00 GMT+0200 (FLE Standard Time)</date>
+        <priority></priority>
+        <issue>issue-1-reboot</issue>
+        <hype>5+</hype>
+        <better tag="mama">Mama</better>
+        <worse tag="insidious">Insidious</worse>
+        <equal tag=""></equal>
+        <versionTested></versionTested>
+        <preview>
+            <![CDATA[За никого от познатите ми не е тайна, че филмите на ужасите
+                са ми слабост. Но от онзи тип, който американците наричат „гилти
+                плежър“. Защото хорърите трудно могат да бъдат приети за сериозно
+                кино и твърде малко заглавия попадащи в жанра оставят трайна
+                следа в Седмото изкуство и неговата „алея на славата“. По-скоро
+                ужасите винаги са били един по-неебателен, затворен и предимно
+                евтин жанр, поне в по-голямата си част, така че когато аз отивам
+                на поредния новоизлюпен хорър в никакъв случай не влизам в салона
+                с нагласата, че ще гледам Сиянието или Заклинателят, а по-скоро
+                се надявам на сравнително ентъртейнващи час и половина, които
+                леко да ме стреснат, да изпишат перверзна усмивка на лицето ми
+                и, противно на всякаква логика - да ме накарат да се посмея от
+                сърце с компанията. Джеймс Ван, който завинаги остави белег в
+                кино-индустрията с гениалния си и пожънал невероятен фенски и
+                бокс-офисен успех дебют SAW (който само с половин уста бих класирал
+                като „филм на ужасите“) е един от по-активните в последно време
+                хорър дейци. Със своите Dead Silence, Insidious, The Conjuring
+                и Insidious Chapter 2 малайзийското събитие показа как със жълти
+                стотинки се правят големите пачки в този според мнозина умиращ
+                жанр и макар да започна вече да гази в едно своеобразно блато
+                с последните си два филма, спокойно може да се каже, че е създал
+                свой собствен под-жанр в този труден за „впечатляване“ на зрителя
+                раздел на киното. Става дума основно за вселените на Insidious
+                и The Conjuring, в която е ситуирано и тук разглеждането заглавие
+                Анабел. За съжаление, на режсиорския стол тук не седи Ван и това
+                си личи. Буквално от километри се забелязва огромния контраст
+                между човек, дарил ни с филми като SAW и Dead Sentence и негов
+                колега, режисирал... Mortal Kombat: Annihilation и The Butterfly
+                Effect 2. Анабел е по-скоро spin-off на The Conjuring вселената,
+                отколкото неин прикуъл, въпреки че реално случващото се предхожда
+                събитията от лентата с Патрик Уилсън и Вера Фармига. Историята
+                се завъртя около куклата, появила се за момент във въпросния
+                филм (нещо като появата на ейлиънската глава в Predator 2, ама
+                не чак толкова култово...) и как тя придобива „демоничните“ си
+                сили. Сценарно филмът е тоталното клише за жанра от началото
+                до самия край – младо семейство, постоянно отсъстващ баща, видения,
+                призраци, демони, ел. уреди включващи се на произволен принцип,
+                скърцащи врати и столове, дърт свещенник, мъдра афро-американска
+                лелка... абе сякаш е правен по някаква матрица на хорър-киното,
+                ама от тия най-скучните.]]>
+        </preview>
+        <stickers>
             <sticker lib="lorc">diablo-skull</sticker>
-            <sticker lib="lorc">broadsword</sticker>
-            <sticker lib="lorc">high-shot</sticker>
+            <sticker lib="lorc">dripping-knife</sticker>
+            <sticker lib="lorc">voodoo-doll</sticker>
         </stickers>
-	</article>
-	<article>
-		<tags prime="demo">
-            <tag>demo</tag>
-        </tags>
-		<type bg="игри">games</type>
-        <subtype bg="ревю">review</subtype>
-		<priority>video</priority>
-		<cover align="center"
-    	   	   valign="center"
-       	   	   theme="deep-purple"
-           	   subtheme="lighten"
-           	   tag="demo">09.jpg</cover>	
-		<main>
-            <wide tag="demo">09.jpg</wide>
-            <shot tag="demo">09.jpg</shot>
-            <caret tag="demo">09.jpg</caret>
-        </main>
-		<authors>
-            <author>Forplay</author>
-        </authors>
-		<title>
-            <![CDATA[Hohokum – цветни, весели, напушени!]]>
-        </title>
-        <subtitle>
-            <![CDATA[За „Спермчо“ и приятели!]]>
-        </subtitle>
-		<stickers>
-            <sticker lib="lorc">diablo-skull</sticker>
-            <sticker lib="lorc">broadsword</sticker>
-            <sticker lib="lorc">high-shot</sticker>
-        </stickers>
-	</article>
-	<article>
-		<tags prime="demo">
-            <tag>demo</tag>
-        </tags>
-		<type bg="игри">games</type>
-        <subtype bg="ревю">review</subtype>
-		<priority>video</priority>
-		<cover align="center"
-    	   	   valign="center"
-       	   	   theme="deep-purple"
-           	   subtheme="lighten"
-           	   tag="demo">06.jpg</cover>	
-		<main>
-            <wide tag="demo">06.jpg</wide>
-            <shot tag="demo">06.jpg</shot>
-            <caret tag="demo">06.jpg</caret>
-        </main>
-		<authors>
-            <author>Forplay</author>
-        </authors>
-		<title>
-            <![CDATA[Hohokum – цветни, весели, напушени!]]>
-        </title>
-        <subtitle>
-            <![CDATA[За „Спермчо“ и приятели!]]>
-        </subtitle>
-		<stickers>
-            <sticker lib="lorc">diablo-skull</sticker>
-            <sticker lib="lorc">broadsword</sticker>
-            <sticker lib="lorc">high-shot</sticker>
-        </stickers>
-	</article>
-	<article>
-		<tags prime="demo">
-            <tag>demo</tag>
-        </tags>
-		<type bg="игри">games</type>
-        <subtype bg="ревю">review</subtype>
-		<priority>video</priority>
-		<cover align="25%"
-    	   	   valign="center"
-       	   	   theme="deep-purple"
-           	   subtheme="lighten"
-           	   tag="demo">05.jpg</cover>	
-		<main>
-            <wide tag="demo">05.jpg</wide>
-            <shot tag="demo">05.jpg</shot>
-            <caret tag="demo">05.jpg</caret>
-        </main>
-		<authors>
-            <author>Forplay</author>
-        </authors>
-		<title>
-            <![CDATA[Hohokum – цветни, весели, напушени!]]>
-        </title>
-        <subtitle>
-            <![CDATA[За „Спермчо“ и приятели!]]>
-        </subtitle>
-		<stickers>
-            <sticker lib="lorc">diablo-skull</sticker>
-            <sticker lib="lorc">broadsword</sticker>
-            <sticker lib="lorc">high-shot</sticker>
-        </stickers>
-	</article>
-	<article>
-		<tags prime="demo">
-            <tag>demo</tag>
-        </tags>
-		<type bg="игри">games</type>
-        <subtype bg="ревю">review</subtype>
-		<priority>cover</priority>
-		<cover align="right"
-    	   	   valign="center"
-       	   	   theme="deep-purple"
-           	   subtheme="lighten"
-           	   tag="demo">08.jpg</cover>	
-		<main>
-            <wide tag="demo">08.jpg</wide>
-            <shot tag="demo">08.jpg</shot>
-            <caret tag="demo">08.jpg</caret>
-        </main>
-		<authors>
-            <author>Forplay</author>
-        </authors>
-		<title>
-            <![CDATA[Hohokum – цветни, весели, напушени!]]>
-        </title>
-        <subtitle>
-            <![CDATA[За „Спермчо“ и приятели!]]>
-        </subtitle>
-		<stickers>
-            <sticker lib="lorc">diablo-skull</sticker>
-            <sticker lib="lorc">broadsword</sticker>
-            <sticker lib="lorc">high-shot</sticker>
-        </stickers>
-	</article>
-	<article>
-		<tags prime="demo">
-            <tag>demo</tag>
-        </tags>
-		<type bg="игри">games</type>
-        <subtype bg="ревю">review</subtype>
-		<priority>cover</priority>
-		<cover align="center"
-    	   	   valign="center"
-       	   	   theme="deep-purple"
-           	   subtheme="lighten"
-           	   tag="demo">04.jpg</cover>	
-		<main>
-            <wide tag="demo">04.jpg</wide>
-            <shot tag="demo">04.jpg</shot>
-            <caret tag="demo">04.jpg</caret>
-        </main>
-		<authors>
-            <author>Forplay</author>
-        </authors>
-		<title>
-            <![CDATA[Hohokum – цветни, весели, напушени!]]>
-        </title>
-        <subtitle>
-            <![CDATA[За „Спермчо“ и приятели!]]>
-        </subtitle>
-		<stickers>
-            <sticker lib="lorc">diablo-skull</sticker>
-            <sticker lib="lorc">broadsword</sticker>
-            <sticker lib="lorc">high-shot</sticker>
-        </stickers>
-	</article>
-	<article>
-		<tags prime="demo">
-            <tag>demo</tag>
-        </tags>
-		<type bg="игри">games</type>
-        <subtype bg="ревю">review</subtype>
-		<priority>cover</priority>
-		<cover align="center"
-    	   	   valign="center"
-       	   	   theme="deep-purple"
-           	   subtheme="lighten"
-           	   tag="demo">07.jpg</cover>	
-		<main>
-            <wide tag="demo">07.jpg</wide>
-            <shot tag="demo">07.jpg</shot>
-            <caret tag="demo">07.jpg</caret>
-        </main>
-		<authors>
-            <author>Forplay</author>
-        </authors>
-		<title>
-            <![CDATA[Hohokum – цветни, весели, напушени!]]>
-        </title>
-        <subtitle>
-            <![CDATA[За „Спермчо“ и приятели!]]>
-        </subtitle>
-		<stickers>
-            <sticker lib="lorc">diablo-skull</sticker>
-            <sticker lib="lorc">broadsword</sticker>
-            <sticker lib="lorc">high-shot</sticker>
-        </stickers>
-	</article>
-	<article>
-		<tags prime="demo">
-            <tag>demo</tag>
-        </tags>
-		<type bg="игри">games</type>
-        <subtype bg="ревю">review</subtype>
-		<priority>cover</priority>
-		<cover align="center"
-    	   	   valign="center"
-       	   	   theme="deep-purple"
-           	   subtheme="lighten"
-           	   tag="demo">02.jpg</cover>	
-		<main>
-            <wide tag="demo">02.jpg</wide>
-            <shot tag="demo">02.jpg</shot>
-            <caret tag="demo">02.jpg</caret>
-        </main>
-		<authors>
-            <author>Forplay</author>
-        </authors>
-		<title>
-            <![CDATA[Hohokum – цветни, весели, напушени!]]>
-        </title>
-        <subtitle>
-            <![CDATA[За „Спермчо“ и приятели!]]>
-        </subtitle>
-		<stickers>
-            <sticker lib="lorc">diablo-skull</sticker>
-            <sticker lib="lorc">broadsword</sticker>
-            <sticker lib="lorc">high-shot</sticker>
-        </stickers>
-	</article>
-	<article>
-		<tags prime="demo">
-            <tag>demo</tag>
-        </tags>
-		<type bg="игри">games</type>
-        <subtype bg="ревю">review</subtype>
-		<priority>cover</priority>
-		<cover align="25%"
-    	   	   valign="center"
-       	   	   theme="deep-purple"
-           	   subtheme="lighten"
-           	   tag="demo">01.jpg</cover>	
-		<main>
-            <wide tag="demo">01.jpg</wide>
-            <shot tag="demo">01.jpg</shot>
-            <caret tag="demo">01.jpg</caret>
-        </main>
-		<authors>
-            <author>Forplay</author>
-        </authors>
-		<title>
-            <![CDATA[Hohokum – цветни, весели, напушени!]]>
-        </title>
-        <subtitle>
-            <![CDATA[За „Спермчо“ и приятели!]]>
-        </subtitle>
-		<stickers>
-            <sticker lib="lorc">diablo-skull</sticker>
-            <sticker lib="lorc">broadsword</sticker>
-            <sticker lib="lorc">high-shot</sticker>
-        </stickers>
-	</article>
+    </article>
     <article>
         <site>forplay</site>
         <url>hohokum</url>
@@ -506,16 +270,16 @@
                 - тя доста ясно показваше, че играта има вид като да е правена
                 с парите за следобедна закуска на заместник-чистачката в BioWare.
                 Bound By Flame обаче обещаваше мрачна история с ярък надпис 18+
-                и интересна система от морални избори, която разтяга обичайното "бих
-                ли преебал тази мила вдовица и двете й умиращи от глад дечица
+                и интересна система от морални избори, която разтяга обичайното
+                "бих ли преебал тази мила вдовица и двете й умиращи от глад дечица
                 за пари" до "бих ли бил зло копеле, ако знам, че с всеки лош
                 избор рискувам да изгубя себе си". Плюс предизвикателни битки.
                 Червената лампичка присветна, когато започнах да дочувам, че
                 играта може да бъде изрината из основи за под 15 часа. Когато
                 на около седмия от тези петнадесет часа установих, че съм отегчен
                 до смърт, вече започнаха да вият и сирените. Дори и да оценяваме
-                качествата му единствено в рамките на специфичната пазарна ниша "ролева
-                игра, в която сценаристите се опитват да замажат простотиите
+                качествата му единствено в рамките на специфичната пазарна ниша
+                "ролева игра, в която сценаристите се опитват да замажат простотиите
                 на дизайнерите", където еднолични властелини са Piranha Bites,
                 Bound By Flame би следвало да получи доста лоша оценка. Или по-точно
                 казано - да получи лоша оценка, да го изгонят от час, да го изпратят

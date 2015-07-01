@@ -21,5 +21,13 @@
   { "text" : "Snake",
 	"value" : "snake",
     "lib" : "lorc"
+  },
+  { "text" : "Dripping knife",
+	"value" : "dripping-knife",
+    "lib" : "lorc"
+  },
+  { "text" : "Voodoo doll",
+	"value" : "voodoo-doll",
+    "lib" : "lorc"
   }
 ]

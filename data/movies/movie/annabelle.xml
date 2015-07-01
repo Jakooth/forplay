@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<movie>
+    <tag>annabelle</tag>
+    <stickers>
+        <sticker lib="lorc">diablo-skull</sticker>
+        <sticker lib="lorc">dripping-knife</sticker>
+        <sticker lib="lorc">voodoo-doll</sticker>
+    </stickers>
+    <main>annabelle.jpg</main>
+    <poster>poster.jpg</poster>
+    <type bg="филми">movies</type>
+    <subtype bg="филм">movie</subtype>
+    <bg>Анабел</bg>
+    <en>Annabelle</en>
+    <serie></serie>
+    <genres>
+        <genre>Хорър</genre>
+        <genre>Трилър</genre>
+    </genres>
+    <cast>
+        <actor>Анабел Уолис</actor>
+        <actor>Уард Хортън</actor>
+        <actor>Тони Амендола</actor>
+        <actor>Алфри Уудард</actor>
+    </cast>
+    <directors>
+        <director>Джон Лионети</director>
+    </directors>
+    <writers>
+        <writer>Гари Дауберман</writer>
+    </writers>
+    <camera>
+        <operator>Джеймс Книст</operator>
+    </camera>
+    <music>
+        <composer>Джоузеф Бишара</composer>
+    </music>
+    <bg>Fri Oct 03 2014 03:00:00 GMT+0300 (FLE Daylight Time)</bg>
+    <world>Fri Oct 03 2014 03:00:00 GMT+0300 (FLE Daylight Time)</world>
+    <time>98</time>
+    <similar>
+        <game>the-conjuring</game>
+        <game>insidious</game>
+        <game>insidious-chapter-2</game>
+        <game>mama</game>
+    </similar>
+</movie>

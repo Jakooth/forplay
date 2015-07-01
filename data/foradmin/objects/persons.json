@@ -1,6 +1,61 @@
 [ { "text" : "Ice-T",
 	"value" : "ice-t",
     "type" : "music",
-	"subtype" : "person"
+	"object" : "person",
+	"subtype" : "singer"
+  },
+  { "text" : "Джон Лионети",
+	"value" : "john-leonetti",
+    "type" : "movies",
+	"object" : "person",
+	"subtype" : "director"
+  },
+  { "text" : "Гари Дауберман",
+	"value" : "gary-dauberman",
+    "type" : "movies",
+	"object" : "person",
+	"subtype" : "writer"
+  },
+  { "text" : "Анабел Уолис",
+	"value" : "annabelle-wallis",
+    "type" : "movies",
+	"object" : "person",
+	"subtype" : "cast"
+  },
+  { "text" : "Уард Хортън",
+	"value" : "ward-horton",
+    "type" : "movies",
+	"object" : "person",
+	"subtype" : "cast"
+  },
+  { "text" : "Тони Амендола",
+	"value" : "tony-amendola",
+    "type" : "movies",
+	"object" : "person",
+	"subtype" : "cast"
+  },
+  { "text" : "Алфри Уудард",
+	"value" : "alfre-woodard",
+    "type" : "movies",
+	"object" : "person",
+	"subtype" : "cast"
+  },
+  { "text" : "Джеймс Книст",
+	"value" : "james-kniest",
+    "type" : "movies",
+	"object" : "person",
+	"subtype" : "camera"
+  },
+  { "text" : "Джоузеф Бишара",
+	"value" : "joseph-bishara",
+    "type" : "movies",
+	"object" : "person",
+	"subtype" : "music"
+  },
+  { "text" : "Джеймс Ван",
+	"value" : "james-wan",
+    "type" : "movies",
+	"object" : "person",
+	"subtype" : "director"
   }
 ]
