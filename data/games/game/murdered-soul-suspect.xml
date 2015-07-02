@@ -2,7 +2,8 @@
 <game>
     <tag>murdered-soul-suspect</tag>
     <stickers>
-        <sticker lib="lorc">ghost</sticker>
+        <sticker lib="lorc"
+				 subtype="originals">ghost</sticker>
     </stickers>
     <main>murdered-soul-suspect.jpg</main>
     <type bg="игри">games</type>

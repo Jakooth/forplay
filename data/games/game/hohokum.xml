@@ -2,7 +2,8 @@
 <game>
     <tag>hohokum</tag>
     <stickers>
-        <sticker lib="lorc">snake</sticker>
+        <sticker lib="lorc"
+				 subtype="originals">snake</sticker>
     </stickers>
     <main>hohokum.jpg</main>
     <type bg="игри">games</type>

@@ -2,9 +2,12 @@
 <movie>
     <tag>annabelle</tag>
     <stickers>
-        <sticker lib="lorc">diablo-skull</sticker>
-        <sticker lib="lorc">dripping-knife</sticker>
-        <sticker lib="lorc">voodoo-doll</sticker>
+        <sticker lib="lorc"
+				 subtype="originals">diablo-skull</sticker>
+        <sticker lib="lorc"
+				 subtype="originals">dripping-knife</sticker>
+        <sticker lib="lorc"
+				 subtype="originals">voodoo-doll</sticker>
     </stickers>
     <main>annabelle.jpg</main>
     <poster>poster.jpg</poster>

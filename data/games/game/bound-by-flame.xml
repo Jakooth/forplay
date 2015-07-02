@@ -2,9 +2,12 @@
 <game>
     <tag>bound-by-flame</tag>
     <stickers>
-        <sticker lib="lorc">diablo-skull</sticker>
-        <sticker lib="lorc">broadsword</sticker>
-        <sticker lib="lorc">high-shot</sticker>
+        <sticker lib="lorc"
+				 subtype="originals">diablo-skull</sticker>
+        <sticker lib="lorc"
+				 subtype="originals">broadsword</sticker>
+        <sticker lib="lorc"
+				 subtype="originals">high-shot</sticker>
     </stickers>
     <main>bound-by-flame.jpg</main>
     <type bg="игри">games</type>

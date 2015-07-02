@@ -1,33 +1,51 @@
 [ { "text" : "Ghost",
 	"value" : "ghost",
-    "lib" : "lorc"
+    "lib" : "lorc",
+	"subtype" : "originals"
   },
   { "text" : "Broadsword",
 	"value" : "broadsword",
-    "lib" : "lorc"
+    "lib" : "lorc",
+	"subtype" : "originals"
   },
   { "text" : "Diablo skull",
 	"value" : "diablo-skull",
-    "lib" : "lorc"
+    "lib" : "lorc",
+	"subtype" : "originals"
   },
   { "text" : "Angel outfit",
 	"value" : "angel-outfit",
-    "lib" : "lorc"
+    "lib" : "lorc",
+	"subtype" : "originals"
   },
   { "text" : "High shot",
 	"value" : "high-shot",
-    "lib" : "lorc"
+    "lib" : "lorc",
+	"subtype" : "originals"
   },
   { "text" : "Snake",
 	"value" : "snake",
-    "lib" : "lorc"
+    "lib" : "lorc",
+	"subtype" : "originals"
   },
   { "text" : "Dripping knife",
 	"value" : "dripping-knife",
-    "lib" : "lorc"
+    "lib" : "lorc",
+	"subtype" : "originals"
   },
   { "text" : "Voodoo doll",
 	"value" : "voodoo-doll",
-    "lib" : "lorc"
+    "lib" : "lorc",
+	"subtype" : "originals"
+  },
+  { "text" : "Soccer ball",
+	"value" : "soccer-ball",
+    "lib" : "delapouite",
+	"subtype" : "sports"
+  },
+  { "text" : "Soccer field",
+	"value" : "soccer-field",
+    "lib" : "delapouite",
+	"subtype" : "sports"
   }
 ]

@@ -22,5 +22,15 @@
   	"value" : "honeyslug",
     "type" : "games",
     "object" : "developer"
+  },
+  { "text" : "EA Sports",
+  	"value" : "ea-sports",
+    "type" : "games",
+    "object" : "developer"
+  },
+  { "text" : "EA Canada",
+  	"value" : "ea-canada",
+    "type" : "games",
+    "object" : "developer"
   }
 ]

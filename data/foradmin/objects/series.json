@@ -15,7 +15,7 @@
   },
   { "text" : "Star Wars",
   	"value" : "star-wars",
-    "type" : "games",
+    "type" : "movies",
 	"object" : "serie"
   },
   { "text" : "True Blood",
@@ -26,6 +26,11 @@
   { "text" : "Batman",
   	"value" : "batman",
     "type" : "movies",
+	"object" : "serie"
+  },
+  { "text" : "FIFA",
+  	"value" : "fifa",
+    "type" : "games",
 	"object" : "serie"
   }
 ]

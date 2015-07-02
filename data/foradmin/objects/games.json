@@ -67,5 +67,25 @@
 	"value" : "snake",
     "type" : "games",
     "object" : "game"
+  },
+  { "text" : "FIFA 15",
+	"value" : "fifa-15",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "FIFA 14",
+	"value" : "fifa-14",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "Winning Eleven 7",
+	"value" : "winning-eleven-7",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "PES 15",
+	"value" : "pes-15",
+    "type" : "games",
+    "object" : "game"
   }
 ]

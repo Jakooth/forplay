@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<game>
+    <tag>fifa-15</tag>
+    <stickers>
+        <sticker lib="delapouite"
+        		 subtype="sports">soccer-ball</sticker>
+        <sticker lib="delapouite"
+        		 subtype="sports">soccer-field</sticker>
+    </stickers>
+    <main>fifa-15.jpg</main>
+    <type bg="игри">games</type>
+    <subtype bg="игра">game</subtype>
+    <boxes>
+        <box type="ps4">ps4.jpg</box>
+    </boxes>
+    <bg>ФИФА 15</bg>
+    <en>FIFA 15</en>
+    <serie>fifa</serie>
+    <genres>
+        <genre>Спортна</genre>
+    </genres>
+    <platforms>
+        <platform>win</platform>
+        <platform>360</platform>
+        <platform>one</platform>
+        <platform>ps3</platform>
+        <platform>ps4</platform>
+        <platform>vita</platform>
+        <platform>wii</platform>
+        <platform>3ds</platform>
+        <platform>ios</platform>
+        <platform>android</platform>
+    </platforms>
+    <publisher>EA Sports</publisher>
+    <developer>EA Canada</developer>
+    <eu>Thu Sep 25 2014 03:00:00 GMT+0300 (FLE Daylight Time)</eu>
+    <us>Tue Sep 23 2014 03:00:00 GMT+0300 (FLE Daylight Time)</us>
+    <similar>
+        <game>fifa-14</game>
+        <game>pes-15</game>
+    </similar>
+</game>
