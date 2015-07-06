@@ -26,10 +26,30 @@
   { "text" : "EA Sports",
   	"value" : "ea-sports",
     "type" : "games",
-    "object" : "developer"
+    "object" : "publisher"
   },
   { "text" : "EA Canada",
   	"value" : "ea-canada",
+    "type" : "games",
+    "object" : "developer"
+  },
+  { "text" : "Ikaron",
+  	"value" : "ikaron",
+    "type" : "games",
+    "object" : "publisher"
+  },
+  { "text" : "Larian Studios",
+  	"value" : "larian-studios",
+    "type" : "games",
+    "object" : "developer"
+  },
+  { "text" : "Namco Bandai",
+  	"value" : "namco-bandai",
+    "type" : "games",
+    "object" : "publisher"
+  },
+  { "text" : "From Software",
+  	"value" : "from-software",
     "type" : "games",
     "object" : "developer"
   }

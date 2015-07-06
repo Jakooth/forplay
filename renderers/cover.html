@@ -12,7 +12,7 @@
 	<ul>
     	<li>
         	<p><span>Оценка </span><strong>{{:hype}}</strong></p>
-        </li>{{if type == 'games' || type == 'movies'}}
+        </li>{{if (type == 'games' || type == 'movies') && subtype == 'review' }}
         <li>
         	<p style="background-image: url(assets/bwe/{{:better.tag}}.jpg)" 
                class="better"><span>По-добре от </span><strong>{{:better}}</strong></p>

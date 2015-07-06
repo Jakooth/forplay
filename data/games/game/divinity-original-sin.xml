@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<game>
+    <tag>divinity-original-sin</tag>
+    <stickers>
+        <sticker lib="lorc"
+        		 subtype="originals">broadsword</sticker>
+        <sticker lib="delapouite"
+        		 subtype="originals">lorc</sticker>
+        <sticker lib="lorc"
+        		 subtype="originals">burning-meteor</sticker>
+    </stickers>
+    <main>divinity-original-sin.jpg</main>
+    <type bg="игри">games</type>
+    <subtype bg="игра">game</subtype>
+    <boxes>
+        <box type="win">win.jpg</box>
+    </boxes>
+    <bg>Дивинити: Ориджинал Син</bg>
+    <en>Divinity: Original Sin</en>
+    <serie></serie>
+    <genres>
+        <genre>Ролева</genre>
+    </genres>
+    <platforms>
+        <platform>win</platform>
+        <platform>mac</platform>
+    </platforms>
+    <publisher>Ikaron</publisher>
+    <developer>Larian Studios</developer>
+    <eu>Mon Jun 30 2014 03:00:00 GMT+0300 (FLE Daylight Time)</eu>
+    <us>Mon Jun 30 2014 03:00:00 GMT+0300 (FLE Daylight Time)</us>
+    <similar>
+        <game>baldurs-gate</game>
+        <game>baldurs-gate-2</game>
+        <game>fallout</game>
+        <game>fallout-2</game>
+        <game>beyond-divinity</game>
+        <game>neverwinter-nights-2</game>
+    </similar>
+</game>

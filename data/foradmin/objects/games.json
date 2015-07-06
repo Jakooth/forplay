@@ -23,10 +23,10 @@
     "type" : "games",
     "object" : "game"
   },
-  { "text" : "CSI",
-	"value" : "csi",
+  { "text" : "CSI: Miami",
+	"value" : "csi-miami",
     "type" : "games",
-    "object" : "serie"
+    "object" : "game"
   },
   { "text" : "Bound by Flame",
 	"value" : "bound-by-flame",
@@ -87,5 +87,75 @@
 	"value" : "pes-15",
     "type" : "games",
     "object" : "game"
+  },
+  { "text" : "Divinity: Original Sin",
+	"value" : "divinity-original-sin",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "Baldur's Gate",
+	"value" : "baldurs-gate",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "Baldur's Gate 2",
+	"value" : "baldurs-gate-2",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "Fallout",
+	"value" : "fallout",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "Fallout 2",
+	"value" : "fallout-2",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "Neverwinter Nights 2",
+	"value" : "neverwinter-nights-2",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "Beyond Divinity",
+	"value" : "beyond-divinity",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "Dragon Age: Inquisition",
+	"value" : "dragon-age-inquisition",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "Dark Souls",
+	"value" : "dark-souls",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "Dark Souls 2",
+	"value" : "dark-souls-2",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "Demon's Souls",
+	"value" : "demons-souls",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "Crown of the Sunken King",
+	"value" : "crown-of-the-sunken-king",
+    "type" : "games",
+    "object" : "dlc"
+  },
+  { "text" : "Crown of the Old Iron King",
+	"value" : "crown-of-the-old-iron-king",
+    "type" : "games",
+    "object" : "dlc"
+  },
+  { "text" : "Crown of the Ivory King",
+	"value" : "crown-of-the-ivory-king",
+    "type" : "games",
+    "object" : "dlc"
   }
 ]

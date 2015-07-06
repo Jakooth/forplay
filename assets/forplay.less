@@ -83,6 +83,7 @@ a {
 .layout ol *,
 .video-set h3 a,
 .video-set h3 span:nth-of-type(2),
+.inline-col aside h3,
 .article-set h3 a,
 .article-set h3 span:nth-of-type(2) {
 	font-size: 14pt;
@@ -169,7 +170,7 @@ section.cover > p * {
 	text-decoration: underline;
 }
 
-.layout .center-col strong {
+.layout .center-col > p strong {
 	color: fade(@dark, 60%);
 }
 
@@ -408,7 +409,6 @@ section.cover h3 {
 section.cover h3 span:nth-child(2) {
 	position: absolute;
 	padding: 2.08%;
-	background-color: @news;
 	bottom: 0;
 	right: 2.08%;
 	height: 0;
@@ -542,7 +542,7 @@ section.cover > p {
 	left: auto;
 	width: auto;
 	bottom: auto;
-	opacity: 0.6;
+	opacity: 0.7;
 	right: 12.5%;
 	margin-top: 12.5%;
 	top: 0;
@@ -668,6 +668,7 @@ header:not(.fixed) #covers article:nth-child(1) h3,
 header:not(.fixed) #covers article:hover h3 {
 	.anti-clip;
 	position: absolute;
+	width: 100%;
 }
 
 /**
@@ -847,7 +848,6 @@ header.read .nav-set li a {
 	padding: 6.25%;
 	height: 0;
 	line-height: 0;
-	background-color: @news;
 	top: 0;
 	right: 6.25%;
 }
@@ -956,9 +956,9 @@ main.read #read {
 	clear: both;
 }
 
-.layout p, 
-.layout h2,
-.layout h3 {
+.layout .center-col p, 
+.layout .center-col h2,
+.layout .center-col h3 {
 	padding: 2.08%;
 	display: block;
 	clear: both;
@@ -998,7 +998,10 @@ main.read #read {
  */
 
 .layout.img.a1,
-.layout.img.b1 {
+.layout.img.a2,
+.layout.img.f3,
+.layout.img.b1,
+.layout.inside.i1 {
 	position: relative;
 	width: 100%;
 	clear: both;
@@ -1006,12 +1009,14 @@ main.read #read {
 	margin-bottom: 2.08%;
 }
 
+.layout.inside .img-proxy,
 .layout.img .img-proxy {
 	position: relative;
 	float: left;
 	padding: 2.08%;
 }
 
+.layout.inside .img-proxy > p,
 .layout.img .img-proxy > p {
 	position: absolute;
 	padding: 0;
@@ -1073,7 +1078,7 @@ main.read #read {
 	margin-top: 59.6%;
 }
 
-.img.a1 .img-proxy.r1610:nth-of-type(1) p {
+.img.a1.r16-10 .img-proxy:nth-of-type(1) p {
 	margin-top: 64%;
 }
 
@@ -1125,9 +1130,6 @@ main.read #read {
 	list-style: decimal-leading-zero;
 	padding-left: 3.5%;
 }
-
-
-
 
 /**
  * a2
@@ -1181,7 +1183,7 @@ main.read #read {
 	margin-bottom: 61.1%;
 }
 
-.img.a2 .img-proxy.r1610:nth-of-type(2) p {
+.img.a2.r16-10 .img-proxy:nth-of-type(2) p {
 	top: auto;
 	bottom: 0;
 	margin-top: auto;
@@ -1234,7 +1236,7 @@ main.read #read {
 	width: 24.4%;
 }
 
-.img.b1 .img-proxy.r1610:nth-of-type(2) p {
+.img.b1.r16-10 .img-proxy:nth-of-type(2) p {
 	margin-bottom: 64.4%;
 }
 
@@ -1294,12 +1296,8 @@ main.read #read {
  */
 
 .box-placeholder {
-	margin: 6.25% 18.75%;
-	perspective:  500px;
-}
-
-.box-placeholder.movie {
 	margin: 6.25% 25%;
+	perspective:  500px;
 }
 
 .box {
@@ -1414,6 +1412,25 @@ main.read #read {
 	margin-left: 6.25%;
 	margin-bottom: 6.25%;
 	width: 128px;
+}
+
+/**
+ * CARET
+ */
+
+.inline-col aside .img-proxy .img {
+  width: 87.5%;
+  margin-left: 6.25%;
+  margin-right: 6.25%;
+}
+
+.inline-col aside h3,
+.inline-col aside p {
+  padding: 6.25%;
+}
+
+.inline-col aside h3 {
+	padding-bottom: 0;
 }
 
 

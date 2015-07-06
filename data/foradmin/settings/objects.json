@@ -1,22 +1,22 @@
-[ { "option" : "игра",
-    "value" : "games,game"
+[ { "text" : "цитат",
+    "value" : "aside,quote"
   },
-  { "option" : "филм",
-    "value" : "movies,movie"
-  },
-  { "option" : "албум",
-    "value" : "music,album"
-  },
-  { "option" : "каре",
+  { "text" : "каре",
     "value" : "aside,caret"
   },
-  { "option" : "картинка",
+  { "text" : "игра",
+    "value" : "games,game"
+  },
+  { "text" : "филм",
+    "value" : "movies,movie"
+  },
+  { "text" : "албум",
+    "value" : "music,album"
+  },
+  { "text" : "картинка",
     "value" : "aside,image"
   },
-  { "option" : "реклама",
+  { "text" : "реклама",
     "value" : "aside,adv"
-  },
-  { "option" : "цитат",
-    "value" : "aside,quote"
   }
 ]

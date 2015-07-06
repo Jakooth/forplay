@@ -28,6 +28,9 @@
                     <admin:menuItem label="gta, halo" title="Поредица" url="serie" />
                 </li>
                 <li>
+                    <admin:menuItem label="crown-of-the-ivory-king, from-ashes" title="DLC" url="dlc" />
+                </li>
+                <li>
                     <admin:menuItem label="action, adventure, open-mmo" title="Жанр" url="genre" />
                 </li>
             </ul>

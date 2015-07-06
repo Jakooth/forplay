@@ -1,61 +1,61 @@
-[ { "option" : "Шуутър от първо/трето лице",
+[ { "text" : "Шуутър от първо/трето лице",
     "value" : "fps"
   },
-  { "option" : "Екшън от първо/трето лице",
+  { "text" : "Екшън от първо/трето лице",
     "value" : "tps"
   },
-  { "option" : "Рейл шуутър",
+  { "text" : "Рейл шуутър",
     "value" : "rail"
   },
-  { "option" : "Стелт",
+  { "text" : "Стелт",
     "value" : "stealth"
   },
-  { "option" : "Хорър",
+  { "text" : "Хорър",
     "value" : "horror"
   },
-  { "option" : "Сървайвъл хорър",
+  { "text" : "Сървайвъл хорър",
     "value" : "survival"
   },
-  { "option" : "Платформър",
+  { "text" : "Платформър",
     "value" : "platformer"
   },
-  { "option" : "Екшън-адвенчър",
+  { "text" : "Екшън-адвенчър",
     "value" : "action-adventure"
   },
-  { "option" : "Куест",
+  { "text" : "Куест",
     "value" : "adventure"
   },
-  { "option" : "Аркадна игра",
+  { "text" : "Аркадна игра",
     "value" : "arcade"
   },
-  { "option" : "ММО",
+  { "text" : "ММО",
     "value" : "mmo"
   },
-  { "option" : "MOBA",
+  { "text" : "MOBA",
     "value" : "moba"
   },
-  { "option" : "Ролева",
+  { "text" : "Ролева",
     "value" : "rpg"
   },
-  { "option" : "Рейсър",
+  { "text" : "Рейсър",
     "value" : "racing"
   },
-  { "option" : "Спортна",
+  { "text" : "Спортна",
     "value" : "sport"
   },
-  { "option" : "Симулатор",
+  { "text" : "Симулатор",
     "value" : "simulation"
   },
-  { "option" : "Стратегия в реално време",
+  { "text" : "Стратегия в реално време",
     "value" : "rts"
   },
-  { "option" : "Походова стратегия",
+  { "text" : "Походова стратегия",
     "value" : "tbs"
   },
-  { "option" : "Кежуъл/парти/музикална",
+  { "text" : "Кежуъл/парти/музикална",
     "value" : "casual"
   },
-  { "option" : "Инди",
+  { "text" : "Инди",
     "value" : "indie"
   }
 ]

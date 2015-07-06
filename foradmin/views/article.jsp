@@ -55,9 +55,8 @@
                     <!--preview-->
                 </div>
                 <div class="file">
-                    <label><span class="clip">Избери</span>
-                        <input id="articleCoverInput" type="file" />
-                    </label>
+                	<input aria-label="Избери" 
+                    	   id="articleCoverInput" type="file" />
                 </div>
             </div>
             <admin:formItem id="articleBgHSelect" label="Хоризонтално позициониране" type="select" layout="two-cols">
@@ -81,19 +80,16 @@
             <h3>Основни картинки</h3>
             <div class="Main" role="group">
             	<div class="file">
-                    <label><span class="clip">Избери</span>
-                        <input id="articleMainWideInput" type="file" />
-                    </label>
+                	<input aria-label="Избери" 
+                    	   id="articleMainWideInput" type="file" />
                 </div>
                 <div class="file">
-                    <label><span class="clip">Избери</span>
-                        <input id="articleMainShotInput" type="file" />
-                    </label>
+                	<input aria-label="Избери" 
+                    	   id="articleMainShotInput" type="file" />
                 </div>
                 <div class="file">
-                    <label><span class="clip">Избери</span>
-                        <input id="articleMainCaretInput" type="file" />
-                    </label>
+                	<input aria-label="Избери" 
+                    	   id="articleMainCaretInput" type="file" />
                 </div>
             </div>
             <h3>Съдържание</h3>

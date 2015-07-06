@@ -1,46 +1,46 @@
-[ { "option" : "Драма",
+[ { "text" : "Драма",
     "value" : "drama"
   },
-  { "option" : "Екшън",
+  { "text" : "Екшън",
     "value" : "action"
   },
-  { "option" : "Комедия",
+  { "text" : "Комедия",
     "value" : "comedy"
   },
-  { "option" : "Приключенски",
+  { "text" : "Приключенски",
     "value" : "adventure"
   },
-  { "option" : "Анимация",
+  { "text" : "Анимация",
     "value" : "animation"
   },
-  { "option" : "Документален",
+  { "text" : "Документален",
     "value" : "documentary"
   },
-  { "option" : "Семеен",
+  { "text" : "Семеен",
     "value" : "family"
   },
-  { "option" : "Ноар",
+  { "text" : "Ноар",
     "value" : "noir"
   },
-  { "option" : "Хорър",
+  { "text" : "Хорър",
     "value" : "horror"
   },
-  { "option" : "Мюзикъл",
+  { "text" : "Мюзикъл",
     "value" : "musical"
   },
-  { "option" : "Романтика",
+  { "text" : "Романтика",
     "value" : "romance"
   },
-  { "option" : "Фентъзи",
+  { "text" : "Фентъзи",
     "value" : "fantasy"
   },
-  { "option" : "Фантастика",
+  { "text" : "Фантастика",
     "value" : "sci-fi"
   },
-  { "option" : "Трилър",
+  { "text" : "Трилър",
     "value" : "thriller"
   },
-  { "option" : "Уестърн",
+  { "text" : "Уестърн",
     "value" : "western"
   }
 ]

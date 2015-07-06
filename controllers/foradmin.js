@@ -215,7 +215,7 @@ function AdminManager() {
 				}),
 				html = $.templates.tmpl.render(data[0]);
 			
-			$(target).append(html);
+			target.append(html);
 		}).fail(function() {
 			alert("Failed to load options.");
 		});
@@ -255,6 +255,15 @@ function AdminManager() {
 			
 			$section.show();
 			$section.find('h2').addClass('clip');
+			
+			/**
+			 * If the section with the CKEDITOR is not visible,
+			 * all edit buttons will be disabled.
+			 */
+			
+			if (section == "#aside") {
+				add.initAsideTextEditor();
+			}
 		}
 	}
 	
@@ -322,26 +331,33 @@ function AdminManager() {
 	 * INIT
 	 */
 	 
-	this.loadOptions('#companyTypeSelect', type, 'option');
-	this.loadOptions('#genreTypeSelect', type, 'option');
-	this.loadOptions('#personTypeSelect', type, 'option');
-	this.loadOptions('#characterTypeSelect', type, 'option');
-	this.loadOptions('#serieTypeSelect', type, 'option');
-	this.loadOptions('#asideTypeSelect', type, 'option');
+	this.loadOptions($('#companyTypeSelect'), type, 'option');
+	this.loadOptions($('#genreTypeSelect'), type, 'option');
+	this.loadOptions($('#personTypeSelect'), type, 'option');
+	this.loadOptions($('#characterTypeSelect'), type, 'option');
+	this.loadOptions($('#serieTypeSelect'), type, 'option');
 	
 	initTagInput(stickers, 'stickers', '#movieStickersInput');
 	initTypeAhead(series, 'series', '#movieSerieInput');
 	
 	/**
+	 * ASIDE
+	 */
+	 
+	this.loadOptions($('#asideTypeSelect'), type, 'option');
+	
+	initTagInput(authors, 'authors', '#asideAuthorsInput');
+	
+	/**
 	 * ARTICLE
 	 */
 	
-	this.loadOptions('#articleSubtypeSelect', subtype, 'option');
-	this.loadOptions('#articleHypeSelect', hype, 'option');
-	this.loadOptions('#articleTypeSelect', type, 'option');
-	this.loadOptions('#articleVersionTestedSelect', gamePlatforms, 'option');
-	this.loadOptions('#articleThemeSelect', theme, 'option');
-	this.loadOptions('#articleSubthemeSelect', subtheme, 'option');
+	this.loadOptions($('#articleSubtypeSelect'), subtype, 'option');
+	this.loadOptions($('#articleHypeSelect'), hype, 'option');
+	this.loadOptions($('#articleTypeSelect'), type, 'option');
+	this.loadOptions($('#articleVersionTestedSelect'), gamePlatforms, 'option');
+	this.loadOptions($('#articleThemeSelect'), theme, 'option');
+	this.loadOptions($('#articleSubthemeSelect'), subtheme, 'option');
 	
 	initTagInput(authors, 'authors', '#articleAuthorsInput');
 	initTagInput(issues, 'issues', '#publishIssueInput', 1, 'value');
@@ -352,9 +368,9 @@ function AdminManager() {
 	 * URL & SEARCH
 	 */
 	
-	this.loadOptions('#urlTypeSelect', type, 'option');
-	this.loadOptions('#searchObjectSelect', objects, 'option');
-	this.loadOptions('#urlOjbectSelect', objects, 'option');
+	this.loadOptions($('#urlTypeSelect'), type, 'option');
+	this.loadOptions($('#searchObjectSelect'), objects, 'option');
+	this.loadOptions($('#urlOjbectSelect'), objects, 'option');
 	
 	/**
 	 * QUOTE
@@ -366,7 +382,7 @@ function AdminManager() {
 	 * MOVIES::MOVIE
 	 */
 	
-	this.loadOptions('#movieGenreGroup', movieGenres, 'checkbox');
+	this.loadOptions($('#movieGenreGroup'), movieGenres, 'checkbox');
 	
 	initTagInput(movies, 'movies', '#movieSimilarInput');
 	initTagInput(persons, 'persons', '#movieCastInput');
@@ -379,8 +395,8 @@ function AdminManager() {
 	 * GAMES::GAME
 	 */
 	
-	this.loadOptions('#gameGenreGroup', gameGenres, 'checkbox');
-	this.loadOptions('#gamePlatformGroup', gamePlatforms, 'checkbox');
+	this.loadOptions($('#gameGenreGroup'), gameGenres, 'checkbox');
+	this.loadOptions($('#gamePlatformGroup'), gamePlatforms, 'checkbox');
 	
 	initTagInput(series, 'series', '#gameSerieInput', 1);
 	initTagInput(stickers, 'stickers', '#gameStickersInput');
@@ -393,8 +409,8 @@ function AdminManager() {
 	 * MUSIC::ALBUM
 	 */
 	
-	this.loadOptions('#albumGenreGroup', musicGenres, 'checkbox');
-	this.loadOptions('#albumCountrySelect', countries, 'option');
+	this.loadOptions($('#albumGenreGroup'), musicGenres, 'checkbox');
+	this.loadOptions($('#albumCountrySelect'), countries, 'option');
 	
 	initTagInput(music, 'music', '#albumArtistInput');
 	initTagInput(stickers, 'stickers', '#albumStickersInput');
@@ -541,9 +557,23 @@ function AdminManager() {
 		$.when(d1).done(function(data1) {
 			var aside = $.xml2json(data1);
 			
-			if (object == 'quote') {
-				window.admin.selectTarget.css('background-image', 
-											  'url(../assets/characters/' + aside.character.tag + '.jpg)');	
+			switch (object) {
+				case 'quote':
+					window.admin.selectTarget.css('background-image', 
+												  'url(../assets/characters/' + 
+												  aside.character.tag + 
+												  '.png)');
+					break;
+				case 'caret':
+					window.admin.selectTarget.css('background-image', 
+												  'url(../assets/articles/' + 
+												  aside.main.tag +
+												  '/' +
+												  aside.main.tag +
+												  '-' +
+												  aside.main +
+												  ')');
+					break;
 			}
 		}).fail(function() {
 			alert("Failed to load aside.");
@@ -667,15 +697,27 @@ function AdminManager() {
 			$('#publishPrioritySelect').val('video').change();
 		}
 		
+		$('#publishPrioritySelect').prop('disabled', false);
+		
 		console.log(window.admin.publishTarget);
 	});
 	
 	$('#publish').on('click', 'button.publish', function (e) {
+		var isArticle = $('#article').is(':visible');
+		
 		window.admin.publishTarget.publish();
-		window.admin.publishTarget.hypeToString();
+		
+		if (isArticle) {
+			window.admin.publishTarget.hypeToString();
+		}
 		
 		self.showSection('#xml');
-		utils.xml(window.admin.publishTarget, 'article', '#xmlCodeOutput');	
+		
+		if (isArticle) {
+			utils.xml(window.admin.publishTarget, 'article', '#xmlCodeOutput');	
+		} else {
+			utils.xml(window.admin.publishTarget, 'aside', '#xmlCodeOutput');	
+		}
 		
 		console.log(window.admin.publishTarget);
 	});
@@ -694,6 +736,27 @@ function AdminManager() {
 	/**
 	 * Objects
 	 */
+	
+	$('#aside').on('click', 'button.save, button.publish', function (e) {
+		var a = new Aside();
+		
+		a.save();
+		
+		window.admin.publishTarget = a;
+
+		$('#publishPrioritySelect').prop('disabled', true);
+		
+		console.log(window.admin.publishTarget);
+	});
+	
+	$('#game').on('keyup', '#gameEnNameInput', function (e) {
+		var tag = $(this).val().toLowerCase().replace(/[:?\.,!]|– |- /g, '');
+		
+		tag = tag.replace(/ /g, '-');
+		
+		$('#gameTagInput').val(tag);
+	});
+	
 	
 	$('#game').on('click', 'button.save', function (e) {
 		var o = new Game();

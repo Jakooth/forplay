@@ -10,19 +10,21 @@
         <form>
             <h3>Тема</h3>
             <admin:formItem id="asideTypeSelect" label="Раздел" type="select" />
-            <admin:formItem id="asideTitle" label="Заглавие" 
+            <admin:formItem id="asideTitleInput" label="Заглавие" 
             				placeholder="Grand Theft Auto 5" type="text" />
-            <admin:formItem id="asideSubtitle" label="Подзаглавие" 
+            <admin:formItem id="asideSubtitleInput" label="Подзаглавие" 
             				placeholder="Grand Theft Auto 5" type="text" />
-            <admin:formItem id="asideAuthorSelect" label="Автор" type="select" />
-            <h3>Съдържание</h3>
-            <div class="Content">
-                <div class="z0Layout">
-                    <button class="select" type="button">
-                        <span class="clip">Добави картинка</span>
-                        <img src="../assets/helpers/16-9.png" alt="16:9" role="presentation" />
-                    </button>
+            <admin:formItem id="asideAuthorsInput" label="Автори" 
+            				placeholder="Snake, doomy" type="text" />
+            <h3>Основна картинка</h3>
+            <div class="Main" role="group">
+            	<div class="file">
+                    <input aria-label="Избери" 
+                    	   id="asideMainInput" type="file" />
                 </div>
+            </div>
+            <h3>Съдържание</h3>
+            <div class="Content" role="region">
                 <div class="textLayout" id="textLayout_aside" contenteditable="true">
                     <p>Натиснете тук, за да редактирате текста, използвайки само
                         един параграф,

@@ -1,10 +1,10 @@
-[ { "option" : "ревю",
+[ { "text" : "ревю",
     "value" : "review"
   },
-  { "option" : "мнение",
+  { "text" : "мнение",
     "value" : "feature"
   },
-  { "option" : "новина",
+  { "text" : "новина",
     "value" : "news"
   }
 ]

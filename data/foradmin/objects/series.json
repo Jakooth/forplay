@@ -32,5 +32,30 @@
   	"value" : "fifa",
     "type" : "games",
 	"object" : "serie"
+  },
+  { "text" : "Baldur's Gate",
+  	"value" : "baldurs-gate",
+    "type" : "games",
+	"object" : "serie"
+  },
+  { "text" : "Fallout",
+	"value" : "fallout",
+    "type" : "games",
+    "object" : "serie"
+  },
+  { "text" : "Neverwinter Nights",
+	"value" : "neverwinter-nights",
+    "type" : "games",
+    "object" : "serie"
+  },
+  { "text" : "Dragon Age",
+	"value" : "dragon-age",
+    "type" : "games",
+    "object" : "serie"
+  },
+  { "text" : "Souls",
+	"value" : "souls",
+    "type" : "games",
+    "object" : "serie"
   }
 ]

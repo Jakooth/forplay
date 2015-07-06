@@ -8,29 +8,9 @@ function AddManager() {
 	
 	var gamePlatforms = '../data/foradmin/platforms.json';
 	
-	var initAsideTextEditor = function() {
-		CKEDITOR.disableAutoInline = true;
-		CKEDITOR.inline('textLayout_aside', {
-			extraPlugins: 'sourcedialog',
-			toolbar: [
-				{
-					name: 'clipboard', 
-					groups: [ 'clipboard', 'undo' ], 
-					items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ]
-				}, { 
-					name: 'basicstyles', 
-					groups: [ 'basicstyles', 'cleanup' ], 
-					items: [ 'Bold', 'Italic', 'Underline', 'RemoveFormat' ] 
-				}, { 
-					name: 'links', 
-					items: [ 'Link', 'Unlink' ] 
-				}, { 
-					name: 'Sourcedialog', 
-					items: [ 'Sourcedialog' ] 
-				}
-			]
-		});
-	}
+	
+	
+	
 	
 	
 	
@@ -39,28 +19,56 @@ function AddManager() {
 	 * PUBLIC
 	 */
 	
+	this.initAsideTextEditor = function() {
+		if (!CKEDITOR.instances.textLayout_aside) {
+			var asideEditor = CKEDITOR.inline('textLayout_aside', {
+				extraPlugins: 'sourcedialog',
+				toolbar: [
+					{
+						name: 'clipboard', 
+						groups: [ 'clipboard', 'undo' ], 
+						items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ]
+					}, { 
+						name: 'basicstyles', 
+						groups: [ 'basicstyles', 'cleanup' ], 
+						items: [ 'Bold', 'Italic', 'Underline', 'RemoveFormat' ] 
+					}, { 
+						name: 'links', 
+						items: [ 'Link', 'Unlink' ] 
+					}, { 
+						name: 'Sourcedialog', 
+						items: [ 'Sourcedialog' ] 
+					}
+				]
+			});
+			
+			asideEditor.on('instanceReady', function(e) {	 
+				e.editor.setReadOnly(false);
+			});
+		}
+	}
+	
 	this.addLayout = function($appender) {
 		var d1 = $.get('../renderers/foradmin/layout.html' + 
 					   '?v=' + Math.round(Math.random() * 100000));
 			
 		$.when(d1).done(function(data1) {
 			var html = data1,
-				editor
-				id = Math.round(Math.random() * 100000);
+				id = Math.round(Math.random() * 100000); 
 			
 			$appender.before(html);
 			
-			self.hideLayouts($appender.prev());
-			self.showLayout($appender.prev(), 'text');
+			var $layout = $appender.prev();
 			
-			utils.convertSVG($appender.prev().find('img.svg'));
-			$appender.prev().find('.textLayout').attr('id',  'textLayout_' + id);
-			$appender.prev().find('.imgLayout').attr('id',  'imgLayout_' + id);
+			utils.convertSVG($layout.find('img.svg'));
+			$layout.find('.textLayout').attr('id',  'textLayout_' + id);
+			$layout.find('.imgLayout').attr('id',  'imgLayout_' + id);
+			$layout.find('.insideLayout').attr('id',  'insideLayout_' + id);
+			$layout.find('.insideLayoutText').attr('id',  'insideLayoutText_' + id);
 			
 			$(document).scrollTop($appender.offset().top);
 			
-			CKEDITOR.disableAutoInline = true;
-			CKEDITOR.inline('textLayout_' + id, {
+			var textEditor = CKEDITOR.inline('textLayout_' + id, {
 				extraPlugins: 'sourcedialog',
 				toolbar: [
 					{
@@ -87,6 +95,49 @@ function AddManager() {
 					}
 				]
 			});
+			
+			var insideEditor = CKEDITOR.inline('insideLayoutText_' + id, {
+				extraPlugins: 'sourcedialog',
+				toolbar: [
+					{
+						name: 'clipboard', 
+						groups: [ 'clipboard', 'undo' ], 
+						items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ]
+					}, { 
+						name: 'basicstyles', 
+						groups: [ 'basicstyles', 'cleanup' ], 
+						items: [ 'Bold', 'Italic', 'RemoveFormat' ] 
+					}, { 
+						name: 'paragraph', 
+						groups: [ 'blocks' ], 
+						items: [ 'NumberedList', 'Blockquote' ] 
+					}, { 
+						name: 'links', 
+						items: [ 'Link', 'Unlink' ] 
+					}, { 
+						name: 'styles', 
+						items: [ 'Format' ] 
+					}, { 
+						name: 'Sourcedialog', 
+						items: [ 'Sourcedialog' ] 
+					}
+				]
+			});
+			
+			self.hideLayouts($layout);
+			self.showLayout($layout, 'text');
+			
+			textEditor.on('instanceReady', function(e) {	 
+				e.editor.setReadOnly(false);
+			});
+			
+			insideEditor.on('instanceReady', function(e) {	 
+				e.editor.setReadOnly(false);
+			});
+			
+			admin.loadOptions($layout.find('.insideLayout .settings select:eq(1)'), 
+							  '../data/foradmin/authors.json', 
+							  'option');
 		}).fail(function() {
 			alert("Failed to load layout.");
 		});
@@ -99,7 +150,7 @@ function AddManager() {
 		 * For images hide the side content.
 		 */
 		
-		if (value == 'img') {
+		if (value == 'img' || value == 'inside') {
 			$appender.addClass('fullscreen');
 		} else {
 			$appender.removeClass('fullscreen');
@@ -167,7 +218,18 @@ function AddManager() {
 	}
 	
 	this.removeLayout = function($appender) {
-		$appender.parents('.layout').remove();
+		var $layout = $appender.parents('.layout'),
+			$cke = $layout.find('.cke_editable');
+			
+		var cke1 = $cke.eq(0).prop('id'),
+			cke2 = $cke.eq(1).prop('id');
+		
+		$layout.remove();
+		
+		if ($cke.length > 0) {
+			CKEDITOR.instances[cke1].destroy();
+			CKEDITOR.instances[cke2].destroy();
+		}
 	}
 	
 	this.addImage = function($input, e) {
@@ -209,12 +271,15 @@ function AddManager() {
 	/** 
 	 * INIT
 	 */
+	
+	CKEDITOR.disableAutoInline = true;
 	 
-	initAsideTextEditor();
 	 
 	 
-	 
-	 	 
+	
+	
+	
+	
 	/** 
 	 * EVENTS
 	 */
@@ -234,12 +299,14 @@ function AddManager() {
 	$('.Content').on('change', '.layout > select', function (e) {
 		$this = $(this),
 		$layout = $this.parents('.layout'),
-		$center = $this.parents('.layout').find('.center-col');
+		$imgs = $this.parents('.layout').find('.center-col.imgLayout'),
+		$inside = $this.parents('.layout').find('.center-col.insideLayout');
 		
 		self.hideLayouts($layout);
 		self.showLayout($layout, $this.val());
 		
-		$center.find('> select').val('a1').change();
+		$imgs.find('> select').val('a1').change();
+		$inside.find('> select').val('i1').change();
 	});
 	
 	/**
@@ -260,6 +327,14 @@ function AddManager() {
 		if ($this.val() == 'f3') {
 			$center.find('.f3Sublayout select').val('bottom right').change();
 		}
+		
+		/**
+		 * Default text insde image position.
+		 */
+		
+		if ($this.val() == 'i1') {
+			$center.find('.settings select:nth-of-type(1)').val('top center').change();
+		}
 	});
 	
 	/**
@@ -273,11 +348,35 @@ function AddManager() {
 								   .addClass($this.val());
 	});
 	
+	/**
+	 * Text inside image.
+	 */
+	
+	$('.Content').on('change', '.insideLayout .settings select:nth-of-type(1)', function (e) {
+		$this = $(this);
+		
+		$this.parents('.insideLayout').removeClass('left right top bottom center')
+								   	  .addClass($this.val());
+	});
+	
+	/**
+	 * 16:9.
+	 */
+	 
+	$('.Content').on('change', '.img-proxy input[type=checkbox]', function (e) {
+		$this = $(this),
+		$checkboxes = $this.parents('.sublayout').find('.img-proxy input[type=checkbox]');
+		
+		$checkboxes.prop('checked', $this.is(':checked'))
+	}); 
+	
 	$('.Content').on('click', 'button.remove', function (e) {
 		self.removeLayout($(this));
 	});
 	
-	$('#game, #article, #album, #movie').on('change', '.file input', function (e) {
+	$('#game, #article, #album, #movie, #aside').on('change', 
+													'.file input[type=file]', 
+													function (e) {
 		var reader = new FileReader();
 		
 		var $file = $(e.target).parents('.file');
@@ -293,7 +392,7 @@ function AddManager() {
 		self.removeImage($(this));
 	});
 	
-	$('#images').on('change', '.file input', function (e) {
+	$('#images').on('change', '.file input[type=file]', function (e) {
 		self.addImage($(this), e);
 	});
 	

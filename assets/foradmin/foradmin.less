@@ -1182,6 +1182,7 @@ button.remove {
 	height: 320px;
 }
 
+#aside .Main .file,
 .Cover {
 	clear: both;
 	position: relative;
@@ -1302,6 +1303,12 @@ button.remove {
 	font-size: 1000pt;
 } 
 
+.sublayout .img-proxy .file label {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+} 
+
 /**
  * a1
  */
@@ -1358,7 +1365,7 @@ button.remove {
 	padding-bottom: 0;
 }
 
-.a2Sublayout .img-proxy:nth-of-type(1) p {
+.a2Sublayout .img-proxy:nth-of-type(1) div.settings {
 	left: 100%;
 	top: 0;
 	width: 25%;
@@ -1371,7 +1378,7 @@ button.remove {
 	padding-bottom: 0;
 }
 
-.a2Sublayout .img-proxy:nth-of-type(3) p {
+.a2Sublayout .img-proxy:nth-of-type(3) div.settings {
 	left: -50%;
 	bottom: 0;
 }
@@ -1382,7 +1389,7 @@ button.remove {
 	padding-right: 0;
 }
 
-.a2Sublayout .img-proxy:nth-of-type(2) p {
+.a2Sublayout .img-proxy:nth-of-type(2) div.settings {
 	right: 0;
 	top: auto;
 	bottom: 0;
@@ -1401,7 +1408,7 @@ button.remove {
 	padding-left: 0;
 }
 
-.b1Sublayout .img-proxy:nth-of-type(1) p {
+.b1Sublayout .img-proxy:nth-of-type(1) div.settings {
 	left: 100%;
 	top: 0;
 	width: 25%;
@@ -1413,7 +1420,7 @@ button.remove {
 	padding-right: 0;
 }
 
-.b1Sublayout .img-proxy:nth-of-type(3) p {
+.b1Sublayout .img-proxy:nth-of-type(3) div.settings {
 	width: 100%;
 	top: 100%;
 }
@@ -1424,16 +1431,17 @@ button.remove {
 	padding-right: 0;
 }
 
-.b1Sublayout .img-proxy:nth-of-type(2) p {
+.b1Sublayout .img-proxy:nth-of-type(2) div.settings {
 	right: 0;
 	bottom: 0;
 	margin-bottom: 60%;
 }
 
 /**
- * c4
+ * f3, i1
  */
 
+.i1Sublayout .img-proxy:nth-of-type(1),
 .f3Sublayout .img-proxy:nth-of-type(1) {
 	padding: 0;
 }
@@ -1474,6 +1482,57 @@ button.remove {
 	background-color: @light;
 }
 
+/**
+ * INSIDE LAYOUT
+ */
+ 
+.insideLayout .settings {
+	position: absolute;
+	top: 84px;
+	right: 0;
+	padding: 20px;
+	width: 20%;
+}
+
+.insideLayout .settings select {
+	min-width: 100%;
+	display: block;
+}
+
+.insideLayout .insideLayoutText {
+	position: absolute;
+	background: @light;
+	z-index: 1;
+	margin-bottom: 0;
+	padding: 0;
+}
+
+.insideLayout.top .insideLayoutText {
+	top: 84px;
+	bottom: auto;
+}
+
+.insideLayout.bottom .insideLayoutText {
+	top: auto;
+	bottom: 0;
+}
+
+.insideLayout.center .insideLayoutText {
+	width: 60%;
+	margin-left: 20%;
+}
+
+.insideLayout.left .insideLayoutText {
+	width: 40%;
+	margin-left: 20%;
+}
+
+.insideLayout.right .insideLayoutText {
+	width: 40%;
+	margin-left: 40%;
+}
+
+
 
 
 
@@ -1488,6 +1547,8 @@ button.remove {
 	min-height: 320px;
 }
 
+.insideLayoutText > p,
+.insideLayoutText > h3,
 .textLayout > p,
 .textLayout > h3,
 .textLayout > blockquote {
@@ -1495,6 +1556,10 @@ button.remove {
 	line-height: normal;
 }
 
+.insideLayoutText li,
+.insideLayoutText li *,
+.insideLayoutText p,
+.insideLayoutText p *,
 .textLayout p,
 .textLayout p * {
 	font-family: 'Open Sans', sans-serif;
@@ -1503,14 +1568,17 @@ button.remove {
 	margin: 0;
 }
 
+.insideLayoutText strong,
 .textLayout strong {
 	font-weight: bold;
 }
 
+.insideLayoutText em,
 .textLayout em {
 	font-style: italic;
 }
 
+.insideLayoutText h3,
 .textLayout h3 {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 18pt;
@@ -1526,6 +1594,31 @@ button.remove {
 	font-weight: normal;
 	font-style: normal;
 	line-height: normal;
+}
+
+.insideLayoutText ol {
+	clear: both;
+	list-style: decimal-leading-zero;
+	padding: 0 20px;
+	list-style-position: outside;
+	padding-left: 57px;
+}
+
+.insideLayoutText ol:first-child {
+	padding-top: 20px;
+}
+
+.insideLayoutText ol:last-child {
+	padding-bottom: 20px;
+}
+
+.insideLayoutText li {
+	list-style: decimal-leading-zero;
+	padding-left: 20px;
+}
+
+.cke_focus {
+	background-color: @light;
 }
 
 .cke_editable_inline:before {

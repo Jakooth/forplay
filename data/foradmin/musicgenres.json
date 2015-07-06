@@ -1,13 +1,13 @@
-[ { "option" : "nu metal",
+[ { "text" : "nu metal",
     "value" : "nu-metal"
   },
-  { "option" : "alternative",
+  { "text" : "alternative",
     "value" : "alternative"
   },
-  { "option" : "crossover",
+  { "text" : "crossover",
     "value" : "crossover"
   },
-  { "option" : "rapcore",
+  { "text" : "rapcore",
     "value" : "rapcore"
   }
 ]

@@ -108,6 +108,18 @@ function ArticlesManager() {
 										box: box});
 			
 			$appender.html(html);
+			
+			/**
+			 * Replace proxies with real images from the server.
+			 */
+			
+			if (object == 'caret') {
+				$('#read .read-set aside').find('img').on('load', function() {
+					if ($(this).data('proxy')) {
+						loadImage($(this));
+					}
+				});
+			}
 		}).fail(function() {
 			alert("Failed to load aside.");
 		});

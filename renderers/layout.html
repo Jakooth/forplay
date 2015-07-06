@@ -1,4 +1,4 @@
-<div class="layout {{:type}} {{:subtype}}"> 
+<div class="layout {{:type}} {{:subtype}} {{if ratio}}r{{:ratio}}{{/if}}"> 
 {{if left}}
     <div data-url="{{:left.url.text}}" 
     	 data-type="{{:left.url.type}}"
@@ -7,13 +7,18 @@
          class="inline-col left-col {{:left.url.valign}}"></div>
 {{/if}}
 
-{{if type == 'img'}} {{for center.img}}
+{{if type == 'img' || type == 'inside'}} {{for center.img}}
     <div class="img-proxy {{if video}}Player{{/if}}"{{if video}}
     	 id="player_{{:video.player}}"{{/if}}>
-	
+    
     {{if #data.tracklist}}
         <div data-tag="{{:#data.tracklist.tag}}" 
         	 class="tracklist {{:#data.tracklist}}"></div>
+    {{else #data.center > 0}}
+    	<div class="inside {{:#data.center.valign}}">
+        	<p>#data.center.author</p>
+            {{:#data.center}}
+        </div>
     {{else #data.alt.length > 0}}
         <p><strong>{{:#data.pointer}}</strong> {{:#data.alt}}</p>
     {{/if}}
@@ -24,8 +29,8 @@
                             data-tag="{{:#data.tag}}"
                             data-proxy="true"
                             data-main="{{:#data.tag}}-{{:#data.index}}"
-                            data-ratio="16-9"
-                            src="assets/helpers/16-9.png"
+                            data-ratio="{{if ratio}}{{:ratio}}{{else}}16-9{{/if}}"
+                            src="assets/helpers/{{if ratio}}{{:ratio}}{{else}}16-9{{/if}}.png"
                             alt="{{:#data.alt}}" /> </a></div>
 	</div>
 {{/for}} {{else}}

@@ -13,7 +13,7 @@
             <admin:formItem id="publishSiteInput" label="Страница"
             				placeholder="forplay, forlife" type="hidden" />
             <admin:formItem id="publishUrlInput" label="Адрес"
-            				placeholder="the-title-to-lower-case-for-other" type="hidden" />
+            				placeholder="the-title-to-lower-case" type="hidden" />
             <admin:formItem id="publishDateInput" label="Дата на публикуване" type="date" layout="two-cols" />
             <admin:formItem id="publishTimeInput" label="Час на публикуване" type="time" layout="two-cols" />
             <admin:formItem id="publishPrioritySelect" label="Приоритет" type="select">

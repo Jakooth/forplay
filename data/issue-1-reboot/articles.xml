@@ -2,6 +2,168 @@
 <articles>
     <article>
         <site>forplay</site>
+        <url>мрачни-размисли</url>
+        <tags prime="dark-souls-2">
+            <tag>dark-souls-2</tag>
+            <tag>dark-souls</tag>
+            <tag>demons-souls</tag>
+            <tag>from-software</tag>
+            <tag>crown-of-the-sunken-king</tag>
+            <tag>crown-of-the-old-iron-king</tag>
+            <tag>crown-of-the-ivory-king</tag>
+        </tags>
+        <cover align="center"
+    	   	   valign="top"
+       	   	   theme=""
+           	   subtheme="lighten"
+           	   tag="dark-souls-2">04.jpg</cover>
+        <main>
+            <wide tag="dark-souls-2">05.jpg</wide>
+            <shot tag="dark-souls-2">06.jpg</shot>
+            <caret tag="dark-souls-2">caret.png</caret>
+        </main>
+        <type bg="игри">games</type>
+        <subtype bg="мнение">feature</subtype>
+        <title>
+            <![CDATA[Мрачни размисли]]>
+        </title>
+        <subtitle>
+            <![CDATA[Не бе, всъщност не са чак толкова мрачни, просто всяко по-позитивно
+                заглавие би избухнало в пламъци при досега си със Souls серията]]>
+        </subtitle>
+        <authors>
+            <author>Snake</author>
+        </authors>
+        <date>Thu Jan 09 2014 01:35:00 GMT+0200 (FLE Standard Time)</date>
+        <priority></priority>
+        <issue>issue-1-reboot</issue>
+        <hype></hype>
+        <better tag=""></better>
+        <worse tag=""></worse>
+        <equal tag=""></equal>
+        <versionTested></versionTested>
+        <preview>
+            <![CDATA[Понеже съм потресаващо дърт и мога да си позволя да започна
+                някой свой текст с думите "преди близо четвърт век, когато...",
+                мисля да го направя. И така, преди близо четвърт век, когато
+                гейминг битието ми се ограничаваше до огромен ентусиазъм и подтискаща
+                липса на достъп до личен хардуер за игри, с двамата ми най-добри
+                приятели от детинството се събирахме да играем на компютъра на
+                вече покойния Сашко (дееба тия мотори, дееба). Това бяха времената,
+                когато се играеше практически всичко, до което си успял да се
+                добереш на предавани от ръка на ръка дискети, без особен оглед
+                на жанр или геймплейни качества. Така в един момент ни беше попаднала
+                някаква убийствено пошла аркадна компилация от зимни олимпийски
+                спортове и се бяхме събрали, за да я тестваме, като всеки от
+                нас играеше по едно ниво, след което предаваше клаиатурата на
+                другарчето. Или поне това беше идеята, защото спонтанно се оказа,
+                че играя само аз. Шокиращо, моите амигос - хора с далеч по-солидна
+                геймърска практика от мен - срещаха огромни затруднения с нещо,
+                което се управляваше с четирите стрелки. Причината? Слаломистчето
+                се спускаше от горния към долния край на монитора и на практика
+                долната стрелка го движеше напред, горната - назад, лявата -
+                наляво, а дясната - надясно. Принципно - нищо сложно. Само дето
+                в геймърския генотип на детските ми другари беше заложено правилото,
+                че действието винаги се развива от гледната точка на управлявания
+                персонаж и горната стрелка го движи напред, независимо от позицията
+                на камерата.]]>
+        </preview>
+        <stickers>
+            <sticker lib="carl-olsen"
+        		 	 subtype="originals">brutal-helm</sticker>
+            <sticker lib="lorc"
+        		 	 subtype="originals">black-hand-shield</sticker>
+            <sticker lib="lorc"
+        		 	 subtype="originals">crowned-skull</sticker>
+            <sticker lib="lorc"
+        			 subtype="originals">broadsword</sticker>
+        </stickers>
+    </article>
+    <article>
+        <site>forplay</site>
+        <url>divinity-original-sin</url>
+        <tags prime="divinity-original-sin">
+            <tag>divinity-original-sin</tag>
+        </tags>
+        <cover align="center"
+    	   	   valign="top"
+       	   	   theme="red"
+           	   subtheme=""
+           	   tag="divinity-original-sin">10.jpg</cover>
+        <main>
+            <wide tag="divinity-original-sin">10.jpg</wide>
+            <shot tag="divinity-original-sin">13.jpg</shot>
+            <caret tag="divinity-original-sin">caret.png</caret>
+        </main>
+        <type bg="игри">games</type>
+        <subtype bg="ревю">review</subtype>
+        <title>
+            <![CDATA[Divinity: Original Sin]]>
+        </title>
+        <subtitle>
+            <![CDATA[Греховно добра игра!]]>
+        </subtitle>
+        <authors>
+            <author>Snake</author>
+        </authors>
+        <date>Sat Aug 23 2014 02:35:00 GMT+0300 (FLE Daylight Time)</date>
+        <priority>cover</priority>
+        <issue>issue-1-reboot</issue>
+        <hype>9+</hype>
+        <better tag="neverwinter-nights-2">Neverwinter Nights 2</better>
+        <worse tag="dragon-age-inquisition">Dragon Age: Inquisition</worse>
+        <equal tag=""></equal>
+        <versionTested>win</versionTested>
+        <preview>
+            <![CDATA[Така, нека се опитам да привлека вниманието ти. Ако лееш
+                горчиви сълзи по времената, когато игрите не бяха интерактивни
+                филми, а в ролевите заглавия на BioWare имаше повече текст, отколкото
+                Джордж Мартин е изписал в последните десет години, честито -
+                Divinity: Original Sin е шибаният нов Baldur&#39;s Gate. Ако
+                си модерен геймър, който не намира нищо романтично в това, че
+                демиджът на меча му е изписан като 1d6+3, а за разучаването на
+                ролевата система е нужно да имаш отлични познания по Excel и
+                да си девствен, честито - Divinity: Original Sin е походовият
+                Dark Souls. Което може и да ти се стори малко странно сравнение,
+                предвид факта, че в играта можеш да си сложиш кофа на главата
+                вместо шлем, а при генерирането на персонажа имаш опцията да
+                го екипираш с чифт скандално сини боксерки на звездички, но ще
+                стигнем и до там. За всички останали - честито - Divinity: Original
+                Sin е първата игра, която успява да се доближи като усещане до
+                класическа пен-енд-пейпър ролева сесия или иначе казано - до
+                най-забавното групово забавление, изобретено от човечеството,
+                след оргиите и надпиването с текила. Всеки, който ме познава,
+                би следвало да е наясно, че вероятността да инвестирам пари и
+                време в олдскуул-хардкор-писи-търн-бейзд-правено-с-пет-лева-или-колкото-там-събраха-от-кикстартъра-RPG
+                клони към келвиновата нула, просто защото смятам, че подобни
+                игри трябваше да си останат в деветдесетте, също като Киану Рийвс,
+                ама уви. Друга отличителна черта на геймърската ми личност, с
+                която съм надул главата на всеки, имал някакъв досег с мен или
+                поне с писанията ми обаче е, че класирам кооперативния гейминг
+                като върхова форма на забавление, някъде между боба, леба и онова
+                другото. В резултат, когато няколко различни източника, на които
+                се доверявам, ми стовариха информацията, че Original Sin предлага
+                някакъв бая як ко-оп, въздъхнах и реших да видя за какво иде
+                реч. Дори и само, за да опровергая няколкото различни източника,
+                защото последният ми опит да играя в компания натежало от стори,
+                безкрайни правила и тактически битки RPG в лицето на Neverwinter
+                Nights 2, беше с две идеи по-незабавен от натравяне с миди. И
+                проклет да съм, ако не открих едно от GOTY-тата си в една крайно
+                неочаквана жанрова ниша. Отрочето на Larian улучва по удивително
+                прецизен начин пресечната точка между класическото и модерното
+                и притежава такъв зверски магнетизъм, че чак е страшно.]]>
+        </preview>
+        <stickers>
+            <sticker lib="lorc"
+        		 	 subtype="originals">broadsword</sticker>
+            <sticker lib="lorc"
+        		 	 subtype="originals">minotaur</sticker>
+            <sticker lib="lorc"
+        		 	 subtype="originals">burning-meteor</sticker>
+        </stickers>
+    </article>
+    <article>
+        <site>forplay</site>
         <url>fifa-15</url>
         <tags prime="fifa-15">
             <tag>fifa-15</tag>
@@ -442,7 +604,7 @@
         <priority></priority>
         <issue>issue-1-reboot</issue>
         <hype>4</hype>
-        <better tag="csi">CSI игрите</better>
+        <better tag="csi-miami">CSI игрите</better>
         <worse tag="heavy-rain">Heavy Rain</worse>
         <equal tag=""></equal>
         <versionTested>360</versionTested>

@@ -1,55 +1,55 @@
-[ { "option" : "red",
+[ { "text" : "red",
     "value" : "F44336"
   },
-  { "option" : "pink",
+  { "text" : "pink",
     "value" : "E91E63"
   },
-  { "option" : "purple",
+  { "text" : "purple",
     "value" : "9C27B0"
   },
-  { "option" : "deep-purple",
+  { "text" : "deep-purple",
     "value" : "673AB7"
   },
-  { "option" : "indigo",
+  { "text" : "indigo",
     "value" : "3F51B5"
   },
-  { "option" : "blue",
+  { "text" : "blue",
     "value" : "2196F3"
   },
-  { "option" : "cyan",
+  { "text" : "cyan",
     "value" : "00BCD4"
   },
-  { "option" : "teal",
+  { "text" : "teal",
     "value" : "009688"
   },
-  { "option" : "green",
+  { "text" : "green",
     "value" : "4CAF50"
   },
-  { "option" : "light-green",
+  { "text" : "light-green",
     "value" : "8BC34A"
   },
-  { "option" : "lime",
+  { "text" : "lime",
     "value" : "CDDC39"
   },
-  { "option" : "yellow",
+  { "text" : "yellow",
     "value" : "FFEB3B"
   },
-  { "option" : "amber",
+  { "text" : "amber",
     "value" : "FFC107"
   },
-  { "option" : "orange",
+  { "text" : "orange",
     "value" : "FF9800"
   },
-  { "option" : "deep-orange",
+  { "text" : "deep-orange",
     "value" : "FF5722"
   },
-  { "option" : "brown",
+  { "text" : "brown",
     "value" : "795548"
   },
-  { "option" : "grey",
+  { "text" : "grey",
     "value" : "9E9E9E"
   },
-  { "option" : "blue-grey",
+  { "text" : "blue-grey",
     "value" : "607D8B"
   }
 ]

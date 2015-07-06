@@ -10,6 +10,7 @@ function Article() {
 		$layouts,
 		$tagsInput = $('#publishTagsInput'),
 		$dateInput = $('#publishDateInput'),
+		$urlInput = $('#publishUrlInput'),
 		$priorityInput = $('#publishPrioritySelect'),
 		$timeInput = $('#publishTimeInput'),
 		$issueInput = $('#publishIssueInput'),
@@ -54,7 +55,7 @@ function Article() {
 	this.prime = "object-tag";
 	this.tags = "";
 	this.site = "forplay";
-	this.url = "object-tag";
+	this.url = "prime-tag";
 	this.date = new Date();
 	this.priority;
 	this.issue = "issue-tag";
@@ -102,10 +103,10 @@ function Article() {
 	 */
 	
 	this.save = function () {
-		self.type = {'tag':$typeInput.val(),
-					 'bg':$typeInput.find(':selected').text()};
-		self.subtype = {'tag':$subtypeInput.val(),
-					 	'bg':$subtypeInput.find(':selected').text()};
+		self.type = {'tag': $typeInput.val(),
+					 'bg': $typeInput.find(':selected').text()};
+		self.subtype = {'tag': $subtypeInput.val(),
+					 	'bg': $subtypeInput.find(':selected').text()};
 		self.title = $titleInput.val();
 		self.subtitle = $subtitleInput.val();
 		self.authors = $authorsInput.parents('label').find('.tag').map(function (i, element) {
@@ -187,16 +188,16 @@ function Article() {
 			if ($audioTechInput.val() == "") {
 				self.audio = "";
 			} else {
-				self.audio = {'tech':$audioTechInput.val(), 
-							 'url':$audioUrlInput.val(), 
-							 'frame':$audioFrameInput.val()};
+				self.audio = {'tech': $audioTechInput.val(), 
+							 'url': $audioUrlInput.val(), 
+							 'frame': $audioFrameInput.val()};
 			}
 			
 			if ($videoTechInput.val() == "") {
 				self.video = "";
 			} else {
-				self.video = {'tech':$videoTechInput.val(), 
-							  'url':$videoUrlInput.val()};
+				self.video = {'tech': $videoTechInput.val(), 
+							  'url': $videoUrlInput.val()};
 			}
 		} else {
 			self.audio =
@@ -227,6 +228,14 @@ function Article() {
 											  .attr('id')));
 			});
 		}
+		
+		if (self.subtype.tag != 'review') {
+			self.url = self.title.toLowerCase().replace(/[:?\.,!]|– |- /g, '');
+			self.url = self.url.replace(/ /g, '-');
+		}
+		
+		$urlInput.val(self.url);
+		$urlInput.parents('label').find('span').contents().last().replaceWith(self.url);
 	}
 	 
 	this.publish = function () {
@@ -252,10 +261,10 @@ function Article() {
 		
 		if (self.subtype.tag == 'review') {
 			self.url = self.prime.value;
-		} else {
-			self.url = self.title.toLowerCase().replace(/[:?\.,!]|– |- /g, '');
-			self.url = self.url.replace(/ /g, '-');
 		}
+		
+		$urlInput.val(self.url);
+		$urlInput.parents('label').find('span').contents().last().replaceWith(self.url);
 		
 		self.date = new Date($dateInput.val() + ' ' + $timeInput.val());
 		self.priority = $priorityInput.val();

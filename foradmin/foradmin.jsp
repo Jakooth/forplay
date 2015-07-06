@@ -77,7 +77,10 @@
             </script>            
 	<script src="../controllers/objects/quote.js?v=1.0.0">
                 <!--script-->
-            </script>  
+            </script>
+    <script src="../controllers/objects/aside.js?v=1.0.0">
+                <!--script-->
+            </script> 
 	<script>$(document).ready(function() { 
 				window.utils = new UtilsManager(); 
 				window.admin = new AdminManager(); 
@@ -158,6 +161,7 @@
         <jsp:include page="views/person.jsp" />
         <jsp:include page="views/character.jsp" />
         <jsp:include page="views/serie.jsp" />
+        <jsp:include page="views/dlc.jsp" />
         <jsp:include page="views/genre.jsp" />
         <jsp:include page="views/movies.jsp" />
         <jsp:include page="views/movie.jsp" />

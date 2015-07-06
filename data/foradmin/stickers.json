@@ -47,5 +47,30 @@
 	"value" : "soccer-field",
     "lib" : "delapouite",
 	"subtype" : "sports"
-  }
+  },
+  { "text" : "Burning meteor",
+	"value" : "burning-meteor",
+    "lib" : "lorc",
+	"subtype" : "originals"
+  },
+  { "text" : "Minotaur",
+	"value" : "minotaur",
+    "lib" : "lorc",
+	"subtype" : "originals"
+  },
+  { "text" : "Brutal helm",
+	"value" : "brutal-helm",
+    "lib" : "carl-olsen",
+	"subtype" : "originals"
+  },
+  { "text" : "Black hand shield",
+	"value" : "black-hand-shield",
+    "lib" : "lorc",
+	"subtype" : "originals"
+  },
+  { "text" : "Crowned skull",
+	"value" : "crowned-skull ",
+    "lib" : "lorc",
+	"subtype" : "originals"
+  } 
 ]
