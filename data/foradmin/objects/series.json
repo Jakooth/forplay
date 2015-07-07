@@ -57,5 +57,15 @@
 	"value" : "souls",
     "type" : "games",
     "object" : "serie"
+  },
+  { "text" : "Sin City",
+	"value" : "sin-city",
+    "type" : "movies",
+    "object" : "serie"
+  },
+  { "text" : "LEGO",
+	"value" : "lego",
+    "type" : "games",
+    "object" : "serie"
   }
 ]

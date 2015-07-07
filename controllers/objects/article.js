@@ -204,8 +204,52 @@ function Article() {
 			self.video = "";
 		}
 		
+		self.setUrl();
+	}
+	 
+	this.publish = function () {
+		self.save();
+		
+		/**
+		 * In the input tags are stored in the sequence you add them,
+		 * but we want them in the order they appear in the UI.
+		 * Thus we return the SPAN elements and join the text in array.
+		 * The result is === to the input value.
+		 */
+		
+		self.tags = $tagsInput.parents('label').find('.tag').map(function (i, element) {
+			return $(element).text();
+		}).get().join(",");
+		
+		if (self.type.tag == 'games') {
+			self.site = 'forplay';
+		} else {
+			self.site = 'forlife';
+		}
+		
+		self.date = new Date($dateInput.val() + ' ' + $timeInput.val());
+		self.priority = $priorityInput.val();
+		self.issue = $issueInput.val();
+		
+		/**
+		 * STICKERS
+		 */
+		
+		var get = $.get('../data/' + self.prime.type 
+								   + '/' + self.prime.object 
+								   + '/' + self.prime.value + '.xml');
+				
+		$.when(get).done(function(data) {
+			var game = $.xml2json(data);
+			
+			self.stickers = game.stickers.sticker;
+		}).fail(function() {
+			alert("Failed to load stickers.");
+		});
+		
 		/**
 		 * Always clear the array before pushing new elements.
+		 * We crate layouts on publish, to use the url.
 		 */
 		
 		self.layouts = [];
@@ -229,63 +273,6 @@ function Article() {
 			});
 		}
 		
-		if (self.subtype.tag != 'review') {
-			self.url = self.title.toLowerCase().replace(/[:?\.,!]|– |- /g, '');
-			self.url = self.url.replace(/ /g, '-');
-		}
-		
-		$urlInput.val(self.url);
-		$urlInput.parents('label').find('span').contents().last().replaceWith(self.url);
-	}
-	 
-	this.publish = function () {
-		self.save();
-		
-		/**
-		 * In the input tags are stored in the sequence you add them,
-		 * but we want them in the order they appear in the UI.
-		 * Thus we return the SPAN elements and join the text in array.
-		 * The result is === to the input value.
-		 */
-		
-		self.prime = $tagsInput.parents('label').find('.tag').eq(0).data().item;
-		self.tags = $tagsInput.parents('label').find('.tag').map(function (i, element) {
-			return $(element).text();
-		}).get().join(",");
-		
-		if (self.type.tag == 'games') {
-			self.site = 'forplay';
-		} else {
-			self.site = 'forlife';
-		}
-		
-		if (self.subtype.tag == 'review') {
-			self.url = self.prime.value;
-		}
-		
-		$urlInput.val(self.url);
-		$urlInput.parents('label').find('span').contents().last().replaceWith(self.url);
-		
-		self.date = new Date($dateInput.val() + ' ' + $timeInput.val());
-		self.priority = $priorityInput.val();
-		self.issue = $issueInput.val();
-		
-		/**
-		 * STICKERS
-		 */
-		
-		var get = $.get('../data/' + self.prime.type 
-								   + '/' + self.prime.object 
-								   + '/' + self.prime.value + '.xml');
-				
-		$.when(get).done(function(data) {
-			var game = $.xml2json(data);
-			
-			self.stickers = game.stickers.sticker;
-		}).fail(function() {
-			alert("Failed to load stickers.");
-		});
-		
 		/**
 		 * The left column is restricted for object information:
 		 * game, movie, album, book etc.
@@ -301,6 +288,23 @@ function Article() {
 		}
 		
 		return self;
+	}
+	
+	this.setUrl = function() {
+		var $tags = $tagsInput.parents('label').find('.tag');
+		
+		if ($tags.length > 0) {
+			self.prime = $tags.eq(0).data().item;
+		}
+		
+		if (self.subtype.tag == 'review') {
+			self.url = self.prime.value;
+		} else {
+			self.url = self.title.toLowerCase().replace(/[:?\.,!]|– |- /g, '');
+			self.url = self.url.replace(/ /g, '-');
+		}
+		
+		$urlInput.val(self.url);
 	}
 	
 	this.hypeToString = function(hype) {

@@ -506,7 +506,6 @@ function AdminManager() {
 	
 	$('body').on('click', '.Window #search button.ok', function (e) {
 		var img = $('#search input:checked').parents('label').find('img').attr('src');														 
-		
 		window.admin.selectTarget.focus();
 		window.admin.selectTarget.find('input').val(img);
 		window.admin.selectTarget.css('background-image', 'url(' + img + ')');
@@ -720,6 +719,14 @@ function AdminManager() {
 		}
 		
 		console.log(window.admin.publishTarget);
+	});
+	
+	$('#publish').on('change', '#publishTagsInput', function (e) {
+		window.admin.publishTarget.setUrl();													  
+															  
+		$('#publishUrlInput').parents('label').find('span')
+							 .contents().last()
+							 .replaceWith(window.admin.publishTarget.url);
 	});
 	
 	$('#quote').on('click', 'button.save', function (e) {

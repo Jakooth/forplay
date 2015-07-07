@@ -79,6 +79,7 @@ a {
  * Title and subtitle for portal articles and video.
  */
 
+.inside *,
 .layout .center-col *,
 .layout ol *,
 .video-set h3 a,
@@ -405,6 +406,20 @@ section.cover h3 {
 	padding: 1.25%;
 }
 
+/**
+ * Title text.
+ */
+
+.cover-set h3 a:nth-child(1),
+section.cover h3 a:nth-child(1) {
+	display: block;
+	width: 80%;
+}
+
+/**
+ * Article type colored block.
+ */
+
 .cover-set h3 span:nth-child(2),
 section.cover h3 span:nth-child(2) {
 	position: absolute;
@@ -415,9 +430,14 @@ section.cover h3 span:nth-child(2) {
 	line-height: 0;
 }
 
+/**
+ * Subtitle text.
+ */
+
 .cover-set h3 span:nth-child(3),
 section.cover h3 span:nth-child(3) {
 	display: block;
+	width: 80%;
 }
 
 section.cover > p {
@@ -1289,6 +1309,93 @@ main.read #read {
 .img.f3 .tracklist.right li {
 	list-style: decimal-leading-zero;
 	list-style-position: inside;
+}
+
+/**
+ * i1
+ */  
+
+.inside.i1 .img-proxy {
+	margin-left: -33.33%;
+	margin-right: -33.33%;
+	width: 166.6%;
+	padding: 0;
+}
+
+.inside.i1 .top,
+.inside.i1 .bottom {
+	position: absolute;
+	background: @light;
+	z-index: 1;
+	margin-bottom: 0;
+	padding: 0;
+}
+
+.inside.i1 .top {
+	top: 0;
+	bottom: auto;
+}
+
+.inside.i1 .bottom {
+	top: auto;
+	bottom: 0;
+}
+
+.inside.i1 .center {
+	width: 60%;
+	margin-left: 20%;
+}
+
+.inside.i1 .right {
+	width: 40%;
+	margin-left: 40%;
+}
+
+.inside.i1 .left {
+	width: 40%;
+	margin-left: 20%;
+}
+
+.inside.i1 .center p,
+.inside.i1 .center ol,
+.inside.i1 .center h3 {
+	position: relative;
+	padding: 2.08%;
+}
+
+.inside.i1 .right p,
+.inside.i1 .left p,
+.inside.i1 .right ol,
+.inside.i1 .left ol,
+.inside.i1 .right h3,
+.inside.i1 .left h3 {
+	padding: 3.125%;
+}
+ 
+.inside.i1 ol {
+	list-style: decimal-leading-zero;
+	list-style-position: inside;
+}
+
+.inside.i1 .top p:nth-child(2),
+.inside.i1 .top ol:nth-child(2),
+.inside.i1 .top h3:nth-child(2) {
+	padding-top: 0;
+}
+
+.inside.i1 .bottom p:last-child,
+.inside.i1 .bottom ol:last-child,
+.inside.i1 .bottom h3:last-child {
+	padding-bottom: 0;
+}
+
+.inside.i1 .top p:first-of-type,
+.inside.i1 .bottom p:first-of-type {
+	position: absolute;
+	top: -44px;
+	right: 0;
+	bottom: auto;
+	z-index: 100;
 }
 
 /**

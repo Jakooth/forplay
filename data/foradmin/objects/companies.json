@@ -52,5 +52,15 @@
   	"value" : "from-software",
     "type" : "games",
     "object" : "developer"
+  },
+  { "text" : "Ubisoft",
+  	"value" : "ubisoft",
+    "type" : "games",
+    "object" : "publisher"
+  },
+  { "text" : "Ubisoft Montpelier",
+  	"value" : "ubisoft-montpelier",
+    "type" : "games",
+    "object" : "developer"
   }
 ]

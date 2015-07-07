@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<caret>
+    <site>forplay</site>
+    <url>трофейна-злост</url>
+    <tags prime="valiant-hearts">
+        <tag>valiant-hearts</tag>
+    </tags>
+    <main tag="valiant-hearts">07.jpg</main>
+    <type bg="игри">games</type>
+    <subtype bg="каре">caret</subtype>
+    <title>
+        <![CDATA[Трофейна злост]]>
+    </title>
+    <subtitle>
+        <![CDATA[]]>
+    </subtitle>
+    <authors>
+        <author>Snake</author>
+    </authors>
+    <date>Sun Sep 07 2014 02:19:00 GMT+0300 (FLE Daylight Time)</date>
+    <issue>issue-1-reboot</issue>
+    <center>
+        <![CDATA[<p>В играта има един ачийвмънт/трофей, който би следвало да
+            бъде скрит, но не е. Респективно - описанието му ще те оспойли грозно
+            и директно ще обезсмисли един от добрите драматични моменти.</p>]]>
+    </center>
+</caret>

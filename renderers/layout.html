@@ -14,9 +14,9 @@
     {{if #data.tracklist}}
         <div data-tag="{{:#data.tracklist.tag}}" 
         	 class="tracklist {{:#data.tracklist}}"></div>
-    {{else #data.center > 0}}
-    	<div class="inside {{:#data.center.valign}}">
-        	<p>#data.center.author</p>
+    {{else #data.center}}
+    	<div class="{{:#data.center.valign}}">
+        	<p>{{:#data.center.author}}</p>
             {{:#data.center}}
         </div>
     {{else #data.alt.length > 0}}

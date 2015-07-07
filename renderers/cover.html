@@ -9,10 +9,12 @@
     <p>От {{for authors.author}}<a href="?portal={{:#data}}">{{:#data}}</a>
     	  		{{if #index < #parent.data.length - 2}}, 
     			{{else #index == #parent.data.length - 2}} и {{/if}}{{/for}}</p>
-	<ul>
+	
+{{if subtype == 'review' }}
+    <ul>
     	<li>
         	<p><span>Оценка </span><strong>{{:hype}}</strong></p>
-        </li>{{if (type == 'games' || type == 'movies') && subtype == 'review' }}
+        </li>{{if type == 'games' || type == 'movies' }}
         <li>
         	<p style="background-image: url(assets/bwe/{{:better.tag}}.jpg)" 
                class="better"><span>По-добре от </span><strong>{{:better}}</strong></p>
@@ -26,4 +28,6 @@
                class="equal"><span>На нивото на </span><strong>{{:equal}}</strong></p>
         </li>{{/if}}{{/if}}
     </ul>
+{{/if}}
+    
 </section>

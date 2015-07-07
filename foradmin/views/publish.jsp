@@ -5,7 +5,9 @@
             xmlns:admin="urn:jsptagdir:/WEB-INF/tags/foradmin">
     <section id="publish">
         <h2>
-            <admin:menuItem label="Избери тагове и дата на публукуване." title="Публикуване на статия" url="publish" />
+            <admin:menuItem label="Избери тагове и дата на публукуване." 
+            				title="Публикуване на статия" 
+                            url="publish" />
         </h2>
         <form>
             <admin:formItem id="publishTagsInput" label="Тагове" 
@@ -14,8 +16,10 @@
             				placeholder="forplay, forlife" type="hidden" />
             <admin:formItem id="publishUrlInput" label="Адрес"
             				placeholder="the-title-to-lower-case" type="hidden" />
-            <admin:formItem id="publishDateInput" label="Дата на публикуване" type="date" layout="two-cols" />
-            <admin:formItem id="publishTimeInput" label="Час на публикуване" type="time" layout="two-cols" />
+            <admin:formItem id="publishDateInput" label="Дата на публикуване" 
+            				type="date" layout="two-cols" />
+            <admin:formItem id="publishTimeInput" label="Час на публикуване" 
+            				type="time" layout="two-cols" />
             <admin:formItem id="publishPrioritySelect" label="Приоритет" type="select">
                 <option value="">Без приоритет</option>
                 <option value="cover">корица</option>

@@ -157,5 +157,40 @@
 	"value" : "crown-of-the-ivory-king",
     "type" : "games",
     "object" : "dlc"
+  },
+  { "text" : "Valiant Hearts",
+	"value" : "valiant-hearts",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "Call of Duty: Black Ops 2",
+	"value" : "call-of-duty-black-ops-2",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "Brothers: A Tale of Two Sons",
+	"value" : "brothers-a-tale-of-two-sons",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "Limbo",
+	"value" : "limbo",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "Journey",
+	"value" : "journey",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "Child of Light",
+	"value" : "child-of-Light",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "Machinarium",
+	"value" : "machinarium",
+    "type" : "games",
+    "object" : "game"
   }
 ]

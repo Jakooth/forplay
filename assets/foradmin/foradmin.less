@@ -697,9 +697,13 @@ form input {
 
 [role=group] label span {
 	line-height: 24px;
-	display: inline;
+	display: inline-block;
 	vertical-align: top;
 	margin: 0;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 80%;
 }
 
 form input[type=text],

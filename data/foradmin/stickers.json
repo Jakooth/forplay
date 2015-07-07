@@ -72,5 +72,30 @@
 	"value" : "crowned-skull ",
     "lib" : "lorc",
 	"subtype" : "originals"
-  } 
+  },
+  { "text" : "Revolver",
+	"value" : "revolver",
+    "lib" : "delapouite",
+	"subtype" : "originals"
+  },
+  { "text" : "Temptation",
+	"value" : "temptation",
+    "lib" : "lorc",
+	"subtype" : "originals"
+  },
+  { "text" : "Bleeding wound",
+	"value" : "bleeding-wound",
+    "lib" : "lorc",
+	"subtype" : "originals"
+  },
+  { "text" : "Jigsaw piece",
+	"value" : "jigsaw-piece",
+    "lib" : "lorc",
+	"subtype" : "originals"
+  },
+  { "text" : "Tear tracks",
+	"value" : "tear-tracks",
+    "lib" : "lorc",
+	"subtype" : "originals"
+  }
 ]

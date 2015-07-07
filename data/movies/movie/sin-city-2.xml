@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<movie>
+    <tag>sin-city-2</tag>
+    <stickers>
+        <sticker lib="delapouite"
+        		 subtype="originals">revolver</sticker>
+        <sticker lib="lorc"
+        		 subtype="originals">temptation</sticker>
+        <sticker lib="lorc"
+        		 subtype="originals">bleeding-wound</sticker>
+    </stickers>
+    <main>sin-city-2.jpg</main>
+    <poster>poster.jpg</poster>
+    <type bg="филми">movies</type>
+    <subtype bg="филм">movie</subtype>
+    <bg>Град на греха: Жена, за която да убиваш</bg>
+    <en>Sin City: A Dame to Kill For</en>
+    <serie>Sin City</serie>
+    <genres>
+        <genre>Трилър</genre>
+		<genre>Черно-бял ултра хардбойл мачо ноар с изобилие от насилие, кръв и цици</genre>
+    </genres>
+    <cast>
+        <actor>Мики Рурк</actor>
+        <actor>Джесика Алба</actor>
+        <actor>Джош Бролин</actor>
+        <actor>Джоузеф Гордън-Левит</actor>
+        <actor>Розарио Доусън</actor>
+        <actor>Брус Уилис</actor>
+        <actor>Ева Грийн</actor>
+        <actor>Рей Лиота</actor>
+        <actor>Пауърс Буут</actor>
+        <actor>Кристъфър Лойд</actor>
+        <actor>Джейми Кинг</actor>
+        <actor>Джуно Темпъл</actor>
+        <actor>Лейди Гага</actor>
+    </cast>
+    <directors>
+        <director>Робърт Родригес</director>
+        <director>Франк Милър</director>
+    </directors>
+    <writers>
+        <writer>Франк Милър</writer>
+    </writers>
+    <camera>
+        <operator>Робърт Родригес</operator>
+    </camera>
+    <music>
+        <composer>Карл Тиел</composer>
+        <composer>Робърт Родригес</composer>
+    </music>
+    <bg>Fri Aug 29 2014 03:00:00 GMT+0300 (FLE Daylight Time)</bg>
+    <world>Fri Aug 22 2014 03:00:00 GMT+0300 (FLE Daylight Time)</world>
+    <time>102</time>
+    <similar>
+        <game>sin-city</game>
+        <game>the-spirit</game>
+    </similar>
+</movie>

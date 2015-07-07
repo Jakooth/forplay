@@ -22,5 +22,20 @@
 	"value" : "mama",
     "type" : "movies",
     "object" : "movie"
+  },
+  { "text" : "Sin City: A Dame to Kill For",
+	"value" : "sin-city-2",
+    "type" : "movies",
+    "object" : "movie"
+  },
+  { "text" : "Sin City",
+	"value" : "sin-city",
+    "type" : "movies",
+    "object" : "movie"
+  },
+  { "text" : "The Spirit",
+	"value" : "the-spirit",
+    "type" : "movies",
+    "object" : "movie"
   }
 ]

@@ -57,5 +57,101 @@
     "type" : "movies",
 	"object" : "person",
 	"subtype" : "director"
+  },
+  { "text" : "Робърт Родригес",
+	"value" : "robert-rodriguez",
+    "type" : "movies",
+	"object" : "person",
+	"subtype" : "director"
+  },
+  { "text" : "Франк Милър",
+	"value" : "frank-miller",
+    "type" : "movies",
+	"object" : "person",
+	"subtype" : "writer"
+  },
+  { "text" : "Мики Рурк",
+	"value" : "mickey-rourke",
+    "type" : "movies",
+	"object" : "person",
+	"subtype" : "cast"
+  },
+  { "text" : "Джесика Алба",
+	"value" : "jessica-alba",
+    "type" : "movies",
+	"object" : "person",
+	"subtype" : "cast"
+  },
+  { "text" : "Джош Бролин",
+	"value" : "josh-brolin",
+    "type" : "movies",
+	"object" : "person",
+	"subtype" : "cast"
+  },
+  { "text" : "Джоузеф Гордън-Левит",
+	"value" : "joseph-gordon-levitt",
+    "type" : "movies",
+	"object" : "person",
+	"subtype" : "cast"
+  },
+  { "text" : "Розарио Доусън",
+	"value" : "rosario-dawson",
+    "type" : "movies",
+	"object" : "person",
+	"subtype" : "cast"
+  },
+  { "text" : "Брус Уилис",
+	"value" : "bruce-willis",
+    "type" : "movies",
+	"object" : "person",
+	"subtype" : "cast"
+  },
+  { "text" : "Ева Грийн",
+	"value" : "eva-green",
+    "type" : "movies",
+	"object" : "person",
+	"subtype" : "cast"
+  },
+  { "text" : "Рей Лиота",
+	"value" : "ray-liotta",
+    "type" : "movies",
+	"object" : "person",
+	"subtype" : "cast"
+  },
+  { "text" : "Пауърс Буут",
+	"value" : "powers-boothe",
+    "type" : "movies",
+	"object" : "person",
+	"subtype" : "cast"
+  },
+  { "text" : "Джейми Кинг",
+	"value" : "jaime-king",
+    "type" : "movies",
+	"object" : "person",
+	"subtype" : "cast"
+  },
+  { "text" : "Кристъфър Лойд",
+	"value" : "christopher-lloyd",
+    "type" : "movies",
+	"object" : "person",
+	"subtype" : "cast"
+  },
+  { "text" : "Джуно Темпъл",
+	"value" : "juno-temple",
+    "type" : "movies",
+	"object" : "person",
+	"subtype" : "cast"
+  },
+  { "text" : "Лейди Гага",
+	"value" : "lady-gaga",
+    "type" : "movies",
+	"object" : "person",
+	"subtype" : "cast"
+  },
+  { "text" : "Карл Тиел",
+	"value" : "carl-thiel",
+    "type" : "movies",
+	"object" : "person",
+	"subtype" : "music"
   }
 ]
