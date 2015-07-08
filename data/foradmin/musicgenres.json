@@ -9,5 +9,14 @@
   },
   { "text" : "rapcore",
     "value" : "rapcore"
+  },
+  { "text" : "blues rock",
+    "value" : "blues-rock"
+  },
+  { "text" : "indie rock",
+    "value" : "indie-rock"
+  },
+  { "text" : "dream pop",
+    "value" : "dream-pop"
   }
 ]

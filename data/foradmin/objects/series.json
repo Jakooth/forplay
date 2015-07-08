@@ -67,5 +67,10 @@
 	"value" : "lego",
     "type" : "games",
     "object" : "serie"
+  },
+  { "text" : "Risen",
+	"value" : "risen",
+    "type" : "games",
+    "object" : "serie"
   }
 ]

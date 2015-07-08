@@ -1,7 +1,7 @@
 [ { "text" : "Emil Bulls",
 	"value" : "emil-bulls",
     "type" : "music",
-	"subtype" : "band"
+	"object" : "band"
   },
   { "text" : "Sacrifice To Venus",
 	"value" : "sacrifice-to-venus",
@@ -11,27 +11,27 @@
   { "text" : "Slipknot",
 	"value" : "slipknot",
     "type" : "music",
-	"subtype" : "band"
+	"object" : "band"
   },
   { "text" : "System of a Down",
 	"value" : "system-of-a-down",
     "type" : "music",
-	"subtype" : "band"
+	"object" : "band"
   },
   { "text" : "Marilyn Manson",
 	"value" : "marilyn-manson",
     "type" : "music",
-	"subtype" : "band"
+	"object" : "band"
   },
   { "text" : "Korn",
 	"value" : "korn",
     "type" : "music",
-	"subtype" : "band"
+	"object" : "band"
   },
   { "text" : "Coal Chamber",
 	"value" : "coal-chamber",
     "type" : "music",
-	"subtype" : "band"
+	"object" : "band"
   },
   { "text" : "Body Count",
 	"value" : "body-count",
@@ -62,5 +62,20 @@
 	"value" : "suicidal-tendencies",
     "type" : "music",
     "object" : "band"
+  },
+  { "text" : "Ice-T",
+	"value" : "ice-t",
+    "type" : "music",
+	"object" : "person"
+  },
+  { "text" : "Лана Дел Рей",
+	"value" : "lana-del-rey",
+    "type" : "music",
+	"object" : "person"
+  },
+  { "text" : "Ultraviolence",
+	"value" : "ultraviolence",
+    "type" : "music",
+	"object" : "album"
   }
 ]

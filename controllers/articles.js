@@ -278,7 +278,7 @@ function ArticlesManager() {
 			
 		if ($hype.length) {
 			$hype.clone()
-				 .insertAfter('.read-set .layout:last .center-col > p:last-of-type')
+				 .insertAfter('.read-set .layout.text:last .center-col > p:last-of-type')
 				 .addClass('hype');
 		}
 		

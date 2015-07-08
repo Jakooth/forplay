@@ -1123,6 +1123,32 @@ main.read #read {
 	padding-bottom: 0;
 }
 
+/**
+ * For video player we use margin instead padding.
+ * With padding the video will be displayed in the padded area too.
+ * Margin is the padding -2.08% on right and -4.16% width.
+ */
+
+.img.a1 .img-proxy:nth-of-type(3).Player {
+	margin: 2.08%;
+	margin-top: 0;
+	padding: 0;
+	width: 131.26%;
+	margin-left: -33.34%;
+	padding-top: 0;
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+
+/**
+ * For video we use margin, thus all caluclations above are plus 20px padding.
+ */
+
+.img.a1 .img-proxy:nth-of-type(3).Player p {
+	left: 103.2%;
+	bottom: 0;
+}
+
 .img.a1 .img-proxy:nth-of-type(3) p {
 	left: 101.54%;
 	bottom: 0;
@@ -1298,7 +1324,7 @@ main.read #read {
 	margin-left: 40%;
 }
 
-.img.f3 .tracklist.right ol {
+.img.f3 .tracklist ol {
 	padding: 3.2%;
 	padding-bottom: 0;
 	position: relative;
@@ -1306,7 +1332,7 @@ main.read #read {
 	list-style-position: inside;
 }
 
-.img.f3 .tracklist.right li {
+.img.f3 .tracklist li {
 	list-style: decimal-leading-zero;
 	list-style-position: inside;
 }

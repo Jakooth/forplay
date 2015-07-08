@@ -1,10 +1,4 @@
-[ { "text" : "Ice-T",
-	"value" : "ice-t",
-    "type" : "music",
-	"object" : "person",
-	"subtype" : "singer"
-  },
-  { "text" : "Джон Лионети",
+[ { "text" : "Джон Лионети",
 	"value" : "john-leonetti",
     "type" : "movies",
 	"object" : "person",

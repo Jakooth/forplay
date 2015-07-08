@@ -188,8 +188,28 @@
     "type" : "games",
     "object" : "game"
   },
-  { "text" : "Machinarium",
-	"value" : "machinarium",
+  { "text" : "Risen 3: Titan Lords",
+	"value" : "risen-3",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "Two Worlds 2",
+	"value" : "two-worlds-2",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "Gothic 2",
+	"value" : "gothic-2",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "Risen 2: Dark Waters",
+	"value" : "risen-3",
+    "type" : "games",
+    "object" : "game"
+  },
+  { "text" : "Risen",
+	"value" : "risen",
     "type" : "games",
     "object" : "game"
   }
