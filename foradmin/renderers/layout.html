@@ -233,7 +233,7 @@
         <div class="center-col insideLayout">
             <select aria-label="Оформление на картинките" class="header">
                 <option value="i1">цял екран</option>
-                <option disabled="disabled" value="i2">2/3 прозрачна</option>
+                <option value="i2">2/3 прозрачна</option>
                 <option disabled="disabled" value="i3">2 малки + голяма</option>
             </select>
             <img class="svg select-svg" 
@@ -250,7 +250,15 @@
                     </div>
             	</div>
             </div>
-            <div class="sublayout i2Sublayout">2/3 прозрачна</div>
+            <div class="sublayout i2Sublayout">
+            	<div class="img-proxy">
+                    <div class="file"> <img alt="" 
+                                        role="presentation" 
+                                        src="../assets/helpers/16-9.png" />
+                        <input aria-label="Избери" type="file" />
+                    </div>
+            	</div>
+            </div>
             <div class="sublayout i3Sublayout">2 малки + голяма</div>
             <div class="settings">
                 <select aria-label="Позициониране на текста">

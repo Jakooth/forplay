@@ -6,17 +6,17 @@ function AdminManager() {
 	 
 	var self = this;
 	
-	var objects = '../data/foradmin/settings/objects.json';
-	var subtype = '../data/foradmin/settings/subtype.json';
-	var type = '../data/foradmin/settings/type.json';
-	var hype = '../data/foradmin/settings/hype.json';
-	var theme = '../data/foradmin/settings/theme.json';
-	var subtheme = '../data/foradmin/settings/subtheme.json';
-	var gameGenres = '../data/foradmin/gamegenres.json';
-	var musicGenres = '../data/foradmin/musicgenres.json';
-	var gamePlatforms = '../data/foradmin/platforms.json';
-	var movieGenres = '../data/foradmin/moviegenres.json';
-	var countries = '../data/foradmin/settings/countries.json';
+	var objects = 'data/settings/objects.json';
+	var subtype = 'data/settings/subtype.json';
+	var type = 'data/settings/type.json';
+	var hype = 'data/settings/hype.json';
+	var theme = 'data/settings/theme.json';
+	var subtheme = 'data/settings/subtheme.json';
+	var gameGenres = 'data/gamegenres.json';
+	var musicGenres = 'data/musicgenres.json';
+	var gamePlatforms = 'data/platforms.json';
+	var movieGenres = 'data/moviegenres.json';
+	var countries = 'data/settings/countries.json';
 	
 	var bloodhound = function(data, key) {
 		return new Bloodhound({
@@ -79,16 +79,16 @@ function AdminManager() {
 	}
 
 	
-	var games = bloodhound('../data/foradmin/objects/games.json');
-	var stickers = bloodhound('../data/foradmin/stickers.json');
-	var companies = bloodhound('../data/foradmin/objects/companies.json');
-	var issues = bloodhound('../data/foradmin/issues.json');
-	var series = bloodhound('../data/foradmin/objects/series.json');
-	var movies = bloodhound('../data/foradmin/objects/movies.json');
-	var authors = bloodhound('../data/foradmin/authors.json');
-	var characters = bloodhound('../data/foradmin/objects/characters.json');
-	var persons = bloodhound('../data/foradmin/objects/persons.json');
-	var music = bloodhound('../data/foradmin/objects/music.json');
+	var games = bloodhound('data/objects/games.json');
+	var stickers = bloodhound('data/stickers.json');
+	var companies = bloodhound('data/objects/companies.json');
+	var issues = bloodhound('data/issues.json');
+	var series = bloodhound('data/objects/series.json');
+	var movies = bloodhound('data/objects/movies.json');
+	var authors = bloodhound('data/authors.json');
+	var characters = bloodhound('data/objects/characters.json');
+	var persons = bloodhound('data/objects/persons.json');
+	var music = bloodhound('data/objects/music.json');
 	
 	/**
 	 * Merging all tags into a single data source.
@@ -96,13 +96,13 @@ function AdminManager() {
 	 */
 	
 	var initTagsTagInput = function() {
-		var d1 = $.get('../data/foradmin/objects/movies.json'),
-			d2 = $.get('../data/foradmin/objects/games.json'),
-			d3 = $.get('../data/foradmin/objects/companies.json'),
-			d4 = $.get('../data/foradmin/objects/characters.json'),
-			d5 = $.get('../data/foradmin/objects/music.json'),
-			d6 = $.get('../data/foradmin/objects/series.json'),
-			d7 = $.get('../data/foradmin/objects/persons.json');
+		var d1 = $.get('data/objects/movies.json'),
+			d2 = $.get('data/objects/games.json'),
+			d3 = $.get('data/objects/companies.json'),
+			d4 = $.get('data/objects/characters.json'),
+			d5 = $.get('data/objects/music.json'),
+			d6 = $.get('data/objects/series.json'),
+			d7 = $.get('data/objects/persons.json');
 			
 		$.when(d1, 
 			   d2, 
@@ -158,8 +158,8 @@ function AdminManager() {
 	 */
 	
 	var initTagsBWEInputs = function() {
-		var d1 = $.get('../data/foradmin/objects/movies.json'),
-			d2 = $.get('../data/foradmin/objects/games.json');
+		var d1 = $.get('data/objects/movies.json'),
+			d2 = $.get('data/objects/games.json');
 			
 		$.when(d1, 
 			   d2).done(function(data1, 
@@ -206,7 +206,7 @@ function AdminManager() {
 	this.publishTarget = null;
 	
 	this.loadOptions = function(target, data, renderer) {
-		var tmpl = $.get('../renderers/foradmin/' + renderer + '.html'),
+		var tmpl = $.get('renderers/' + renderer + '.html'),
 			data = $.get(data.prefetch ? data.prefetch.url : data);
 		
 		$.when(tmpl, data).done(function(tmpl, data) {
@@ -276,7 +276,7 @@ function AdminManager() {
 	}
 	
 	this.showSectionInWindow = function(appendee) {
-		var d1 = $.get('../renderers/foradmin/window.html');
+		var d1 = $.get('renderers/window.html');
 			
 		$.when(d1).done(function(data1) {
 			var html = $(data1).append($(appendee).show());
@@ -300,7 +300,7 @@ function AdminManager() {
 	
 	this.addBreadcrumb = function($section) {
 		if ($('.breadcrumb li').length != 2) {
-			var d1 = $.get('../renderers/foradmin/breadcrumb.html');
+			var d1 = $.get('renderers/breadcrumb.html');
 			
 			$.when(d1).done(function(data1) {
 				var html = $(data1);
@@ -549,7 +549,7 @@ function AdminManager() {
 		 * If it is a quote show the character images.
 		 */
 		
-		var d1 = $.get('../data/' + type + '/' + 
+		var d1 = $.get('data/' + type + '/' + 
 					   				object + '/' + 
 									url + '.xml');
 			

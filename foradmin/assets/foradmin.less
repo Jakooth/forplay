@@ -4,7 +4,7 @@
 
 @charset "utf-8";
 @import url(http://fonts.googleapis.com/css?family=Poiret+One|Open+Sans:300,800&subset=latin,cyrillic);
-@import "../mixins.less";
+@import "../../assets/mixins.less";
 
 /**
  * Color on hover and focus must be one for all styles.
@@ -906,7 +906,7 @@ button.select:after {
 	top: 50%;
 	border-radius: 64px;
 	background-color: rgba(255, 255, 255, 0.5);
-	background-image: url(../icons/iconmonstr/iconmonstr-plus-2-icon.svg);
+	background-image: url(../../assets/icons/iconmonstr/iconmonstr-plus-2-icon.svg);
 	background-size: 32px 32px;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -914,7 +914,7 @@ button.select:after {
 }
 
 button.remove {
-	background-image: url(../icons/iconmonstr/iconmonstr-x-mark-5-icon.svg);
+	background-image: url(../../assets/icons/iconmonstr/iconmonstr-x-mark-5-icon.svg);
 	background-size: 64px 64px;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -1098,7 +1098,7 @@ button.remove {
 	top: 50%;
 	border-radius: 128px;
 	background-color: rgba(255, 255, 255, 0.5);
-	background-image: url(../icons/lorc/originals/svg/000000/transparent/wooden-sign.svg);
+	background-image: url(../../assets/icons/lorc/originals/svg/000000/transparent/wooden-sign.svg);
 	background-size: 64px 64px;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -1205,7 +1205,7 @@ button.remove {
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	background-image: url(../helpers/shadow.png);
+	background-image: url(../../assets/helpers/shadow.png);
 	background-repeat: repeat-x;
 	background-position: bottom left;
 	z-index: 99;
@@ -1215,7 +1215,7 @@ button.remove {
 .Cover .h-preview,
 .Cover .v-preview {
 	position: absolute;
-	background-image: url(../helpers/1-1.png);
+	background-image: url(../../assets/helpers/1-1.png);
 	background-repeat: no-repeat;
 	z-index: 100;
 	left: 0;
@@ -1246,7 +1246,7 @@ button.remove {
 #article .Main .file:nth-child(2):after,
 .Cover .file:after,
 .sublayout .file:after {
-	background-image: url(../icons/iconmonstr/iconmonstr-picture-icon.svg);
+	background-image: url(../../assets/icons/iconmonstr/iconmonstr-picture-icon.svg);
 }
 
 .Cover .file {
@@ -1442,12 +1442,18 @@ button.remove {
 }
 
 /**
- * f3, i1
+ * f3, i1, i2
  */
 
 .i1Sublayout .img-proxy:nth-of-type(1),
+.i2Sublayout .img-proxy:nth-of-type(1),
 .f3Sublayout .img-proxy:nth-of-type(1) {
 	padding: 0;
+}
+
+.i2Sublayout .img-proxy:nth-of-type(1) {
+	width: 80%;
+	float: right;
 }
 
 .f3Sublayout .img-proxy:nth-of-type(1) .tracklist {
@@ -1534,6 +1540,16 @@ button.remove {
 .insideLayout.right .insideLayoutText {
 	width: 40%;
 	margin-left: 40%;
+}
+
+.insideLayout[data-sublayout=i2] .insideLayoutText {
+	margin: 0;
+	bottom: 0;
+	top: 84px;
+	left: 0;
+	right: auto;
+	width: 60%;
+	overflow: auto;
 }
 
 
@@ -1645,7 +1661,7 @@ button.remove {
 	top: 50%;
 	border-radius: 64px;
 	background-color: #FFF;
-	background-image: url(../icons/iconmonstr/iconmonstr-pencil-10-icon.svg);
+	background-image: url(../../assets/icons/iconmonstr/iconmonstr-pencil-10-icon.svg);
 	background-size: 64px 64px;
 	background-position: center center;
 	background-repeat: no-repeat;

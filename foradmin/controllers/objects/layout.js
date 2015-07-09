@@ -97,11 +97,13 @@ function Layout(id) {
 				$valign = $settings.find('select').eq(0);
 				
 				valign = $valign.val();
-				author = $author.find(':selected').text();
+				author = $author.val() == "" ? "" : $author.find(':selected').text();
 				center = CKEDITOR.instances[self.id.replace('insideLayout', 
 															'insideLayoutText')]
 												   .getData()
 												   .replace(/\n/g, '');
+				
+				
 			}	
 			
 			self.ratio = ratio;

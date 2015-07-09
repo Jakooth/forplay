@@ -6,7 +6,7 @@ function AddManager() {
 	 
 	var self = this;
 	
-	var gamePlatforms = '../data/foradmin/platforms.json';
+	var gamePlatforms = 'data/platforms.json';
 	
 	
 	
@@ -49,7 +49,7 @@ function AddManager() {
 	}
 	
 	this.addLayout = function($appender) {
-		var d1 = $.get('../renderers/foradmin/layout.html' + 
+		var d1 = $.get('renderers/layout.html' + 
 					   '?v=' + Math.round(Math.random() * 100000));
 			
 		$.when(d1).done(function(data1) {
@@ -136,7 +136,7 @@ function AddManager() {
 			});
 			
 			admin.loadOptions($layout.find('.insideLayout .settings select:eq(1)'), 
-							  '../data/foradmin/authors.json', 
+							  'data/authors.json', 
 							  'option');
 		}).fail(function() {
 			alert("Failed to load layout.");
@@ -163,6 +163,8 @@ function AddManager() {
 	
 	this.showSublayout = function($appender, value) {
 		$appender.find('.' + value + 'Sublayout').show();
+		$appender.data('sublayout', value);
+		$appender.attr('data-sublayout', $appender.data('sublayout'));
 	}
 	
 	this.hideSublayouts =  function($appender) {
@@ -170,7 +172,7 @@ function AddManager() {
 	}
 	
 	this.addPlatform = function($appender) {
-		var d1 = $.get('../renderers/foradmin/box.html');
+		var d1 = $.get('renderers/box.html');
 			
 		$.when(d1).done(function(data1) {
 			var html = data1;
@@ -193,7 +195,7 @@ function AddManager() {
 	}
 	
 	this.addTrack = function($appender) {
-		var d1 = $.get('../renderers/foradmin/track.html');
+		var d1 = $.get('renderers/track.html');
 			
 		$.when(d1).done(function(data1) {
 			var html = data1;
@@ -233,7 +235,7 @@ function AddManager() {
 	}
 	
 	this.addImage = function($input, e) {
-		var d1 = $.get('../renderers/foradmin/image.html');
+		var d1 = $.get('renderers/image.html');
 		
 		$.when(d1).done(function(data1) {
 			var html = data1, 

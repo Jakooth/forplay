@@ -18,11 +18,11 @@ function UtilsManager() {
 	 */
 	
 	this.xml = function(obj, tmpl, appender) {
-		var get1 = $.get('../renderers/xml/' + tmpl + '.html' + 
+		var get1 = $.get('../foradmin/renderers/xml/' + tmpl + '.html' + 
 					   	 '?v=' + Math.round(Math.random() * 100000)),
-			get2 = $.get('../renderers/xml/textLayout.html' + 
+			get2 = $.get('../foradmin/renderers/xml/textLayout.html' + 
 					   	 '?v=' + Math.round(Math.random() * 100000)),
-			get3 = $.get('../renderers/xml/imgLayout.html' + 
+			get3 = $.get('../foradmin/renderers/xml/imgLayout.html' + 
 					   	 '?v=' + Math.round(Math.random() * 100000));
 			
 		$.when(get1, get2, get3).done(function(data1, data2, data3) {

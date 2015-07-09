@@ -110,9 +110,10 @@ section.cover h3 strong,
 }
 
 /**
- * Cover subtitle.
+ * Cover subtitle and read headings.
  */
 
+.layout .center-col h3,
 #covers h3 span:nth-of-type(2),
 section.cover h3 span:nth-of-type(2),
 .video-set article:nth-of-type(3) h3 span:nth-of-type(2) {
@@ -183,6 +184,10 @@ section.cover > p * {
 .layout .inline-col blockquote p {
 	font-style: italic;
 	color: @light;
+}
+
+.inside.i2 h3 {
+	font-size: 80pt;
 }
 
 
@@ -1021,7 +1026,8 @@ main.read #read {
 .layout.img.a2,
 .layout.img.f3,
 .layout.img.b1,
-.layout.inside.i1 {
+.layout.inside.i1,
+.layout.inside.i2 {
 	position: relative;
 	width: 100%;
 	clear: both;
@@ -1417,6 +1423,111 @@ main.read #read {
 
 .inside.i1 .top p:first-of-type,
 .inside.i1 .bottom p:first-of-type {
+	position: absolute;
+	top: -44px;
+	right: 0;
+	bottom: auto;
+	z-index: 100;
+}
+
+/**
+ * i3
+ */
+ 
+.inside.i2 {
+	margin-top: 2.08%;
+}
+
+.inside.i2 .img-proxy {
+	margin-right: -33.33%;
+	width: 133.33%;
+	padding: 0;
+	position: relative;
+	bottom: 0;
+}
+
+/**
+ * Eextend the image to full width.
+ * 66.66 will extend 1px more in Chrome.
+ * Reducing this to prevent horizontal scroll.
+ */
+  
+/*
+.inside.i2 .img-proxy {
+	margin-left: -33.33%;
+	margin-right: -33.33%;
+	width: 166.6%;
+	padding: 0;
+}
+
+.inside.i2 .img-proxy .top {
+	position: absolute;
+	z-index: 1;
+	background: @light;
+	bottom: 0;
+	left: 26.2%;
+	width: auto;
+	width: 27.7%;
+}
+*/
+
+/**
+ * Fix the image position, so the caret height can grow.
+ */
+
+.inside.i2 .img-proxy .img {
+	position: absolute;
+	bottom: 0;
+	z-index: 1;
+	width: 100%;
+}
+
+/**
+ * Relative position, will allow infinite height.
+ */
+
+.inside.i2 .img-proxy .top {
+	position: relative;
+	left: -25%;
+	width: 75%;
+	bottom: 0;
+	margin: 0;
+	background-color: fade(@dark, 20%);
+	padding: 0;
+}
+
+.inside.i2 .img-proxy .top p {
+	position: relative;
+	padding: 2.08%;
+	width: 90%;
+}
+
+.inside.i2 .img-proxy .top p:nth-of-type(2) {
+	width: 80%;
+}
+
+.inside.i2 .img-proxy .top p:nth-of-type(3) {
+	width: 70%;
+}
+
+.inside.i2 .img-proxy .top p:nth-of-type(4) {
+	width: 60%;
+}
+
+.inside.i2 .img-proxy .top h3 {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	padding-bottom: 2.08%;
+	left: 0;
+	width: auto;
+	padding-left: 35.08%;
+	color: @light;
+	line-height: 52pt;
+	text-transform: uppercase;
+}
+
+.inside.i2 .top p:first-of-type {
 	position: absolute;
 	top: -44px;
 	right: 0;

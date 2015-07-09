@@ -18,13 +18,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Foradmin</title>
-    <link rel="stylesheet" type="text/css" href="../assets/foradmin/bootstrap-tagsinput.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/foradmin/typeaheadjs.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/foradmin/foradmin.css" />
+    <link rel="stylesheet" type="text/css" href="assets/bootstrap-tagsinput.css" />
+    <link rel="stylesheet" type="text/css" href="assets/typeaheadjs.css" />
+    <link rel="stylesheet" type="text/css" href="assets/foradmin.css" />
     <script src="../jslib/jquery-1.11.0.min.js">
                 <!--script-->
             </script>
-    <script src="../jslib/foradmin/jquery-ui.min.js">
+    <script src="jslib/jquery-ui.min.js">
                 <!--script-->
             </script>
     <script src="../jslib/jquery.xml2json.js">
@@ -33,52 +33,52 @@
     <script src="../jslib/jsrender.min.js">
                 <!--script-->
             </script>
-    <script src="../jslib/foradmin/angular.min.js">
+    <script src="jslib/angular.min.js">
                 <!--script-->
             </script>
-    <script src="../jslib/foradmin/bootstrap.min.js">
+    <script src="jslib/bootstrap.min.js">
                 <!--script-->
             </script>
-    <script src="../jslib/foradmin/bootstrap-tagsinput.min.js">
+    <script src="jslib/bootstrap-tagsinput.min.js">
                 <!--script-->
             </script>
-    <script src="../jslib/foradmin/bootstrap-tagsinput-angular.min.js">
+    <script src="jslib/bootstrap-tagsinput-angular.min.js">
                 <!--script-->
             </script>
-    <script src="../jslib/foradmin/typeahead.bundle.js">
+    <script src="jslib/typeahead.bundle.js">
                 <!--script-->
             </script>
-    <script src="../jslib/foradmin/ckeditor/ckeditor.js">
+    <script src="jslib/ckeditor/ckeditor.js">
                 <!--script-->
             </script>
     <script src="../controllers/utils.js?v=1.5.1">
                 <!--script-->
             </script>
-    <script src="../controllers/foradmin.js?v=1.6.1">
+    <script src="controllers/foradmin.js?v=1.6.1">
                 <!--script-->
             </script>
-    <script src="../controllers/add.js?v=1.0.0">
+    <script src="controllers/add.js?v=1.0.0">
                 <!--script-->
             </script>
-    <script src="../controllers/objects/layout.js?v=1.0.0">
+    <script src="controllers/objects/layout.js?v=1.0.0">
                 <!--script-->
             </script>
-    <script src="../controllers/objects/article.js?v=1.0.0">
+    <script src="controllers/objects/article.js?v=1.0.0">
                 <!--script-->
             </script>
-    <script src="../controllers/objects/game.js?v=1.0.0">
+    <script src="controllers/objects/game.js?v=1.0.0">
                 <!--script-->
             </script>
-	<script src="../controllers/objects/movie.js?v=1.0.0">
+	<script src="controllers/objects/movie.js?v=1.0.0">
                 <!--script-->
             </script> 
-    <script src="../controllers/objects/album.js?v=1.0.0">
+    <script src="controllers/objects/album.js?v=1.0.0">
                 <!--script-->
             </script>            
-	<script src="../controllers/objects/quote.js?v=1.0.0">
+	<script src="controllers/objects/quote.js?v=1.0.0">
                 <!--script-->
             </script>
-    <script src="../controllers/objects/aside.js?v=1.0.0">
+    <script src="controllers/objects/aside.js?v=1.0.0">
                 <!--script-->
             </script> 
 	<script>$(document).ready(function() { 
