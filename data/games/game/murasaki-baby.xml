@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<game>
+    <tag>murasaki-baby</tag>
+    <stickers>
+        <sticker lib="delapouite"
+        		 subtype="originals">palette</sticker>
+        <sticker lib="lorc"
+        		 subtype="originals">pointing</sticker>
+        <sticker lib="lorc"
+        		 subtype="originals">curled-tentacle</sticker>
+    </stickers>
+    <main>murasaki-baby.jpg</main>
+    <type bg="игри">games</type>
+    <subtype bg="игра">game</subtype>
+    <boxes>
+        <box type="vita">vita.jpg</box>
+    </boxes>
+    <bg>Мурасаки Бейби</bg>
+    <en>Murasaki Baby</en>
+    <serie></serie>
+    <genres>
+        <genre>Екшън-адвенчър</genre>
+    </genres>
+    <platforms>
+        <platform>vita</platform>
+    </platforms>
+    <publisher>SCEE</publisher>
+    <developer>Ovosonico</developer>
+    <eu>Wed Sep 17 2014 03:00:00 GMT+0300 (FLE Daylight Time)</eu>
+    <us>Wed Sep 17 2014 03:00:00 GMT+0300 (FLE Daylight Time)</us>
+    <similar>
+        <game>limbo</game>
+    </similar>
+</game>

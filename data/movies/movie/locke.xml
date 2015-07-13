@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<movie>
+    <tag>locke</tag>
+    <stickers>
+        <sticker lib="delapouite"
+        		 subtype="gui">phone</sticker>
+    </stickers>
+    <main>locke.jpg</main>
+    <poster>poster.jpg</poster>
+    <type bg="филми">movies</type>
+    <subtype bg="филм">movie</subtype>
+    <bg>Лок</bg>
+    <en>Locke</en>
+    <serie></serie>
+    <genres>
+        <genre>Драма</genre>
+    </genres>
+    <cast>
+        <actor>Том Харди</actor>
+    </cast>
+    <directors>
+        <director>Стивън Найт</director>
+    </directors>
+    <writers>
+        <writer>Стивън Найт</writer>
+    </writers>
+    <camera>
+        <operator>Харис Замбарукос</operator>
+    </camera>
+    <music>
+        <composer>Дикън Хинчлиф</composer>
+    </music>
+    <bg>Invalid Date</bg>
+    <world>Fri Apr 18 2014 03:00:00 GMT+0300 (FLE Daylight Time)</world>
+    <time>85</time>
+    <similar>
+        <game>the-affair</game>
+        <game>the-guitar</game>
+        <game>all-is-lost</game>
+        <game>phone-booth</game>
+        <game>buried</game>
+        <game>127-hours</game>
+    </similar>
+</movie>

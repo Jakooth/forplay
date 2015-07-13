@@ -10,7 +10,7 @@
     	  		{{if #index < #parent.data.length - 2}}, 
     			{{else #index == #parent.data.length - 2}} и {{/if}}{{/for}}</p>
 	
-{{if subtype == 'review' }}
+{{if subtype == 'review'  || subtype == 'video'}}
     <ul>
     	<li>
         	<p><span>Оценка </span><strong>{{:hype}}</strong></p>
@@ -28,6 +28,5 @@
                class="equal"><span>На нивото на </span><strong>{{:equal}}</strong></p>
         </li>{{/if}}{{/if}}
     </ul>
-{{/if}}
-    
+{{/if}}   
 </section>

@@ -379,12 +379,16 @@ function ArticlesManager() {
 			case 'portal':
 				loadArticles('articles', appendPortal, true);
 				break;
-			case 'news':
 			case 'feature':
 			case 'review':
 				loadArticle(url, appendArticle);
 				loadArticles('articles', appendPortal, false);
 				break;
+			case 'news':
+			case 'video':
+				loadArticle(url, appendArticle);
+				loadArticles('articles', appendPortal, false);
+				break;		
 		}
 	}
 	

@@ -147,8 +147,19 @@ function UtilsManager() {
 				 'Юли', 'Август', 'Септеври',
 				 'Октомври', 'Ноември', 'Декември'];
 		
+		if (!d.getDate()) {
+			return "няма";
+		}
 		
 		return d.getDate() + ' ' + m[d.getMonth()]  + ' ' + d.getFullYear();	
+	}
+	
+	this.formatTag = function (s) {
+		var tag = s.toLowerCase().replace(/[:?\.,!()']|– |- /g, '');
+		
+		tag = tag.replace(/ /g, '-');
+		
+		return tag;	
 	}
 	
 	this.parseURL = function(url) {
@@ -185,10 +196,10 @@ function UtilsManager() {
 	 */
 	
 	this.formatThumborString = function(tag, width, height) {
-		var service = 'http://192.168.1.133:8888/unsafe/';
+		var service = 'http://192.168.56.101:8888/unsafe/';
 		
 		return service + width + 'x' + height + 
-								 '/192.168.1.124:8080/forplay/assets/articles/' + 
+								 '/192.168.56.1:8080/forplay/assets/articles/' + 
 								 tag.substring(0, tag.lastIndexOf('-')) +
 								 '/' + tag;
 	}

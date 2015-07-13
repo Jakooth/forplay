@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<movie>
+    <tag>guardians-of-the-galaxy</tag>
+    <stickers>
+        <sticker lib="lorc"
+        		 subtype="originals">laser-blast</sticker>
+        <sticker lib="lorc"
+        		 subtype="originals">forward-field</sticker>
+        <sticker lib="lorc"
+        		 subtype="originals">alien-skull</sticker>
+    </stickers>
+    <main>guardians-of-the-galaxy.jpg</main>
+    <poster>poster.jpg</poster>
+    <type bg="филми">movies</type>
+    <subtype bg="филм">movie</subtype>
+    <bg>Пазители на Галактиката</bg>
+    <en>Guardians of the Galaxy</en>
+    <serie></serie>
+    <genres>
+        <genre>Приключенски</genre>
+        <genre>Фантастика</genre>
+    </genres>
+    <cast>
+        <actor>Крис Прат</actor>
+        <actor>Дейв Батиста</actor>
+        <actor>Зоуи Салдана</actor>
+        <actor>Брадли Куупър</actor>
+        <actor>Вин Дизел</actor>
+        <actor>Джимон Хонсу</actor>
+        <actor>Майкъл Рукър</actor>
+        <actor>Глен Клоуз</actor>
+        <actor>Бенисио Дел Торо</actor>
+        <actor>Лий Пейс</actor>
+        <actor>Джон С. Райли</actor>
+    </cast>
+    <directors>
+        <director>Джеймс Гън</director>
+    </directors>
+    <writers>
+        <writer>Джеймс Гън</writer>
+        <writer>Крис Маккой</writer>
+        <writer>Никол Пърлман</writer>
+    </writers>
+    <camera>
+        <operator>Бен Дейвис</operator>
+    </camera>
+    <music>
+        <composer>Тайлър Бейтс</composer>
+    </music>
+    <bg>Fri Aug 08 2014 03:00:00 GMT+0300 (FLE Daylight Time)</bg>
+    <world>Fri Aug 01 2014 03:00:00 GMT+0300 (FLE Daylight Time)</world>
+    <time>121</time>
+    <similar>
+        <game>star-wars-episode-4</game>
+        <game>star-wars-episode-5</game>
+        <game>star-wars-episode-6</game>
+        <game>raiders-of-the-lost-ark</game>
+        <game>indiana-jones-and-the-temple-of-doom</game>
+        <game>indiana-jones-and-the-last-crusade</game>
+    </similar>
+</movie>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<album>
+    <tag>sofia-rocks-2014</tag>
+    <stickers>
+        <sticker lib="lorc"
+        		 subtype="originals">beer-stein</sticker>
+        <sticker lib="lorc"
+        		 subtype="originals">guitar</sticker>
+        <sticker lib="lorc"
+        		 subtype="originals">sonic-shout</sticker>
+    </stickers>
+    <main>poster.jpg</main>
+    <type bg="музика">music</type>
+    <subtype bg="събитие">event</subtype>
+    <artists>
+        <artist>Osssy</artist>
+        <artist>Alcest</artist>
+        <artist>Skillet</artist>
+        <artist>Mando Diao</artist>
+        <artist>The Offspring</artist>
+        <artist>Thirty Seconds to Mars</artist>
+    </artists>
+    <country>България</country>
+	<city>София</city>
+    <en>Sofia Rocks 2014</en>
+    <genres>
+        <genre>За всеки по нещо, стига да не си фен предимно на Веско</genre>
+    </genres>
+    <date>Sun Jul 06 2014 03:00:00 GMT+0300 (FLE Daylight Time)</date>
+    <tracks></tracks>
+    <similar>
+        <artist></artist>
+    </similar>
+</album>
