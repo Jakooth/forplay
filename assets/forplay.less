@@ -70,7 +70,8 @@ a {
 #read > .cover *,
 .video-set *,
 .article-set h3 span:nth-of-type(1),
-.article-set article .img-proxy:after {
+.article-set article .img-proxy:after,
+.static .read-set .layout > h3 span:nth-of-type(1) {
 	color: @light;
 }
 
@@ -105,7 +106,8 @@ a {
 
 #covers h3 a,
 section.cover h3 strong,
-.video-set article:nth-of-type(3) h3 a {
+.video-set article:nth-of-type(3) h3 a,
+.static .read-set .layout:first-of-type h3 strong {
 	font-size: 40pt;
 }
 
@@ -113,10 +115,14 @@ section.cover h3 strong,
  * Cover subtitle and read headings.
  */
 
+.inside h3,
+.inside h3 *,
 .layout .center-col h3,
+.layout .center-col h3 *,
 #covers h3 span:nth-of-type(2),
 section.cover h3 span:nth-of-type(2),
-.video-set article:nth-of-type(3) h3 span:nth-of-type(2) {
+.video-set article:nth-of-type(3) h3 span:nth-of-type(2),
+.static .read-set .layout:first-of-type h3 span:nth-of-type(2) {
 	font-size: 16pt;
 }
 
@@ -128,6 +134,7 @@ article h3 span {
  * Author text.
  */
 
+.static .read-set .layout > p:nth-of-type(1),
 .article-set p:nth-of-type(1),
 .article-set p:nth-of-type(1) * {
 	font-size: 10pt;
@@ -140,10 +147,23 @@ section.cover > p * {
 	text-transform: uppercase;
 }
 
+.inside.i1 .bottom p:first-of-type {
+	color: @light;
+}
+
+.inside.i1 .bottom p:first-of-type * {
+	font-size: 20pt;
+	line-height: 16pt;
+	color: @light;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
 /**
  * Read styles for first letter, hype and aside.
  */
 
+.static .layout:nth-of-type(2) .center-col > p:first-of-type:first-letter,
 .layout:first-of-type .center-col > p:first-of-type:first-letter {
 	font-size: 36pt;
 	font-style: normal;
@@ -961,6 +981,54 @@ header.read .nav-set li a {
  * READ SET
  */
 
+/**
+ * Cover for news and video review.
+ */
+
+.static .read-set .layout > p,
+.static .read-set .layout > h3 {
+	padding: 2.08%;
+	display: block;
+	clear: both;
+}
+
+.static .read-set .layout > h3 strong,
+.static .read-set .layout > h3 span:nth-of-type(2) {
+	display: block;
+	clear: both;
+}
+
+.static .read-set .layout > h3 span:nth-of-type(1) {
+	position: absolute;
+	padding: 2.08%;
+	height: 0;
+	line-height: 0;
+	top: 0;
+	right: 2.08%;
+}
+
+.static .read-set .box-placeholder {
+	margin-top: 0;
+}
+
+.static .read-set .layout .img-proxy {
+	position: relative;
+	margin: 2.08%;
+	margin-top: 0;
+	display: block;
+	clear: both;
+}
+
+.static .read-set .layout .audio-proxy {
+	padding: 2.08%;
+	padding-top: 0;
+	margin-top: -2.08%;
+}
+
+.static .read-set .layout ul {
+	display: none;
+}
+
 #read {
 	display: none;
 }
@@ -976,6 +1044,10 @@ main.read #read {
 	margin-left: 20%;
 }
 
+.static .read-set {
+	margin-top: 0;
+}
+
 .layout {
 	position: relative;
 	clear: both;
@@ -989,6 +1061,7 @@ main.read #read {
 	clear: both;
 }
 
+.static .layout:nth-of-type(2) .center-col > p:first-of-type:first-letter,
 .layout:first-of-type .center-col > p:first-of-type:first-letter {
 	border: 1px solid;
 	float: left;

@@ -213,7 +213,7 @@ function ArticlesManager() {
 	}
 	
 	var appendAsides = function() {
-		$('#read .left-col, #read .right-col').each(function() {
+		$('#read .left-col, #read .right-col').each(function(index) {
 			var $this = $(this);
 			
 			loadAside($this.data('url'), 
@@ -284,11 +284,76 @@ function ArticlesManager() {
 		
 		/**
 		 * The only way to do the banner animation
-		 * is to us fixed height number.
+		 * is to use fixed height number.
 		 * Store them in the banner object from the start.
 		 */
 		
 		banner.setCoversHeight($cover.height());
+	}
+	
+	var appendNews = function(html, cover) {
+		$('main').addClass('read fixed static');
+		$('header').addClass('read fixed static');
+		
+		var $cover = $(cover);
+		
+		if (cover) {
+			$('#read').prepend($cover.filter('section'));
+			$('#read .read-set').prepend($cover.filter('.layout'));
+			
+			$cover = $('#read .cover')
+		}
+		
+		var $coverLayout = $('#read .read-set .layout:eq(0)'),
+			$hype = $coverLayout.find('li:nth-child(1) p');
+		
+		loadBackground($cover, $cover);
+		
+		/**
+		 * Set theme color and upated banner style.
+		 * Do this here, because the HTML string is ready.
+		 * From loadPage the DOM must be used
+		 * and there is risk for asynchronous get dealy.
+		 */
+		
+		utils.setTheme($cover.data('theme'));
+		
+		$('#read').attr('aria-hidden', false);
+		$('#read .read-set').append(html);
+		
+		$coverLayout.prepend($('#read .read-set .layout:eq(1)').find('.left-col'));
+		$coverLayout.append($('#read .read-set .layout:eq(1)').find('.right-col'));
+		
+		/**
+		 * Replace proxies with real images from the server.
+		 */
+		
+		$('#read .read-set').find('img').on('load', function() {
+			if ($(this).data('proxy')) {
+				loadImage($(this));
+			}
+		});
+		
+		appendAsides();
+		
+		/**
+		 * Append the score at the end of the main content.
+		 * Only do this when reading review or feature with score.
+		 */
+			
+		if ($hype.length) {
+			$hype.clone()
+				 .insertAfter('.read-set .layout.text:last .center-col > p:last-of-type')
+				 .addClass('hype');
+		}
+		
+		/**
+		 * The only way to do the banner animation
+		 * is to use fixed height number.
+		 * Store them in the banner object from the start.
+		 */
+		
+		banner.setCoversHeight(0);
 	}
 	
 	var appendPortal = function(html, covers) {
@@ -386,7 +451,7 @@ function ArticlesManager() {
 				break;
 			case 'news':
 			case 'video':
-				loadArticle(url, appendArticle);
+				loadArticle(url, appendNews);
 				loadArticles('articles', appendPortal, false);
 				break;		
 		}

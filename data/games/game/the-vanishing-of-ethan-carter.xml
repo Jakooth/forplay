@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<game>
+    <tag>the-vanishing-of-ethan-carter</tag>
+    <stickers>
+        <sticker lib="lorc"
+        		 subtype="originals">magnifying-glass</sticker>
+        <sticker lib="delapouite"
+        		 subtype="originals">forest</sticker>
+        <sticker lib="delapouite"
+        		 subtype="originals">palette</sticker>
+    </stickers>
+    <main>the-vanishing-of-ethan-carter.jpg</main>
+    <type bg="игри">games</type>
+    <subtype bg="игра">game</subtype>
+    <boxes>
+        <box type="win">win.jpg</box>
+    </boxes>
+    <bg>Дъ Венишинг ъф Итън Картър</bg>
+    <en>The Vanishing of Ethan Carter</en>
+    <serie></serie>
+    <genres>
+        <genre>Хорър</genre>
+        <genre>Куест</genre>
+    </genres>
+    <platforms>
+        <platform>win</platform>
+        <platform>ps4</platform>
+    </platforms>
+    <publisher>The Astronauts</publisher>
+    <developer>The Astronauts</developer>
+    <eu>Fri Sep 26 2014 03:00:00 GMT+0300 (FLE Daylight Time)</eu>
+    <us>Fri Sep 26 2014 03:00:00 GMT+0300 (FLE Daylight Time)</us>
+    <similar>
+        <game>dear-easter</game>
+        <game>gone-home</game>
+    </similar>
+</game>

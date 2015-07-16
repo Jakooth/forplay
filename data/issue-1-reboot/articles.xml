@@ -2,6 +2,438 @@
 <articles>
     <article>
         <site>forplay</site>
+        <url>the-vanishing-of-ethan-carter</url>
+        <tags prime="the-vanishing-of-ethan-carter">
+            <tag>the-vanishing-of-ethan-carter</tag>
+        </tags>
+        <cover align="75%"
+			   valign="top"
+			   theme="lime"
+			   subtheme=""
+			   tag="the-vanishing-of-ethan-carter">05.jpg</cover>
+        <main>
+            <wide tag="the-vanishing-of-ethan-carter">13.jpg</wide>
+            <shot tag="the-vanishing-of-ethan-carter">05.jpg</shot>
+            <caret tag="the-vanishing-of-ethan-carter">caret.jpg</caret>
+        </main>
+        <type bg="игри">games</type>
+        <subtype bg="ревю">review</subtype>
+        <title>
+            <![CDATA[The Vanishing of Ethan Carter]]>
+        </title>
+        <subtitle>
+            <![CDATA[Изиграй тази игра.]]>
+        </subtitle>
+        <authors>
+            <author>Major Mistake</author>
+        </authors>
+        <date>Sat Nov 08 2014 01:05:00 GMT+0200 (FLE Standard Time)</date>
+        <priority>cover</priority>
+        <issue>issue-1-reboot</issue>
+        <hype>9</hype>
+        <better tag="gone-home">Dear Esther и Gone Home</better>
+        <worse tag=""></worse>
+        <equal tag="the-vanishing-of-ethan-carter">на собствено и особено високо
+            ниво</equal>
+        <versionTested>win</versionTested>
+        <preview>
+            <![CDATA[Изиграй тази игра. Тези три думи трябва да са ти достатъчни,
+                защото всичко, което ще прочетеш по-долу всъщност е просто подробно
+                повторение на това първо изречение. The Vanishing of Ethan Carter е
+                от тези игри, които ще помня винаги. По същия начин, по който,
+                ако се замислиш, ще намериш книга или филм, който остава прекрасен
+                и съкровен, личен и дори интимен спомен през годините, независимо,
+                че ти самият се променяш, растеш, остаряваш, откриваш зараждащия
+                се с годините цинизъм в душата си и дори, за съжаление, губиш
+                способността да бъдеш изненадван. Историята на Итън и неговото
+                изчезване ще те кара да се страхуваш, но да не можеш да се откъснеш;
+                да искаш да се спреш и да се полюбуваш на вълшебния залез, но
+                и да усещаш необходимостта да продължиш напред, защото там някъде
+                едно малко момче разчита единствено на теб, за да бъде спасено.
+                Ти си Пол Просперо, частен детектив, притежаващ свръхестествената
+                способност да използва уликите на дадено местопрестъпление, за
+                да пресъздаде изцяло самата сцена, по начин, наподобяващ поглед
+                назад във времето. Това ти помага да решаваш успешно заплетени
+                и сложни случаи, а оттам и да станаш достатъчно известен, за
+                да получаваш писма от фенове. Един от тях е Итън Картър – малко
+                и сериозно уплашено момче. Писмата му говорят за това, че той
+                е в опасност, както и че тъмна сила разпростира зловещото си
+                влияние върху неговото семейство. Страхът на момчето е очевиден,
+                а когато писмата рязко прекъсват, Просперо усеща, че нещо наистина
+                не е наред. Мислейки сериозно за своето пенсиониране, детективът
+                осъзнава, че това може да е последният му случай, но въпреки
+                това, без да се бави, той поема към малкото и почти откъснато
+                от цивилизацията градче Red Creek Valley. Скрито в планините,
+                то е едно от многото подобни места, преживели разцвета си в годините
+                на бурната индустриализация, само за да започнат неспасяемото
+                си пропадане след това. Полуразрушените мостове, изоставените
+                ж.п. гари и фабрики, потъналите в треви вагони, къщи и дворове
+                са следствие от този процес, но са и перфектната основа, върху
+                която се гради атмосферата на играта. И това е само видимата
+                с просто око част от света. Както самият Просперо отбелязва]]>
+        </preview>
+        <stickers>
+            <sticker lib="lorc"
+					 subtype="originals">magnifying-glass</sticker>
+            <sticker lib="delapouite"
+					 subtype="originals">forest</sticker>
+            <sticker lib="delapouite"
+					 subtype="originals">palette</sticker>
+        </stickers>
+    </article>
+    <article>
+        <site>forlife</site>
+        <url>патрик-модиано-събирачът-на-опустошени-спомени</url>
+        <tags prime="patrick-modiano">
+            <tag>patrick-modiano</tag>
+            <tag>villa-triste</tag>
+        </tags>
+        <cover align="75%"
+			   valign="top"
+			   theme=""
+			   subtheme="lighten"
+			   tag="patrick-modiano">03.jpg</cover>
+        <main>
+            <wide tag="patrick-modiano">04.jpg</wide>
+            <shot tag="patrick-modiano">03.jpg</shot>
+            <caret tag="patrick-modiano">03.jpg</caret>
+        </main>
+        <type bg="книги">books</type>
+        <subtype bg="мнение">feature</subtype>
+        <title>
+            <![CDATA[Патрик Модиано: събирачът на опустошени спомени]]>
+        </title>
+        <subtitle>
+            <![CDATA[“Вила Тъга” човърка парчета от миналото, които навяват тиха
+                меланхолия]]>
+        </subtitle>
+        <authors>
+            <author>Ralitsa</author>
+        </authors>
+        <date>Sun Dec 07 2014 21:25:00 GMT+0200 (FLE Standard Time)</date>
+        <priority>cover</priority>
+        <issue>issue-1-reboot</issue>
+        <hype></hype>
+        <better tag=""></better>
+        <worse tag=""></worse>
+        <equal tag=""></equal>
+        <versionTested></versionTested>
+        <preview>
+            <![CDATA[– Къде бяхте, когато научихте, че сте спечелили? – Вървях
+                по улицата. – И какво направихте? – Продължих да вървя. Така
+                френският писател Патрик Модиано, носител на тазгодишната Нобелова
+                награда за литература, отговаря на журналистически въпрос. Победата
+                му в надпреварата за Нобела изненада мнозина, при положение,
+                че до последноХаруки Мураками водеше в залозите кой ще грабне
+                наградата. Разрових се в Google, за да науча повече за писателя.
+                С изненадата установих, че е доста продуктивен - издава книга
+                на всеки две години. Сътворил е 29 книги и няколко пиеси, тоест
+                пише от доста време. Романите му продават по над 100 000 копия,
+                но по-малко от половината са преведени на английски, 5 на български.
+                Оказва се, че писателят не е много познат извън Франция. Акцентът
+                в английските и американските медии е именно на този факт. На
+                своя територия обаче Модиано е наричан най-френският от френските
+                автори.]]>
+        </preview>
+    </article>
+    <article>
+        <site>forplay</site>
+        <url>final-fantasy-10-hd-remaster</url>
+        <tags prime="final-fantasy-10-hd-remaster">
+            <tag>final-fantasy-10-hd-remaster</tag>
+        </tags>
+        <cover align="75%"
+			   valign="center"
+			   theme="blue"
+			   subtheme="lighten"
+			   tag="final-fantasy-10-hd-remaster">13.jpg</cover>
+        <main>
+            <wide tag="final-fantasy-10-hd-remaster">13.jpg</wide>
+            <shot tag="final-fantasy-10-hd-remaster">01.jpg</shot>
+            <caret tag="final-fantasy-10-hd-remaster">caret.png</caret>
+        </main>
+        <type bg="игри">games</type>
+        <subtype bg="ревю">review</subtype>
+        <title>
+            <![CDATA[Final Fantasy X/X-2 HD Remaster]]>
+        </title>
+        <subtitle>
+            <![CDATA[This plan won't work, you know that. We'll just let them
+                dream a little longer…]]>
+        </subtitle>
+        <authors>
+            <author>Tosh</author>
+        </authors>
+        <date>Mon Oct 27 2014 03:31:00 GMT+0200 (FLE Standard Time)</date>
+        <priority></priority>
+        <issue>issue-1-reboot</issue>
+        <hype>8</hype>
+        <better tag="bulgarian-national-football-team">Български Национален Отбор
+            по Футбол</better>
+        <worse tag="final-fantasy-12">Final Fantasy XII</worse>
+        <equal tag=""></equal>
+        <versionTested>vita</versionTested>
+        <preview>
+            <![CDATA[В ежедневието на всяко малко момче с по-бурно въображение
+                прехвърчат мечти за приключения в далечни страни, вълнуващи случки
+                и пътешествия. А часът, в който лампите се гасят, никога не е
+                бил достатъчна причина приключението да не продължи.  И ако в
+                началото малчуганът в мен откриваше своята форма в авантюристични
+                романи, то апокрифните западни списания ми зададоха нов курс
+                – към магнетично непознатия на родна територия Gameboy. Да си
+                се излегнал в леглото, а в същото време да си се впуснал във
+                виртуални пътешествия и битки с портативна конзола – говорим
+                за (реална) фантазия отвъд предела. И ето - двадесет години по-късно,
+                без капитанска шапка и йо-хо-хо, но с бутилка ром на нощното
+                шкафче и Playstation Vitaв ръце, съм погълнат от откриващата
+                анимация на HD римейка на феноменалната Final Fantasy X. Както
+                може би се досещате от името на играта, тя представлява преработена
+                версия на едно от най-добрите JRPG заглавия излизали за най-продаваната
+                конзола за всички времена - Playstation 2. В случая Square Enix са
+                се справили повече от чудесно, като мобилната версия изглежда
+                изключително на OLED екрана и поддържа стабилен фреймрейт. Сериозна
+                гъзария е и опцията за прехвърляне на текущите сейвове към и
+                от версията за големия батко – Playstation 3. За съжаление версиите
+                за двете конзоли на Sony не попадат в графата cross buy – тоест,
+                купуваш едната и получават втората безплатно. Това, разбира се,
+                не е болка за умиране.]]>
+        </preview>
+        <stickers>
+            <sticker lib="lorc"
+					 subtype="originals">relic-blade</sticker>
+            <sticker lib="lorc"
+					 subtype="originals">bright-explosion</sticker>
+            <sticker lib="lorc"
+					 subtype="originals">gooey-daemon</sticker>
+        </stickers>
+    </article>
+    <article>
+        <site>forplay</site>
+        <url>подкастът-на-завръщането</url>
+        <audio>
+            <tech>mixcloud</tech>
+            <frame>https://www.mixcloud.com/widget/iframe/?embed_type=widget_standard&amp;embed_uuid=ca1a1e89-5a0e-47a8-b129-f8d2a1a96f4d&amp;feed=https%3A%2F%2Fwww.mixcloud.com%2FForPlay_bg%2Fforplay-podcast-vol22-102014-%25D0%25BF%25D0%25BE%25D0%25B4%25D0%25BA%25D0%25B0%25D1%2581%25D1%2582%25D1%258A%25D1%2582-%25D0%25BD%25D0%25B0-%25D0%25B7%25D0%25B0%25D0%25B2%25D1%2580%25D1%258A%25D1%2589%25D0%25B0%25D0%25BD%25D0%25B5%25D1%2582%25D0%25BE%2F&amp;hide_artwork=1&amp;hide_tracklist=1&amp;replace=0</frame>
+            <url>https://www.mixcloud.com/ForPlay_bg/forplay-podcast-vol22-102014-%D0%BF%D0%BE%D0%B4%D0%BA%D0%B0%D1%81%D1%82%D1%8A%D1%82-%D0%BD%D0%B0-%D0%B7%D0%B0%D0%B2%D1%80%D1%8A%D1%89%D0%B0%D0%BD%D0%B5%D1%82%D0%BE/?utm_source=widget&amp;utm_medium=web&amp;utm_campaign=base_links&amp;utm_term=resource_link</url>
+        </audio>
+        <tags prime="forplay-podcast">
+            <tag>forplay-podcast</tag>
+            <tag>forplay</tag>
+        </tags>
+        <cover align="center"
+			   valign="center"
+			   theme="deep-orange"
+			   subtheme="lighten"
+			   tag="forplay">02.jpg</cover>
+        <main>
+            <wide tag="forplay">02.jpg</wide>
+            <shot tag="forplay">02.jpg</shot>
+            <caret tag="forplay">02.jpg</caret>
+        </main>
+        <type bg="игри">games</type>
+        <subtype bg="новина">news</subtype>
+        <title>
+            <![CDATA[Подкастът на завръщането]]>
+        </title>
+        <subtitle>
+            <![CDATA[21 подкаста не стигат! За това записахме и 22-ти, съболезнования...]]>
+        </subtitle>
+        <authors>
+            <author>Forplay</author>
+        </authors>
+        <date>Fri Oct 24 2014 23:31:00 GMT+0300 (FLE Daylight Time)</date>
+        <priority></priority>
+        <issue>issue-1-reboot</issue>
+        <hype></hype>
+        <better tag=""></better>
+        <worse tag=""></worse>
+        <equal tag=""></equal>
+        <versionTested></versionTested>
+        <preview>
+            <![CDATA[Рибуут, римейк, риюниън, римастъринг, ри... ана има голем
+                гъз - както и да го наречеш, фактите са си факти - ForPlay се
+                завърна, за радост на малцина и неудоволствие на мнозина, а с
+                възкръсналия сайт се завръща и характерният (което е завоалиран
+                начин да кажем "неставащ много-много за слушане") форплеен подкаст.
+                Епизодът е 22-ри, което може би е без особено значение, защото
+                21-ият излезе някъде по времето на Балканската, но на нас ни
+                е важно да има приемственост. Зад микрофона са се събрали Иван
+                "Jakooth" Владимиров, Антон "doomy" Дишков, Ивайло "Koralsky"
+                Коралски, Йордан "Major Mistake" Здравков, Тодор "tosh" Тодоров
+                и Александър "Snake" Бакалов.]]>
+        </preview>
+    </article>
+    <article>
+        <site>forlife</site>
+        <url>advanced-style</url>
+        <tags prime="advanced-style">
+            <tag>advanced-style</tag>
+        </tags>
+        <cover align="75%"
+			   valign="top"
+			   theme=""
+			   subtheme="lighten"
+			   tag="advanced-style">04.jpg</cover>
+        <main>
+            <wide tag="advanced-style">04.jpg</wide>
+            <shot tag="advanced-style">01.jpg</shot>
+            <caret tag="advanced-style">caret.jpg</caret>
+        </main>
+        <type bg="филми">movies</type>
+        <subtype bg="ревю">review</subtype>
+        <title>
+            <![CDATA[Мода за напреднали: Модата като хапче против старостта]]>
+        </title>
+        <subtitle>
+            <![CDATA[Документалният филм представя седем вдъхновяващи възрастни
+                жени, които изразяват себе си чрез дрехите]]>
+        </subtitle>
+        <authors>
+            <author>Ralitsa</author>
+        </authors>
+        <date>Sun Oct 27 2013 03:31:00 GMT+0300 (FLE Daylight Time)</date>
+        <priority></priority>
+        <issue>issue-1-reboot</issue>
+        <hype>9</hype>
+        <better tag=""></better>
+        <worse tag=""></worse>
+        <equal tag=""></equal>
+        <versionTested></versionTested>
+        <preview>
+            <![CDATA[– Извинявайте, дизайнер ли сте? - млад мъж пита ексцентрично-елегантна
+                възрастна дама в заведение. – Само на себе си – отговаря 95-годишната
+                Зелда Каплин и разпалено започва да разказва как е купувала платове
+                по време многобройните си пътувания по света. Г-жа Каплин е една
+                от седемте героини в документалния филм Advanced style. Той е
+                направен по едноименния Street style блог на Ари Сет Коен, в
+                който той снима само нюйрокчанки над 60 години. Коен обяснява,
+                че чувства много силна връзка с възрастните хора, защото е бил
+                близък с баба си. Героините във филма, обаче, са всичко друго,
+                но не и баби. Те са доказателство за това, че годините нямат
+                значение и че така наречената „трета възраст“ може всъщност да
+                е най-приятният етап от живота. „Чувствам се като на 18, само
+                че сега нямам толкова грижи“, споделя 69-годишната Дебра Рапорт.
+                91-годишната Илона Смиткин си прави мигли от собствената си рижава
+                коса и води курс по рисуване. Джаки Мърдок е бивша танцьорка,
+                която става лице на Lanvin на 81 години. (Едно от посланията
+                на филма е, че модната индустрия не бива да е насочена само към
+                младите, напълно изолирайки възрастните жени.) 82-годишната Джойс
+                Карпейша е бивша оперна певица (и моята любима дама от филма),
+                която пази чантите си Chanelкато наследство за внучката си. „Никога
+                не съм искала да изглеждам по-млада. Искам да изглеждам страхотно!“,
+                казва тя. Лин Дел е на 81 години и има магазин за шапки. Тя е
+                истинска дива, пълна с енергия и силно убедена, че всички жени,
+                независимо от размера на дрехите си, и възрастта си, трябва да
+                се чувстват комфортно в кожата си. Зипора Саломон (64) все още
+                мечтае за голямата любов и е убедена, че стилът става все по-убедителен
+                с годините.]]>
+        </preview>
+        <stickers>
+            <sticker lib="lorc"
+					 subtype="originals">lips</sticker>
+            <sticker lib="delapouite"
+					 subtype="originals">sunglasses</sticker>
+        </stickers>
+    </article>
+    <article>
+        <site>forlife</site>
+        <url>horns</url>
+        <tags prime="horns">
+            <tag>horns</tag>
+        </tags>
+        <cover align="center"
+			   valign="top"
+			   theme=""
+			   subtheme="lighten"
+			   tag="horns">04.jpg</cover>
+        <main>
+            <wide tag="horns">04.jpg</wide>
+            <shot tag="horns">02.jpg</shot>
+            <caret tag="horns">caret.jpg</caret>
+        </main>
+        <type bg="филми">movies</type>
+        <subtype bg="ревю">review</subtype>
+        <title>
+            <![CDATA[Рога]]>
+        </title>
+        <subtitle>
+            <![CDATA[Адът, това е страданието от неспособността да обичаш, дето
+                вика другарят Достоевски]]>
+        </subtitle>
+        <authors>
+            <author>Snake</author>
+        </authors>
+        <date>Mon Oct 27 2014 03:27:00 GMT+0200 (FLE Standard Time)</date>
+        <priority></priority>
+        <issue>issue-1-reboot</issue>
+        <hype>6+</hype>
+        <better tag="maleficent">Maleficent (ако ще си говорим за формулата любов
+            + рога)</better>
+        <worse tag="stand-by-me">Stand by Me</worse>
+        <equal tag=""></equal>
+        <versionTested></versionTested>
+        <preview>
+            <![CDATA[Horns получи безкрайно противоречиви отзиви, в което реално
+                няма нищо странно. Дори да оставим настрана потенциалната сянка
+                на един по-добър литературен оригинал, съпътстваща солиден процент
+                от екранизациите (казвам го с уговорката, че така и не съм чел
+                едноименния роман на Джоузеф Хилстром Кинг a.k.a. Джо Хил), любимата
+                ми френска откачалка Александър Ажа просто жонглира с твърде
+                много жанрове, за да не изпусне юздите в някакъв момент. Horns
+                се опитва да напъха в двучасовата си дължина драма, романтика,
+                черна комедия, криминале, фентъзи, религиозна сатира, експлойтейшън
+                и хорър, и в няколко ключови момента буквално можеш да видиш
+                как принципно стегнатата история се гърчи в шизофренични пристъпи,
+                а цели сцени увисват в нищото, останали без цел и посока. Уточнявайки
+                всичко това обаче, трябва да подчертая, че Ажа заслужава адмирации
+                заради смелия експеримент, а Даниел Радклиф успява да си проправи
+                път с изненадваща увереност през непрекъснатите смени на настроението.
+                Честно казано всичко, което исках от момъка е да не ми навява
+                мрачни асоциации с неориентирания Хари, но той всъщност прави
+                доста адекватна роля. За съжаление, всички останали фигури върху
+                дъската са абсолютно взаимозаменяеми, а половината роли можехме
+                да ги изиграем аз и Коралски в обедната почивка. Добрата новина
+                в случая обаче е, че фокусът е поставен с такава кристална яснота
+                върху Радклиф и неговия Иг Периш, че всички останали са по-скоро
+                сюжетни двигатели, отколкото пълнокръвни образи. Още по-добрата
+                новина е, че филмът е добър. Не много, но достатъчно. Хил видимо
+                е черпил вдъхновение от баща си със страшна сила и в Horns има
+                ужасно много Стивън Кинг, като на моменти изпитах натрапчивото
+                усещане, че гледам сцени от То и Тялото (филмирано като Stand
+                by Me, в случай, че си илитерат), но пречупени през саркастично-наркотичната
+                призма на Ървин Уелш/ранния Дани Бойл. И ако в някоя вселена
+                това не се класира като чудовищен комплимент, аз определено не
+                бих искал да живея в нея. Освен това, като изключим един момент
+                в средата, когато Ажа очевидно се е опитал да вкара твърде голяма
+                част от романа в твърде малко екранно време, жанровият коктейл
+                ми допадна наистина много. Лентата носи една адски приятна горчиво-весела
+                атмосфера, а и както отбелязах по-горе, под разнородните пластове,
+                историята е стегната и добре разказана. Въпросната проследява
+                неволите на преждеспоменатия Иг Периш, който в една мрачна утрин
+                се събужда със зверски махмурлук и чифт демонични рога на челото.
+                Скоро научаваме, че рогата всъщност са най-малкият му проблем,
+                защото младежът е основен заподозрян в бруталното изнасилване
+                и убийство на дългогодишната си приятелка, в която е бил безпаметно
+                влюбен. Търсещите поредната кървава сензация медии и озверелите
+                му съграждани определено са прави за едно - Иг наистина притежава
+                всички данни, за да бъде безмилостен убиец, просто защото в този
+                момент би дал всичко, за да открие копеленцето, отнело му най-скъпия
+                човек на света, и да го разкъса с голи ръце. Мистериозните рога
+                сякаш са физическото проявление на тази дива ярост, но всъщност
+                се оказват нещо много повече - демоничен (или божествен?) инструмент,
+                позволяващ на Периш да извади на показ най-лошото в хората край
+                него и дори директно да надникне в мислите им, за да види най-мръсните
+                им и мрачни тайни. Инструмент, който той планира да използва,
+                за да открие убиеца.]]>
+        </preview>
+        <stickers>
+            <sticker lib="lorc"
+					 subtype="originals">diablo-skull</sticker>
+            <sticker lib="lorc"
+					 subtype="originals">snake</sticker>
+        </stickers>
+    </article>
+    <article>
+        <site>forplay</site>
         <url>watch-dogs</url>
         <video>
             <tech>youtube</tech>
@@ -1628,7 +2060,9 @@
         </preview>
         <stickers>
             <sticker lib="lorc"
-					 subtype="originals">ghost</sticker>
+				 subtype="originals">ghost</sticker>
+            <sticker lib="lorc"
+				 subtype="originals">magnifying-glass</sticker>
         </stickers>
     </article>
     <article>

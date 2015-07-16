@@ -87,10 +87,13 @@
             пораснат рога, също като на обладания от демон герой в играта, гаранция.]]>
     </preview>
     <stickers>
-        <sticker lib="lorc">diablo-skull</sticker>
-        <sticker lib="lorc">broadsword</sticker>
-        <sticker lib="lorc">high-shot</sticker>
-    </stickers>
+		<sticker lib="lorc"
+				 subtype="originals">diablo-skull</sticker>
+		<sticker lib="lorc"
+				 subtype="originals">broadsword</sticker>
+		<sticker lib="lorc"
+				 subtype="originals">high-shot</sticker>
+	</stickers>
     <layouts>
         <layout type="text" subtype="text"
                 tag="bound-by-flame" order="0">

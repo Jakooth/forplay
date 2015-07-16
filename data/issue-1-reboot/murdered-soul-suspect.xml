@@ -78,7 +78,10 @@
             два куик-тайм ивента и да се свършва с цялата тази агония.]]>
     </preview>
     <stickers>
-        <sticker lib="lorc">ghost</sticker>
+        <sticker lib="lorc"
+				 subtype="originals">ghost</sticker>
+		<sticker lib="lorc"
+				 subtype="originals">magnifying-glass</sticker>			 
     </stickers>
     <layouts>
         <layout type="text" subtype="text"

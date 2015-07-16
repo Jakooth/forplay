@@ -4,6 +4,8 @@
     <stickers>
         <sticker lib="lorc"
 				 subtype="originals">ghost</sticker>
+		<sticker lib="lorc"
+				 subtype="originals">magnifying-glass</sticker>			 
     </stickers>
     <main>murdered-soul-suspect.jpg</main>
     <type bg="игри">games</type>

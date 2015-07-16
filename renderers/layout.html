@@ -1,4 +1,4 @@
-<div class="layout {{:type}} {{:subtype}} {{if ratio}}r{{:ratio}}{{/if}}"> 
+<?xml version="1.0" encoding="utf-8"?><div class="layout {{:type}} {{:subtype}} {{if ratio}}r{{:ratio}}{{/if}}"> 
 {{if left}}
     <div data-url="{{:left.url.text}}" 
     	 data-type="{{:left.url.type}}"
@@ -16,7 +16,8 @@
         	 class="tracklist {{:#data.tracklist}}"></div>
     {{else #data.center}}
     	<div class="{{:#data.center.valign}}">
-        	<p>{{:#data.center.author}}</p>
+        	<p>{{if #data.center.author}}От {{/if}}<a href="?portal={{:#data.center.author}}">
+            {{:#data.center.author}}</a></p>
             {{:#data.center}}
         </div>
     {{else #data.alt.length > 0}}

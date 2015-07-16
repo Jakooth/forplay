@@ -1,3 +1,65 @@
+{{if subtype == 'news'  || subtype == 'video'}}
+
+<section class="cover {{:type}} {{:subtype}}"
+		 data-theme="{{:cover.theme}} {{:cover.subtheme}}"
+         data-main="{{:main.wide.tag}}-{{:main.wide}}"
+         data-tag="{{:tags.prime}}"
+         style="background-position: {{:cover.align}} {{:cover.valign}}"> 
+</section>
+
+<div class="layout {{:type}} {{:subtype}}">
+    <div class="img-proxy {{if video}}Player{{/if}}"{{if video}}
+    	 id="player_{{:video.player}}"{{/if}}>
+    
+        <div class="img"><a href="{{if video}}{{:video.url}}{{/if}}"{{if video}} 
+                            data-video="{{:video.url}}"
+                            data-player="{{:video.player}}"
+                            data-tech="{{:video.tech}}"{{/if}}> <img 
+                            data-tag="{{:tags.prime}}"
+                            data-proxy="true"
+                            data-main="{{:main.wide.tag}}-{{:main.wide}}"
+                            data-ratio="16-9"
+                            src="assets/helpers/16-9.png"
+                            alt="{{:title}}" /> </a></div>
+	</div>
+    
+{{if audio}}
+    <div class="audio-proxy">
+    	<iframe width="100%" height="180" src="{{:audio.frame}}" frameborder="0"></iframe>
+    </div>    
+{{/if}}    
+    
+    <h3> <strong>{{:title}}</strong> <span
+  			  	>{{:subtype.bg}}</span> <span
+              	>{{:subtitle}}</span> </h3>
+    <p>От {{for authors.author}}<a href="?portal={{:#data}}">{{:#data}}</a>
+    	  		{{if #index < #parent.data.length - 2}}, 
+    			{{else #index == #parent.data.length - 2}} и {{/if}}{{/for}}</p>
+  
+{{if subtype == 'video'}}
+    <ul>
+    	<li>
+        	<p><span>Оценка </span><strong>{{:hype}}</strong></p>
+        </li>{{if (type == 'games' || type == 'movies') && 
+        		  (better.length > 0 || worse.length > 0)}}
+        <li>
+        	<p style="background-image: url(assets/bwe/{{:better.tag}}.jpg)" 
+               class="better"><span>По-добре от </span><strong>{{:better}}</strong></p>
+        </li>{{if !equal.length}}
+        <li>
+        	<p style="background-image: url(assets/bwe/{{:worse.tag}}.jpg)" 
+               class="worse"><span>По-зле от </span><strong>{{:worse}}</strong></p>
+        </li>{{/if}}{{if equal.length}}
+        <li>
+        	<p style="background-image: url(assets/bwe/{{:equal.tag}}.jpg)" 
+               class="equal"><span>На нивото на </span><strong>{{:equal}}</strong></p>
+        </li>{{/if}}{{/if}}
+    </ul>
+{{/if}}                      
+</div>
+
+{{else}}
+
 <section class="cover {{:type}} {{:subtype}}"
 		 data-theme="{{:cover.theme}} {{:cover.subtheme}}"
          data-main="{{:main.wide.tag}}-{{:main.wide}}"
@@ -10,11 +72,12 @@
     	  		{{if #index < #parent.data.length - 2}}, 
     			{{else #index == #parent.data.length - 2}} и {{/if}}{{/for}}</p>
 	
-{{if subtype == 'review'  || subtype == 'video'}}
+{{if subtype == 'review'}}
     <ul>
     	<li>
         	<p><span>Оценка </span><strong>{{:hype}}</strong></p>
-        </li>{{if type == 'games' || type == 'movies' }}
+        </li>{{if (type == 'games' || type == 'movies') && 
+        		  (better.length > 0 || worse.length > 0)}}
         <li>
         	<p style="background-image: url(assets/bwe/{{:better.tag}}.jpg)" 
                class="better"><span>По-добре от </span><strong>{{:better}}</strong></p>
@@ -30,3 +93,5 @@
     </ul>
 {{/if}}   
 </section>
+
+{{/if}}

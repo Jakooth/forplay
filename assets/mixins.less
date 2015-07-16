@@ -22,6 +22,10 @@
 	main.read.fixed {
 		padding-top: 562px - 180px;
 	}
+	
+	main.read.fixed.static {
+		padding-top: 180px;
+	}
 
 	/**
 	 * 562px is golden ratio from 1440x900.
@@ -57,7 +61,9 @@
 	
 	body.@{theme} .layout blockquote,
 	body.@{theme} .article-set p:nth-of-type(1) a,
-	body.@{theme} .layout:first-of-type .center-col > p:first-of-type:first-letter {
+	body.@{theme} .static .read-set .layout > p:nth-of-type(1) a,
+	body.@{theme} .layout:first-of-type .center-col > p:first-of-type:first-letter, 
+	body.@{theme} .static .layout:nth-of-type(2) .center-col > p:first-of-type:first-letter {
 		color: @color;
 	}
 	

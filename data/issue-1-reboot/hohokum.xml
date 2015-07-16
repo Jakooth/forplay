@@ -63,8 +63,9 @@
             една нова локация са почти винаги различни.]]>
     </preview>
     <stickers>
-        <sticker lib="lorc">snake</sticker>
-    </stickers>
+		<sticker lib="lorc"
+				 subtype="originals">snake</sticker>
+	</stickers>
     <layouts>
         <layout type="text" subtype="text"
                 tag="hohokum" order="0">
