@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<game>
+    <tag>destiny</tag>
+    <stickers>
+        <sticker lib="lorc"
+        		 subtype="originals">laser-blast</sticker>
+        <sticker lib="lorc"
+        		 subtype="originals">forward-field</sticker>
+        <sticker lib="lorc"
+        		 subtype="originals">alien-skull</sticker>
+    </stickers>
+    <main>destiny.jpg</main>
+    <type bg="игри">games</type>
+    <subtype bg="игра">game</subtype>
+    <boxes>
+        <box type="ps4">ps4.jpg</box>
+    </boxes>
+    <bg>Дестини</bg>
+    <en>Destiny</en>
+    <serie></serie>
+    <genres>
+        <genre>Шуутър от първо/трето лице</genre>
+        <genre>ММО</genre>
+        <genre>Ролева</genre>
+    </genres>
+    <platforms>
+        <platform>360</platform>
+        <platform>one</platform>
+        <platform>ps3</platform>
+        <platform>ps4</platform>
+    </platforms>
+    <publisher>Activision</publisher>
+    <developer>Bungie</developer>
+    <eu>Tue Sep 09 2014 03:00:00 GMT+0300 (FLE Daylight Time)</eu>
+    <us>Tue Sep 09 2014 03:00:00 GMT+0300 (FLE Daylight Time)</us>
+    <similar>
+        <game>borderlands</game>
+    </similar>
+</game>

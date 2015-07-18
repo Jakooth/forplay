@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<game>
+    <tag>alien-isolation</tag>
+    <stickers>
+        <sticker lib="lorc"
+        		 subtype="originals">front-teeth</sticker>
+        <sticker lib="delapouite"
+        		 subtype="originals">heart-beats</sticker>
+        <sticker lib="lorc"
+        		 subtype="originals">forward-field</sticker>
+    </stickers>
+    <main>alien-isolation.jpg</main>
+    <type bg="игри">games</type>
+    <subtype bg="игра">game</subtype>
+    <boxes>
+        <box type="ps4">ps4.jpg</box>
+    </boxes>
+    <bg>Ейлиън: Aйсолейшън</bg>
+    <en>Alien: Isolation</en>
+    <serie></serie>
+    <genres>
+        <genre>Хорър</genre>
+        <genre>Екшън-адвенчър</genre>
+    </genres>
+    <platforms>
+        <platform>win</platform>
+        <platform>360</platform>
+        <platform>one</platform>
+        <platform>ps3</platform>
+        <platform>ps4</platform>
+    </platforms>
+    <publisher>SEGA</publisher>
+    <developer>Creative Assembly</developer>
+    <eu>Tue Oct 07 2014 03:00:00 GMT+0300 (FLE Daylight Time)</eu>
+    <us>Tue Oct 07 2014 03:00:00 GMT+0300 (FLE Daylight Time)</us>
+    <similar>
+        <game></game>
+    </similar>
+</game>
