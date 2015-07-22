@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<movie>
+    <tag>nightcrawler</tag>
+    <stickers>
+        <sticker lib="delapouite"
+        		 subtype="originals">finger-print</sticker>
+    </stickers>
+    <main>nightcrawler.jpg</main>
+    <poster>poster.jpg</poster>
+    <type bg="филми">movies</type>
+    <subtype bg="филм">movie</subtype>
+    <bg>Лешояда</bg>
+    <en>Nightcrawler</en>
+    <serie></serie>
+    <genres>
+        <genre>Драма</genre>
+        <genre>Черна комедия</genre>
+        <genre>Трилър</genre>
+    </genres>
+    <cast>
+        <actor>Джейк Джиленхол</actor>
+        <actor>Риз Ахмед</actor>
+        <actor>Рене Русо</actor>
+        <actor>Бил Пакстън</actor>
+    </cast>
+    <directors>
+        <director>Дан Гилрой</director>
+    </directors>
+    <writers>
+        <writer>Дан Гилрой</writer>
+    </writers>
+    <camera>
+        <operator>Робърт Елсуит</operator>
+    </camera>
+    <music>
+        <composer>Джеймс Нютън Хауърд</composer>
+    </music>
+    <bg>Fri Oct 31 2014 02:00:00 GMT+0200 (FLE Standard Time)</bg>
+    <world>Thu Oct 16 2014 03:00:00 GMT+0300 (FLE Daylight Time)</world>
+    <time>117</time>
+    <similar>
+        <game>taxi-driver</game>
+    </similar>
+</movie>

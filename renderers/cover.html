@@ -36,7 +36,7 @@
     	  		{{if #index < #parent.data.length - 2}}, 
     			{{else #index == #parent.data.length - 2}} и {{/if}}{{/for}}</p>
   
-{{if subtype == 'video'}}
+{{if subtype == 'video' && type != 'books'}}
     <ul>
     	<li>
         	<p><span>Оценка </span><strong>{{:hype}}</strong></p>
@@ -72,7 +72,7 @@
     	  		{{if #index < #parent.data.length - 2}}, 
     			{{else #index == #parent.data.length - 2}} и {{/if}}{{/for}}</p>
 	
-{{if subtype == 'review'}}
+{{if subtype == 'review' && type != 'books'}}
     <ul>
     	<li>
         	<p><span>Оценка </span><strong>{{:hype}}</strong></p>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<article>
+    <site>forlife</site>
+    <url>шварценегер-се-завръща-за-пореден-път</url>
+    <video>
+        <tech>youtube</tech>
+        <url>https://www.youtube.com/watch?v=FqbOFjl7ZWE</url>
+        <player>32622</player>
+    </video>
+    <tags prime="terminator-genisys">
+        <tag>terminator-genisys</tag>
+		<tag>arnold-schwarzenegger</tag>
+    </tags>
+    <cover align="center"
+    	   valign="center"
+       	   theme="cyan"
+           subtheme="lighten"
+           tag="terminator-genisys">01.jpg</cover>
+    <main>
+        <wide tag="terminator-genisys">01.jpg</wide>
+        <shot tag="terminator-genisys">01.jpg</shot>
+        <caret tag="terminator-genisys">01.jpg</caret>
+    </main>
+    <type bg="филми">movies</type>
+    <subtype bg="новина">news</subtype>
+    <title>
+        <![CDATA[Шварценегер се завръща за пореден път]]>
+    </title>
+    <subtitle>
+        <![CDATA[Доколко ще е за добро - прецени сам]]>
+    </subtitle>
+    <authors>
+        <author>Forplay</author>
+    </authors>
+    <date>Mon Dec 08 2014 14:06:00 GMT+0200 (FLE Standard Time)</date>
+    <priority>video</priority>
+    <issue>issue-1-reboot</issue>
+    <hype></hype>
+    <better tag=""></better>
+    <worse tag=""></worse>
+    <equal tag=""></equal>
+    <versionTested></versionTested>
+    <preview>
+        <![CDATA[]]>
+    </preview>
+    <layouts>
+        <layout type="text" subtype="text"
+                tag="шварценегер-се-завръща-за-пореден-път" order="0">
+            <center>
+                <![CDATA[]]>
+            </center>
+        </layout>
+    </layouts>
+</article>

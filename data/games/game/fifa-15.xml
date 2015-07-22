@@ -6,6 +6,8 @@
         		 subtype="sports">soccer-ball</sticker>
         <sticker lib="delapouite"
         		 subtype="sports">soccer-field</sticker>
+		<sticker lib="lorc"
+        		 subtype="originals">trophy</sticker>			 
     </stickers>
     <main>fifa-15.jpg</main>
     <type bg="игри">games</type>

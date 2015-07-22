@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<game>
+    <tag>metal-gear-solid-5</tag>
+    <stickers>
+        <sticker lib="delapouite"
+        		 subtype="originals">mp5</sticker>
+        <sticker lib="lorc"
+        		 subtype="originals">ninja-mask</sticker>
+		<sticker lib="delapouite"
+        		 subtype="originals">binoculars</sticker>		 
+    </stickers>
+    <main>metal-gear-solid-5.jpg</main>
+    <type bg="игри">games</type>
+    <subtype bg="игра">game</subtype>
+    <boxes>
+        <box type="win">win.jpg</box>
+        <box type="ps4">ps4.jpg</box>
+    </boxes>
+    <bg>Метъл Гиър Солид 5: Граунд Зироус</bg>
+    <en>Metal Gear Solid V: Ground Zeroes</en>
+    <serie>metal-gear</serie>
+    <genres>
+        <genre>Шуутър от първо/трето лице</genre>
+        <genre>Стелт</genre>
+    </genres>
+    <platforms>
+        <platform>win</platform>
+        <platform>360</platform>
+        <platform>one</platform>
+        <platform>ps3</platform>
+        <platform>ps4</platform>
+    </platforms>
+    <publisher>Konami</publisher>
+    <developer>Kojima Productions</developer>
+    <eu>Thu Dec 18 2014 02:00:00 GMT+0200 (FLE Standard Time)</eu>
+    <us>Thu Dec 18 2014 02:00:00 GMT+0200 (FLE Standard Time)</us>
+    <similar>
+        <game>splinter-cell-black-list</game>
+    </similar>
+</game>

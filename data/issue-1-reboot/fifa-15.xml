@@ -74,6 +74,8 @@
 				 subtype="originals">soccer-ball</sticker>
         <sticker lib="delapouite"
 				 subtype="originals">soccer-field</sticker>
+		<sticker lib="lorc"
+        		 subtype="originals">trophy</sticker>		 
     </stickers>
     <layouts>
         <layout type="text" subtype="text"

@@ -45,12 +45,32 @@ function PlayerManager() {
 			$sLink = s.find('.img-proxy a'),
 			$lLink = l.find('.img-proxy a'),
 			$sHeading = s.find('h3').eq(0),
-			$lHeading = l.find('h3').eq(0);
+			$lHeading = l.find('h3').eq(0),
+			$sAuthor = s.find('p:eq(0)').eq(0),
+			$lAuthor = l.find('p:eq(0)').eq(0),
+			$sPreview = s.find('p:eq(1)').eq(0),
+			$lPreview = l.find('p:eq(1)').eq(0);
+			
+		var	sSubtype = s.data('subtype'),
+			lSubtype = l.data('subtype');
+		
+		s.data('subtype', lSubtype);
+		l.data('subtype', sSubtype);
+		s.attr('data-subtype', s.data('subtype'));
+		l.attr('data-subtype', l.data('subtype'));
+		$sProxy.data('subtype', lSubtype);
+		$lProxy.data('subtype', sSubtype);
+		$sProxy.attr('data-subtype', s.data('subtype'));
+		$lProxy.attr('data-subtype', l.data('subtype'));
 		
 		$sProxy.after($lHeading);
+		$sProxy.after($lAuthor);
+		$sProxy.after($lPreview);
 		$sProxy.prepend($lLink);
 		$lProxy.after($sHeading);
-		$lProxy.prepend($sLink);
+		$lProxy.after($sAuthor);
+		$lProxy.after($sPreview);
+		$lProxy.prepend($sLink);	
 	}
 	
 	
@@ -131,7 +151,8 @@ function PlayerManager() {
 		 */
 		  
 		if (!$player.prop('id')) {
-			swapVideos($player, $mainPlayer);		
+			swapVideos($player.parents('article'), 
+					   $mainPlayer.parents('article'));		
 		}
 		
 		/**

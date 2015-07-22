@@ -1,0 +1,22 @@
+<aside>
+    <div class="box-placeholder {{:subtype}}">
+        <h2>{{:en}}</h2>
+        <div class="box" 
+        	 style="background-image: url(assets/articles/{{:tag}}/{{:tag}}-{{:main}});"> <img 
+             src="assets/helpers/{{:subtype}}.png" 
+       		 alt="" 
+             role="presentation" /> </div>
+    </div>
+    <dl>
+        <dt>Оригинално име</dt>
+        <dd>{{:en}}</dd>
+        <dt>Автор</dt>
+        <dd>{{:artist}}</dd>
+        <dt>Жанр</dt>
+        <dd>{{:~formatCommaString(genres.genre)}}</dd>
+        <dt>Държава</dt>
+        <dd>{{:country}}</dd>
+        <dt>Дата на издаване</dt>
+        <dd>{{:~formatDate(date)}}</dd>
+    </dl>
+</aside>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book>
+    <tag>villa-triste</tag>
+    <stickers></stickers>
+    <main>cover.jpg</main>
+    <type bg="книги">books</type>
+    <subtype bg="книга">book</subtype>
+    <artist>Патрик Модиано</artist>
+    <country>Франция</country>
+    <en>Villa Triste</en>
+    <bg>Вила Тъга</bg>
+    <genres>
+        <genre>Роман</genre>
+    </genres>
+    <date>Thu Sep 04 1975 03:00:00 GMT+0300 (FLE Daylight Time)</date>
+    <similar>
+        <artist></artist>
+    </similar>
+</book>

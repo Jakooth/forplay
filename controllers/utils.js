@@ -18,12 +18,9 @@ function UtilsManager() {
 	 */
 	
 	this.xml = function(obj, tmpl, appender) {
-		var get1 = $.get('../foradmin/renderers/xml/' + tmpl + '.html' + 
-					   	 '?v=' + Math.round(Math.random() * 100000)),
-			get2 = $.get('../foradmin/renderers/xml/textLayout.html' + 
-					   	 '?v=' + Math.round(Math.random() * 100000)),
-			get3 = $.get('../foradmin/renderers/xml/imgLayout.html' + 
-					   	 '?v=' + Math.round(Math.random() * 100000));
+		var get1 = $.get('../foradmin/renderers/xml/' + tmpl + '.html'),
+			get2 = $.get('../foradmin/renderers/xml/textLayout.html'),
+			get3 = $.get('../foradmin/renderers/xml/imgLayout.html');
 			
 		$.when(get1, get2, get3).done(function(data1, data2, data3) {
 			var tmpls = $.templates({
@@ -160,6 +157,19 @@ function UtilsManager() {
 		tag = tag.replace(/ /g, '-');
 		
 		return tag;	
+	}
+	
+	this.parseImgIndex = function (s) {
+		
+		/**
+		 * Images names are made from tag and number.
+		 * Fisrst strip the path, than strip the tag.
+		 * Only store the image index and format.
+		 */
+		
+		var index = s.split('/').pop().split('-').pop();
+		
+		return index;	
 	}
 	
 	this.parseURL = function(url) {

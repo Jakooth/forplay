@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<movie>
+    <tag>the-hobbit-the-battle-of-the-five-armies</tag>
+    <stickers>
+        <sticker lib="lorc"
+        		 subtype="originals">dragon-head</sticker>
+        <sticker lib="delapouite"
+        		 subtype="originals">woman-elf-face</sticker>
+        <sticker lib="delapouite"
+        		 subtype="originals">dwarf-face</sticker>
+        <sticker lib="delapouite"
+        		 subtype="originals">overlord-helm</sticker>
+    </stickers>
+    <main>the-hobbit-the-battle-of-the-five-armies.jpg</main>
+    <poster>poster.jpg</poster>
+    <type bg="филми">movies</type>
+    <subtype bg="филм">movie</subtype>
+    <bg>Хобит: Битката на Петте Армии</bg>
+    <en>The Hobbit: The Battle of the Five Armies</en>
+    <serie>The Hobbit</serie>
+    <genres>
+        <genre>Приключенски</genre>
+        <genre>Фентъзи</genre>
+    </genres>
+    <cast>
+        <actor>Мартин Фрийман</actor>
+        <actor>Иън Маккелън</actor>
+        <actor>Хюго Уийвинг</actor>
+        <actor>Люк Евънс</actor>
+        <actor>Орландо Блум</actor>
+        <actor>Кристофър Лий</actor>
+        <actor>Ейдън Търнър</actor>
+        <actor>Били Конъли</actor>
+        <actor>Джеймс Несбит</actor>
+        <actor>Ричард Армитаж</actor>
+        <actor>Кейт Бланшет</actor>
+        <actor>Стивън Хънтър</actor>
+        <actor>Бенедикт Къмбърбач</actor>
+        <actor>Еванджелин Лили</actor>
+        <actor>Кен Скот</actor>
+    </cast>
+    <directors>
+        <director>Питър Джаксън</director>
+    </directors>
+    <writers>
+        <writer>Питър Джаксън</writer>
+        <writer>Фран Уолш</writer>
+        <writer>Филипа Бойенс</writer>
+        <writer>Гилермо дел Торо</writer>
+    </writers>
+    <camera>
+        <operator>Андрю Лесни</operator>
+    </camera>
+    <music>
+        <composer>Хауърд Шор</composer>
+    </music>
+    <bg>Thu Dec 19 2013 02:00:00 GMT+0200 (FLE Standard Time)</bg>
+    <world>Wed Dec 17 2014 02:00:00 GMT+0200 (FLE Standard Time)</world>
+    <time>142</time>
+    <similar>
+        <game>the-lord-of-the-rings-the-fellowship-of-the-ring</game>
+        <game>the-lord-of-the-rings-the-two-towers</game>
+        <game>the-lord-of-the-rings-the-return-of-the-king</game>
+        <game>the-hobbit-an-unexpected-journey</game>
+        <game>the-hobbit-the-desolation-of-smaug</game>
+    </similar>
+</movie>
