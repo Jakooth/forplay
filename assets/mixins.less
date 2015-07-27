@@ -1,56 +1,92 @@
 @charset "utf-8";
 
-#createMedia (@screen) {	
-	header.fixed,
-	.nav-set {
-		height: 180px;
-	}
-	
-	#forLife {
-		bottom: 180px - 1px;
-	}
-	
-	/**
-	 * Without margin the content will jump too much.
-	 * The margin must be the header height plus the top scroll.
-	 */
-	
-	main.fixed {
-		padding-top: 562px;
-	}
-	
-	main.read.fixed {
-		padding-top: 562px - 180px;
-	}
-	
-	main.read.fixed.static {
-		padding-top: 180px;
-	}
+/**
+ * COVER SET
+ * 1366x768  	generic notebook
+ * 1280x720 	hd 720p
+ * 1920x1080 	full hd 1080p
+ * 3840x2160 	ultra hd 4k
+ * 1680x1050	generic 16:10 display
+ * 1600x1200	generic 4:3 display
+ * 1440x900		macbook pro 16:10
+ */
 
-	/**
-	 * 562px is golden ratio from 1440x900.
-	 */
-
-	#covers,
-	#covers .cover-set,
-	section.cover,
-	.article-set article {
-		height: 562px;
-	}
+#createMedia (@width, @height) {
+	@ratio1: (@height * 50) / 100;
+	@ratio2: (@height * 16) / 100;
+	@ratio3: (@height * 10) / 100;
 	
-	#forPlay,
-	header.fixed #covers,
-	main.fixed #read:after,
-	main.fixed #read .cover {
-		height: 106px;
-	}
-
-	#read .cover li p {
-		top: 106px;
-	}
+	@media only screen and (min-width: ~'@{width}px')
+					   and (max-height: ~'@{height}px') {
+						   
+		
+		/**
+		 * Test media.
+		 */
+		 
+		/* 
+		body::after {
+			content: "<p>@{width}, @{height}</p>";
+			color: #FFF;
+			position: absolute;
+			display: block;
+			background-color: #333;
+			z-index: 100000;
+			padding: 20px;
+		}
+		*/
+		
+		header.fixed,
+		.nav-set {
+			height: @ratio2 + 0px;
+		}
+		
+		#forLife {
+			bottom: @ratio2 - 1px;
+		}
+		
+		/**
+		 * Without margin the content will jump too much.
+		 * The margin must be the header height plus the top scroll.
+		 */
+		
+		main.fixed {
+			padding-top: @ratio1 + 0px;
+		}
+		
+		main.read.fixed {
+			padding-top: @ratio1 - 180px;
+		}
+		
+		main.read.fixed.static {
+			padding-top: @ratio2 + 0px;
+		}
 	
-	#read .cover li:nth-child(3) p {
-		top: 106px + 64px;
+		/**
+		 * 562px is golden ratio from 1440x900.
+		 */
+	
+		#covers,
+		#covers .cover-set,
+		section.cover,
+		.article-set article {
+			height: @ratio1 + 0px;
+		}
+		
+		#forPlay,
+		header.fixed #covers,
+		main.fixed #read:after,
+		main.fixed #read .cover {
+			height: @ratio3 + 0px;
+		}
+	
+		#read .cover li p {
+			top: @ratio3 + 0px;
+		}
+		
+		#read .cover li:nth-child(3) p {
+			top: @ratio3 + 64px;
+		}
 	}
 }
 
@@ -60,7 +96,7 @@
 	}
 	
 	body.@{theme} .layout.inside blockquote,
-	body.@{theme} .layout blockquote,
+	body.@{theme} .layout .center-col blockquote,
 	body.@{theme} .article-set p:nth-of-type(1) a,
 	body.@{theme} .static .read-set .layout > p:nth-of-type(1) a,
 	body.@{theme} .layout:first-of-type .center-col > p:first-of-type:first-letter, 
@@ -90,3 +126,45 @@
 	}
 }
 
+#createMobilePortrait (@width) {
+	@media only screen and (min-width: ~'@{width}px') 
+					   and (orientation: portrait) {
+		
+		#covers,
+		#read > .cover {
+			height: @width / (16/9) + 0px;
+		}
+		
+		header.read,
+		#read > .cover {
+			height: @width + 0px;
+		}
+		
+		#read > .cover.video,
+		#read > .cover.news {
+			height: @width / 4 + 0px;
+		}
+	}
+}
+
+#createMobileLanscape (@width,  @height) {
+	@media only screen and (min-width: ~'@{width}px')
+					   and (min-height: ~'@{height}px') 
+					   and (orientation: landscape) {
+		
+		#covers,
+		#read > .cover {
+			height: @height - (@width / 5) + 0px;
+		}
+		
+		header.read,
+		#read > .cover {
+			height: @height + 0px;
+		}
+		
+		#read > .cover.video,
+		#read > .cover.news {
+			height: @height / 3 + 0px;
+		}
+	}
+}

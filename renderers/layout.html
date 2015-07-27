@@ -16,14 +16,15 @@
         	 class="tracklist {{:#data.tracklist}}"></div>
     {{else #data.center}}
     	<div class="{{:#data.center.valign}}">
-        	<p>{{if #data.center.author}}От {{/if}}<a href="?portal={{:#data.center.author}}">
-            {{:#data.center.author}}</a></p>
+        	<p>{{if #data.center.author}}От <a href="?portal={{:#data.center.author}}">
+            {{:#data.center.author}}</a>{{/if}}</p>
             {{:#data.center}}
         </div>
     {{else #data.alt.length > 0}}
         <p><strong>{{:#data.pointer}}</strong> {{:#data.alt}}</p>
     {{/if}}
-        <div class="img"><a href="{{if video}}{{:video.url}}{{/if}}"{{if video}} 
+        <div class="img {{if #parent.data.subtype == 'i4'}}{{:#data.center.valign}}{{/if}}"><a 
+        					href="{{if video}}{{:video.url}}{{/if}}"{{if video}} 
                             data-video="{{:video.url}}"
                             data-player="{{:video.player}}"
                             data-tech="{{:video.tech}}"{{/if}}> <img 

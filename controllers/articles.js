@@ -6,10 +6,16 @@ function ArticlesManager() {
 	
 	var self = this;
 	
-	function loadImage($img) {			
-		var src = utils.formatThumborString($img.data('main'),
-											$img.width(), 
-											$img.height());
+	function loadImage($img) {	
+	
+		/**
+		 * For mobile deliver the image for size in landscape.
+		 */
+		
+		var ratio = utils.isMobile() ? 1 * (16/9) : 1,
+			src = utils.formatThumborString($img.data('main'),
+											Math.round($img.width() * ratio), 
+											Math.round($img.height() * ratio));
 		
 		$img.data('proxy', false);
 		$img.attr('data-proxy', $img.data('proxy'));
@@ -18,9 +24,17 @@ function ArticlesManager() {
 	}
 	
 	function loadBackground($img, $div) {			
-		var src = utils.formatThumborString($img.data('main'),
-											$div.outerWidth(), 
-											Math.round($div.outerWidth() / (16/9)));
+		
+		/**
+		 * For mobile the image is square.
+		 * Also deliver the image for size in landscape.
+		 */
+		
+		var widthRatio = utils.isMobile() ? 1 : 16/9,
+			heihgtRatio = utils.isMobile() ? 1 * (16/9) : 1,
+			src = utils.formatThumborString($img.data('main'),
+											Math.round($div.outerWidth() * heihgtRatio), 
+											Math.round(($div.outerWidth() / widthRatio) * heihgtRatio));
 		
 		$img.data('proxy', false);
 		$img.attr('data-proxy', $img.data('proxy'));
@@ -29,9 +43,16 @@ function ArticlesManager() {
 	}
 	
 	function loadCover($img, $div) {			
-		var src = utils.formatThumborString($img.data('cover'),
-											Math.round($(window).width() * 60/100), 
-											Math.round($(window).width() * 60/100 / (16/9)));
+		
+		/**
+		 * For mobile the image is 100% width and not 60%.
+		 * Also deliver the image for size in landscape.
+		 */
+		
+		var ratio = utils.isMobile() ? 100 * (16/9) : 60, 
+			src = utils.formatThumborString($img.data('cover'),
+											Math.round($(window).width() * ratio/100), 
+											Math.round($(window).width() * ratio/100 / (16/9)));
 		
 		$img.data('proxy', false);
 		$img.attr('data-proxy', $img.data('proxy'));

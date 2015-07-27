@@ -185,6 +185,10 @@ function BannerManager() {
 	});
 	
 	$('#covers').on('mouseover', 'article:not(:eq(0))', function (e) {												
+		if (utils.isMobile()) {
+			return false;
+		}
+		
 		var $this = $(this),
 			$c1 = $('#covers article:eq(1)'),
 			$c2 = $('#covers article:eq(2)'),
@@ -218,6 +222,10 @@ function BannerManager() {
 	});
 	
 	$('#covers').on('mouseout', 'article:not(:eq(0))', function (e) {
+		if (utils.isMobile()) {
+			return false;
+		}														 
+																 
 		var $this = $(this),
 			$c1 = $('#covers article:eq(1)'),
 			$c2 = $('#covers article:eq(2)'),

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<movie>
+    <tag>jupiter-ascending</tag>
+    <stickers>
+        <sticker lib="lorc"
+        		 subtype="originals">ringed-planet</sticker>
+        <sticker lib="lorc"
+        		 subtype="originals">alien-skull</sticker>
+    </stickers>
+    <main>jupiter-ascending.jpg</main>
+    <poster>poster.jpg</poster>
+    <type bg="филми">movies</type>
+    <subtype bg="филм">movie</subtype>
+    <bg>Пътят на Юпитер</bg>
+    <en>Jupiter Ascending</en>
+    <serie></serie>
+    <genres>
+        <genre>Екшън</genre>
+        <genre>Фантастика</genre>
+    </genres>
+    <cast>
+        <actor>Мила Кунис</actor>
+        <actor>Чанинг Тейтъм</actor>
+        <actor>Шон Бийн</actor>
+        <actor>Еди Редмейн</actor>
+        <actor>Дъглас Буут</actor>
+    </cast>
+    <directors>
+        <director>Анди Уашовски</director>
+        <director>Лана Уашовски</director>
+    </directors>
+    <writers>
+        <writer>Анди Уашовски</writer>
+        <writer>Лана Уашовски</writer>
+    </writers>
+    <camera>
+        <operator>Джон Тол</operator>
+    </camera>
+    <music>
+        <composer>Майкъл Джиакино</composer>
+    </music>
+    <bg>Fri Feb 06 2015 02:00:00 GMT+0200 (FLE Standard Time)</bg>
+    <world>Fri Feb 06 2015 02:00:00 GMT+0200 (FLE Standard Time)</world>
+    <time>124</time>
+    <similar>
+        <movie>elysium</movie>
+        <movie>cloud-atlas</movie>
+    </similar>
+</movie>

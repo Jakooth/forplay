@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<game>
+    <tag>call-of-duty-advanced-warfare</tag>
+    <stickers>
+        <sticker lib="lorc"
+        		 subtype="originals">minigun</sticker>
+        <sticker lib="lorc"
+        		 subtype="originals">missile-mech</sticker>
+        <sticker lib="lorc"
+        		 subtype="originals">bullets</sticker>
+    </stickers>
+    <main>call-of-duty-advanced-warfare.jpg</main>
+    <type bg="игри">games</type>
+    <subtype bg="игра">game</subtype>
+    <boxes>
+        <box type="ps4">ps4.jpg</box>
+    </boxes>
+    <bg>Kол ъф Дюти: Ъдвансд Уарфеър</bg>
+    <en>Call of Duty: Advanced Warfare</en>
+    <serie>call-of-duty</serie>
+    <genres>
+        <genre>Шуутър от първо/трето лице</genre>
+    </genres>
+    <platforms>
+        <platform>win</platform>
+        <platform>360</platform>
+        <platform>one</platform>
+        <platform>ps3</platform>
+    </platforms>
+    <publisher>Activision</publisher>
+    <developer>Sledgehammer Games</developer>
+    <eu>Mon Nov 03 2014 02:00:00 GMT+0200 (FLE Standard Time)</eu>
+    <us>Mon Nov 03 2014 02:00:00 GMT+0200 (FLE Standard Time)</us>
+    <similar>
+        <game>call-of-duty-4</game>
+        <game>wolfenstein-the-new-order</game>
+        <game>far-cry-4</game>
+    </similar>
+</game>

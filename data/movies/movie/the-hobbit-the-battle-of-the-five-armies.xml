@@ -58,10 +58,10 @@
     <world>Wed Dec 17 2014 02:00:00 GMT+0200 (FLE Standard Time)</world>
     <time>142</time>
     <similar>
-        <game>the-lord-of-the-rings-the-fellowship-of-the-ring</game>
-        <game>the-lord-of-the-rings-the-two-towers</game>
-        <game>the-lord-of-the-rings-the-return-of-the-king</game>
-        <game>the-hobbit-an-unexpected-journey</game>
-        <game>the-hobbit-the-desolation-of-smaug</game>
+        <movie>the-lord-of-the-rings-the-fellowship-of-the-ring</movie>
+        <movie>the-lord-of-the-rings-the-two-towers</movie>
+        <movie>the-lord-of-the-rings-the-return-of-the-king</movie>
+        <movie>the-hobbit-an-unexpected-journey</movie>
+        <movie>the-hobbit-the-desolation-of-smaug</movie>
     </similar>
 </movie>

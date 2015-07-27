@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<game>
+    <tag>littlebigplanet-3</tag>
+    <stickers>
+        <sticker lib="delapouite"
+        		 subtype="originals">palette</sticker>
+        <sticker lib="lorc"
+        		 subtype="originals">jigsaw-piece</sticker>
+    </stickers>
+    <main>littlebigplanet-3.jpg</main>
+    <type bg="игри">games</type>
+    <subtype bg="игра">game</subtype>
+    <boxes>
+        <box type="ps4">ps4.jpg</box>
+    </boxes>
+    <bg>ЛитълБигПланет 3</bg>
+    <en>LittleBigPlanet 3</en>
+    <serie>littlebigplanet</serie>
+    <genres>
+        <genre>Платформър</genre>
+    </genres>
+    <platforms>
+        <platform>ps3</platform>
+        <platform>ps4</platform>
+    </platforms>
+    <publisher>Sony Computer Entertainment</publisher>
+    <developer>Sumo Digital</developer>
+    <eu>Wed Nov 26 2014 02:00:00 GMT+0200 (FLE Standard Time)</eu>
+    <us>Tue Nov 18 2014 02:00:00 GMT+0200 (FLE Standard Time)</us>
+    <similar>
+        <game>tearway</game>
+    </similar>
+</game>

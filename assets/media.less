@@ -5,65 +5,116 @@
 @charset "utf-8";
 
 /**
- * Full HD
+ * SCREEN
+ * 1366x768  	generic notebook
+ * 1280x720 	hd 720p
+ * 1920x1080 	full hd 1080p
+ * 3840x2160 	ultra hd 4k
+ * 1680x1050	generic 16:10 display
+ * 1600x1200	generic 4:3 display
+ * 1440x900		macbook pro 16:10
  */
 
-@media only screen 
-and (max-width: 4096px) {
-	#createMedia(4096);
-}
+#createMedia(1280, 720);
+#createMedia(1366, 768);
+#createMedia(1440, 900);
+#createMedia(1600, 1200);
+#createMedia(1680, 1050);
+#createMedia(1920, 1080);
+#createMedia(3840, 2160);
+
 
 /**
- * Zoom out 75% or less.
+ * FONTS
  */
-
-@media only screen 
-and (max-width: 2048px) {
-	#createMedia(2048);
+ 
+@media
+only screen and (max-width: 1680px) {
+	/**
+	 * Title for covers and main video.
+	 */
+	
+	#covers h3 a,
+	section.cover h3 strong,
+	.video-set article:nth-of-type(3) h3 a,
+	.static .read-set .layout:first-of-type h3 strong {
+		font-size: 34pt;
+	}
 }
 
-/**
- * Desktop 16:10
- */
+@media
+only screen and (max-width: 1440px) {
+	/**
+	 * Title for covers and main video.
+	 */
+	
+	#covers h3 a,
+	section.cover h3 strong,
+	.video-set article:nth-of-type(3) h3 a,
+	.static .read-set .layout:first-of-type h3 strong {
+		font-size: 30pt;
+	}
+	
+	/**
+	 * Raad font size for text and tracklist.
+	 * Title and subtitle for portal articles and video.
+	 */
+	
+	.inside *,
+	.layout .center-col *,
+	.layout ol *,
+	.video-set h3 a,
+	.video-set h3 span:nth-of-type(2),
+	.inline-col aside h3,
+	.article-set h3 a,
+	.article-set h3 span:nth-of-type(2) {
+		font-size: 12pt;
+	}
+	
+	/**
+	 * Cover subtitle and read headings.
+	 */
+	
+	.inside h3,
+	.inside h3 *,
+	.layout .center-col h3,
+	.layout .center-col h3 *,
+	#covers h3 span:nth-of-type(2),
+	section.cover h3 span:nth-of-type(2),
+	.video-set article:nth-of-type(3) h3 span:nth-of-type(2),
+	.static .read-set .layout:first-of-type h3 span:nth-of-type(2) {
+		font-size: 14pt;
+	}
+	
+	/**
+	 * Author text.
+	 */
+	
+	section.cover > p * {
+		font-size: 14pt;
+	}
+	
+	.inside.i1 .bottom > p:first-of-type * {
+		font-size: 14pt;
+	}
+	
+	.inside.i1 .top > p:first-of-type ,
+	.inside.i1 .bottom > p:first-of-type {
+		top: -6px;
+	}
+	
+	/**
+	 * Read styles for first letter, hype and aside.
+	 */
 
-@media only screen 
-and (max-width: 1680px) {
-	#createMedia(1680);
-}
-
-/**
- * Desktop 4:3
- */
-
-@media only screen 
-and (max-width: 1600px) {	
-	#createMedia(1600);	
-}
-
-/**
- * Macbook Pro 16:10
- */
-
-@media only screen 
-and (max-width: 1440px) {
-	#createMedia(1440);
-}
-
-/**
- * Laptop 16:9
- */
-
-@media only screen 
-and (max-width: 1366px) {	
-	#createMedia(1366);
-}
-
-/**
- * HD
- */
-
-@media only screen 
-and (max-width: 1280px) {
-	#createMedia(1280);
+	.layout.inside blockquote *,
+	.layout .center-col blockquote * {
+		font-size: 20pt;
+	}
+	
+	#read .cover li:nth-child(1) p strong,
+	.layout .center-col .hype strong {
+		font-size: 14pt;
+	}
 }
   

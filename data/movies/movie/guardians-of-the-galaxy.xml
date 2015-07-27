@@ -51,11 +51,11 @@
     <world>Fri Aug 01 2014 03:00:00 GMT+0300 (FLE Daylight Time)</world>
     <time>121</time>
     <similar>
-        <game>star-wars-episode-4</game>
-        <game>star-wars-episode-5</game>
-        <game>star-wars-episode-6</game>
-        <game>raiders-of-the-lost-ark</game>
-        <game>indiana-jones-and-the-temple-of-doom</game>
-        <game>indiana-jones-and-the-last-crusade</game>
+        <movie>star-wars-episode-4</movie>
+        <movie>star-wars-episode-5</movie>
+        <movie>star-wars-episode-6</movie>
+        <movie>raiders-of-the-lost-ark</movie>
+        <movie>indiana-jones-and-the-temple-of-doom</movie>
+        <movie>indiana-jones-and-the-last-crusade</movie>
     </similar>
 </movie>

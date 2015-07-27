@@ -151,9 +151,10 @@ section.cover > p * {
 	color: @light;
 }
 
+.inside.i1 .top > p:first-of-type *,
 .inside.i1 .bottom > p:first-of-type * {
 	font-size: 20pt;
-	line-height: 16pt;
+	line-height: 0;
 	color: @light;
 	font-weight: bold;
 	text-transform: uppercase;
@@ -175,6 +176,16 @@ section.cover > p * {
 	font-size: 24pt;
 }
 
+.layout.inside blockquote p:before,
+.layout .center-col blockquote p:before {
+	content: open-quote;
+}
+
+.layout.inside blockquote p:after,
+.layout .center-col blockquote p:after {
+	content: close-quote;
+}
+
 .layout .center-col .hype {
 	text-align: right;
 	font-weight: bold;
@@ -193,6 +204,7 @@ section.cover > p * {
 	text-decoration: underline;
 }
 
+.layout .inline-col aside p strong,
 .layout .center-col > p strong {
 	color: fade(@dark, 60%);
 }
@@ -344,21 +356,12 @@ header.fixed #forPlay path {
 
 /**
  * COVER SET
- * Using golden ratio of ~1.6 to measure the height.
- * For some portable devices the full display is utilized.
- *  480 from  768:	1366x768  	generic notebook
- *  450 from  720:	1280x720 	hd 720p
- *  675 from 1080:	1920x768 	full hd 1080p
- * 1350 from 1080:	3840x2160 	ultra hd 4k
- *  656 from 1050:	1680x1050	generic 16:10 display
- *  750 from 1200:	1600x1200	generic 4:3 display
- *  562 from  900:	1440x900	macbook pro 16:10
- *  544 from  544:  960x544	ps vita
  */
 
 #forPlay,
 #forLife {
 	display: block;
+	overflow: hidden;
 }
 
 #forPlay {
@@ -743,12 +746,13 @@ header.read #forPlay {
 }
 
 .nav-set {
-	padding: 0 20%;
+	width: 60%;
+	margin: 0 20%;
 	overflow: hidden;
 }
 
 .nav-set nav {
-	width: 60%;
+	width: 100%;
 	float: left;
 	padding: 2.08%;
 	background-color: @light;
@@ -765,6 +769,7 @@ header.read .nav-set {
 	width: 100%;
 	height: auto;
 	overflow: visible;
+	margin: 0;
 }
 
 header.read nav {
@@ -1104,7 +1109,8 @@ main.read #read {
 .layout.img.b2,
 .layout.inside.i1,
 .layout.inside.i2,
-.layout.inside.i3 {
+.layout.inside.i3,
+.layout.inside.i4 {
 	position: relative;
 	width: 100%;
 	clear: both;
@@ -1198,6 +1204,7 @@ main.read #read {
 	padding-top: 0;
 }
 
+.inside.i3 .img-proxy:nth-of-type(2) p,
 .img.a1 .img-proxy:nth-of-type(2) p {
 	left: -37.3%;
 	bottom: 0;
@@ -1474,9 +1481,10 @@ main.read #read {
 }
 
 /**
- * i1
+ * i1, i4
  */  
 
+.inside.i4 .img-proxy,
 .inside.i1 .img-proxy {
 	margin-left: -33.33%;
 	margin-right: -33.33%;
@@ -1484,6 +1492,8 @@ main.read #read {
 	padding: 0;
 }
 
+.inside.i4 div:not(.img).top,
+.inside.i4 div:not(.img).bottom,
 .inside.i1 .top,
 .inside.i1 .bottom {
 	position: absolute;
@@ -1493,31 +1503,40 @@ main.read #read {
 	padding: 0;
 }
 
+.inside.i4 div:not(.img).top,
 .inside.i1 .top {
 	top: 0;
 	bottom: auto;
 }
 
+.inside.i4 div:not(.img).bottom,
 .inside.i1 .bottom {
 	top: auto;
 	bottom: 0;
 }
 
+.inside.i4 div:not(.img).center,
 .inside.i1 .center {
 	width: 60%;
 	margin-left: 20%;
 }
 
+.inside.i4 div:not(.img).left,
 .inside.i1 .right {
 	width: 40%;
 	margin-left: 40%;
 }
 
+.inside.i4 div:not(.img).right,
 .inside.i1 .left {
 	width: 40%;
 	margin-left: 20%;
 }
 
+.inside.i4 div:not(.img).center > p,
+.inside.i4 div:not(.img).center blockquote,
+.inside.i4 div:not(.img).center ol,
+.inside.i4 div:not(.img).center h3,
 .inside.i1 .center > p,
 .inside.i1 .center blockquote,
 .inside.i1 .center ol,
@@ -1526,6 +1545,14 @@ main.read #read {
 	padding: 2.08%;
 }
 
+.inside.i4 div:not(.img).right > p,
+.inside.i4 div:not(.img).left > p,
+.inside.i4 div:not(.img).right blockquote,
+.inside.i4 div:not(.img).left blockquote,
+.inside.i4 div:not(.img).right ol,
+.inside.i4 div:not(.img).left ol,
+.inside.i4 div:not(.img).right h3,
+.inside.i4 div:not(.img).left h3,
 .inside.i1 .right > p,
 .inside.i1 .left > p,
 .inside.i1 .right blockquote,
@@ -1536,7 +1563,9 @@ main.read #read {
 .inside.i1 .left h3 {
 	padding: 3.125%;
 }
- 
+
+.inside.i4 div:not(.img).right ol,
+.inside.i4 div:not(.img).left ol,
 .inside.i1 .right ol,
 .inside.i1 .left ol {
 	list-style: decimal-leading-zero;
@@ -1549,26 +1578,26 @@ main.read #read {
  * First child is always the author.
  */
 
+.inside.i4 div:not(.img).bottom ol:nth-child(2),
 .inside.i1 .bottom ol:nth-child(2) {
 	padding-top: 3.125% !important;
 }
 
+.inside.i4 div:not(.img).top ol:last-child,
 .inside.i1 .top ol:last-child {
 	padding-bottom: 3.125% !important;
 }
 
+.inside.i4 li,
 .inside.i1 li {
 	list-style: decimal-leading-zero;
 	list-style-position: inherit;
 }
 
-.inside.i1 .top > p:nth-child(2),
-.inside.i1 .top blockquote:nth-child(2),
-.inside.i1 .top ol:nth-child(2),
-.inside.i1 .top h3:nth-child(2) {
-	padding-top: 0;
-}
-
+.inside.i4 div:not(.img).bottom > p:last-child,
+.inside.i4 div:not(.img).bottom > blockquote:last-child,
+.inside.i4 div:not(.img).bottom ol:last-child,
+.inside.i4 div:not(.img).bottom h3:last-child,
 .inside.i1 .bottom > p:last-child,
 .inside.i1 .bottom > blockquote:last-child,
 .inside.i1 .bottom ol:last-child,
@@ -1579,10 +1608,33 @@ main.read #read {
 .inside.i1 .top > p:first-of-type,
 .inside.i1 .bottom > p:first-of-type {
 	position: absolute;
-	top: -44px;
+	top: -10px;
 	right: 0;
 	bottom: auto;
 	z-index: 100;
+	line-height: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.inside.i4 div:not(.img).top > p:first-of-type,
+.inside.i4 div:not(.img).bottom > p:first-of-type  {
+	display: none;
+}
+
+.inside.i4 .img.left {
+	width: 78.75%;
+	margin-left: 0;
+}
+
+.inside.i4 .img.center {
+	width: 57.5%;
+	margin-left: 21.25%;
+}
+
+.inside.i4 .img.right  {
+	width: 78.75%;
+	margin-left: 21.25%;
 }
 
 /**

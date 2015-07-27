@@ -70,7 +70,7 @@ a {
 #read > .cover *,
 .video-set *,
 .article-set h3 span:nth-of-type(1),
-.article-set article .img-proxy:after {
+.article-set article .img-proxy::after {
 	color: @light;
 }
 
@@ -137,9 +137,20 @@ nav h3,
 	font-style: normal;
 }
 
+.layout.inside blockquote *,
 .layout .center-col blockquote * {
 	font-family: 'Poiret One', cursive;
-	font-size: 14pt;
+	font-size: 18pt;
+}
+
+.layout.inside blockquote p:before,
+.layout .center-col blockquote p:before {
+	content: open-quote;
+}
+
+.layout.inside blockquote p:after,
+.layout .center-col blockquote p:after {
+	content: close-quote;
 }
 
 #read > .cover li:nth-child(1) p strong,
@@ -250,6 +261,8 @@ footer p {
 	position: absolute;
 	margin: 6.25%;
 	z-index: 1000;
+	height: 40px;
+	width: 70%;
 }
 
 #forPlay path {
@@ -316,7 +329,7 @@ body.nav {
 }
 
 .nav-set nav {
-	background-color: transparent;
+	background-color: rgba(0, 0, 0, 0);
 	width: 100%;
 	position: relative;
 	left: 0;
@@ -329,15 +342,16 @@ body.nav {
   	height: 100%;
 	background-image: url(icons/forplay-paw-icon.png);
 	opacity: 0.7;
-	background-size: auto 60%;
+	background-size: auto 100%;
 	background-repeat: no-repeat;
 	background-position: right;
 	cursor: pointer;
-	color: transparent;
+	color: rgba(0, 0, 0, 0);
 	overflow: hidden;
 	float: right;
-	padding: 6.25%;
-	margin-right: 6.25%;
+	margin: 6.25%;
+	height: 40px;
+	z-index: 2000;
 }
 
 .nav-set ul {
@@ -358,7 +372,7 @@ body.nav .nav-set ul {
 	display: block;
 	float: none;
 	width: 100%;
-	padding: 6.25%;
+	padding: 8.9%;
 }
 
 .nav-set li a {
@@ -387,14 +401,23 @@ body.nav .nav-set ul {
 	position: relative;
 	overflow: hidden;
 	clear: both;
-	height: 180px;
+}
+
+.cover-set .img-proxy,
+.cover-set .img-proxy a {
+	width: 100%;
+	float: left;
+}
+
+.cover-set ul {
+	display: none;
 }
 
 #thumbnails {
 	position: relative;
 	padding: 10% 0;
 	box-sizing: border-box;
-	-webkit-tap-highlight-color: transparent;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .thumbnail {
@@ -405,7 +428,7 @@ body.nav .nav-set ul {
 	top: 0;
 }
 
-.thumbnail[data-order="3"]:after {
+.thumbnail[data-order="3"]::after {
 	content: "";
 	display: block;
 	position: absolute;
@@ -441,6 +464,7 @@ body.nav .nav-set ul {
  * Performance in Firefox with box-shadow is terrible.
  */
 
+#read > .cover::before,
 #covers .cover::before {
 	content: "";
 	position: absolute;
@@ -577,7 +601,7 @@ main h2 {
 	width: 30%;
 }
 
-.article-set article .img-proxy:after {
+.article-set article .img-proxy::after {
 	text-align: center;
 	padding: 10.4%;
 	font-weight: normal;
@@ -612,24 +636,26 @@ main h2 {
  * Stickers
  */
 
+.read-set .layout:first-of-type ul,
+.video-set article ul,
 .article-set article ul {
 	display: none;
 }
 
 .review .img-proxy::after {
-	background: @review;
+	background-color: @review;
 }
 
 .feature .img-proxy::after {
-	background: @feature;
+	background-color: @feature;
 }
 
 .news .img-proxy::after {
-	background: @news;
+	background-color: @news;
 }
 
 .video .img-proxy::after {
-	background: @video;
+	background-color: @video;
 }
 
 /**
@@ -654,10 +680,6 @@ main h2 {
 	position: relative;
 }
 
-.video-set article .img-proxy:after {
-	display: none;
-}
-
 
 
 
@@ -670,7 +692,7 @@ main h2 {
  */
 
 #read > .cover {
-	height: 320px;
+	background-size: cover;
 }
 
 #read > .cover h3 {
@@ -678,7 +700,6 @@ main h2 {
 }
 
 header.read {
-	min-height: 320px;
 	position: absolute;
 }
 
@@ -699,6 +720,10 @@ main.read .read-set {
 	max-height: none;
 }
 
+.read-set .img-proxy {
+	position: relative;
+}
+
 .read-set .layout.img img {
 	width: 100%;
 	vertical-align: top;
@@ -715,18 +740,22 @@ main.read .read-set {
 
 .read-set ol {
 	list-style: decimal-leading-zero;
-	list-style-position: outside;
+	list-style-position: inside;
 	padding: 6.25%;
-	padding-left: 14.5%;
 }
 
-.read-set .layout.img p {
+.read-set .layout.inside p strong:first-of-type,
+.read-set .layout.img p strong:first-of-type {
 	display: none;
 }
 
 .read-set aside:not(.info) p,
 .read-set aside:not(.info) h2 {
 	background-color: fade(@dark, 10%);
+}
+
+.read-set p:empty {
+	display: none;
 }
 
 .read-set .layout:first-of-type .center-col > p:first-of-type:first-letter {
@@ -739,8 +768,21 @@ main.read .read-set {
 	line-height: 24pt;
 }
 
+.inside.i1 .right ol,
+.inside.i1 .left ol {
+	list-style: decimal-leading-zero;
+	list-style-position: inside;
+}
+
+
+
+
+
+
+
+
 /**
- * Box
+ * BOX
  */
 
 .box-placeholder {
@@ -754,12 +796,12 @@ main.read .read-set {
 	-webkit-transform: rotateY(10deg);
     transform: rotateY(10deg);
 	perspective: 50px;
-	outline: 1px solid transparent;
+	outline: 1px solid rgba(0, 0, 0, 0);
 	border-radius: 4px;
 	position: relative;
 }
 
-.box:after {
+.box::after {
 	position: absolute;
 	left: -20px;
 	width: 20px;
@@ -772,12 +814,84 @@ main.read .read-set {
     -ms-transform-origin: 100% 50%;
     -webkit-transform-origin: 100% 50%;
     transform-origin: 100% 50%;
-	outline: 1px solid transparent;
+	outline: 1px solid rgba(0, 0, 0, 0);
 	background: -webkit-linear-gradient(top, rgba(255, 255 , 255, 0) 0%, rgba(204, 204, 204, 1) 10%, rgba(204, 204, 204, 0.3) 100%);
 	background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(204, 204, 204, 1) 10%, rgba(204, 204, 204, 0.3) 100%);
 	background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(204, 204, 204, 1) 10%, rgba(204, 204, 204, 0.3) 100%);
 	border-bottom-left-radius: 4px;
 	border-bottom-right-radius: 4px;
+}
+
+
+
+
+
+
+
+
+/**
+  * QUOTES
+  * For mobile it is from 80% of 320.
+  * Inside padding is thus 20 from this 67.5% of 320.
+  * Same for image width and substract margin.
+  */
+ 
+.inline-col  blockquote {
+	width: 67.5%;
+	clear: both;
+	margin: 6.25%;
+	margin-bottom: 0;
+	margin-top: 12.5%;
+	position: relative;
+	color: @light;
+	font-style: italic;
+	background-color: @dark;
+}
+
+.inline-col blockquote p {
+	padding: 9.3%;
+	clear: both;
+}
+
+.inline-col blockquote img {
+	width: auto;
+}
+
+.inline-col.right-col blockquote .img {
+	float: right;
+}
+
+.inline-col.left-col blockquote .img {
+	float: left;
+}
+
+.inline-col blockquote:after {
+	top: 50%;
+	border: solid fade(@dark, 0);
+	content: "";
+	height: 0;
+	width: 0;
+	position: absolute;
+	border-width: 20px;
+	margin-top: -20px;
+}
+
+.inline-col.right-col blockquote {
+	float: right;
+}
+
+.inline-col.left-col blockquote {
+	float: left;
+}
+
+.inline-col.right-col blockquote:after {
+	right: 100%;
+	border-right-color: @dark;
+}
+
+.inline-col.left-col blockquote:after {
+	left: 100%;
+	border-left-color: @dark;
 }
 
 
@@ -852,12 +966,13 @@ body.tuborg #forPlay path {
  */
   
 .video-play-button {
-	width: 96px;
-	height: 96px;
+	width: 64px;
+	height: 64px;
+	margin-left: -32px;
+	margin-top: -32px;
 	display: block;
-	margin-left: -48px;
-	margin-top: -48px;
 	background-image: url(icons/forplay-play-icon.png);
+	background-color: rgba(0, 0, 0, 0) !important;
 	opacity: 0.4;
 	position: absolute;
 	top: 50%;
@@ -868,45 +983,14 @@ body.tuborg #forPlay path {
 	pointer-events: none;
 }
 
-.Player .img-proxy:before {
+.Player::after {
 	.video-play-button;
 	content: "";
-	z-index: 100;
 }
 
-.Player:hover .img-proxy:before {
+.Player:hover::after {
 	background-image: url(icons/forplay-play-icon-hover.png);
 	opacity: 1;
-}
-
-.Player .video-js {
-	bottom: 0;
-	position: absolute;
-	top: 0;
-	z-index: 1;
-}
-
-.Player .vjs-big-play-button {
-	.video-play-button;
-	background-color: fade(@dark, 0);
-	border: none;
-	box-shadow: none;
-}
-
-.Player .vjs-default-skin:hover .vjs-big-play-button,
-.Player .vjs-default-skin .vjs-big-play-button:focus {
-	background-image: url(icons/forplay-play-icon-hover.png);
-	background-color: fade(@dark, 0);
-	box-shadow: none;
-	border: none;
-	opacity: 1;
-}
-
-.Player .vjs-big-play-button:before {
-	content: "";
-	width: 0;
-	height: 0;
-	overflow: hidden;
 }
 
 
@@ -967,10 +1051,6 @@ body.tuborg #forPlay path {
 
 @media
 only screen and (min-width: 768px) {
-	#covers,
-	#read > .cover {
-		height: 432px;
-	}
 	
 	/**
 	 * FONTS
@@ -1028,28 +1108,81 @@ only screen and (min-width: 768px) {
 	#read > .cover > p * {
 		font-size: 14pt;
 	}
-		
+	
+	.layout.inside blockquote *,
 	.layout .center-col blockquote * {
-		font-size: 14pt;
+		font-family: 'Poiret One', cursive;
+		font-size: 24pt;
 	}
 	
 	#read > .cover li:nth-child(1) p strong,
 	.layout .center-col .hype strong {
 		font-size: 14pt;
 	}
-}
-
-@media 
-only screen and (min-width: 960px) {
-	#covers,
-	#read > .cover {
-		height: 540px;
+	
+	#forPlay,
+	.nav-set h3 {
+		height: 80px;
+	}
+	
+	.inline-col.left-col .box-placeholder {
+		margin: 0;
+		float: left;
+		width: 43.75%;
+		margin-left: 6.25%;
+	}
+	
+	.inline-col.left-col dl {
+		float: right;
+		width: 50%;
 	}
 }
+
+/**
+ * All devices in 16:9 ratio.
+ * When reading articles the cover is square,
+ * to fit both title and subtitle.
+ */
+ 
+#createMobilePortrait(320);
+#createMobilePortrait(360);
+#createMobilePortrait(375);
+#createMobilePortrait(414);
+#createMobilePortrait(600);
+#createMobilePortrait(768);
+#createMobilePortrait(800);
+#createMobilePortrait(1080);
+
+#createMobileLanscape(480, 320);
+#createMobileLanscape(568, 320);
+#createMobileLanscape(640, 360);
+#createMobileLanscape(667, 375);
+#createMobileLanscape(736, 414);
+
+/**
+ * Vita browser
+ */
+
+#createMobileLanscape(896, 512);
+#createMobileLanscape(960, 600);
+#createMobileLanscape(1920, 1080);
 
 @media 
 only screen and (max-width: 480px) {
 	#covers .cover h3 span:nth-of-type(2) {
 		.clip;
+	}
+}
+
+/**
+ * Vita browser
+ */
+
+@media 
+only screen and (width: 896px) and (height: 512px) {
+	#covers,
+	header.read,
+	#read > .cover {
+		height: 512px;
 	}
 }

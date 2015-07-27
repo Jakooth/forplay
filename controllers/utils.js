@@ -206,10 +206,10 @@ function UtilsManager() {
 	 */
 	
 	this.formatThumborString = function(tag, width, height) {
-		var service = 'http://192.168.56.101:8888/unsafe/';
+		var service = 'http://192.168.1.137:8888/unsafe/';
 		
 		return service + width + 'x' + height + 
-								 '/192.168.56.1:8080/forplay/assets/articles/' + 
+								 '/192.168.1.124:8080/forplay/assets/articles/' + 
 								 tag.substring(0, tag.lastIndexOf('-')) +
 								 '/' + tag;
 	}
