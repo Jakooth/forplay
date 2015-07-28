@@ -152,7 +152,7 @@ function UtilsManager() {
 	}
 	
 	this.formatTag = function (s) {
-		var tag = s.toLowerCase().replace(/[:?\.,!()']|– |- /g, '');
+		var tag = s.toLowerCase().replace(/[:?\.,!()'„“]|– |- /g, '');
 		
 		tag = tag.replace(/ /g, '-');
 		

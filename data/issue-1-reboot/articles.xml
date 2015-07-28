@@ -2,6 +2,271 @@
 <articles>
     <article>
         <site>forlife</site>
+        <url>ана-юърс-се-клонира</url>
+        <video>
+            <tech>youtube</tech>
+            <url>https://www.youtube.com/watch?v=SSMWXI-DlC4</url>
+            <player>27098</player>
+        </video>
+        <tags prime="ouch-thats-big">
+            <tag>ouch-thats-big</tag>
+            <tag>anna-ewers</tag>
+        </tags>
+        <cover align="25%"
+			   valign="top"
+			   theme=""
+			   subtheme="lighten"
+			   tag="anna-ewers">01.jpg</cover>
+        <main>
+            <wide tag="anna-ewers">01.jpg</wide>
+            <shot tag="anna-ewers">01.jpg</shot>
+            <caret tag="anna-ewers">01.jpg</caret>
+        </main>
+        <type bg="филми">movies</type>
+        <subtype bg="новина">news</subtype>
+        <title>
+            <![CDATA[Ана Юърс се клонира.]]>
+        </title>
+        <subtitle>
+            <![CDATA[Ура!]]>
+        </subtitle>
+        <authors>
+            <author>Forplay</author>
+        </authors>
+        <date>Sun Jun 28 2015 03:01:00 GMT+0300 (FLE Daylight Time)</date>
+        <priority>video</priority>
+        <issue>issue-1-reboot</issue>
+        <hype></hype>
+        <better tag=""></better>
+        <worse tag=""></worse>
+        <equal tag=""></equal>
+        <versionTested></versionTested>
+        <preview>
+            <![CDATA[Германската моделка, спрягана за новата Клаудия Шифър, е
+                главното действащо лице в последния от серията кратки филми на
+                Vogue. В лентата, която намига към 60-тарската фантастика, Ана
+                играе всички важни роли. А ние въздишаме по натуралните ѝ форми...]]>
+        </preview>
+        <layouts>
+            <layout type="text" subtype="text"
+					tag="ана-юърс-се-клонира" order="0">
+                <center>
+                    <![CDATA[<p>Германската моделка, спрягана за новата <em>Клаудия
+                        Шифър</em>, е главното действащо лице в последния от
+                        серията кратки филми на <em>Vogue</em>.</p><p>В лентата,
+                        която намига към 60-тарската фантастика, <em>Ана </em>играе
+                        всички важни роли. А ние въздишаме по натуралните ѝ форми...</p>]]>
+                </center>
+            </layout>
+        </layouts>
+    </article>
+    <article>
+        <site>forlife</site>
+        <url>the-revenant-дебютен-тийзър</url>
+        <video>
+            <tech>youtube</tech>
+            <url>https://www.youtube.com/watch?v=oYiT-vLjhC4</url>
+            <player>33858</player>
+        </video>
+        <tags prime="the-revenant">
+            <tag>the-revenant</tag>
+            <tag>leonardo-dicaprio</tag>
+            <tag>alejandro-gonzález-iñárritu</tag>
+        </tags>
+        <cover align="75%"
+			   valign="top"
+			   theme=""
+			   subtheme="lighten"
+			   tag="the-revenant">01.jpg</cover>
+        <main>
+            <wide tag="the-revenant">01.jpg</wide>
+            <shot tag="the-revenant">01.jpg</shot>
+            <caret tag="the-revenant">01.jpg</caret>
+        </main>
+        <type bg="филми">movies</type>
+        <subtype bg="новина">news</subtype>
+        <title>
+            <![CDATA[The Revenant – дебютен тийзър]]>
+        </title>
+        <subtitle>
+            <![CDATA[Ще побутне ли Иняриту Лео до Оскара?]]>
+        </subtitle>
+        <authors>
+            <author>Forplay</author>
+        </authors>
+        <date>Sun Jun 28 2015 03:01:00 GMT+0300 (FLE Daylight Time)</date>
+        <priority>video</priority>
+        <issue>issue-1-reboot</issue>
+        <hype></hype>
+        <better tag=""></better>
+        <worse tag=""></worse>
+        <equal tag=""></equal>
+        <versionTested></versionTested>
+        <preview>
+            <![CDATA[Алехандро Гонсалес Иняриту + Леонардо ди Каприо = на Оскар
+                за „най-добър филм“ и „най-добър сценарий“?]]>
+        </preview>
+        <layouts>
+            <layout type="text" subtype="text"
+					tag="the-revenant-дебютен-тийзър" order="0">
+                <center>
+                    <![CDATA[<p><em>Алехандро Гонсалес Иняриту</em> + <em>Леонардо
+                        ди Каприо</em> = на Оскар за &bdquo;най-добър филм&ldquo;
+                        и &bdquo;най-добър сценарий&ldquo;?</p>]]>
+                </center>
+            </layout>
+        </layouts>
+    </article>
+    <article>
+        <site>forlife</site>
+        <url>спектър-с-убийствен-дебютен-трейлър</url>
+        <video>
+            <tech>youtube</tech>
+            <url>https://www.youtube.com/watch?v=vBnGxAkdh_k</url>
+            <player>49375</player>
+        </video>
+        <tags prime="spectre">
+            <tag>spectre</tag>
+            <tag>daniel-craig</tag>
+            <tag>christoph-waltz</tag>
+        </tags>
+        <cover align="center"
+			   valign="top"
+			   theme=""
+			   subtheme="lighten"
+			   tag="spectre">01.jpg</cover>
+        <main>
+            <wide tag="spectre">01.jpg</wide>
+            <shot tag="spectre">01.jpg</shot>
+            <caret tag="spectre">01.jpg</caret>
+        </main>
+        <type bg="филми">movies</type>
+        <subtype bg="новина">news</subtype>
+        <title>
+            <![CDATA[„Спектър“ с убийствен дебютен трейлър]]>
+        </title>
+        <subtitle>
+            <![CDATA[007 ще тества естествено и новата Xperia]]>
+        </subtitle>
+        <authors>
+            <author>Forplay</author>
+        </authors>
+        <date>Sun Jun 28 2015 03:01:00 GMT+0300 (FLE Daylight Time)</date>
+        <priority>video</priority>
+        <issue>issue-1-reboot</issue>
+        <hype></hype>
+        <better tag=""></better>
+        <worse tag=""></worse>
+        <equal tag=""></equal>
+        <versionTested></versionTested>
+        <preview>
+            <![CDATA[Може ли го все още Даниел Крейг и ще го вдигне ли на Кристоф
+                Валц?]]>
+        </preview>
+        <layouts>
+            <layout type="text" subtype="text"
+					tag="спектър-с-убийствен-деютен-трейлър" order="0">
+                <center>
+                    <![CDATA[<p>Може ли го все още Даниел Крейг и ще го вдигне
+                        ли на Кристоф Валц?</p>]]>
+                </center>
+            </layout>
+        </layouts>
+    </article>
+    <article>
+        <site>forplay</site>
+        <url>шварценегер-терминира-кеча</url>
+        <video>
+            <tech>youtube</tech>
+            <url>https://www.youtube.com/watch?v=WM_7anxTMf4</url>
+            <player>30981</player>
+        </video>
+        <tags prime="wwe-2k16">
+            <tag>wwe-2k16</tag>
+            <tag>terminator</tag>
+            <tag>arnold-schwarzenegger</tag>
+        </tags>
+        <cover align="center"
+			   valign="center"
+			   theme=""
+			   subtheme="lighten"
+			   tag="wwe-2k16">01.jpg</cover>
+        <main>
+            <wide tag="wwe-2k16">01.jpg</wide>
+            <shot tag="wwe-2k16">01.jpg</shot>
+            <caret tag="wwe-2k16">01.jpg</caret>
+        </main>
+        <type bg="игри">games</type>
+        <subtype bg="новина">news</subtype>
+        <title>
+            <![CDATA[Шварценегер „терминира“ кеча!]]>
+        </title>
+        <subtitle>
+            <![CDATA[Но никога няма да видим на ринга Хълк Хоугън срещу Терминатор]]>
+        </subtitle>
+        <authors>
+            <author>Forplay</author>
+        </authors>
+        <date>Sun Jun 28 2015 02:31:00 GMT+0300 (FLE Daylight Time)</date>
+        <priority>video</priority>
+        <issue>issue-1-reboot</issue>
+        <hype></hype>
+        <better tag=""></better>
+        <worse tag=""></worse>
+        <equal tag=""></equal>
+        <versionTested></versionTested>
+        <preview>
+            <![CDATA[Терминираща причина да направиш предварителна поръчка на
+                WWE 2K16?]]>
+        </preview>
+    </article>
+    <article>
+        <site>forplay</site>
+        <url>super-mario-maker-носталгичен-трейлър</url>
+        <video>
+            <tech>youtube</tech>
+            <url>https://www.youtube.com/watch?v=OHIUakJQGgs</url>
+            <player>40219</player>
+        </video>
+        <tags prime="hohokum">
+            <tag>super-mario-maker</tag>
+            <tag>super-mario</tag>
+        </tags>
+        <cover align="center"
+			   valign="top"
+			   theme=""
+			   subtheme=""
+			   tag="super-mario-maker">01.jpg</cover>
+        <main>
+            <wide tag="super-mario-maker">01.jpg</wide>
+            <shot tag="super-mario-maker">01.jpg</shot>
+            <caret tag="super-mario-maker">01.jpg</caret>
+        </main>
+        <type bg="игри">games</type>
+        <subtype bg="новина">news</subtype>
+        <title>
+            <![CDATA[Super Mario Maker – „носталгичен“ трейлър]]>
+        </title>
+        <subtitle>
+            <![CDATA[Марио на десетки хиляди гъби!]]>
+        </subtitle>
+        <authors>
+            <author>Forplay</author>
+        </authors>
+        <date>Sun Jun 28 2015 02:10:00 GMT+0300 (FLE Daylight Time)</date>
+        <priority>video</priority>
+        <issue>issue-1-reboot</issue>
+        <hype></hype>
+        <better tag=""></better>
+        <worse tag=""></worse>
+        <equal tag=""></equal>
+        <versionTested></versionTested>
+        <preview>
+            <![CDATA[Като LittleBigPlanet, но с по-добра физика и колизия.]]>
+        </preview>
+    </article>
+    <article>
+        <site>forlife</site>
         <url>jupiter-ascending</url>
         <tags prime="jupiter-ascending">
             <tag>jupiter-ascending</tag>
@@ -25,10 +290,10 @@
             <![CDATA[Целейки се в Jupiter, Уашовски остро влизат в UrAnus…]]>
         </subtitle>
         <authors>
-            <author>Major Mistake</author>
+            <author>doomy</author>
         </authors>
         <date>Sat Jun 27 2015 19:00:00 GMT+0300 (FLE Daylight Time)</date>
-        <priority>review</priority>
+        <priority></priority>
         <issue>issue-1-reboot</issue>
         <hype>5</hype>
         <better tag="elysium">Elysium</better>
@@ -514,215 +779,6 @@
         </preview>
     </article>
     <article>
-        <site>forlife</site>
-        <url>pharrell-williams-brand-new-girl</url>
-        <video>
-            <tech>youtube</tech>
-            <url>https://www.youtube.com/watch?v=fLwVyhx9wak</url>
-            <player>14861</player>
-        </video>
-        <tags prime="pharrell-williams">
-            <tag>pharrell-williams</tag>
-        </tags>
-        <cover align="left"
-			   valign="center"
-			   theme="cyan"
-			   subtheme="lighten"
-			   tag="pharrell-williams">01.jpg</cover>
-        <main>
-            <wide tag="pharrell-williams">01.jpg</wide>
-            <shot tag="pharrell-williams">01.jpg</shot>
-            <caret tag="pharrell-williams">01.jpg</caret>
-        </main>
-        <type bg="музика">music</type>
-        <subtype bg="новина">news</subtype>
-        <title>
-            <![CDATA[Pharrell Williams - Brand New (GIRL)]]>
-        </title>
-        <subtitle>
-            <![CDATA[В комплект с Джъстин Тимбърлейк]]>
-        </subtitle>
-        <authors>
-            <author>Forplay</author>
-        </authors>
-        <date>Mon Dec 08 2014 14:06:00 GMT+0200 (FLE Standard Time)</date>
-        <priority>video</priority>
-        <issue>issue-1-reboot</issue>
-        <hype></hype>
-        <better tag=""></better>
-        <worse tag=""></worse>
-        <equal tag=""></equal>
-        <versionTested></versionTested>
-        <preview>
-            <![CDATA[]]>
-        </preview>
-        <layouts>
-            <layout type="text" subtype="text"
-					tag="pharrell-williams-brand-new-girl" order="0">
-                <center>
-                    <![CDATA[]]>
-                </center>
-            </layout>
-        </layouts>
-    </article>
-    <article>
-        <site>forlife</site>
-        <url>шварценегер-се-завръща-за-пореден-път</url>
-        <video>
-            <tech>youtube</tech>
-            <url>https://www.youtube.com/watch?v=FqbOFjl7ZWE</url>
-            <player>32622</player>
-        </video>
-        <tags prime="terminator-genisys">
-            <tag>terminator-genisys</tag>
-            <tag>arnold-schwarzenegger</tag>
-        </tags>
-        <cover align="center"
-			   valign="center"
-			   theme="cyan"
-			   subtheme="lighten"
-			   tag="terminator-genisys">01.jpg</cover>
-        <main>
-            <wide tag="terminator-genisys">01.jpg</wide>
-            <shot tag="terminator-genisys">01.jpg</shot>
-            <caret tag="terminator-genisys">01.jpg</caret>
-        </main>
-        <type bg="филми">movies</type>
-        <subtype bg="новина">news</subtype>
-        <title>
-            <![CDATA[Шварценегер се завръща за пореден път]]>
-        </title>
-        <subtitle>
-            <![CDATA[Доколко ще е за добро - прецени сам]]>
-        </subtitle>
-        <authors>
-            <author>Forplay</author>
-        </authors>
-        <date>Mon Dec 08 2014 14:06:00 GMT+0200 (FLE Standard Time)</date>
-        <priority>video</priority>
-        <issue>issue-1-reboot</issue>
-        <hype></hype>
-        <better tag=""></better>
-        <worse tag=""></worse>
-        <equal tag=""></equal>
-        <versionTested></versionTested>
-        <preview>
-            <![CDATA[]]>
-        </preview>
-        <layouts>
-            <layout type="text" subtype="text"
-					tag="шварценегер-се-завръща-за-пореден-път-" order="0">
-                <center>
-                    <![CDATA[]]>
-                </center>
-            </layout>
-        </layouts>
-    </article>
-    <article>
-        <site>forplay</site>
-        <url>гералт-се-завръща</url>
-        <video>
-            <tech>youtube</tech>
-            <url>https://www.youtube.com/watch?v=KtEO2xZ7BzQ</url>
-            <player>54773</player>
-        </video>
-        <tags prime="the-witcher-3">
-            <tag>the-witcher-3</tag>
-        </tags>
-        <cover align="center"
-			   valign="top"
-			   theme="cyan"
-			   subtheme="lighten"
-			   tag="the-witcher-3">01.jpg</cover>
-        <main>
-            <wide tag="the-witcher-3">01.jpg</wide>
-            <shot tag="the-witcher-3">01.jpg</shot>
-            <caret tag="the-witcher-3">01.jpg</caret>
-        </main>
-        <type bg="игри">games</type>
-        <subtype bg="новина">news</subtype>
-        <title>
-            <![CDATA[Гералт се завръща]]>
-        </title>
-        <subtitle>
-            <![CDATA[Време е да забъркаме отварите и да наточим мечовете]]>
-        </subtitle>
-        <authors>
-            <author>Forplay</author>
-        </authors>
-        <date>Mon Dec 08 2014 14:06:00 GMT+0200 (FLE Standard Time)</date>
-        <priority>video</priority>
-        <issue>issue-1-reboot</issue>
-        <hype></hype>
-        <better tag=""></better>
-        <worse tag=""></worse>
-        <equal tag=""></equal>
-        <versionTested></versionTested>
-        <preview>
-            <![CDATA[]]>
-        </preview>
-        <layouts>
-            <layout type="text" subtype="text"
-					tag="гералт-се-завръща" order="0">
-                <center>
-                    <![CDATA[]]>
-                </center>
-            </layout>
-        </layouts>
-    </article>
-    <article>
-        <site>forplay</site>
-        <url>uncharted-4-геймплей</url>
-        <video>
-            <tech>youtube</tech>
-            <url>https://www.youtube.com/watch?v=Ow2cL-pp6p8</url>
-            <player>60581</player>
-        </video>
-        <tags prime="uncharted-4">
-            <tag>uncharted-4</tag>
-        </tags>
-        <cover align="center"
-			   valign="center"
-			   theme="cyan"
-			   subtheme="lighten"
-			   tag="uncharted-4">01.jpg</cover>
-        <main>
-            <wide tag="uncharted-4">01.jpg</wide>
-            <shot tag="uncharted-4">01.jpg</shot>
-            <caret tag="uncharted-4">01.jpg</caret>
-        </main>
-        <type bg="игри">games</type>
-        <subtype bg="новина">news</subtype>
-        <title>
-            <![CDATA[Uncharted 4 геймплей]]>
-        </title>
-        <subtitle>
-            <![CDATA[Дойде ли ти?]]>
-        </subtitle>
-        <authors>
-            <author>Forplay</author>
-        </authors>
-        <date>Mon Dec 08 2014 14:06:00 GMT+0200 (FLE Standard Time)</date>
-        <priority>video</priority>
-        <issue>issue-1-reboot</issue>
-        <hype></hype>
-        <better tag=""></better>
-        <worse tag=""></worse>
-        <equal tag=""></equal>
-        <versionTested></versionTested>
-        <preview>
-            <![CDATA[]]>
-        </preview>
-        <layouts>
-            <layout type="text" subtype="text"
-					tag="uncharted-4-геймплей" order="0">
-                <center>
-                    <![CDATA[]]>
-                </center>
-            </layout>
-        </layouts>
-    </article>
-    <article>
         <site>forplay</site>
         <url>gta-5</url>
         <tags prime="gta-5">
@@ -1170,7 +1226,7 @@
             <author>Snake</author>
         </authors>
         <date>Mon Dec 08 2014 01:40:00 GMT+0200 (FLE Standard Time)</date>
-        <priority></priority>
+        <priority>review</priority>
         <issue>issue-1-reboot</issue>
         <hype>7</hype>
         <better tag="call-of-duty-4">Call of Duty: Нещо-Си</better>
@@ -1417,7 +1473,7 @@
             <author>Koralsky</author>
         </authors>
         <date>Fri Oct 31 2014 00:00:00 GMT+0200 (FLE Standard Time)</date>
-        <priority>cover</priority>
+        <priority>review</priority>
         <issue>issue-1-reboot</issue>
         <hype>8+</hype>
         <better tag="outlast">Outlast</better>
@@ -1494,7 +1550,7 @@
             <author>Koralsky</author>
         </authors>
         <date>Wed Nov 12 2014 01:05:00 GMT+0200 (FLE Standard Time)</date>
-        <priority>cover</priority>
+        <priority>review</priority>
         <issue>issue-1-reboot</issue>
         <hype>8</hype>
         <better tag="need-for-speed-rivals">Need for Speed: Rivals</better>
@@ -1571,7 +1627,7 @@
             <author>doomy</author>
         </authors>
         <date>Fri Oct 10 2014 02:11:00 GMT+0300 (FLE Daylight Time)</date>
-        <priority>cover</priority>
+        <priority>review</priority>
         <issue>issue-1-reboot</issue>
         <hype>8+</hype>
         <better tag="borderlands">Borderlands</better>
@@ -2218,7 +2274,7 @@
             <author>Koralsky</author>
         </authors>
         <date>Sun Oct 12 2014 17:59:00 GMT+0300 (FLE Daylight Time)</date>
-        <priority></priority>
+        <priority>review</priority>
         <issue>issue-1-reboot</issue>
         <hype>8+</hype>
         <better tag="frankenweenie">последните филми на Тим Бъртън</better>
@@ -2948,7 +3004,7 @@
             <author>Snake</author>
         </authors>
         <date>Sun Sep 07 2014 02:19:00 GMT+0300 (FLE Daylight Time)</date>
-        <priority></priority>
+        <priority>review</priority>
         <issue>issue-1-reboot</issue>
         <hype>6</hype>
         <better tag="call-of-duty-black-ops-2">безмозъчен военен екшън</better>
@@ -3126,7 +3182,7 @@
             <author>Snake</author>
         </authors>
         <date>Thu Jan 09 2014 01:35:00 GMT+0200 (FLE Standard Time)</date>
-        <priority></priority>
+        <priority>review</priority>
         <issue>issue-1-reboot</issue>
         <hype></hype>
         <better tag=""></better>
@@ -3282,7 +3338,7 @@
             <author>Koralsky</author>
         </authors>
         <date>Thu Oct 30 2014 18:08:00 GMT+0200 (FLE Standard Time)</date>
-        <priority>cover</priority>
+        <priority>review</priority>
         <issue>issue-1-reboot</issue>
         <hype>8</hype>
         <better tag="fifa-14">Fifa 14</better>
@@ -3449,7 +3505,7 @@
             <author>Koralsky</author>
         </authors>
         <date>Fri May 29 2015 19:30:00 GMT+0300 (FLE Daylight Time)</date>
-        <priority></priority>
+        <priority>review</priority>
         <issue>issue-1-reboot</issue>
         <hype>8+</hype>
         <better tag="snake">Snake?</better>
@@ -3829,5 +3885,214 @@
                 доразвиваха и модернизираха, без да се подхлъзнат лошо и да им
                 се налага в някакъв момент да прибягват до "завръщане към корените".]]>
         </preview>
+    </article>
+    <article>
+        <site>forlife</site>
+        <url>pharrell-williams-brand-new-girl</url>
+        <video>
+            <tech>youtube</tech>
+            <url>https://www.youtube.com/watch?v=fLwVyhx9wak</url>
+            <player>14861</player>
+        </video>
+        <tags prime="pharrell-williams">
+            <tag>pharrell-williams</tag>
+        </tags>
+        <cover align="left"
+			   valign="center"
+			   theme="cyan"
+			   subtheme="lighten"
+			   tag="pharrell-williams">01.jpg</cover>
+        <main>
+            <wide tag="pharrell-williams">01.jpg</wide>
+            <shot tag="pharrell-williams">01.jpg</shot>
+            <caret tag="pharrell-williams">01.jpg</caret>
+        </main>
+        <type bg="музика">music</type>
+        <subtype bg="новина">news</subtype>
+        <title>
+            <![CDATA[Pharrell Williams - Brand New (GIRL)]]>
+        </title>
+        <subtitle>
+            <![CDATA[В комплект с Джъстин Тимбърлейк]]>
+        </subtitle>
+        <authors>
+            <author>Forplay</author>
+        </authors>
+        <date>Mon Dec 08 2014 14:06:00 GMT+0200 (FLE Standard Time)</date>
+        <priority>video</priority>
+        <issue>issue-1-reboot</issue>
+        <hype></hype>
+        <better tag=""></better>
+        <worse tag=""></worse>
+        <equal tag=""></equal>
+        <versionTested></versionTested>
+        <preview>
+            <![CDATA[]]>
+        </preview>
+        <layouts>
+            <layout type="text" subtype="text"
+					tag="pharrell-williams-brand-new-girl" order="0">
+                <center>
+                    <![CDATA[]]>
+                </center>
+            </layout>
+        </layouts>
+    </article>
+    <article>
+        <site>forlife</site>
+        <url>шварценегер-се-завръща-за-пореден-път</url>
+        <video>
+            <tech>youtube</tech>
+            <url>https://www.youtube.com/watch?v=FqbOFjl7ZWE</url>
+            <player>32622</player>
+        </video>
+        <tags prime="terminator-genisys">
+            <tag>terminator-genisys</tag>
+            <tag>arnold-schwarzenegger</tag>
+        </tags>
+        <cover align="center"
+			   valign="center"
+			   theme="cyan"
+			   subtheme="lighten"
+			   tag="terminator-genisys">01.jpg</cover>
+        <main>
+            <wide tag="terminator-genisys">01.jpg</wide>
+            <shot tag="terminator-genisys">01.jpg</shot>
+            <caret tag="terminator-genisys">01.jpg</caret>
+        </main>
+        <type bg="филми">movies</type>
+        <subtype bg="новина">news</subtype>
+        <title>
+            <![CDATA[Шварценегер се завръща за пореден път]]>
+        </title>
+        <subtitle>
+            <![CDATA[Доколко ще е за добро - прецени сам]]>
+        </subtitle>
+        <authors>
+            <author>Forplay</author>
+        </authors>
+        <date>Mon Dec 08 2014 14:06:00 GMT+0200 (FLE Standard Time)</date>
+        <priority>video</priority>
+        <issue>issue-1-reboot</issue>
+        <hype></hype>
+        <better tag=""></better>
+        <worse tag=""></worse>
+        <equal tag=""></equal>
+        <versionTested></versionTested>
+        <preview>
+            <![CDATA[]]>
+        </preview>
+        <layouts>
+            <layout type="text" subtype="text"
+					tag="шварценегер-се-завръща-за-пореден-път-" order="0">
+                <center>
+                    <![CDATA[]]>
+                </center>
+            </layout>
+        </layouts>
+    </article>
+    <article>
+        <site>forplay</site>
+        <url>гералт-се-завръща</url>
+        <video>
+            <tech>youtube</tech>
+            <url>https://www.youtube.com/watch?v=KtEO2xZ7BzQ</url>
+            <player>54773</player>
+        </video>
+        <tags prime="the-witcher-3">
+            <tag>the-witcher-3</tag>
+        </tags>
+        <cover align="center"
+			   valign="top"
+			   theme="cyan"
+			   subtheme="lighten"
+			   tag="the-witcher-3">01.jpg</cover>
+        <main>
+            <wide tag="the-witcher-3">01.jpg</wide>
+            <shot tag="the-witcher-3">01.jpg</shot>
+            <caret tag="the-witcher-3">01.jpg</caret>
+        </main>
+        <type bg="игри">games</type>
+        <subtype bg="новина">news</subtype>
+        <title>
+            <![CDATA[Гералт се завръща]]>
+        </title>
+        <subtitle>
+            <![CDATA[Време е да забъркаме отварите и да наточим мечовете]]>
+        </subtitle>
+        <authors>
+            <author>Forplay</author>
+        </authors>
+        <date>Mon Dec 08 2014 14:06:00 GMT+0200 (FLE Standard Time)</date>
+        <priority>video</priority>
+        <issue>issue-1-reboot</issue>
+        <hype></hype>
+        <better tag=""></better>
+        <worse tag=""></worse>
+        <equal tag=""></equal>
+        <versionTested></versionTested>
+        <preview>
+            <![CDATA[]]>
+        </preview>
+        <layouts>
+            <layout type="text" subtype="text"
+					tag="гералт-се-завръща" order="0">
+                <center>
+                    <![CDATA[]]>
+                </center>
+            </layout>
+        </layouts>
+    </article>
+    <article>
+        <site>forplay</site>
+        <url>uncharted-4-геймплей</url>
+        <video>
+            <tech>youtube</tech>
+            <url>https://www.youtube.com/watch?v=Ow2cL-pp6p8</url>
+            <player>60581</player>
+        </video>
+        <tags prime="uncharted-4">
+            <tag>uncharted-4</tag>
+        </tags>
+        <cover align="center"
+			   valign="center"
+			   theme="cyan"
+			   subtheme="lighten"
+			   tag="uncharted-4">01.jpg</cover>
+        <main>
+            <wide tag="uncharted-4">01.jpg</wide>
+            <shot tag="uncharted-4">01.jpg</shot>
+            <caret tag="uncharted-4">01.jpg</caret>
+        </main>
+        <type bg="игри">games</type>
+        <subtype bg="новина">news</subtype>
+        <title>
+            <![CDATA[Uncharted 4 геймплей]]>
+        </title>
+        <subtitle>
+            <![CDATA[Дойде ли ти?]]>
+        </subtitle>
+        <authors>
+            <author>Forplay</author>
+        </authors>
+        <date>Mon Dec 08 2014 14:06:00 GMT+0200 (FLE Standard Time)</date>
+        <priority>video</priority>
+        <issue>issue-1-reboot</issue>
+        <hype></hype>
+        <better tag=""></better>
+        <worse tag=""></worse>
+        <equal tag=""></equal>
+        <versionTested></versionTested>
+        <preview>
+            <![CDATA[]]>
+        </preview>
+        <layouts>
+            <layout type="text" subtype="text"
+					tag="uncharted-4-геймплей" order="0">
+                <center>
+                    <![CDATA[]]>
+                </center>
+            </layout>
+        </layouts>
     </article>
 </articles>

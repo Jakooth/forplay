@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<article>
+    <site>forplay</site>
+    <url>super-mario-maker-носталгичен-трейлър</url>
+    <video>
+        <tech>youtube</tech>
+        <url>https://www.youtube.com/watch?v=OHIUakJQGgs</url>
+        <player>40219</player>
+    </video>
+    <tags prime="hohokum">
+        <tag>super-mario-maker</tag>
+        <tag>super-mario</tag>
+    </tags>
+    <cover align="center"
+    	   valign="top"
+       	   theme=""
+           subtheme=""
+           tag="super-mario-maker">01.jpg</cover>
+    <main>
+        <wide tag="super-mario-maker">01.jpg</wide>
+        <shot tag="super-mario-maker">01.jpg</shot>
+        <caret tag="super-mario-maker">01.jpg</caret>
+    </main>
+    <type bg="игри">games</type>
+    <subtype bg="новина">news</subtype>
+    <title>
+        <![CDATA[Super Mario Maker – „носталгичен“ трейлър]]>
+    </title>
+    <subtitle>
+        <![CDATA[Марио на десетки хиляди гъби!]]>
+    </subtitle>
+    <authors>
+        <author>Forplay</author>
+    </authors>
+    <date>Sun Jun 28 2015 02:10:00 GMT+0300 (FLE Daylight Time)</date>
+    <priority>video</priority>
+    <issue>issue-1-reboot</issue>
+    <hype></hype>
+    <better tag=""></better>
+    <worse tag=""></worse>
+    <equal tag=""></equal>
+    <versionTested></versionTested>
+    <preview>
+        <![CDATA[Като LittleBigPlanet, но с по-добра физика и колизия.]]>
+    </preview>
+    <layouts>
+        <layout type="text" subtype="text"
+                tag="super-mario-maker-носталгичен-трейлър" order="0">
+            <center>
+                <![CDATA[<p>Като <strong>LittleBigPlanet</strong>, но с по-добра
+                    физика и колизия.</p>]]>
+            </center>
+        </layout>
+    </layouts>
+</article>

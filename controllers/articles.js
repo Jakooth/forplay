@@ -10,12 +10,26 @@ function ArticlesManager() {
 	
 		/**
 		 * For mobile deliver the image for size in landscape.
+		 * For priority review use different visuals.
 		 */
 		
-		var ratio = utils.isMobile() ? 1 * (16/9) : 1,
-			src = utils.formatThumborString($img.data('main'),
-											Math.round($img.width() * ratio), 
-											Math.round($img.height() * ratio));
+		var isCaret = $img.parents('#topReviews').length || 
+					  $img.parents('[data-priority=review]').length > 0 ? true 
+					  													: false,
+		/**
+		 * For the second top review use the solid main image.
+		 */		
+			
+			main = isCaret && 
+				   $img.parents('[data-priority=review]').index() != 2 ? $img.data('caret') 
+				   												  	   : $img.data('main'),
+			ratio = utils.isMobile() ? 1 * (16/9) 
+									 : 1,
+			height = isCaret ? $img.width() * ratio 
+							 : $img.height() * ratio,
+			src = utils.formatTimThumbString(main,
+											 Math.round($img.width() * ratio), 
+											 Math.round(height));
 		
 		$img.data('proxy', false);
 		$img.attr('data-proxy', $img.data('proxy'));
@@ -32,9 +46,9 @@ function ArticlesManager() {
 		
 		var widthRatio = utils.isMobile() ? 1 : 16/9,
 			heihgtRatio = utils.isMobile() ? 1 * (16/9) : 1,
-			src = utils.formatThumborString($img.data('main'),
-											Math.round($div.outerWidth() * heihgtRatio), 
-											Math.round(($div.outerWidth() / widthRatio) * heihgtRatio));
+			src = utils.formatTimThumbString($img.data('main'),
+											 Math.round($div.outerWidth() * heihgtRatio), 
+											 Math.round(($div.outerWidth() / widthRatio) * heihgtRatio));
 		
 		$img.data('proxy', false);
 		$img.attr('data-proxy', $img.data('proxy'));
@@ -50,9 +64,9 @@ function ArticlesManager() {
 		 */
 		
 		var ratio = utils.isMobile() ? 100 * (16/9) : 60, 
-			src = utils.formatThumborString($img.data('cover'),
-											Math.round($(window).width() * ratio/100), 
-											Math.round($(window).width() * ratio/100 / (16/9)));
+			src = utils.formatTimThumbString($img.data('cover'),
+											 Math.round($(window).width() * ratio/100), 
+											 Math.round($(window).width() * ratio/100 / (16/9)));
 		
 		$img.data('proxy', false);
 		$img.attr('data-proxy', $img.data('proxy'));
@@ -383,6 +397,8 @@ function ArticlesManager() {
 		}
 		
 		$('#topVideos').append(html.find('article.video:lt(5)'));
+		$('#topReviews').append(html.find('article[data-priority=review]' + 
+										  '').filter(':lt(3)'));
 		
 		var id = Math.round(Math.random() * 100000);
 		
@@ -394,7 +410,7 @@ function ArticlesManager() {
 		$players.find('a').attr('data-player', id);
 		$players.find('a').data('player', id);
 		
-		$('#topArticles').append(html.find('article:lt(5)'));
+		$('#topArticles').append(html.find('article:not(.video):lt(5)'));
 		$('#allArticles').append(html.html());
 		
 		/**

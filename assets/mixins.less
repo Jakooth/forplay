@@ -12,9 +12,9 @@
  */
 
 #createMedia (@width, @height) {
-	@ratio1: (@height * 50) / 100;
-	@ratio2: (@height * 16) / 100;
-	@ratio3: (@height * 10) / 100;
+	@banner: (@height * 50) / 100;
+	@nav: (@height * 16) / 100;
+	@fixed: (@height * 10) / 100;
 	
 	@media only screen and (min-width: ~'@{width}px')
 					   and (max-height: ~'@{height}px') {
@@ -38,11 +38,11 @@
 		
 		header.fixed,
 		.nav-set {
-			height: @ratio2 + 0px;
+			height: @nav + 0px;
 		}
 		
 		#forLife {
-			bottom: @ratio2 - 1px;
+			bottom: @nav - 1px;
 		}
 		
 		/**
@@ -51,15 +51,15 @@
 		 */
 		
 		main.fixed {
-			padding-top: @ratio1 + 0px;
+			padding-top: @banner + 0px;
 		}
 		
 		main.read.fixed {
-			padding-top: @ratio1 - 180px;
+			padding-top: @banner - 180px;
 		}
 		
 		main.read.fixed.static {
-			padding-top: @ratio2 + 0px;
+			padding-top: @nav + 0px;
 		}
 	
 		/**
@@ -70,22 +70,26 @@
 		#covers .cover-set,
 		section.cover,
 		.article-set article {
-			height: @ratio1 + 0px;
+			height: @banner + 0px;
+		}
+		
+		#topReviews.article-set article {
+			height: @banner * 1.5 + 0px;
 		}
 		
 		#forPlay,
 		header.fixed #covers,
 		main.fixed #read:after,
 		main.fixed #read .cover {
-			height: @ratio3 + 0px;
+			height: @fixed + 0px;
 		}
 	
 		#read .cover li p {
-			top: @ratio3 + 0px;
+			top: @fixed + 0px;
 		}
 		
 		#read .cover li:nth-child(3) p {
-			top: @ratio3 + 64px;
+			top: @fixed + 64px;
 		}
 	}
 }

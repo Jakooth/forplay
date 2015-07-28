@@ -15,13 +15,37 @@
  * 1440x900		macbook pro 16:10
  */
 
+/**
+ * 4:3
+ */
+
+#createMedia(1280, 960);
+#createMedia(1366, 1025);
+#createMedia(1440, 1080);
+#createMedia(1600, 1200);
+
+/**
+ * 16:9
+ */
+
 #createMedia(1280, 720);
 #createMedia(1366, 768);
 #createMedia(1440, 900);
-#createMedia(1600, 1200);
 #createMedia(1680, 1050);
 #createMedia(1920, 1080);
 #createMedia(3840, 2160);
+
+/**
+ * Browser zoom to 75%
+ */
+
+#createMedia(2400, 1350);
+
+
+
+
+
+
 
 
 /**
@@ -37,7 +61,8 @@ only screen and (max-width: 1680px) {
 	#covers h3 a,
 	section.cover h3 strong,
 	.video-set article:nth-of-type(3) h3 a,
-	.static .read-set .layout:first-of-type h3 strong {
+	.static .read-set .layout:first-of-type h3 strong,
+	#topReviews.article-set article:nth-of-type(2) h3 * {
 		font-size: 34pt;
 	}
 }
@@ -51,7 +76,8 @@ only screen and (max-width: 1440px) {
 	#covers h3 a,
 	section.cover h3 strong,
 	.video-set article:nth-of-type(3) h3 a,
-	.static .read-set .layout:first-of-type h3 strong {
+	.static .read-set .layout:first-of-type h3 strong,
+	#topReviews.article-set article:nth-of-type(2) h3 * {
 		font-size: 30pt;
 	}
 	

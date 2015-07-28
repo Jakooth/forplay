@@ -27,7 +27,7 @@
         <author>Koralsky</author>
     </authors>
     <date>Fri May 29 2015 19:30:00 GMT+0300 (FLE Daylight Time)</date>
-    <priority></priority>
+    <priority>review</priority>
     <issue>issue-1-reboot</issue>
     <hype>8+</hype>
     <better tag="snake">Snake?</better>

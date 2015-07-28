@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<article>
+    <site>forlife</site>
+    <url>ана-юърс-се-клонира</url>
+    <video>
+        <tech>youtube</tech>
+        <url>https://www.youtube.com/watch?v=SSMWXI-DlC4</url>
+        <player>27098</player>
+    </video>
+    <tags prime="ouch-thats-big">
+        <tag>ouch-thats-big</tag>
+        <tag>anna-ewers</tag>
+    </tags>
+    <cover align="25%"
+    	   valign="top"
+       	   theme=""
+           subtheme="lighten"
+           tag="anna-ewers">01.jpg</cover>
+    <main>
+        <wide tag="anna-ewers">01.jpg</wide>
+        <shot tag="anna-ewers">01.jpg</shot>
+        <caret tag="anna-ewers">01.jpg</caret>
+    </main>
+    <type bg="филми">movies</type>
+    <subtype bg="новина">news</subtype>
+    <title>
+        <![CDATA[Ана Юърс се клонира.]]>
+    </title>
+    <subtitle>
+        <![CDATA[Ура!]]>
+    </subtitle>
+    <authors>
+        <author>Forplay</author>
+    </authors>
+    <date>Sun Jun 28 2015 03:01:00 GMT+0300 (FLE Daylight Time)</date>
+    <priority>video</priority>
+    <issue>issue-1-reboot</issue>
+    <hype></hype>
+    <better tag=""></better>
+    <worse tag=""></worse>
+    <equal tag=""></equal>
+    <versionTested></versionTested>
+    <preview>
+        <![CDATA[Германската моделка, спрягана за новата Клаудия Шифър, е главното
+            действащо лице в последния от серията кратки филми на Vogue. В лентата,
+            която намига към 60-тарската фантастика, Ана играе всички важни роли.
+            А ние въздишаме по натуралните ѝ форми...]]>
+    </preview>
+    <layouts>
+        <layout type="text" subtype="text"
+                tag="ана-юърс-се-клонира" order="0">
+            <center>
+                <![CDATA[<p>Германската моделка, спрягана за новата <em>Клаудия
+                    Шифър</em>, е главното действащо лице в последния от серията
+                    кратки филми на <em>Vogue</em>.</p><p>В лентата, която намига
+                    към 60-тарската фантастика, <em>Ана </em>играе всички важни
+                    роли. А ние въздишаме по натуралните ѝ форми...</p>]]>
+            </center>
+        </layout>
+    </layouts>
+</article>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<article>
+    <site>forlife</site>
+    <url>the-revenant-дебютен-тийзър</url>
+    <video>
+        <tech>youtube</tech>
+        <url>https://www.youtube.com/watch?v=oYiT-vLjhC4</url>
+        <player>33858</player>
+    </video>
+    <tags prime="the-revenant">
+        <tag>the-revenant</tag>
+        <tag>leonardo-dicaprio</tag>
+        <tag>alejandro-gonzález-iñárritu</tag>
+    </tags>
+    <cover align="75%"
+    	   valign="top"
+       	   theme=""
+           subtheme="lighten"
+           tag="the-revenant">01.jpg</cover>
+    <main>
+        <wide tag="the-revenant">01.jpg</wide>
+        <shot tag="the-revenant">01.jpg</shot>
+        <caret tag="the-revenant">01.jpg</caret>
+    </main>
+    <type bg="филми">movies</type>
+    <subtype bg="новина">news</subtype>
+    <title>
+        <![CDATA[The Revenant – дебютен тийзър]]>
+    </title>
+    <subtitle>
+        <![CDATA[Ще побутне ли Иняриту Лео до Оскара?]]>
+    </subtitle>
+    <authors>
+        <author>Forplay</author>
+    </authors>
+    <date>Sun Jun 28 2015 03:01:00 GMT+0300 (FLE Daylight Time)</date>
+    <priority>video</priority>
+    <issue>issue-1-reboot</issue>
+    <hype></hype>
+    <better tag=""></better>
+    <worse tag=""></worse>
+    <equal tag=""></equal>
+    <versionTested></versionTested>
+    <preview>
+        <![CDATA[Алехандро Гонсалес Иняриту + Леонардо ди Каприо = на Оскар за
+            „най-добър филм“ и „най-добър сценарий“?]]>
+    </preview>
+    <layouts>
+        <layout type="text" subtype="text"
+                tag="the-revenant-дебютен-тийзър" order="0">
+            <center>
+                <![CDATA[<p><em>Алехандро Гонсалес Иняриту</em> + <em>Леонардо
+                    ди Каприо</em> = на Оскар за &bdquo;най-добър филм&ldquo;
+                    и &bdquo;най-добър сценарий&ldquo;?</p>]]>
+            </center>
+        </layout>
+    </layouts>
+</article>
