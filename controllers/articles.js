@@ -505,12 +505,6 @@ function ArticlesManager() {
 	 * EVENTS
 	 */
 	
-	window.History.Adapter.bind(window, 'statechange', function() {
-		var State = window.History.getState();
-		
-		loadPage(utils.parseURL(State.cleanUrl));
-	});
-	
 	$(window).on("load", function () {
 		$.event.special.swipe.scrollSupressionThreshold = 10,
 		
@@ -525,7 +519,6 @@ function ArticlesManager() {
 	});
 	
 	$(window).on('load', function (e) {
-		var State = window.History.getState();
 		
 		/**
 		 * Replace SVG images with embed SVG data.
@@ -536,10 +529,18 @@ function ArticlesManager() {
 			utils.convertSVG($(this));
 		});
 		
+		loadPage(utils.parseURL(window.location.href));
+		
 		/**
 		 * If you are loading the index push the portal state.
 		 * In this case the statechange event will load the page.
+		 * This is disabled in version 2 and only links are used.
+		 * The History.js is causing problems on older Android devices.
+		 * TODO: push the portal state in another way.
 		 */
+		
+		/*
+		var State = window.History.getState();
 		
 		if ((State.cleanUrl.indexOf('?') != -1 
 									&& State.cleanUrl.indexOf('portal') == -1 
@@ -553,22 +554,6 @@ function ArticlesManager() {
 				window.History.pushState({'type': 'portal', 'url': issue}, issue, '?' + 'portal' + '=' + issue);
 			}
 		}
+		*/
 	});
-	
-	/**
-	 * Changing URL hash using history.js.
-	 * Page is loaded on statechange event.
-	 * This is disabled in version 2 and only links are used.
-	 */
-	
-	/*
-	$('main').on('click', 'article:not(.Player)', function (e) {
-		var $this = $(this);
-		
-		var type = $(this).data('subtype'),
-			url = $this.data('url');
-		
-		window.History.pushState({'type': type, 'url': url}, url, '?' + type + '=' + url);
-	});
-	*/
 }

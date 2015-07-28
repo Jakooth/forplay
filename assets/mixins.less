@@ -11,12 +11,13 @@
  * 1440x900		macbook pro 16:10
  */
 
-#createMedia (@width, @height) {
+#createMedia (@width, @height, @hrange) {
 	@banner: (@height * 50) / 100;
 	@nav: (@height * 16) / 100;
 	@fixed: (@height * 10) / 100;
 	
 	@media only screen and (min-width: ~'@{width}px')
+					   and (min-height: ~'@{hrange}px')
 					   and (max-height: ~'@{height}px') {
 						   
 		
