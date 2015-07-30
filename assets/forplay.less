@@ -38,6 +38,7 @@
 @news: @deep-orange;
 @video: @blue;
 @hover: @cyan;
+@invert: #FFA195;
 
 
 
@@ -375,6 +376,7 @@ header.fixed #forPlay path {
 	padding-left: 1.25%;
 	padding-top: 1.25%;
 	padding-right: 1.25%;
+	width: 30%;
 }
 
 #forLife {
@@ -752,7 +754,7 @@ header.read #forPlay {
 .nav-set {
 	width: 60%;
 	margin: 0 20%;
-	overflow: hidden;
+	overflow: visible;
 }
 
 .nav-set nav {
@@ -834,6 +836,56 @@ header.read .nav-set li a {
 .nav-set .search,
 .nav-set .user {
 	display: none;
+}
+
+.nav-set .special {
+	position: absolute; 
+	right: -33.33%; 
+	width: 16.6%; 
+	height: 100%;
+	z-index: 1000;
+}
+
+header.read .nav-set .special {
+	right: 0;
+	width: 64px;
+	height: 64px;
+	margin: 1.25%;
+}
+
+.nav-set .special button {
+	width: 100%; 
+	height: 100%; 
+	border: none; 
+	background: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	opacity: 0.1;
+	cursor: pointer;
+	-webkit-filter: invert(1);
+	filter: invert(1);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.nav-set .special button:focus {
+	outline: none;
+}
+
+.nav-set .special button[aria-pressed=true]:hover {
+	background-color: @invert;
+	background-image: url(icons/delapouite/gui/svg/000000/transparent/expand.svg);
+}
+
+.nav-set .special button[aria-pressed=false]:hover {
+	background-color: @invert;
+	background-image: url(icons/delapouite/gui/svg/000000/transparent/contract.svg);
+}
+
+.nav-set h3 span,
+.nav-set button span {
+	.clip
 }
 
 /**
@@ -1064,11 +1116,21 @@ header.read .nav-set li a {
 	right: 2.08%;
 }
 
-.static .read-set .box-placeholder {
+/**
+ * When the header is collapsed do not remove the margin.
+ */
+
+.static .read-set .video .box-placeholder,
+.static .read-set .news .box-placeholder {
 	margin-top: 0;
 }
 
-.static .read-set .layout .img-proxy {
+/**
+ * When the header is collapsed do not mess with image layouts.
+ */
+
+.static.video .read-set .layout > .img-proxy,
+.static.news .read-set .layout > .img-proxy {
 	position: relative;
 	margin: 2.08%;
 	margin-top: 0;
@@ -1076,13 +1138,13 @@ header.read .nav-set li a {
 	clear: both;
 }
 
-.static .read-set .layout .audio-proxy {
+.static .read-set .layout > .audio-proxy {
 	padding: 2.08%;
 	padding-top: 0;
 	margin-top: -2.08%;
 }
 
-.static .read-set .layout ul {
+.static .read-set .layout > ul {
 	display: none;
 }
 
@@ -1169,9 +1231,13 @@ main.read #read {
 	margin-bottom: 2.08%;
 }
 
+.layout.video .img-proxy,
+.layout.news .img-proxy {
+	position: relative;
+}
+
 .layout.inside .img-proxy,
 .layout.img .img-proxy {
-	position: relative;
 	float: left;
 	padding: 2.08%;
 }

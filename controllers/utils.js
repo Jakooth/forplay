@@ -35,7 +35,7 @@ function UtilsManager() {
 			$appender.text(xml);
 			$appender.height($appender.prop('scrollHeight'));
 		}).fail(function() {
-			alert("Failed to load xml template.");
+			console.log("Failed to load xml template.");
 		});
 	}
 	
@@ -94,7 +94,7 @@ function UtilsManager() {
 			
 			$img.replaceWith($svg);
 		}).fail(function() {
-			alert("Failed to convert SVG.");
+			console.log("Failed to convert SVG.");
 		});
 	}
 	
@@ -177,7 +177,7 @@ function UtilsManager() {
 			params = url[1] ? url[1].split('=') : ['portal', issue];
 			
 		return {type: params[0], url: params[1]};		
-	}
+		}
 	
 	/**
 	 * To change the format of the string needed from the image server
@@ -212,5 +212,14 @@ function UtilsManager() {
 								 '/192.168.1.124:8080/forplay/assets/articles/' + 
 								 tag.substring(0, tag.lastIndexOf('-')) +
 								 '/' + tag;
+	}
+	
+	/**
+	 * This is used for temporary solution to request XML files
+	 * with unicode characters.
+	 */
+	
+	this.isIE9 = function() {
+   		return /MSIE\s/.test(navigator.userAgent) && parseFloat(navigator.appVersion.split("MSIE")[1]) < 10;
 	}
 }

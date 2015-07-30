@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <article>
     <site>forplay</site>
     <url>castle-design</url>
@@ -18,7 +18,7 @@
     <main>
         <wide tag="castle-design">01.jpg</wide>
         <shot tag="castle-design">01.jpg</shot>
-        <caret tag="castle-design">01.jpg</caret>
+        <caret tag="castle-design">caret.png</caret>
     </main>
     <type bg="игри">games</type>
     <subtype bg="новина">news</subtype>

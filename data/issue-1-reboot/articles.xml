@@ -4095,4 +4095,64 @@
             </layout>
         </layouts>
     </article>
+    <article>
+        <site>forplay</site>
+        <url>castle-design</url>
+        <video>
+            <tech>html5</tech>
+            <url>video/castle-design.mp4</url>
+            <player>90825</player>
+        </video>
+        <tags prime="castle-design">
+            <tag>castle-design</tag>
+        </tags>
+        <cover align="25%"
+			   valign="center"
+			   theme=""
+			   subtheme="lighten"
+			   tag="castle-design">01.jpg</cover>
+        <main>
+            <wide tag="castle-design">01.jpg</wide>
+            <shot tag="castle-design">01.jpg</shot>
+            <caret tag="castle-design">caret.png</caret>
+        </main>
+        <type bg="игри">games</type>
+        <subtype bg="новина">news</subtype>
+        <title>
+            <![CDATA[Castle Design]]>
+        </title>
+        <subtitle>
+            <![CDATA[Дизайн за възрастни от пораснали деца.]]>
+        </subtitle>
+        <authors>
+            <author>Forplay</author>
+        </authors>
+        <date>Sun Jun 28 2015 01:56:00 GMT+0300 (FLE Daylight Time)</date>
+        <priority>video</priority>
+        <issue>issue-1-reboot</issue>
+        <hype></hype>
+        <better tag=""></better>
+        <worse tag=""></worse>
+        <equal tag=""></equal>
+        <versionTested></versionTested>
+        <preview>
+            <![CDATA[Някои хора смятат, че да играеш на компютърни игри, да гледаш
+                анимационни филмчета, да редиш LEGO, да играеш Не се сърди човече
+                с приятели, да си купиш виолетки, да лежиш на дивана и да оцветяваш
+                книжка в неприятния дъждовен следобед или на следващия ден да
+                изкопаeш на плажа, в още мокрия пясък, най-дълбоката дупка, която
+                някога си правил, е детинско. Е, може би са прави, може би е
+                по-добре всички възрастни да четем Толстой и Платон, да гледаме
+                филми на Хичкок и Фелини, да ходим на опера всеки четвъртък,
+                да играем голф, да подреждаме кокетната си къща, използвайки
+                последния наръчник по Фън Шуй, закупен от кварталния супермаркет
+                за 3.50 с ДДС и никога, ама никога да не си купуваме виолетки,
+                защото не съдържат подходящия баланс от фибри и Oмега-3 мастни
+                киселини. Но как тогава да си боядисаш езика в лилаво? Как да
+                провокираш въображението си, за да създадеш нещо ново и невиждано
+                досега, да събудиш любопитството на хората и да ги накараш да
+                се усмихнат на същото това невиждано нещо? Просто е. Запази детското
+                в себе си. castle.design@forplay.bg]]>
+        </preview>
+    </article>
 </articles>

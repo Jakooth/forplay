@@ -19,7 +19,13 @@ function BannerManager() {
 	 */
 	 
 	this.setCoversHeight = function(h) {
-		coversHeight = h;
+		coversHeight = $.cookie('header') == 'static' ? 0 : h;
+		
+		self.updateHeaderPosition();
+	}
+	
+	this.getCoversHeight = function() {
+		return coversHeight;
 	}
 	
 	this.updateHeaderPosition = function() {
@@ -71,12 +77,6 @@ function BannerManager() {
 				$mainCoverHeading.removeClass('invisible');
 				$("#forLife").css('opacity', 1);
 			}
-			
-		/**
-		 * News covers section has fixed height.
-		 * Set the height to auto in this case.
-		 */		
-			
 		}
 	}
 	
@@ -184,6 +184,14 @@ function BannerManager() {
 		self.updateHeaderPosition();
 	});
 	
+	$(window).on('load', function () {
+		if ($.cookie('header') == 'static') {
+			$('header').addClass('static fixed');
+			$('main').addClass('static fixed');
+			$('#hideHeaderButton').attr('aria-pressed', 'true');
+		}
+	});
+	
 	$('#covers').on('mouseover', 'article:not(:eq(0))', function (e) {												
 		if (utils.isMobile()) {
 			return false;
@@ -204,6 +212,10 @@ function BannerManager() {
 		
 		$this.index() == 4 ? $c4.addClass('unfocus') : null;
 		$this.index() == 1 ? $c2.addClass('unfocus') : null;
+		
+		if ($('main').hasClass('fixed')) {
+			return false;
+		}
 		
 		switch($this.index()) {
 			case 1:
@@ -268,6 +280,40 @@ function BannerManager() {
 	$('nav').on('click', 'h3', function (e) {
 		if ($('header').hasClass('read') || utils.isMobile()) {
 			$('body').toggleClass('nav');
+		}
+	});
+	
+	$('header').on('click', '#hideHeaderButton', function (e) {
+		if (utils.isMobile()) {
+			return false;
+		}
+		
+		var $this = $(this),
+			$main = $('main'),
+			$cover = $main.find('section.cover');
+		
+		if ($this.attr('aria-pressed') == 'true') {
+			$this.attr('aria-pressed', 'false');
+			
+			if ($cover.hasClass('news') || $cover.hasClass('video')) {
+				$.removeCookie('header');	
+			} else {
+				$('header').removeClass('static fixed');
+				$('main').removeClass('static fixed');
+				
+				$.removeCookie('header');
+				
+				self.setCoversHeight($('#covers').height());
+			}
+		} else {
+			$this.attr('aria-pressed', 'true');
+			
+			$('header').addClass('static fixed');
+			$('main').addClass('static fixed');
+			
+			$.cookie('header', 'static', {expires: 365});
+			
+			self.setCoversHeight(0);
 		}
 	});
 }

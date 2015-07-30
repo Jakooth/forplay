@@ -75,9 +75,23 @@ function ArticlesManager() {
 	}
 	
 	var loadArticles = function(data, appender, covers) {
-		var get1 = $.get('data/' + issue + '/' + data + '.xml'),
+		var get1 = $.get(encodeURI('data/' + issue + 
+								   '/' + data + '.xml')),
 			get2 = $.get('renderers/article.html');
-			
+		
+		/**
+		 * TODO: This bad practice will be removed,
+		 * when the data is loaded from the database.
+		 */
+		
+		if (utils.isIE9()) {
+			get1 = $.get(encodeURI('data/' + issue + 
+								   '/' + data + '.xml'));
+		} else {
+			get1 = $.get('data/' + issue + 
+						 '/' + data + '.xml');
+		}
+		
 		$.when(get1, get2).done(function(data1, data2) {
 			var articles = $.xml2json(data1[0]),
 				tmpls = $.templates({
@@ -95,14 +109,27 @@ function ArticlesManager() {
 			
 			appender(html, covers);
 		}).fail(function() {
-			alert("Failed to load index articles.");
+			console.log("Failed to load index articles.");
 		});
 	}
 	
 	var loadArticle = function(data, appender) {
-		var get1 = $.get('data/' + issue + '/' + data + '.xml'),
+		var get1,
 			get2 = $.get('renderers/layout.html'),
 			get3 = $.get('renderers/cover.html');
+		
+		/**
+		 * TODO: This bad practice will be removed,
+		 * when the data is loaded from the database.
+		 */
+		
+		if (utils.isIE9()) {
+			get1 = $.get(encodeURI('data/' + issue + 
+								   '/' + data + '.xml'));
+		} else {
+			get1 = $.get('data/' + issue + 
+						 '/' + data + '.xml');
+		}
 			
 		$.when(get1, get2, get3).done(function(data1, data2, data3) {
 			var article = $.xml2json(data1[0]),
@@ -119,17 +146,33 @@ function ArticlesManager() {
 						.render(node, {versionTested: article.versionTested});
 			
 			appender(html, cover);
+			
+			$(document).prop('title', article.title);
 		}).fail(function() {
-			alert("Failed to load index articles.");
+			console.log("Failed to load index articles.");
 		});
 	}
 	
 	var loadAside = function(data, $appender, type, object, versionTested) {
-		var get1 = $.get('data/' + type + '/' 
-						 		 + object + '/' 
-								 + data + '.xml'),
+		var get1,
 			get2 = $.get('renderers/' + object + '.html');
 			
+		
+		/**
+		 * TODO: This bad practice will be removed,
+		 * when the data is loaded from the database.
+		 */
+		
+		if (utils.isIE9()) {
+			get1 = $.get(encodeURI('data/' + type + 
+								   '/' + object + 
+								   '/' + data + '.xml'));
+		} else {
+			get1 = $.get('data/' + type + 
+						 '/' + object + 
+						 '/' + data + '.xml');
+		}
+		
 		$.when(get1, get2).done(function(data1, data2) {
 			var aside = $.xml2json(data1[0]),
 				tmpls = $.templates({
@@ -156,14 +199,25 @@ function ArticlesManager() {
 				});
 			}
 		}).fail(function() {
-			alert("Failed to load aside.");
+			console.log("Failed to load aside.");
 		});
 	}
 	
 	var loadTracklist = function(data, $appender) {
-		var get1 = $.get('data/music/album/' + data + '.xml'),
+		var get1 = $.get(encodeURI('data/music/album/' + data + '.xml')),
 			get2 = $.get('renderers/tracklist.html');
 			
+		/**
+		 * TODO: This bad practice will be removed,
+		 * when the data is loaded from the database.
+		 */
+		
+		if (utils.isIE9()) {
+			$.get(encodeURI('data/music/album/' + data + '.xml'));
+		} else {
+			$.get('data/music/album/' + data + '.xml');
+		}
+		
 		$.when(get1, get2).done(function(data1, data2) {
 			var album = $.xml2json(data1[0]),
 				tmpls = $.templates({
@@ -175,7 +229,7 @@ function ArticlesManager() {
 			
 			$appender.html(html);
 		}).fail(function() {
-			alert("Failed to load tracklist.");
+			console.log("Failed to load tracklist.");
 		});
 	}
 	
@@ -222,7 +276,7 @@ function ArticlesManager() {
 				$('#thumbnails').append($thumb);
 			});
 		}).fail(function() {
-			alert("Failed to load thumbnail.");
+			console.log("Failed to load thumbnail.");
 		});
 	}
 	
@@ -480,6 +534,12 @@ function ArticlesManager() {
 		switch (type) {
 			case 'portal':
 				loadArticles('articles', appendPortal, true);
+				
+				/**
+				 * TODO: Determine which portal anr remove the hardcoded strings.
+				 */
+				$(document).prop('title', 'Forplay Брой 1 Презареждане');
+				
 				break;
 			case 'feature':
 			case 'review':
@@ -505,7 +565,7 @@ function ArticlesManager() {
 	 * EVENTS
 	 */
 	
-	$(window).on("load", function () {
+	$(window).on('load', function () {
 		$.event.special.swipe.scrollSupressionThreshold = 10,
 		
 		/**
@@ -519,6 +579,7 @@ function ArticlesManager() {
 	});
 	
 	$(window).on('load', function (e) {
+		var href = window.location.href;
 		
 		/**
 		 * Replace SVG images with embed SVG data.
@@ -529,31 +590,29 @@ function ArticlesManager() {
 			utils.convertSVG($(this));
 		});
 		
-		loadPage(utils.parseURL(window.location.href));
+		loadPage(utils.parseURL(href));
 		
 		/**
-		 * If you are loading the index push the portal state.
-		 * In this case the statechange event will load the page.
-		 * This is disabled in version 2 and only links are used.
-		 * The History.js is causing problems on older Android devices.
-		 * TODO: push the portal state in another way.
+		 * Always show the portal in the URL.
 		 */
 		
-		/*
-		var State = window.History.getState();
-		
-		if ((State.cleanUrl.indexOf('?') != -1 
-									&& State.cleanUrl.indexOf('portal') == -1 
-									&& State.cleanUrl.indexOf('issue') == -1) || State.data.type) {
+		if (href.indexOf('review') == -1 && 
+			href.indexOf('feature') == -1 &&
+			href.indexOf('video') == -1 &&
+			href.indexOf('news') == -1 &&
+			href.indexOf('portal') == -1 &&
+			href.indexOf('?') == -1) {
 			
-			loadPage(utils.parseURL(State.cleanUrl));
-		} else {
-			if (State.cleanUrl.indexOf('portal') != -1 && State.cleanUrl.indexOf('issue') != -1) {
-				loadPage(utils.parseURL(State.cleanUrl));
-			} else {
-				window.History.pushState({'type': 'portal', 'url': issue}, issue, '?' + 'portal' + '=' + issue);
+			/**
+			 * TODO: Determine which portal anr remove the hardcoded strings.
+			 * Not working in IE9.
+			 */
+			 
+			if (window.history.replaceState) {
+				window.history.replaceState('portal-issue-1-reboot', 
+											'Forplay Брой 1 Презареждане', 
+											'?portal=issue-1-reboot');
 			}
 		}
-		*/
 	});
 }

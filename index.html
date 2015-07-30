@@ -4,8 +4,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=yes" name="viewport">
 <link rel="stylesheet" type="text/css" href="jslib/video-js/video-js.css" />
-<link media="only screen and (min-width: 1280px)" rel="stylesheet" type="text/css" href="assets/forplay.css?v=2.1.0" />
-<link media="only screen and (max-width: 1279px)" rel="stylesheet" type="text/css" href="assets/forplay-mobile.css?v=2.1.0" />
+<link media="only screen and (min-width: 1280px)" rel="stylesheet" type="text/css" href="assets/forplay.css?v=2.1.1" />
+<link media="only screen and (max-width: 1279px)" rel="stylesheet" type="text/css" href="assets/forplay-mobile.css?v=2.1.1" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,800|Poiret+One&subset=cyrillic,latin' rel='stylesheet' type='text/css' />
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -14,10 +14,13 @@
 <link href="http://www.forplay.bg/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120" />
 <link href="http://www.forplay.bg/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152" />
 <title>Forplay&reg;</title>
-<script src="jslib/jquery-1.11.0.min.js" type="text/javascript">
+<script src="jslib/jquery-2.1.4.min.js" type="text/javascript">
 	<!--script-->
 </script>
 <script src="jslib/jquery.mobile.custom.min.js" type="text/javascript">
+	<!--script-->
+</script>
+<script src="jslib/jquery.cookie.js" type="text/javascript">
 	<!--script-->
 </script>
 <script src="jslib/video-js/video.js" type="text/javascript">
@@ -38,16 +41,16 @@
 <script src="jslib/less-1.4.1.min.js" type="text/javascript">
 	<!--script-->
 </script>
-<script src="controllers/utils.js?v=1.0.2" type="text/javascript">
+<script src="controllers/utils.js?v=2.0.2" type="text/javascript">
 	<!--script-->
 </script>
-<script src="controllers/banner.js?v=2.0.1" type="text/javascript">
+<script src="controllers/banner.js?v=2.0.2" type="text/javascript">
 	<!--script-->
 </script>
-<script src="controllers/articles.js?v=1.5.4" type="text/javascript">
+<script src="controllers/articles.js?v=2.0.2" type="text/javascript">
 	<!--script-->
 </script>
-<script src="controllers/player.js?v=1.5.0" type="text/javascript">
+<script src="controllers/player.js?v=2.0.0" type="text/javascript">
 	<!--script-->
 </script>
 <script type="text/javascript">
@@ -85,14 +88,20 @@
 </head>
 <body>
 <header>
-    <h1> <a href="?portal=issue-1-reboot"> <img 
+    <h1>
+        <a href="?portal=issue-1-reboot">
+        <img 
             id="forPlay" class="svg" 
             src="assets/forplay.svg" 
-            alt="Forplay&reg;" /></a> <a 
-            href="?portal=issue-1-reboot"> <img 
+            alt="Forplay&reg;" /></a>
+        <a 
+            href="?portal=issue-1-reboot">
+        <img 
             id="forLife" class="svg" 
             src="assets/forlife.svg" 
-            alt="Forlife&reg;" /> </a> </h1>
+            alt="Forlife&reg;" />
+        </a>
+    </h1>
     <section class="cover-set">
         <h2>Корици</h2>
         <div id="covers">
@@ -104,21 +113,39 @@
     </section>
     <section class="nav-set">
         <h2>Навигация, търсене и потребителски вход</h2>
+        <div class="special">
+            <button type="button" 
+            		id="hideHeaderButton"
+                    role="presentation"
+                    aria-pressed="false"><span>Скрии</span></button>
+        </div>
         <nav>
-            <h3>Навигация</h3>
+            <h3><span>Навигация</span></h3>
             <ul>
-                <li> <a href="?portal=news">Новини</a> </li>
-                <li> <a href="?portal=reviews">Ревюта</a> </li>
-                <li> <a href="?portal=features">Мнения</a> </li>
-                <li> <a href="?portal=podcast">Подкаст</a> </li>
-                <li> <a href="http://www.gamersvoiceshop.com/" 
-                        target="_blank">GVS</a> </li>
-                <li> <a href="http://forplay.bg/forums/" 
-                        target="_blank">Форум</a> </li>
+                <li>
+                    <a href="?portal=news">Новини</a>
+                </li>
+                <li>
+                    <a href="?portal=reviews">Ревюта</a>
+                </li>
+                <li>
+                    <a href="?portal=features">Мнения</a>
+                </li>
+                <li>
+                    <a href="?portal=podcast">Подкаст</a>
+                </li>
+                <li>
+                    <a href="http://www.gamersvoiceshop.com/" 
+                        target="_blank">GVS</a>
+                </li>
+                <li>
+                    <a href="http://forplay.bg/forums/" 
+                        target="_blank">Форум</a>
+                </li>
             </ul>
         </nav>
         <div class="search" role="search">
-            <h3>Търсене</h3>
+            <h3><span>Търсене</span></h3>
             <form method="get" action="#search">
                 <label for="search">Tърсене:</label>
                 <input type="search" placeholder="пример Diablo, Диабло, 300" 
@@ -127,12 +154,18 @@
             </form>
         </div>
         <div class="user">
-            <h3>Потребителски вход</h3>
-            <button>Вход</button>
+            <h3><span>Потребителски вход</span></h3>
+            <button type="button"><span>Влез</span></button>
             <ul>
-                <li> <a href="#profile">Профил</a> </li>
-                <li> <a href="#settings">Настройки</a> </li>
-                <li> <a href="#logout">Изход</a> </li>
+                <li>
+                    <a href="#profile">Профил</a>
+                </li>
+                <li>
+                    <a href="#settings">Настройки</a>
+                </li>
+                <li>
+                    <a href="#logout">Изход</a>
+                </li>
             </ul>
         </div>
     </section>
@@ -162,9 +195,13 @@
     </section>
 </main>
 <footer>
-    <p>&copy; Copyright 2014 <a href="?news=castle-design">Castle Design Ltd.</a> </p>
-    <p>Тази страница се придържа към <a href="http://www.cencenelec.eu/News/Press_Releases/Pages/PR-2014-03.aspx">Европейските
-            Изисквания за Достъпност на Обществени Продукти и Услуги.</a> </p>
+    <p>&copy; Copyright 2014
+        <a href="?news=castle-design">Castle Design Ltd.</a>
+    </p>
+    <p>Тази страница се придържа към
+        <a href="http://www.cencenelec.eu/News/Press_Releases/Pages/PR-2014-03.aspx">Европейските
+        Изисквания за Достъпност на Обществени Продукти и Услуги.</a>
+    </p>
 </footer>
 </body>
 </html>
