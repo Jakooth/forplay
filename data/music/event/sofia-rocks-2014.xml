@@ -9,7 +9,7 @@
         <sticker lib="lorc"
         		 subtype="originals">sonic-shout</sticker>
     </stickers>
-    <main>poster.jpg</main>
+    <poster>poster.jpg</poster>
     <type bg="музика">music</type>
     <subtype bg="събитие">event</subtype>
     <artists>

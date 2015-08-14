@@ -5,7 +5,6 @@
         <sticker lib="delapouite"
         		 subtype="gui">phone</sticker>
     </stickers>
-    <main>locke.jpg</main>
     <poster>poster.jpg</poster>
     <type bg="филми">movies</type>
     <subtype bg="филм">movie</subtype>

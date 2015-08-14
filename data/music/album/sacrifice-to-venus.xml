@@ -2,7 +2,7 @@
 <album>
     <tag>sacrifice-to-venus</tag>
     <stickers></stickers>
-    <main>cover.jpg</main>
+    <cover>cover.jpg</cover>
     <type bg="музика">music</type>
     <subtype bg="албум">album</subtype>
     <artist>Emil Bulls</artist>

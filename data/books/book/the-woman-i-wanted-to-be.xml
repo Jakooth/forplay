@@ -2,7 +2,7 @@
 <book>
     <tag>the-woman-i-wanted-to-be</tag>
     <stickers></stickers>
-    <main>cover.jpg</main>
+    <cover>cover.jpg</cover>
     <type bg="книги">books</type>
     <subtype bg="книга">book</subtype>
     <artist>Даян фон Фюрстенберг</artist>

@@ -2,7 +2,7 @@
 <album>
     <tag>ultraviolence</tag>
     <stickers></stickers>
-    <main>cover.jpg</main>
+    <cover>cover.jpg</cover>
     <type bg="музика">music</type>
     <subtype bg="албум">album</subtype>
     <artist>Лана Дел Рей</artist>

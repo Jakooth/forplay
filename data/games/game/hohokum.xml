@@ -5,7 +5,6 @@
         <sticker lib="lorc"
 				 subtype="originals">snake</sticker>
     </stickers>
-    <main>hohokum.jpg</main>
     <type bg="игри">games</type>
     <subtype bg="игра">game</subtype>
     <boxes>
