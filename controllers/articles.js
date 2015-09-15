@@ -181,7 +181,7 @@ function ArticlesManager() {
 				box = object == 'game' ? getBoxImg(aside.boxes.box, versionTested) : aside.main,
 				html = $.templates
 						.asideTemplate
-						.render(aside, {formatCommaString: utils.formatCommaString, 
+						.render(aside, {formatComaString: utils.formatComaString, 
 										formatDate: utils.formatDate,
 										box: box});
 			

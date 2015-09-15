@@ -129,7 +129,8 @@ function UtilsManager() {
 		return '<p>' + text + '</p>';	
 	}
 	
-	this.formatCommaString = function (s) {
+	this.formatComaString = function (s) {
+		
 		/**
 		 * In XML single child node will return string and not array.
 		 */

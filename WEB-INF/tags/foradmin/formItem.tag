@@ -6,6 +6,7 @@
     <jsp:directive.attribute name="id" required="true" />
     <jsp:directive.attribute name="label" required="true" />
     <jsp:directive.attribute name="type" required="true" />
+    <jsp:directive.attribute name="value" required="false" />
     <jsp:directive.attribute name="placeholder" required="false" />
     <jsp:directive.attribute name="readonly" required="false" />
     <jsp:directive.attribute name="autocomplete" required="false" />
@@ -53,7 +54,7 @@
         </c:when>
         <c:when test="${type == 'hidden'}">
             <label>
-                <input id="${id}" type="${type}" />
+                <input id="${id}" type="${type}" value="${value}" />
                 <span class="hidden">
                     <i>${label}:</i>
                     <b>hidden</b>
