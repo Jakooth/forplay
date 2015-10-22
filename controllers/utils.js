@@ -160,6 +160,18 @@ function UtilsManager() {
 		return tag;	
 	}
 	
+	this.parseImg = function (s) {
+		var img = s.split('\\').pop().split('.')[0].toLowerCase();
+		
+		return img;	
+	}
+	
+	this.parseStickerName = function (s) {
+		var name = s.replace(/-/g, ' ');
+		
+		return name.charAt(0).toUpperCase() + name.slice(1);;	
+	}
+	
 	this.parseImgIndex = function (s) {
 		
 		/**
@@ -173,12 +185,16 @@ function UtilsManager() {
 		return index;	
 	}
 	
+	this.getObjectPropertyByIndex = function(o, index) {
+		return o[Object.keys(o)[index]];
+	}
+	
 	this.parseURL = function(url) {
 		var url = url.split('?'),
 			params = url[1] ? url[1].split('=') : ['portal', issue];
 			
 		return {type: params[0], url: params[1]};		
-		}
+	}
 	
 	/**
 	 * To change the format of the string needed from the image server
