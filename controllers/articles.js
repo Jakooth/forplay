@@ -82,6 +82,7 @@ function ArticlesManager() {
 		/**
 		 * TODO: This bad practice will be removed,
 		 * when the data is loaded from the database.
+		 * Everything is about the utf characters in the url.
 		 */
 		
 		if (utils.isIE9()) {

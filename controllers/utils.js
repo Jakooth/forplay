@@ -160,7 +160,7 @@ function UtilsManager() {
 		return tag;	
 	}
 	
-	this.parseImg = function (s) {
+	this.parseSticker = function (s) {
 		var img = s.split('\\').pop().split('.')[0].toLowerCase();
 		
 		return img;	
@@ -169,7 +169,13 @@ function UtilsManager() {
 	this.parseStickerName = function (s) {
 		var name = s.replace(/-/g, ' ');
 		
-		return name.charAt(0).toUpperCase() + name.slice(1);;	
+		return name.charAt(0).toUpperCase() + name.slice(1);
+	}
+	
+	this.parseImg = function (s) {
+		var img = s.split('\\').pop().toLowerCase();
+		
+		return img;	
 	}
 	
 	this.parseImgIndex = function (s) {
@@ -183,6 +189,13 @@ function UtilsManager() {
 		var index = s.split('/').pop().split('-').pop();
 		
 		return index;	
+	}
+	
+	this.parseImgTag = function (s) {
+		var index = s.substring(s.lastIndexOf('\\') + 1, 
+								s.lastIndexOf('-'));
+		
+		return index;
 	}
 	
 	this.getObjectPropertyByIndex = function(o, index) {
