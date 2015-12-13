@@ -78,10 +78,7 @@
         </a>
     </c:if>
     <c:if test="${type == 'search'}">
-        <button type="button" class="search">
-            <img class="svg" alt="Търси" 
-            	 src="../assets/icons/lorc/originals/svg/000000/transparent/magnifying-glass.svg" />
-        </button>
+        <button type="button" class="search">Търси</button>
     </c:if>
     <c:if test="${!empty layout}">
         <![CDATA[</div>]]>
