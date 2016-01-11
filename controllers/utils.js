@@ -43,8 +43,8 @@ function UtilsManager() {
 		var d = new Date();
 		
 		return d.getFullYear() +
-			   (d.getMonth() > 9 ? '-' : '-0') +
-			   d.getMonth() +
+			   ((d.getMonth() + 1) > 9 ? '-' : '-0') +
+			   (d.getMonth() + 1) +
 			   (d.getDate() > 9 ? '-' : '-0') +
 			   d.getDate();
 	}
@@ -56,7 +56,8 @@ function UtilsManager() {
 			   d.getHours() +
 			   ':' +
 			   (d.getMinutes() > 9 ? '' : '0') +
-			   d.getMinutes();
+			   d.getMinutes() +
+			   ':00';
 	}
 	
 	this.convertSVG = function($img) {		
@@ -130,6 +131,7 @@ function UtilsManager() {
 	}
 	
 	this.formatComaString = function (s) {
+		if (!s) return  false;
 		
 		/**
 		 * In XML single child node will return string and not array.
@@ -139,6 +141,8 @@ function UtilsManager() {
 	}
 	
 	this.formatDate = function (d) {
+		if (!d) return  false;
+		
 		var d = new Date(d),
 			m = ['Януари', 'Февруари', 'Март', 
 				 'Април', 'Май', 'Юни',
@@ -153,6 +157,8 @@ function UtilsManager() {
 	}
 	
 	this.formatTag = function (s) {
+		if (!s) return  false;
+		
 		var tag = s.toLowerCase().replace(/[:?\.,!()'„“]|– |- /g, '');
 		
 		tag = tag.replace(/ /g, '-');
@@ -161,24 +167,31 @@ function UtilsManager() {
 	}
 	
 	this.parseSticker = function (s) {
+		if (!s) return  false;
+		
 		var img = s.split('\\').pop().split('.')[0].toLowerCase();
 		
 		return img;	
 	}
 	
 	this.parseStickerName = function (s) {
+		if (!s) return  false;
+		
 		var name = s.replace(/-/g, ' ');
 		
 		return name.charAt(0).toUpperCase() + name.slice(1);
 	}
 	
 	this.parseImg = function (s) {
+		if (!s) return  false;
+		
 		var img = s.split('\\').pop().toLowerCase();
 		
 		return img;	
 	}
 	
 	this.parseImgIndex = function (s) {
+		if (!s) return  false;
 		
 		/**
 		 * Images names are made from tag and number.
@@ -192,6 +205,8 @@ function UtilsManager() {
 	}
 	
 	this.parseImgTag = function (s) {
+		if (!s) return  false;
+		
 		var index = s.substring(s.lastIndexOf('\\') + 1, 
 								s.lastIndexOf('-'));
 		
