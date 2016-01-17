@@ -1,1 +1,1 @@
-lessc forplay-mobile.less  forplay-mobile.css -x --clean-css
+lessc forplay-mobile.less  forplay-mobile.css --clean-css

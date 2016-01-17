@@ -1,1 +1,1 @@
-lessc forplay.less  forplay.css -x --clean-css
+lessc forplay.less  forplay.css --clean-css
