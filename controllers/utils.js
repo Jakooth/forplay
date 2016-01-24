@@ -130,18 +130,35 @@ function UtilsManager() {
 		return '<p>' + text + '</p>';	
 	}
 	
-	this.formatComaString = function (s) {
-		if (!s) return  false;
+	/**
+	 * There is the same in Fortag.
+	 */
+	 
+	this.unescape = function(data) {
+		if (!data) return null;
+		if (Number.isInteger(data)) return data;
+
+		return he.unescape(data);
+	}
+	
+	this.translate = function(data) {
+		if (!data) return null;
+
+		return i18next.t(data);
+	}
+	
+	this.formatComaString = function (arr) {
+		if (!arr) return false;
 		
 		/**
 		 * In XML single child node will return string and not array.
 		 */
 		
-		return typeof(s) == "string" ? s : s.join(', ');	
+		return typeof(arr) == "string" ? arr : arr.join(', ');	
 	}
 	
 	this.formatDate = function (d) {
-		if (!d) return  false;
+		if (!d) return false;
 		
 		var d = new Date(d),
 			m = ['Януари', 'Февруари', 'Март', 
@@ -157,7 +174,7 @@ function UtilsManager() {
 	}
 	
 	this.formatTag = function (s) {
-		if (!s) return  false;
+		if (!s) return false;
 		
 		var tag = s.toLowerCase().replace(/[:?\.,!()'’*„“]|– |- /g, '');
 		
@@ -167,7 +184,7 @@ function UtilsManager() {
 	}
 	
 	this.parseSticker = function (s) {
-		if (!s) return  false;
+		if (!s) return false;
 		
 		var img = s.split('\\').pop().split('.')[0].toLowerCase();
 		
@@ -175,7 +192,7 @@ function UtilsManager() {
 	}
 	
 	this.parseStickerName = function (s) {
-		if (!s) return  false;
+		if (!s) return false;
 		
 		var name = s.replace(/-/g, ' ');
 		
@@ -183,7 +200,7 @@ function UtilsManager() {
 	}
 	
 	this.parseImg = function (s) {
-		if (!s) return  false;
+		if (!s) return false;
 		
 		var img = s.split('\\').pop().toLowerCase();
 		
@@ -191,7 +208,7 @@ function UtilsManager() {
 	}
 	
 	this.parseImgIndex = function (s) {
-		if (!s) return  false;
+		if (!s) return false;
 		
 		/**
 		 * Images names are made from tag and number.
@@ -201,11 +218,11 @@ function UtilsManager() {
 		
 		var index = s.split('/').pop().split('-').pop();
 		
-		return index;	
+		return index;
 	}
 	
 	this.parseImgTag = function (s) {
-		if (!s) return  false;
+		if (!s) return false;
 		
 		var index = s.substring(s.lastIndexOf('\\') + 1, 
 								s.lastIndexOf('-'));
@@ -213,15 +230,81 @@ function UtilsManager() {
 		return index;
 	}
 	
+	this.hypeToString = function(hype) {
+		var hype = hype || this.hype;
+			s = new String(hype);
+			
+		if (!hype) return null;	
+		
+		hype = s.slice(0, s.length - 1) + (
+			   s.slice(s.length - 1) == 5 ? '+' : '');
+			   
+		return hype;
+	}
+
+	this.hypeToNumber = function(hype) {
+		if (!hype) return null;	
+		
+		hype = hype.indexOf('+') != -1 ? hype.replace('+', 5) 
+									   : hype + "0";
+											
+		return hype;
+	}
+	
 	this.getObjectPropertyByIndex = function(o, index) {
 		return o[Object.keys(o)[index]];
 	}
 	
-	this.parseURL = function(url) {
-		var url = url.split('?'),
-			params = url[1] ? url[1].split('=') : ['portal', issue];
+	this.getObjectsByProperty = function(arr, key, value, prop) {
+		if (!arr.length) return false;
+		
+		var objects,
+			props;
+	
+		objects = $.grep(arr, function(o, index) {
+			return o[key] == value;
+		});
+		
+		if (prop && objects.length) {
+			props = $.map(objects, function(o, index) {
+				return o[prop];
+			});
 			
-		return {type: params[0], url: params[1]};		
+			return self.formatComaString(props);
+		}
+		
+		return objects;
+	}
+	
+	this.parsePrettyURL = function(url) {
+		var params = url.split('/'),
+			o = {};
+		
+		if (url.indexOf('articles') != -1 && params.length >= 4) {
+			o.type = params[params.length - 4];
+			o.subtype = params[params.length - 3];
+			o.id = params[params.length - 2];
+			o.url = params[params.length - 1];
+		}
+		
+		return o;		
+	}
+	
+	this.parseURL = function(url) {
+		var params = url.split('?'),
+			o = {};
+		
+		if (params[1]) {
+			params = params[1].split('&');
+			
+			$.each(params, function(index, param)  {
+				param = param.split('=');
+				
+				o[param[0]] = param[1];
+			});
+		}
+		
+		return o;		
 	}
 	
 	/**

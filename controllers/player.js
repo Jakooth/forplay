@@ -20,14 +20,14 @@ function PlayerManager() {
 		$div.append($('<video />').attr(attributes));
 		
 		window.videoJS = videojs('forVideo', {
-								"controls": true, 
-								"autoplay": true, 
-								"preload": "auto",
-								"techOrder": [tech],
-								"height": "100%",
-								"width": "100%",
-								"src": url,
-								"poster": poster}, function () {	
+								 "controls": true, 
+								 "autoplay": true, 
+								 "preload": "auto",
+								 "techOrder": [tech],
+								 "height": "100%",
+								 "width": "100%",
+								 "src": url,
+								 "poster": poster}, function () {	
 			
 			this.show();
 			this.src(url);

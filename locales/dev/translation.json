@@ -1,0 +1,5 @@
+{ "news" : "news",
+  "feature" : "feature",
+  "video" : "video",
+  "review" : "review"
+}

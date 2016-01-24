@@ -5,6 +5,8 @@ function ArticlesManager() {
 	 */
 	
 	var self = this;
+	var forplayAPI = '/forapi/forplay.php';
+	var fotagsAPI = '/forapi/get.php';
 	
 	function loadImage($img) {	
 	
@@ -75,30 +77,14 @@ function ArticlesManager() {
 	}
 	
 	var loadArticles = function(data, appender, covers) {
-		var get1 = $.get(encodeURI('data/' + issue + 
-								   '/' + data + '.xml')),
-			get2 = $.get('renderers/article.html');
-		
-		/**
-		 * TODO: This bad practice will be removed,
-		 * when the data is loaded from the database.
-		 * Everything is about the utf characters in the url.
-		 */
-		
-		if (utils.isIE9()) {
-			get1 = $.get(encodeURI('data/' + issue + 
-								   '/' + data + '.xml'));
-		} else {
-			get1 = $.get('data/' + issue + 
-						 '/' + data + '.xml');
-		}
+		var get1 = $.get(encodeURI(forplayAPI)),
+			get2 = $.get('/renderers/article.html');
 		
 		$.when(get1, get2).done(function(data1, data2) {
-			var articles = $.xml2json(data1[0]),
+			var data = data1[0].length ? JSON.parse(data1[0]) : data1,
 				tmpls = $.templates({
 					articleTemplate: data2[0]
 				}),
-				node = articles.article,
 				
 				/**
 				 * Append to empty DIV, so we can find the parent.
@@ -106,7 +92,9 @@ function ArticlesManager() {
 				 
 				html = $('<div />').append($.templates
 										    .articleTemplate
-											.render(node));
+											.render(data.articles, {
+													unescape: utils.unescape,
+													translate: utils.translate}));
 			
 			appender(html, covers);
 		}).fail(function() {
@@ -115,36 +103,30 @@ function ArticlesManager() {
 	}
 	
 	var loadArticle = function(data, appender) {
-		var get1,
-			get2 = $.get('renderers/layout.html'),
-			get3 = $.get('renderers/cover.html');
-		
-		/**
-		 * TODO: This bad practice will be removed,
-		 * when the data is loaded from the database.
-		 */
-		
-		if (utils.isIE9()) {
-			get1 = $.get(encodeURI('data/' + issue + 
-								   '/' + data + '.xml'));
-		} else {
-			get1 = $.get('data/' + issue + 
-						 '/' + data + '.xml');
-		}
+		var get1 = $.get(encodeURI(forplayAPI + '?tag=' + data.id)),
+			get2 = $.get('/renderers/layout.html'),
+			get3 = $.get('/renderers/cover.html');
 			
 		$.when(get1, get2, get3).done(function(data1, data2, data3) {
-			var article = $.xml2json(data1[0]),
+			var article = data1[0].length ? 
+						  JSON.parse(data1[0]).articles[0] : 
+						  data1.articles[0],
 				tmpls = $.templates({
 					layoutTemplate: data2[0],
 					coverTemplate: data3[0]
-				}),
-				node = article.layouts.layout,
-				cover = $.templates
+				});
+			
+			var	cover = $.templates
 						 .coverTemplate
-						 .render(article),
+						 .render(article, {
+								 unescape: utils.unescape,
+								 translate: utils.translate,
+								 hypeToString: utils.hypeToString}),
 				html = $.templates
 						.layoutTemplate
-						.render(node, {versionTested: article.versionTested});
+						.render(article.layouts, {
+								unescape: utils.unescape,
+								translate: utils.translate});
 			
 			appender(html, cover);
 			
@@ -154,35 +136,24 @@ function ArticlesManager() {
 		});
 	}
 	
-	var loadAside = function(data, $appender, type, object, versionTested) {
-		var get1,
-			get2 = $.get('renderers/' + object + '.html');
-			
-		
-		/**
-		 * TODO: This bad practice will be removed,
-		 * when the data is loaded from the database.
-		 */
-		
-		if (utils.isIE9()) {
-			get1 = $.get(encodeURI('data/' + type + 
-								   '/' + object + 
-								   '/' + data + '.xml'));
-		} else {
-			get1 = $.get('data/' + type + 
-						 '/' + object + 
-						 '/' + data + '.xml');
-		}
+	/**
+	 * The API for aside and quote is different.
+	 */
+	var loadAside = function($appender, tag, object, versionTested) {
+		var get1 = $.get(encodeURI(fotagsAPI + '?tag=' + tag + '&object=' + object)),
+			get2 = $.get('/renderers/' + object + '.html');
 		
 		$.when(get1, get2).done(function(data1, data2) {
-			var aside = $.xml2json(data1[0]),
+			var aside = data1[0].length ? 
+						JSON.parse(data1[0]).tags[0] : 
+						data1.tags[0],
 				tmpls = $.templates({
 					asideTemplate: data2[0]
 				}),
-				box = object == 'game' ? getBoxImg(aside.boxes.box, versionTested) : aside.main,
+				box = object == 'game' ? aside.tag + '-' + versionTested : aside.tag,
 				html = $.templates
 						.asideTemplate
-						.render(aside, {formatComaString: utils.formatComaString, 
+						.render(aside, {getObjectsByProperty: utils.getObjectsByProperty, 
 										formatDate: utils.formatDate,
 										box: box});
 			
@@ -192,7 +163,7 @@ function ArticlesManager() {
 			 * Replace proxies with real images from the server.
 			 */
 			
-			if (object == 'caret') {
+			if (object == 'aside') {
 				$('#read .read-set aside').find('img').on('load', function() {
 					if ($(this).data('proxy')) {
 						loadImage($(this));
@@ -204,29 +175,20 @@ function ArticlesManager() {
 		});
 	}
 	
-	var loadTracklist = function(data, $appender) {
-		var get1 = $.get(encodeURI('data/music/album/' + data + '.xml')),
-			get2 = $.get('renderers/tracklist.html');
-			
-		/**
-		 * TODO: This bad practice will be removed,
-		 * when the data is loaded from the database.
-		 */
-		
-		if (utils.isIE9()) {
-			$.get(encodeURI('data/music/album/' + data + '.xml'));
-		} else {
-			$.get('data/music/album/' + data + '.xml');
-		}
+	var loadTracklist = function($appender, tag) {
+		var get1 = $.get(encodeURI(fotagsAPI + '?tag=' + tag)),
+			get2 = $.get('/renderers/tracklist.html');
 		
 		$.when(get1, get2).done(function(data1, data2) {
-			var album = $.xml2json(data1[0]),
+			var album = data1[0].length ? 
+						JSON.parse(data1[0]).tags[0] : 
+						data1.tags[0],
 				tmpls = $.templates({
 					tracklistTemplate: data2[0]
 				}),
 				html = $.templates
 						.tracklistTemplate
-						.render(album.tracks);
+						.render(album);
 			
 			$appender.html(html);
 		}).fail(function() {
@@ -235,7 +197,7 @@ function ArticlesManager() {
 	}
 	
 	var loadThumbnails = function($covers) {
-		var get1 = $.get('renderers/thumbnail.html');
+		var get1 = $.get('/renderers/thumbnail.html');
 			
 		$.when(get1).done(function(data1) {
 			var html = data1;
@@ -306,9 +268,8 @@ function ArticlesManager() {
 		$('#read .left-col, #read .right-col').each(function(index) {
 			var $this = $(this);
 			
-			loadAside($this.data('url'), 
-					  $this, 
-					  $this.data('type'),
+			loadAside($this, 
+					  $this.data('url'),
 					  $this.data('object'),
 					  $this.data('box'));
 		});
@@ -318,8 +279,8 @@ function ArticlesManager() {
 		$('#read .tracklist').each(function() {
 			var $this = $(this);
 			
-			loadTracklist($this.data('tag'), 
-					  	  $this);
+			loadTracklist($this,
+						  $this.data('tag'));
 		});
 	}
 	
@@ -462,8 +423,12 @@ function ArticlesManager() {
 		
 		$mainPlayer.find('.img-proxy').attr('id', 'player_' + id);
 		$players.find('.img-proxy').addClass('Player');
-		$players.find('a').attr('data-player', id);
-		$players.find('a').data('player', id);
+		
+		/**
+		 * First, because there could be author or other links.
+		 */
+		$players.find('a:eq(0)').attr('data-player', id);
+		$players.find('a:eq(0)').data('player', id);
 		
 		$('#topArticles').append(html.find('article:not(.video):lt(5)'));
 		$('#allArticles').append(html.html());
@@ -529,29 +494,30 @@ function ArticlesManager() {
 	}
 	
 	var loadPage = function(params) {
-		var type = params.type,
-			url = params.url;
-		
-		switch (type) {
-			case 'portal':
-				loadArticles('articles', appendPortal, true);
-				
-				/**
-				 * TODO: Determine which portal anr remove the hardcoded strings.
-				 */
-				$(document).prop('title', 'Forplay Брой 1 Презареждане');
-				
-				break;
+		switch (params.subtype) {
 			case 'feature':
 			case 'review':
-				loadArticle(url, appendArticle);
+				loadArticle(params, appendArticle);
 				loadArticles('articles', appendPortal, false);
+				
 				break;
 			case 'news':
 			case 'video':
-				loadArticle(url, appendNews);
+				loadArticle(params, appendNews);
 				loadArticles('articles', appendPortal, false);
-				break;		
+				
+				break;
+			default:
+				loadArticles('articles', appendPortal, true);
+				
+				/**
+				 * TODO: Determine which issue and remove the hardcoded strings.
+				 * We can do this by calling the API to send us the info.
+				 * In fact the info is also coded for each article.
+				 */
+				$(document).prop('title', 'Forplay Брой 1 Презареждане');
+				
+				break;	
 		}
 	}
 	
@@ -591,29 +557,6 @@ function ArticlesManager() {
 			utils.convertSVG($(this));
 		});
 		
-		loadPage(utils.parseURL(href));
-		
-		/**
-		 * Always show the portal in the URL.
-		 */
-		
-		if (href.indexOf('review') == -1 && 
-			href.indexOf('feature') == -1 &&
-			href.indexOf('video') == -1 &&
-			href.indexOf('news') == -1 &&
-			href.indexOf('portal') == -1 &&
-			href.indexOf('?') == -1) {
-			
-			/**
-			 * TODO: Determine which portal anr remove the hardcoded strings.
-			 * Not working in IE9.
-			 */
-			 
-			if (window.history.replaceState) {
-				window.history.replaceState('portal-issue-1-reboot', 
-											'Forplay Брой 1 Презареждане', 
-											'?portal=issue-1-reboot');
-			}
-		}
+		loadPage(utils.parsePrettyURL(href));
 	});
 }

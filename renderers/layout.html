@@ -1,23 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?><div class="layout {{:type}} {{:subtype}} {{if ratio}}r{{:ratio}}{{/if}}"> 
+<div class="layout {{:type}} {{:subtype}} {{if ratio}}r{{:ratio}}{{/if}}">
+ 
 {{if left}}
-    <div data-url="{{:left.url.text}}" 
-    	 data-type="{{:left.url.type}}"
-         data-object="{{:left.url.object}}"
-         data-box="{{:~versionTested}}" 
-         class="inline-col left-col {{:left.url.valign}}"></div>
+    <div data-url="{{:left}}"
+         data-object="{{:left_object}}"
+         data-box="{{:#parent.data.platform}}" 
+         class="inline-col left-col {{:left_valign}}"></div>
 {{/if}}
 
-{{if type == 'img' || type == 'inside'}} {{for center.img}}
+{{:tracklist}}
+
+{{if type == 'img' || type == 'inside'}} {{for imgs}}
     <div class="img-proxy {{if video}}Player{{/if}}"{{if video}}
-    	 id="player_{{:video.player}}"{{/if}}>
+    	 id="player_{{:articleid}}{{:layoutid}}{{:#index}}"{{/if}}>
     
     {{if #data.tracklist}}
-        <div data-tag="{{:#data.tracklist.tag}}" 
-        	 class="tracklist {{:#data.tracklist}}"></div>
+        <div data-tag="{{:#data.tracklist}}" 
+        	 class="tracklist {{:#data.align}} {{:#data.valign}}"></div>
     {{else #data.center}}
-    	<div class="{{:#data.center.valign}}">
-        	<p>{{if #data.center.author}}От <a href="?portal={{:#data.center.author}}">
-            {{:#data.center.author}}</a>{{/if}}</p>
+    	<div class="{{:#data.valign}}">
+        	<p>{{if #data.author}}От <a href="#">
+            {{:#data.author}}</a>{{/if}}</p>
             {{:#data.center}}
         </div>
     {{else #data.alt.length > 0}}
@@ -25,24 +27,23 @@
     {{/if}}
         <div class="img {{if #parent.data.subtype == 'i4'}}{{:#data.center.valign}}{{/if}}"><a 
         					href="{{if video}}{{:video.url}}{{/if}}"{{if video}} 
-                            data-video="{{:video.url}}"
-                            data-player="{{:video.player}}"
-                            data-tech="{{:video.tech}}"{{/if}}> <img 
+                            data-video="{{:video}}"
+                            data-player="{{:articleid}}{{:layoutid}}{{:#index}}"
+                            data-tech="youtube"{{/if}}> <img 
                             data-tag="{{:#data.tag}}"
                             data-proxy="true"
                             data-main="{{:#data.tag}}-{{:#data.index}}"
                             data-ratio="{{if ratio}}{{:ratio}}{{else}}16-9{{/if}}"
-                            src="assets/helpers/{{if ratio}}{{:ratio}}{{else}}16-9{{/if}}.png"
+                            src="/assets/helpers/{{if ratio}}{{:ratio}}{{else}}16-9{{/if}}.png"
                             alt="{{:#data.alt}}" /> </a></div>
 	</div>
 {{/for}} {{else}}
-    <div class="center-col"> {{:center}} </div>
+    <div class="center-col"> {{:~unescape(center)}} </div>
 {{/if}}
 
 {{if right}}
-    <div data-url="{{:right.url.text}}" 
-    	 data-type="{{:right.url.type}}"
-         data-object="{{:right.url.object}}"
-         class="inline-col right-col {{:right.url.valign}}"></div>
+    <div data-url="{{:right}}"
+         data-object="{{:right_object}}"
+         class="inline-col right-col {{:right_valign}}"></div>
 {{/if}} 
 </div>

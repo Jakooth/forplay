@@ -1,7 +1,7 @@
 <ol>
-    {{for track}} {{if !video}}
-    <li>{{:#data}}</li>
+    {{for tracks}} {{if !video}}
+    <li>{{:#data.name}}</li>
     {{else}}
-    <li><a target="_blank" href="{{:#data.video}}">{{:#data}}</a></li>
+    <li><a target="_blank" href="{{:#data.video}}">{{:#data.name}}</a></li>
     {{/if}} {{/for}}
 </ol>

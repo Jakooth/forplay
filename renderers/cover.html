@@ -1,45 +1,45 @@
-{{if subtype == 'news'  || subtype == 'video'}}
+{{if subtype == 'news' || subtype == 'video'}}
 
 <section class="cover {{:type}} {{:subtype}}"
-		 data-theme="{{:cover.theme}} {{:cover.subtheme}}"
-         data-main="{{:main.wide.tag}}-{{:main.wide}}"
-         data-tag="{{:tags.prime}}"
-         style="background-position: {{:cover.align}} {{:cover.valign}}"> 
+		 data-theme="{{:theme}} {{:subtheme}}"
+         data-main="{{:wide_img}}"
+         data-tag="{{:prime.tag}}"
+         style="background-position: {{:cover_align}} {{:cover_valign}}"> 
 </section>
 
 <div class="layout {{:type}} {{:subtype}}">
-    <div class="img-proxy {{if video}}Player{{/if}}"{{if video}}
-    	 id="player_{{:video.player}}"{{/if}}>
-    
-        <div class="img"><a href="{{if video}}{{:video.url}}{{/if}}"{{if video}} 
-                            data-video="{{:video.url}}"
-                            data-player="{{:video.player}}"
-                            data-tech="{{:video.tech}}"{{/if}}> <img 
-                            data-tag="{{:tags.prime}}"
+    <div class="img-proxy {{if video_url}}Player{{/if}}"{{if video_url}}
+    	 id="player_{{:article_id}}"{{/if}}>
+        
+        <div class="img"><a href="{{if video_url}}{{:video_url}}{{/if}}"{{if video_url}} 
+                            data-video="{{:video_url}}"
+                            data-player="{{:article_id}}"
+                            data-tech="{{:video_tech}}"{{/if}}> <img 
+                            data-tag="{{:prime.tag}}"
                             data-proxy="true"
-                            data-main="{{:main.wide.tag}}-{{:main.wide}}"
+                            data-main="{{:wide_img}}"
                             data-ratio="16-9"
-                            src="assets/helpers/16-9.png"
-                            alt="{{:title}}" /> </a></div>
+                            src="/assets/helpers/16-9.png"
+                            alt="{{:~unescape(title)}}" /> </a></div>
 	</div>
     
-{{if audio}}
+{{if audio_url}}
     <div class="audio-proxy">
-    	<iframe width="100%" height="180" src="{{:audio.frame}}" frameborder="0"></iframe>
+    	<iframe width="100%" height="180" src="{{:audio_frame}}" frameborder="0"></iframe>
     </div>    
 {{/if}}    
     
-    <h3> <strong>{{:title}}</strong> <span
-  			  	>{{:subtype.bg}}</span> <span
-              	>{{:subtitle}}</span> </h3>
-    <p>От {{for authors.author}}<a href="?portal={{:#data}}">{{:#data}}</a>
+    <h3> <strong>{{:~unescape(title)}}</strong> <span
+  			  	>{{:~translate(subtype)}}</span> <span
+              	>{{:~unescape(subtitle)}}</span> </h3>
+    <p>От {{for authors}}<a href="#">{{:#data.en_name}}</a>
     	  		{{if #index < #parent.data.length - 2}}, 
     			{{else #index == #parent.data.length - 2}} и {{/if}}{{/for}}</p>
   
 {{if subtype == 'video' && type != 'books'}}
     <ul>
     	<li>
-        	<p><span>Оценка </span><strong>{{:hype}}</strong></p>
+        	<p><span>Оценка </span><strong>{{:~hypeToString(hype)}}</strong></p>
         </li>{{if (type == 'games' || type == 'movies') && 
         		  (better.length > 0 || worse.length > 0)}}
         <li>
@@ -61,21 +61,21 @@
 {{else}}
 
 <section class="cover {{:type}} {{:subtype}}"
-		 data-theme="{{:cover.theme}} {{:cover.subtheme}}"
-         data-main="{{:main.wide.tag}}-{{:main.wide}}"
-         data-tag="{{:tags.prime}}"
-         style="background-position: {{:cover.align}} {{:cover.valign}}">
-    <h3> <strong>{{:title}}</strong> <span
-  			  	>{{:subtype.bg}}</span> <span
-              	>{{:subtitle}}</span> </h3>
-    <p>От {{for authors.author}}<a href="?portal={{:#data}}">{{:#data}}</a>
+		 data-theme="{{:theme}} {{:subtheme}}"
+         data-main="{{:wide_img}}"
+         data-tag="{{:prime.tag}}"
+         style="background-position: {{:cover_align}} {{:cover_valign}}">
+    <h3> <strong>{{:~unescape(title)}}</strong> <span
+  			  	>{{:~translate(subtype)}}</span> <span
+              	>{{:~unescape(subtitle)}}</span> </h3>
+    <p>От {{for authors}}<a href="#">{{:#data.en_name}}</a>
     	  		{{if #index < #parent.data.length - 2}}, 
     			{{else #index == #parent.data.length - 2}} и {{/if}}{{/for}}</p>
 	
 {{if subtype == 'review' && type != 'books'}}
     <ul>
     	<li>
-        	<p><span>Оценка </span><strong>{{:hype}}</strong></p>
+        	<p><span>Оценка </span><strong>{{:~hypeToString(hype)}}</strong></p>
         </li>{{if (type == 'games' || type == 'movies') && 
         		  (better.length > 0 || worse.length > 0)}}
         <li>
