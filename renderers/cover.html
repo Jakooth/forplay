@@ -41,21 +41,21 @@
     	<li>
         	<p><span>Оценка </span><strong>{{:~hypeToString(hype)}}</strong></p>
         </li>{{if (type == 'games' || type == 'movies') && 
-        		  (better.length > 0 || worse.length > 0)}}
+        		  (better || worse)}}
         <li>
-        	<p style="background-image: url(assets/tags/{{:better.tag}}.jpg)" 
-               class="better"><span>По-добре от </span><strong>{{:better}}</strong></p>
-        </li>{{if !equal.length}}
+        	<p style="background-image: url(/assets/tags/{{:better[0].tag}}.jpg)" 
+               class="better"><span>По-добре от </span><strong>{{:better[0].en_name}}</strong></p>
+        </li>{{if !equal}}
         <li>
-        	<p style="background-image: url(assets/tags/{{:worse.tag}}.jpg)" 
-               class="worse"><span>По-зле от </span><strong>{{:worse}}</strong></p>
-        </li>{{/if}}{{if equal.length}}
+        	<p style="background-image: url(/assets/tags/{{:worse.tag}}.jpg)" 
+               class="worse"><span>По-зле от </span><strong>{{:worse[0].en_name}}</strong></p>
+        </li>{{/if}}{{if equal}}
         <li>
-        	<p style="background-image: url(assets/tags/{{:equal.tag}}.jpg)" 
-               class="equal"><span>На нивото на </span><strong>{{:equal}}</strong></p>
+        	<p style="background-image: url(/assets/tags/{{:equal.tag}}.jpg)" 
+               class="equal"><span>На нивото на </span><strong>{{:equal[0].en_name}}</strong></p>
         </li>{{/if}}{{/if}}
     </ul>
-{{/if}}                      
+{{/if}}                
 </div>
 
 {{else}}
@@ -77,21 +77,21 @@
     	<li>
         	<p><span>Оценка </span><strong>{{:~hypeToString(hype)}}</strong></p>
         </li>{{if (type == 'games' || type == 'movies') && 
-        		  (better.length > 0 || worse.length > 0)}}
+        		  (better || worse)}}
         <li>
-        	<p style="background-image: url(assets/tags/{{:better.tag}}.jpg)" 
-               class="better"><span>По-добре от </span><strong>{{:better}}</strong></p>
-        </li>{{if !equal.length}}
+        	<p style="background-image: url(/assets/tags/{{:better[0].tag}}.jpg)" 
+               class="better"><span>По-добре от </span><strong>{{:better_text || better[0].en_name}}</strong></p>
+        </li>{{if !equal}}
         <li>
-        	<p style="background-image: url(assets/tags/{{:worse.tag}}.jpg)" 
-               class="worse"><span>По-зле от </span><strong>{{:worse}}</strong></p>
-        </li>{{/if}}{{if equal.length}}
+        	<p style="background-image: url(/assets/tags/{{:worse[0].tag}}.jpg)" 
+               class="worse"><span>По-зле от </span><strong>{{:worse_text || worse[0].en_name}}</strong></p>
+        </li>{{/if}}{{if equal}}
         <li>
-        	<p style="background-image: url(assets/tags/{{:equal.tag}}.jpg)" 
-               class="equal"><span>На нивото на </span><strong>{{:equal}}</strong></p>
+        	<p style="background-image: url(/assets/tags/{{:equal[0].tag}}.jpg)" 
+               class="equal"><span>На нивото на </span><strong>{{:equal_text || equal[0].en_name}}</strong></p>
         </li>{{/if}}{{/if}}
     </ul>
-{{/if}}   
+{{/if}} 
 </section>
 
 {{/if}}

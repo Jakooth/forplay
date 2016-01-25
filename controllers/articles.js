@@ -128,7 +128,7 @@ function ArticlesManager() {
 								unescape: utils.unescape,
 								translate: utils.translate});
 			
-			appender(html, cover);
+			appender(html, cover, article);
 			
 			$(document).prop('title', article.title);
 		}).fail(function() {
@@ -139,7 +139,7 @@ function ArticlesManager() {
 	/**
 	 * The API for aside and quote is different.
 	 */
-	var loadAside = function($appender, tag, object, versionTested) {
+	var loadAside = function($appender, tag, object, data) {
 		var get1 = $.get(encodeURI(fotagsAPI + '?tag=' + tag + '&object=' + object)),
 			get2 = $.get('/renderers/' + object + '.html');
 		
@@ -150,12 +150,11 @@ function ArticlesManager() {
 				tmpls = $.templates({
 					asideTemplate: data2[0]
 				}),
-				box = object == 'game' ? aside.tag + '-' + versionTested : aside.tag,
 				html = $.templates
 						.asideTemplate
 						.render(aside, {getObjectsByProperty: utils.getObjectsByProperty, 
 										formatDate: utils.formatDate,
-										box: box});
+										versionTested: data.version_tested});
 			
 			$appender.html(html);
 			
@@ -264,14 +263,14 @@ function ArticlesManager() {
 		return false;
 	}
 	
-	var appendAsides = function() {
+	var appendAsides = function(data) {
 		$('#read .left-col, #read .right-col').each(function(index) {
 			var $this = $(this);
 			
 			loadAside($this, 
 					  $this.data('url'),
 					  $this.data('object'),
-					  $this.data('box'));
+					  data);
 		});
 	}
 	
@@ -284,7 +283,7 @@ function ArticlesManager() {
 		});
 	}
 	
-	var appendArticle = function(html, cover) {
+	var appendArticle = function(html, cover, data) {
 		$('main').addClass('read');
 		$('header').addClass('read');
 		
@@ -319,7 +318,7 @@ function ArticlesManager() {
 			}
 		});
 		
-		appendAsides();
+		appendAsides(data);
 		appendTracklist();
 		
 		/**
