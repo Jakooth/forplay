@@ -1139,12 +1139,6 @@ header.read .nav-set .special {
 	clear: both;
 }
 
-.static .read-set .layout > .audio-proxy {
-	padding: 2.08%;
-	padding-top: 0;
-	margin-top: -2.08%;
-}
-
 .static .read-set .layout > ul {
 	display: none;
 }
@@ -1321,6 +1315,15 @@ main.read #read {
 	padding-left: 0;
 	padding-bottom: 0;
 	padding-top: 0;
+}
+
+/**
+ * Length in 1600 is 604 - 20px is 3.2%.
+ */
+
+.inside.i3 .img-proxy:nth-of-type(2) .video-js,
+.img.a1 .img-proxy:nth-of-type(2) .video-js {
+	width: 96.8% !important;
 }
 
 .inside.i3 .img-proxy:nth-of-type(2) p,
@@ -1549,9 +1552,10 @@ main.read #read {
 }
 
 /**
- * f3
+ * f1, f3
  */
 
+.img.f1 .img-proxy,
 .img.f3 .img-proxy {
 	margin-left: -33.33%;
 	margin-right: -33.33%;

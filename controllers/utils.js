@@ -316,7 +316,7 @@ function UtilsManager() {
 	 * the height correctly, thus we do this manually.
 	 */
 	
-	this.formatTimThumbString = function(tag, width, height) {
+	this.formatThumborString = function(tag, width, height) {
 		var service = 'http://forplay.bg/phplib/timthumb/timthumb.php';
 		
 		return service + '?src=/assets/articles/' + 
@@ -333,11 +333,11 @@ function UtilsManager() {
 	 * The second IP is the localhost network address (Windows ipconfig to get it).
 	 */
 	
-	this.formatThumborString = function(tag, width, height) {
-		var service = 'http://192.168.1.137:8888/unsafe/';
+	this.formatTimThumbString = function(tag, width, height) {
+		var service = 'http://192.168.56.101:8888/unsafe/';
 		
 		return service + width + 'x' + height + 
-								 '/192.168.1.124:8080/forplay/assets/articles/' + 
+								 '/192.168.56.1:8080/forplay/assets/articles/' + 
 								 tag.substring(0, tag.lastIndexOf('-')) +
 								 '/' + tag;
 	}

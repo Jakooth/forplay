@@ -1,13 +1,13 @@
 <aside>
     <div class="img-proxy">
-        <div class="img"><img data-tag="{{:tags.prime}}"
+        <div class="img"><img data-tag="{{:prime.tag}}"
                               data-proxy="true"
-                              data-main="{{:main.tag}}-{{:main}}"
+                              data-main="{{:shot_img}}"
                               data-ratio="16-9"
-                              src="assets/helpers/16-9.png"
+                              src="/assets/helpers/16-9.png"
                               alt=""
                               role="presentation" /></div>
     </div>
-    <h3>{{:title}}</h3>
-    {{:center}}
+    <h3>{{:~unescape(title)}}</h3>
+    {{:~unescape(layouts[0].center)}}
 </aside>

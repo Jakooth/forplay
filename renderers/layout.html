@@ -11,24 +11,24 @@
 
 {{if type == 'img' || type == 'inside'}} {{for imgs}}
     <div class="img-proxy {{if video}}Player{{/if}}"{{if video}}
-    	 id="player_{{:articleid}}{{:layoutid}}{{:#index}}"{{/if}}>
+    	 id="player_{{:article_id}}{{:layout_id}}{{:#getIndex()}}"{{/if}}>
     
     {{if #data.tracklist}}
         <div data-tag="{{:#data.tracklist}}" 
         	 class="tracklist {{:#data.align}} {{:#data.valign}}"></div>
     {{else #data.center}}
-    	<div class="{{:#data.valign}}">
+    	<div class="{{:#data.align}} {{:#data.valign}}">
         	<p>{{if #data.author}}От <a href="#">
             {{:#data.author}}</a>{{/if}}</p>
-            {{:#data.center}}
+            {{:~unescape(#data.center)}}
         </div>
     {{else #data.alt.length > 0}}
         <p><strong>{{:#data.pointer}}</strong> {{:#data.alt}}</p>
     {{/if}}
-        <div class="img {{if #parent.data.subtype == 'i4'}}{{:#data.center.valign}}{{/if}}"><a 
+        <div class="img {{if #parent.parent.data.subtype == 'i4'}}{{:#data.align}} {{:#data.valign}}{{/if}}"><a 
         					href="{{if video}}{{:video.url}}{{/if}}"{{if video}} 
                             data-video="{{:video}}"
-                            data-player="{{:articleid}}{{:layoutid}}{{:#index}}"
+                            data-player="{{:article_id}}{{:layout_id}}{{:#getIndex()}}"
                             data-tech="youtube"{{/if}}> <img 
                             data-tag="{{:#data.tag}}"
                             data-proxy="true"

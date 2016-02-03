@@ -140,13 +140,28 @@ function ArticlesManager() {
 	 * The API for aside and quote is different.
 	 */
 	var loadAside = function($appender, tag, object, data) {
-		var get1 = $.get(encodeURI(fotagsAPI + '?tag=' + tag + '&object=' + object)),
+		var get1,
 			get2 = $.get('/renderers/' + object + '.html');
+			
+		if (object == 'quote' || 
+			object == 'review' || 
+			object == 'feature' ||
+			object == 'video' || 
+			object == 'aside') {
+			
+			get1 = $.get(encodeURI(forplayAPI + '?tag=' + tag));
+		} else {
+			get1 = $.get(encodeURI(fotagsAPI + '?tag=' + tag + '&object=' + object));
+		}	
 		
 		$.when(get1, get2).done(function(data1, data2) {
 			var aside = data1[0].length ? 
-						JSON.parse(data1[0]).tags[0] : 
-						data1.tags[0],
+						JSON.parse(data1[0]).tags ? 
+							JSON.parse(data1[0]).tags[0] : 
+							JSON.parse(data1[0]).articles[0] : 
+						data1.tags ? 
+							data1.tags[0] : 
+							data1.articles[0], 	
 				tmpls = $.templates({
 					asideTemplate: data2[0]
 				}),
@@ -154,7 +169,8 @@ function ArticlesManager() {
 						.asideTemplate
 						.render(aside, {getObjectsByProperty: utils.getObjectsByProperty, 
 										formatDate: utils.formatDate,
-										versionTested: data.version_tested});
+										versionTested: data.version_tested,
+										unescape: utils.unescape});
 			
 			$appender.html(html);
 			
@@ -341,7 +357,7 @@ function ArticlesManager() {
 		banner.setCoversHeight($cover.height());
 	}
 	
-	var appendNews = function(html, cover) {
+	var appendNews = function(html, cover, data) {
 		$('main').addClass('read fixed static');
 		$('header').addClass('read fixed static');
 		
@@ -384,7 +400,7 @@ function ArticlesManager() {
 			}
 		});
 		
-		appendAsides();
+		appendAsides(data);
 		
 		/**
 		 * Append the score at the end of the main content.

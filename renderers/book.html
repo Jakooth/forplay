@@ -1,21 +1,21 @@
 <aside>
-    <div class="box-placeholder {{:subtype}}">
-        <h2>{{:en}}</h2>
+    <div class="box-placeholder {{:object}}">
+        <h2>{{:en_name}}</h2>
         <div class="box" 
-        	 style="background-image: url(assets/articles/{{:tag}}/{{:tag}}-cover.jpg);"> <img 
-             src="assets/helpers/{{:subtype}}.png" 
+        	 style="background-image: url(/assets/articles/{{:tag}}/{{:tag}}-cover.jpg);"> <img 
+             src="/assets/helpers/{{:object}}.png" 
        		 alt="" 
              role="presentation" /> </div>
     </div>
     <dl>
         <dt>Оригинално име</dt>
-        <dd>{{:en}}</dd>
+        <dd>{{:en_name}}</dd>
         <dt>Автор</dt>
-        <dd>{{:artist}}</dd>
+        <dd>{{:~getObjectsByProperty(related, 'related_subtype', 'artist', 'en_name')}}</dd>
         <dt>Жанр</dt>
-        <dd>{{:~formatComaString(genres.genre)}}</dd>
+        <dd>{{:~getObjectsByProperty(related, 'related_subtype', 'genre', 'en_name')}}</dd>
         <dt>Държава</dt>
-        <dd>{{:country}}</dd>
+        <dd>{{:~getObjectsByProperty(related, 'related_subtype', 'country', 'en_name')}}</dd>
         <dt>Дата на издаване</dt>
         <dd>{{:~formatDate(date)}}</dd>
     </dl>

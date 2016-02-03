@@ -1,31 +1,31 @@
 <aside>
-    <div class="box-placeholder {{:subtype}}">
-        <h2>{{:bg}}</h2>
+    <div class="box-placeholder {{:object}}">
+        <h2>{{:bg_name}}</h2>
         <div class="box" 
-        	 style="background-image: url(assets/articles/{{:tag}}/{{:tag}}-poster.jpg);"> <img 
-             src="assets/helpers/{{:subtype}}.png" 
+        	 style="background-image: url(/assets/articles/{{:tag}}/{{:tag}}-poster.jpg);"> <img 
+             src="/assets/helpers/{{:object}}.png" 
        		 alt="" 
              role="presentation" /> </div>
     </div>
     <dl>
         <dt>Оригинално име</dt>
-        <dd>{{:en}}</dd>
+        <dd>{{:en_name}}</dd>
         <dt>Жанр</dt>
-        <dd>{{:~formatComaString(genres.genre)}}</dd>
+        <dd>{{:~getObjectsByProperty(related, 'related_subtype', 'genre', 'name')}}</dd>
         <dt>Участват</dt>
-        <dd>{{:~formatComaString(cast.actor)}}</dd>
+        <dd>{{:~getObjectsByProperty(related, 'related_subtype', 'cast', 'bg_name' || 'en_name')}}</dd>
         <dt>Режисьор</dt>
-        <dd>{{:~formatComaString(directors.director)}}</dd>
+        <dd>{{:~getObjectsByProperty(related, 'related_subtype', 'director', 'bg_name' || 'en_name')}}</dd>
         <dt>Сценарист</dt>
-        <dd>{{:~formatComaString(writers.writer)}}</dd>
+        <dd>{{:~getObjectsByProperty(related, 'related_subtype', 'writer', 'bg_name' || 'en_name')}}</dd>
         <dt>Оператор</dt>
-        <dd>{{:~formatComaString(camera.operator)}}</dd>
+        <dd>{{:~getObjectsByProperty(related, 'related_subtype', 'camera', 'bg_name' || 'en_name')}}</dd>
         <dt>Музика</dt>
-        <dd>{{:~formatComaString(music.composer)}}</dd>
+        <dd>{{:~getObjectsByProperty(related, 'related_subtype', 'music', 'bg_name' || 'en_name')}}</dd>
         <dt>Премиера за България</dt>
-        <dd>{{:~formatDate(bg)}}</dd>
+        <dd>{{:~formatDate(date)}}</dd>
         <dt>Световна премиера</dt>
-        <dd>{{:~formatDate(world)}}</dd>
+        <dd>{{:~formatDate(world_date)}}</dd>
         <dt>Времетраене</dt>
         <dd>{{:time}}</dd>
     </dl>
