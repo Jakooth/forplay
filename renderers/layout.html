@@ -23,7 +23,7 @@
             {{:~unescape(#data.center)}}
         </div>
     {{else #data.alt.length > 0}}
-        <p><strong>{{:#data.pointer}}</strong> {{:#data.alt}}</p>
+        <p><strong>{{:#data.pointer}}</strong> {{:~unescape(#data.alt)}}</p>
     {{/if}}
         <div class="img {{if #parent.parent.data.subtype == 'i4'}}{{:#data.align}} {{:#data.valign}}{{/if}}"><a 
         					href="{{if video}}{{:video.url}}{{/if}}"{{if video}} 
@@ -35,7 +35,7 @@
                             data-main="{{:#data.tag}}-{{:#data.index}}"
                             data-ratio="{{if ratio}}{{:ratio}}{{else}}16-9{{/if}}"
                             src="/assets/helpers/{{if ratio}}{{:ratio}}{{else}}16-9{{/if}}.png"
-                            alt="{{:#data.alt}}" /> </a></div>
+                            alt="{{:~unescape(#data.alt)}}" /> </a></div>
 	</div>
 {{/for}} {{else}}
     <div class="center-col"> {{:~unescape(center)}} </div>
