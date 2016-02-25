@@ -535,7 +535,7 @@ section.cover > p {
 }
 
 #read .cover li p.equal:after {
-	border-bottom: 6px solid fade(@dark, 0);
+	border-bottom: 6px solid fade(@equal, 70%);
 	border-right: 6px solid fade(@equal, 70%);
 	border-top: 6px solid fade(@equal, 70%);
 }
@@ -960,7 +960,9 @@ header.read .nav-set .special {
 	background-size: 100% 40%;
 }
 
-.article-set article .img-proxy {
+.article-set article .img-proxy,
+.article-set article[data-priority=review]:nth-of-type(5n - 4) .img-proxy,
+.article-set article[data-priority=review]:nth-of-type(5n) .img-proxy {
 	width: 87.5%;
 	margin-left: 6.25%;
 	margin-right: 6.25%;
@@ -977,7 +979,9 @@ header.read .nav-set .special {
 	width: 93.75%;
 }
 
-.article-set article .img-proxy img {
+.article-set article .img-proxy img,
+.article-set article[data-priority=review]:nth-of-type(5n - 4) .img-proxy img,
+.article-set article[data-priority=review]:nth-of-type(5n) .img-proxy img {
 	margin-bottom: 0;
 }
 

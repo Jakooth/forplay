@@ -148,7 +148,7 @@ function UtilsManager() {
 	}
 	
 	this.formatComaString = function (arr) {
-		if (!arr) return false;
+		if (!arr) return;
 		
 		/**
 		 * In XML single child node will return string and not array.
@@ -158,7 +158,7 @@ function UtilsManager() {
 	}
 	
 	this.formatDate = function (d) {
-		if (!d) return false;
+		if (!d) return;
 		
 		var d = new Date(d),
 			m = ['Януари', 'Февруари', 'Март', 
@@ -174,7 +174,7 @@ function UtilsManager() {
 	}
 	
 	this.formatTag = function (s) {
-		if (!s) return false;
+		if (!s) return;
 		
 		var tag = s.toLowerCase().replace(/[:?\.,!()'’*„“]|– |- /g, '');
 		
@@ -184,7 +184,7 @@ function UtilsManager() {
 	}
 	
 	this.parseSticker = function (s) {
-		if (!s) return false;
+		if (!s) return;
 		
 		var img = s.split('\\').pop().split('.')[0].toLowerCase();
 		
@@ -192,7 +192,7 @@ function UtilsManager() {
 	}
 	
 	this.parseStickerName = function (s) {
-		if (!s) return false;
+		if (!s) return;
 		
 		var name = s.replace(/-/g, ' ');
 		
@@ -200,7 +200,7 @@ function UtilsManager() {
 	}
 	
 	this.parseImg = function (s) {
-		if (!s) return false;
+		if (!s) return;
 		
 		var img = s.split('\\').pop().toLowerCase();
 		
@@ -208,7 +208,7 @@ function UtilsManager() {
 	}
 	
 	this.parseImgIndex = function (s) {
-		if (!s) return false;
+		if (!s) return;
 		
 		/**
 		 * Images names are made from tag and number.
@@ -222,7 +222,7 @@ function UtilsManager() {
 	}
 	
 	this.parseImgTag = function (s) {
-		if (!s) return false;
+		if (!s) return;
 		
 		var index = s.substring(s.lastIndexOf('\\') + 1, 
 								s.lastIndexOf('-'));
@@ -256,7 +256,7 @@ function UtilsManager() {
 	}
 	
 	this.getObjectsByProperty = function(arr, key, value, prop) {
-		if (!arr.length) return false;
+		if (!arr.length) return;
 		
 		var objects,
 			props;

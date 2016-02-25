@@ -124,6 +124,15 @@
 	body.@{theme} .inline-col.right-col blockquote:after {
 		border-right-color: @color;
 	}
+	
+	/**
+	 * Review caret
+	 */
+	
+	body.@{theme} #allArticles [data-priority=review] h3, 
+	body.@{theme} #allArticles [data-priority=review] p {
+		background-color: fade(@color, 25%);
+	}
 }
 
 #createMobilePortrait (@width) {

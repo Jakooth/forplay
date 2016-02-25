@@ -97,6 +97,17 @@ function ArticlesManager() {
 													translate: utils.translate}));
 			
 			appender(html, covers);
+			
+			/**
+			 * Set the document title for the home page, 
+			 * which is the issue of the most recent article.
+			 */
+			
+			if (covers) {
+				$(document).prop('title', 'Forplay Брой ' + 
+										  data.articles[0].issue_tag + ' ' + 
+										  data.articles[0].issue);
+			}
 		}).fail(function() {
 			console.log("Failed to load index articles.");
 		});
@@ -524,14 +535,6 @@ function ArticlesManager() {
 				break;
 			default:
 				loadArticles('articles', appendPortal, true);
-				
-				/**
-				 * TODO: Determine which issue and remove the hardcoded strings.
-				 * We can do this by calling the API to send us the info.
-				 * In fact the info is also coded for each article.
-				 */
-				$(document).prop('title', 'Forplay Брой 1 Презареждане');
-				
 				break;	
 		}
 	}
