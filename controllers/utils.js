@@ -317,7 +317,7 @@ function UtilsManager() {
 	 */
 	
 	this.formatTimThumbString = function(tag, width, height) {
-		var service = 'http://forplay.bg/phplib/timthumb/timthumb.php';
+		var service = 'https://forplay.bg/forapi/phplib/timthumb/timthumb.php';
 		
 		return service + '?src=/assets/articles/' + 
 						 tag.substring(0, tag.lastIndexOf('-')) + 
