@@ -14,6 +14,15 @@
 <link href="https://www.forplay.bg/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120" />
 <link href="https://www.forplay.bg/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152" />
 <title>Forplay&reg;</title>
+<!--EXTERNAL
+	jQuery - selectors and DOM manipulations
+    jQuery Mobile - mobile events handler
+    jQuery Cookie - store user variable
+    Video JS - html player for embed video
+    Video JS Vimeo - vimeo add-on
+    Video JS Youtube - youtube add-on 
+    HE - encode and decode data
+    jsRender - templating tool vor javascript-->
 <script src="/jslib/jquery-2.1.4.min.js" type="text/javascript">
 	<!--script-->
 </script>
@@ -32,12 +41,14 @@
 <script src="/jslib/video-js/vjs.youtube.js" type="text/javascript">
 	<!--script-->
 </script>
-<script src="/jslib/jquery.xml2json.js" type="text/javascript">
-	<!--script-->
-</script>
 <script src="/jslib/he.js" type="text/javascript">
 	<!--script-->
 </script>
+<script src="/jslib/jsrender.min.js" type="text/javascript">
+	<!--script-->
+</script>
+<!--LOCALIZATION
+	i18next - handle some english strings-->
 <script src="/jslib/i18next.min.js" type="text/javascript">
 	<!--script-->
 </script>
@@ -47,12 +58,11 @@
 <script src="/jslib/i18nextBrowserLanguageDetector.min.js" type="text/javascript">
 	<!--script-->
 </script>
-<script src="/jslib/jsrender.min.js" type="text/javascript">
-	<!--script-->
-</script>
-<script src="/jslib/less-1.4.1.min.js" type="text/javascript">
-	<!--script-->
-</script>
+<!--FORPLAY
+	utils - common function for all modules
+    banner - animations and interactions with the banner section
+    articles - main contant loading and placment
+    player - embed video play support-->
 <script src="/controllers/utils.js?v=2.0.2" type="text/javascript">
 	<!--script-->
 </script>
@@ -65,37 +75,8 @@
 <script src="/controllers/player.js?v=2.0.0" type="text/javascript">
 	<!--script-->
 </script>
-<script type="text/javascript">
-	$(document).ready(function() {
-		window.utils = new UtilsManager();
-		window.banner = new BannerManager();
-		window.articles = new ArticlesManager();
-		window.player = new PlayerManager();
-		
-		i18next.use(new i18nextXHRBackend())
-			   .use(new i18nextBrowserLanguageDetector())
-			   .init();
-	});
-</script>
-<script type="text/javascript">
-    (function(i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-		
-        i[r] = i[r] || function() {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-		
-        a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0];
-			
-        a.async = 1;
-        a.src = g;
-		
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-    ga('create', 'UA-8177470-1', 'auto');
-    ga('send', 'pageview');
+<script src="/controllers/INIT.js?v=2.0.0">
+	<!--script-->
 </script>
 </head>
 <body>
@@ -183,7 +164,8 @@
     </section>
 </main>
 <footer>
-    <p>&copy; Copyright 2015 <a href="/articles/games/news/18/castle-design">Castle Design Ltd.</a> </p>
+    <p>&copy; Copyright 2015 <a href="/articles/games/news/18/castle-design">Castle
+            Design Ltd.</a> </p>
     <p>Тази страница се придържа към <a href="http://www.cencenelec.eu/News/Press_Releases/Pages/PR-2014-03.aspx">Европейските
             Изисквания за Достъпност на Обществени Продукти и Услуги.</a> </p>
     <p>Икони за кориците благодарение на <a href="http://game-icons.net/">Game-icons.net.</a> </p>

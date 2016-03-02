@@ -130,7 +130,8 @@
 	 */
 	
 	body.@{theme} #allArticles [data-priority=review] h3, 
-	body.@{theme} #allArticles [data-priority=review] p {
+	body.@{theme} #allArticles [data-priority=review] p,
+	body.@{theme} #allArticles article[data-priority=review]::after {
 		background-color: fade(@color, 25%);
 	}
 }

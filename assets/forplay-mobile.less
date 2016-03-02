@@ -628,6 +628,10 @@ main h2 {
 	padding-top: 0;
 }
 
+#allArticles article[data-priority=review] h3 {
+	padding-top: 6.25%;	
+}
+
 .article-set article > p:nth-of-type(2) {
 	overflow: hidden;
 	display: -webkit-box;
@@ -636,6 +640,17 @@ main h2 {
 	text-overflow: ellipsis;
 	padding-bottom: 0;
 	margin-bottom: 6.25%; 
+}
+
+#allArticles article[data-priority=review] > p:nth-of-type(2) {
+	margin-bottom: 0;
+}
+
+#allArticles article[data-priority=review]::after {
+	content: "";
+	padding-bottom: 6.25%;
+	width: 70%;
+	float: right;
 }
 
 /**
