@@ -1,7 +1,15 @@
+#Forplay
+#Make user friendly links for searc engines.
 Options +FollowSymLinks -MultiViews
 RewriteEngine On
 
+#Allow Auth0 header with token
+
+RewriteCond %{HTTP:Authorization} ^(.*)
+RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
+
 RewriteBase /
+# RewriteBase /the-force-awakens/
 
 # from 	http://forplay.bg/articles/games/news/19/uncharted-4-геймплей 
 # to 	http://forplay.bg/index.html?type=games&subtype=news&id=19&url=uncharted-4-геймплей
