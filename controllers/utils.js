@@ -317,11 +317,14 @@ function UtilsManager() {
 	 */
 	
 	this.formatTimThumbString = function(tag, width, height) {
-		var service = 'https://forplay.bg/forapi/phplib/timthumb/timthumb.php';
+		var service = 'https://forplay.bg/forapi/phplib/timthumb/timthumb.php',
+			extras = '';
+		
+		if (tag.indexOf('-caret') >= 0) extras = '_extras/';
 		
 		return service + '?src=/assets/articles/' + 
 						 tag.substring(0, tag.lastIndexOf('-')) + 
-						 '/' + tag + 
+						 '/' + extras + tag + 
 						 '&w=' + width + 
 						 '&h=' + height;
 	}
@@ -334,12 +337,15 @@ function UtilsManager() {
 	 */
 	
 	this.formatThumborString = function(tag, width, height) {
-		var service = 'http://192.168.56.101:8888/unsafe/';
+		var service = 'http://192.168.56.101:8888/unsafe/',
+			extras = '';
+		
+		if (tag.indexOf('-caret') >= 0) extras = '_extras/';
 		
 		return service + width + 'x' + height + 
 								 '/192.168.56.1:8080/forplay/assets/articles/' + 
 								 tag.substring(0, tag.lastIndexOf('-')) +
-								 '/' + tag;
+								 '/' + extras + tag;
 	}
 	
 	/**
