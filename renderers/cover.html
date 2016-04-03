@@ -29,9 +29,9 @@
     </div>    
 {{/if}}    
     
-    <h3> <strong>{{:~unescape(title)}}</strong> <span
+    <h1> <strong>{{:~unescape(title)}}</strong> <span
   			  	>{{:~translate(subtype)}}</span> <span
-              	>{{:~unescape(subtitle)}}</span> </h3>
+              	>{{:~unescape(subtitle)}}</span> </h1>
     <p>От {{for authors}}<a href="#">{{:#data.en_name}}</a>
     	  		{{if #index < #parent.data.length - 2}}, 
     			{{else #index == #parent.data.length - 2}} и {{/if}}{{/for}}</p>
@@ -64,9 +64,9 @@
          data-main="{{:wide_img}}"
          data-tag="{{:prime.tag}}"
          style="background-position: {{:cover_align}} {{:cover_valign}}">
-    <h3> <strong>{{:~unescape(title)}}</strong> <span
+    <h1> <strong>{{:~unescape(title)}}</strong> <span
   			  	>{{:~translate(subtype)}}</span> <span
-              	>{{:~unescape(subtitle)}}</span> </h3>
+              	>{{:~unescape(subtitle)}}</span> </h1>
     <p>От {{for authors}}<a href="#">{{:#data.en_name}}</a>
     	  		{{if #index < #parent.data.length - 2}}, 
     			{{else #index == #parent.data.length - 2}} и {{/if}}{{/for}}</p>

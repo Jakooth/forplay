@@ -91,7 +91,7 @@ a {
 
 nav h3,
 #covers h3 a,
-#read > .cover h3 strong,
+#read > .cover h1 strong,
 .video-set article:nth-of-type(3) h3 a {
 	font-size: 14pt;
 }
@@ -101,12 +101,12 @@ nav h3,
  */
 
 #covers h3 span:nth-of-type(2),
-#read > .cover h3 span:nth-of-type(2),
+#read > .cover h1 span:nth-of-type(2),
 .video-set article:nth-of-type(3) h3 span:nth-of-type(2) {
 	font-size: 12pt;
 }
 
-#read > .cover h3 span,
+#read > .cover h1 span,
 #covers h3 span,
 .article-set h3 span {
 	font-weight: normal;
@@ -141,6 +141,13 @@ nav h3,
 .layout .center-col blockquote * {
 	font-family: 'Poiret One', cursive;
 	font-size: 18pt;
+}
+
+.layout .center-col h2 {
+	font-size: 30pt;
+	color: white;
+	text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+	text-transform: uppercase;
 }
 
 .layout.inside blockquote p:before,
@@ -211,7 +218,7 @@ svg path {
 
 #forLife,
 #covers article h3,
-#read > .cover h3 {
+#read > .cover h1 {
 	-webkit-transition: opacity 0.5s, background-color 0.5s;
 	-moz-transition: opacity 0.5s, background-color 0.5s;
 	-o-transition: opacity 0.5s, background-color 0.5s;
@@ -482,7 +489,7 @@ body.nav .nav-set ul {
 	background-size: 100% 200%;
 }
 
-#read > .cover h3,
+#read > .cover h1,
 #covers .cover h3 {
 	padding: 6.25%;
 	bottom: 0;
@@ -495,7 +502,7 @@ body.nav .nav-set ul {
  * Subtype
  */
 
-#read > .cover h3 span:nth-of-type(1),
+#read > .cover h1 span:nth-of-type(1),
 #covers .cover h3 span:nth-of-type(1) {
 	.clip;
 }
@@ -504,7 +511,7 @@ body.nav .nav-set ul {
  * Subtitle
  */
 
-#read > .cover h3 span:nth-of-type(2),
+#read > .cover h1 span:nth-of-type(2),
 #covers .cover h3 span:nth-of-type(2) {
 	display: block;
 }
@@ -575,8 +582,9 @@ body.nav .nav-set ul {
  * ARTICLES
  */
 
-main h1,
-main h2 {
+main > h1,
+main section > h2,
+main .box-placeholder > h2 {
 	.clip;
 }
 
@@ -716,7 +724,7 @@ main h2 {
 	background-size: cover;
 }
 
-#read > .cover h3 {
+#read > .cover h1 {
 	padding-bottom: 12.5%;
 }
 
@@ -787,6 +795,12 @@ main.read .read-set {
 	margin-top: 6px;
 	padding: 6.25%;
 	line-height: 24pt;
+}
+
+.read-set .center-col h2 {
+	margin: 0;
+	clear: both;
+	padding: 6.25%;
 }
 
 .inside.i1 .right ol,
@@ -1101,7 +1115,7 @@ only screen and (min-width: 768px) {
 	
 	nav h3,
 	#covers h3 a,
-	#read > .cover h3 strong,
+	#read > .cover h1 strong,
 	.video-set article:nth-of-type(3) h3 a {
 		font-size: 24pt;
 	}
@@ -1111,7 +1125,7 @@ only screen and (min-width: 768px) {
 	 */
 	
 	#covers h3 span:nth-of-type(2),
-	#read > .cover h3 span:nth-of-type(2),
+	#read > .cover h1 span:nth-of-type(2),
 	.video-set article:nth-of-type(3) h3 span:nth-of-type(2) {
 		font-size: 16pt;
 	}

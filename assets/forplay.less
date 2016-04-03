@@ -107,7 +107,7 @@ a {
  */
 
 #covers h3 a,
-section.cover h3 strong,
+section.cover h1 strong,
 .video-set article:nth-of-type(3) h3 a,
 .static .read-set .layout:first-of-type h3 strong,
 #topReviews.article-set article:nth-of-type(2) h3 * {
@@ -123,12 +123,13 @@ section.cover h3 strong,
 .layout .center-col h3,
 .layout .center-col h3 *,
 #covers h3 span:nth-of-type(2),
-section.cover h3 span:nth-of-type(2),
+section.cover h1 span:nth-of-type(2),
 .video-set article:nth-of-type(3) h3 span:nth-of-type(2),
 .static .read-set .layout:first-of-type h3 span:nth-of-type(2) {
 	font-size: 16pt;
 }
 
+article h1 span,
 article h3 span {
 	font-weight: normal;
 }
@@ -178,6 +179,13 @@ section.cover > p * {
 .layout .center-col blockquote * {
 	font-family: 'Poiret One', cursive;
 	font-size: 24pt;
+}
+
+.layout .center-col h2 {
+	font-size: 30pt;
+	color: white;
+	text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+	text-transform: uppercase;
 }
 
 .layout.inside blockquote p:before,
@@ -297,8 +305,9 @@ main > article {
 	float: left;
 }
 
-main h1,
-main h2 {
+main > h1,
+main section > h2,
+main .box-placeholder > h2 {
 	.clip;
 }
 
@@ -355,7 +364,7 @@ main.fixed #read .cover {
 
 header.fixed #covers h3,
 header.fixed #covers ul,
-main.fixed #read .cover h3 {
+main.fixed #read .cover h1 {
 	.clip;
 }
 
@@ -433,13 +442,13 @@ section.cover:before {
 }
 
 .cover-set h3,
-section.cover h3 {
+section.cover h1 {
 	position: absolute;
 	bottom: 0;
 	padding: 2.08%;
 }
 
-section.cover h3 {
+section.cover h1 {
 	left: 20%;
 	width: 60%;
 	padding: 1.25%;
@@ -450,7 +459,7 @@ section.cover h3 {
  */
 
 .cover-set h3 a:nth-child(1),
-section.cover h3 a:nth-child(1) {
+section.cover h1 a:nth-child(1) {
 	display: block;
 	width: 80%;
 }
@@ -460,7 +469,7 @@ section.cover h3 a:nth-child(1) {
  */
 
 .cover-set h3 span:nth-child(2),
-section.cover h3 span:nth-child(2) {
+section.cover h1 span:nth-child(2) {
 	position: absolute;
 	padding: 2.08%;
 	bottom: 0;
@@ -474,7 +483,7 @@ section.cover h3 span:nth-child(2) {
  */
 
 .cover-set h3 span:nth-child(3),
-section.cover h3 span:nth-child(3) {
+section.cover h1 span:nth-child(3) {
 	display: block;
 	width: 80%;
 }
@@ -1025,19 +1034,19 @@ header.read .nav-set .special {
  * Colors based on article type.
  */
 
-.review h3 span:nth-child(2) {
+.review h1 span:nth-child(2) {
 	background: @review;
 }
 
-.feature h3 span:nth-child(2) {
+.feature h1 span:nth-child(2) {
 	background: @feature;
 }
 
-.news h3 span:nth-child(2) {
+.news h1 span:nth-child(2) {
 	background: @news;
 }
 
-.video h3 span:nth-child(2) {
+.video h1 span:nth-child(2) {
 	background: @video;
 }
 
@@ -2208,7 +2217,7 @@ svg path {
 
 #forLife,
 #covers article h3,
-#read .cover h3 {
+#read .cover h1 {
 	-webkit-transition: opacity 0.5s, background-color 0.5s;
 	-moz-transition: opacity 0.5s, background-color 0.5s;
 	-o-transition: opacity 0.5s, background-color 0.5s;

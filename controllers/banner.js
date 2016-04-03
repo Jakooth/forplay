@@ -36,7 +36,7 @@ function BannerManager() {
 		
 		if ($main.hasClass('read')) {
 			$covers = $('#read .cover');
-			$mainCoverHeading = $('#read .cover h3');
+			$mainCoverHeading = $('#read .cover h1');
 		} else {
 			$covers = $('#covers');
 			$mainCoverHeading = $('#covers article:eq(0) h3');
