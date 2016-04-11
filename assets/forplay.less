@@ -183,8 +183,7 @@ section.cover > p * {
 
 .layout .center-col h2 {
 	font-size: 30pt;
-	color: white;
-	text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+	color: fade(@grey, 50%);
 	text-transform: uppercase;
 }
 
@@ -275,11 +274,17 @@ li {
 	list-style: none;
 }
 
+/**
+ * Display all images as blocks to srot out size issues.
+ * For example Chrome will missalign img a little bit.
+ */
+
 img {
 	width: 100%;
 	vertical-align: top;
 	position: relative;
 	border: none;
+	display: block;
 }
 
 header,
@@ -997,6 +1002,7 @@ header.read .nav-set .special {
 .article-set article[data-priority=review]:nth-of-type(5n - 4) .img-proxy img,
 .article-set article[data-priority=review]:nth-of-type(5n) .img-proxy img {
 	margin-bottom: 0;
+	display: block;
 }
 
 .article-set article:nth-of-type(5n) .img-proxy img,
@@ -1034,20 +1040,24 @@ header.read .nav-set .special {
  * Colors based on article type.
  */
 
-.review h1 span:nth-child(2) {
-	background: @review;
+.review h1 span:nth-child(2),
+.review h3 span:nth-child(2) {
+	background: fade(@review, 50%);
 }
 
-.feature h1 span:nth-child(2) {
-	background: @feature;
+.feature h1 span:nth-child(2),
+.feature h3 span:nth-child(2) {
+	background: fade(@feature, 50%);
 }
 
-.news h1 span:nth-child(2) {
-	background: @news;
+.video h1 span:nth-child(2),
+.news h3 span:nth-child(2) {
+	background: fade(@news, 50%);
 }
 
-.video h1 span:nth-child(2) {
-	background: @video;
+.video h1 span:nth-child(2),
+.video h3 span:nth-child(2) {
+	background: fade(@video, 50%);
 }
 
 /**
