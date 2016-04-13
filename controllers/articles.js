@@ -438,9 +438,21 @@ function ArticlesManager() {
 			appendCovers(html);
 		}
 		
-		$('#topVideos').append(html.find('article.video:lt(5)'));
+		/**
+		 * Append 5 videos. Most recent is in the middle.
+		 */
+		
+		$('#topVideos').append(html.find('article.video:gt(1):lt(2)'));
+		$('#topVideos').append(html.find('article.video:lt(3)'));
+		
+		/**
+		 * Append 3 reviews. Most recent is in the middle.
+		 */
+		
 		$('#topReviews').append(html.find('article[data-priority=review]' + 
-										  '').filter(':lt(3)'));
+										  '').filter(':gt(1):lt(1)'));
+		$('#topReviews').append(html.find('article[data-priority=review]' + 
+										  '').filter(':lt(2)'));
 		
 		var id = Math.round(Math.random() * 100000);
 		
@@ -453,6 +465,7 @@ function ArticlesManager() {
 		/**
 		 * First, because there could be author or other links.
 		 */
+		 
 		$players.find('a:eq(0)').attr('data-player', id);
 		$players.find('a:eq(0)').data('player', id);
 		
