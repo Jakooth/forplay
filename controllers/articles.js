@@ -104,7 +104,7 @@ function ArticlesManager() {
 			 */
 			
 			if (covers) {
-				$(document).prop('title', 'Forplay Брой ' + 
+				$(document).prop('title', 'Forplay брой ' + 
 										  data.articles[0].issue_tag + ' ' + 
 										  data.articles[0].issue);
 			}
@@ -141,7 +141,7 @@ function ArticlesManager() {
 			
 			appender(html, cover, article);
 			
-			$(document).prop('title', article.title);
+			$(document).prop('title', article.title + ' ' + utils.translate(article.subtype));
 		}).fail(function() {
 			console.log("Failed to load index articles.");
 		});

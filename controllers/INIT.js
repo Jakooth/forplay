@@ -7,6 +7,8 @@ $(document).ready(function() {
 	i18next.use(new i18nextXHRBackend())
 		   .use(new i18nextBrowserLanguageDetector())
 		   .init();
+		   
+	i18next.changeLanguage('bg');
 });
 
 (function(i, s, o, g, r, a, m) {

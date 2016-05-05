@@ -136,7 +136,7 @@ function UtilsManager() {
 	 
 	this.unescape = function(data) {
 		if (!data) return null;
-		if (Number.isInteger(data)) return data;
+		if ((typeof data === 'number') && (data % 1 === 0)) return data;
 
 		return he.unescape(data);
 	}
@@ -178,6 +178,7 @@ function UtilsManager() {
 		
 		var tag = s.toLowerCase().replace(/[:?\.,!()'’&*„“]|– |- /g, '');
 		
+		tag = tag.replace(/\s+/g,' ');
 		tag = tag.replace(/ /g, '-');
 		
 		return tag;	
