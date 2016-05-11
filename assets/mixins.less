@@ -145,10 +145,6 @@
 					   and (orientation: portrait) {
 		
 		#covers,
-		#read > .cover {
-			height: @width / (16/9) + 0px;
-		}
-		
 		header.read,
 		#read > .cover {
 			height: @width + 0px;
@@ -161,7 +157,7 @@
 	}
 }
 
-#createMobileLanscape (@width,  @height) {
+#createMobileLandscape (@width,  @height) {
 	@media only screen and (min-width: ~'@{width}px')
 					   and (min-height: ~'@{height}px') 
 					   and (orientation: landscape) {
