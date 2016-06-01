@@ -8,6 +8,46 @@ function ArticlesManager() {
 	var forplayAPI = '/forapi/forplay.php';
 	var fotagsAPI = '/forapi/get.php';
 	
+	/**
+	 * Lazy loading of articles.
+	 */
+	
+	var firstArticles = 0;
+	var lastArtcle = 50;
+	var articlesOffset = 50;
+	
+	var getCurrentArticleSet = function() {
+		var p = window.scrollY,
+			
+			/**
+			 * @articlesAvarage number of articles on a row.
+			 */
+			
+			articlesAvarage = utils.isMobile() ? 1 : 5,
+			layoutHeight = $('#topArticles article').height(),
+			
+			/**
+			 * @layoutsAvarage number of layouts in a set.
+			 */
+			
+			layoutsAvarage = articlesOffset / articlesAvarage,
+			offset = (Math.floor(p / layoutHeight / layoutsAvarage) + 1) * 
+					 articlesOffset + 
+					 articlesOffset;
+		
+		/**
+		 * Sometimes the window will scroll on load
+		 * or simply we did not scrolled enough to require more.
+		 */
+		
+		if (offset <= lastArtcle || !layoutHeight) {
+			return false;
+		}
+		
+		return {lastArtcle: lastArtcle, 
+				articleRange: offset}
+	}
+	
 	function loadImage($img) {	
 	
 		/**
@@ -76,8 +116,9 @@ function ArticlesManager() {
 		$div.css('background-image', 'url(' + src + ')');
 	}
 	
-	var loadArticles = function(data, appender, covers) {
-		var get1 = $.get(encodeURI(forplayAPI)),
+	var loadArticles = function(data, appender, covers, offset) {
+		var offset = offset || 0,
+			get1 = $.get(encodeURI(forplayAPI + '?offset=' + offset)),
 			get2 = $.get('/renderers/article.html');
 		
 		$.when(get1, get2).done(function(data1, data2) {
@@ -96,18 +137,7 @@ function ArticlesManager() {
 													unescape: utils.unescape,
 													translate: utils.translate}));
 			
-			appender(html, covers);
-			
-			/**
-			 * Set the document title for the home page, 
-			 * which is the issue of the most recent article.
-			 */
-			
-			if (covers) {
-				$(document).prop('title', 'Forplay брой ' + 
-										  data.articles[0].issue_tag + ' ' + 
-										  data.articles[0].issue);
-			}
+			appender(html, covers, data);
 		}).fail(function() {
 			console.log("Failed to load index articles.");
 		});
@@ -433,9 +463,40 @@ function ArticlesManager() {
 		banner.setCoversHeight(0);
 	}
 	
-	var appendPortal = function(html, covers) {
+	/**
+	 * This is used to dynamically load more articles on scroll.
+	 */
+	
+	var appendArticles = function(html) {
+		var lastImg = $('#allArticles img').length;
+	
+		$('#allArticles').append(html.html());
+	
+		$('#allArticles').find('img:gt(' + (lastImg - 1) + ')')
+						 .on('load', function() {
+			
+			if ($(this).data('proxy')) {
+				loadImage($(this));
+			}
+		});
+	}
+	
+	/**
+	 * The page is initialized with a portal.
+	 */
+	
+	var appendPortal = function(html, covers, data) {
 		if (covers) {
 			appendCovers(html);
+			
+			/**
+			 * Set the document title for the home page, 
+			 * which is the issue of the most recent article.
+			 */
+			
+			$(document).prop('title', 'Forplay брой ' + 
+									  data.articles[0].issue_tag + ' ' + 
+									  data.articles[0].issue);
 		}
 		
 		/**
@@ -574,6 +635,18 @@ function ArticlesManager() {
 		$.event.special.swipe.durationThreshold = 5000;
 		$.event.special.swipe.horizontalDistanceThreshold = 30,
 		$.event.special.swipe.verticalDistanceThreshold = 75;
+	});
+	
+	$(window).on('scroll', function () {
+		var set = getCurrentArticleSet();
+		
+		if (set) {
+			lastArtcle = set.articleRange;
+		
+			console.log('GET from ' + set.lastArtcle + ' to '  +  set.articleRange);
+			
+			loadArticles('articles', appendArticles, false, set.lastArtcle);
+		}
 	});
 	
 	$(window).on('load', function (e) {
