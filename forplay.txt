@@ -10,5 +10,6 @@ apple-touch-icon-120x120.png
 apple-touch-icon-152x152.png
 favico.png
 favicon.ico
-index.html
+index.php
+meta.php
 .htaccess

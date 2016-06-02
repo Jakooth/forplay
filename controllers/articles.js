@@ -98,7 +98,7 @@ function ArticlesManager() {
 		$div.css('background-image', 'url(' + src + ')');
 	}
 	
-	function loadCover($img, $div) {			
+	function loadCover($img, $div) {
 		
 		/**
 		 * For mobile the image is 100% width and not 60%.
@@ -171,7 +171,24 @@ function ArticlesManager() {
 			
 			appender(html, cover, article);
 			
-			$(document).prop('title', article.title + ' ' + utils.translate(article.subtype));
+			
+			
+			/**
+			 * Now injecting this with PHP for crawlers.
+			 */
+			
+			/*
+			$(document).prop('title', article.title + ' ' + utils.translate(article.subtype));			
+			$('meta[name=description]').attr('content', article.subtitle + ', Aвтор: ' + 
+														utils.getObjectPropertyAsString(article.authors, 'en_name') + ', Категория: ' +
+														article.type + ', Относно: ' +
+														utils.getObjectPropertyAsString(article.tags, 'en_name'));
+			$('meta[property="og:url"]').attr('content', window.location.href);
+			$('meta[property="og:type"]').attr('content', 'article');
+			$('meta[property="og:title"]').attr('content', article.title);
+			$('meta[property="og:description"]').attr('content', article.subtitle);
+			$('meta[property="og:image"]').attr('content', utils.formatTimThumbString(article.cover_img, 1280, 720));
+			*/
 		}).fail(function() {
 			console.log("Failed to load index articles.");
 		});
@@ -494,9 +511,11 @@ function ArticlesManager() {
 			 * which is the issue of the most recent article.
 			 */
 			
+			/*
 			$(document).prop('title', 'Forplay брой ' + 
 									  data.articles[0].issue_tag + ' ' + 
 									  data.articles[0].issue);
+			*/
 		}
 		
 		/**
@@ -642,8 +661,6 @@ function ArticlesManager() {
 		
 		if (set) {
 			lastArtcle = set.articleRange;
-		
-			console.log('GET from ' + set.lastArtcle + ' to '  +  set.articleRange);
 			
 			loadArticles('articles', appendArticles, false, set.lastArtcle);
 		}

@@ -252,6 +252,17 @@ function UtilsManager() {
 		return hype;
 	}
 	
+	this.getObjectPropertyAsString = function(arr, prop) {
+		var i,
+			tArr = [];
+	
+		for (i = 0; i < arr.length; i ++) {
+			tArr.push(arr[i][prop]);
+		}
+		
+		return tArr.join(', ');
+	}
+	
 	this.getObjectPropertyByIndex = function(o, index) {
 		return o[Object.keys(o)[index]];
 	}

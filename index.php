@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="bg">
+<html lang="bg_BG">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=yes" name="viewport">
+<?php include ('meta.php'); ?>
 <link rel="stylesheet" type="text/css" href="/jslib/video-js/video-js.css" />
 <link media="only screen and (min-width: 1280px)" rel="stylesheet" type="text/css" href="/assets/forplay.css?v=2.1.1" />
 <link media="only screen and (max-width: 1279px)" rel="stylesheet" type="text/css" href="/assets/forplay-mobile.css?v=2.1.1" />
@@ -13,7 +14,6 @@
 <link href="https://www.forplay.bg/apple-touch-icon-76x76.png" rel="apple-touch-icon" sizes="76x76" />
 <link href="https://www.forplay.bg/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120" />
 <link href="https://www.forplay.bg/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152" />
-<title>Forplay&reg;</title>
 <!--EXTERNAL
 	jQuery - selectors and DOM manipulations
     jQuery Mobile - mobile events handler
@@ -69,7 +69,7 @@
 <script src="/controllers/banner.js?v=2.0.2" type="text/javascript">
 	<!--script-->
 </script>
-<script src="/controllers/articles.js?v=2.0.2" type="text/javascript">
+<script src="/controllers/articles.js?v=2.0.3" type="text/javascript">
 	<!--script-->
 </script>
 <script src="/controllers/player.js?v=2.0.0" type="text/javascript">
