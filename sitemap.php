@@ -8,8 +8,8 @@ echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
               xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">';
 
 $get_articles_sql = "SELECT for_articles.*, 
-                           for_issues.`name` AS issue, 
-                           for_issues.tag AS issue_tag 
+                            for_issues.`name` AS issue, 
+                            for_issues.tag AS issue_tag 
                      FROM for_articles
                      INNER JOIN for_rel_issues ON for_articles.article_id = for_rel_issues.article_id
                      INNER JOIN for_issues ON for_issues.issue_id = for_rel_issues.issue_id
@@ -44,7 +44,7 @@ while ($article = mysqli_fetch_assoc($get_articles_result)) {
     $mysqlDate = strtotime($article['date']);
     $googleDate = date("c", $mysqlDate);
     $url = urlencode(
-            'https://www.forplay.com/articles/' . $article['type'] . '/' .
+            'https://www.forplay.bg/articles/' . $article['type'] . '/' .
                      $article['subtype'] . '/' . $article['article_id'] . '/' .
                      $article['url']);
     
