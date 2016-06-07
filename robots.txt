@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /foradmin/*
+Disallow: /demo/*
+Disallow: /forums/*
+
+Sitemap: https://www.forplay.bg/sitemap.xml

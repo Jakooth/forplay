@@ -135,10 +135,9 @@ if (sizeof($params) < 4) {
         echo '<meta property="og:title" content="' . $article['title'] . '">';
         echo '<meta property="og:description" content="' . $article['subtitle'] .
                  '">';
-        echo '<meta property="og:image" content="https://forplay.bg/forapi/phplib/timthumb/timthumb.php?src=/assets/articles/' .
-                 substr($article['cover_img'], 0, 
-                        strripos($article['cover_img'], '-')) . '/' .
-                 $article['cover_img'] . '&w=1280&h=720">';
+        echo '<meta property="og:image" content="https://forplay.bg/forapi/phplib/timthumb/timthumb.php?src=/assets/articles/' . substr(
+                $article['cover_img'], 0, strripos($article['cover_img'], '-')) .
+                 '/' . $article['cover_img'] . '&w=1280&h=720">';
         echo '<meta property="og:site_name" content="Forplay">';
         echo '<meta property="og:locale" content="bg_BG">';
     }
