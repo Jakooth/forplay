@@ -519,6 +519,12 @@ function ArticlesManager() {
 		}
 		
 		/**
+		 * Append 5 most recent articles.
+		 */
+		
+		$('#topArticles').append(html.find('article:lt(5)'));
+		
+		/**
 		 * Append 5 videos. Most recent is in the middle.
 		 */
 		
@@ -549,7 +555,6 @@ function ArticlesManager() {
 		$players.find('a:eq(0)').attr('data-player', id);
 		$players.find('a:eq(0)').data('player', id);
 		
-		$('#topArticles').append(html.find('article:not(.video):lt(5)'));
 		$('#allArticles').append(html.html());
 		
 		/**
