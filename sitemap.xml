@@ -1,20 +1,189 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
-              xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
     <url>
-        <loc>https://www.forplay.com/articles/music/feature/83/ако-си-фен-на-rammstein</loc>
+        <loc>https://www.forplay.bg/articles/games/review/97/overwatch</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
                 <news:language>bg</news:language>
             </news:publication>
-            <news:publication_date>2016-06-02T03:21:00-05:00</news:publication_date>
+            <news:publication_date>2016-06-17T18:14:00-05:00</news:publication_date>
+            <news:keywords>Overwatch, Blizzard Entertainment</news:keywords>
+            <news:title>Overwatch</news:title>
+        </news:news>
+    </url>
+    <url>
+        <loc>https://www.forplay.bg/articles/music/news/96/red-hot-chili-peppers-са-умилително-големи-кретени</loc>
+        <news:news>
+            <news:publication>
+                <news:name>Forplay</news:name>
+                <news:language>bg</news:language>
+            </news:publication>
+            <news:publication_date>2016-06-17T12:30:00-05:00</news:publication_date>
+            <news:keywords>Red Hot Chili Peppers, James Corden</news:keywords>
+            <news:title>Red Hot Chili Peppers са умилително големи кретени...</news:title>
+        </news:news>
+    </url>
+    <url>
+        <loc>https://www.forplay.bg/articles/games/news/95/представяме-ти-китайския-overwatch</loc>
+        <news:news>
+            <news:publication>
+                <news:name>Forplay</news:name>
+                <news:language>bg</news:language>
+            </news:publication>
+            <news:publication_date>2016-06-17T02:38:00-05:00</news:publication_date>
+            <news:keywords>Legend of Titan, Blizzard Entertainment, Overwatch</news:keywords>
+            <news:title>Представяме ти китайския Overwatch</news:title>
+        </news:news>
+    </url>
+    <url>
+        <loc>https://www.forplay.bg/articles/movies/news/94/нов-трейлър-за-римейка-на-ben-hur</loc>
+        <news:news>
+            <news:publication>
+                <news:name>Forplay</news:name>
+                <news:language>bg</news:language>
+            </news:publication>
+            <news:publication_date>2016-06-15T05:37:00-05:00</news:publication_date>
+            <news:keywords>Ben-Hur</news:keywords>
+            <news:title>Нов трейлър за римейка на Ben-Hur</news:title>
+        </news:news>
+    </url>
+    <url>
+        <loc>https://www.forplay.bg/articles/games/feature/91/e3-2016-microsoft</loc>
+        <news:news>
+            <news:publication>
+                <news:name>Forplay</news:name>
+                <news:language>bg</news:language>
+            </news:publication>
+            <news:publication_date>2016-06-13T15:50:00-05:00</news:publication_date>
+            <news:keywords>E3 2016</news:keywords>
+            <news:title>E3 2016 - Microsoft</news:title>
+        </news:news>
+    </url>
+    <url>
+        <loc>https://www.forplay.bg/articles/games/feature/92/е3-2016-sony</loc>
+        <news:news>
+            <news:publication>
+                <news:name>Forplay</news:name>
+                <news:language>bg</news:language>
+            </news:publication>
+            <news:publication_date>2016-06-13T08:29:00-05:00</news:publication_date>
+            <news:keywords>E3 2016</news:keywords>
+            <news:title>Е3 2016 - Sony</news:title>
+        </news:news>
+    </url>
+    <url>
+        <loc>https://www.forplay.bg/articles/games/feature/90/e3-2016-pc-gaming-show</loc>
+        <news:news>
+            <news:publication>
+                <news:name>Forplay</news:name>
+                <news:language>bg</news:language>
+            </news:publication>
+            <news:publication_date>2016-06-13T03:10:00-05:00</news:publication_date>
+            <news:keywords>E3 2016</news:keywords>
+            <news:title>E3 2016 - PC Gaming Show</news:title>
+        </news:news>
+    </url>
+    <url>
+        <loc>https://www.forplay.bg/articles/games/feature/93/e3-2016-ubisoft</loc>
+        <news:news>
+            <news:publication>
+                <news:name>Forplay</news:name>
+                <news:language>bg</news:language>
+            </news:publication>
+            <news:publication_date>2016-06-12T16:10:00-05:00</news:publication_date>
+            <news:keywords>E3 2016</news:keywords>
+            <news:title>E3 2016 - Ubisoft</news:title>
+        </news:news>
+    </url>
+    <url>
+        <loc>https://www.forplay.bg/articles/games/feature/89/e3-2016-forplay-edition</loc>
+        <news:news>
+            <news:publication>
+                <news:name>Forplay</news:name>
+                <news:language>bg</news:language>
+            </news:publication>
+            <news:publication_date>2016-06-10T20:34:00-05:00</news:publication_date>
+            <news:keywords>E3 2016</news:keywords>
+            <news:title>E3 2016 - Forplay edition</news:title>
+        </news:news>
+    </url>
+    <url>
+        <loc>https://www.forplay.bg/articles/movies/review/88/warcraft</loc>
+        <news:news>
+            <news:publication>
+                <news:name>Forplay</news:name>
+                <news:language>bg</news:language>
+            </news:publication>
+            <news:publication_date>2016-06-09T06:18:00-05:00</news:publication_date>
+            <news:keywords>Warcraft, Blizzard Entertainment, Duncan Jones, Travis
+                Fimmel</news:keywords>
+            <news:title>Warcraft: Началото</news:title>
+        </news:news>
+    </url>
+    <url>
+        <loc>https://www.forplay.bg/articles/movies/news/87/yoga-hosers-с-нов-трейлър</loc>
+        <news:news>
+            <news:publication>
+                <news:name>Forplay</news:name>
+                <news:language>bg</news:language>
+            </news:publication>
+            <news:publication_date>2016-06-07T07:24:00-05:00</news:publication_date>
+            <news:keywords>Yoga Hosers, Kevin Smith</news:keywords>
+            <news:title>Yoga Hosers с нов трейлър</news:title>
+        </news:news>
+    </url>
+    <url>
+        <loc>https://www.forplay.bg/articles/games/news/85/дебютен-трейлър-на-agents-of-mayhem</loc>
+        <news:news>
+            <news:publication>
+                <news:name>Forplay</news:name>
+                <news:language>bg</news:language>
+            </news:publication>
+            <news:publication_date>2016-06-06T21:56:00-05:00</news:publication_date>
+            <news:keywords>Agents of Mayhem, Saints Row, Volition</news:keywords>
+            <news:title>Дебютен трейлър на Agents of Mayhem</news:title>
+        </news:news>
+    </url>
+    <url>
+        <loc>https://www.forplay.bg/articles/movies/news/84/нов-постер-и-тийзъри-на-the-neon-demon</loc>
+        <news:news>
+            <news:publication>
+                <news:name>Forplay</news:name>
+                <news:language>bg</news:language>
+            </news:publication>
+            <news:publication_date>2016-06-06T13:05:00-05:00</news:publication_date>
+            <news:keywords>The Neon Demon, Elle Fanning, Keanu Reeves</news:keywords>
+            <news:title>Нов постер и тийзъри на The Neon Demon</news:title>
+        </news:news>
+    </url>
+    <url>
+        <loc>https://www.forplay.bg/articles/music/feature/86/ако-си-фен-на-marilyn-manson</loc>
+        <news:news>
+            <news:publication>
+                <news:name>Forplay</news:name>
+                <news:language>bg</news:language>
+            </news:publication>
+            <news:publication_date>2016-06-06T06:15:00-05:00</news:publication_date>
+            <news:keywords>Marilyn Manson, Ако си фен на..., Avatar</news:keywords>
+            <news:title>Ако си фен на... Marilyn Manson</news:title>
+        </news:news>
+    </url>
+    <url>
+        <loc>https://www.forplay.bg/articles/music/feature/83/ако-си-фен-на-rammstein</loc>
+        <news:news>
+            <news:publication>
+                <news:name>Forplay</news:name>
+                <news:language>bg</news:language>
+            </news:publication>
+            <news:publication_date>2016-06-01T19:21:00-05:00</news:publication_date>
             <news:keywords>Rammstein, Maerzfeld, Ако си фен на...</news:keywords>
             <news:title>Ако си фен на... Rammstein</news:title>
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/news/82/fifa-17-ще-използва-frostbite-енджин</loc>
+        <loc>https://www.forplay.bg/articles/games/news/82/fifa-17-ще-използва-frostbite-енджин</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -26,19 +195,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/review/81/dark-souls-3</loc>
-        <news:news>
-            <news:publication>
-                <news:name>Forplay</news:name>
-                <news:language>bg</news:language>
-            </news:publication>
-            <news:publication_date>2016-05-24T22:15:00-05:00</news:publication_date>
-            <news:keywords>Dark Souls 3</news:keywords>
-            <news:title>Dark Souls 3</news:title>
-        </news:news>
-    </url>
-    <url>
-        <loc>https://www.forplay.com/articles/games/news/80/clueless-gamer-overwatch</loc>
+        <loc>https://www.forplay.bg/articles/games/news/80/clueless-gamer-overwatch</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -50,19 +207,31 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/review/79/doom</loc>
+        <loc>https://www.forplay.bg/articles/games/review/81/dark-souls-3</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
                 <news:language>bg</news:language>
             </news:publication>
-            <news:publication_date>2016-05-23T23:59:00-05:00</news:publication_date>
+            <news:publication_date>2016-05-24T14:15:00-05:00</news:publication_date>
+            <news:keywords>Dark Souls 3</news:keywords>
+            <news:title>Dark Souls 3</news:title>
+        </news:news>
+    </url>
+    <url>
+        <loc>https://www.forplay.bg/articles/games/review/79/doom</loc>
+        <news:news>
+            <news:publication>
+                <news:name>Forplay</news:name>
+                <news:language>bg</news:language>
+            </news:publication>
+            <news:publication_date>2016-05-23T15:59:00-05:00</news:publication_date>
             <news:keywords>Doom</news:keywords>
             <news:title>Doom</news:title>
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/review/78/firewatch</loc>
+        <loc>https://www.forplay.bg/articles/games/review/78/firewatch</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -74,7 +243,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/movies/news/74/нов-трейлър-на-star-trek-beyond</loc>
+        <loc>https://www.forplay.bg/articles/movies/news/74/нов-трейлър-на-star-trek-beyond</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -86,7 +255,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/news/73/обявен-е-warhammer-40000-dawn-of-war-3</loc>
+        <loc>https://www.forplay.bg/articles/games/news/73/обявен-е-warhammer-40000-dawn-of-war-3</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -98,7 +267,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/news/75/ново-видео-от-the-witcher-3-wild-hunt-blood-and-wine</loc>
+        <loc>https://www.forplay.bg/articles/games/news/75/ново-видео-от-the-witcher-3-wild-hunt-blood-and-wine</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -110,7 +279,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/movies/news/77/ново-видео-ни-представя-екипът-зад-warcraft-филма</loc>
+        <loc>https://www.forplay.bg/articles/movies/news/77/ново-видео-ни-представя-екипът-зад-warcraft-филма</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -122,7 +291,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/movies/news/76/дебютен-трейлър-на-филма-по-assassins-creed</loc>
+        <loc>https://www.forplay.bg/articles/movies/news/76/дебютен-трейлър-на-филма-по-assassins-creed</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -135,20 +304,20 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/review/72/ratchet-and-clank</loc>
+        <loc>https://www.forplay.bg/articles/games/review/72/ratchet-and-clank</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
                 <news:language>bg</news:language>
             </news:publication>
-            <news:publication_date>2016-05-04T19:01:00-05:00</news:publication_date>
+            <news:publication_date>2016-05-04T11:01:00-05:00</news:publication_date>
             <news:keywords>Ratchet &amp; Clank, Duncan Jones</news:keywords>
             <news:title>Ratchet &amp; Clank – играта, базирана на филма, базиран
                 на играта...</news:title>
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/movies/feature/71/star-wars-the-force-awakens</loc>
+        <loc>https://www.forplay.bg/articles/movies/feature/71/star-wars-the-force-awakens</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -160,19 +329,19 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/review/70/unravel</loc>
+        <loc>https://www.forplay.bg/articles/games/review/70/unravel</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
                 <news:language>bg</news:language>
             </news:publication>
-            <news:publication_date>2016-04-29T04:48:00-05:00</news:publication_date>
+            <news:publication_date>2016-04-28T20:48:00-05:00</news:publication_date>
             <news:keywords>Unravel</news:keywords>
             <news:title>Unravel</news:title>
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/news/57/спектър-с-убийствен-дебютен-трейлър</loc>
+        <loc>https://www.forplay.bg/articles/games/news/57/спектър-с-убийствен-дебютен-трейлър</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -184,7 +353,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/news/58/the-revenant-дебютен-тийзър</loc>
+        <loc>https://www.forplay.bg/articles/games/news/58/the-revenant-дебютен-тийзър</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -197,7 +366,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/news/59/ана-юърс-се-клонира</loc>
+        <loc>https://www.forplay.bg/articles/games/news/59/ана-юърс-се-клонира</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -209,7 +378,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/news/56/шварценегер-терминира-кеча</loc>
+        <loc>https://www.forplay.bg/articles/games/news/56/шварценегер-терминира-кеча</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -221,7 +390,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/news/55/super-mario-maker-носталгичен-трейлър</loc>
+        <loc>https://www.forplay.bg/articles/games/news/55/super-mario-maker-носталгичен-трейлър</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -233,7 +402,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/movies/review/64/jupiter-ascending</loc>
+        <loc>https://www.forplay.bg/articles/movies/review/64/jupiter-ascending</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -245,7 +414,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/review/67/dragon-age-inquisition</loc>
+        <loc>https://www.forplay.bg/articles/games/review/67/dragon-age-inquisition</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -257,7 +426,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/review/69/littlebigplanet-3</loc>
+        <loc>https://www.forplay.bg/articles/games/review/69/littlebigplanet-3</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -270,7 +439,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/books/review/66/the-woman-i-wanted-to-be</loc>
+        <loc>https://www.forplay.bg/articles/books/review/66/the-woman-i-wanted-to-be</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -282,7 +451,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/movies/review/68/the-hobbit-the-battle-of-the-five-armies</loc>
+        <loc>https://www.forplay.bg/articles/movies/review/68/the-hobbit-the-battle-of-the-five-armies</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -294,7 +463,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/review/61/metal-gear-solid-5</loc>
+        <loc>https://www.forplay.bg/articles/games/review/61/metal-gear-solid-5</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -306,7 +475,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/review/63/call-of-duty-advanced-warfare</loc>
+        <loc>https://www.forplay.bg/articles/games/review/63/call-of-duty-advanced-warfare</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -318,7 +487,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/feature/62/assassination-of-assassins-какво-се-случи-в-годината-на-assassins-creed</loc>
+        <loc>https://www.forplay.bg/articles/games/feature/62/assassination-of-assassins-какво-се-случи-в-годината-на-assassins-creed</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -332,7 +501,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/review/65/gta-5</loc>
+        <loc>https://www.forplay.bg/articles/games/review/65/gta-5</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -344,7 +513,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/review/54/wolfenstein-the-new-order</loc>
+        <loc>https://www.forplay.bg/articles/games/review/54/wolfenstein-the-new-order</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -356,7 +525,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/review/51/pes-15</loc>
+        <loc>https://www.forplay.bg/articles/games/review/51/pes-15</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -368,7 +537,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/books/feature/46/патрик-модиано-събирачът-на-опустошени-спомени</loc>
+        <loc>https://www.forplay.bg/articles/books/feature/46/патрик-модиано-събирачът-на-опустошени-спомени</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -380,7 +549,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/movies/review/60/gone-girl</loc>
+        <loc>https://www.forplay.bg/articles/movies/review/60/gone-girl</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -392,7 +561,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/review/50/nba-2k15</loc>
+        <loc>https://www.forplay.bg/articles/games/review/50/nba-2k15</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -404,7 +573,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/movies/review/49/nightcrawler</loc>
+        <loc>https://www.forplay.bg/articles/movies/review/49/nightcrawler</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -416,7 +585,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/review/52/driveclub</loc>
+        <loc>https://www.forplay.bg/articles/games/review/52/driveclub</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -429,7 +598,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/review/47/the-vanishing-of-ethan-carter</loc>
+        <loc>https://www.forplay.bg/articles/games/review/47/the-vanishing-of-ethan-carter</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -441,7 +610,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/review/53/alien-isolation</loc>
+        <loc>https://www.forplay.bg/articles/games/review/53/alien-isolation</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -453,7 +622,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/movies/review/43/advanced-style</loc>
+        <loc>https://www.forplay.bg/articles/movies/review/43/advanced-style</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -465,7 +634,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/review/45/final-fantasy-10-hd-remaster</loc>
+        <loc>https://www.forplay.bg/articles/games/review/45/final-fantasy-10-hd-remaster</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -477,7 +646,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/movies/review/38/guardians-of-the-galaxy</loc>
+        <loc>https://www.forplay.bg/articles/movies/review/38/guardians-of-the-galaxy</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -489,7 +658,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/movies/review/42/horns</loc>
+        <loc>https://www.forplay.bg/articles/movies/review/42/horns</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -501,7 +670,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/news/44/подкастът-на-завръщането</loc>
+        <loc>https://www.forplay.bg/articles/games/news/44/подкастът-на-завръщането</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -513,7 +682,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/movies/review/28/annabelle</loc>
+        <loc>https://www.forplay.bg/articles/movies/review/28/annabelle</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -525,7 +694,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/review/29/fifa-15</loc>
+        <loc>https://www.forplay.bg/articles/games/review/29/fifa-15</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -537,7 +706,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/music/feature/39/sofia-rocks-2014</loc>
+        <loc>https://www.forplay.bg/articles/music/feature/39/sofia-rocks-2014</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -549,7 +718,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/review/40/murasaki-baby</loc>
+        <loc>https://www.forplay.bg/articles/games/review/40/murasaki-baby</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -561,7 +730,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/review/48/destiny</loc>
+        <loc>https://www.forplay.bg/articles/games/review/48/destiny</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -573,7 +742,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/music/review/34/ultraviolence</loc>
+        <loc>https://www.forplay.bg/articles/music/review/34/ultraviolence</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -585,7 +754,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/movies/review/32/sin-city-2</loc>
+        <loc>https://www.forplay.bg/articles/movies/review/32/sin-city-2</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -597,7 +766,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/review/35/risen-3</loc>
+        <loc>https://www.forplay.bg/articles/games/review/35/risen-3</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -609,7 +778,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/review/33/valiant-hearts-the-great-war</loc>
+        <loc>https://www.forplay.bg/articles/games/review/33/valiant-hearts-the-great-war</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -621,7 +790,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/music/review/23/sacrifice-to-venus</loc>
+        <loc>https://www.forplay.bg/articles/music/review/23/sacrifice-to-venus</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -633,7 +802,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/video/41/watch-dogs</loc>
+        <loc>https://www.forplay.bg/articles/games/video/41/watch-dogs</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -645,7 +814,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/review/24/murdered-soul-suspect</loc>
+        <loc>https://www.forplay.bg/articles/games/review/24/murdered-soul-suspect</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -657,7 +826,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/review/25/bound-by-flame</loc>
+        <loc>https://www.forplay.bg/articles/games/review/25/bound-by-flame</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -669,7 +838,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/review/27/hohokum</loc>
+        <loc>https://www.forplay.bg/articles/games/review/27/hohokum</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -681,7 +850,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/music/review/26/manslaughter</loc>
+        <loc>https://www.forplay.bg/articles/music/review/26/manslaughter</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -693,21 +862,21 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/feature/31/мрачни-размисли</loc>
+        <loc>https://www.forplay.bg/articles/games/feature/31/мрачни-размисли</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
                 <news:language>bg</news:language>
             </news:publication>
             <news:publication_date>2014-09-01T13:35:00-05:00</news:publication_date>
-            <news:keywords>Dark Souls 2, Crown of the Old Iron King, Demon&#x27;s
-                Souls, Dark Souls, From Software, Crown of the Sunken King, Crown
-                of the Ivory King</news:keywords>
+            <news:keywords>Dark Souls 2, Demon&#x27;s Souls, Dark Souls, From
+                Software, Crown of the Sunken King, Crown of the Ivory King,
+                Crown of the Old Iron King</news:keywords>
             <news:title>Мрачни размисли</news:title>
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/movies/review/37/locke</loc>
+        <loc>https://www.forplay.bg/articles/movies/review/37/locke</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -719,7 +888,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/movies/review/36/dawn-of-the-planet-of-the-apes</loc>
+        <loc>https://www.forplay.bg/articles/movies/review/36/dawn-of-the-planet-of-the-apes</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -731,7 +900,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/review/30/divinity-original-sin</loc>
+        <loc>https://www.forplay.bg/articles/games/review/30/divinity-original-sin</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -743,7 +912,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/news/19/uncharted-4-геймплей</loc>
+        <loc>https://www.forplay.bg/articles/games/news/19/uncharted-4-геймплей</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -755,7 +924,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/news/20/гералт-се-завръща</loc>
+        <loc>https://www.forplay.bg/articles/games/news/20/гералт-се-завръща</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -767,7 +936,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/news/21/шварценегер-се-завръща-за-пореден-път</loc>
+        <loc>https://www.forplay.bg/articles/games/news/21/шварценегер-се-завръща-за-пореден-път</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -779,7 +948,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/news/22/pharrell-williams-brand-new-girl</loc>
+        <loc>https://www.forplay.bg/articles/games/news/22/pharrell-williams-brand-new-girl</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
@@ -791,7 +960,7 @@
         </news:news>
     </url>
     <url>
-        <loc>https://www.forplay.com/articles/games/news/18/castle-design</loc>
+        <loc>https://www.forplay.bg/articles/games/news/18/castle-design</loc>
         <news:news>
             <news:publication>
                 <news:name>Forplay</news:name>
