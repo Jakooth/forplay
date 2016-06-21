@@ -503,7 +503,7 @@ function ArticlesManager() {
 	 */
 	
 	var appendPortal = function(html, covers, data) {
-		if (covers) {
+		if (covers) {			
 			appendCovers(html);
 			
 			/**
@@ -573,10 +573,16 @@ function ArticlesManager() {
 			$mainCovers = html.find('article[data-priority=cover]:lt(5)'),
 			$mainCover = html.find('article[data-priority=cover]:eq(0)');
 		
-		$covers.append($mainCovers);
+		if ($.cookie('header') == 'static') {
+			$mainCovers.clone().appendTo($covers);
+		} else {
+			$covers.append($mainCovers);
+		}
+		
 		$covers.find('article').each(function() {
 			loadCover($(this).find('img'), $(this));
 		});
+		
 		$covers.find('img.svg').each(function() {
 			utils.convertSVG($(this));
 		});
