@@ -893,14 +893,18 @@ header.read .nav-set .special {
 	outline: none;
 }
 
-.nav-set .special button[aria-pressed=true]:hover {
+.nav-set:hover .special button[aria-pressed=true] {
 	background-color: @invert;
 	background-image: url(icons/delapouite/gui/svg/000000/transparent/expand.svg);
 }
 
-.nav-set .special button[aria-pressed=false]:hover {
+.nav-set:hover .special button[aria-pressed=false] {
 	background-color: @invert;
 	background-image: url(icons/delapouite/gui/svg/000000/transparent/contract.svg);
+}
+
+.nav-set .special button:hover {
+	opacity: 0.4;
 }
 
 .nav-set h3 span,
