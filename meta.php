@@ -21,7 +21,7 @@ if (sizeof($params) < 4) {
     $get_issue_result = mysqli_query($link, $get_issue_sql);
     
     while ($article = mysqli_fetch_assoc($get_issue_result)) {
-        echo '<title>Forplay брой ' . $article['issue_tag'] . ' ' .
+        echo '<title>Forplay - брой ' . $article['issue_tag'] . ': ' .
                  $article['issue'] . '</title>';
         echo '<meta name="description" content="Форплей е онлайн портал за всякакъв вид развлечение. Това е нашето виртуално кътче, където ще намериш новини, ревюта и анализи относно любимите ти видео игри, филми, музика, книги, настолни игри, лайфстайл и изобщо всички модерни форми на забавление.">';
         echo '<meta property="fb:app_id" content="1570704799916233" />';
@@ -96,6 +96,7 @@ if (sizeof($params) < 4) {
         
         while ($tag = mysqli_fetch_assoc($get_tags_result)) {
             $article['tags'][] = $tag['en_name'];
+            $article['tags'][] = $tag['bg_name'];
             
             if ($tag['prime'] == 1) {
                 $article['prime'] = $tag;
@@ -121,22 +122,30 @@ if (sizeof($params) < 4) {
             $article['issue'][] = $issue;
         }
         
-        echo '<title>' . $article['title'] . '</title>';
+        /**
+         * TODO: Do a proper localization here.
+         */
+        
+        $json_i18n = file_get_contents('locales/bg_BG/translation.json');
+        $i18n = json_decode($json_i18n, true);
+        
+        echo '<title>' . $article['title'] . ': ' . $i18n[$article['subtype']] .
+                 ' - Forplay</title>';
         echo '<meta name="description" content="' . $article['subtitle'] .
-                 ', Статия: ' . $article['subtype'] . ', Раздел: ' .
-                 $article['type'] . ', Автор: ' . join(', ', 
-                        $article['authors']) . ', Относно: ' .
-                 join(', ', $article['tags']) . '">';
+                 '; Автор: ' . join(', ', $article['authors']) . '; Относно: ' .
+                 join(', ', $article['tags']) . '; Статия: ' .
+                 $article['subtype'] . '; Раздел: ' . $article['type'] . '">';
         echo '<meta property="fb:app_id" content="1570704799916233" />';
         echo '<meta property="og:url" content="https://www.forplay.bg' . $uri .
                  '">';
         echo '<meta property="og:type" content="article">';
-        echo '<meta property="og:title" content="' . $article['title'] . '">';
+        echo '<meta property="og:title" content="'. $article['title'] . '">';
         echo '<meta property="og:description" content="' . $article['subtitle'] .
                  '">';
-        echo '<meta property="og:image" content="https://forplay.bg/forapi/phplib/timthumb/timthumb.php?src=/assets/articles/' . substr(
-                $article['cover_img'], 0, strripos($article['cover_img'], '-')) .
-                 '/' . $article['cover_img'] . '&w=1280&h=720">';
+        echo '<meta property="og:image" content="https://forplay.bg/forapi/phplib/timthumb/timthumb.php?src=/assets/articles/' .
+                 substr($article['cover_img'], 0, 
+                        strripos($article['cover_img'], '-')) . '/' .
+                 $article['cover_img'] . '&w=1280&h=720">';
         echo '<meta property="og:site_name" content="Forplay">';
         echo '<meta property="og:locale" content="bg_BG">';
         
@@ -178,7 +187,8 @@ if (sizeof($params) < 4) {
                 "@context": "http://schema.org/",
                 "@type": "Review",
                 "datePublished": "' . $googleDate . '",
-                "description": "' . $article['subtitle'] . '",    
+                "description": "' .
+                     $article['subtitle'] . '",    
                 "itemReviewed": {
                     "@type": "' . $thing_type . '",
                     "name": "' . $article['title'] .
@@ -187,16 +197,13 @@ if (sizeof($params) < 4) {
                             $article['cover_img'], 0, 
                             strripos($article['cover_img'], '-')) . '/' .
                      $article['cover_img'] . '&w=1280&h=720",
-                    "dateCreated": "' .
-                     $thing_googleDate . '",
+                    "dateCreated": "' . $thing_googleDate . '",
                     ' . $thing_director . '
-                    "sameAs": "' .
-                     $article['prime']['site'] . '"
+                    "sameAs": "' . $article['prime']['site'] . '"
                 },
                 "author": {
                     "@type": "Person",
-                    "name": "' .
-                     join(', ', $article['authors']) . '",
+                    "name": "' . join(', ', $article['authors']) . '",
                     "sameAs": "https://www.forplay.bg"
                 },
                 "reviewRating": {

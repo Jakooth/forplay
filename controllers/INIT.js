@@ -8,7 +8,7 @@ $(document).ready(function() {
 		   .use(new i18nextBrowserLanguageDetector())
 		   .init();
 		   
-	i18next.changeLanguage('bg');
+	i18next.changeLanguage('bg_BG');
 	
 	/**
 	 * Google Analytics
