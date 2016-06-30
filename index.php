@@ -109,10 +109,10 @@
         <nav>
             <h3><span>Навигация</span></h3>
             <ul>
-                <li> <a href="#topArticles">Новини</a> </li>
-                <li> <a href="#topVideos">Видео</a> </li>
-                <li> <a href="#topReviews">Ревюта</a> </li>
-                <li> <a href="#topReviews">Мнения</a> </li>
+                <li> <a href="/portals/news">Новини</a> </li>
+                <li> <a href="/portals/video">Видео</a> </li>
+                <li> <a href="/portals/review">Ревюта</a> </li>
+                <li> <a href="/portals/feature">Мнения</a> </li>
                 <li> <a href="http://www.gamersvoiceshop.com/" 
                         target="_blank">GVS</a> </li>
                 <li> <a href="http://forplay.bg/forums/" 

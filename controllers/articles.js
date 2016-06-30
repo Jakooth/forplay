@@ -116,9 +116,9 @@ function ArticlesManager() {
 		$div.css('background-image', 'url(' + src + ')');
 	}
 	
-	var loadArticles = function(data, appender, covers, offset) {
-		var offset = offset || 0,
-			get1 = $.get(encodeURI(forplayAPI + '?offset=' + offset)),
+	var loadArticles = function(data, appender, covers, params) {
+		var params = params ? '?' + $.param(params) : '?offset=0',
+			get1 = $.get(encodeURI(forplayAPI + params)),
 			get2 = $.get('/renderers/article.html');
 		
 		$.when(get1, get2).done(function(data1, data2) {
@@ -499,10 +499,49 @@ function ArticlesManager() {
 	}
 	
 	/**
-	 * The page is initialized with a portal.
+	 * Portals for news, games, features, authors, etc.
 	 */
 	
 	var appendPortal = function(html, covers, data) {
+		if (covers) {			
+			appendCovers(html, true);
+		}
+		
+		/**
+		 * Append 5 most recent articles.
+		 */
+		
+		$('#topArticles').append(html.find('article:lt(5)'));
+		
+		/**
+		 * Hide video and review sections.
+		 */
+		
+		$('#topVideos').attr('aria-hidden', true);
+		$('#topReviews').attr('aria-hidden', true);
+		
+		/**
+		 * Show everything else.
+		 */
+		
+		$('#allArticles').append(html.html());
+		
+		/**
+		 * Replace proxies with real images from the server.
+		 */
+		
+		$('body').find('img').on('load', function() {
+			if ($(this).data('proxy')) {
+				loadImage($(this));
+			}
+		});
+	}
+	
+	/**
+	 * The page is initialized with the default view.
+	 */
+	
+	var appendForplay = function(html, covers, data) {
 		if (covers) {			
 			appendCovers(html);
 			
@@ -528,8 +567,8 @@ function ArticlesManager() {
 		 * Append 5 videos. Most recent is in the middle.
 		 */
 		
-		$('#topVideos').append(html.find('article.video:gt(1):lt(2)'));
-		$('#topVideos').append(html.find('article.video:lt(3)'));
+		$('#topVideos').append(html.find('article.news:gt(1):lt(2)'));
+		$('#topVideos').append(html.find('article.news:lt(3)'));
 		
 		/**
 		 * Append 3 reviews. Most recent is in the middle.
@@ -568,10 +607,20 @@ function ArticlesManager() {
 		});
 	}
 	
-	var appendCovers = function(html) {
+	var appendCovers = function(html, anyPriority) {
 		var $covers = $('#covers'),
-			$mainCovers = html.find('article[data-priority=cover]:lt(5)'),
-			$mainCover = html.find('article[data-priority=cover]:eq(0)');
+			$mainCovers = html.find('article' + (anyPriority ? '' : '[data-priority=cover]') + ':lt(5)'),
+			$mainCover = html.find('article' + (anyPriority ? '' : '[data-priority=cover]') + ':eq(0)');
+		
+		/**
+		 * Do this to fix the animation.
+		 */
+		
+		if (anyPriority)  {
+			$mainCovers.data('priority', 'cover');
+			$mainCovers.attr('data-priority', 'cover');
+			$mainCovers.addClass('cover');
+		}
 		
 		if ($.cookie('header') == 'static') {
 			$mainCovers.clone().appendTo($covers);
@@ -628,17 +677,25 @@ function ArticlesManager() {
 			case 'feature':
 			case 'review':
 				loadArticle(params, appendArticle);
-				loadArticles('articles', appendPortal, false);
+				loadArticles('articles', appendForplay, false);
 				
 				break;
 			case 'news':
 			case 'video':
 				loadArticle(params, appendNews);
-				loadArticles('articles', appendPortal, false);
+				loadArticles('articles', appendForplay, false);
 				
 				break;
 			default:
-				loadArticles('articles', appendPortal, true);
+				loadArticles('articles', appendForplay, true);
+				break;	
+		}
+	}
+	
+	var loadPortal = function(params) {
+		switch (params.subtype) {
+			default:
+				loadArticles('articles', appendPortal, true, {subtype: params.subtype});
 				break;	
 		}
 	}
@@ -668,17 +725,33 @@ function ArticlesManager() {
 	});
 	
 	$(window).on('scroll', function () {
-		var set = getCurrentArticleSet();
+		var set = getCurrentArticleSet(),
+			href = window.location.href,
+			params = utils.parsePrettyURL(href);
+		
+		
 		
 		if (set) {
 			lastArtcle = set.articleRange;
 			
-			loadArticles('articles', appendArticles, false, set.lastArtcle);
+			if (!params) {
+				loadArticles('articles', appendArticles, false, {offset: set.lastArtcle});
+
+				return;
+			}
+			
+			if (params.type == 'portals') {
+				loadArticles('articles', appendArticles, false, {offset: set.lastArtcle, 
+																 subtype: params.subtype});
+			} else {
+				loadArticles('articles', appendArticles, false, {offset: set.lastArtcle});
+			}
 		}
 	});
 	
 	$(window).on('load', function (e) {
-		var href = window.location.href;
+		var href = window.location.href,
+			params = utils.parsePrettyURL(href);
 		
 		/**
 		 * Replace SVG images with embed SVG data.
@@ -689,6 +762,16 @@ function ArticlesManager() {
 			utils.convertSVG($(this));
 		});
 		
-		loadPage(utils.parsePrettyURL(href));
+		if (!params) {
+			loadPage(params);
+
+			return;
+		}
+		
+		if (params.type == 'portals') {
+			loadPortal(params);
+		} else {
+			loadPage(params);
+		}		
 	});
 }

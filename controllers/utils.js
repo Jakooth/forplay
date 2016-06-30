@@ -299,6 +299,11 @@ function UtilsManager() {
 			o.url = params[params.length - 1];
 		}
 		
+		if (url.indexOf('portal') != -1 && params.length >= 1) {
+			o.type = params[params.length - 2];
+			o.subtype = params[params.length - 1];
+		}
+		
 		return o;		
 	}
 	
