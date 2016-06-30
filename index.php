@@ -63,13 +63,13 @@
     banner - animations and interactions with the banner section
     articles - main contant loading and placment
     player - embed video play support-->
-<script src="/controllers/utils.js?v=2.0.3" type="text/javascript">
+<script src="/controllers/utils.js?v=2.1.0" type="text/javascript">
 	<!--script-->
 </script>
-<script src="/controllers/banner.js?v=2.0.2" type="text/javascript">
+<script src="/controllers/banner.js?v=2.1.0" type="text/javascript">
 	<!--script-->
 </script>
-<script src="/controllers/articles.js?v=2.0.3" type="text/javascript">
+<script src="/controllers/articles.js?v=2.1.0" type="text/javascript">
 	<!--script-->
 </script>
 <script src="/controllers/player.js?v=2.0.0" type="text/javascript">
