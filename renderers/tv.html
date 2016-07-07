@@ -1,0 +1,26 @@
+<aside>
+    <div class="box-placeholder {{:object}}">
+        <h2>{{:bg_name}}</h2>
+        <div class="box" 
+        	 style="background-image: url(/assets/articles/{{:tag}}/_extras/{{:tag}}-poster.jpg);"> <img 
+             src="/assets/helpers/{{:object}}.png" 
+       		 alt="" 
+             role="presentation" /> </div>
+    </div>
+    <dl>
+        <dt>Име на български</dt>
+        <dd>{{:bg_name}}</dd>
+        <dt>Години на излъчване:</dt>
+        <dd>{{:~formatDate(date, true).year}} - {{:~formatDate(end_date, true).year}}</dd>
+        <dt>Брой сезони</dt>
+        <dd>{{:seasons}}</dd>
+        <dt>Участват</dt>
+        <dd>{{:~getObjectsByProperty(related, 'related_subtype', 'cast', 'bg_name' || 'en_name')}}</dd>
+        <dt>Именити автори, продуценти и режисьори</dt>
+        <dd>{{:~getObjectsByProperty(related, 'related_subtype', 'star', 'bg_name' || 'en_name')}}</dd>
+        <dt>Престижни награди</dt>
+        <dd>{{:awards}}</dd>
+        <dt>Най-култов образ</dt>
+        <dd>{{:~getObjectsByProperty(related, 'related_subtype', 'character', 'bg_name' || 'en_name')}}</dd>
+    </dl>
+</aside>

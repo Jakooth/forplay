@@ -144,7 +144,8 @@ nav h3,
 	font-size: 18pt;
 }
 
-.layout .center-col h2 {
+.layout .center-col h2,
+.layout .center-col h2 * {
 	font-size: 30pt;
 	color: fade(@grey, 50%);
 	text-transform: uppercase;
@@ -780,6 +781,10 @@ main.read .read-set {
 	list-style: decimal-leading-zero;
 	list-style-position: inside;
 	padding: 6.25%;
+}
+
+.read-set .layout.img .img-proxy p {
+	display: none;
 }
 
 .read-set .layout.inside.i3 p strong:first-of-type,

@@ -157,7 +157,7 @@ function UtilsManager() {
 		return typeof(arr) == "string" ? arr : arr.join(', ');	
 	}
 	
-	this.formatDate = function (d) {
+	this.formatDate = function (d, returnObject) {
 		if (!d) return;
 		
 		var d = new Date(d),
@@ -168,6 +168,14 @@ function UtilsManager() {
 		
 		if (!d.getDate()) {
 			return "няма";
+		}
+		
+		if (returnObject) {
+			return {
+				date: d.getDate(),
+				month: m[d.getMonth()],
+				year: d.getFullYear()
+			}
 		}
 		
 		return d.getDate() + ' ' + m[d.getMonth()]  + ' ' + d.getFullYear();	
