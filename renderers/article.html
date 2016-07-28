@@ -20,7 +20,7 @@
     		target="_top">{{:~unescape(title)}}</a> <span
             			 >{{:~translate(subtype)}}</span> <span
             			 >{{:~unescape(subtitle)}}</span> </h3>
-    <p>От {{for authors}}<a href="#">{{:#data.en_name}}</a>
+    <p>От {{for authors}}<a href="/portals/author/{{:#data.author_id}}/{{:#data.tag}}">{{:#data.en_name}}</a>
     	  		{{if #index < #parent.data.length - 2}}, 
     			{{else #index == #parent.data.length - 2}} и {{/if}}{{/for}}</p>
     <p>{{:~unescape(preview)}}</p>{{if stickers}}

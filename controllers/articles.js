@@ -15,6 +15,7 @@ function ArticlesManager() {
 	var firstArticles = 0;
 	var lastArtcle = 50;
 	var articlesOffset = 50;
+	var lastSuggestedTags = '';
 	
 	var getCurrentArticleSet = function() {
 		var p = window.scrollY,
@@ -171,24 +172,18 @@ function ArticlesManager() {
 			
 			appender(html, cover, article);
 			
-			
-			
 			/**
-			 * Now injecting this with PHP for crawlers.
+			 * Suggest related articles by tags id.
 			 */
+			 
+			var o = {suggest: utils.getObjectPropertyAsString(article.tags, 'tag_id')
+								   .replace(/ /g, ''),
+					 tag: article.article_id,
+					 offset: 0};
+					 
+			lastSuggestedTags = o.suggest;		 
 			
-			/*
-			$(document).prop('title', article.title + ' ' + utils.translate(article.subtype));			
-			$('meta[name=description]').attr('content', article.subtitle + ', Aвтор: ' + 
-														utils.getObjectPropertyAsString(article.authors, 'en_name') + ', Категория: ' +
-														article.type + ', Относно: ' +
-														utils.getObjectPropertyAsString(article.tags, 'en_name'));
-			$('meta[property="og:url"]').attr('content', window.location.href);
-			$('meta[property="og:type"]').attr('content', 'article');
-			$('meta[property="og:title"]').attr('content', article.title);
-			$('meta[property="og:description"]').attr('content', article.subtitle);
-			$('meta[property="og:image"]').attr('content', utils.formatTimThumbString(article.cover_img, 1280, 720));
-			*/
+			loadArticles('articles', appendForplay, false, o);
 		}).fail(function() {
 			console.log("Failed to load index articles.");
 		});
@@ -567,8 +562,8 @@ function ArticlesManager() {
 		 * Append 5 videos. Most recent is in the middle.
 		 */
 		
-		$('#topVideos').append(html.find('article.news:gt(1):lt(2)'));
-		$('#topVideos').append(html.find('article.news:lt(3)'));
+		$('#topVideos').append(html.find('article.news.video:gt(1):lt(2)'));
+		$('#topVideos').append(html.find('article.news.video:lt(3)'));
 		
 		/**
 		 * Append 3 reviews. Most recent is in the middle.
@@ -677,13 +672,11 @@ function ArticlesManager() {
 			case 'feature':
 			case 'review':
 				loadArticle(params, appendArticle);
-				loadArticles('articles', appendForplay, false);
 				
 				break;
 			case 'news':
 			case 'video':
 				loadArticle(params, appendNews);
-				loadArticles('articles', appendForplay, false);
 				
 				break;
 			default:
@@ -693,9 +686,13 @@ function ArticlesManager() {
 	}
 	
 	var loadPortal = function(params) {
+		var o = {subtype: params.subtype};
+		
+		if (params.subtype == 'author') o.author = params.id;
+		
 		switch (params.subtype) {
 			default:
-				loadArticles('articles', appendPortal, true, {subtype: params.subtype});
+				loadArticles('articles', appendPortal, true, o);
 				break;	
 		}
 	}
@@ -729,8 +726,6 @@ function ArticlesManager() {
 			href = window.location.href,
 			params = utils.parsePrettyURL(href);
 		
-		
-		
 		if (set) {
 			lastArtcle = set.articleRange;
 			
@@ -744,7 +739,9 @@ function ArticlesManager() {
 				loadArticles('articles', appendArticles, false, {offset: set.lastArtcle, 
 																 subtype: params.subtype});
 			} else {
-				loadArticles('articles', appendArticles, false, {offset: set.lastArtcle});
+				loadArticles('articles', appendArticles, false, {offset: set.lastArtcle,
+																 suggest: lastSuggestedTags,
+																 tag: params.id});
 			}
 		}
 	});

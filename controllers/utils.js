@@ -186,7 +186,7 @@ function UtilsManager() {
 		
 		var tag = s.toLowerCase().replace(/[:?\.,!()'’&*„“]|– |- /g, '');
 		
-		tag = tag.replace(/\s+/g,' ');
+		tag = tag.replace(/\s+/g,  ' ');
 		tag = tag.replace(/ /g, '-');
 		
 		return tag;	
@@ -310,6 +310,13 @@ function UtilsManager() {
 		if (url.indexOf('portal') != -1 && params.length >= 1) {
 			o.type = params[params.length - 2];
 			o.subtype = params[params.length - 1];
+		}
+		
+		if (url.indexOf('author') != -1 && params.length >= 3) {
+			o.type = params[params.length - 4];
+			o.subtype = params[params.length - 3];
+			o.id = params[params.length - 2];
+			o.url = params[params.length - 1];
 		}
 		
 		return o;		
