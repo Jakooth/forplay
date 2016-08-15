@@ -167,7 +167,7 @@ function UtilsManager() {
 				 'Октомври', 'Ноември', 'Декември'];
 		
 		if (!d.getDate()) {
-			return "няма";
+			return 'няма';
 		}
 		
 		if (returnObject) {
@@ -184,7 +184,7 @@ function UtilsManager() {
 	this.formatTag = function (s) {
 		if (!s) return;
 		
-		var tag = s.toLowerCase().replace(/[:?\.,!()'’&*„“]|– |- /g, '');
+		var tag = s.toLowerCase().replace(/[:?\\.,!\/()'’&*„“`%]|– |- /g, '');
 		
 		tag = tag.replace(/\s+/g,  ' ');
 		tag = tag.replace(/ /g, '-');

@@ -95,8 +95,13 @@ if (sizeof($params) < 4) {
         $get_tags_result = mysqli_query($link, $get_tags_sql);
         
         while ($tag = mysqli_fetch_assoc($get_tags_result)) {
-            $article['tags'][] = $tag['en_name'];
-            $article['tags'][] = $tag['bg_name'];
+            if ($tag['en_name']) {
+                $article['tags'][] = $tag['en_name'];
+            }
+            
+            if ($tag['bg_name']) {
+                $article['tags'][] = $tag['bg_name'];
+            }
             
             if ($tag['prime'] == 1) {
                 $article['prime'] = $tag;

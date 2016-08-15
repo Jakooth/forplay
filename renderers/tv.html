@@ -11,7 +11,7 @@
         <dt>Име на български</dt>
         <dd>{{:bg_name}}</dd>
         <dt>Години на излъчване:</dt>
-        <dd>{{:~formatDate(date, true).year}} - {{:~formatDate(end_date, true).year}}</dd>
+        <dd>{{:~formatDate(date, true).year}} - {{if end_date}}{{:~formatDate(end_date, true).year}}{{else}}продължава{{/if}}</dd>
         <dt>Брой сезони</dt>
         <dd>{{:seasons}}</dd>
         <dt>Участват</dt>
