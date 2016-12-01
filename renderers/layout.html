@@ -10,8 +10,12 @@
 {{:tracklist}}
 
 {{if type == 'img' || type == 'inside'}} {{for imgs}}
-    <div class="img-proxy {{if video}}Player{{/if}}"{{if video}}
-    	 id="player_{{:article_id}}{{:layout_id}}{{:#getIndex()}}"{{/if}}>
+	{{if video && #parent.parent.data.subtype != 'z2'}}
+    <div class="img-proxy Player"
+    	 id="player_{{:article_id}}{{:layout_id}}{{:#getIndex()}}">
+    {{else}}
+    <div class="img-proxy">
+    {{/if}}     
     
     {{if #data.tracklist}}
         <div data-tag="{{:#data.tracklist}}" 
@@ -25,6 +29,10 @@
     {{else #data.alt.length > 0}}
         <p><strong>{{:#data.pointer}}</strong> {{:~unescape(#data.alt)}}</p>
     {{/if}}
+    
+    {{if #parent.parent.data.subtype == 'z2'}}
+    	<div class="img"><img data-proxy="false" src="{{:video}}" alt="{{:~unescape(#data.alt)}}" /></div>
+    {{else}}
         <div class="img {{if #parent.parent.data.subtype == 'i4'}}{{:#data.align}} {{:#data.valign}}{{/if}}"><a 
         					href="{{if video}}{{:video.url}}{{/if}}"{{if video}} 
                             data-video="{{:video}}"
@@ -36,7 +44,8 @@
                             data-ratio="{{if ratio}}{{:ratio}}{{else}}16-9{{/if}}"
                             src="/assets/helpers/{{if ratio}}{{:ratio}}{{else}}16-9{{/if}}.png"
                             alt="{{:~unescape(#data.alt)}}" /> </a></div>
-	</div>
+	{{/if}}
+    </div>
 {{/for}} {{else}}
     <div class="center-col"> {{:~unescape(center)}} </div>
 {{/if}}
