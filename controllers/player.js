@@ -199,8 +199,10 @@ function PlayerManager() {
 	 */
 	  
 	$('body').on('click', '#topVideos .Player a, ' + 
-						  '[data-subtype=news] #read .Player:gt(0) a, ' + 
-						  '[data-subtype=video] #read .Player:gt(0) a, ' + 
+						  '[data-subtype=video] #read .Player a[data-tech!=youtube], ' + 
+						  '[data-subtype=news] #read .Player a[data-tech!=youtube], ' + 
+						  '[data-subtype=news] #read .Player:gt(0) a[data-tech=youtube], ' + 
+						  '[data-subtype=video] #read .Player:gt(0) a[data-tech=youtube], ' +
 						  '[data-subtype=review] #read .Player a, ' + 
 						  '[data-subtype=feature] #read .Player a', function (e) {
 							  

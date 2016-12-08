@@ -69,10 +69,10 @@
 <script src="/controllers/banner.js?v=2.1.0" type="text/javascript">
 	<!--script-->
 </script>
-<script src="/controllers/articles.js?v=2.3.4" type="text/javascript">
+<script src="/controllers/articles.js?v=2.4.1" type="text/javascript">
 	<!--script-->
 </script>
-<script src="/controllers/player.js?v=2.0.0" type="text/javascript">
+<script src="/controllers/player.js?v=2.4.1" type="text/javascript">
 	<!--script-->
 </script>
 <script src="/controllers/INIT.js?v=2.0.0">

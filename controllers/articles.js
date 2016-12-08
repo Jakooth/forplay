@@ -467,7 +467,7 @@ function ArticlesManager() {
 		 * which eventually will genreate more views in the counter.
 		 */
 		
-		$('#read .Player:eq(0) a').each(function() {
+		$('#read .Player:eq(0) a[data-tech=youtube]').each(function() {
 			player.embedVideo($(this), false);
 		});		
 		
