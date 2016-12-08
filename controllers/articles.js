@@ -355,6 +355,10 @@ function ArticlesManager() {
 	var appendArticle = function(html, cover, data) {
 		$('main').addClass('read');
 		$('header').addClass('read');
+		$('main').data('type', data.type);
+		$('main').attr('data-type', $('main').data('type'));
+		$('main').data('subtype', data.subtype);
+		$('main').attr('data-subtype', $('main').data('subtype'));
 		
 		if (cover) {
 			$('#read').prepend(cover);	
@@ -413,6 +417,10 @@ function ArticlesManager() {
 	var appendNews = function(html, cover, data) {
 		$('main').addClass('read fixed static');
 		$('header').addClass('read fixed static');
+		$('main').data('type', data.type);
+		$('main').attr('data-type', $('main').data('type'));
+		$('main').data('subtype', data.subtype);
+		$('main').attr('data-subtype', $('main').data('subtype'));
 		
 		var $cover = $(cover);
 		
@@ -452,6 +460,16 @@ function ArticlesManager() {
 				loadImage($(this));
 			}
 		});
+		
+		/**
+		 * Automatically load all videos to force the user to click play.
+		 * This will embed Youtube video without auto-playing it,
+		 * which eventually will genreate more views in the counter.
+		 */
+		
+		$('#read .Player:eq(0) a').each(function() {
+			player.embedVideo($(this), false);
+		});		
 		
 		appendAsides(data);
 		

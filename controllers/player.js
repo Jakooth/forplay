@@ -11,7 +11,7 @@ function PlayerManager() {
 	 * For performance only one player is created at a time.
 	 */	
 	  
-	function createVideo($div, url, tech, poster) {
+	function createVideo($div, url, tech, poster, autoplay) {
 		var attributes = {
 			'id': 'forVideo',
 			'class': 'video-js vjs-default-skin'
@@ -20,8 +20,10 @@ function PlayerManager() {
 		$div.append($('<video />').attr(attributes));
 		
 		window.videoJS = videojs('forVideo', {
-								 "controls": true, 
-								 "autoplay": true, 
+								 "controls": true,
+								 "autoplay": autoplay,
+								 "ytcontrols": true,
+								 "playsInline": true,
 								 "preload": "auto",
 								 "techOrder": [tech],
 								 "height": "100%",
@@ -73,24 +75,12 @@ function PlayerManager() {
 		$lProxy.prepend($sLink);	
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	/** 
-	 * EVENTS
-	 */
-	
 	/**
-	 * Replace an image with video stream.
-	 * Small movies in a video set layout are displayed in a single large player.
+	 * @player is the link inside the Player class element.
 	 */
-	  
-	$('main').on('click', '.Player a', function (e) {
-		var $this = $(this), 
+	
+	function _embedVideo($player, autoplay) {
+		var $this = $player, 
 			$img = $this.find('img'),
 			$player = $this.parents('.Player');
 			$mainPlayer = $('#player_' + $this.data('player'));
@@ -109,8 +99,6 @@ function PlayerManager() {
 			
 			return;
 		}													
-		
-		e.preventDefault();
 		
 		/**
 		 * Check if the player is running to prevent clicks;
@@ -173,9 +161,53 @@ function PlayerManager() {
 			
 			return false;
 		} else {				
-			createVideo($mainPlayer, url, tech, poster);
+			createVideo($mainPlayer, url, tech, poster, autoplay);
 			
 			return false;
-		}		
+		}	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	/** 
+	 * PUBLIC
+	 */
+	 
+	this.embedVideo = function($player, autoplay) {
+		_embedVideo($player, autoplay)
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	/** 
+	 * EVENTS
+	 */
+	
+	/**
+	 * Replace an image with video stream.
+	 * Small movies in a video set layout are displayed in a single large player.
+	 */
+	  
+	$('body').on('click', '#topVideos .Player a, ' + 
+						  '[data-subtype=news] #read .Player:gt(0) a, ' + 
+						  '[data-subtype=video] #read .Player:gt(0) a, ' + 
+						  '[data-subtype=review] #read .Player a, ' + 
+						  '[data-subtype=feature] #read .Player a', function (e) {
+							  
+		e.preventDefault();
+		
+		_embedVideo($(this), true);
+		
+		return false;
 	});
 }
