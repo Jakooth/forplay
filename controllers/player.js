@@ -87,18 +87,7 @@ function PlayerManager() {
 			
 		var url = $this.data('video'),
 			tech = $this.data('tech'),
-			poster = $img.attr('src');
-		
-		/**
-		 * For mobile always open the video and not the article.
-		 */
-		
-		if (utils.isMobile()) {
-			$this.attr('href', $this.data('video'));
-			$this.attr('target', '_blank');
-			
-			return;
-		}													
+			poster = $img.attr('src');													
 		
 		/**
 		 * Check if the player is running to prevent clicks;
@@ -197,6 +186,21 @@ function PlayerManager() {
 	 * Replace an image with video stream.
 	 * Small movies in a video set layout are displayed in a single large player.
 	 */
+	
+	$('body').on('click', '#read .Player a', function (e) {	
+		var $this = $(this);
+		
+		/**
+		 * For mobile always open the video and not the article.
+		 */
+		
+		if (utils.isMobile()) {
+			$this.attr('href', $this.data('video'));
+			$this.attr('target', '_blank');
+			
+			return;
+		}
+	});
 	  
 	$('body').on('click', '#topVideos .Player a, ' + 
 						  '[data-subtype=video] #read .Player a[data-tech!=youtube], ' + 
@@ -206,6 +210,19 @@ function PlayerManager() {
 						  '[data-subtype=review] #read .Player a, ' + 
 						  '[data-subtype=feature] #read .Player a', function (e) {
 							  
+		var $this = $(this);
+		
+		/**
+		 * For mobile always open the video and not the article.
+		 */
+		
+		if (utils.isMobile()) {
+			$this.attr('href', $this.data('video'));
+			$this.attr('target', '_blank');
+			
+			return;
+		}
+		
 		e.preventDefault();
 		
 		_embedVideo($(this), true);

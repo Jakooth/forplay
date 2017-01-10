@@ -100,7 +100,7 @@ function UtilsManager() {
 	}
 	
 	this.isMobile = function() {
-		return $(window).width() > 960 ? false : true;
+		return $(window).width() >= 1280 ? false : true;
 	}
 	
 	this.setTheme = function(theme) {

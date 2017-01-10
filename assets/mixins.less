@@ -12,8 +12,8 @@
  */
 
 #createMedia (@width, @height, @hrange) {
-	@banner: (@height * 50) / 100;
-	@nav: (@height * 16) / 100;
+	@banner: (@height * 46) / 100;
+	@nav: (@height * 14) / 100;
 	@fixed: (@height * 10) / 100;
 	
 	@media only screen and (min-width: ~'@{width}px')
@@ -38,6 +38,7 @@
 		*/		
 		
 		header.fixed,
+		header.fixed .nav-set,
 		.nav-set {
 			height: @nav + 0px;
 		}
@@ -73,9 +74,12 @@
 	
 		#covers,
 		#covers .cover-set,
-		section.cover,
 		.article-set article {
 			height: @banner + 0px;
+		}
+		
+		section.cover {
+			height: @banner * 1.5 + 0px;	
 		}
 		
 		#topReviews.article-set article {

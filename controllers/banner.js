@@ -31,14 +31,19 @@ function BannerManager() {
 	this.updateHeaderPosition = function() {
 		var $main = $('main'),
 			$covers,
-			$mainCoverHeading;
+			$mainCoverHeading,
+			$mainCoverAuthor;
+			
+		var scrollFixedRatio = $main.hasClass('read') ? 40 : 40,
+			scrollHideRatio = $main.hasClass('read') ? 1.4 : 1;	
 		
 		if ($main.hasClass('read')) {
 			$covers = $('#read .cover');
-			$mainCoverHeading = $('#read .cover h1');
+			$mainCoverHeading = $('#read .cover > h1');
+			$mainCoverAuthor = $('#read .cover > p');
 		} else {
 			$covers = $('#covers');
-			$mainCoverHeading = $('#covers article:eq(0) h3');
+			$mainCoverHeading = $('#covers h3');
 		}
 		
 		/**
@@ -47,12 +52,7 @@ function BannerManager() {
 		 */
 		
 		if (!utils.isMobile()) {
-			
-			/**
-			 * TODO: Why *40?
-			 */
-			
-			if ($(window).scrollTop() >= (coversHeight * 40) / 100) {
+			if ($(window).scrollTop() >= (coversHeight * scrollFixedRatio) / 100) {
 				$covers.css('height', '');
 				$('header').addClass('fixed');
 				$('main').addClass('fixed');
@@ -65,16 +65,18 @@ function BannerManager() {
 			
 			$covers.css('height', coversHeight - $(window).scrollTop());
 			
-			/**
-			 * TODO: Why / 1.2?
-			 */
-			
-			if ($covers.height() < coversHeight / 1.2) {
-				$mainCoverHeading.addClass('invisible');
-				$("#forLife").css('opacity', 0);
+			if ($covers.height() < coversHeight / scrollHideRatio) {
+				$mainCoverHeading.css('opacity', 0);
+				
+				if ($main.hasClass('read')) {
+					$mainCoverAuthor.css('opacity', 0);
+				}
 			} else {
-				$mainCoverHeading.removeClass('invisible');
-				$("#forLife").css('opacity', 1);
+				$mainCoverHeading.css('opacity', 0.9);
+				
+				if ($main.hasClass('read')) {
+					$mainCoverAuthor.css('opacity', 0.9);
+				}
 			}
 		}
 	}

@@ -22,7 +22,8 @@
     Video JS Vimeo - vimeo add-on
     Video JS Youtube - youtube add-on 
     HE - encode and decode data
-    jsRender - templating tool vor javascript-->
+    jsRender - templating tool vor javascript
+    Auth0 - single sign on system-->
 <script src="/jslib/jquery-2.1.4.min.js" type="text/javascript">
 	<!--script-->
 </script>
@@ -47,6 +48,7 @@
 <script src="/jslib/jsrender.min.js" type="text/javascript">
 	<!--script-->
 </script>
+<script src="//cdn.auth0.com/js/lock-9.2.1.min.js"><!--script--></script>
 <!--LOCALIZATION
 	i18next - handle some english strings-->
 <script src="/jslib/i18next.min.js" type="text/javascript">
@@ -63,7 +65,7 @@
     banner - animations and interactions with the banner section
     articles - main contant loading and placment
     player - embed video play support-->
-<script src="/controllers/utils.js?v=2.3.0" type="text/javascript">
+<script src="/controllers/utils.js?v=2.3.1" type="text/javascript">
 	<!--script-->
 </script>
 <script src="/controllers/banner.js?v=2.1.0" type="text/javascript">
@@ -72,7 +74,10 @@
 <script src="/controllers/articles.js?v=2.4.1" type="text/javascript">
 	<!--script-->
 </script>
-<script src="/controllers/player.js?v=2.4.1" type="text/javascript">
+<script src="/controllers/player.js?v=2.4.3" type="text/javascript">
+	<!--script-->
+</script>
+<script src="/foradmin/controllers/login.js?v=2.3.0" type="text/javascript">
 	<!--script-->
 </script>
 <script src="/controllers/INIT.js?v=2.0.0">
@@ -81,7 +86,7 @@
 </head>
 <body>
 <header>
-    <h1> <a href="/"> <img 
+  <h1> <a href="/"> <img 
             id="forPlay" class="svg" 
             src="/assets/forplay.svg" 
             alt="Forplay&reg;" /></a> <a 
@@ -89,94 +94,96 @@
             id="forLife" class="svg" 
             src="/assets/forlife.svg" 
             alt="Forlife&reg;" /> </a> </h1>
-    <section class="cover-set">
-        <h2>Корици</h2>
-        <div id="covers">
-            <!--ArticlesManager: loadArticles-->
-        </div>
-        <div id="thumbnails">
-            <!--ArticlesManager-->
-        </div>
-    </section>
-    <section class="nav-set">
-        <h2>Навигация, търсене и потребителски вход</h2>
-        <div class="special">
-            <button type="button" 
-            		id="hideHeaderButton"
-                    role="presentation"
-                    aria-pressed="false"><span>Скрии</span></button>
-        </div>
-        <nav>
-            <h3><span>Навигация</span></h3>
-            <ul>
-                <li> <a href="/portals/news">Новини</a> </li>
-                <li> <a href="/portals/video">Видео</a> </li>
-                <li> <a href="/portals/review">Ревюта</a> </li>
-                <li> <a href="/portals/feature">Мнения</a> </li>
-                <li> <a href="http://www.gamersvoiceshop.com/" 
+  <section class="cover-set">
+    <h2>Корици</h2>
+    <div id="covers"> 
+      <!--ArticlesManager: loadArticles--> 
+    </div>
+    <div id="thumbnails"> 
+      <!--ArticlesManager--> 
+    </div>
+  </section>
+  <section class="nav-set">
+    <h2>Навигация, търсене и потребителски вход</h2>
+    <div class="special" role="region">
+      <button type="button" 
+              id="hideHeaderButton"
+              role="presentation"
+              aria-pressed="false"><span>Скрии</span></button>
+    </div>
+    <nav>
+      <h3><span>Навигация</span></h3>
+      <ul>
+        <li> <a href="/portals/news">Новини</a> </li>
+        <li> <a href="/portals/video">Видео</a> </li>
+        <li> <a href="/portals/review">Ревюта</a> </li>
+        <li> <a href="/portals/feature">Мнения</a> </li>
+        <li> <a href="http://www.gamersvoiceshop.com/" 
                         target="_blank">GVS</a> </li>
-                <li> <a href="http://forplay.bg/forums/" 
+        <li> <a href="http://forplay.bg/forums/" 
                         target="_blank">Форум</a> </li>
-            </ul>
-        </nav>
-        <div class="search" role="search">
-            <h3><span>Търсене</span></h3>
-            <form method="get" action="#search">
-                <label for="search">Tърсене:</label>
-                <input type="search" placeholder="пример Diablo, Диабло, 300" 
-                	   name="search" id="search">
-                <button type="submit">Търси</button>
-            </form>
-        </div>
-        <div class="user">
-            <h3><span>Потребителски вход</span></h3>
-            <button type="button"><span>Влез</span></button>
-            <ul>
-                <li> <a href="#">Профил</a> </li>
-                <li> <a href="#">Настройки</a> </li>
-                <li> <a href="#">Изход</a> </li>
-            </ul>
-        </div>
-    </section>
+      </ul>
+    </nav>
+    <div class="search" role="search">
+      <h3><span>Търсене</span></h3>
+      <form method="get" action="#search">
+        <label for="search">Tърсене:</label>
+        <input type="search" placeholder="пример Diablo, Диабло, 300" 
+               name="search" id="search">
+        <button type="submit">Търси</button>
+      </form>
+    </div>
+    <div class="user" role="region">
+      <h3><span>Потребителски вход</span></h3>
+      <button id="userLogin" type="button" 
+      		  aria-pressed="false" 
+              aria-haspopup="false"><i>Наздраве, </i><b>непознат</b></button>
+      <ul aria-hidden="true">
+        <li> <a href="#">Профил</a> </li>
+        <li> <a href="#">Настройки</a> </li>
+        <li> <a href="#">Изход</a> </li>
+      </ul>
+    </div>
+  </section>
 </header>
 <main>
-    <h1>Основно съдържание</h1>
-    <article id="read" aria-hidden="true">
-        <section class="read-set">
-            <!--ArticlesManager: loadArticles-->
-        </section>
-    </article>
-    <section id="topArticles" class="article-set">
-        <h2>Избрани статии</h2>
-        <!--ArticlesManager: loadArticles-->
+  <h1>Основно съдържание</h1>
+  <article id="read" aria-hidden="true">
+    <section class="read-set"> 
+      <!--ArticlesManager: loadArticles--> 
     </section>
-    <section aria-hidden="true" class="adv-set">
-    	<h2>Реклама</h2>
-        <!--Advertisement-->
-    </section>
-    <section id="topVideos" class="video-set">
-        <h2>Най-нови клипчета</h2>
-        <!--ArticlesManager: loadArticles-->
-    </section>
-    <section id="topReviews" class="article-set">
-        <h2>Най-нови ревюта</h2>
-        <!--ArticlesManager: loadArticles-->
-    </section>
-    <section aria-hidden="true" class="adv-set">
-    	<h2>Реклама</h2>
-        <!--Advertisement-->
-    </section>
-    <section id="allArticles" class="article-set">
-        <h2>Всички статии</h2>
-        <!--ArticlesManager: loadArticles-->
-    </section>
+  </article>
+  <section id="topArticles" class="article-set">
+    <h2>Избрани статии</h2>
+    <!--ArticlesManager: loadArticles--> 
+  </section>
+  <section aria-hidden="true" class="adv-set">
+    <h2>Реклама</h2>
+    <!--Advertisement--> 
+  </section>
+  <section id="topVideos" class="video-set">
+    <h2>Най-нови клипчета</h2>
+    <!--ArticlesManager: loadArticles--> 
+  </section>
+  <section id="topReviews" class="article-set">
+    <h2>Най-нови ревюта</h2>
+    <!--ArticlesManager: loadArticles--> 
+  </section>
+  <section aria-hidden="true" class="adv-set">
+    <h2>Реклама</h2>
+    <!--Advertisement--> 
+  </section>
+  <section id="allArticles" class="article-set">
+    <h2>Всички статии</h2>
+    <!--ArticlesManager: loadArticles--> 
+  </section>
 </main>
 <footer>
-    <p>&copy; Copyright 2015 <a href="/articles/games/news/18/castle-design">Castle
-            Design Ltd.</a> </p>
-    <p>Тази страница се придържа към <a href="http://www.cencenelec.eu/News/Press_Releases/Pages/PR-2014-03.aspx">Европейските
-            Изисквания за Достъпност на Обществени Продукти и Услуги.</a> </p>
-    <p>Икони за кориците благодарение на <a href="http://game-icons.net/">Game-icons.net.</a> </p>
+  <p>&copy; Copyright 2015 <a href="/articles/games/news/18/castle-design">Castle
+    Design Ltd.</a> </p>
+  <p>Тази страница се придържа към <a href="http://www.cencenelec.eu/News/Press_Releases/Pages/PR-2014-03.aspx">Европейските
+    Изисквания за Достъпност на Обществени Продукти и Услуги.</a> </p>
+  <p>Икони за кориците благодарение на <a href="http://game-icons.net/">Game-icons.net.</a> </p>
 </footer>
 </body>
 </html>

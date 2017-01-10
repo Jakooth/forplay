@@ -4,6 +4,22 @@ $(document).ready(function() {
 	window.articles = new ArticlesManager();
 	window.player = new PlayerManager();
 	
+	/**
+	 * Login
+	 */
+	
+	window.lock = new Auth0Lock('P8wrSYlMVUu5rZDEFGSqFL18tVfgo9Gz',
+								'forplay.eu.auth0.com' , 
+								{avatar: null}); 
+	window.login = new LoginManager();												
+	window.userProfile = null; 
+	
+	login.getUserInfo();
+	
+	/**
+	 * i18n
+	 */
+	
 	i18next.use(new i18nextXHRBackend())
 		   .use(new i18nextBrowserLanguageDetector())
 		   .init();
