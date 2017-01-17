@@ -686,6 +686,8 @@ function ArticlesManager() {
 	}
 	
 	var loadPage = function(params) {
+		showLoading();
+		
 		switch (params.subtype) {
 			case 'feature':
 			case 'review':
@@ -704,6 +706,8 @@ function ArticlesManager() {
 	}
 	
 	var loadPortal = function(params) {
+		showLoading();
+		
 		var o = {subtype: params.subtype};
 		
 		if (params.subtype == 'author') o.author = params.id;
@@ -714,6 +718,32 @@ function ArticlesManager() {
 				break;	
 		}
 	}
+	
+	var showLoading = function() {
+		$('body').attr('aria-busy', true);	
+	}
+	
+	var hideLoading = function() {
+		$('body').attr('aria-busy', false);	
+	}	
+	
+	
+	
+	
+	
+	
+	
+	/**
+	 * PUBLIC
+	 */
+	 
+	this.showLoading = function() {
+		showLoading();	
+	}
+	
+	this.hideLoading = function() {
+		hideLoading();	
+	}	
 	
 	
 	

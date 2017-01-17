@@ -70,7 +70,8 @@ function UtilsManager() {
 			var $svg = $(data).find('svg');
 	
 			if (typeof imgID !== 'undefined') {
-				$svg = $svg.attr('id', imgID);
+				$svg.attr('id', imgID);
+				$svg.attr('fill', '#ffffff');
 				
 				/**
 				 * The logic to set logo aspect ratio goes here.
@@ -94,6 +95,8 @@ function UtilsManager() {
 			}
 			
 			$img.replaceWith($svg);
+			
+			articles.hideLoading();
 		}).fail(function() {
 			console.log("Failed to convert SVG.");
 		});

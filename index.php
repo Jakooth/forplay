@@ -84,7 +84,7 @@
 	<!--script-->
 </script>
 </head>
-<body>
+<body aria-busy="true">
 <header>
   <h1> <a href="/"> <img 
             id="forPlay" class="svg" 
