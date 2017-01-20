@@ -507,6 +507,10 @@ section.cover:before {
 	.clip;
 }
 
+/**
+ * Title text.
+ */
+ 
 .cover-set h3,
 section.cover h1 {
 	position: absolute;
@@ -526,14 +530,10 @@ section.cover h1 {
     justify-content: center;
 }
 
-/**
- * Title text.
- */
-
 .cover-set h3 a:nth-child(1),
 section.cover h1 a:nth-child(1) {
 	display: block;
-	width: 100%;
+	width: 60%;
 	height: 100%;	
 }
 
@@ -558,14 +558,17 @@ section.cover h1 strong {
  * Article type colored block.
  */
 
-.cover-set h3 span:nth-child(2),
-section.cover h1 span:nth-child(2) {
+.cover-set h3 span:nth-child(2) {
 	position: absolute;
 	padding: 2.08%;
 	top: 0;
 	right: 2.08%;
 	height: 0;
 	line-height: 0;
+}
+
+section.cover h1 span:nth-child(2) {
+	.clip;
 }
 
 /**
@@ -847,8 +850,8 @@ header:not(.fixed) #covers article:hover h3 {
 	display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
 }
 
 /**
@@ -920,8 +923,8 @@ header.read nav {
 header.read .nav-set nav h3 {
 	.anti-clip;
 	
-	width: 48px;
-	height: 48px;
+	width: 32px;
+	height: 32px;
 	background-image: url(icons/iconmonstr/iconmonstr-menu-icon.svg);
 	opacity: 0.7;
 	background-size: cover;
@@ -988,9 +991,18 @@ header.read .nav-set li a {
 
 header.read .nav-set .special {
 	right: 0;
-	width: 64px;
-	height: 64px;
+	width: 32px;
+	height: 32px;
 	margin: 1.25%;
+}
+
+header.read .nav-set .special,
+header.read .nav-set nav {
+	margin-top: 0;
+	margin-bottom: 0;
+	display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 header.read .nav-set .user {
@@ -1001,22 +1013,33 @@ header.read .nav-set .user {
 	right: 64px;	
 }
 
-.nav-set .user button,
 .nav-set .special button {
 	width: 100%; 
-	height: 64px;
+	height: 100%;
 	border: none; 
 	background: none;
 	appearance: none;
-	opacity: 1.0;
+	opacity: 0.7;
 	cursor: pointer;
 	background-repeat: no-repeat;
-	background-size: 48px 48px;
+	background-size: cover;
 	background-position: center center;
 }
 
+header.read .nav-set .special button {
+	height: 32px;
+}
+
 .nav-set .user button {
+	border: none; 
+	background: none;
+	appearance: none;
+	width: 100%;
+	height: 64px;
 	filter: invert(0);
+	cursor: pointer;
+	background-repeat: no-repeat;
+	background-size: 48px 48px;
     background-position: center right;
 	position: relative;
 	padding-right: calc(48px + 12.5%);
@@ -1057,12 +1080,12 @@ header.read .nav-set .user {
 	outline: none;
 }
 
-.nav-set:hover .special button[aria-pressed=true] {
-	background-image: url(icons/delapouite/gui/svg/000000/transparent/expand.svg);
+.nav-set .special button[aria-pressed=true] {
+	background-image: url(icons/iconmonstr/iconmonstr-arrow-65.svg);
 }
 
-.nav-set:hover .special button[aria-pressed=false] {
-	background-image: url(icons/delapouite/gui/svg/000000/transparent/contract.svg);
+.nav-set .special button[aria-pressed=false] {
+	background-image: url(icons/iconmonstr/iconmonstr-arrow-66.svg);
 }
 
 .nav-set h3 span,

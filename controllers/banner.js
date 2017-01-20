@@ -291,6 +291,7 @@ function BannerManager() {
 		
 		var $this = $(this),
 			$main = $('main'),
+			$header = $('header'),
 			$cover = $main.find('section.cover');
 		
 		if ($this.attr('aria-pressed') == 'true') {
@@ -299,18 +300,22 @@ function BannerManager() {
 			if ($cover.hasClass('news') || $cover.hasClass('video')) {
 				$.removeCookie('header');	
 			} else {
-				$('header').removeClass('static fixed');
-				$('main').removeClass('static fixed');
+				$header.removeClass('static fixed');
+				$main.removeClass('static fixed');
 				
 				$.removeCookie('header');
 				
-				self.setCoversHeight($('#covers').height());
+				if ($main.hasClass('read')) {
+					self.setCoversHeight($('section.cover').height());
+				} else {
+					self.setCoversHeight($('#covers').height());
+				}
 			}
 		} else {
 			$this.attr('aria-pressed', 'true');
 			
-			$('header').addClass('static fixed');
-			$('main').addClass('static fixed');
+			$header.addClass('static fixed');
+			$main.addClass('static fixed');
 			
 			$.cookie('header', 'static', {expires: 365});
 			

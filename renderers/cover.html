@@ -32,7 +32,7 @@
     <h1> <strong>{{:~unescape(title)}}</strong> <span
   			  	>{{:~translate(subtype)}}</span> <span
               	>{{:~unescape(subtitle)}}</span> </h1>
-    <p>От {{for authors}}<a href="/portals/author/{{:#data.author_id}}/{{:#data.tag}}">{{:#data.en_name}}</a>
+    <p>{{:~translate(subtype)}} от {{for authors}}<a href="/portals/author/{{:#data.author_id}}/{{:#data.tag}}">{{:#data.en_name}}</a>
     	  		{{if #index < #parent.data.length - 2}}, 
     			{{else #index == #parent.data.length - 2}} и {{/if}}{{/for}}</p>
   
@@ -48,7 +48,7 @@
         <li>
         	<p style="background-image: url(/assets/tags/{{:equal[0].tag}}.{{:equal[0].img}})" 
                class="equal"><span>На нивото на </span><strong>{{:equal_text || equal[0].en_name}}</strong></p>
-        </li>{{/if}}{{if worse && (!equal || !better)}}
+        </li>{{/if}}{{if worse}}
         <li>
         	<p style="background-image: url(/assets/tags/{{:worse[0].tag}}.{{:worse[0].img}})" 
                class="worse"><span>По-зле от </span><strong>{{:worse_text || worse[0].en_name}}</strong></p>
@@ -67,7 +67,7 @@
     <h1> <strong>{{:~unescape(title)}}</strong> <span
   			  	>{{:~translate(subtype)}}</span> <span
               	>{{:~unescape(subtitle)}}</span> </h1>
-    <p>От {{for authors}}<a href="/portals/author/{{:#data.author_id}}/{{:#data.tag}}">{{:#data.en_name}}</a>
+    <p>{{:~translate(subtype)}} от {{for authors}}<a href="/portals/author/{{:#data.author_id}}/{{:#data.tag}}">{{:#data.en_name}}</a>
     	  		{{if #index < #parent.data.length - 2}}, 
     			{{else #index == #parent.data.length - 2}} и {{/if}}{{/for}}</p>
 	
