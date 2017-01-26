@@ -635,7 +635,7 @@ function ArticlesManager() {
 			$mainCovers.addClass('cover');
 		}
 		
-		if ($.cookie('header') == 'static') {
+		if (localStorage.getItem('header') == 'static') {
 			$mainCovers.clone().appendTo($covers);
 		} else {
 			$covers.append($mainCovers);

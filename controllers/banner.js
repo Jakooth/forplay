@@ -19,7 +19,7 @@ function BannerManager() {
 	 */
 	 
 	this.setCoversHeight = function(h) {
-		coversHeight = $.cookie('header') == 'static' ? 0 : h;
+		coversHeight = localStorage.getItem('header') == 'static' ? 0 : h;
 		
 		self.updateHeaderPosition();
 	}
@@ -186,7 +186,7 @@ function BannerManager() {
 	});
 	
 	$(window).on('load', function () {
-		if ($.cookie('header') == 'static') {
+		if (localStorage.getItem('header') == 'static') {
 			$('header').addClass('static fixed');
 			$('main').addClass('static fixed');
 			$('#hideHeaderButton').attr('aria-pressed', 'true');
@@ -298,12 +298,12 @@ function BannerManager() {
 			$this.attr('aria-pressed', 'false');
 			
 			if ($cover.hasClass('news') || $cover.hasClass('video')) {
-				$.removeCookie('header');	
+				localStorage.removeItem('header');	
 			} else {
 				$header.removeClass('static fixed');
 				$main.removeClass('static fixed');
 				
-				$.removeCookie('header');
+				localStorage.removeItem('header');
 				
 				if ($main.hasClass('read')) {
 					self.setCoversHeight($('section.cover').height());
@@ -317,7 +317,7 @@ function BannerManager() {
 			$header.addClass('static fixed');
 			$main.addClass('static fixed');
 			
-			$.cookie('header', 'static', {expires: 365});
+			localStorage.setItem('header', 'static');
 			
 			self.setCoversHeight(0);
 		}

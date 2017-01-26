@@ -30,9 +30,6 @@
 <script src="/jslib/jquery.mobile.custom.min.js" type="text/javascript">
 	<!--script-->
 </script>
-<script src="/jslib/jquery.cookie.js" type="text/javascript">
-	<!--script-->
-</script>
 <script src="/jslib/video-js/video.js" type="text/javascript">
 	<!--script-->
 </script>
