@@ -96,7 +96,11 @@ function UtilsManager() {
 			
 			$img.replaceWith($svg);
 			
-			articles.hideLoading();
+			/**
+			 * This is not applicable to the admin.
+			 */
+			
+			if (typeof articles !== 'undefined') articles.hideLoading();
 		}).fail(function() {
 			console.log("Failed to convert SVG.");
 		});

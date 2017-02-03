@@ -6,7 +6,7 @@ function ArticlesManager() {
 	
 	var self = this;
 	var forplayAPI = '/forapi/forplay.php';
-	var fotagsAPI = '/forapi/get.php';
+	var fotagsAPI = '/forapi/tags.php';
 	
 	/**
 	 * Lazy loading of articles.
