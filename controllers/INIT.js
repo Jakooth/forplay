@@ -14,7 +14,21 @@ $(document).ready(function() {
 	window.login = new LoginManager();												
 	window.userProfile = null; 
 	
-	login.getUserInfo();
+	login.getUserProfile();
+	
+	/**
+	 * Send the authorization header on all API requests.
+	 * Note there is configuration in .htaccess to allow this.
+	 */
+	
+	$.ajaxSetup({ 
+		'beforeSend': function(xhr) { 
+			if (localStorage.getItem('userToken')) { 
+				xhr.setRequestHeader('Authorization',  
+									 'Bearer ' + localStorage.getItem('userToken')); 
+			} 
+		} 
+	});
 	
 	/**
 	 * i18n

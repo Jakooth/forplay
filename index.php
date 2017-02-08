@@ -83,14 +83,13 @@
 </head>
 <body aria-busy="true">
 <header>
-  <h1> <a href="/"> <img 
-            id="forPlay" class="svg" 
-            src="/assets/forplay.svg" 
-            alt="Forplay&reg;" /></a> <a 
-            href="/"> <img 
-            id="forLife" class="svg" 
-            src="/assets/forlife.svg" 
-            alt="Forlife&reg;" /> </a> </h1>
+  <h1> <a href="/"> <img id="forPlay" class="svg" 
+            			 src="/assets/forplay.svg" 
+            			 alt="Forplay&reg;" /></a> <a 
+            			 href="/"> <img 
+            			 id="forLife" class="svg" 
+            			 src="/assets/forlife.svg" 
+            			 alt="Forlife&reg;" /> </a> </h1>
   <section class="cover-set">
     <h2>Корици</h2>
     <div id="covers"> 
@@ -116,9 +115,9 @@
         <li> <a href="/portals/review">Ревюта</a> </li>
         <li> <a href="/portals/feature">Мнения</a> </li>
         <li> <a href="http://www.gamersvoiceshop.com/" 
-                        target="_blank">GVS</a> </li>
+                target="_blank">GVS</a> </li>
         <li> <a href="http://forplay.bg/forums/" 
-                        target="_blank">Форум</a> </li>
+                target="_blank">Форум</a> </li>
       </ul>
     </nav>
     <div class="search" role="search">
@@ -133,13 +132,7 @@
     <div class="user" role="region">
       <h3><span>Потребителски вход</span></h3>
       <button id="userLogin" type="button" 
-      		  aria-pressed="false" 
-              aria-haspopup="false"><i>Наздраве, </i><b>непознат</b></button>
-      <ul aria-hidden="true">
-        <li> <a href="#">Профил</a> </li>
-        <li> <a href="#">Настройки</a> </li>
-        <li> <a href="#">Изход</a> </li>
-      </ul>
+      		  aria-pressed="false"><i>Наздраве, </i><b>непознат</b></button>
     </div>
   </section>
 </header>
@@ -175,6 +168,28 @@
     <!--ArticlesManager: loadArticles--> 
   </section>
 </main>
+<section id="userProfile" class="profile" aria-hidden="true">
+  <form>
+    <button id="profileClose"  type="button"><span>Затвори</span></button>
+    <button id="profileChange" type="button" 
+    		aria-pressed="false"><span>Смени профила</span></button>
+    <h1>Моят профил</h1>
+    <input id="profileId" type="hidden" />
+    <label>
+      <input id="profileNickname" aria-label="Прякор" placeholder="Прякор" type="text" />
+    </label>
+    <label>
+      <input id="profileGivenName" aria-label="Име" placeholder="Име" type="text" />
+    </label>
+    <label>
+      <input id="profileFamilyName" aria-label="Фамилия" placeholder="Фамилия" type="text" />
+    </label>
+    <div role="toolbar">
+      <button id="profileUpdate" type="button">Обнови профила</button>
+      <button id="userLogout" type="button">Излез от Форплей</button>
+    </div>
+  </form>
+</section>
 <footer>
   <p>&copy; Copyright 2015 <a href="/articles/games/news/18/castle-design">Castle
     Design Ltd.</a> </p>

@@ -1,0 +1,131 @@
+#userProfile {
+	position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: fade(@dark, 0%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+	
+	h1 {
+		color: @light;
+		font-size: 18pt;
+		border-bottom: 1px solid fade(@light, 50%);
+		width: 100%;
+		margin-bottom: 12.5%;
+		padding: 3.125% 0;
+		text-align: center;
+		text-shadow: 1px 1px fade(@dark, 20%);
+	}
+	
+	#profileChange,
+	#profileClose {
+		background: none;
+		padding: 3.125%;
+		border: none;
+		appearance: none;
+		cursor: pointer;
+	}
+	
+	#profileChange {
+		width: 128px;
+		height: 128px;
+		margin-bottom: 12.5%;
+		position: relative;
+		background-image: url(icons/lorc/originals/svg/000000/transparent/cowled.svg);
+		background-size: cover;
+		background-position: center center;
+		filter: invert(100%);
+	}
+	
+	#profileChange[aria-pressed=true] {
+		filter: invert(0);
+	}
+	
+	#profileClose {
+		width: 16px;
+		height: 16px;
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+	
+	#profileClose span,
+	#profileChange span {
+		.clip;
+	}
+	
+	#profileClose::after {
+		content: "";
+		position: absolute;
+		filter: invert(100%);
+		background-size: cover;
+		background-position: center center;
+		width: 16px;
+		height: 16px;
+		background-image: url(icons/iconmonstr/iconmonstr-x-mark-2.svg);
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%)
+	}
+	
+	form {
+		width: 60%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background-color: fade(@dark, 98%);
+		padding: 2.5% 20%;
+		position: relative;
+	}
+	
+	label,
+	span,
+	input {
+		display: block;
+		width: 100%;
+		color: @light;
+	}
+	
+	input {
+		margin-bottom: 3.125%;
+		padding: 3.125%;
+		border: 1px solid transparent;
+		background: none;
+		font-size: 14pt;
+		font-family: serif;
+    	font-style: italic;
+		text-shadow: 1px 1px fade(@dark, 20%);
+	}
+	
+	label:last-of-type input {
+		margin-bottom: 0;
+	}
+	
+	[role=toolbar] {
+		margin-top: 3.125%;
+		width: 100%;
+	}
+	
+	[role=toolbar] button {
+		padding: 3.125%;
+		margin-bottom: 3.125%;
+		width: 100%;
+		height: auto;
+		border: none;
+		background: @deep-orange;
+		color: @light;
+		opacity: 1.0;
+		cursor: pointer;
+	}
+	
+	[role=toolbar] button:last-of-type { 
+		margin-top: 12.5%;
+		background: none;
+	}
+}
+

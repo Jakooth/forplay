@@ -4,6 +4,7 @@
 
 @charset "utf-8";
 @import "mixins.less";
+@import "profile.less";
 
 /**
  * Color on hover and focus must be one for all styles.
@@ -124,6 +125,7 @@ section.cover h1 strong,
 	font-size: 40pt;
 }
 
+section.profile h1,
 section.cover h1 strong {
 	text-shadow: 1px 1px fade(@dark, 20%);
 }
@@ -353,8 +355,8 @@ main .box-placeholder > h2 {
 	.clip;
 }
 
-[aria-hidden] {
-	display: none;
+[aria-hidden=true] {
+	display: none !important;
 }
 
 /**
