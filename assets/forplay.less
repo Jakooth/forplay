@@ -39,7 +39,6 @@
 @news: @deep-orange;
 @video: @blue;
 @hover: @cyan;
-@invert: #FFA195;
 
 
 
@@ -53,7 +52,7 @@
  * Place all font size and style declaration here.
  * Many fonts are adjusted for different resolutions in media.css
  */
-  
+
 * {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 12pt;
@@ -67,7 +66,7 @@ a {
 /**
  * Last two styles are for the article subtype.
  */
- 
+
 #covers *,
 #read > .cover *,
 .video-set *,
@@ -122,7 +121,7 @@ section.cover h1 strong,
 .video-set article:nth-of-type(3) h3 a strong,
 .static .read-set .layout:first-of-type h1 strong,
 #topReviews.article-set article:nth-of-type(2) h3 * {
-	font-size: 40pt;
+	font-size: 26pt;
 }
 
 section.profile h1,
@@ -142,7 +141,7 @@ section.cover h1 strong {
 section.cover h1 span:nth-of-type(2),
 .video-set article:nth-of-type(3) h3 span:nth-of-type(2),
 .static .read-set .layout:first-of-type h1 span:nth-of-type(2) {
-	font-size: 20pt;
+	font-size: 16pt;
 }
 
 section.cover h1 span:nth-of-type(2) {
@@ -1039,7 +1038,7 @@ header.read .nav-set .special button {
 	background-size: 48px 48px;
     background-position: center right;
 	position: relative;
-	padding-right: calc(48px + 12.5%);
+	padding-right: ~"calc(6.25% + 48px)";
     float: right;
     margin-right: 6.25%;
 }
@@ -1058,14 +1057,15 @@ header.read .nav-set .user {
 header.read .nav-set .user button {
 	margin: 0;
 	position: absolute;
-	height: 100%;
+	height: auto;
 	width: 100%;
 	color: #fff;
 	margin-left: 0;
 	padding: 6.25%;
-	padding-top: 50%;
+	padding-top: ~"calc(6.25% + 128px)";
 	background-position: left top;
 	background-size: 128px 128px;
+	background-color: @deep-orange;
 }
 
 body.nav header.read .nav-set .user {

@@ -148,10 +148,12 @@
 	@media only screen and (min-width: ~'@{width}px') 
 					   and (orientation: portrait) {
 		
-		#covers,
-		header.read,
-		#read > .cover {
+		#covers {
 			height: @width + 0px;
+		}
+		
+		#read > .cover {
+			height: @width * 1.2 + 0px;
 		}
 		
 		#read > .cover.video,

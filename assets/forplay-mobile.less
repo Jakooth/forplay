@@ -4,6 +4,7 @@
 
 @charset "utf-8";
 @import "mixins.less";
+@import "profile.less";
 
 /**
  * Color on hover and focus must be one for all styles.
@@ -79,8 +80,10 @@ a {
  */
 
 .video-set h3 a,
+.video-set h3 a strong,
 .video-set h3 span:nth-of-type(2),
 .article-set h3 a,
+.article-set h3 a strong,
 .article-set h3 span:nth-of-type(2) {
 	font-size: 12pt;
 }
@@ -91,9 +94,16 @@ a {
 
 nav h3,
 #covers h3 a,
+#covers h3 a strong,
 #read > .cover h1 strong,
+.read-set .layout > h1 strong,
 .video-set article:nth-of-type(3) h3 a {
-	font-size: 14pt;
+	font-size: 16pt;
+}
+
+section.profile h1,
+section.cover h1 strong {
+	text-shadow: 1px 1px fade(@dark, 20%);
 }
 
 /**
@@ -106,10 +116,14 @@ nav h3,
 	font-size: 12pt;
 }
 
-#read > .cover h1 span,
-#covers h3 span,
-.article-set h3 span,
-.read-set .layout > h1 span:nth-of-type(2) {
+section.cover h1 span:nth-of-type(2) {
+	font-family: serif;
+    font-style: italic;
+	text-shadow: 1px 1px fade(@dark, 20%);
+}
+
+article h1 span,
+article h3 span {
 	font-weight: normal;
 }
 
@@ -201,6 +215,7 @@ header {
 
 body,
 .svg,
+.user,
 .nav-set,
 .nav-set ul,
 .cover,
@@ -272,7 +287,7 @@ footer p {
 	position: absolute;
 	margin: 6.25%;
 	z-index: 1000;
-	height: 40px;
+	height: 32px;
 	width: 70%;
 	opacity: 0.7;
 }
@@ -342,38 +357,35 @@ body.nav {
 
 .nav-set nav {
 	background-color: rgba(0, 0, 0, 0);
-	width: 100%;
-	position: relative;
-	left: 0;
-	float: left;
+	position: absolute;
+	right: 0;
+	margin: 6.25%;
 }
 
 .nav-set h3 {
 	.anti-clip;
 	
-	width: 30%;
-  	height: 100%;
-	background-image: url(icons/forplay-paw-icon.png);
+	width: 32px;
+	height: 32px;
+	background-image: url(icons/iconmonstr/iconmonstr-menu-icon.svg);
 	opacity: 0.7;
-	background-size: auto 100%;
-	background-repeat: no-repeat;
-	background-position: right;
+	background-size: cover;
 	cursor: pointer;
-	color: rgba(0, 0, 0, 0);
+	color: transparent;
 	overflow: hidden;
-	float: right;
-	margin: 6.25%;
-	height: 40px;
-	z-index: 2000;
 }
 
 .nav-set ul {
 	position: fixed;
-	top: 0;
+	top: 30%;
 	width: 70%;
 	z-index: 1000;
 	left: 100%;
 	background: @dark;
+	height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 body.nav .nav-set ul {
@@ -399,8 +411,90 @@ body.nav .nav-set ul {
 }
 
 .nav-set h3 span,
-.nav-set button span {
+.nav-set button span,
+.nav-set .user h3 {
 	.clip
+}
+
+/**
+ * PROFILE
+ */
+
+.nav-set .user {
+	left: 100%;
+	top: 0;
+	right: auto;
+	position: fixed;	
+	width: 70%;
+	height: 30%;
+	background: @dark;
+	display: block;
+}
+
+.nav-set .user button {
+	border: none; 
+	background: none;
+	appearance: none;
+	cursor: pointer;
+	margin: 0;
+	position: absolute;
+	height: auto;
+	width: 100%;
+	color: #fff;
+	margin-left: 0;
+	padding: 8.9%;
+	padding-top: ~"calc(8.9% + 64px)";
+	background-position: left top;
+	background-size: 64px 64px;
+	background-repeat: no-repeat;
+	background-color: @deep-orange;
+}
+
+body.nav .nav-set .user {
+    left: 30%;
+    background: @dark;
+}
+
+.nav-set .user button[aria-pressed=false]::after {
+	content: "";
+	width: 48px;
+	height: 48px;
+	opacity: 0.3;
+	position: absolute;
+	top: 50%;
+	right: 0;
+	transform: translate(0, -50%);
+	background-image: url(icons/lorc/originals/svg/000000/transparent/cowled.svg);
+}
+
+.nav-set .user button[aria-pressed=false]::after {
+	width: 128px;
+	height: 128px;
+	top: 0;
+    left: 0;
+	transform: translate(0, 0);
+	filter: invert(100%);
+}
+
+.nav-set .user button i,
+.nav-set .user button b {
+	display: block;
+    text-align: left;
+    text-overflow: ellipsis;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+	font-weight: normal;
+	font-style: normal;
+}
+
+.nav-set .user button b {
+	text-transform: uppercase;
+}
+
+.nav-set .user button:focus,
+.nav-set .special button:focus {
+	outline: none;
 }
 
 
@@ -504,6 +598,10 @@ body.nav .nav-set ul {
 	box-sizing: border-box;
 }
 
+#read > .cover h1 strong {
+	padding-bottom: 6.25%;
+}
+
 /**
  * Subtype
  */
@@ -522,6 +620,11 @@ body.nav .nav-set ul {
 #covers .cover h3 span:nth-of-type(2),
 .read-set .layout > h1 span:nth-of-type(2) {
 	display: block;
+}
+
+#read > .cover h1 span:nth-of-type(2) {
+    padding-top: 6.25%;
+    border-top: 1px solid #FFF;
 }
 
 #read > .cover ul,
@@ -594,6 +697,10 @@ main > h1,
 main section > h2,
 main .box-placeholder > h2 {
 	.clip;
+}
+
+[aria-hidden=true] {
+	display: none !important;
 }
 
 .article-set article {
@@ -734,6 +841,12 @@ main .box-placeholder > h2 {
 
 #read > .cover h1 {
 	padding-bottom: 12.5%;
+	display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+	height: 100%;
 }
 
 header.read {

@@ -45,7 +45,9 @@
 <script src="/jslib/jsrender.min.js" type="text/javascript">
 	<!--script-->
 </script>
-<script src="//cdn.auth0.com/js/lock-9.2.1.min.js"><!--script--></script>
+<script src="https://cdn.auth0.com/js/lock/10.9.1/lock.min.js">
+	<!--script-->
+</script>
 <!--LOCALIZATION
 	i18next - handle some english strings-->
 <script src="/jslib/i18next.min.js" type="text/javascript">

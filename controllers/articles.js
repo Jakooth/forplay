@@ -367,8 +367,6 @@ function ArticlesManager() {
 		var $cover = $('#read .cover'),
 			$hype = $cover.find('li:nth-child(1) p');
 		
-		loadBackground($cover, $cover);
-		
 		/**
 		 * Set theme color and upated banner style.
 		 * Do this here, because the HTML string is ready.
@@ -412,6 +410,8 @@ function ArticlesManager() {
 		 */
 		
 		banner.setCoversHeight($cover.height());
+		
+		loadBackground($cover, $cover);
 	}
 	
 	var appendNews = function(html, cover, data) {
@@ -433,8 +433,6 @@ function ArticlesManager() {
 		
 		var $coverLayout = $('#read .read-set .layout:eq(0)'),
 			$hype = $coverLayout.find('li:nth-child(1) p');
-		
-		loadBackground($cover, $cover);
 		
 		/**
 		 * Set theme color and upated banner style.
@@ -491,6 +489,8 @@ function ArticlesManager() {
 		 */
 		
 		banner.setCoversHeight(0);
+		
+		loadBackground($cover, $cover);
 	}
 	
 	/**
