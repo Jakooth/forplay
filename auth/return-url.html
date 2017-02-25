@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <script src="https://cdn.auth0.com/js/auth0/8.0.4/auth0.min.js"></script>
+    <script type="text/javascript">
+		var auth0 = new auth0.WebAuth({
+        	domain: 'forplay.eu.auth0.com',
+        	clientID: 'P8wrSYlMVUu5rZDEFGSqFL18tVfgo9Gz'
+      	});
+		
+      	auth0.parseHash(window.location.hash, function (err, result) {
+        	state = JSON.parse(decodeURIComponent(result.state));
+			
+			localStorage.setItem('accessToken', result.accessToken);
+			localStorage.setItem('idToken', result.idToken);
+			localStorage.removeItem('forplayProfile');
+			
+			window.location.href = decodeURIComponent(state.return_url);
+      	});
+    </script>
+    </head>
+    <body>
+</body>
+</html>

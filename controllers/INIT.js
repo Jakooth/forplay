@@ -5,15 +5,6 @@ $(document).ready(function() {
 	window.player = new PlayerManager();
 	
 	/**
-	 * Login
-	 */
-	 
-	window.login = new LoginManager();												
-	window.userProfile = null; 
-	
-	login.getUserProfile();
-	
-	/**
 	 * Send the authorization header on all API requests.
 	 * Note there is configuration in .htaccess to allow this.
 	 */
@@ -26,6 +17,16 @@ $(document).ready(function() {
 			} 
 		} 
 	});
+	
+	/**
+	 * Login
+	 * Always do this after the ajaxSetup to avoid authorization errors.
+	 */
+	 
+	window.login = new LoginManager();												
+	window.userProfile = null; 
+	
+	login.getUserProfile();
 	
 	/**
 	 * i18n

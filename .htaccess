@@ -34,3 +34,8 @@ RewriteRule ^sitemap$ forapi/sitemap.php [NC,QSA,L]
 RewriteCond %{HTTP_HOST} ^forplay.bg$
 RewriteRule ^/?$ "https\:\/\/www\.forplay\.bg\/" [R=301,L]
 
+# from 	http://forplay.bg/auth/silent-callback
+# to 	http://forplay.bg/auth/silent-callback.html
+RewriteRule ^auth/([a-z-]+)$ auth/$1.html [NC,QSA,L]
+
+
