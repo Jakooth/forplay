@@ -1,0 +1,130 @@
+body.dark {
+  &[aria-busy]::before {
+    background-color: @dark;
+  }
+  
+  a {
+    color: @light;
+  }
+  
+  /**
+   * Author text.
+   */
+  
+  .static .read-set .layout > p:nth-of-type(1),
+  .article-set p:nth-of-type(1),
+  .article-set p:nth-of-type(1) * {
+    color: fade(@light, 70%);
+  }
+  
+  header,
+  main,
+  footer {
+    background-color: @dark;
+  }
+  
+  header.fixed {
+    background-color: @dark;
+    box-shadow: 0 60px 100px 30px fade(@dark, 100%);
+  }
+  
+  header.read {
+    background-color: transparent;
+    box-shadow: none;
+  }
+  
+  main.fixed #read:after {
+    background-color: @dark;
+    box-shadow: 0 20px 100px 50px fade(@dark, 100%);
+  }
+  
+  .nav-set .user ul {
+    background: @dark;
+  }
+  
+  .nav-set nav li {
+    a {
+      color: @light;
+    }
+  }
+  
+  .article-set article:after {
+    background-image: url(helpers/dark.png);
+  }
+  
+  .nav-set .user button {
+    color: @light;
+    
+    &::after {
+      filter: invert(100%);
+    }
+  }
+  
+  .layout .center-col h2, 
+  .layout .center-col h3, 
+  .layout .center-col p {
+    color: @light;
+  }
+  
+  .layout .inline-col {
+    color: wheat;
+  }
+  
+  .layout .center-col > p strong, 
+  .layout .inline-col aside p strong {
+    color: fade(@light, 60%);
+  }
+  
+  
+  
+  .layout dt {
+    color: fade(@light, 50%);
+  }
+  
+  .inline-col dd {
+    color: @light;
+  }
+  
+  .static .read-set .layout > h1, 
+  .static .read-set .layout > p {
+    color: @light;
+  }
+  
+  .inside.i4 div:not(.img).top,
+  .inside.i4 div:not(.img).bottom,
+  .inside.i1 .top,
+  .inside.i1 .bottom {
+    color: @light;
+    background: @dark;
+  }
+  
+  .layout.img .img-proxy > p, 
+  .layout.inside .img-proxy > p {
+    color: @light;
+  }
+  
+  .inside.i3 .bottom, 
+  .inside.i3 .top {
+    color: @light;
+    background: @dark;
+  }
+  
+  .img.b2 .img-proxy p {
+    background: fade(@dark, 70%);
+  }
+  
+  .img.z0 .img-proxy:nth-of-type(1) p,
+  .img.z2 .img-proxy:nth-of-type(1) p {
+    background-color: @dark;
+  }
+  
+  .img.f3 .tracklist {
+    background: @dark;
+    color: @light;
+  }
+  
+  .inside.i2 .img-proxy .top {
+    background-color: fade(@light, 20%);
+    color: @light;
+  }
+}

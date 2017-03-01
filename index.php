@@ -115,10 +115,10 @@
     <nav>
       <h3><span>Навигация</span></h3>
       <ul>
-        <li> <a href="/portals/news">Новини</a> </li>
         <li> <a href="/portals/video">Видео</a> </li>
         <li> <a href="/portals/review">Ревюта</a> </li>
         <li> <a href="/portals/feature">Мнения</a> </li>
+        <li> <a href="/portals/news">Новини</a> </li>
         <li> <a href="http://www.gamersvoiceshop.com/" 
                 target="_blank">GVS</a> </li>
         <li> <a href="http://forplay.bg/forums/" 
@@ -189,6 +189,16 @@
     <label>
       <input id="profileFamilyName" aria-label="Фамилия" placeholder="Фамилия" type="text" />
     </label>
+    <div role="region">
+      <label>
+        <input id="profileDarkened" type="checkbox" />
+        <span>Притъмняло ти е?</span>
+      </label>
+      <label>
+        <input id="profileCollapsed" type="checkbox" />
+        <span>Не искаш хедъра?</span>
+      </label>
+    </div>
     <div role="toolbar">
       <button id="profileUpdate" type="button">Обнови профила</button>
       <button id="userLogout" type="button">Излез от Форплей</button>

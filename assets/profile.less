@@ -1,17 +1,18 @@
 #userProfile {
 	position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    z-index: 1000;
-    background-color: fade(@dark, 0%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: fade(@dark, 40%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
 	
-	h1 {
+	h1,
+  h2 {
 		color: @light;
 		font-size: 18pt;
 		border-bottom: 1px solid fade(@light, 50%);
@@ -21,11 +22,15 @@
 		text-align: center;
 		text-shadow: 1px 1px fade(@dark, 20%);
 	}
-	
+  
+  h2 {
+    font-size: 12pt;
+  }
+  
 	#profileChange,
 	#profileClose {
 		background: none;
-		padding: 3.125%;
+		padding: 6.25%;
 		border: none;
 		appearance: none;
 		cursor: pointer;
@@ -35,11 +40,13 @@
 		width: 128px;
 		height: 128px;
 		margin-bottom: 12.5%;
-		position: relative;
 		background-image: url(icons/lorc/originals/svg/000000/transparent/cowled.svg);
 		background-size: cover;
 		background-position: center center;
 		filter: invert(100%);
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
 	}
 	
 	#profileChange[aria-pressed=true] {
@@ -74,13 +81,12 @@
 	}
 	
 	form {
-		width: 60%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
+		width: 20%;
 		background-color: fade(@dark, 98%);
-		padding: 2.5% 20%;
+		padding: 1.25%;
+    padding-top: 0;
 		position: relative;
+    height: 100%;
 	}
 	
 	label,
@@ -92,22 +98,32 @@
 	}
 	
 	input {
-		margin-bottom: 3.125%;
 		padding: 3.125%;
 		border: 1px solid transparent;
 		background: none;
 		font-size: 14pt;
 		font-family: serif;
-    	font-style: italic;
+    font-style: italic;
 		text-shadow: 1px 1px fade(@dark, 20%);
 	}
 	
-	label:last-of-type input {
-		margin-bottom: 0;
+	label {
+    margin-bottom: 3.125%;
+    
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+    
+    [type=checkbox],
+    [type=checkbox] + span {
+      width: auto;
+      display: inline;
+    }
 	}
 	
+  [role=region],
 	[role=toolbar] {
-		margin-top: 3.125%;
+		margin-top: 12.5%;
 		width: 100%;
 	}
 	
@@ -121,11 +137,12 @@
 		color: @light;
 		opacity: 1.0;
 		cursor: pointer;
-	}
-	
-	[role=toolbar] button:last-of-type { 
-		margin-top: 12.5%;
-		background: none;
+    
+    &:last-of-type { 
+      margin-top: 12.5%;
+      margin-bottom: 0;
+      background: none;
+    }
 	}
 }
 
@@ -137,6 +154,10 @@ only screen and (max-width: 768px) {
 			height: 100%;
 			padding: 12.5%;
 		}
+    
+    [role=region] {
+      display: none;
+    }
 		
 		#profileChange,
 		#profileClose {

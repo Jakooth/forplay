@@ -110,17 +110,26 @@ function UtilsManager() {
 		return $(window).width() >= 1280 ? false : true;
 	}
 	
-	this.setTheme = function(theme) {
+	this.setTheme = function(theme, darkened) {
 		var $body = $('body');
 		
-		$body.removeClass();
-		$body.addClass(theme);
-		
-		/**
-		 * Halloween ;)
-		 */
-		
-		/* $body.addClass('dark'); */
+    if (theme == 'dark') {
+      if (darkened) {
+        $body.addClass(theme);
+      } else {
+        $body.removeClass(theme);
+      }
+      
+      return;
+    }
+    
+    if ($body.hasClass('dark')) {
+      $body.removeClass().addClass('dark');
+      $body.addClass(theme);
+    } else {
+      $body.removeClass();
+		  $body.addClass(theme);
+    }
 	}
 	
 	this.trimText = function(html, symbols) {
