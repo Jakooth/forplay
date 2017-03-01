@@ -19,7 +19,7 @@ function BannerManager() {
 	 */
 	 
 	this.setCoversHeight = function(h) {
-		coversHeight = localStorage.getItem('header') == 'static' ? 0 : h;
+		coversHeight = localStorage.getItem('forplayHeader') == 'static' ? 0 : h;
 		
 		self.updateHeaderPosition();
 	}
@@ -165,6 +165,54 @@ function BannerManager() {
 		$covers.find('.title').addClass('clip');
 		$c3.find('.title').removeClass('clip');
 	}
+  
+  this.showHeader = function($button) {
+    var $this = $('#hideHeaderButton'),
+        $main = $('main'),
+        $header = $('header'),
+        $cover = $main.find('section.cover');
+        
+    $this.attr('aria-pressed', 'false');
+			
+    if ($cover.hasClass('news') || $cover.hasClass('video')) {
+      localStorage.removeItem('forplayHeader');	
+    } else {
+      $header.removeClass('static fixed');
+      $main.removeClass('static fixed');
+      
+      localStorage.removeItem('forplayHeader');
+      
+      if ($main.hasClass('read')) {
+        self.setCoversHeight($('section.cover').height());
+      } else {
+        self.setCoversHeight($('#covers').height());
+      }
+    }
+  }
+  
+  this.hideHeader = function($button) {
+    var $this = $('#hideHeaderButton'),
+        $main = $('main'),
+        $header = $('header'),
+        $cover = $main.find('section.cover');
+        
+    $this.attr('aria-pressed', 'true');
+			
+    $header.addClass('static fixed');
+    $main.addClass('static fixed');
+    
+    localStorage.setItem('forplayHeader', 'static');
+    
+    self.setCoversHeight(0);
+  }
+  
+  this.setHeader = function(collapsed) {
+    if (collapsed) {
+      this.hideHeader();
+    } else {
+      this.showHeader();
+    }
+  }
 	
 	
 	
@@ -186,7 +234,7 @@ function BannerManager() {
 	});
 	
 	$(window).on('load', function () {
-		if (localStorage.getItem('header') == 'static') {
+		if (localStorage.getItem('forplayHeader') == 'static') {
 			$('header').addClass('static fixed');
 			$('main').addClass('static fixed');
 			$('#hideHeaderButton').attr('aria-pressed', 'true');
@@ -265,7 +313,7 @@ function BannerManager() {
 	
 	$('#thumbnails').on('click', '.thumbnail:not([data-order=3])', function (e) {
 		var $this = $(this),
-			$covers = $('#covers .cover');
+			  $covers = $('#covers .cover');
 		
 		var order = $this.data('order'),
 			l = $covers.length,
@@ -289,37 +337,10 @@ function BannerManager() {
 			return false;
 		}
 		
-		var $this = $(this),
-			$main = $('main'),
-			$header = $('header'),
-			$cover = $main.find('section.cover');
-		
-		if ($this.attr('aria-pressed') == 'true') {
-			$this.attr('aria-pressed', 'false');
-			
-			if ($cover.hasClass('news') || $cover.hasClass('video')) {
-				localStorage.removeItem('header');	
-			} else {
-				$header.removeClass('static fixed');
-				$main.removeClass('static fixed');
-				
-				localStorage.removeItem('header');
-				
-				if ($main.hasClass('read')) {
-					self.setCoversHeight($('section.cover').height());
-				} else {
-					self.setCoversHeight($('#covers').height());
-				}
-			}
+		if ($(this).attr('aria-pressed') == 'true') {
+			self.showHeader();
 		} else {
-			$this.attr('aria-pressed', 'true');
-			
-			$header.addClass('static fixed');
-			$main.addClass('static fixed');
-			
-			localStorage.setItem('header', 'static');
-			
-			self.setCoversHeight(0);
+			self.hideHeader();
 		}
 	});
 }

@@ -622,8 +622,8 @@ function ArticlesManager() {
 	
 	var appendCovers = function(html, anyPriority) {
 		var $covers = $('#covers'),
-			$mainCovers = html.find('article' + (anyPriority ? '' : '[data-priority=cover]') + ':lt(5)'),
-			$mainCover = html.find('article' + (anyPriority ? '' : '[data-priority=cover]') + ':eq(0)');
+        $mainCovers = html.find('article' + (anyPriority ? '' : '[data-priority=cover]') + ':lt(5)'),
+        $mainCover = html.find('article' + (anyPriority ? '' : '[data-priority=cover]') + ':eq(0)');
 		
 		/**
 		 * Do this to fix the animation.
@@ -635,7 +635,7 @@ function ArticlesManager() {
 			$mainCovers.addClass('cover');
 		}
 		
-		if (localStorage.getItem('header') == 'static') {
+		if (localStorage.getItem('forplayHeader') == 'static') {
 			$mainCovers.clone().appendTo($covers);
 		} else {
 			$covers.append($mainCovers);

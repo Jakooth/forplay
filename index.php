@@ -196,7 +196,7 @@
       </label>
       <label>
         <input id="profileCollapsed" type="checkbox" />
-        <span>Не искаш хедъра?</span>
+        <span>Искаш да скриеш хедъра?</span>
       </label>
     </div>
     <div role="toolbar">
