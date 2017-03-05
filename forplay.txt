@@ -1,10 +1,12 @@
 [assets]
+[auth]
 [controllers]
 [jslib]
 [locales]
 [renderers]
 [video]
-apple-touch-icon.png
+apple-touch-ic
+on.png
 apple-touch-icon-76x76.png
 apple-touch-icon-120x120.png
 apple-touch-icon-152x152.png

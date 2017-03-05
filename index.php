@@ -5,8 +5,8 @@
 <meta content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=yes" name="viewport">
 <?php include ('meta.php'); ?>
 <link rel="stylesheet" type="text/css" href="/jslib/video-js/video-js.css" />
-<link media="only screen and (min-width: 1280px)" rel="stylesheet" type="text/css" href="/assets/forplay.css?v=2.1.1" />
-<link media="only screen and (max-width: 1279px)" rel="stylesheet" type="text/css" href="/assets/forplay-mobile.css?v=2.1.1" />
+<link media="only screen and (min-width: 1280px)" rel="stylesheet" type="text/css" href="/assets/forplay.css?v=3.0.1" />
+<link media="only screen and (max-width: 1279px)" rel="stylesheet" type="text/css" href="/assets/forplay-mobile.css?v=3.0.1" />
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,800|Poiret+One&subset=cyrillic,latin' rel='stylesheet' type='text/css' />
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -67,22 +67,22 @@
     banner - animations and interactions with the banner section
     articles - main contant loading and placment
     player - embed video play support-->
-<script src="/controllers/utils.js?v=2.3.1" type="text/javascript">
+<script src="/controllers/utils.js?v=3.0.0" type="text/javascript">
 	<!--script-->
 </script>
-<script src="/controllers/banner.js?v=2.1.0" type="text/javascript">
+<script src="/controllers/banner.js?v=3.0.0" type="text/javascript">
 	<!--script-->
 </script>
-<script src="/controllers/articles.js?v=2.4.1" type="text/javascript">
+<script src="/controllers/articles.js?v=3.0.0" type="text/javascript">
 	<!--script-->
 </script>
-<script src="/controllers/player.js?v=2.4.3" type="text/javascript">
+<script src="/controllers/player.js?v=3.0.0" type="text/javascript">
 	<!--script-->
 </script>
-<script src="/foradmin/controllers/login.js?v=2.3.0" type="text/javascript">
+<script src="/foradmin/controllers/login.js?v=3.0.1" type="text/javascript">
 	<!--script-->
 </script>
-<script src="/controllers/INIT.js?v=2.0.0">
+<script src="/controllers/INIT.js?v=3.0.0">
 	<!--script-->
 </script>
 </head>
@@ -190,13 +190,15 @@
       <input id="profileFamilyName" aria-label="Фамилия" placeholder="Фамилия" type="text" />
     </label>
     <div role="region">
-      <label>
+      <label class="switch">
         <input id="profileDarkened" type="checkbox" />
-        <span>Притъмняло ти е?</span>
+        <div class="slider"></div>
+        <span>Притъмняло ми е</span>
       </label>
-      <label>
-        <input id="profileCollapsed" type="checkbox" />
-        <span>Искаш да скриеш хедъра?</span>
+      <label class="switch" />
+        <input id="profileCollapsed" type="checkbox">
+        <div class="slider"></div>
+        <span>Скрии хедъра</span>
       </label>
     </div>
     <div role="toolbar">
