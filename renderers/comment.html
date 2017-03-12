@@ -1,0 +1,18 @@
+<h2>Има <strong>{{:comments.length}}</strong> коментара. <a href="#addCommentHeading">Добави твой.</a></h2>{{if comments.length}}}
+<ul>
+  {{for comments}}
+  <li id="{{:#data.comment_id}}"> <b><img 
+      src="{{:#data.avatar}}" alt="{{:#data.nickname}}</em>" /><a 
+      href="#{{:#data.comment_id}}">{{:#data.nickname}}</a></b>
+    <p>{{:#data.comment}}</p>
+    <div role="toolbar">{{if #data.updated}} <span>Написан на <a 
+         href="#{{:#data.comment_id}}">{{:#data.created}}</a></span>{{else}} <span>Обновен на <a 
+         href="#{{:#data.comment_id}}">{{:#data.updated}}</a></span>{{/if}}{{if #data.comment_parent_id}} <a 
+         href="#{{:#data.comment_parent_id}}">Начало</a>{{/if}}
+      <button type="button">Отговори</button>
+      <button type="button">Препоръчвам <em>({{:#data.likes}})</em></button>
+      <button type="button">Сигнализирай <em>({{:#data.flags}})</em></button>
+    </div>
+  </li>
+  {{/for}}
+</ul>{{/if}}

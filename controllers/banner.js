@@ -25,17 +25,17 @@ function BannerManager() {
 	}
 	
 	this.getCoversHeight = function() {
-		return coversHeight;
+		return localStorage.getItem('forplayHeader') == 'static' ? 0 : coversHeight;
 	}
 	
 	this.updateHeaderPosition = function() {
 		var $main = $('main'),
-			$covers,
-			$mainCoverHeading,
-			$mainCoverAuthor;
+        $covers,
+        $mainCoverHeading,
+        $mainCoverAuthor;
 			
 		var scrollFixedRatio = $main.hasClass('read') ? 40 : 40,
-			scrollHideRatio = $main.hasClass('read') ? 1.4 : 1;	
+			  scrollHideRatio = $main.hasClass('read') ? 1.4 : 1;	
 		
 		if ($main.hasClass('read')) {
 			$covers = $('#read .cover');

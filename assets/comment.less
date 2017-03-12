@@ -1,0 +1,42 @@
+.comment-set {
+  width: 60%;
+  margin-top: 1.25%;
+  margin-left: 20%;
+  
+  /**
+   * TODO: This must actually extend the read article H2 styles.
+   */
+  
+  h2 {
+    padding: 2.08%;
+    width: 100%;
+    margin: 2.08% 0;
+    margin-bottom: 0;
+  }
+  
+  h3 {
+    &:extend(.layout .center-col h3 all);
+    
+    padding: 0;
+    margin: 2.08% 0;
+    
+    &:target::before {
+      content: "";
+      display: block;
+      height: 200px;
+      margin: -200px 0 0;
+    }
+  }
+  
+  form {
+    padding: 2.08%;
+    background-color: fade(@forplay, 5%);
+  }
+  
+  [contenteditable] {
+    width: 100%;
+    height: 240px;
+    border: 1px solid fade(@dark, 30%);
+    background-color: @light;
+  }
+}

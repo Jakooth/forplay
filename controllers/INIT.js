@@ -1,12 +1,18 @@
-$(document).ready(function() {
+$(document).ready(function() { 
 	window.utils = new UtilsManager();
 	window.banner = new BannerManager();
-	window.articles = new ArticlesManager();
-	window.player = new PlayerManager();
-	
-	/**
+  
+  /**
+	 * Login depends on utiile and banner.
+	 */
+	 
+	window.login = new LoginManager();												
+	window.userProfile = null;
+  
+  /**
 	 * Send the authorization header on all API requests.
 	 * Note there is configuration in .htaccess to allow this.
+   * Do this first, becaue there are dependencies.
 	 */
 	
 	$.ajaxSetup({ 
@@ -17,14 +23,18 @@ $(document).ready(function() {
 			} 
 		} 
 	});
+  
+  /**
+	 * Comments depend on login.
+	 */
+  
+  window.comment = new CommentManager();
+	window.articles = new ArticlesManager();
+	window.player = new PlayerManager();
 	
 	/**
-	 * Login
-	 * Always do this after the ajaxSetup to avoid authorization errors.
+	 * Init user profile.
 	 */
-	 
-	window.login = new LoginManager();												
-	window.userProfile = null; 
 	
 	login.getUserProfile();
 	

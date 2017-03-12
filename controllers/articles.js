@@ -119,8 +119,8 @@ function ArticlesManager() {
 	
 	var loadArticles = function(data, appender, covers, params) {
 		var params = params ? '?' + $.param(params) : '?offset=0',
-			get1 = $.get(encodeURI(forplayAPI + params)),
-			get2 = $.get('/renderers/article.html');
+        get1 = $.get(encodeURI(forplayAPI + params)),
+        get2 = $.get('/renderers/article.html');
 		
 		$.when(get1, get2).done(function(data1, data2) {
 			var data = data1[0].length ? JSON.parse(data1[0]) : data1,
@@ -146,29 +146,29 @@ function ArticlesManager() {
 	
 	var loadArticle = function(data, appender) {
 		var get1 = $.get(encodeURI(forplayAPI + '?tag=' + data.id)),
-			get2 = $.get('/renderers/layout.html?v=2.5.0'),
-			get3 = $.get('/renderers/cover.html?v=2.5.0');
+        get2 = $.get('/renderers/layout.html?v=2.5.0'),
+        get3 = $.get('/renderers/cover.html?v=2.5.0');
 			
 		$.when(get1, get2, get3).done(function(data1, data2, data3) {
 			var article = data1[0].length ? 
-						  JSON.parse(data1[0]).articles[0] : 
-						  data1.articles[0],
-				tmpls = $.templates({
-					layoutTemplate: data2[0],
-					coverTemplate: data3[0]
-				});
+                    JSON.parse(data1[0]).articles[0] : 
+                    data1.articles[0],
+          tmpls = $.templates({
+            layoutTemplate: data2[0],
+            coverTemplate: data3[0]
+          });
 			
 			var	cover = $.templates
-						 .coverTemplate
-						 .render(article, {
-								 unescape: utils.unescape,
-								 translate: utils.translate,
-								 hypeToString: utils.hypeToString}),
+                   .coverTemplate
+                   .render(article, {
+                       unescape: utils.unescape,
+                       translate: utils.translate,
+                       hypeToString: utils.hypeToString}),
 				html = $.templates
-						.layoutTemplate
-						.render(article.layouts, {
-								unescape: utils.unescape,
-								translate: utils.translate});
+                .layoutTemplate
+                .render(article.layouts, {
+                    unescape: utils.unescape,
+                    translate: utils.translate});
 			
 			appender(html, cover, article);
 			
@@ -177,9 +177,9 @@ function ArticlesManager() {
 			 */
 			 
 			var o = {suggest: utils.getObjectPropertyAsString(article.tags, 'tag_id')
-								   .replace(/ /g, ''),
-					 tag: article.article_id,
-					 offset: 0};
+                             .replace(/ /g, ''),
+               tag: article.article_id,
+               offset: 0};
 					 
 			lastSuggestedTags = o.suggest;		 
 			
@@ -409,7 +409,8 @@ function ArticlesManager() {
 		 * Store them in the banner object from the start.
 		 */
 		
-		banner.setCoversHeight($cover.height());
+		banner.setCoversHeight(Math.floor(banner.getCoversHeight() * 1.5));
+    comment.getComments(data.article_id);
 		
 		loadBackground($cover, $cover);
 	}
@@ -489,6 +490,7 @@ function ArticlesManager() {
 		 */
 		
 		banner.setCoversHeight(0);
+    comment.getComments(data.article_id);
 		
 		loadBackground($cover, $cover);
 	}
@@ -561,6 +563,8 @@ function ArticlesManager() {
 			/**
 			 * Set the document title for the home page, 
 			 * which is the issue of the most recent article.
+       * This is not workgin for Google indexing, 
+       * so doing it with PHP instead.
 			 */
 			
 			/*
@@ -666,7 +670,7 @@ function ArticlesManager() {
 		 * Store them in the banner object from the start.
 		 */
 		
-		banner.setCoversHeight($covers.height());
+		banner.setCoversHeight(banner.getCoversHeight());
 	}
 	
 	var unloadArticles = function() {

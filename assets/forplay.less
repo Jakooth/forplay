@@ -4,7 +4,6 @@
 
 @charset "utf-8";
 @import "mixins.less";
-@import "profile.less";
 
 /**
  * Color on hover and focus must be one for all styles.
@@ -31,6 +30,7 @@
 @brown: #795548;
 @grey: #9E9E9E;
 @blue-grey: #607D8B;
+@forplay: @deep-orange;
 @better: @green;
 @worse: @red;
 @equal: @grey;
@@ -116,12 +116,15 @@ a {
 
 #covers h3 a,
 #covers h3 a strong,
-section.cover h1 strong,
 .video-set article:nth-of-type(3) h3 a,
 .video-set article:nth-of-type(3) h3 a strong,
-.static .read-set .layout:first-of-type h1 strong,
 #topReviews.article-set article:nth-of-type(2) h3 * {
 	font-size: 26pt;
+}
+
+section.cover h1 strong,
+.static .read-set .layout:first-of-type h1 strong {
+  font-size: 32pt;  
 }
 
 section.profile h1,
@@ -138,10 +141,13 @@ section.cover h1 strong {
 .layout .center-col h3,
 .layout .center-col h3 *,
 #covers h3 span:nth-of-type(2),
-section.cover h1 span:nth-of-type(2),
-.video-set article:nth-of-type(3) h3 span:nth-of-type(2),
-.static .read-set .layout:first-of-type h1 span:nth-of-type(2) {
+.video-set article:nth-of-type(3) h3 span:nth-of-type(2) {
 	font-size: 16pt;
+}
+
+section.cover h1 span:nth-of-type(2),
+.static .read-set .layout:first-of-type h1 span:nth-of-type(2) {
+  font-size: 22pt; 
 }
 
 section.cover h1 span:nth-of-type(2) {
@@ -219,7 +225,9 @@ section.cover > p * {
 }
 
 .layout .center-col h2,
-.layout .center-col h2 * {
+.layout .center-col h2 *,
+.layout.inside h2,
+.layout.inside h2 * {
 	font-size: 30pt;
 	color: fade(@grey, 50%);
 	text-transform: uppercase;
@@ -366,9 +374,32 @@ main > article {
 }
 
 main > h1,
-main section > h2,
 main .box-placeholder > h2 {
 	.clip;
+}
+
+main section > h2 {
+  width: 57.6%;
+  margin: 1.25% 0;
+  margin-left: 21.25%;
+  padding: 1.25%;
+  text-transform: uppercase;
+  border-bottom: 1px solid fade(@dark, 30%);
+  
+  &, a, i, b, strong, em {
+    font-size: 16pt;
+    font-weight: normal;
+    font-style: italic;
+    color: fade(@dark, 30%);
+  }
+  
+  a, strong {
+    color: fade(@forplay, 100%); 
+  }
+}
+
+main > section > h2 {
+  .clip;
 }
 
 [aria-hidden=true] {
@@ -724,7 +755,7 @@ main.fixed #read .cover ul {
 	left: auto;
 	width: auto;
 	top: auto;
-	opacity: 0.7;
+	opacity: 0.4;
 	right: 12.5%;
 	margin-top: 12.5%;
 	bottom: 0;
@@ -1152,7 +1183,7 @@ header.read .nav-set .user button {
 	padding-top: ~"calc(6.25% + 128px)";
 	background-position: center top;
 	background-size: 128px 128px;
-	background-color: @deep-orange;
+	background-color: @forplay;
 }
 
 body.nav header.read .nav-set .user {
@@ -2028,7 +2059,8 @@ main.read #read {
 .inside.i1 .center > p,
 .inside.i1 .center blockquote,
 .inside.i1 .center ol,
-.inside.i1 .center h3 {
+.inside.i1 .center h3 ,
+.inside.i1 .center h2 {
 	position: relative;
 	padding: 2.08%;
 }
@@ -2048,7 +2080,9 @@ main.read #read {
 .inside.i1 .right ol,
 .inside.i1 .left ol,
 .inside.i1 .right h3,
-.inside.i1 .left h3 {
+.inside.i1 .left h3,
+.inside.i1 .right h2,
+.inside.i1 .left h2 {
 	padding: 3.125%;
 }
 
@@ -2758,8 +2792,10 @@ body.darken #forPlay path {
 
 
 /**
- * MEDIA
+ * ADD-INS
  */
  
 @import "media.less";  
 @import "dark.less";
+@import "profile.less";
+@import "comment.less";

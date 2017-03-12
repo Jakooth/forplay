@@ -96,10 +96,13 @@ a {
 nav h3,
 #covers h3 a,
 #covers h3 a strong,
-#read > .cover h1 strong,
 .read-set .layout > h1 strong,
 .video-set article:nth-of-type(3) h3 a {
 	font-size: 16pt;
+}
+
+#read > .cover h1 strong {
+  font-size: 20pt;
 }
 
 section.profile h1,
@@ -112,12 +115,12 @@ section.cover h1 strong {
  */
 
 #covers h3 span:nth-of-type(2),
-#read > .cover h1 span:nth-of-type(2),
 .video-set article:nth-of-type(3) h3 span:nth-of-type(2) {
 	font-size: 12pt;
 }
 
 section.cover h1 span:nth-of-type(2) {
+  font-size: 14pt;
 	font-family: serif;
   font-style: italic;
 	text-shadow: 1px 1px fade(@dark, 20%);
@@ -159,7 +162,9 @@ article h3 span {
 }
 
 .layout .center-col h2,
-.layout .center-col h2 * {
+.layout .center-col h2 *,
+.layout.inside h2,
+.layout.inside h2 * {
 	font-size: 30pt;
 	color: fade(@grey, 50%);
 	text-transform: uppercase;
@@ -838,12 +843,12 @@ main .box-placeholder > h2 {
 }
 
 #read > .cover h1 {
-	padding-bottom: 12.5%;
+	padding-top: 12.5%;
 	display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 	height: 100%;
 }
 
@@ -881,7 +886,8 @@ main.read .read-set {
 .read-set h1,
 .read-set h3,
 .read-set dt,
-.read-set dd {
+.read-set dd,
+.read-set h2 {
 	padding: 6.25%;
 	display: block;
 	clear: both;

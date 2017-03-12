@@ -5,8 +5,8 @@
 <meta content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=yes" name="viewport">
 <?php include ('meta.php'); ?>
 <link rel="stylesheet" type="text/css" href="/jslib/video-js/video-js.css" />
-<link media="only screen and (min-width: 1280px)" rel="stylesheet" type="text/css" href="/assets/forplay.css?v=3.0.1" />
-<link media="only screen and (max-width: 1279px)" rel="stylesheet" type="text/css" href="/assets/forplay-mobile.css?v=3.0.1" />
+<link media="only screen and (min-width: 1280px)" rel="stylesheet" type="text/css" href="/assets/forplay.css?v=3.0.2" />
+<link media="only screen and (max-width: 1279px)" rel="stylesheet" type="text/css" href="/assets/forplay-mobile.css?v=3.0.2" />
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,800|Poiret+One&subset=cyrillic,latin' rel='stylesheet' type='text/css' />
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -16,14 +16,14 @@
 <link href="https://www.forplay.bg/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152" />
 <!--EXTERNAL
 	jQuery - selectors and DOM manipulations
-    jQuery Mobile - mobile events handler
-    jQuery Cookie - store user variable
-    Video JS - html player for embed video
-    Video JS Vimeo - vimeo add-on
-    Video JS Youtube - youtube add-on 
-    HE - encode and decode data
-    jsRender - templating tool vor javascript
-    Auth0 - single sign on system-->
+  jQuery Mobile - mobile events handler
+  jQuery Cookie - store user variable
+  Video JS - html player for embed video
+  Video JS Vimeo - vimeo add-on
+  Video JS Youtube - youtube add-on 
+  HE - encode and decode data
+  jsRender - templating tool vor javascript
+  Auth0 - single sign on system-->
 <script src="/jslib/jquery-2.1.4.min.js" type="text/javascript">
 	<!--script-->
 </script>
@@ -64,13 +64,17 @@
 </script>
 <!--FORPLAY
 	utils - common function for all modules
-    banner - animations and interactions with the banner section
-    articles - main contant loading and placment
-    player - embed video play support-->
+  banner - animations and interactions with the banner section
+  comment - post a comment, reply, like, flag, etc.
+  articles - main contant loading and placment
+  player - embed video play support-->
 <script src="/controllers/utils.js?v=3.0.0" type="text/javascript">
 	<!--script-->
 </script>
 <script src="/controllers/banner.js?v=3.0.0" type="text/javascript">
+	<!--script-->
+</script>
+<script src="/controllers/comment.js?v=3.0.0" type="text/javascript">
 	<!--script-->
 </script>
 <script src="/controllers/articles.js?v=3.0.0" type="text/javascript">
@@ -147,6 +151,23 @@
     <section class="read-set"> 
       <!--ArticlesManager: loadArticles--> 
     </section>
+    <section id="comments" class="comment-set">
+      <!--ArticlesManager: loadArticles-->
+      <form>
+        <h3 id="addCommentHeading">Добави нов коментар.</a></h3>
+        <div role="textbox" 
+             tabindex="0" 
+             contenteditable="true" 
+             aria-multiline="true" 
+             aria-readonly="false"></div>
+        <div role="toolbar">
+          <button id="addComment" type="button">Добави</button>
+          <button id="cancelComment" type="button">Изчисти</button>
+          <button id="boldComment" type="button">Болд</button>
+          <button id="italicComment" type="button">Италик</button>
+        </div>
+      </form>
+    </section>
   </article>
   <section id="topArticles" class="article-set">
     <h2>Избрани статии</h2>
@@ -191,14 +212,14 @@
     </label>
     <div role="region">
       <label class="switch">
-        <input id="profileDarkened" type="checkbox" />
-        <div class="slider"></div>
-        <span>Притъмняло ми е</span>
+      <input id="profileDarkened" type="checkbox" />
+      <div class="slider"></div>
+      <span>Притъмняло ми е</span>
       </label>
       <label class="switch" />
-        <input id="profileCollapsed" type="checkbox">
-        <div class="slider"></div>
-        <span>Скрии хедъра</span>
+      <input id="profileCollapsed" type="checkbox">
+      <div class="slider"></div>
+      <span>Скрии хедъра</span>
       </label>
     </div>
     <div role="toolbar">
