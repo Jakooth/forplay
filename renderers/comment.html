@@ -1,18 +1,34 @@
-<h2>Има <strong>{{:comments.length}}</strong> коментара. <a href="#addCommentHeading">Добави твой.</a></h2>{{if comments.length}}}
+<h2>Има <strong>{{:comments.length}}</strong> коментара. <a href="#addCommentHeading">Добави твой.</a></h2>{{if comments.length}}
 <ul>
   {{for comments}}
-  <li id="{{:#data.comment_id}}"> <b><img 
-      src="{{:#data.avatar}}" alt="{{:#data.nickname}}</em>" /><a 
+  <li id="comment{{:#data.comment_id}}"
+      data-id="{{:#data.comment_id}}"
+      data-parent="{{:#data.parent_comment_id}}"
+      data-path="{{:#data.path}}"> <b><img 
+      src="{{:#data.avatar}}" alt="{{:#data.nickname}}" /><a 
       href="#{{:#data.comment_id}}">{{:#data.nickname}}</a></b>
-    <p>{{:#data.comment}}</p>
-    <div role="toolbar">{{if #data.updated}} <span>Написан на <a 
-         href="#{{:#data.comment_id}}">{{:#data.created}}</a></span>{{else}} <span>Обновен на <a 
-         href="#{{:#data.comment_id}}">{{:#data.updated}}</a></span>{{/if}}{{if #data.comment_parent_id}} <a 
-         href="#{{:#data.comment_parent_id}}">Начало</a>{{/if}}
-      <button type="button">Отговори</button>
-      <button type="button">Препоръчвам <em>({{:#data.likes}})</em></button>
-      <button type="button">Сигнализирай <em>({{:#data.flags}})</em></button>
-    </div>
+    <form>
+      <div role="textbox" 
+           tabindex="0" 
+           contenteditable="false" 
+           aria-multiline="true" 
+           aria-readonly="true">{{:~unescape(#data.comment)}}</div>
+      <div role="toolbar">{{if #data.updated}} <span>Обновен на <a 
+           href="#{{:#data.comment_id}}">{{:#data.updated}}</a></span>{{else}} <span>Написан на <a 
+           href="#{{:#data.comment_id}}">{{:#data.created}}</a></span>{{/if}}{{if #data.parent_comment_id}} <a 
+           data-id="up"
+           href="#comment{{:#data.parent_comment_id}}"><span>Начало</span></a>{{/if}}
+        <button data-id="reply" type="button"><span>Отговори</span></button>
+        <button data-id="edit" aria-hidden="{{:~canEdit(#data.profile_id)}}" type="button"><span>Промени</span></button>
+        <button data-id="save" aria-hidden="true" type="button"><span>Запиши</span></button>
+        <button data-id="cancel" aria-hidden="true" type="button"><span>Отмени</span></button>
+        <button data-id="delete" aria-hidden="{{:~canEdit(#data.profile_id)}}" type="button"><span>Изтрии</span></button>
+        <button data-id="like" aria-hidden="{{:~canLike(#data.profile_id)}}" type="button"><span>Препоръчвам</span> <em>({{:#data.likes}})</em></button>
+        <button data-id="flag" aria-hidden="{{:~canLike(#data.profile_id)}}" type="button"><span>Сигнализирай</span> <em>({{:#data.flags}})</em></button>
+        <button data-id="bold" aria-hidden="true" type="button"><span>Болд</span></button>
+        <button data-id="italic" aria-hidden="true" type="button"><span>Италик</span></button>
+      </div>
+    </form>
   </li>
   {{/for}}
 </ul>{{/if}}

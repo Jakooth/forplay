@@ -4,6 +4,7 @@
 
 @charset "utf-8";
 @import "mixins.less";
+@import "csslib/iconmonstr-iconic-font.min.less";
 
 /**
  * Color on hover and focus must be one for all styles.
@@ -142,7 +143,7 @@ section.cover h1 strong {
 .layout .center-col h3 *,
 #covers h3 span:nth-of-type(2),
 .video-set article:nth-of-type(3) h3 span:nth-of-type(2) {
-	font-size: 16pt;
+	font-size: 18pt;
 }
 
 section.cover h1 span:nth-of-type(2),
@@ -229,8 +230,14 @@ section.cover > p * {
 .layout.inside h2,
 .layout.inside h2 * {
 	font-size: 30pt;
-	color: fade(@grey, 50%);
+	color: fade(@grey, 70%);
 	text-transform: uppercase;
+  font-style: italic;
+}
+
+.layout .center-col h2,
+.layout.inside h2 {
+  text-shadow: 5px 5px 0 fade(@dark, 5%);
 }
 
 .layout.inside blockquote p:before,
@@ -379,19 +386,17 @@ main .box-placeholder > h2 {
 }
 
 main section > h2 {
-  width: 57.6%;
-  margin: 1.25% 0;
-  margin-left: 21.25%;
-  padding: 1.25%;
-  text-transform: uppercase;
-  border-bottom: 1px solid fade(@dark, 30%);
+  &:extend(.layout .center-col h2 all);
   
-  &, a, i, b, strong, em {
-    font-size: 16pt;
-    font-weight: normal;
-    font-style: italic;
-    color: fade(@dark, 30%);
-  }
+  /**
+   * This is bad, but quick solution with !important.
+   * TODO: Best to extend the padded containers.
+   */
+  
+  width: 60%;
+  margin: 1.25% 0;
+  margin-left: 20%;
+  padding: 1.25% !important;
   
   a, strong {
     color: fade(@forplay, 100%); 

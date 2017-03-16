@@ -584,8 +584,8 @@ function ArticlesManager() {
 		 * Append 5 videos. Most recent is in the middle.
 		 */
 		
-		$('#topVideos').append(html.find('article.news.video:gt(1):lt(2)'));
-		$('#topVideos').append(html.find('article.news.video:lt(3)'));
+		$('#topVideos').append(html.find('article[data-video=true]:gt(1):lt(2)'));
+		$('#topVideos').append(html.find('article[data-video=true]:lt(3)'));
 		
 		/**
 		 * Append 3 reviews. Most recent is in the middle.
@@ -598,8 +598,8 @@ function ArticlesManager() {
 		
 		var id = Math.round(Math.random() * 100000);
 		
-		var $players = $('#topVideos').find('.video'),
-			$mainPlayer = $('#topVideos').find('.video:eq(2)');
+		var $players = $('#topVideos').find('article[data-video=true]'),
+			  $mainPlayer = $('#topVideos').find('article[data-video=true]:eq(2)');
 		
 		$mainPlayer.find('.img-proxy').attr('id', 'player_' + id);
 		$players.find('.img-proxy').addClass('Player');

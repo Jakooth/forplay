@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="/jslib/video-js/video-js.css" />
 <link media="only screen and (min-width: 1280px)" rel="stylesheet" type="text/css" href="/assets/forplay.css?v=3.0.2" />
 <link media="only screen and (max-width: 1279px)" rel="stylesheet" type="text/css" href="/assets/forplay-mobile.css?v=3.0.2" />
-<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,800|Poiret+One&subset=cyrillic,latin' rel='stylesheet' type='text/css' />
+<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Open+Sans:300,800|Poiret+One&subset=cyrillic,latin' />
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 <link href="https://www.forplay.bg/apple-touch-icon.png" rel="apple-touch-icon" />
@@ -109,7 +109,7 @@
     </div>
   </section>
   <section class="nav-set">
-    <h2>Навигация, търсене и потребителски вход</h2>
+    <h2>Навигация, търсене и потребителски профил</h2>
     <div class="special" role="region">
       <button type="button" 
               id="hideHeaderButton"
@@ -139,21 +139,21 @@
       </form>
     </div>
     <div class="user" role="region">
-      <h3><span>Потребителски вход</span></h3>
+      <h3><span>Профил</span></h3>
       <button id="userLogin" type="button" 
       		  aria-pressed="false"><i>Наздраве, </i><b>непознат</b></button>
     </div>
   </section>
 </header>
 <main>
-  <h1>Основно съдържание</h1>
+  <h1>Съдържание</h1>
   <article id="read" aria-hidden="true">
     <section class="read-set"> 
       <!--ArticlesManager: loadArticles--> 
     </section>
-    <section id="comments" class="comment-set">
+    <section id="comment" class="comment-set"> 
       <!--ArticlesManager: loadArticles-->
-      <form>
+      <form id="sendCommentForm">
         <h3 id="addCommentHeading">Добави нов коментар.</a></h3>
         <div role="textbox" 
              tabindex="0" 
@@ -161,16 +161,16 @@
              aria-multiline="true" 
              aria-readonly="false"></div>
         <div role="toolbar">
-          <button id="addComment" type="button">Добави</button>
-          <button id="cancelComment" type="button">Изчисти</button>
-          <button id="boldComment" type="button">Болд</button>
-          <button id="italicComment" type="button">Италик</button>
+          <button data-id="send" type="button"><span>Добави</span></button>
+          <button data-id="clear" type="button"><span>Изчисти</span></button>
+          <button data-id="bold" type="button"><span>Болд</span></button>
+          <button data-id="italic" type="button"><span>Италик</span></button>
         </div>
       </form>
     </section>
   </article>
   <section id="topArticles" class="article-set">
-    <h2>Избрани статии</h2>
+    <h2>Последни статии</h2>
     <!--ArticlesManager: loadArticles--> 
   </section>
   <section aria-hidden="true" class="adv-set">
@@ -178,11 +178,11 @@
     <!--Advertisement--> 
   </section>
   <section id="topVideos" class="video-set">
-    <h2>Най-нови клипчета</h2>
+    <h2>Последни клипчета</h2>
     <!--ArticlesManager: loadArticles--> 
   </section>
   <section id="topReviews" class="article-set">
-    <h2>Най-нови ревюта</h2>
+    <h2>Препоръчани ревюта</h2>
     <!--ArticlesManager: loadArticles--> 
   </section>
   <section aria-hidden="true" class="adv-set">

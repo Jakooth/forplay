@@ -149,6 +149,19 @@ function UtilsManager() {
 	/**
 	 * There is the same in Fortag.
 	 */
+   
+  this.escape = function(data) {
+		if (!data) return null;
+		if ((typeof data === 'number') && (data % 1 === 0)) return data;
+    
+    var s = data;
+    
+    s = he.decode(s);
+    s = he.escape(s);
+    s = s.trim(); 
+    
+		return s;
+	} 
 	 
 	this.unescape = function(data) {
 		if (!data) return null;

@@ -3,12 +3,13 @@
   margin-top: 1.25%;
   margin-left: 20%;
   
-  /**
-   * TODO: This must actually extend the read article H2 styles.
-   */
+  h2,
+  form,
+  ul {
+    padding: 2.08%;
+  } 
   
   h2 {
-    padding: 2.08%;
     width: 100%;
     margin: 2.08% 0;
     margin-bottom: 0;
@@ -19,24 +20,62 @@
     
     padding: 0;
     margin: 2.08% 0;
-    
+  }
+  
+  li,
+  h3 {
     &:target::before {
       content: "";
       display: block;
       height: 200px;
       margin: -200px 0 0;
-    }
-  }
-  
-  form {
-    padding: 2.08%;
-    background-color: fade(@forplay, 5%);
+    }  
   }
   
   [contenteditable] {
     width: 100%;
-    height: 240px;
-    border: 1px solid fade(@dark, 30%);
-    background-color: @light;
+    height: auto;
+    border: 1px solid transparent;
+    padding: 0;
+    
+    &[aria-readonly=false] {
+      padding: 1.04%;
+      height: 120px;
+      border: 1px solid fade(@dark, 30%);
+    }
+  }
+  
+  li {
+    form {
+      padding: 0;
+    }
+    
+    img {
+      width: 64px;
+      height: 64px;
+    }
+  }
+  
+  button, 
+  [data-id=up] {
+    &:extend(.im all);
+    
+    border: none;
+    background: none;
+    color: @grey;
+    cursor: pointer;
+    
+    &[data-id=up]::before { &:extend(.im-arrow-up:before); }
+    &[data-id=send]::before { &:extend(.im-paperplane:before); }
+    &[data-id=clear]::before { &:extend(.im-x-mark:before); }
+    &[data-id=bold]::before { &:extend(.im-radio:before); }
+    &[data-id=italic]::before { &:extend(.im-radio:before); }
+    &[data-id=reply]::before { &:extend(.im-radio:before); }
+    &[data-id=edit]::before { &:extend(.im-pencil:before); }
+    &[data-id=save]::before { &:extend(.im-floppy-disk:before); }
+    &[data-id=cancel]::before { &:extend(.im-x-mark:before); }
+    &[data-id=delete]::before { &:extend(.im-trash-can:before); }
+    &[data-id=like]::before { &:extend(.im-star:before); }
+    &[data-id=flag]::before { &:extend(.im-flag:before); }
   }
 }
