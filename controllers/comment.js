@@ -37,8 +37,11 @@ function CommentManager() {
                             .render(data, {
             unescape: utils.unescape,
             translate: utils.translate,
+            formatDate: utils.formatDate,
             canEdit: _canEdit,
-            canLike: _canLike
+            canLike: _canLike,
+            canBan: _canBan,
+            indentComment: _indentComment
           });
           
       $comment.prepend($(html));
@@ -66,7 +69,7 @@ function CommentManager() {
     var self = this;
     
     $.ajax({
-      type: "POST",
+      type: data.deleted ? "DELETE" : "POST",
       contentType: "application/json; charset=utf-8",
       url: commentAPI,
       data: JSON.stringify(data),
@@ -110,6 +113,22 @@ function CommentManager() {
   var _canLike = function(profileId) {
     return window.userProfile.profile_id == profileId ? true : false;
   }
+  
+  var _canBan = function() {
+    var canBan = true;
+    
+    if (window.userProfile['appMetadata']['roles'][0] == 'admin' ||
+				window.userProfile['appMetadata']['roles'][0] == 'superadmin') {
+			
+      canBan = false;
+    }
+    
+    return canBan;
+  }
+  
+  var _indentComment = function(path) {
+    return (path.length * (utils.isMobile() ? 1 : 2)) - (6 * (utils.isMobile() ? 1 : 2)) + 'px';
+  }
    
   this._getArticleId = function() {
     var path = window.location.href.split('/');
@@ -127,14 +146,6 @@ function CommentManager() {
   
   var _getCommentId = function($button) {
     return $button.parents('li').data('id');
-  }
-  
-  var _getPath = function($button) {
-    var $li = $button.parents('li');
-    
-    return $li.data('path') ? $li.data('path') + '.' + 
-                              $li.data('id') : 
-                              $li.data('id');
   }
   
   var _clearComments = function() {
@@ -208,7 +219,6 @@ function CommentManager() {
         break;
       case 'reply':
         comment.articleId = self._getArticleId();
-        comment.path = utils.escape(_getPath($this));
         comment.comment = utils.escape(_getComment($this));
         comment.parentCommentId = utils.escape(_getParentComment($this));
         
@@ -232,7 +242,17 @@ function CommentManager() {
         comment.commentId = _getCommentId($this);
         comment.flagged = 1;
         
-        break;     
+        break;
+      case 'ban':
+        comment.commentId = _getCommentId($this);
+        comment.banned = 1;
+        
+        break; 
+      case 'delete':
+        comment.commentId = _getCommentId($this);
+        comment.deleted = 1;
+        
+        break;      
     }    
         
     return comment;
@@ -249,8 +269,16 @@ function CommentManager() {
    * EVENTS
    */
    
+  $comment.on('click', '[data-id=delete]', function(e) {
+    self.sendComment(_getCommentData('delete', $(this)));
+  }); 
+   
   $comment.on('click', '[data-id=like]', function(e) {
     self.sendComment(_getCommentData('like', $(this)));
+  });
+  
+  $comment.on('click', '[data-id=ban]', function(e) {
+    self.sendComment(_getCommentData('ban', $(this)));
   }); 
   
   $comment.on('click', '[data-id=flag]', function(e) {

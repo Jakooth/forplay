@@ -22,7 +22,7 @@
     margin: 2.08% 0;
   }
   
-  li,
+  form,
   h3 {
     &:target::before {
       content: "";
@@ -37,45 +37,111 @@
     height: auto;
     border: 1px solid transparent;
     padding: 0;
+    margin: 2.08% 0;
+    font-size: 11pt;
     
     &[aria-readonly=false] {
       padding: 1.04%;
-      height: 120px;
+      min-height: 120px;
+      max-height: 240px;
+      overflow: hidden;
       border: 1px solid fade(@dark, 30%);
     }
   }
   
   li {
+    padding: 2.08%;
+    background: linear-gradient(90deg, #fcfcfc, #fafafa);
+    border-left: 3px solid #ccc;
+    border-bottom: 1px solid #eee;
+    border-left: 3px solid #ccc;
+    
+    &[data-banned=true] {
+      color: fade(@dark, 0);
+    }
+    
+    &:nth-of-type(2n - 1) {
+      background: linear-gradient(90deg, #fcfcfc, #fff9eb);
+    }
+    
+    &:first-of-type {
+      border-top: 1px solid #eee;
+    }
+    
     form {
       padding: 0;
     }
     
     img {
-      width: 64px;
-      height: 64px;
+      width: 48px;
+      height: 48px;
+      margin-right: 2.08%;
+    }
+    
+    a,
+    img {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+  
+  [role=toolbar] {
+    span,
+    button,
+    a {
+      font-size: 11pt;
+    }
+    
+    button,
+    a {
+      margin-right: 1.04%;
+      vertical-align: baseline;
+      
+      &:disabled {
+        opacity: 0.5;
+        
+        &::before {
+          color: fade(@dark, 50%);
+        }
+      }
+    }
+    
+    span a {
+      color: @forplay;
+      font-weight: bold;
+      
+      &:hover {
+        color: @dark;  
+      }
     }
   }
   
   button, 
   [data-id=up] {
-    &:extend(.im all);
+    &:extend([class^="icon-"] all);
     
     border: none;
     background: none;
-    color: @grey;
     cursor: pointer;
     
-    &[data-id=up]::before { &:extend(.im-arrow-up:before); }
-    &[data-id=send]::before { &:extend(.im-paperplane:before); }
-    &[data-id=clear]::before { &:extend(.im-x-mark:before); }
-    &[data-id=bold]::before { &:extend(.im-radio:before); }
-    &[data-id=italic]::before { &:extend(.im-radio:before); }
-    &[data-id=reply]::before { &:extend(.im-radio:before); }
-    &[data-id=edit]::before { &:extend(.im-pencil:before); }
-    &[data-id=save]::before { &:extend(.im-floppy-disk:before); }
-    &[data-id=cancel]::before { &:extend(.im-x-mark:before); }
-    &[data-id=delete]::before { &:extend(.im-trash-can:before); }
-    &[data-id=like]::before { &:extend(.im-star:before); }
-    &[data-id=flag]::before { &:extend(.im-flag:before); }
+    &:before {
+      color: @forplay;
+      margin-right: 4px;
+      vertical-align: bottom;
+    }
+    
+    &[data-id=up]::before { &:extend(.icon-arrow-up:before); }
+    &[data-id=send]::before { &:extend(.icon-send:before); }
+    &[data-id=clear]::before { &:extend(.icon-times-rectangle-o:before); }
+    &[data-id=bold]::before { &:extend(.icon-bold:before); }
+    &[data-id=italic]::before { &:extend(.icon-italic:before); }
+    &[data-id=reply]::before { &:extend(.icon-reply:before); }
+    &[data-id=edit]::before { &:extend(.icon-pencil:before); }
+    &[data-id=save]::before { &:extend(.icon-save:before); }
+    &[data-id=cancel]::before { &:extend(.icon-times-rectangle-o:before); }
+    &[data-id=delete]::before { &:extend(.icon-trash-o:before); }
+    &[data-id=like]::before { &:extend(.icon-star:before); }
+    &[data-id=flag]::before { &:extend(.icon-flag:before); }
+    &[data-id=ban]::before { &:extend(.icon-legal:before); }
   }
 }
