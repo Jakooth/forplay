@@ -97,7 +97,8 @@
       margin-right: 1.04%;
       vertical-align: baseline;
       
-      &:disabled {
+      &:disabled,
+      &[aria-pressed=true] {
         opacity: 0.5;
         
         &::before {
@@ -132,16 +133,18 @@
     
     &[data-id=up]::before { &:extend(.icon-arrow-up:before); }
     &[data-id=send]::before { &:extend(.icon-send:before); }
-    &[data-id=clear]::before { &:extend(.icon-times-rectangle-o:before); }
+    &[data-id=clear]::before { &:extend(.icon-times-rectangle:before); }
     &[data-id=bold]::before { &:extend(.icon-bold:before); }
     &[data-id=italic]::before { &:extend(.icon-italic:before); }
     &[data-id=reply]::before { &:extend(.icon-reply:before); }
     &[data-id=edit]::before { &:extend(.icon-pencil:before); }
-    &[data-id=save]::before { &:extend(.icon-save:before); }
-    &[data-id=cancel]::before { &:extend(.icon-times-rectangle-o:before); }
-    &[data-id=delete]::before { &:extend(.icon-trash-o:before); }
+    &[data-id=save]::before { &:extend(.icon-send:before); }
+    &[data-id=cancel]::before { &:extend(.icon-times-rectangle:before); }
+    &[data-id=delete]::before { &:extend(.icon-trash:before); }
     &[data-id=like]::before { &:extend(.icon-star:before); }
+    &[data-id=like][aria-pressed=true]::before { &:extend(.icon-star-o:before); }
     &[data-id=flag]::before { &:extend(.icon-flag:before); }
+    &[data-id=flag][aria-pressed=true]::before { &:extend(.icon-flag-o:before); }
     &[data-id=ban]::before { &:extend(.icon-legal:before); }
   }
 }

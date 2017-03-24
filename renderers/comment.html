@@ -20,16 +20,16 @@
            href="#{{:#data.comment_id}}">{{:~formatDate(#data.created)}}</a></span>{{/if}}{{if #data.parent_comment_id}} <a 
            data-id="up"
            href="#comment{{:#data.parent_comment_id}}Form"><span>Начало</span></a>{{/if}}
-        <button data-id="reply" type="button"><span>Отговори</span></button>
+        <button data-id="reply" aria-hidden="{{:#data.path.length / 6 >= 33 ? true : false}}" type="button"><span>Отговори</span></button>
         <button data-id="edit" aria-hidden="{{:~canEdit(#data.profile_id)}}" type="button"><span>Промени</span></button>
         <button data-id="save" aria-hidden="true" type="button"><span>Запиши</span></button>
         <button data-id="cancel" aria-hidden="true" type="button"><span>Отмени</span></button>
         <button data-id="delete" aria-hidden="{{:~canEdit(#data.profile_id)}}" type="button"><span>Изтрии</span></button>
-        <button data-id="ban" {{:#data.banned == 1 ? 'disabled' : ''}} 
+        <button data-id="ban" aria-pressed="{{if #data.banned}}{{:#data.banned == 0 ? false : true}}{{/if}}" 
                 aria-hidden="{{:~canBan(#data.profile_id)}}" type="button"><span>Осъди</span></button>
-        <button data-id="like" {{:#data.liked == 1 ? 'disabled' : ''}} 
+        <button data-id="like" aria-pressed="{{if #data.liked}}{{:#data.liked == 0 ? false : true}}{{/if}}" 
                 aria-hidden="{{:~canLike(#data.profile_id)}}" type="button"><span>Препоръчвам</span> <em>({{:#data.likes}})</em></button>
-        <button data-id="flag" {{:#data.flagged == 1 ? 'disabled' : ''}} 
+        <button data-id="flag" aria-pressed="{{if #data.flagged}}{{:#data.flagged == 0 ? false : true}}{{/if}}" 
                 aria-hidden="{{:~canLike(#data.profile_id)}}" type="button"><span>Сигнализирай</span> <em>({{:#data.flags}})</em></button>
         <button data-id="bold" aria-hidden="true" type="button"><span>Болд</span></button>
         <button data-id="italic" aria-hidden="true" type="button"><span>Италик</span></button>

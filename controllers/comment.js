@@ -46,22 +46,7 @@ function CommentManager() {
           
       $comment.prepend($(html));
     }).fail(function() {
-      if (!login.canRetryLogin()) {
-        console.log("Too many automatic retries. Logging out.  " + 
-                    "Try to log in again or contact admin@forplay.bg.");
-        
-        login.clearUserProfile();
-        
-        return;
-      }
-      
-      console.log("Failed to authorize against the comments API. " + 
-                  "Automatically trying to renew log in.");
-      
-      login.increaseFailedLogins();
-      login.renewUserProfile(function() {
-          self.getComments(articleId)
-      });   
+      console.log("Failed to get comments.");   
     });  
   }
    
@@ -82,18 +67,6 @@ function CommentManager() {
       console.log("Failed to post comment.");
     });
   }
-  
-  this.banComment = function() {
-  }
-  
-  this.likeComment = function() {
-  }
-  
-  this.dislikeComment = function() {
-  }
-  
-  this.flagComment = function() {
-  }
 
 
 
@@ -107,15 +80,21 @@ function CommentManager() {
    */
    
   var _canEdit = function(profileId) {
+    if (! window.userProfile) return true;
+    
     return window.userProfile.profile_id == profileId ? false : true;
   } 
   
   var _canLike = function(profileId) {
+    if (! window.userProfile) return true;
+    
     return window.userProfile.profile_id == profileId ? true : false;
   }
   
   var _canBan = function() {
     var canBan = true;
+    
+    if (! window.userProfile) return true;
     
     if (window.userProfile['appMetadata']['roles'][0] == 'admin' ||
 				window.userProfile['appMetadata']['roles'][0] == 'superadmin') {
@@ -196,6 +175,10 @@ function CommentManager() {
   var _resetSendForm = function($button) {
     $('#sendCommentForm').find('[contenteditable]').html(''); 
   }
+  
+  var _getButtonStatus = function($button) {
+    return $button.attr('aria-pressed') == 'true' ? 0 : 1;
+  }
    
   var _getCommentData = function(method, $this) {
     var commentId,
@@ -204,10 +187,10 @@ function CommentManager() {
         articleId,	
         profileId,
         comment = '',
-        liked = 0,	
-        disliked = 0,	
-        flagged = 0,	
-        banned = 0,
+        liked = null,	
+        disliked = null,	
+        flagged = null,	
+        banned = null,
         delted = 0,
         comment = {};
         
@@ -230,22 +213,22 @@ function CommentManager() {
         break;  
       case 'like':
         comment.commentId = _getCommentId($this);
-        comment.liked = 1;
+        comment.liked = _getButtonStatus($this);
         
         break; 
       case 'dislike':
         comment.commentId = _getCommentId($this);
-        comment.disliked = 1;
+        comment.disliked = _getButtonStatus($this);
         
         break;
       case 'flag':
         comment.commentId = _getCommentId($this);
-        comment.flagged = 1;
+        comment.flagged = _getButtonStatus($this);
         
         break;
       case 'ban':
         comment.commentId = _getCommentId($this);
-        comment.banned = 1;
+        comment.banned = _getButtonStatus($this);
         
         break; 
       case 'delete':
