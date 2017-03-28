@@ -57,8 +57,11 @@ function CommentManager() {
       $comment.prepend($(html));
       
       if (location.hash) {
-        $('#comment h2 > a')[0].click();
-      } 
+        var offset = $('header').is('.static') ? banner.getFixedHeight() : 
+                                                 banner.getCoversHeight();
+        
+        $(document).scrollTop($(location.hash).offset().top - offset);
+      }
     }).fail(function() {
       
       /**
@@ -67,7 +70,10 @@ function CommentManager() {
        */
       
       if (location.hash) {
-        $('#comment h2 > a')[0].click();
+        var offset = $('header').is('.static') ? banner.getFixedHeight() : 
+                                                 banner.getCoversHeight();
+        
+        $(document).scrollTop($(location.hash).offset().top - offset);
         
         if (! window.userProfile) {
           login.showUserLock();
