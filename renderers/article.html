@@ -20,7 +20,9 @@
     <h3> <a href="/articles/{{:type}}/{{:subtype}}/{{:article_id}}/{{:url}}"
     		    target="_top"> <strong>{{:~unescape(title)}}</strong> <span
             			                >{{:~translate(subtype)}}</span> <span
-            			                >{{:~unescape(subtitle)}}</span> </a> </h3>
+            			                >{{:~unescape(subtitle)}}</span> </a> <a 
+            href="/articles/{{:type}}/{{:subtype}}/{{:article_id}}/{{:url}}#comment" 
+            data-icon="comments">{{:comments}} коментара</a> </h3>
     <p>От {{for authors}}<a href="/portals/author/{{:#data.author_id}}/{{:#data.tag}}">{{:#data.en_name}}</a>
     	  	{{if #index < #parent.data.length - 2}}, 
     			{{else #index == #parent.data.length - 2}} и {{/if}}{{/for}}</p>

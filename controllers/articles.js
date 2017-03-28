@@ -57,8 +57,8 @@ function ArticlesManager() {
 		 */
 		
 		var isCaret = $img.parents('#topReviews').length || 
-					  $img.parents('[data-priority=review]').length > 0 ? true 
-					  													: false,
+                  $img.parents('[data-priority=review]').length > 0 ? true 
+                                                                    : false,
 		/**
 		 * For the second top review use the solid main image.
 		 */		
@@ -353,19 +353,28 @@ function ArticlesManager() {
 	}
 	
 	var appendArticle = function(html, cover, data) {
-		$('main').addClass('read');
-		$('header').addClass('read');
-		$('main').data('type', data.type);
-		$('main').attr('data-type', $('main').data('type'));
-		$('main').data('subtype', data.subtype);
-		$('main').attr('data-subtype', $('main').data('subtype'));
-		
+    var $main = $('main'),
+        $header = $('header'),
+        $body = $('body');
+    
+		$main.addClass('read');
+		$header.addClass('read');
+		$main.data('type', data.type);
+		$main.attr('data-type', $('main').data('type'));
+		$main.data('subtype', data.subtype);
+		$main.attr('data-subtype', $('main').data('subtype'));
+    $body.data('subtype', data.subtype);
+		$body.attr('data-subtype', $('body').data('subtype'));
+    $body.css('background-image', 'url(' + utils.formatTimThumbString(data.wide_img, 
+                                                                      screen.width, 
+                                                                      screen.height) + ')');
+            
 		if (cover) {
 			$('#read').prepend(cover);	
 		}
 		
 		var $cover = $('#read .cover'),
-			$hype = $cover.find('li:nth-child(1) p');
+			  $hype = $cover.find('li:nth-child(1) p');
 		
 		/**
 		 * Set theme color and upated banner style.
@@ -399,29 +408,31 @@ function ArticlesManager() {
 			
 		if ($hype.length) {
 			$hype.clone()
-				 .insertAfter('.read-set .layout.text:last .center-col > p:last-of-type')
-				 .addClass('hype');
+           .insertAfter('.read-set .layout.text:last .center-col > p:last-of-type')
+           .addClass('hype');
 		}
-		
-		/**
-		 * The only way to do the banner animation
-		 * is to use fixed height number.
-		 * Store them in the banner object from the start.
-		 */
-		
-		banner.setCoversHeight(Math.floor(banner.getCoversHeight() * 1.5));
-    comment.getComments(data.article_id);
+    
+    $(document).trigger('articleAppended', [data.article_id]);
 		
 		loadBackground($cover, $cover);
 	}
 	
 	var appendNews = function(html, cover, data) {
-		$('main').addClass('read fixed static');
-		$('header').addClass('read fixed static');
-		$('main').data('type', data.type);
-		$('main').attr('data-type', $('main').data('type'));
-		$('main').data('subtype', data.subtype);
-		$('main').attr('data-subtype', $('main').data('subtype'));
+    var $main = $('main'),
+        $header = $('header'),
+        $body = $('body');
+    
+		$main.addClass('read fixed static');
+		$header.addClass('read fixed static');
+		$main.data('type', data.type);
+		$main.attr('data-type', $('main').data('type'));
+		$main.data('subtype', data.subtype);
+		$main.attr('data-subtype', $('main').data('subtype'));
+    $body.data('subtype', data.subtype);
+		$body.attr('data-subtype', $('body').data('subtype'));
+    $body.css('background-image', 'url(' + utils.formatTimThumbString(data.wide_img, 
+                                                                      screen.width, 
+                                                                      screen.height) + ')');
 		
 		var $cover = $(cover);
 		
@@ -482,15 +493,8 @@ function ArticlesManager() {
 				 .insertAfter('.read-set .layout.text:last .center-col > p:last-of-type')
 				 .addClass('hype');
 		}
-		
-		/**
-		 * The only way to do the banner animation
-		 * is to use fixed height number.
-		 * Store them in the banner object from the start.
-		 */
-		
-		banner.setCoversHeight(0);
-    comment.getComments(data.article_id);
+    
+    $(document).trigger('newsAppended', [data.article_id]);
 		
 		loadBackground($cover, $cover);
 	}
@@ -663,14 +667,8 @@ function ArticlesManager() {
 		 */
 		
 		utils.setTheme($mainCover.data('theme'));
-		
-		/**
-		 * The only way to do the banner animation
-		 * is to us fixed height number.
-		 * Store them in the banner object from the start.
-		 */
-		
-		banner.setCoversHeight(banner.getCoversHeight());
+    
+    $(document).trigger('coverAppended');
 	}
 	
 	var unloadArticles = function() {
@@ -800,7 +798,7 @@ function ArticlesManager() {
 	
 	$(window).on('load', function (e) {
 		var href = window.location.href,
-			params = utils.parsePrettyURL(href);
+			  params = utils.parsePrettyURL(href);
 		
 		/**
 		 * Replace SVG images with embed SVG data.

@@ -82,7 +82,7 @@
 	
 	form {
 		width: 20%;
-		background-color: fade(@dark, 98%);
+		background-color: fade(@dark, 90%);
 		padding: 1.25%;
     padding-top: 0;
 		position: relative;
@@ -154,9 +154,9 @@
         box-shadow: 2px 2px 2px fade(@dark, 20%)
       }
     }
-    
+      
     input:checked + .slider {
-      background-color: @forplay;
+      background-color: fade(@dark, 50%);
     }
     
     input:checked + .slider::before {
@@ -176,15 +176,15 @@
 		width: 100%;
 		height: auto;
 		border: none;
-		background: @forplay;
 		color: @light;
 		opacity: 1.0;
 		cursor: pointer;
+    background-color: fade(@dark, 50%);
     
     &:last-of-type { 
       margin-top: 12.5%;
       margin-bottom: 0;
-      background: none;
+      background: none !important;
     }
 	}
 }

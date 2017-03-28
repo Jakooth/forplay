@@ -45,10 +45,10 @@
 <script src="/jslib/jsrender.min.js" type="text/javascript">
 	<!--script-->
 </script>
-<script src="https://cdn.auth0.com/js/auth0/8.0.4/auth0.min.js">
+<script src="https://cdn.auth0.com/js/auth0/8.3.0/auth0.min.js">
 	<!--script-->
 </script>
-<script src="https://cdn.auth0.com/js/lock/10.9.1/lock.min.js">
+<script src="https://cdn.auth0.com/js/lock/10.12.1/lock.min.js">
 	<!--script-->
 </script>
 <!--LOCALIZATION
@@ -151,20 +151,20 @@
     <section class="read-set"> 
       <!--ArticlesManager: loadArticles--> 
     </section>
-    <section id="comment" class="comment-set"> 
+    <section id="comment" class="comment-set" aria-busy="false"> 
       <!--ArticlesManager: loadArticles-->
-      <form id="sendCommentForm">
-        <h3 id="addCommentHeading">Добави нов коментар.</a></h3>
+      <form id="sendCommentForm" aria-hidden="false">
+        <h3 id="addCommentHeading">Добави нов коментар.</h3>
         <div role="textbox" 
              tabindex="0" 
              contenteditable="true" 
              aria-multiline="true" 
              aria-readonly="false"></div>
         <div role="toolbar">
-          <button data-id="send" type="button"><span>Добави</span></button>
-          <button data-id="clear" type="button"><span>Изчисти</span></button>
-          <button data-id="bold" type="button"><span>Болд</span></button>
-          <button data-id="italic" type="button"><span>Италик</span></button>
+          <button data-icon="send" type="button"><span>Добави</span></button>
+          <button data-icon="clear" type="button"><span>Изчисти</span></button>
+          <button data-icon="bold" type="button"><span>Болд</span></button>
+          <button data-icon="italic" type="button"><span>Италик</span></button>
         </div>
       </form>
     </section>
@@ -216,7 +216,7 @@
       <div class="slider"></div>
       <span>Притъмняло ми е</span>
       </label>
-      <label class="switch" />
+      <label class="switch">
       <input id="profileCollapsed" type="checkbox">
       <div class="slider"></div>
       <span>Скрии хедъра</span>

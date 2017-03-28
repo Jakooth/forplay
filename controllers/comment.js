@@ -8,7 +8,8 @@ function CommentManager() {
   var commentAPI = '/forapi/forsecure/comment.php';
   var restoreEdit;
   
-  var $comment = $('#comment');
+  var $comment = $('#comment'),
+      $commentForm = $('#sendCommentForm');
 
 
 
@@ -20,6 +21,14 @@ function CommentManager() {
   /**
    * PUBLIC
    */
+   
+  this.showComments = function() {
+    $commentForm.attr('aria-hidden', false);
+  } 
+  
+  this.hideComments = function() {
+    $commentForm.attr('aria-hidden', true);
+  } 
    
   this.getComments = function(articleId) {
     var params = '?articleId=' + articleId,
@@ -41,12 +50,52 @@ function CommentManager() {
             canEdit: _canEdit,
             canLike: _canLike,
             canBan: _canBan,
-            indentComment: _indentComment
+            indentComment: _indentComment,
+            getParentId: _getParentId
           });
           
       $comment.prepend($(html));
+      
+      if (location.hash) {
+        $('#comment h2 > a')[0].click();
+      } 
     }).fail(function() {
-      console.log("Failed to get comments.");   
+      
+      /**
+       * Comments are loaded, but the user is not authorized.
+       * Or something went terribly wrong and nothing is loaded.
+       */
+      
+      if (location.hash) {
+        $('#comment h2 > a')[0].click();
+        
+        if (! window.userProfile) {
+          login.showUserLock();
+        }
+      }
+      
+      if (! window.userProfile) return;
+      
+      /**
+       * If there is profile, but the token is expired.
+       */
+      
+      if (! login.canRetryLogin()) { 
+        console.log("Too many automatic retries. Logging out.  " +  
+                    "Try to log in again or contact admin@forplay.bg."); 
+         
+        login.clearUserProfile(); 
+         
+        return; 
+      } 
+       
+      console.log("Failed to authorize against the comments API. " +  
+                  "Automatically trying to renew log in."); 
+       
+      login.increaseFailedLogins(); 
+      login.renewUserProfile(function() { 
+          self.getComments(articleId) 
+      });         
     });  
   }
    
@@ -61,6 +110,15 @@ function CommentManager() {
       dataType: 'json'
     }).done(function (data, textStatus, jqXHR) {
       _clearComments();
+      
+      /**
+       * Remove the hash anchor to avoid scroll.
+       */
+      
+      if (location.hash) {
+        history.pushState("", document.title, window.location.pathname + 
+                                              window.location.search);
+      }
       
       self.getComments(data.comments.article_id);
     }).fail(function (data, textStatus, jqXHR) {
@@ -78,6 +136,10 @@ function CommentManager() {
   /**
    * PRIVATE
    */
+  
+  var _getParentId = function(path) {
+    return parseInt(path.slice(0, 6), 16);
+  } 
    
   var _canEdit = function(profileId) {
     if (! window.userProfile) return true;
@@ -96,8 +158,8 @@ function CommentManager() {
     
     if (! window.userProfile) return true;
     
-    if (window.userProfile['appMetadata']['roles'][0] == 'admin' ||
-				window.userProfile['appMetadata']['roles'][0] == 'superadmin') {
+    if (window.userProfile['roles'][0] == 'admin' ||
+				window.userProfile['roles'][0] == 'superadmin') {
 			
       canBan = false;
     }
@@ -143,13 +205,13 @@ function CommentManager() {
         
     $edit.attr('aria-readonly', !isEdit);   
     $edit.attr('contenteditable', isEdit);
-    $li.find('[data-id=reply]').attr('aria-hidden', isEdit);
-    $li.find('[data-id=delete]').attr('aria-hidden', isEdit);
-    $li.find('[data-id=edit]').attr('aria-hidden', isEdit);
-    $li.find('[data-id=save]').attr('aria-hidden', !isEdit);
-    $li.find('[data-id=cancel]').attr('aria-hidden', !isEdit);
-    $li.find('[data-id=bold]').attr('aria-hidden', !isEdit);
-    $li.find('[data-id=italic]').attr('aria-hidden', !isEdit);
+    $li.find('[data-icon=reply]').attr('aria-hidden', isEdit);
+    $li.find('[data-icon=delete]').attr('aria-hidden', isEdit);
+    $li.find('[data-icon=edit]').attr('aria-hidden', isEdit);
+    $li.find('[data-icon=save]').attr('aria-hidden', !isEdit);
+    $li.find('[data-icon=cancel]').attr('aria-hidden', !isEdit);
+    $li.find('[data-icon=bold]').attr('aria-hidden', !isEdit);
+    $li.find('[data-icon=italic]').attr('aria-hidden', !isEdit);
   }
   
   var _cloneSendForm = function($button) {
@@ -173,7 +235,7 @@ function CommentManager() {
   }
   
   var _resetSendForm = function($button) {
-    $('#sendCommentForm').find('[contenteditable]').html(''); 
+    $commentForm.find('[contenteditable]').html(''); 
   }
   
   var _getButtonStatus = function($button) {
@@ -251,67 +313,91 @@ function CommentManager() {
   /**
    * EVENTS
    */
+  
+  $comment.on('click', 'h2 > a', function(e) {
+    if (! window.userProfile) {
+      login.showUserLock();
+    }
+  });
+  
+  $comment.on('focus', '#sendCommentForm [contenteditable]', function(e) {
+    if (! window.userProfile) {
+      $(this).blur();
+      
+      login.showUserLock();
+    }
+  });
    
-  $comment.on('click', '[data-id=delete]', function(e) {
+  $(document).on('articleAppended newsAppended', function(e, articleId) {
+    self.getComments(articleId);
+  });
+  
+  $comment.on('click', '[data-icon=delete]', function(e) {
     self.sendComment(_getCommentData('delete', $(this)));
   }); 
    
-  $comment.on('click', '[data-id=like]', function(e) {
+  $comment.on('click', '[data-icon=like]', function(e) {
     self.sendComment(_getCommentData('like', $(this)));
   });
   
-  $comment.on('click', '[data-id=ban]', function(e) {
+  $comment.on('click', '[data-icon=ban]', function(e) {
     self.sendComment(_getCommentData('ban', $(this)));
   }); 
   
-  $comment.on('click', '[data-id=flag]', function(e) {
+  $comment.on('click', '[data-icon=flag]', function(e) {
     self.sendComment(_getCommentData('flag', $(this)));
   });  
    
-  $comment.on('click', '[data-id=edit]', function(e) {
+  $comment.on('click', '[data-icon=edit]', function(e) {
     _editComment($(this), true);
   }); 
   
-  $comment.on('click', '[data-id=save]', function(e) {
+  $comment.on('click', '[data-icon=save]', function(e) {
     self.sendComment(_getCommentData('edit', $(this)));  
   }); 
   
-  $comment.on('click', '[data-id=cancel]', function(e) {
+  $comment.on('click', '[data-icon=cancel]', function(e) {
     _editComment($(this), false);
   });
   
-  $comment.on('click', '#sendCommentForm [data-id=clear]', function(e) {
+  $comment.on('click', '#sendCommentForm [data-icon=clear]', function(e) {
     _resetSendForm();
   });
   
-  $comment.on('click', '#replyCommentForm [data-id=clear]', function(e) {
+  $comment.on('click', '#replyCommentForm [data-icon=clear]', function(e) {
     _removeReplyForm(); 
   });
   
-  $comment.on('click', '[data-id=clear]', function(e) {
+  $comment.on('click', '[data-icon=clear]', function(e) {
     _removeReplyForm(); 
     _resetSendForm();
   });
   
-  $comment.on('click', '[data-id=reply]', function(e) {
+  $comment.on('click', '[data-icon=reply]', function(e) {
     _cloneSendForm($(this));  
   });
   
-  $comment.on('click', '#sendCommentForm [data-id=send]', function(e) {    
+  $comment.on('click', '#sendCommentForm [data-icon=send]', function(e) {
+    if (! window.userProfile) {
+      login.showUserLock();
+      
+      return;
+    }
+        
     self.sendComment(_getCommentData('add', $(this)));
     
     _resetSendForm();
   });
   
-  $comment.on('click', '#replyCommentForm [data-id=send]', function(e) {    
+  $comment.on('click', '#replyCommentForm [data-icon=send]', function(e) {    
     self.sendComment(_getCommentData('reply', $(this)));  
   });
    
-  $comment.on('click', '[data-id=bold]', function(e) {
+  $comment.on('click', '[data-icon=bold]', function(e) {
     document.execCommand('bold');  
   });
   
-  $comment.on('click', '[data-id=italic]', function(e) {
+  $comment.on('click', '[data-icon=italic]', function(e) {
     document.execCommand('italic');  
   });
 }

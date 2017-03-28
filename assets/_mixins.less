@@ -55,9 +55,29 @@
 		main.fixed {
 			padding-top: @banner + 0px;
 		}
+    
+    .comment-set {
+      form,
+      h3 {
+        &:target::before {
+          height: (@banner * 1.5) - @fixed + 0px;
+          margin: -((@banner * 1.5) - (@fixed)) + 0px 0 0;
+        }  
+      }
+    }
 		
 		main.read.fixed {
 			padding-top: @banner - 180px;
+      
+      .comment-set {
+        form,
+        h3 {
+          &:target::before {
+            height: @nav + 0px;
+            margin: -@nav + 0px 0 0;
+          }  
+        }
+      }
 		}
 		
 		main.fixed.static {

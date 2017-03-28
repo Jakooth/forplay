@@ -1,3 +1,46 @@
+#topVideos article h3 a:last-of-type,
+#topReviews article h3 a:last-of-type,
+#covers article h3 a:last-of-type {
+    font-size: 11pt;  
+    margin-top: 1.04%;
+}
+
+article h3 a:last-of-type {
+  font-size: 11pt;
+  vertical-align: baseline;
+  font-weight: normal;
+  display: block;
+}
+
+[data-icon] {
+  border: none;
+  background: none;
+  cursor: pointer;
+  
+  &:before {
+    &:extend([class^="icon-"] all);
+    margin-right: 4px;
+    vertical-align: baseline;
+  }
+  
+  &[data-icon=comments]::before { &:extend(.icon-comments:before); }
+  &[data-icon=up]::before { &:extend(.icon-arrow-up:before); }
+  &[data-icon=send]::before { &:extend(.icon-send:before); }
+  &[data-icon=clear]::before { &:extend(.icon-times-rectangle:before); }
+  &[data-icon=bold]::before { &:extend(.icon-bold:before); }
+  &[data-icon=italic]::before { &:extend(.icon-italic:before); }
+  &[data-icon=reply]::before { &:extend(.icon-reply:before); }
+  &[data-icon=edit]::before { &:extend(.icon-pencil:before); }
+  &[data-icon=save]::before { &:extend(.icon-send:before); }
+  &[data-icon=cancel]::before { &:extend(.icon-times-rectangle:before); }
+  &[data-icon=delete]::before { &:extend(.icon-trash:before); }
+  &[data-icon=like]::before { &:extend(.icon-star:before); }
+  &[data-icon=like][aria-pressed=true]::before { &:extend(.icon-star-o:before); }
+  &[data-icon=flag]::before { &:extend(.icon-flag:before); }
+  &[data-icon=flag][aria-pressed=true]::before { &:extend(.icon-flag-o:before); }
+  &[data-icon=ban]::before { &:extend(.icon-legal:before); }
+}
+
 .comment-set {
   width: 60%;
   margin-top: 1.25%;
@@ -27,8 +70,6 @@
     &:target::before {
       content: "";
       display: block;
-      height: 200px;
-      margin: -200px 0 0;
     }  
   }
   
@@ -108,43 +149,11 @@
     }
     
     span a {
-      color: @forplay;
       font-weight: bold;
       
       &:hover {
         color: @dark;  
       }
     }
-  }
-  
-  button, 
-  [data-id=up] {
-    &:extend([class^="icon-"] all);
-    
-    border: none;
-    background: none;
-    cursor: pointer;
-    
-    &:before {
-      color: @forplay;
-      margin-right: 4px;
-      vertical-align: bottom;
-    }
-    
-    &[data-id=up]::before { &:extend(.icon-arrow-up:before); }
-    &[data-id=send]::before { &:extend(.icon-send:before); }
-    &[data-id=clear]::before { &:extend(.icon-times-rectangle:before); }
-    &[data-id=bold]::before { &:extend(.icon-bold:before); }
-    &[data-id=italic]::before { &:extend(.icon-italic:before); }
-    &[data-id=reply]::before { &:extend(.icon-reply:before); }
-    &[data-id=edit]::before { &:extend(.icon-pencil:before); }
-    &[data-id=save]::before { &:extend(.icon-send:before); }
-    &[data-id=cancel]::before { &:extend(.icon-times-rectangle:before); }
-    &[data-id=delete]::before { &:extend(.icon-trash:before); }
-    &[data-id=like]::before { &:extend(.icon-star:before); }
-    &[data-id=like][aria-pressed=true]::before { &:extend(.icon-star-o:before); }
-    &[data-id=flag]::before { &:extend(.icon-flag:before); }
-    &[data-id=flag][aria-pressed=true]::before { &:extend(.icon-flag-o:before); }
-    &[data-id=ban]::before { &:extend(.icon-legal:before); }
   }
 }

@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <script src="https://cdn.auth0.com/js/auth0/8.0.4/auth0.min.js"></script>
+    <script src="https://cdn.auth0.com/js/auth0/8.3.0/auth0.min.js"></script>
     <script type="text/javascript">
-		var auth0Silent = new auth0.WebAuth({
-				domain: 'forplay.eu.auth0.com',
-				clientID: 'P8wrSYlMVUu5rZDEFGSqFL18tVfgo9Gz'
-			});
-			
-		var	state = window.location.hash.substr(
-					window.location.hash.indexOf('state='))
-										.split('&')[0]
-										.split('=')[1];
-										
-		var	nonce = auth0Silent.transactionManager
-							   .getStoredTransaction(state).nonce;
-		
-      	auth0Silent.parseHash(window.location.hash + '&nonce=' + nonce, function (err, result) {
-        	parent.postMessage(err || result, window.location.origin + '/');
-      	});
+      var auth0Silent = new auth0.WebAuth({
+        domain: 'forplay.eu.auth0.com',
+        clientID: 'P8wrSYlMVUu5rZDEFGSqFL18tVfgo9Gz'
+      });
+        
+      var	state = window.location.hash.substr(
+                  window.location.hash.indexOf('state='))
+                                      .split('&')[0]
+                                      .split('=')[1];
+                      
+      var	nonce = auth0Silent.transactionManager
+                             .getStoredTransaction(state).nonce;
+      
+      auth0Silent.parseHash(window.location.hash + '&nonce=' + nonce, function (err, result) {
+        parent.postMessage(err || result, window.location.origin + '/');
+      });
     </script>
     </head>
     <body>

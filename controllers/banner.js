@@ -27,6 +27,18 @@ function BannerManager() {
 	this.getCoversHeight = function() {
 		return localStorage.getItem('forplayHeader') == 'static' ? 0 : coversHeight;
 	}
+  
+  /**
+   * This is corresponding to mixins.less.
+   */
+  
+  this.getNavHeight = function() {
+    return (window.screen.height) * 14 / 100;
+  }
+  
+  this.getFixedHeight = function() {
+    return (window.screen.height) * 10 / 100;
+  }
 	
 	this.updateHeaderPosition = function() {
 		var $main = $('main'),
@@ -225,6 +237,24 @@ function BannerManager() {
 	 * EVENTS
 	 */
 	
+  /**
+   * The only way to do the banner animation
+   * is to use fixed height number.
+   * Store them in the banner object from the start.
+   */
+  
+  $(document).on('articleAppended', function(e, articleId) {
+    self.setCoversHeight(Math.floor(self.getCoversHeight() * 1.5));
+  });
+  
+  $(document).on('newsAppended', function(e, articleId) {
+    self.setCoversHeight(0); 
+  });
+  
+  $(document).on('coverAppended', function(e) {   
+    self.setCoversHeight(self.getCoversHeight());
+  });
+  
 	$(window).scroll(function () {
 		self.updateHeaderPosition();
 	});
