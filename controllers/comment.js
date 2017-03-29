@@ -55,6 +55,8 @@ function CommentManager() {
           });
           
       $comment.prepend($(html));
+      $comment.attr('aria-busy', false);
+      $commentForm.attr('aria-hidden', false);
       
       if (location.hash) {
         var offset = $('header').is('.static') ? banner.getFixedHeight() : 
@@ -107,6 +109,9 @@ function CommentManager() {
    
   this.sendComment = function(data) {
     var self = this;
+    
+    $comment.attr('aria-busy', true);
+    $commentForm.attr('aria-hidden', true);
     
     $.ajax({
       type: data.deleted ? "DELETE" : "POST",

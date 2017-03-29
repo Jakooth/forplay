@@ -1,0 +1,35 @@
+[aria-busy=true]::after {
+  content: "";
+  width: 64px;
+  height: 64px;
+  display: block;
+  margin: 0 auto;
+  animation: sk-rotateplane 1.2s infinite ease-in-out, sk-planecolor 12s infinite ease-in-out;
+  transition: background-color 400ms linear;
+  z-index: 1001;
+  position: relative;
+}
+
+@keyframes sk-rotateplane {
+  0% { 
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+  } 50% { 
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+  } 100% { 
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  }
+}
+
+@keyframes sk-planecolor {
+  0% { 
+    background-color: @video;
+  } 25% { 
+    background-color: @review;
+  } 50% { 
+    background-color: @feature;
+  } 100% { 
+    background-color: @news;
+  } 100% { 
+    background-color: @video;
+  }
+}

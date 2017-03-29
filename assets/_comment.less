@@ -46,6 +46,14 @@ article h3 a:last-of-type {
   margin-top: 1.25%;
   margin-left: 20%;
   
+  &[aria-busy=true] {
+    h2,
+    form,
+    ul {
+      display: none;
+    }
+  }
+  
   h2,
   form,
   ul {

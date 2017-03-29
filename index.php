@@ -151,9 +151,9 @@
     <section class="read-set"> 
       <!--ArticlesManager: loadArticles--> 
     </section>
-    <section id="comment" class="comment-set" aria-busy="false"> 
+    <section id="comment" class="comment-set" aria-busy="true"> 
       <!--ArticlesManager: loadArticles-->
-      <form id="sendCommentForm" aria-hidden="false">
+      <form id="sendCommentForm" aria-hidden="true">
         <h3 id="addCommentHeading">Добави нов коментар.</h3>
         <div role="textbox" 
              tabindex="0" 

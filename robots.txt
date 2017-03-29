@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /foradmin/*
 Disallow: /demo/
 
-Sitemap: https://www.forplay.bg/sitemap.xml
+Sitemap: https://www.forplay.bg/sitemap
