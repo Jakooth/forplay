@@ -1,3 +1,77 @@
+/**
+ * This is the notification for new comments.
+ */
+ 
+[role=status] {
+  position: fixed;
+  width: 20%;
+  padding: 1.25%;
+  overflow: hidden;
+  background-color: fade(@dark, 90%);
+  color: @light;
+  right: 0;
+  bottom: 0;
+  z-index: 3000;
+  
+  #notificationClose {
+    &:extend(#userProfile #profileClose all); 
+  }
+  
+  li {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    margin-bottom: 6.25%;
+    
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+    
+    a {
+      color: @light;
+      display: flex;
+      line-height: normal;
+      justify-content: center;
+      flex-direction: column;
+      flex-grow: 1;
+      overflow: hidden;
+      
+      span {
+        display: block;
+        width: 93.75%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        
+        &:first-of-type {
+          font-size: 11pt;
+        }
+        
+        &:last-of-type {
+          font-size: 11pt;
+          color: @light;
+        }
+      }
+    }
+  }
+  
+  img {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    vertical-align: middle;
+    margin-right: 6.25%;
+  }
+  
+  h2 {
+    .clip;
+  }
+}
+
+/**
+ * This is the styling for total comments for articles.
+ */
+
 #topVideos article h3 a:last-of-type,
 #topReviews article h3 a:last-of-type,
 #covers article h3 a:last-of-type {
@@ -11,6 +85,10 @@ article h3 a:last-of-type {
   font-weight: normal;
   display: block;
 }
+
+/**
+ * These are the icons realted to comments.
+ */
 
 [data-icon] {
   border: none;
@@ -40,6 +118,10 @@ article h3 a:last-of-type {
   &[data-icon=flag][aria-pressed=true]::before { &:extend(.icon-flag-o:before); }
   &[data-icon=ban]::before { &:extend(.icon-legal:before); }
 }
+
+/**
+ * And finally the comment set section.
+ */
 
 .comment-set {
   width: 60%;
@@ -106,7 +188,14 @@ article h3 a:last-of-type {
     border-left: 3px solid #ccc;
     
     &[data-banned=true] {
-      color: fade(@dark, 0);
+      [contenteditable][aria-readonly=true] {
+        color: transparent;
+        background-image: url(/assets/helpers/ban.jpg);
+        min-height: 128px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center 35%;
+      }
     }
     
     &:nth-of-type(2n - 1) {

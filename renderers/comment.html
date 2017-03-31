@@ -1,6 +1,5 @@
 <h2>Има <strong>{{:comments.length}}</strong> коментара. <a href="#addCommentHeading">Добави твой.</a></h2>{{if comments.length}}
-<ul>
-  {{for comments}}
+<ul>{{for comments}}
   <li id="comment{{:#data.comment_id}}"
       data-id="{{:#data.comment_id}}"
       data-parent="{{:#data.parent_comment_id}}"
@@ -15,7 +14,8 @@
            contenteditable="false" 
            aria-multiline="true" 
            aria-readonly="true">{{:~unescape(#data.comment)}}</div>
-      <div role="toolbar">{{if #data.updated}} <span>Обновен на <a 
+      <div role="toolbar">{{if #data.updated && #data.banned == 0}} <span>Обновен на <a 
+           href="#{{:#data.comment_id}}">{{:~formatDate(#data.updated)}}</a></span>{{else #data.banned == 1}} <span>Цензуриран на <a 
            href="#{{:#data.comment_id}}">{{:~formatDate(#data.updated)}}</a></span>{{else}} <span>Написан на <a 
            href="#{{:#data.comment_id}}">{{:~formatDate(#data.created)}}</a></span>{{/if}}{{if #data.parent_comment_id}} <a 
            data-icon="up"
@@ -35,6 +35,5 @@
         <button data-icon="italic" aria-hidden="true" type="button"><span>Италик</span></button>
       </div>
     </form>
-  </li>
-  {{/for}}
+  </li>{{/for}}
 </ul>{{/if}}

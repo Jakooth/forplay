@@ -59,6 +59,27 @@ function UtilsManager() {
 			   d.getMinutes() +
 			   ':00';
 	}
+  
+  /**
+   * There is more advanced function for articles.
+   * Making a generic one, so we can use the load everywhere.
+   */
+  
+  this.replaceProxyImages = function($target) {
+    $target.find('img').on('load', function() {
+      var $img = $(this);
+      
+      if ($img.data('proxy')) {
+        var	src = utils.formatTimThumbString($img.data('img'),
+                                             Math.round($img.width()), 
+                                             Math.round($img.height()));
+		
+        $img.data('proxy', false);
+        $img.attr('data-proxy', $img.data('proxy'));
+        $img.attr('src', src);
+      }
+    });
+	}
 	
 	this.convertSVG = function($img) {		
 		var	imgID = $img.attr('id'),

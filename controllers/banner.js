@@ -23,6 +23,16 @@ function BannerManager() {
 		
 		self.updateHeaderPosition();
 	}
+  
+  this.getCoversCurrentHeight = function(h) {
+    var $main = $('main');
+    
+    if ($main.hasClass('read')) {
+      return $('section.cover').height();
+    } else {
+      return $('#covers').height();
+    }
+	}
 	
 	this.getCoversHeight = function() {
 		return localStorage.getItem('forplayHeader') == 'static' ? 0 : coversHeight;
@@ -99,8 +109,8 @@ function BannerManager() {
 	
 	this.nextCover = function(n) {
 		var $covers = $('#covers .cover'),
-			$thumbs = $('#thumbnails .thumbnail'),
-			$c3, $cover, $thumb;
+        $thumbs = $('#thumbnails .thumbnail'),
+        $c3, $cover, $thumb;
 			
 		var l = $covers.length,
 			i, order;
@@ -146,11 +156,11 @@ function BannerManager() {
 	
 	this.prevCover = function(n) {
 		var $covers = $('#covers .cover'),
-			$thumbs = $('#thumbnails .thumbnail'),
-			$c3, $cover, $thumb;
+        $thumbs = $('#thumbnails .thumbnail'),
+        $c3, $cover, $thumb;
 			
 		var l = $covers.length,
-			i, order;
+			  i, order;
 		
 		for (i = 0; i <= l; i++) {
 			$cover = $covers.eq(i),
@@ -251,7 +261,7 @@ function BannerManager() {
     self.setCoversHeight(0); 
   });
   
-  $(document).on('coverAppended', function(e) {   
+  $(document).on('coverAppended', function(e) {
     self.setCoversHeight(self.getCoversHeight());
   });
   
@@ -277,11 +287,11 @@ function BannerManager() {
 		}
 		
 		var $this = $(this),
-			$c1 = $('#covers article:eq(1)'),
-			$c2 = $('#covers article:eq(2)'),
-			$c3 = $('#covers article:eq(0)'),
-			$c4 = $('#covers article:eq(3)'),
-			$c5 = $('#covers article:eq(4)');
+        $c1 = $('#covers article:eq(1)'),
+        $c2 = $('#covers article:eq(2)'),
+        $c3 = $('#covers article:eq(0)'),
+        $c4 = $('#covers article:eq(3)'),
+        $c5 = $('#covers article:eq(4)');
 		
 		if ($this.index() > 2) {
 			$c3.addClass('unfocus unfocus-left');
@@ -318,11 +328,11 @@ function BannerManager() {
 		}														 
 																 
 		var $this = $(this),
-			$c1 = $('#covers article:eq(1)'),
-			$c2 = $('#covers article:eq(2)'),
-			$c3 = $('#covers article:eq(0)'),
-			$c4 = $('#covers article:eq(3)'),
-			$c5 = $('#covers article:eq(4)');
+        $c1 = $('#covers article:eq(1)'),
+        $c2 = $('#covers article:eq(2)'),
+        $c3 = $('#covers article:eq(0)'),
+        $c4 = $('#covers article:eq(3)'),
+        $c5 = $('#covers article:eq(4)');
 		
 		$c3.removeClass('unfocus unfocus-left');
 		$c3.removeClass('unfocus unfocus-right');

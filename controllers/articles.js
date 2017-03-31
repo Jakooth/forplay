@@ -64,15 +64,14 @@ function ArticlesManager() {
 		 */		
 			
 			main = isCaret && 
-				   $img.parents('[data-priority=review]').index() != 2 ? $img.data('caret') 
-				   												  	   : $img.data('main'),
-			ratio = utils.isMobile() ? 1 * (16/9) 
-									 : 1,
-			height = isCaret ? $img.width() * ratio 
-							 : $img.height() * ratio,
+             $img.parents('[data-priority=review]').index() != 2 ? 
+             $img.data('caret') : 
+             $img.data('main'),
+			ratio = utils.isMobile() ? 1 * (16/9) : 1,
+			height = isCaret ? $img.width() * ratio : $img.height() * ratio,
 			src = utils.formatTimThumbString(main,
-											 Math.round($img.width() * ratio), 
-											 Math.round(height));
+                                       Math.round($img.width() * ratio), 
+                                       Math.round(height));
 		
 		$img.data('proxy', false);
 		$img.attr('data-proxy', $img.data('proxy'));
@@ -411,10 +410,10 @@ function ArticlesManager() {
            .insertAfter('.read-set .layout.text:last .center-col > p:last-of-type')
            .addClass('hype');
 		}
-    
-    $(document).trigger('articleAppended', [data.article_id]);
 		
 		loadBackground($cover, $cover);
+    
+    $(document).trigger('articleAppended', [data.article_id]);
 	}
 	
 	var appendNews = function(html, cover, data) {
@@ -493,10 +492,10 @@ function ArticlesManager() {
 				 .insertAfter('.read-set .layout.text:last .center-col > p:last-of-type')
 				 .addClass('hype');
 		}
-    
-    $(document).trigger('newsAppended', [data.article_id]);
 		
 		loadBackground($cover, $cover);
+    
+    $(document).trigger('newsAppended', [data.article_id]);
 	}
 	
 	/**
@@ -554,6 +553,8 @@ function ArticlesManager() {
 				loadImage($(this));
 			}
 		});
+    
+    $(document).trigger('portalAppended', [data.article_id]);
 	}
 	
 	/**
@@ -626,6 +627,8 @@ function ArticlesManager() {
 				loadImage($(this));
 			}
 		});
+    
+    $(document).trigger('forplayAppended', [data.article_id]);
 	}
 	
 	var appendCovers = function(html, anyPriority) {

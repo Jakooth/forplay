@@ -1,0 +1,12 @@
+<div role="status" aria-live="polite" aria-hidden="{{:notifications.length ? false : true}}">
+  <h2>Нови коментари</h2>{{if notifications.length}}
+  <button id="notificationClose" type="button"><span>Затвори</span></button>
+  <ul>{{for notifications}}
+    <li><img data-proxy="true"
+             data-img="{{:#data.caret_img}}"
+             alt="{{:#data.title}}" 
+             src="/assets/helpers/9-9.png" /><a 
+             href="/articles/{{:#data.type}}/{{:#data.subtype}}/{{:#data.article_id}}/{{:#data.url}}#comment{{:#data.latest}}Form"><span>{{:#data.title}}</span><span 
+             data-icon="comments">{{:#data.unread}} нови коментара</span></a></li>{{/for}}
+  </ul>{{/if}}
+</div>

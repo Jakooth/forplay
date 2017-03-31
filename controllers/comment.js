@@ -28,9 +28,36 @@ function CommentManager() {
   
   this.hideComments = function() {
     $commentForm.attr('aria-hidden', true);
-  } 
+  }
+  
+  this.getNewComments = function(articleId, profileId) {
+    var params = {};
+    
+    if (articleId) params.articleId = articleId;
+    if (profileId) params.profileId = profileId;
+    
+    var result = $.get(encodeURI(commentAPI + '?' + $.param(params))),
+        renderer = $.get('/renderers/notification.html');
+  
+    $.when(result, renderer).done(function(result, renderer) {
+      var data = result[0].length ? JSON.parse(result[0]) : result,
+          tmpls = $.templates({
+            notificationTemplate: renderer[0]
+          }),
+          html = $.templates.notificationTemplate
+                            .render(data);
+          
+      $('body').append($(html));
+      
+      utils.replaceProxyImages($('[role=status]'));
+    }).fail(function() {
+      console.log("Failed to load notifications.");   
+    });
+  }
    
   this.getComments = function(articleId) {
+    var self = this;
+    
     var params = '?articleId=' + articleId,
         result = $.get(encodeURI(commentAPI + params)),
         renderer = $.get('/renderers/comment.html');
@@ -58,9 +85,9 @@ function CommentManager() {
       $comment.attr('aria-busy', false);
       $commentForm.attr('aria-hidden', false);
       
-      if (location.hash) {
+      if (location.hash) { 
         var offset = $('header').is('.static') ? banner.getFixedHeight() : 
-                                                 banner.getCoversHeight();
+                                                 banner.getCoversCurrentHeight();
         
         $(document).scrollTop($(location.hash).offset().top - offset);
       }
@@ -71,9 +98,9 @@ function CommentManager() {
        * Or something went terribly wrong and nothing is loaded.
        */
       
-      if (location.hash) {
+      if (location.hash) { 
         var offset = $('header').is('.static') ? banner.getFixedHeight() : 
-                                                 banner.getCoversHeight();
+                                                 banner.getCoversCurrentHeight();
         
         $(document).scrollTop($(location.hash).offset().top - offset);
         
@@ -102,7 +129,7 @@ function CommentManager() {
        
       login.increaseFailedLogins(); 
       login.renewUserProfile(function() { 
-          self.getComments(articleId) 
+          self.getComments(articleId); 
       });         
     });  
   }
@@ -136,6 +163,18 @@ function CommentManager() {
       console.log("Failed to post comment.");
     });
   }
+  
+  this.showNotification = function() {
+		$profile = $('[role=status]');
+		
+		$profile.attr('aria-hidden', false);
+	}
+	
+	this.hideNotification = function() {
+		$profile = $('[role=status]');
+		
+		$profile.attr('aria-hidden', true);
+	}
 
 
 
@@ -324,6 +363,10 @@ function CommentManager() {
   /**
    * EVENTS
    */
+   
+  $('body').on('click', '#notificationClose', function(e) {		
+		self.hideNotification();
+	}); 
   
   $comment.on('click', 'h2 > a', function(e) {
     if (! window.userProfile) {
@@ -336,6 +379,20 @@ function CommentManager() {
       $(this).blur();
       
       login.showUserLock();
+    }
+  });
+  
+  $(document).on('forplayAppended portalAppended', function(e, articleId) {
+    if (window.userProfile) {
+      
+      /**
+       * Any string or number will work as profile_id.
+       * This is a workaround in case the read comments are called,
+       * before the authentications is finalized.
+       * In fact the porfile_id is get on API side.
+       */
+      
+      self.getNewComments(false, window.userProfile.profile_id || 'anonymous');
     }
   });
    
