@@ -95,7 +95,7 @@ article h3 a:last-of-type {
   background: none;
   cursor: pointer;
   
-  &:before {
+  &::before {
     &:extend([class^="icon-"] all);
     margin-right: 4px;
     vertical-align: baseline;
@@ -132,7 +132,7 @@ article h3 a:last-of-type {
     h2,
     form,
     ul {
-      display: none;
+      opacity: 0;
     }
   }
   

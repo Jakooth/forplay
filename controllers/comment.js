@@ -80,10 +80,12 @@ function CommentManager() {
             indentComment: _indentComment,
             getParentId: _getParentId
           });
+       
+      _clearComments();
           
       $comment.prepend($(html));
       $comment.attr('aria-busy', false);
-      $commentForm.attr('aria-hidden', false);
+      $commentForm.attr('aria-hidden', false); 
       
       if (location.hash) { 
         var offset = $('header').is('.static') ? banner.getFixedHeight() : 
@@ -147,8 +149,7 @@ function CommentManager() {
       data: JSON.stringify(data),
       dataType: 'json'
     }).done(function (data, textStatus, jqXHR) {
-      _clearComments();
-      
+    
       /**
        * Remove the hash anchor to avoid scroll.
        */
