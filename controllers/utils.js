@@ -399,7 +399,7 @@ function UtilsManager() {
 	 */
 	
 	this.formatTimThumbString = function(tag, width, height) {
-		var service = 'https://forplay.bg/forapi/phplib/timthumb/timthumb.php',
+		var service = 'https://forplay.bg/forapi/phplib/mthumb/mthumb.php',
 			extras = '';
 		
 		if (tag.indexOf('-caret') >= 0) extras = '_extras/';
