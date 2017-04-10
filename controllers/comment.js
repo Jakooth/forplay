@@ -443,6 +443,12 @@ function CommentManager() {
   });
   
   $comment.on('click', '[data-icon=reply]', function(e) {
+    if (! window.userProfile) {
+      login.showUserLock();
+      
+      return;
+    }
+    
     _cloneSendForm($(this));  
   });
   

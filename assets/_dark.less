@@ -130,3 +130,37 @@ body.dark {
     color: @light;
   }
 }
+
+body.dark {
+  .comment-set {
+    li {
+      background: linear-gradient(90deg, #222222, #000000);
+      border-left: 3px solid #333;
+      border-bottom: 1px solid #333;
+      
+      &:nth-of-type(2n - 1) {
+        background: linear-gradient(90deg, #000000, #000000);
+      }
+      
+      &:first-of-type {
+        border-top: 1px solid #333;
+      }
+    }
+    
+    [contenteditable] {
+      color: @light;
+      
+      &[aria-readonly=false] {
+        border: 1px solid fade(@light, 30%);
+      }
+    }
+    
+    [role=toolbar] {
+      span,
+      button,
+      a {
+        color: @light;
+      }
+    }
+  }
+}

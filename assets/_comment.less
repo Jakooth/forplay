@@ -6,6 +6,7 @@
   position: fixed;
   width: 20%;
   padding: 1.25%;
+  padding-bottom: 0;
   overflow: hidden;
   background-color: fade(@dark, 90%);
   color: @light;
@@ -23,8 +24,13 @@
     align-content: center;
     margin-bottom: 6.25%;
     
-    &:last-of-type {
-      margin-bottom: 0;
+    /**
+     * Fetch all notifications, 
+     * but show only limited number with CSS.
+     */
+    
+    &:nth-of-type(n + 6) {
+      display: none;
     }
     
     a {
@@ -140,7 +146,12 @@ article h3 a:last-of-type {
   form,
   ul {
     padding: 2.08%;
-  } 
+  }
+  
+  ul,
+  li {
+    list-style: none;
+  }
   
   h2 {
     width: 100%;
@@ -185,7 +196,6 @@ article h3 a:last-of-type {
     background: linear-gradient(90deg, #fcfcfc, #fafafa);
     border-left: 3px solid #ccc;
     border-bottom: 1px solid #eee;
-    border-left: 3px solid #ccc;
     
     &[data-banned=true] {
       [contenteditable][aria-readonly=true] {
@@ -253,4 +263,155 @@ article h3 a:last-of-type {
       }
     }
   }
+}
+
+@media 
+only screen and (max-width: 1279px) {
+  [role=status] {
+    display: none;
+  }
+  
+  .comment-set {
+    width: 100%;
+    margin-top: 6.25%;
+    margin-left: 0;
+    
+    ul {
+      padding: 0;
+    }
+    
+    li,
+    form {
+      padding: 6.25%;
+    }
+   
+    li {
+      img {
+        margin-right: 6.25%;
+      }
+    }
+    
+    [contenteditable] {
+      margin: 6.25% 0;
+      
+      &[aria-readonly=false] {
+        padding: 3.125%; 
+      }
+    }
+    
+    [role=toolbar] {
+      button,
+      a {
+        margin-right: 3.125%;
+      }
+    }
+    
+    h2 {
+      width: 100%;
+      margin: 6.25% 0;
+      margin-bottom: 0;
+      
+      /**
+       * Duplicate of .read-set .center-col h2,
+       * but for some reason I cannot extend.
+       */
+      
+      padding: 6.25%;
+      word-break: break-word;
+      clear: both;
+  
+      /**
+       * Duplicate of .layout .center-col h2,
+       * but for some reason I cannot extend.
+       */
+      
+      font-size: 30pt;
+      color: fade(@grey, 50%);
+      text-transform: uppercase;
+      
+      * {
+        font-size: 30pt;
+        color: fade(@grey, 50%);
+        text-transform: uppercase;
+      }
+    }
+    
+    h3 {
+      &:extend(.read-set h3 all);
+      
+      margin: 6.25% 0;
+    }
+  }
+}
+
+/**
+ * Colors
+ */
+ 
+.review h3 a:last-of-type {
+  color: @review !important;
+}
+
+.feature h3 a:last-of-type {
+  color: @feature !important;
+}
+
+.news h3 a:last-of-type {
+  color: @news !important;
+}
+
+.video h3 a:last-of-type {
+  color: @video !important;
+}
+ 
+.review [data-icon],
+main[data-subtype=review] .comment-set [data-icon] {
+  &:before {
+    color: @review !important;
+  }
+}
+
+.feature [data-icon],
+main[data-subtype=feature] .comment-set [data-icon] {
+  &:before {
+    color: @feature !important;
+  }
+}
+
+.news [data-icon],
+main[data-subtype=news] .comment-set [data-icon] {
+  &:before {
+    color: @news !important;
+  }
+}
+
+.video [data-icon],
+main[data-subtype=video] .comment-set [data-icon] {
+  &:before {
+    color: @video !important;
+  }
+}
+
+main[data-subtype=review] section > h2 a,
+main[data-subtype=review] section > h2 strong,
+main[data-subtype=review] [role=toolbar] a {
+  color: @review !important;
+}
+
+main[data-subtype=feature] section > h2 a,
+main[data-subtype=feature] section > h2 strong,
+main[data-subtype=feature] [role=toolbar] a {
+  color: @feature !important;
+}
+
+main[data-subtype=news] section > h2 a,
+main[data-subtype=news] section > h2 strong,
+main[data-subtype=news] [role=toolbar] a {
+  color: @news !important;
+}
+
+main[data-subtype=video] section > h2 a,
+main[data-subtype=video] section > h2 strong,
+main[data-subtype=video] [role=toolbar] a {
+  color: @video !important;
 }

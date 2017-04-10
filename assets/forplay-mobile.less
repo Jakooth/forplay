@@ -7,6 +7,7 @@
 @import "_colors.less";
 @import "_profile.less";
 @import "_auth0.less";
+@import "csslib/icomoon-iconic-font.less";
 
 
 
@@ -664,7 +665,7 @@ body.nav .nav-set .user {
  */
 
 main > h1,
-main section > h2,
+main section:not(.comment-set) > h2,
 main .box-placeholder > h2 {
 	.clip;
 }
@@ -755,6 +756,10 @@ main .box-placeholder > h2 {
 .article-set article ul {
 	display: none;
 }
+
+/**
+ * Colors
+ */
 
 .review .img-proxy::after {
 	background-color: @review;
@@ -1333,3 +1338,9 @@ only screen and (width: 896px) and (height: 512px) {
 		height: 512px;
 	}
 }
+
+/**
+ * ADD-INS
+ */
+
+@import "_comment.less";

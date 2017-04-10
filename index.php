@@ -5,8 +5,8 @@
 <meta content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=yes" name="viewport">
 <?php include ('meta.php'); ?>
 <link rel="stylesheet" type="text/css" href="/jslib/video-js/video-js.css" />
-<link media="only screen and (min-width: 1280px)" rel="stylesheet" type="text/css" href="/assets/forplay.css?v=3.0.2" />
-<link media="only screen and (max-width: 1279px)" rel="stylesheet" type="text/css" href="/assets/forplay-mobile.css?v=3.0.2" />
+<link media="only screen and (min-width: 1280px)" rel="stylesheet" type="text/css" href="/assets/forplay.css?v=3.5.0" />
+<link media="only screen and (max-width: 1279px)" rel="stylesheet" type="text/css" href="/assets/forplay-mobile.css?v=3.5.0" />
 <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Open+Sans:300,800|Poiret+One&subset=cyrillic,latin' />
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">

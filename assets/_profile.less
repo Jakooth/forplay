@@ -190,7 +190,7 @@
 }
 
 @media
-only screen and (max-width: 768px) {
+only screen and (max-width: 1279px) {
 	#userProfile {
 		form {
 			width: 100%;
@@ -221,4 +221,32 @@ only screen and (max-width: 768px) {
     }
 	}
 }
+
+/**
+ * Colors
+ */
+ 
+body[data-subtype=review] header.read .nav-set .user button,
+body[data-subtype=review] #userProfile .switch input:checked + .slider,
+body[data-subtype=review] #userProfile [role=toolbar] button {
+  background-color: fade(@review, 50%);
+}
+
+body[data-subtype=feature] header.read .nav-set .user button,
+body[data-subtype=feature] #userProfile .switch input:checked + .slider,
+body[data-subtype=feature] #userProfile [role=toolbar] button {
+  background-color: fade(@feature, 50%);
+}
+
+body[data-subtype=news] header.read .nav-set .user button,
+body[data-subtype=news] #userProfile .switch input:checked + .slider,
+body[data-subtype=news] #userProfile [role=toolbar] button {
+  background-color: fade(@news, 50%);
+}
+
+body[data-subtype=video] header.read .nav-set .user button,
+body[data-subtype=video] #userProfile .switch input:checked + .slider,
+body[data-subtype=video] #userProfile [role=toolbar] button {
+  background-color: fade(@video, 50%);
+} 
 

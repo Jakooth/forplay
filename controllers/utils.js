@@ -399,8 +399,8 @@ function UtilsManager() {
 	 */
 	
 	this.formatTimThumbString = function(tag, width, height) {
-		var service = 'https://forplay.bg/forapi/phplib/mthumb/mthumb.php',
-			extras = '';
+		var service = 'https://forplay.bg/forapi/phplib/timthumb/timthumb.php',
+			  extras = '';
 		
 		if (tag.indexOf('-caret') >= 0) extras = '_extras/';
 		
@@ -420,7 +420,7 @@ function UtilsManager() {
 	
 	this.formatThumborString = function(tag, width, height) {
 		var service = 'http://192.168.56.101:8888/unsafe/',
-			extras = '';
+			  extras = '';
 		
 		if (tag.indexOf('-caret') >= 0) extras = '_extras/';
 		
