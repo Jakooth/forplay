@@ -376,7 +376,7 @@ header.fixed {
 	position: fixed;
 	z-index: 1000;
 	background-color: @light;
-	box-shadow: 0 60px 100px 30px fade(@light, 100%);
+	box-shadow: 0 30px 100px 30px fade(@light, 100%);
 }
 
 header.read {
@@ -407,7 +407,6 @@ main.fixed #read::after {
 	left: 0;
 	right: 0;
 	background-color: @light;
-	box-shadow: 0 20px 100px 50px fade(@light, 100%);
 }
 
 main.fixed.static #read::after {
@@ -906,7 +905,7 @@ header.read #forPlay {
 	width: 60%;
 	float: left;
 	padding: 0 1.25%;
-	background-color: none;
+	background-color: transparent;
 	z-index: 200;
 	position: absolute;
 	height: 64px;
@@ -987,8 +986,8 @@ header.read .nav-set li a {
 	float: left;
 	text-align: left;
 	text-transform: uppercase;
-	padding-right: 3.125%;
-  margin-right: 3.125%;
+	padding-right: 2.08%;
+  margin-right: 2.08%;
   border-bottom: 0;
   position: relative;
   
@@ -1093,6 +1092,7 @@ header.read .nav-set nav {
 	display: flex;
   justify-content: center;
   align-items: center;
+  pointer-events: all;
 }
 
 header.read .nav-set .special {
@@ -1117,7 +1117,7 @@ header.read .nav-set .special {
 	border: none; 
 	background: none;
 	appearance: none;
-	width: 100%;
+	width: 93.75%;
 	height: 64px;
 	filter: invert(0);
 	cursor: pointer;
@@ -1230,6 +1230,18 @@ header.read .nav-set .user button b {
 .nav-set h3 span,
 .nav-set button span {
 	.clip
+}
+
+header.collapsed {
+  &:extend(header.read all);
+  
+  .nav-set {
+    pointer-events: none;
+  }
+  
+  .cover-set {
+    display: block;
+  }
 }
 
 /**

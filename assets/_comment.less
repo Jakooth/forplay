@@ -189,6 +189,19 @@ article h3 a:last-of-type {
       overflow: hidden;
       border: 1px solid fade(@dark, 30%);
     }
+    
+    img {
+      height: auto;
+      width: auto;
+      max-width: 320px;
+      max-height: 320px;
+      display: inline;
+      vertical-align: baseline;
+    }
+    
+    a {
+      text-decoration: underline !important; 
+    }
   }
   
   li {
@@ -220,14 +233,14 @@ article h3 a:last-of-type {
       padding: 0;
     }
     
-    img {
+    > b img {
       width: 48px;
       height: 48px;
       margin-right: 2.08%;
     }
     
-    a,
-    img {
+    > b a,
+    > b img {
       display: inline-block;
       vertical-align: middle;
     }
@@ -286,7 +299,7 @@ only screen and (max-width: 1279px) {
     }
    
     li {
-      img {
+      > b img {
         margin-right: 6.25%;
       }
     }
@@ -296,6 +309,10 @@ only screen and (max-width: 1279px) {
       
       &[aria-readonly=false] {
         padding: 3.125%; 
+      }
+      
+      img {
+        max-width: 100%;
       }
     }
     

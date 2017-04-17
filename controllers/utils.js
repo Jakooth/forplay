@@ -171,6 +171,18 @@ function UtilsManager() {
 	 * There is the same in Fortag.
 	 */
    
+  this.stripHTMLTags = function($parent, exceptions) {
+    var $elements = $parent.find('*').not(exceptions);
+    
+    for (var i = $elements.length - 1; i >= 0; i --) {
+      var e = $elements[i];
+      
+      $(e).replaceWith(e.innerHTML);
+    }
+    
+    return $parent.html();
+  } 
+   
   this.escape = function(data) {
 		if (!data) return null;
 		if ((typeof data === 'number') && (data % 1 === 0)) return data;

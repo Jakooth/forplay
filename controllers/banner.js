@@ -76,13 +76,13 @@ function BannerManager() {
 		if (!utils.isMobile()) {
 			if ($(window).scrollTop() >= (coversHeight * scrollFixedRatio) / 100) {
 				$covers.css('height', '');
-				$('header').addClass('fixed');
-				$('main').addClass('fixed');
+				$('header').addClass('fixed collapsed');
+				$('main').addClass('fixed collapsed');
 				
 				return false;
 			} else {
-				$('header').removeClass('fixed');
-				$('main').removeClass('fixed');
+				$('header').removeClass('fixed collapsed');
+				$('main').removeClass('fixed collapsed');
 			}
 			
 			$covers.css('height', coversHeight - $(window).scrollTop());
@@ -367,7 +367,9 @@ function BannerManager() {
 	});
 	
 	$('nav').on('click', 'h3', function (e) {
-		if ($('header').hasClass('read') || utils.isMobile()) {
+		if ($('header').hasClass('read') || 
+        $('header').hasClass('collapsed') || utils.isMobile()) {
+          
 			$('body').toggleClass('nav');
 		}
 	});

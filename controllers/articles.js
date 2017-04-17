@@ -87,10 +87,10 @@ function ArticlesManager() {
 		 */
 		
 		var widthRatio = utils.isMobile() ? 1 : 16/9,
-			heihgtRatio = utils.isMobile() ? 1 * (16/9) : 1,
-			src = utils.formatTimThumbString($img.data('main'),
-											 Math.round($div.outerWidth() * heihgtRatio), 
-											 Math.round(($div.outerWidth() / widthRatio) * heihgtRatio));
+        heihgtRatio = utils.isMobile() ? 1 * (16/9) : 1,
+        src = utils.formatTimThumbString($img.data('main'),
+               Math.round($div.outerWidth() * heihgtRatio), 
+               Math.round(($div.outerWidth() / widthRatio) * heihgtRatio));
 		
 		$img.data('proxy', false);
 		$img.attr('data-proxy', $img.data('proxy'));

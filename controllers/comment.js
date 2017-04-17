@@ -228,7 +228,7 @@ function CommentManager() {
     return Number(path[path.length - 2]);
   }
   
-  var _getComment = function($button) {
+  var _getComment = function($button) {    
     return $button.parents('form').find('[contenteditable]').html();
   }
   
@@ -314,7 +314,7 @@ function CommentManager() {
         
         break;
       case 'reply':
-        comment.articleId = self._getArticleId();
+        comment.articleId = self._getArticleId();        
         comment.comment = utils.escape(_getComment($this));
         comment.parentCommentId = utils.escape(_getParentComment($this));
         
