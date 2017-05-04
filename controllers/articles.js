@@ -119,7 +119,7 @@ function ArticlesManager() {
 	var loadArticles = function(data, appender, covers, params) {
 		var params = params ? '?' + $.param(params) : '?offset=0',
         get1 = $.get(encodeURI(forplayAPI + params)),
-        get2 = $.get('/renderers/article.html');
+        get2 = $.get('/renderers/article.html?v=3.5.0');
 		
 		$.when(get1, get2).done(function(data1, data2) {
 			var data = data1[0].length ? JSON.parse(data1[0]) : data1,

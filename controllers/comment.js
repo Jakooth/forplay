@@ -37,7 +37,7 @@ function CommentManager() {
     if (profileId) params.profileId = profileId;
     
     var result = $.get(encodeURI(commentAPI + '?' + $.param(params))),
-        renderer = $.get('/renderers/notification.html');
+        renderer = $.get('/renderers/notification.html?v=3.5.0');
   
     $.when(result, renderer).done(function(result, renderer) {
       var data = result[0].length ? JSON.parse(result[0]) : result,
@@ -60,7 +60,7 @@ function CommentManager() {
     
     var params = '?articleId=' + articleId,
         result = $.get(encodeURI(commentAPI + params)),
-        renderer = $.get('/renderers/comment.html');
+        renderer = $.get('/renderers/comment.html?v=3.5.0');
     
     lastArticleId = articleId;
       
