@@ -476,8 +476,12 @@ function ArticlesManager() {
 		 * which eventually will genreate more views in the counter.
 		 */
 		
-		$('#read .Player:eq(0) a[data-tech=youtube]').each(function() {
-			player.embedVideo($(this), false);
+		$('#read .Player a[data-tech=youtube]').each(function() {
+      var $this = $(this);
+      
+      $this.parents('.Player').attr('aria-busy', true);
+      
+			player.createStandaloneVideo($this);
 		});		
 		
 		appendAsides(data);

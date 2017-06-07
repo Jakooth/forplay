@@ -40,6 +40,44 @@ function PlayerManager() {
 			});
 		});
 	}
+  
+  function _createStandaloneVideo($a) {
+	  var $player = $a.parents('.Player'), 
+        $img = $player.find('img');
+
+		var url = $a.data('video'),
+        tech = $a.data('tech'),
+        poster = $img.attr('src');
+    
+		var attributes = {
+			'id': $player.prop('id') + '_forVideo',
+			'class': 'video-js vjs-default-skin'
+		}
+		
+		$player.append($('<video />').attr(attributes));
+		
+		videojs(attributes.id, {
+								 "controls": true,
+								 "autoplay": false,
+								 "ytcontrols": true,
+								 "playsInline": true,
+								 "preload": "auto",
+								 "techOrder": [tech],
+								 "height": "100%",
+								 "width": "100%",
+								 "src": url,
+								 "poster": poster}, function () {	
+			
+			this.show();
+			this.src(url);
+      
+      $player.attr('aria-busy', false);
+			
+			this.one('ended', function() {
+				this.hide();
+			});
+		});
+	}
 	
 	function swapVideos(s, l) {
 		var $sProxy = s.find('.img-proxy'),
@@ -81,13 +119,13 @@ function PlayerManager() {
 	
 	function _embedVideo($player, autoplay) {
 		var $this = $player, 
-			$img = $this.find('img'),
-			$player = $this.parents('.Player');
-			$mainPlayer = $('#player_' + $this.data('player'));
+        $img = $this.find('img'),
+        $player = $this.parents('.Player');
+        $mainPlayer = $('#player_' + $this.data('player'));
 			
 		var url = $this.data('video'),
-			tech = $this.data('tech'),
-			poster = $img.attr('src');													
+        tech = $this.data('tech'),
+        poster = $img.attr('src');													
 		
 		/**
 		 * Check if the player is running to prevent clicks;
@@ -129,7 +167,7 @@ function PlayerManager() {
 		  
 		if (!$player.prop('id')) {
 			swapVideos($player.parents('article'), 
-					   $mainPlayer.parents('article'));		
+					       $mainPlayer.parents('article'));		
 		}
 		
 		/**
@@ -170,6 +208,10 @@ function PlayerManager() {
 	this.embedVideo = function($player, autoplay) {
 		_embedVideo($player, autoplay)
 	}
+  
+  this.createStandaloneVideo = function($player) {
+		_createStandaloneVideo($player)
+	}
 	
 	
 	
@@ -203,12 +245,12 @@ function PlayerManager() {
 	});
 	  
 	$('body').on('click', '#topVideos .Player a, ' + 
-						  '[data-subtype=video] #read .Player a[data-tech!=youtube], ' + 
-						  '[data-subtype=news] #read .Player a[data-tech!=youtube], ' + 
-						  '[data-subtype=news] #read .Player:gt(0) a[data-tech=youtube], ' + 
-						  '[data-subtype=video] #read .Player:gt(0) a[data-tech=youtube], ' +
-						  '[data-subtype=review] #read .Player a, ' + 
-						  '[data-subtype=feature] #read .Player a', function (e) {
+                        '[data-subtype=video] #read .Player a[data-tech!=youtube], ' + 
+                        '[data-subtype=news] #read .Player a[data-tech!=youtube], ' + 
+                        '[data-subtype=news] #read .Player a[data-tech=youtube], ' + 
+                        '[data-subtype=video] #read .Player a[data-tech=youtube], ' +
+                        '[data-subtype=review] #read .Player a, ' + 
+                        '[data-subtype=feature] #read .Player a', function (e) {
 							  
 		var $this = $(this);
 		

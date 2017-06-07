@@ -5,8 +5,8 @@
 <meta content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=yes" name="viewport">
 <?php include ('meta.php'); ?>
 <link rel="stylesheet" type="text/css" href="/jslib/video-js/video-js.css" />
-<link media="only screen and (min-width: 1280px)" rel="stylesheet" type="text/css" href="/assets/forplay.css?v=3.5.5" />
-<link media="only screen and (max-width: 1279px)" rel="stylesheet" type="text/css" href="/assets/forplay-mobile.css?v=3.5.5" />
+<link media="only screen and (min-width: 1280px)" rel="stylesheet" type="text/css" href="/assets/forplay.css?v=3.6.2" />
+<link media="only screen and (max-width: 1279px)" rel="stylesheet" type="text/css" href="/assets/forplay-mobile.css?v=3.6.2" />
 <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Open+Sans:300,800|Poiret+One&subset=cyrillic,latin' />
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -17,13 +17,12 @@
 <!--EXTERNAL
 	jQuery - selectors and DOM manipulations
   jQuery Mobile - mobile events handler
-  jQuery Cookie - store user variable
   Video JS - html player for embed video
   Video JS Vimeo - vimeo add-on
   Video JS Youtube - youtube add-on 
   HE - encode and decode data
   jsRender - templating tool vor javascript
-  Auth0 - single sign on system-->
+  Auth0 and Lock - OAuth login system-->
 <script src="/jslib/jquery-2.1.4.min.js" type="text/javascript">
 	<!--script-->
 </script>
@@ -77,10 +76,10 @@
 <script src="/controllers/comment.js?v=3.5.1" type="text/javascript">
 	<!--script-->
 </script>
-<script src="/controllers/articles.js?v=3.5.1" type="text/javascript">
+<script src="/controllers/articles.js?v=3.6.0" type="text/javascript">
 	<!--script-->
 </script>
-<script src="/controllers/player.js?v=3.0.0" type="text/javascript">
+<script src="/controllers/player.js?v=3.6.0" type="text/javascript">
 	<!--script-->
 </script>
 <script src="/foradmin/controllers/login.js?v=3.0.1" type="text/javascript">
