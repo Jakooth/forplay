@@ -1,5 +1,43 @@
 User-agent: *
+Crawl-Delay: 10
+
 Disallow: /foradmin/*
-Disallow: /demo/
+Disallow: /forapi/*
+Disallow: /gvsdev/*
+Disallow: /gamersvoiceshop.com/*
+Disallow: /gamersvoiceshop.old/*
+Disallow: /concept.forplay.bg/*
+Disallow: /sandbox.forplay.bg/*
 
 Sitemap: https://www.forplay.bg/sitemap
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: Mail.RU_Bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: SemrushBot-BA
+Disallow: /
+
+User-agent: Googlebot
+Crawl-delay: 10
+Disallow:
+
+User-agent: Yandex
+Crawl-delay: 10
+Disallow:
+
+User-agent: msnbot 
+Crawl-delay: 10
+Disallow:
+
+User-agent: bingbot 
+Crawl-delay: 10
+Disallow:

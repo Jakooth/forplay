@@ -30,7 +30,7 @@ if (sizeof($params) < 4) {
         echo '<meta property="og:title" content="Forplay брой ' .
                  $article['issue_tag'] . ' ' . $article['issue'] . '">';
         echo '<meta property="og:description" content="Forplay.bg е модерният онлайн портал, където текстовете имат значение! Житейската ни мисия е да покриваме всички аспекти на модерния ентъртейнмънт, защото твърдо вярваме в концепцията за Homo Ludens и сме уверени, че играта и забавлението са същността на всеки един от нас. Очаквай от Форплей материали за видеоигри, кино, телевизия, музика, литература и практически всяка тема, която възпламени острите ни пера, под формата на новини, ревюта, анализи, подкасти и авторски видео-материали. Залагаме на модерен дизайн и равни дози хумор и професионализъм, но това би следвало да се подразбира, при положение, че Forplay е естественото продължение на култа Gamers’ Workshop.">';
-        echo '<meta property="og:image" content="https://forplay.bg/forapi/phplib/timthumb/timthumb.php?src=/assets/articles/forplay/forplay-01.jpg&w=1280&h=720">';
+        echo '<meta property="og:image" content="https://forplay.bg/forapi/phplib/mthumb/mthumb.php?src=/assets/articles/forplay/forplay-01.jpg&w=1280&h=720">';
         echo '<meta property="og:site_name" content="Forplay">';
         echo '<meta property="og:locale" content="bg_BG">';
     }
@@ -147,7 +147,7 @@ if (sizeof($params) < 4) {
         echo '<meta property="og:title" content="' . $article['title'] . '">';
         echo '<meta property="og:description" content="' . $article['subtitle'] .
                  '">';
-        echo '<meta property="og:image" content="https://forplay.bg/forapi/phplib/timthumb/timthumb.php?src=/assets/articles/' . substr(
+        echo '<meta property="og:image" content="https://forplay.bg/forapi/phplib/mthumb/mthumb.php?src=/assets/articles/' . substr(
                 $article['cover_img'], 0, strripos($article['cover_img'], '-')) .
                  '/' . $article['cover_img'] . '&w=1280&h=720">';
         echo '<meta property="og:site_name" content="Forplay">';
@@ -196,7 +196,7 @@ if (sizeof($params) < 4) {
                     "@type": "' . $thing_type . '",
                     "name": "' . $article['title'] .
                      '",
-                    "image": "https://forplay.bg/forapi/phplib/timthumb/timthumb.php?src=/assets/articles/' . substr(
+                    "image": "https://forplay.bg/forapi/phplib/mthumb/mthumb.php?src=/assets/articles/' . substr(
                             $article['cover_img'], 0, 
                             strripos($article['cover_img'], '-')) . '/' .
                      $article['cover_img'] . '&w=1280&h=720",

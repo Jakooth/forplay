@@ -1,3 +1,4 @@
+<?php include ('bot.php'); ?>
 <!DOCTYPE html>
 <html lang="bg_BG">
 <head>
@@ -5,8 +6,8 @@
 <meta content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=yes" name="viewport">
 <?php include ('meta.php'); ?>
 <link rel="stylesheet" type="text/css" href="/jslib/video-js/video-js.css" />
-<link media="only screen and (min-width: 1280px)" rel="stylesheet" type="text/css" href="/assets/forplay.css?v=3.6.2" />
-<link media="only screen and (max-width: 1279px)" rel="stylesheet" type="text/css" href="/assets/forplay-mobile.css?v=3.6.2" />
+<link media="only screen and (min-width: 1280px)" rel="stylesheet" type="text/css" href="/assets/forplay.css?v=3.6.3" />
+<link media="only screen and (max-width: 1279px)" rel="stylesheet" type="text/css" href="/assets/forplay-mobile.css?v=3.6.3" />
 <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Open+Sans:300,800|Poiret+One&subset=cyrillic,latin' />
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -66,8 +67,9 @@
   banner - animations and interactions with the banner section
   comment - post a comment, reply, like, flag, etc.
   articles - main contant loading and placment
-  player - embed video play support-->
-<script src="/controllers/utils.js?v=3.0.0" type="text/javascript">
+  player - embed video play support
+  ads - generate ads on radom timeout-->
+<script src="/controllers/utils.js?v=3.0.1" type="text/javascript">
 	<!--script-->
 </script>
 <script src="/controllers/banner.js?v=3.5.2" type="text/javascript">
@@ -76,16 +78,19 @@
 <script src="/controllers/comment.js?v=3.5.1" type="text/javascript">
 	<!--script-->
 </script>
-<script src="/controllers/articles.js?v=3.6.0" type="text/javascript">
+<script src="/controllers/articles.js?v=3.6.1" type="text/javascript">
 	<!--script-->
 </script>
 <script src="/controllers/player.js?v=3.6.0" type="text/javascript">
 	<!--script-->
 </script>
+<script src="/controllers/piggy.js?v=3.6.0" type="text/javascript">
+	<!--script-->
+</script>
 <script src="/foradmin/controllers/login.js?v=3.0.1" type="text/javascript">
 	<!--script-->
 </script>
-<script src="/controllers/INIT.js?v=3.0.0">
+<script src="/controllers/INIT.js?v=3.6.0">
 	<!--script-->
 </script>
 </head>
@@ -168,13 +173,15 @@
       </form>
     </section>
   </article>
+  <section class="piggy-set" id="topPiggies">
+    <!--AdsManager: loadAds--> 
+  </section>
   <section id="topArticles" class="article-set">
     <h2>Последни статии</h2>
     <!--ArticlesManager: loadArticles--> 
   </section>
-  <section aria-hidden="true" class="adv-set">
-    <h2>Реклама</h2>
-    <!--Advertisement--> 
+  <section class="piggy-set" id="videoPiggies">
+    <!--AdsManager: loadAds--> 
   </section>
   <section id="topVideos" class="video-set">
     <h2>Последни клипчета</h2>
@@ -183,10 +190,6 @@
   <section id="topReviews" class="article-set">
     <h2>Препоръчани ревюта</h2>
     <!--ArticlesManager: loadArticles--> 
-  </section>
-  <section aria-hidden="true" class="adv-set">
-    <h2>Реклама</h2>
-    <!--Advertisement--> 
   </section>
   <section id="allArticles" class="article-set">
     <h2>Всички статии</h2>

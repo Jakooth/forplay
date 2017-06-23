@@ -246,7 +246,7 @@ function UtilsManager() {
 	this.formatTag = function (s) {
 		if (!s) return;
 		
-		var tag = s.toLowerCase().replace(/[:?\\.,!\/()'’&*„“`%]|– |- /g, '');
+		var tag = s.toLowerCase().replace(/[:?\\.,!\/()'’&*"„“`%]|– |- /g, '');
 		
 		tag = tag.replace(/\s+/g,  ' ');
 		tag = tag.replace(/ /g, '-');
@@ -411,7 +411,7 @@ function UtilsManager() {
 	 */
 	
 	this.formatTimThumbString = function(tag, width, height) {
-		var service = 'https://forplay.bg/forapi/phplib/timthumb/timthumb.php',
+		var service = 'https://forplay.bg/forapi/phplib/mthumb/mthumb.php',
 			  extras = '';
 		
 		if (tag.indexOf('-caret') >= 0) extras = '_extras/';
