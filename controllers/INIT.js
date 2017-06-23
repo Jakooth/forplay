@@ -31,6 +31,7 @@ $(document).ready(function() {
   window.comment = new CommentManager();
 	window.articles = new ArticlesManager();
 	window.player = new PlayerManager();
+  window.ads = new PiggyManager();
 	
 	/**
 	 * Init user profile.

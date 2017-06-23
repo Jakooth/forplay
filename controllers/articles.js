@@ -146,7 +146,7 @@ function ArticlesManager() {
 	var loadArticle = function(data, appender) {
 		var get1 = $.get(encodeURI(forplayAPI + '?tag=' + data.id)),
         get2 = $.get('/renderers/layout.html?v=2.5.0'),
-        get3 = $.get('/renderers/cover.html?v=2.5.0');
+        get3 = $.get('/renderers/cover.html?v=2.5.1');
 			
 		$.when(get1, get2, get3).done(function(data1, data2, data3) {
 			var article = data1[0].length ? 
