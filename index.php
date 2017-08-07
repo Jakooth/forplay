@@ -84,7 +84,7 @@
 <script src="/controllers/player.js?v=3.6.0" type="text/javascript">
 	<!--script-->
 </script>
-<script src="/controllers/piggy.js?v=3.6.0" type="text/javascript">
+<script src="/controllers/piggy.js?v=3.6.1" type="text/javascript">
 	<!--script-->
 </script>
 <script src="/foradmin/controllers/login.js?v=3.0.1" type="text/javascript">
@@ -152,7 +152,10 @@
 <main>
   <h1>Съдържание</h1>
   <article id="read" aria-hidden="true">
-    <section class="read-set"> 
+    <section class="read-set">
+      <aside class="piggy-set" id="readPiggies"> 
+        <!--AdsManager: loadAds--> 
+      </aside>
       <!--ArticlesManager: loadArticles--> 
     </section>
     <section id="comment" class="comment-set" aria-busy="true"> 
@@ -173,14 +176,14 @@
       </form>
     </section>
   </article>
-  <section class="piggy-set" id="topPiggies">
+  <section class="piggy-set" id="topPiggies"> 
     <!--AdsManager: loadAds--> 
   </section>
   <section id="topArticles" class="article-set">
     <h2>Последни статии</h2>
     <!--ArticlesManager: loadArticles--> 
   </section>
-  <section class="piggy-set" id="videoPiggies">
+  <section class="piggy-set" id="videoPiggies"> 
     <!--AdsManager: loadAds--> 
   </section>
   <section id="topVideos" class="video-set">

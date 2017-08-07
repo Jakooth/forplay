@@ -26,18 +26,14 @@ Disallow: /
 User-agent: SemrushBot-BA
 Disallow: /
 
-User-agent: Googlebot
-Crawl-delay: 10
-Disallow:
-
 User-agent: Yandex
 Crawl-delay: 10
-Disallow:
+Disallow: /
 
 User-agent: msnbot 
 Crawl-delay: 10
-Disallow:
+Disallow: /
 
 User-agent: bingbot 
 Crawl-delay: 10
-Disallow:
+Disallow: /

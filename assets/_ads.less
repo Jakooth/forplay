@@ -2,7 +2,7 @@
  * ADVERTISEMENT
  */
 
-.piggy-set {
+section.piggy-set {
   margin-bottom: 0;
   
   [role=complementary] {
@@ -15,6 +15,58 @@
     img {
       width: auto;
       height: auto;
+    }
+    
+    video {
+      width: 100%;
+    }
+  }
+}
+
+aside.piggy-set {
+  position: absolute;
+  width: 33.33%;
+  right: -33.33%;
+  
+  [role=complementary] {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    
+    img {
+      width: auto;
+      height: auto;
+    }
+  }
+}
+
+@media 
+only screen and (max-width: 1279px) {
+  section.piggy-set {
+    [role=complementary] {
+      position: relative;
+      left: auto;
+      transform: none;
+      
+      video {
+        width: 100%;
+      }
+    }
+  }
+  
+  aside.piggy-set {
+    position: relative;
+    width: auto;
+    right: auto;
+    
+    [role=complementary] {
+      position: relative;
+      left: auto;
+      transform: none;
+      
+      video {
+        width: 100%;
+      }
     }
   }
 }

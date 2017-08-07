@@ -45,7 +45,19 @@ $banned_bots = array(
         'semalt',
         'SeznamBot',
         'spider',
-        'SemrushBot-BA'
+        'SemrushBot-BA',
+                
+        /**
+         * Disable some goog bots.
+         * Forplay will not be consumed from this crawlers.
+         * This bingbot is soooooo nasty.
+         */
+        
+        'MSN',
+        'bing',
+        'Slurp',
+        'Yahoo',
+        'DuckDuck'
 );
 $banned_unknown_bots = array(
         'bot ',
@@ -60,12 +72,7 @@ $banned_unknown_bots = array(
         'bot-'
 );
 $good_bots = array(
-        'Google',
-        'MSN',
-        'bing',
-        'Slurp',
-        'Yahoo',
-        'DuckDuck'
+        'Google'
 );
 $banned_redirect_url = 'https://www.forplay.bg/hulk.html';
 
