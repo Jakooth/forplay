@@ -176,6 +176,14 @@ function CommentManager() {
 		
 		$profile.attr('aria-hidden', true);
 	}
+  
+  this.updatePermissionsOnLogout = function() {
+    $comment.find('[data-icon="edit"]').attr('aria-hidden', true);
+    $comment.find('[data-icon="ban"]').attr('aria-hidden', true);
+    $comment.find('[data-icon="like"]').attr('aria-hidden', true);
+    $comment.find('[data-icon="flag"]').attr('aria-hidden', true);
+    $comment.find('[data-icon="delete"]').attr('aria-hidden', true);
+  }
 
 
 
@@ -402,22 +410,52 @@ function CommentManager() {
   });
   
   $comment.on('click', '[data-icon=delete]', function(e) {
+    if (! window.userProfile) {
+      login.showUserLock();
+      
+      return;
+    }
+    
     self.sendComment(_getCommentData('delete', $(this)));
   }); 
    
   $comment.on('click', '[data-icon=like]', function(e) {
+    if (! window.userProfile) {
+      login.showUserLock();
+      
+      return;
+    }
+    
     self.sendComment(_getCommentData('like', $(this)));
   });
   
   $comment.on('click', '[data-icon=ban]', function(e) {
+    if (! window.userProfile) {
+      login.showUserLock();
+      
+      return;
+    }
+    
     self.sendComment(_getCommentData('ban', $(this)));
   }); 
   
   $comment.on('click', '[data-icon=flag]', function(e) {
+    if (! window.userProfile) {
+      login.showUserLock();
+      
+      return;
+    }
+    
     self.sendComment(_getCommentData('flag', $(this)));
   });  
    
   $comment.on('click', '[data-icon=edit]', function(e) {
+    if (! window.userProfile) {
+      login.showUserLock();
+      
+      return;
+    }
+    
     _editComment($(this), true);
   }); 
   

@@ -75,7 +75,7 @@
 <script src="/controllers/banner.js?v=3.5.2" type="text/javascript">
 	<!--script-->
 </script>
-<script src="/controllers/comment.js?v=3.5.1" type="text/javascript">
+<script src="/controllers/comment.js?v=3.5.2" type="text/javascript">
 	<!--script-->
 </script>
 <script src="/controllers/articles.js?v=3.6.1" type="text/javascript">
@@ -87,7 +87,7 @@
 <script src="/controllers/piggy.js?v=3.6.1" type="text/javascript">
 	<!--script-->
 </script>
-<script src="/foradmin/controllers/login.js?v=3.0.1" type="text/javascript">
+<script src="/foradmin/controllers/login.js?v=3.0.2" type="text/javascript">
 	<!--script-->
 </script>
 <script src="/controllers/INIT.js?v=3.6.0">
