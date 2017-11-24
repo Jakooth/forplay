@@ -18,7 +18,7 @@ function ArticlesManager() {
 	var lastSuggestedTags = '';
 	
 	var getCurrentArticleSet = function() {
-		var p = window.scrollY,
+	    var p = window.scrollY,
 			
 			/**
 			 * @articlesAvarage number of articles on a row.
@@ -46,7 +46,7 @@ function ArticlesManager() {
 		}
 		
 		return {lastArtcle: lastArtcle, 
-				articleRange: offset}
+				articleRange: offset};
 	}
 	
 	function loadImage($img) {	
@@ -352,21 +352,21 @@ function ArticlesManager() {
 	}
 	
 	var appendArticle = function(html, cover, data) {
-    var $main = $('main'),
-        $header = $('header'),
-        $body = $('body');
-    
-		$main.addClass('read');
-		$header.addClass('read');
-		$main.data('type', data.type);
-		$main.attr('data-type', $('main').data('type'));
-		$main.data('subtype', data.subtype);
-		$main.attr('data-subtype', $('main').data('subtype'));
-    $body.data('subtype', data.subtype);
-		$body.attr('data-subtype', $('body').data('subtype'));
-    $body.css('background-image', 'url(' + utils.formatTimThumbString(data.wide_img, 
-                                                                      screen.width, 
-                                                                      screen.height) + ')');
+        var $main = $('main'),
+            $header = $('header'),
+            $body = $('body');
+        
+            $main.addClass('read');
+            $header.addClass('read');
+            $main.data('type', data.type);
+            $main.attr('data-type', $('main').data('type'));
+            $main.data('subtype', data.subtype);
+            $main.attr('data-subtype', $('main').data('subtype'));
+            $body.data('subtype', data.subtype);
+            $body.attr('data-subtype', $('body').data('subtype'));
+            $body.css('background-image', 'url(' + utils.formatTimThumbString(data.wide_img, 
+                                                                          screen.width, 
+                                                                          screen.height) + ')');
             
 		if (cover) {
 			$('#read').prepend(cover);	
@@ -417,21 +417,21 @@ function ArticlesManager() {
 	}
 	
 	var appendNews = function(html, cover, data) {
-    var $main = $('main'),
-        $header = $('header'),
-        $body = $('body');
-    
-		$main.addClass('read fixed static');
-		$header.addClass('read fixed static');
-		$main.data('type', data.type);
-		$main.attr('data-type', $('main').data('type'));
-		$main.data('subtype', data.subtype);
-		$main.attr('data-subtype', $('main').data('subtype'));
-    $body.data('subtype', data.subtype);
-		$body.attr('data-subtype', $('body').data('subtype'));
-    $body.css('background-image', 'url(' + utils.formatTimThumbString(data.wide_img, 
-                                                                      screen.width, 
-                                                                      screen.height) + ')');
+        var $main = $('main'),
+            $header = $('header'),
+            $body = $('body');
+        
+            $main.addClass('read fixed static');
+            $header.addClass('read fixed static');
+            $main.data('type', data.type);
+            $main.attr('data-type', $('main').data('type'));
+            $main.data('subtype', data.subtype);
+            $main.attr('data-subtype', $('main').data('subtype'));
+            $body.data('subtype', data.subtype);
+            $body.attr('data-subtype', $('body').data('subtype'));
+            $body.css('background-image', 'url(' + utils.formatTimThumbString(data.wide_img, 
+                                                                          screen.width, 
+                                                                          screen.height) + ')');
 		
 		var $cover = $(cover);
 		
@@ -477,9 +477,9 @@ function ArticlesManager() {
 		 */
 		
 		$('#read .Player a[data-tech=youtube]').each(function() {
-      var $this = $(this);
+            var $this = $(this);
       
-      $this.parents('.Player').attr('aria-busy', true);
+            $this.parents('.Player').attr('aria-busy', true);
       
 			player.createStandaloneVideo($this);
 		});		
@@ -499,7 +499,7 @@ function ArticlesManager() {
 		
 		loadBackground($cover, $cover);
     
-    $(document).trigger('newsAppended', [data.article_id]);
+        $(document).trigger('newsAppended', [data.article_id]);
 	}
 	
 	/**
@@ -558,7 +558,7 @@ function ArticlesManager() {
 			}
 		});
     
-    $(document).trigger('portalAppended', [data.article_id]);
+        $(document).trigger('portalAppended', [data.article_id]);
 	}
 	
 	/**
@@ -572,8 +572,8 @@ function ArticlesManager() {
 			/**
 			 * Set the document title for the home page, 
 			 * which is the issue of the most recent article.
-       * This is not workgin for Google indexing, 
-       * so doing it with PHP instead.
+             * This is not workgin for Google indexing, 
+             * so doing it with PHP instead.
 			 */
 			
 			/*
@@ -591,10 +591,15 @@ function ArticlesManager() {
 		
 		/**
 		 * Append 5 videos. Most recent is in the middle.
+         * But only if there are at least 5.
 		 */
-		
-		$('#topVideos').append(html.find('article[data-video=true]:gt(1):lt(2)'));
-		$('#topVideos').append(html.find('article[data-video=true]:lt(3)'));
+         
+        if (html.find('article[data-video=true]').length >= 25) {
+		    $('#topVideos').append(html.find('article[data-video=true]:gt(1):lt(2)'));
+		    $('#topVideos').append(html.find('article[data-video=true]:lt(3)'));
+        } else {
+            $('#topVideos').attr('aria-hidden', true);   
+        }
 		
 		/**
 		 * Append 3 reviews. Most recent is in the middle.
