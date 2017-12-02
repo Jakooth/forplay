@@ -17,18 +17,18 @@ body.dark {
     color: fade(@light, 70%);
   }
   
-  header,
+  body > header,
   main,
-  footer {
+  body > footer {
     background-color: @dark;
   }
   
-  header.fixed {
+  body > header.fixed {
     background-color: @dark;
     box-shadow: 0 60px 100px 30px fade(@dark, 100%);
   }
   
-  header.read {
+  body > header.read {
     background-color: transparent;
     box-shadow: none;
   }

@@ -145,8 +145,8 @@ function ArticlesManager() {
 	
 	var loadArticle = function(data, appender) {
 		var get1 = $.get(encodeURI(forplayAPI + '?tag=' + data.id)),
-        get2 = $.get('/renderers/layout.html?v=2.5.0'),
-        get3 = $.get('/renderers/cover.html?v=2.5.1');
+        get2 = $.get('/renderers/layout.html?v=2.5.1'),
+        get3 = $.get('/renderers/cover.html?v=2.5.2');
 			
 		$.when(get1, get2, get3).done(function(data1, data2, data3) {
 			var article = data1[0].length ? 
@@ -353,7 +353,7 @@ function ArticlesManager() {
 	
 	var appendArticle = function(html, cover, data) {
         var $main = $('main'),
-            $header = $('header'),
+            $header = $('body > header'),
             $body = $('body');
         
             $main.addClass('read');
@@ -418,7 +418,7 @@ function ArticlesManager() {
 	
 	var appendNews = function(html, cover, data) {
         var $main = $('main'),
-            $header = $('header'),
+            $header = $('body > header'),
             $body = $('body');
         
             $main.addClass('read fixed static');
@@ -436,7 +436,7 @@ function ArticlesManager() {
 		var $cover = $(cover);
 		
 		if (cover) {
-			$('#read').prepend($cover.filter('section'));
+			$('#read').prepend($cover.filter('header'));
 			$('#read .read-set').prepend($cover.filter('.layout'));
 			
 			$cover = $('#read .cover')

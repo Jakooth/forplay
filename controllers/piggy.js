@@ -32,23 +32,6 @@ function PiggyManager() {
         "url": "http://onfest.org/gaming.php",
         "weight": 3
       },*/
-    {
-      "ad_id": "3",
-      "title": "Castle Design billboard",
-      "start_date": "2017-08-01 12:00:00",
-      "end_date": "2017-08-01 12:00:00",
-      "video": "castle-design-billboard.mp4?v=1.0.0",
-      "url": "https://www.forplay.bg/articles/games/news/18/castle-design",
-      "weight": 2
-    }, {
-      "ad_id": "3",
-      "title": "Forplay billboard",
-      "start_date": "2017-08-01 12:00:00",
-      "end_date": "2017-08-01 12:00:00",
-      "video": "forplay-billboard.mp4?v=1.0.1",
-      "url": "https://www.forplay.bg/articles/games/video/313/forplaybg",
-      "weight": 2
-    }
   ];
 
   var videoBanners = [{

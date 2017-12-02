@@ -28,7 +28,7 @@ function BannerManager() {
     var $main = $('main');
     
     if ($main.hasClass('read')) {
-      return $('section.cover').height();
+      return $('header.cover').height();
     } else {
       return $('#covers').height();
     }
@@ -76,12 +76,12 @@ function BannerManager() {
 		if (!utils.isMobile()) {
 			if ($(window).scrollTop() >= (coversHeight * scrollFixedRatio) / 100) {
 				$covers.css('height', '');
-				$('header').addClass('fixed collapsed');
+				$('body > header').addClass('fixed collapsed');
 				$('main').addClass('fixed collapsed');
 				
 				return false;
 			} else {
-				$('header').removeClass('fixed collapsed');
+				$('body > header').removeClass('fixed collapsed');
 				$('main').removeClass('fixed collapsed');
 			}
 			
@@ -191,8 +191,8 @@ function BannerManager() {
   this.showHeader = function($button) {
     var $this = $('#hideHeaderButton'),
         $main = $('main'),
-        $header = $('header'),
-        $cover = $main.find('section.cover');
+        $header = $('body > header'),
+        $cover = $main.find('header.cover');
         
     $this.attr('aria-pressed', 'false');
 			
@@ -205,7 +205,7 @@ function BannerManager() {
       localStorage.removeItem('forplayHeader');
       
       if ($main.hasClass('read')) {
-        self.setCoversHeight($('section.cover').height());
+        self.setCoversHeight($('header.cover').height());
       } else {
         self.setCoversHeight($('#covers').height());
       }
@@ -215,8 +215,8 @@ function BannerManager() {
   this.hideHeader = function($button) {
     var $this = $('#hideHeaderButton'),
         $main = $('main'),
-        $header = $('header'),
-        $cover = $main.find('section.cover');
+        $header = $('body > header'),
+        $cover = $main.find('header.cover');
         
     $this.attr('aria-pressed', 'true');
 			
@@ -275,7 +275,7 @@ function BannerManager() {
 	
 	$(window).on('load', function () {
 		if (localStorage.getItem('forplayHeader') == 'static') {
-			$('header').addClass('static fixed');
+			$('body > header').addClass('static fixed');
 			$('main').addClass('static fixed');
 			$('#hideHeaderButton').attr('aria-pressed', 'true');
 		}
@@ -367,14 +367,14 @@ function BannerManager() {
 	});
 	
 	$('nav').on('click', 'h3', function (e) {
-		if ($('header').hasClass('read') || 
-        $('header').hasClass('collapsed') || utils.isMobile()) {
+		if ($('body > header').hasClass('read') || 
+        $('body > header').hasClass('collapsed') || utils.isMobile()) {
           
 			$('body').toggleClass('nav');
 		}
 	});
 	
-	$('header').on('click', '#hideHeaderButton', function (e) {
+	$('body > header').on('click', '#hideHeaderButton', function (e) {
 		if (utils.isMobile()) {
 			return false;
 		}

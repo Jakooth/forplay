@@ -7,10 +7,8 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=yes" name="viewport">
   <?php include ('meta.php'); ?>
   <link rel="stylesheet" type="text/css" href="/jslib/video-js/video-js.css" />
-  <link media="only screen and (min-width: 1280px)" rel="stylesheet" type="text/css" href="/assets/forplay.css?v=3.6.3" />
-  <link media="only screen and (max-width: 1279px)" rel="stylesheet" type="text/css" href="/assets/forplay-mobile.css?v=3.6.3"
-  />
-  <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Open+Sans:300,800|Poiret+One&subset=cyrillic,latin'
+  <link media="only screen and (min-width: 1280px)" rel="stylesheet" type="text/css" href="/assets/forplay.css?v=3.7.0" />
+  <link media="only screen and (max-width: 1279px)" rel="stylesheet" type="text/css" href="/assets/forplay-mobile.css?v=3.7.0"
   />
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -49,11 +47,11 @@
       player - embed video play support
       ads - generate ads on radom timeout-->
   <script src="/controllers/utils.js?v=3.0.1" type="text/javascript"></script>
-  <script src="/controllers/banner.js?v=3.5.2" type="text/javascript"></script>
+  <script src="/controllers/banner.js?v=3.7.0" type="text/javascript"></script>
   <script src="/controllers/comment.js?v=3.5.2" type="text/javascript"></script>
-  <script src="/controllers/articles.js?v=3.6.2" type="text/javascript"></script>
+  <script src="/controllers/articles.js?v=3.7.0" type="text/javascript"></script>
   <script src="/controllers/player.js?v=3.6.0" type="text/javascript"></script>
-  <script src="/controllers/piggy.js?v=3.6.1" type="text/javascript"></script>
+  <script src="/controllers/piggy.js?v=3.7.0" type="text/javascript"></script>
   <script src="/foradmin/controllers/login.js?v=3.0.2" type="text/javascript"></script>
   <script src="/controllers/INIT.js?v=3.6.0"></script>
 </head>
@@ -79,7 +77,7 @@
     <section class="nav-set">
       <h2>Навигация, търсене и потребителски профил</h2>
       <div class="special" role="region">
-        <button type="button" id="hideHeaderButton" role="presentation" aria-pressed="false">
+        <button type="button" id="hideHeaderButton" aria-pressed="false">
           <span>Скрии</span>
         </button>
       </div>
@@ -133,12 +131,14 @@
     <h1>Съдържание</h1>
     <article id="read" aria-hidden="true">
       <section class="read-set">
+        <h2>Текст на статията</h2>
         <aside class="piggy-set" id="readPiggies">
+          <h2>Реклама</h2>
           <!--PiggyManager: loadPiggies-->
         </aside>
         <!--ArticlesManager: loadArticles-->
       </section>
-      <section id="comment" class="comment-set" aria-busy="true">
+      <footer id="comment" class="comment-set" aria-busy="true">
         <!--ArticlesManager: loadArticles-->
         <form id="sendCommentForm" aria-hidden="true">
           <h3 id="addCommentHeading">Добави нов коментар.</h3>
@@ -158,9 +158,10 @@
             </button>
           </div>
         </form>
-      </section>
+      </footer>
     </article>
     <section class="piggy-set" id="topPiggies">
+      <h2>Реклама</h2>
       <!--PiggyManager: loadPiggies-->
     </section>
     <section id="topArticles" class="article-set">
@@ -168,6 +169,7 @@
       <!--ArticlesManager: loadArticles-->
     </section>
     <section class="piggy-set" id="videoPiggies">
+      <h2>Реклама</h2>
       <!--PiggyManager: loadPiggies-->
     </section>
     <section id="topVideos" class="video-set">
@@ -205,12 +207,12 @@
       <div role="region">
         <label class="switch">
           <input id="profileDarkened" type="checkbox" />
-          <div class="slider"></div>
+          <span class="slider"></span>
           <span>Притъмняло ми е</span>
         </label>
         <label class="switch">
           <input id="profileCollapsed" type="checkbox">
-          <div class="slider"></div>
+          <span class="slider"></span>
           <span>Скрии хедъра</span>
         </label>
       </div>

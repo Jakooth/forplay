@@ -22,6 +22,8 @@
  * Many fonts are adjusted for different resolutions in media.css
  */
 
+@import url(//fonts.googleapis.com/css?family=Open+Sans:300,800|Poiret+One&subset=cyrillic,latin);
+
 * {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 12pt;
@@ -74,7 +76,7 @@ nav h3,
 }
 
 section.profile h1,
-section.cover h1 strong {
+header.cover h1 strong {
 	text-shadow: 1px 1px fade(@dark, 20%);
 }
 
@@ -87,7 +89,7 @@ section.cover h1 strong {
 	font-size: 12pt;
 }
 
-section.cover h1 span:nth-of-type(2) {
+header.cover h1 span:nth-of-type(2) {
   font-size: 14pt;
 	font-family: serif;
   font-style: italic;
@@ -179,11 +181,7 @@ article h3 span {
  * Animate better and worse and covers.
  */
 
-header {
-	-webkit-transition: box-shadow 0.5s;
-	-moz-transition: box-shadow 0.5s;
-	-o-transition: box-shadow 0.5s;
-	-ms-transition: box-shadow 0.5s;
+body > header {
 	transition: box-shadow 0.5s;
 }
 
@@ -194,28 +192,16 @@ body,
 .nav-set ul,
 .cover,
 .cover li p {
-	-webkit-transition: left 0.5s, width 0.5s;
-	-moz-transition: left 0.5s, width 0.5s;
-	-o-transition: left 0.5s, width 0.5s;
-	-ms-transition: left 0.5s, width 0.5s;
 	transition: left 0.5s, width 0.5s;
 }
 
 svg path {
-	-webkit-transition: fill 1s;
-	-moz-transition: fill 1s;
-	-o-transition: fill 1s;
-	-ms-transition: fill 1s;
 	transition: fill 1s;
 }
 
 #forLife,
 #covers article h3,
 #read > .cover h1 {
-	-webkit-transition: opacity 0.5s, background-color 0.5s;
-	-moz-transition: opacity 0.5s, background-color 0.5s;
-	-o-transition: opacity 0.5s, background-color 0.5s;
-	-ms-transition: opacity 0.5s, background-color 0.5s;
 	transition: opacity 0.5s, background-color 0.5s;
 }
 
@@ -246,13 +232,13 @@ body {
 	box-sizing: border-box;
 }
 
-footer {
+body > footer {
 	padding: 6.25%;
 	clear: both;
 	padding-bottom: 12.5%;
 }
 
-footer p {
+body > footer p {
 	padding-top: 6.25%;
 	text-align: center;
 }
@@ -274,7 +260,7 @@ footer p {
 	display: none;
 }
 
-header h2 {
+body > header h2 {
 	.clip;
 }
 
@@ -285,7 +271,7 @@ img {
 	border: none;
 }
 
-header,
+body > header,
 main,
 section,
 main > article {
@@ -294,9 +280,9 @@ main > article {
 	clear: both;
 }
 
-header,
+body > header,
 main,
-footer {
+body > footer {
 	background-color: @light;
 	float: left;
 }
@@ -824,11 +810,11 @@ main .box-placeholder > h2 {
 	height: 100%;
 }
 
-header.read {
+body > header.read {
 	position: absolute;
 }
 
-header.read .cover-set {
+body > header.read .cover-set {
 	display: none;
 }
 

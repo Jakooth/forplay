@@ -37,8 +37,8 @@
 		}
 		*/		
 		
-		header.fixed,
-		header.fixed .nav-set,
+		body > header.fixed,
+		body > header.fixed .nav-set,
 		.nav-set {
 			height: @nav + 0px;
 		}
@@ -98,7 +98,7 @@
 			height: @banner + 0px;
 		}
 		
-		section.cover {
+		header.cover {
 			height: @banner * 1.5 + 0px;	
 		}
 		
@@ -111,11 +111,11 @@
 		}
 		
 		.nav-set .special,
-		header.read .nav-set nav {
+		body > header.read .nav-set nav {
 			height: @fixed + 0px;
 		}
 		
-		header.fixed #covers,
+		body > header.fixed #covers,
 		main.fixed #read:after,
 		main.fixed #read .cover {
 			height: @fixed + 0px;
@@ -193,7 +193,7 @@
 			height: @height - (@width / 5) + 0px;
 		}
 		
-		header.read,
+		body > header.read,
 		#read > .cover {
 			height: @height + 0px;
 		}

@@ -10,7 +10,7 @@
 {{:tracklist}}
 
 {{if type == 'img' || type == 'inside'}} {{for imgs}}
-	{{if video && #parent.parent.data.subtype != 'z2'}}
+	{{if video && #parent.parent.data.subtype != 'z2' && #parent.parent.data.subtype != 'z3'}}
     <div class="img-proxy Player"
     	 id="player_{{:article_id}}{{:layout_id}}{{:#getIndex()}}">
     {{else}}
@@ -30,7 +30,7 @@
         <p><strong>{{:#data.pointer}}</strong> {{:~unescape(#data.alt)}}</p>
     {{/if}}
     
-    {{if #parent.parent.data.subtype == 'z2'}}
+    {{if #parent.parent.data.subtype == 'z2' || #parent.parent.data.subtype == 'z3'}}
     	<div class="img"><img data-proxy="false" src="{{:video}}" alt="{{:~unescape(#data.alt)}}" /></div>
     {{else}}
         <div class="img {{if #parent.parent.data.subtype == 'i4'}}{{:#data.align}} {{:#data.valign}}{{/if}}"><a 
