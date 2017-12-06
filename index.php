@@ -8,7 +8,7 @@
   <?php include ('meta.php'); ?>
   <link rel="stylesheet" type="text/css" href="/jslib/video-js/video-js.css" />
   <link media="only screen and (min-width: 1280px)" rel="stylesheet" type="text/css" href="/assets/forplay.css?v=3.7.0" />
-  <link media="only screen and (max-width: 1279px)" rel="stylesheet" type="text/css" href="/assets/forplay-mobile.css?v=3.7.0"
+  <link media="only screen and (max-width: 1279px)" rel="stylesheet" type="text/css" href="/assets/forplay-mobile.css?v=3.7.2"
   />
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -49,7 +49,7 @@
   <script src="/controllers/utils.js?v=3.0.1" type="text/javascript"></script>
   <script src="/controllers/banner.js?v=3.7.0" type="text/javascript"></script>
   <script src="/controllers/comment.js?v=3.5.2" type="text/javascript"></script>
-  <script src="/controllers/articles.js?v=3.7.0" type="text/javascript"></script>
+  <script src="/controllers/articles.js?v=3.7.2" type="text/javascript"></script>
   <script src="/controllers/player.js?v=3.6.0" type="text/javascript"></script>
   <script src="/controllers/piggy.js?v=3.7.0" type="text/javascript"></script>
   <script src="/foradmin/controllers/login.js?v=3.0.2" type="text/javascript"></script>

@@ -237,6 +237,16 @@ function ArticlesManager() {
 					}
 				});
 			}
+
+			/**
+			 * For mobile collapse details.
+			 * Event is at the end of this in the EVENTS section.
+			 */
+
+			if (utils.isMobile()) {
+				$('#read .read-set aside').attr('aria-collapsed', true);
+				$('#read .read-set aside .box').attr('aria-pressed', false);	
+			}
 		}).fail(function() {
 			console.log("Failed to load aside.");
 		});
@@ -594,7 +604,7 @@ function ArticlesManager() {
          * But only if there are at least 5.
 		 */
          
-        if (html.find('article[data-video=true]').length >= 25) {
+        if (html.find('article[data-video=true]').length >= 5) {
 		    $('#topVideos').append(html.find('article[data-video=true]:gt(1):lt(2)'));
 		    $('#topVideos').append(html.find('article[data-video=true]:lt(3)'));
         } else {
@@ -832,5 +842,21 @@ function ArticlesManager() {
 		} else {
 			loadPage(params);
 		}		
+	});
+
+	$('body').on('click', '#read aside .box', function (e) {	
+		var $this = $(this),
+			$aside = $(this).parents('aside'),
+			$dl = $aside.find('dl');
+
+		if ($this.attr('aria-pressed') == 'true') {
+			$this.attr('aria-pressed', false);
+			$aside.attr('aria-collapsed', true);
+			$dl.hide();
+		} else {
+			$this.attr('aria-pressed', true);	
+			$aside.attr('aria-collapsed', false);
+			$dl.show();
+		}
 	});
 }
