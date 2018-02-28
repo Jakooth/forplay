@@ -483,7 +483,7 @@ function ArticlesManager() {
 		/**
 		 * Automatically load all videos to force the user to click play.
 		 * This will embed Youtube video without auto-playing it,
-		 * which eventually will genreate more views in the counter.
+		 * which eventually will generate more views in the counter.
 		 */
 		
 		$('#read .Player a[data-tech=youtube]').each(function() {
