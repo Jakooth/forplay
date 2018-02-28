@@ -1,6 +1,4 @@
 <?php
-include ('../../forsecret/db.php');
-
 $uri = $_SERVER['REQUEST_URI'];
 $params = explode('/', $uri);
 
@@ -153,7 +151,7 @@ if (sizeof($params) < 4) {
         echo '<meta property="og:site_name" content="Forplay">';
         echo '<meta property="og:locale" content="bg_BG">';
         
-        if ($article['subtype'] == 'review') {
+        if ($article['subtype'] == 'review' && $article['hype'] != 0) {
             $mysqlDate = strtotime($article['date']);
             $googleDate = date("c", $mysqlDate);
             $thing_type = 'Thing';
@@ -217,8 +215,9 @@ if (sizeof($params) < 4) {
                 "reviewRating": {
                     "@type": "Rating",
                     "ratingValue": "' .
-                     round($article['hype'] / 10, 0, PHP_ROUND_HALF_UP) . '",
-                    "bestRating": "10"
+                     round($article['hype'] / 10, 1, PHP_ROUND_HALF_UP) . '",
+                    "bestRating": "10",
+                    "worstRating": "1"
                 },
                 "publisher": {
                     "@type": "Organization",
