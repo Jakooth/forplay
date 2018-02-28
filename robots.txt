@@ -1,8 +1,6 @@
 User-agent: *
 Crawl-Delay: 10
 
-Disallow: /foradmin/*
-Disallow: /forapi/*
 Disallow: /gvsdev/*
 Disallow: /gamersvoiceshop.com/*
 Disallow: /gamersvoiceshop.old/*
