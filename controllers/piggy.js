@@ -22,8 +22,7 @@ function PiggyManager() {
         "img": "onfest-2017-gds.jpg?v=1.0.0",
         "url": "http://www.gamedevsummit.com/",
         "weight": 1
-      },*/
-    /*{
+      }, {
         "ad_id": "2",
         "title": "OnFest 2017 Gaming banner",
         "start_date": "2017-06-26 12:00:00",
@@ -31,53 +30,87 @@ function PiggyManager() {
         "img": "onfest-2017-gaming.png?v=1.0.0",
         "url": "http://onfest.org/gaming.php",
         "weight": 3
-      },*/
+      }*/
   ];
 
-  var videoBanners = [{
-    "ad_id": "3",
-    "title": "Castle Design billboard",
-    "start_date": "2017-08-01 12:00:00",
-    "end_date": "2017-08-01 12:00:00",
-    "video": "castle-design-billboard.mp4?v=1.0.0",
-    "url": "https://www.forplay.bg/articles/games/news/18/castle-design",
-    "weight": 2
-  }, {
-    "ad_id": "3",
-    "title": "Forplay billboard",
-    "start_date": "2017-08-01 12:00:00",
-    "end_date": "2017-08-01 12:00:00",
-    "video": "forplay-billboard.mp4?v=1.0.3",
-    "url": "https://www.forplay.bg/articles/games/video/313/forplaybg",
-    "weight": 2
-  }];
+  var videoBanners = [
+    /*{
+        "ad_id": "3",
+        "title": "Castle Design billboard",
+        "start_date": "2017-08-01 12:00:00",
+        "end_date": "2017-08-01 12:00:00",
+        "video": "castle-design-billboard.mp4?v=1.0.0",
+        "url": "https://www.forplay.bg/articles/games/news/18/castle-design",
+        "weight": 2
+      }, {
+        "ad_id": "4",
+        "title": "Forplay billboard",
+        "start_date": "2017-08-01 12:00:00",
+        "end_date": "2017-08-01 12:00:00",
+        "video": "forplay-billboard.mp4?v=1.0.3",
+        "url": "https://www.forplay.bg/articles/games/video/313/forplaybg",
+        "weight": 2
+      }*/
+    {
+      "ad_id": "7",
+      "title": "Imperia Online desktop",
+      "start_date": "2018-08-01 12:00:00",
+      "end_date": "2018-08-01 12:00:00",
+      "img": "imperia-online-desktop.jpg?v=1.0.0",
+      "url": "https://a.imperiaonline.org/iosrct/affiliate/iosrcn/forplay",
+      "weight": 3
+    }
+  ];
 
-  var readBanners = [{
-    "ad_id": "4",
-    "title": "Castle Design half page",
-    "start_date": "2017-06-26 12:00:00",
-    "end_date": "2017-02-26 12:00:00",
-    "video": "castle-design-half-page.mp4?v=1.0.0",
-    "url": "https://www.forplay.bg/articles/games/news/18/castle-design",
-    "weight": 3
-  }, {
-    "ad_id": "5",
-    "title": "Forplay half page",
-    "start_date": "2017-06-26 12:00:00",
-    "end_date": "2017-02-26 12:00:00",
-    "video": "forplay-half-page.mp4?v=1.0.3",
-    "url": "https://www.forplay.bg/articles/games/video/313/forplaybg",
+  var readBanners = [
+    /*{
+        "ad_id": "5",
+        "title": "Castle Design half page",
+        "start_date": "2017-06-26 12:00:00",
+        "end_date": "2017-02-26 12:00:00",
+        "video": "castle-design-half-page.mp4?v=1.0.0",
+        "url": "https://www.forplay.bg/articles/games/news/18/castle-design",
+        "weight": 3
+      }, {
+        "ad_id": "6",
+        "title": "Forplay half page",
+        "start_date": "2017-06-26 12:00:00",
+        "end_date": "2017-02-26 12:00:00",
+        "video": "forplay-half-page.mp4?v=1.0.3",
+        "url": "https://www.forplay.bg/articles/games/video/313/forplaybg",
+        "weight": 3
+      }*/
+    {
+      "ad_id": "8",
+      "title": "Imperia Online mobile",
+      "start_date": "2018-08-01 12:00:00",
+      "end_date": "2018-08-01 12:00:00",
+      "img": "imperia-online-mobile.jpg?v=1.0.0",
+      "url": "https://a.imperiaonline.org/iosrct/affiliate/iosrcn/forplay",
+      "weight": 3
+    }
+  ];
+
+  var commentBanners = [{
+    "ad_id": "7",
+    "title": "Imperia Online desktop",
+    "start_date": "2018-08-01 12:00:00",
+    "end_date": "2018-08-01 12:00:00",
+    "img": "imperia-online-desktop.jpg?v=1.0.0",
+    "url": "https://a.imperiaonline.org/iosrct/affiliate/iosrcn/forplay",
     "weight": 3
   }];
 
   var $topAds = $('#topPiggies');
   var $videoAds = $('#videoPiggies');
   var $readAds = $('#readPiggies');
+  var $commentAds = $('#commentPiggies');
 
   var _renderAd = function () {
     var topBanner = _getRandomBanner(topBanners);
     var videoBanner = _getRandomBanner(videoBanners);
     var readBanner = _getRandomBanner(readBanners);
+    var commentBanner = _getRandomBanner(commentBanners);
     var renderer = $.get('/renderers/piggy.html?v=1.0.0');
 
     $.when(renderer).done(function (rendererData) {
@@ -86,6 +119,7 @@ function PiggyManager() {
         }),
         topHtml = $.templates.adTemplate.render(topBanner),
         videoHtml = $.templates.adTemplate.render(videoBanner),
+        commentHtml = $.templates.adTemplate.render(commentBanner),
         readHtml = $.templates.adTemplate.render(readBanner);
 
       if (topBanner) {
@@ -96,6 +130,11 @@ function PiggyManager() {
       if (videoBanner) {
         $videoAds.find('[role=complementary]').remove();
         $videoAds.append(videoHtml);
+      }
+
+      if (commentBanner) {
+        $commentAds.find('[role=complementary]').remove();
+        $commentAds.append(commentHtml);
       }
 
       if (readBanner) {

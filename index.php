@@ -8,8 +8,8 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=yes" name="viewport">
   <?php include ('meta.php'); ?>
   <link rel="stylesheet" type="text/css" href="/jslib/video-js/video-js.css" />
-  <link media="only screen and (min-width: 1280px)" rel="stylesheet" type="text/css" href="/assets/forplay.css?v=3.7.3" />
-  <link media="only screen and (max-width: 1279px)" rel="stylesheet" type="text/css" href="/assets/forplay-mobile.css?v=3.7.3"
+  <link media="only screen and (min-width: 1280px)" rel="stylesheet" type="text/css" href="/assets/forplay.css?v=3.7.5" />
+  <link media="only screen and (max-width: 1279px)" rel="stylesheet" type="text/css" href="/assets/forplay-mobile.css?v=3.7.5"
   />
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -33,8 +33,8 @@
   <script src="/jslib/video-js/vjs.youtube.js" type="text/javascript"></script>
   <script src="/jslib/he.js" type="text/javascript"></script>
   <script src="/jslib/jsrender.min.js" type="text/javascript"></script>
-  <script src="https://cdn.auth0.com/js/auth0/8.3.0/auth0.min.js"></script>
-  <script src="https://cdn.auth0.com/js/lock/10.12.1/lock.min.js"></script>
+  <script src="https://cdn.auth0.com/js/auth0/9.5.1/auth0.min.js"></script>
+  <script src="https://cdn.auth0.com/js/lock/11.6.1/lock.min.js"></script>
   <!--LOCALIZATION
 	    i18next - handle some english strings-->
   <script src="/jslib/i18next.min.js" type="text/javascript"></script>
@@ -52,7 +52,7 @@
   <script src="/controllers/comment.js?v=3.5.2" type="text/javascript"></script>
   <script src="/controllers/articles.js?v=3.7.2" type="text/javascript"></script>
   <script src="/controllers/player.js?v=3.6.0" type="text/javascript"></script>
-  <script src="/controllers/piggy.js?v=3.7.0" type="text/javascript"></script>
+  <script src="/controllers/piggy.js?v=3.7.2" type="text/javascript"></script>
   <script src="/foradmin/controllers/login.js?v=3.0.2" type="text/javascript"></script>
   <script src="/controllers/INIT.js?v=3.6.0"></script>
 </head>
@@ -138,6 +138,10 @@
           <!--PiggyManager: loadPiggies-->
         </aside>
         <!--ArticlesManager: loadArticles-->
+      </section>
+      <section class="piggy-set" id="commentPiggies">
+        <h2>Реклама</h2>
+        <!--PiggyManager: loadPiggies-->
       </section>
       <footer id="comment" class="comment-set" aria-busy="true">
         <!--ArticlesManager: loadArticles-->
